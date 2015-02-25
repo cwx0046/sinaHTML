@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="GB2312">
+<meta http-equiv="X-UA-Compatible" content="IE=edge"><!-- 避免IE使用兼容模式 -->
+<meta name="renderer" content="webkit"><!-- 启用360浏览器的极速模式(webkit) -->
+<title>请在此插入网页标题</title>
+<meta name="keywords" content="请在此插入关键词" />
+<meta name="description" content="请在此写入一段页面描述" />
+<meta name="author" content="NorthWind" />
+<link rel="stylesheet" href="http://jiangsu.sinaimg.cn/zt/s/css/reset.css">
+<script src="http://ria.city.sina.com.cn/s/g=base.js" type="text/javascript"></script>
+<!-- 
+<script src="http://jiangsu.sinaimg.cn/js/jquery1.11.1.min.js"></script>
+ -->
+<style type="text/css">
+#gameCanvas{ width: 950px; height: 600px; position:relative; background-color: #218013; }
+.zombies{ position: absolute; width: 24px; height: 100px; /* background-color: #7d8c70; */ }
+.Zstop{ /* box-shadow: 0 0 8px #F00,0 0 8px #F00,0 0 8px #F00;  */}
+.sunflower{ position: absolute; width: 70px; height: 100px; /* background-color: #f39412; border-radius:20% 20% 0 0; */ }
+.peashooter{ position: absolute; width: 70px; height: 100px; /* background-color: #93ff42; border-radius:20% 20% 0 0;  */}
+.sun{ position: absolute; width: 30px; height: 30px; /* background-color: #FF0; */ border-radius: 50%; cursor: pointer; z-index: 10009; }
+.pea{ position: absolute; width: 40px; height: 40px; /* background-color: #56cc00; */ border-radius: 50%; }
+.type0{ /* background-color: #7d8c70; */ }
+.type1{ background-color: #dd831e; }
+.type2{ background-color: #a7a3a3; }
+</style>
+<style>
+.plantBox{ position: absolute; top: 70px; left: 120px; width: 790px; z-index: 10000; }
+.lawn{ float: left; width: 80px; height: 100px; /* background-color: rgba(22, 218, 1, 0.2); */ }
+.lawn.planted{ cursor: default!important; border-radius:30px; }
+.lawn.active:HOVER{ background-color: #67f375; }
+.lawn.planted.active:HOVER{ background-color: transparent; }
+
+.gameCanvas{ font-family: "microsoft yahei"; }
+.sourceBox{ position: absolute; left: 0; top: 0; width: 95px; padding-left: 28px; height: 34px; line-height: 34px; font-size: 24px; color: #934415; text-align: center; background-image: url("./images/SunBack.png");}
+.seedBox{ position: relative; left: 150px; top: 4px; /* width: 300px; height: 60px; background-color: #934415; */  z-index: 10001; }
+.gray{ cursor: default!important; }
+.seed{ width: 100px; float: left; height: 55px; text-align: center; color:transparent;  border: 3px solid; font-size: 18px; font-weight: bold; cursor: pointer;}
+.seed.select{ color: #EEEE11; box-shadow: 0 0 6px,0 0 6px,0 0 6px; border-radius: 11px; } 
+.sunflowerSeed{ position: relative; }
+.peashooterSeed{ position: relative; }
+
+/* 贴图 */
+#gameCanvas{ background: url("./images/background1.jpg") no-repeat -140px 0px;}
+.sunflowerSeed:AFTER{ content: url("./images/SunFlower.png"); position: absolute; left: 0; top: -5px; }
+.sunflowerSeed.gray:AFTER{ content: url("./images/SunFlowerG.png"); }
+.peashooterSeed:AFTER{ content: url("./images/Peashooter.png"); position: absolute; left: 0; top: -5px; }
+.peashooterSeed.gray:AFTER{ content: url("./images/PeashooterG.png"); }
+
+.sunflower:AFTER{ content: url("./images/SunFlower.gif"); position: absolute; top: 15px; left: 3px; }
+.peashooter:AFTER{ content: url("./images/Peashooter.gif"); position: absolute; top: 15px; left: 3px; }
+.sun:AFTER{ content: url("./images/Sun.gif"); position: absolute; left: -30px; top: -30px;}
+.pea:AFTER{ content: url("./images/PB00.gif");  position: absolute; left: 30px; top: 15px; }
+.zombies:AFTER{ content: url("./images/Zombie.gif"); position: absolute; left: -92px; top: -46px; z-index: -1; }
+.u_ico{ position: absolute; left: -27px; top: -24px; border-radius: 25px; }
+.Zstop:AFTER{ content: url("./images/ZombieAttack.gif"); }
+
+#gameCanvas{
+ -webkit-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select:none; 
+}
+</style>
+</head>
+<body>
+
+<div id="gameCanvas">
+	<div class="sourceBox"></div>
+	<div class="seedBox">
+		<div class="sunflowerSeed seed" onclick="checkAndPlant($(this), 'sunflower', 50)"></div>
+		<div class="peashooterSeed seed" onclick="checkAndPlant($(this), 'peashooter', 100)"></div>
+	</div>
+	<div class="plantBox">
+	
+	</div>
+</div>
+
+
+<input type="button" value="开始" onclick="initGame()">
+<input type="button" value="停止" onclick="stopGame()">
+<input type="button" value="重置游戏" onclick="resetGame()">
+<hr>
+<input type="button" value="Zobmie Add" onclick="handelZombiesAdd($('#gameCanvas').width(),$('.plantBox').position().top)">
+<input type="button" value="Auto Zombies" onclick="handelZombiesAdd_AUTO()">
+<!-- 测试太阳花掉落 --><br/>
+<input type="button" value="Sun Add" onclick="handelSunAdd()">
+<input type="button" value="Auto Sun" onclick="handelSunAdd_AUTO()">
+
+<!-- 测试植物-太阳花 --><br/>
+<input type="button" value="Sunflower Add" onclick="handelSunflowerAdd()" disabled="disabled">
+<input type="button" value="Sunflower Remove" onclick="handelSunflowerRemove()" disabled="disabled">
+<!-- 测试植物-豌豆射手 --><br/>
+<input type="button" value="Peashooter Add" onclick="handelPeashooterAdd()" disabled="disabled">
+<input type="button" value="Peashooter Remove" onclick="handelPeashooterRemove()" disabled="disabled">
+<input type="button" value="Shoot！" onclick="shoot()">
+
+
+<hr>
+<input type="button" value="僵尸 增加" onclick="handelZombiesAdd($('#gameCanvas').width(),$('.plantBox').position().top)">
+<input type="button" value="[自动] 僵尸" onclick="handelZombiesAdd_AUTO()">
+<!-- 测试太阳花掉落 --><br/>
+<input type="button" value="阳光 增加" onclick="handelSunAdd()">
+<input type="button" value="[自动] 阳光" onclick="handelSunAdd_AUTO()">
+<!-- 测试植物-太阳花 --><br/>
+<input type="button" value="太阳花 增加" onclick="handelSunflowerAdd()" disabled="disabled">
+<input type="button" value="太阳花 移除" onclick="handelSunflowerRemove()" disabled="disabled">
+<!-- 测试植物-豌豆射手 --><br/>
+<input type="button" value="豌豆射手 增加" onclick="handelPeashooterAdd()" disabled="disabled">
+<input type="button" value="豌豆射手 移除" onclick="handelPeashooterRemove()" disabled="disabled">
+<input type="button" value="发射！" onclick="shoot()">
+
+
+</body>
+<script type="text/javascript">
+var i_auto_zobmies;
+var i_auto_suns;
+var friend_ico_url = ["http://jiangsu.sinaimg.cn/zt/s/blank.gif"];
+</script>
+<script src="./game.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript">
+function handelZombiesAdd_AUTO() {
+	var plantBox = $(".plantBox");
+	var lawn = $(".lawn").eq(0);
+	var t = plantBox.position().top;
+	var h = lawn.height();
+	var randomWay = [t, t+h, t+2*h, t+3*h, t+4*h];
+	i_auto_zobmies = setInterval(function() {
+		var x = GAMEBOUNDS.WIDTH;
+		var y = randomWay[ parseInt(Math.random()*5) ];
+		handelZombiesAdd(x, y);
+	}, 16000);
+}
+function handelZombiesAdd(x, y) {
+	//新建元素
+	zombies.push(
+		zombie({
+			type: 0, // 2  3
+			position : { x : x, y : y } 
+		})
+	);
+}
+
+function handelSunAdd_AUTO() {
+	i_auto_suns = setInterval(function() {
+		handelSunAdd();
+	}, 12000);
+}
+function handelSunAdd() {
+	suns.push(
+			sun({
+				type: "drop", //
+				position : { x : 100+Math.random()*700, y : -30 },
+				distance : 200+Math.random()*300,
+				timeout : 24
+			})
+		);
+}
+
+function handelSunflowerAdd(x, y, lawnIndex ) {
+	sunflowers.push(
+			sunflower({
+				position : { x : x, y : y },
+				lawnIndex : lawnIndex
+			})
+		);
+}
+function handelSunflowerRemove() {
+	sunflowers.forEach(function (F) {
+		F.destory();
+	});
+}
+function handelPeashooterAdd(x, y, lawnIndex ) {
+	peashooters.push(
+			peashooter({
+				position : { x : x, y : y },
+				lawnIndex : lawnIndex
+			})
+		);
+}
+function handelPeashooterRemove() {
+	peashooters.forEach(function (P) {
+		P.destory();
+	});
+}
+
+function shoot() {
+	peas.push(
+			pea({
+				position : { x : 20, y : $('.plantBox').position().top }
+			})
+	);
+}
+</script>
+
+
+<script type="text/javascript">
+////// 生成lawn
+var html = "";
+for (var i = 0; i < 45; i++) {
+	html +='<div class="lawn"></div>';
+}
+$(".plantBox").html(html);
+////// end 生成lawn
+</script>
+
+<script type="text/javascript">
+
+// 解开下层以启用好友头像 
+/* 
+$.JSONP("http://mblogv2.city.sina.com.cn/interface/tcommonv2/no_auth/user/json_get_user_followers_by_uid.php?t=jsonp&uid=1861013000&app_id=159&pcount=30",{},function(json){
+	//json.data.result[0].profile_image_url
+	json.data.result.forEach(function(u) {
+		var imgurl = u.profile_image_url;
+		friend_ico_url.push(imgurl);
+	});
+});
+ */
+</script>
+
+</html>

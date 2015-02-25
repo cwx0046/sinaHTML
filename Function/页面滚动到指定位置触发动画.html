@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=8" />
+<title>请在此插入网页标题</title>
+<!-- 
+<script src="http://i2.sinaimg.cn/cj/dfz/js/base.js" type="text/javascript"></script>
+ -->
+<script type="text/javascript" src="./jquery-1.11.1.js"></script>
+<style type="text/css">
+body, ul, ol, li, p, h1, h2, h3, h4, h5, h6, table, td, th, form, fieldset, img, dl, dt, dd { margin:0; padding:0; }
+textarea, input, select, body { font-size:12px; }
+select, input { vertical-align:middle; }
+fieldset, img { border:0; }
+ul, ol { list-style:none; }
+img { border:0; }
+a { text-decoration:none; color:#000; }
+a:hover { color:#ffa10d; }
+.fl { float:left; display:inline; }
+.fr { float:right; display:inline; }
+.cb { clear:both; display:block; height:0px; overflow:hidden; width:100%; }
+.clearfix:after { clear:both; content:""; display:block; height:0; }
+</style>
+<style type="text/css">
+body{
+	background-color: #BBB;
+}
+#mainbody{
+	width: 1000px;
+	height: 10000px;
+	margin: 0 auto;
+	background-color: #00F;
+	position: relative;
+}
+</style>
+<script type="text/javascript">
+$.fn.scrollTriggerFlayIn = function(options) {
+	var defaults = {
+		triggerValue : -400,
+		direction : "LeftToRight",
+		time : 500	
+	};
+	var param = $.extend({}, defaults, options);
+	
+	$(this).each(function() {
+		//要操作的对象
+		var obj = $(this);
+		var orginaltop = parseInt(obj.css("top"));
+		var orginalleft = obj.css("left");
+		var orginalright = obj.css("right");
+		obj.hide();
+		//console.log(orginaltop);
+		
+		//首次加载执行
+		act();
+		//滚动判断
+		$(window).scroll(function() {
+				act();
+				
+				
+			
+			
+		});
+		//end scroll
+		function act() {
+			var currTop = $(window).scrollTop();
+			if (currTop >= (orginaltop + param.triggerValue)) {
+					//触发！
+					if (obj.is(":visible") == false) {
+						var startX = (param.direction == "LeftToRight")?(-(obj.width()+$(window).width())) : ((obj.width()+$(window).width()))
+						obj.animate({
+							left : startX
+						}, 0)
+						.show()
+						.animate({
+							left : orginalleft
+						}, param.time);
+					}else{
+						//console.log("显示着呢，不动它。");
+					}
+				}
+		}
+	});
+	//end each
+};
+</script>
+</head>
+<body>
+<script type="text/javascript">
+$(function() {
+	var time = parseInt(500);
+	$("#div1").scrollTriggerFlayIn({time:1000});
+	$("#div2").scrollTriggerFlayIn({direction:"rightToLeft", time:200});
+	$(".listitem").scrollTriggerFlayIn({triggerValue : -600, time:time});
+	
+});
+</script>
+<style>
+.listitem{
+	position:absolute;
+	width: 200px;
+	height: 200px;
+	color: #FFF;
+	font-size: 100px;
+	
+}
+</style>
+<div id="mainbody">
+	<div id="div1" style="position:absolute;top:1000px;left:100px;  width: 300px;height:300px; background-color: #0F0;"></div>
+	<div id="div2" style="position:absolute;top:1400px;left:200px;  width: 300px;height:300px; background-color: #F00;"></div>
+	<ul>
+<li class="listitem" style="background-color:	#500;	left:100px;	top:	200px;	">	1	</li>
+<li class="listitem" style="background-color:	#511;	left:400px;	top:	400px;	">	2	</li>
+<li class="listitem" style="background-color:	#522;	left:100px;	top:	600px;	">	3	</li>
+<li class="listitem" style="background-color:	#533;	left:400px;	top:	800px;	">	4	</li>
+<li class="listitem" style="background-color:	#544;	left:100px;	top:	1000px;	">	5	</li>
+<li class="listitem" style="background-color:	#555;	left:400px;	top:	1200px;	">	6	</li>
+<li class="listitem" style="background-color:	#566;	left:100px;	top:	1400px;	">	7	</li>
+<li class="listitem" style="background-color:	#577;	left:400px;	top:	1600px;	">	8	</li>
+<li class="listitem" style="background-color:	#588;	left:100px;	top:	1800px;	">	9	</li>
+<li class="listitem" style="background-color:	#599;	left:400px;	top:	2000px;	">	10	</li>
+<li class="listitem" style="background-color:	#610;	left:100px;	top:	2200px;	">	11	</li>
+<li class="listitem" style="background-color:	#621;	left:400px;	top:	2400px;	">	12	</li>
+<li class="listitem" style="background-color:	#632;	left:100px;	top:	2600px;	">	13	</li>
+<li class="listitem" style="background-color:	#643;	left:400px;	top:	2800px;	">	14	</li>
+<li class="listitem" style="background-color:	#654;	left:100px;	top:	3000px;	">	15	</li>
+<li class="listitem" style="background-color:	#665;	left:400px;	top:	3200px;	">	16	</li>
+<li class="listitem" style="background-color:	#676;	left:100px;	top:	3400px;	">	17	</li>
+<li class="listitem" style="background-color:	#687;	left:400px;	top:	3600px;	">	18	</li>
+<li class="listitem" style="background-color:	#698;	left:100px;	top:	3800px;	">	19	</li>
+<li class="listitem" style="background-color:	#709;	left:400px;	top:	4000px;	">	20	</li>
+<li class="listitem" style="background-color:	#720;	left:100px;	top:	4200px;	">	21	</li>
+<li class="listitem" style="background-color:	#731;	left:400px;	top:	4400px;	">	22	</li>
+<li class="listitem" style="background-color:	#742;	left:100px;	top:	4600px;	">	23	</li>
+<li class="listitem" style="background-color:	#753;	left:400px;	top:	4800px;	">	24	</li>
+<li class="listitem" style="background-color:	#764;	left:100px;	top:	5000px;	">	25	</li>
+<li class="listitem" style="background-color:	#775;	left:400px;	top:	5200px;	">	26	</li>
+<li class="listitem" style="background-color:	#786;	left:100px;	top:	5400px;	">	27	</li>
+<li class="listitem" style="background-color:	#797;	left:400px;	top:	5600px;	">	28	</li>
+<li class="listitem" style="background-color:	#808;	left:100px;	top:	5800px;	">	29	</li>
+<li class="listitem" style="background-color:	#819;	left:400px;	top:	6000px;	">	30	</li>
+<li class="listitem" style="background-color:	#830;	left:100px;	top:	6200px;	">	31	</li>
+<li class="listitem" style="background-color:	#841;	left:400px;	top:	6400px;	">	32	</li>
+<li class="listitem" style="background-color:	#852;	left:100px;	top:	6600px;	">	33	</li>
+<li class="listitem" style="background-color:	#863;	left:400px;	top:	6800px;	">	34	</li>
+<li class="listitem" style="background-color:	#874;	left:100px;	top:	7000px;	">	35	</li>
+<li class="listitem" style="background-color:	#885;	left:400px;	top:	7200px;	">	36	</li>
+<li class="listitem" style="background-color:	#896;	left:100px;	top:	7400px;	">	37	</li>
+<li class="listitem" style="background-color:	#907;	left:400px;	top:	7600px;	">	38	</li>
+<li class="listitem" style="background-color:	#918;	left:100px;	top:	7800px;	">	39	</li>
+<li class="listitem" style="background-color:	#929;	left:400px;	top:	8000px;	">	40	</li>
+<li class="listitem" style="background-color:	#940;	left:100px;	top:	8200px;	">	41	</li>
+<li class="listitem" style="background-color:	#951;	left:400px;	top:	8400px;	">	42	</li>
+<li class="listitem" style="background-color:	#962;	left:100px;	top:	8600px;	">	43	</li>
+<li class="listitem" style="background-color:	#973;	left:400px;	top:	8800px;	">	44	</li>
+<li class="listitem" style="background-color:	#984;	left:100px;	top:	9000px;	">	45	</li>
+<li class="listitem" style="background-color:	#995;	left:400px;	top:	9200px;	">	46	</li>
+<li class="listitem" style="background-color:	#1006;	left:100px;	top:	9400px;	">	47	</li>
+<li class="listitem" style="background-color:	#1017;	left:400px;	top:	9600px;	">	48	</li>
+<li class="listitem" style="background-color:	#1028;	left:100px;	top:	9800px;	">	49	</li>
+
+
+	</ul>
+<p>1000px</p>
+</div>
+
+</body>
+</html>

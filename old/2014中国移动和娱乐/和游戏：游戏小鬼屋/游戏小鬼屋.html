@@ -1,0 +1,1220 @@
+<!DOCTYPE html>
+<html xmlns:wb="http://open.weibo.com/wb">
+<head>
+<meta charset="GB2312">
+<meta http-equiv="X-UA-Compatible" content="IE=8" />
+<title>和游戏_游戏小鬼屋</title>
+<meta name="keywords" content="和游戏,江苏移动和游戏,手机游戏" />
+<meta name="description" content="“和游戏”是中国移动打造的游戏商业品牌，是由中国移动游戏基地全力打造的游戏平台。" />
+<script src="http://ria.city.sina.com.cn/s/g=base.js" type="text/javascript"></script>
+<!-- 
+<script src="http://jiangsu.sinaimg.cn/js/jquery1.11.1.min.js"></script>
+ -->
+<link rel="stylesheet" href="http://jiangsu.sinaimg.cn/zt/s/css/reset.css">
+<style type="text/css">
+body { background: url("http://s3img.city.sina.com.cn/activity/common/large/7de01fbbe217e9e7caacc2d0d4944845.png") repeat;}
+.headimg { min-width: 950px; height: 599px; background: url("http://s3img.city.sina.com.cn/activity/common/large/46851807d7bce84d8b2005981bc9ffde.png") no-repeat center top;}
+.content { width: 950px; margin: 0 auto; position: relative; font-family: 'microsoft yahei';}
+.Christmasline { width: 100%; height: 10px; background: url("http://s3img.city.sina.com.cn/activity/common/large/18b9388556f6a514f92586fbb2faf77f.png") repeat;}
+.justify_fix { display: inline-block; width: 100%; height: 0; overflow: hidden;}
+.margin0a { display: block; margin: 0 auto;}
+.text { font-size: 14px; line-height: 24px;}
+.btn { color: #FFF; width: 153px; font-size: 18px; font-weight: bold; line-height: 32px; border-radius: 5px; background-color: #cc374b; text-align: center; cursor: pointer;}
+#p1 { margin-top: 6px;}
+#p1 .content .p12 { margin: 20px 0 40px;}
+#p1 .content .p12 .heFollowBox { width: 210px; text-align: center; float: left;}
+#p1 .content .p12 .heFollowBox .u_name { color: #d32f30; font-size: 18px; line-height: 36px; padding-top: 12px;}
+#p1 .content .p12 .qrbox { width: 180px; text-align: center; float: left; margin-top: 13px; margin-left: 50px;}
+#p1 .content .p123 { float: left; width: 460px; margin-right: 26px;}
+#p2 { background-color: #573884; padding-bottom: 20px;}
+#p5 { padding-top: 60px;}
+.cardbox { text-align: justify;}
+.cardbox .card { display: inline-block; width: 175px; height: 254px; background-color: #fff; position: relative; margin: 10px 0; vertical-align: top; overflow: hidden;}
+.cardbox .card .cover { display: block; width: 175px; height: 160px;}
+.cardbox .card .name { font-size: 14px; color: #000; line-height: 54px; text-align: center; overflow: hidden;}
+.cardbox .card .btn { color: #FFF; border-radius: 0; background-color: #cc374b;}
+.justify_fix { display: inline-block; width: 100%; height: 0; overflow: hidden;}
+</style>
+<style type="text/css">
+#gameCanvas{ width: 950px; height: 600px; position:relative; background-color: #218013; overflow: hidden; margin-bottom: 16px; }
+.zombies{ position: absolute; width: 24px; height: 100px; /* background-color: #7d8c70; */ }
+.Zstop{ /* box-shadow: 0 0 8px #F00,0 0 8px #F00,0 0 8px #F00;  */}
+.sunflower{ position: absolute; width: 70px; height: 100px; /* background-color: #f39412; border-radius:20% 20% 0 0; */ }
+.peashooter{ position: absolute; width: 70px; height: 100px; /* background-color: #93ff42; border-radius:20% 20% 0 0;  */}
+.sun{ position: absolute; width: 30px; height: 30px; /* background-color: #FF0; */ border-radius: 50%; cursor: pointer; z-index: 10009; }
+.pea{ position: absolute; width: 40px; height: 40px; /* background-color: #56cc00; */ border-radius: 50%; }
+.type0{ /* background-color: #7d8c70; */ }
+.type1{ background-color: #dd831e; }
+.type2{ background-color: #a7a3a3; }
+.test_controlBox{ display: none; }
+</style>
+<style>
+.plantBox{ position: absolute; top: 70px; left: 120px; width: 790px; z-index: 10000; }
+.lawn{ float: left; width: 80px; height: 100px; /* background-color: rgba(22, 218, 1, 0.2); */ }
+.lawn.planted{ cursor: default!important; border-radius:30px; }
+.lawn.active:HOVER{ background-color: #67f375; }
+.lawn.planted.active:HOVER{ background-color: transparent; }
+
+.gameCanvas{ font-family: "microsoft yahei"; }
+.sourceBox{ position: absolute; left: 0; top: 0; width: 95px; padding-left: 28px; height: 34px; line-height: 34px; font-size: 24px; color: #934415; text-align: center; background-image: url("http://jiangsu.sinaimg.cn/zt/s/ydhyl/PVZ/images/SunBack.png");}
+.seedBox{ position: relative; left: 150px; top: 4px; /* width: 300px; height: 60px; background-color: #934415; */  z-index: 10001; }
+.gray{ cursor: default!important; }
+.seed{ width: 100px; float: left; height: 55px; text-align: center; color:transparent;  border: 3px solid; font-size: 18px; font-weight: bold; cursor: pointer;}
+.seed.select{ color: #EEEE11; box-shadow: 0 0 6px,0 0 6px,0 0 6px; border-radius: 11px; } 
+.sunflowerSeed{ position: relative; }
+.peashooterSeed{ position: relative; }
+
+/* 贴图 */
+#gameCanvas{ background: url("http://jiangsu.sinaimg.cn/zt/s/ydhyl/PVZ/images/background1.jpg") no-repeat -140px 0px;}
+.sunflowerSeed:AFTER{ content: url("http://jiangsu.sinaimg.cn/zt/s/ydhyl/PVZ/images/SunFlower.png"); position: absolute; left: 0; top: -5px; }
+.sunflowerSeed.gray:AFTER{ content: url("http://jiangsu.sinaimg.cn/zt/s/ydhyl/PVZ/images/SunFlowerG.png"); }
+.peashooterSeed:AFTER{ content: url("http://jiangsu.sinaimg.cn/zt/s/ydhyl/PVZ/images/Peashooter.png"); position: absolute; left: 0; top: -5px; }
+.peashooterSeed.gray:AFTER{ content: url("http://jiangsu.sinaimg.cn/zt/s/ydhyl/PVZ/images/PeashooterG.png"); }
+
+.sunflower:AFTER{ content: url("http://jiangsu.sinaimg.cn/zt/s/ydhyl/PVZ/images/SunFlower.gif"); position: absolute; top: 15px; left: 3px; }
+.peashooter:AFTER{ content: url("http://jiangsu.sinaimg.cn/zt/s/ydhyl/PVZ/images/Peashooter.gif"); position: absolute; top: 15px; left: 3px; }
+.sun:AFTER{ content: url("http://jiangsu.sinaimg.cn/zt/s/ydhyl/PVZ/images/Sun.gif"); position: absolute; left: -30px; top: -30px;}
+.pea:AFTER{ content: url("http://jiangsu.sinaimg.cn/zt/s/ydhyl/PVZ/images/PB00.gif");  position: absolute; left: 30px; top: 15px; }
+.zombies:AFTER{ content: url("http://jiangsu.sinaimg.cn/zt/s/ydhyl/PVZ/images/Zombie.gif"); position: absolute; left: -92px; top: -46px; z-index: -1; }
+.u_ico{ position: absolute; left: -27px; top: -24px; border-radius: 25px; }
+.Zstop:AFTER{ content: url("http://jiangsu.sinaimg.cn/zt/s/ydhyl/PVZ/images/ZombieAttack.gif"); }
+
+#gameCanvas{ -webkit-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select:none; }
+</style>
+<style type="text/css">
+.gameWrapBox{ position:absolute; width: 100%; height: 100%; z-index: 40000; 
+background-color: RGBA(0,0,0,0.3); font-family:"microsoft yahei"; color: #FFF; text-align: center;
+filter: progid:DXImageTransform.Microsoft.Gradient(startColorStr=#40000000,endColorStr=#40000000);}
+.gameWrap{ width: 400px; height: 240px; padding:2em; background-color:#573884; margin: auto; top: 0; right: 0; bottom: 0; left: 0;  position: absolute;}
+.title{ font-size: 40px; }
+.title2{  margin: 1em 2em;}
+.textcopyright{ }
+.start-btn, .restart-btn{ margin:0 auto; font-size: 24px; width: 6em; border: 3px solid; cursor: pointer; }
+.start-btn:HOVER, .restart-btn:HOVER{ background-color: RGBA(255,255,255,0.3); filter: progid:DXImageTransform.Microsoft.Gradient(startColorStr=#40FFFFFF,endColorStr=#40FFFFFF); }
+.start-btn{ margin-top: 3em;}
+.restart-btn{ margin-top: 5em;}
+.gameWrap2{ display: none;}
+</style>
+</head>
+<body>
+	<div class="headimg"></div>
+	<div class="Christmasline"></div>
+	<div id="p1">
+		<div class="content">
+		
+		<div id="gameCanvas">
+			<div class="sourceBox"></div>
+			<div class="seedBox">
+				<div class="sunflowerSeed seed" onclick="checkAndPlant($(this), 'sunflower', 50)"></div>
+				<div class="peashooterSeed seed" onclick="checkAndPlant($(this), 'peashooter', 100)"></div>
+			</div>
+			<div class="plantBox">
+			
+			</div>
+			
+			
+			<div class="gameWrapBox">
+				<div class="gameWrap gameWrap1">
+					<div class="title">植物大战僵尸</div>
+					<div class="title2">With Weibo(c)</div>
+					<div class="textcopyright">游戏相关图片版权归宝开Popcap公司所有</div>
+					<div class="start-btn">开始游戏</div>
+				</div>
+				<div class="gameWrap gameWrap2">
+					<div class="title">Game Over</div>
+					<div class="restart-btn">再来一次</div>
+				</div>
+			</div>
+		</div>
+				
+		
+		
+			<div class="p11">
+				<img style="margin-bottom: 24px;" src="http://s3img.city.sina.com.cn/activity/common/large/d1d341d40b42a391c77114699d481043.png">
+			</div>
+			<div class="p12 clearfix">
+				<div class="p123">
+					<div class="text" style="display: inline-block;">
+						　　和游戏”是中国移动打造的游戏商业品牌，是由中国移动游戏基地全力打造的游戏平台。<br />
+						现状：<br />
+						　　“和游戏”始终秉承坚持正版，杜绝盗版的底线，加强游戏版权审核力度保障开发者权益。经过多年的努力，中国移动“和游戏”已与1000多家合作伙伴签约，拥有超过数万款正版游戏，在国内手机游戏行业市场份额位列第一。百余款游戏在“和游戏”同名客户端取得月收入超过百万的骄人成绩。<br />
+						　　自成立以来，中国移动“和游戏”，积极倡导“泛游戏”理念，把握游戏市场发展趋势，以提升自主运营能力和构建产业健康为重心，推动游戏业务持续规模发展。
+					</div>
+				</div>
+				<div class="heFollowBox">
+					<img class="margin0a" src="http://s3img.city.sina.com.cn/activity/common/large/5b9183076dbd831f2b885efa151bc7cb.png">
+					<div class="u_name">@江苏移动和娱乐</div>
+					<script src="http://tjs.sjs.sinajs.cn/open/api/js/wb.js" type="text/javascript" charset="utf-8"></script>
+					<div style="position: relative;">
+						<img class="followBtn" src="http://s3img.city.sina.com.cn/activity/common/large/a6280ebadb0954b8e555d8fdf71ef1ef.png">
+						<wb:follow-button style="opacity: 0; filter:alpha(opacity=0); position: absolute;left: 71px;top: 4px;" uid="2212119141" type="red_1"></wb:follow-button>
+					</div>
+					<div class="text">中国移动通信集团江苏有限公司</div>
+				</div>
+				<div class="qrbox">
+					<img class="margin0a" src="http://s3img.city.sina.com.cn/activity/common/large/0fe30f1cbf648be83efc6bf5d6aa2d9e.png">
+					<div class="text" style="margin-top: 20px;">扫一扫，惊喜等着你</div>
+				</div>
+			</div>
+
+		</div>
+	</div>
+
+	<div id="p2">
+		<div class="Christmasline"></div>
+		<div class="content">
+			<img class="margin0a" style="padding: 30px 0 46px;" src="http://s3img.city.sina.com.cn/activity/common/large/a099b7dffcf338a5f6fe6903e8f0f6f4.png">
+			<div class="cardbox">
+				<div class="card">
+					<img class="cover" src="http://s3img.city.sina.com.cn/activity/common/large/7eea426f941cecc80e86b2a6b07fae99.jpg">
+					<div class="name">奔跑吧兄弟：我是车神</div>
+					<div class="btn margin0a" onclick="readbook(1)">下载</div>
+				</div>
+				<div class="card">
+					<img class="cover" src="http://s3img.city.sina.com.cn/activity/common/large/2ba3a708cb5060eba576fc89621a672c.jpg">
+					<div class="name">心花路放</div>
+					<div class="btn margin0a" onclick="readbook(2)">下载</div>
+				</div>
+				<div class="card">
+					<img class="cover" src="http://s3img.city.sina.com.cn/activity/common/large/d8f3b651138abc3ed254ae66a6b8880b.jpg">
+					<div class="name">刀塔传奇-全民竞技</div>
+					<div class="btn margin0a" onclick="readbook(3)">下载</div>
+				</div>
+				<div class="card">
+					<img class="cover" src="http://s3img.city.sina.com.cn/activity/common/large/05055a7268ec8333d0801a59562db573.jpg">
+					<div class="name">萌猴大冒险</div>
+					<div class="btn margin0a" onclick="readbook(4)">下载</div>
+				</div>
+				<div class="card">
+					<img class="cover" src="http://s3img.city.sina.com.cn/activity/common/large/07f28f6218ade814ee4e7ff53d4892ee.jpg">
+					<div class="name" style="line-height: 19px; padding: 8px;">
+						POPSTAR!消灭星星<br />官方正版
+					</div>
+					<div class="btn margin0a" onclick="readbook(5)">下载</div>
+				</div>
+				<div class="card">
+					<img class="cover" src="http://s3img.city.sina.com.cn/activity/common/large/82ecd205008763c66a557e6cd1680a29.jpg">
+					<div class="name">开心消星乐</div>
+					<div class="btn margin0a" onclick="readbook(6)">下载</div>
+				</div>
+				<div class="card">
+					<img class="cover" src="http://s3img.city.sina.com.cn/activity/common/large/5bd616bd8e970d5f75bc4e460ed2c29e.jpg">
+					<div class="name">杀手-枪之荣誉</div>
+					<div class="btn margin0a" onclick="readbook(7)">下载</div>
+				</div>
+				<div class="card">
+					<img class="cover" src="http://s3img.city.sina.com.cn/activity/common/large/d3947a3177b3be9770c20835d2a22528.jpg">
+					<div class="name">鳄鱼小淘气爱射击</div>
+					<div class="btn margin0a" onclick="readbook(8)">下载</div>
+				</div>
+				<div class="card">
+					<img class="cover" src="http://s3img.city.sina.com.cn/activity/common/large/93b09ac8110cb25831b42d27e713293d.jpg">
+					<div class="name">绝色斗地主</div>
+					<div class="btn margin0a" onclick="readbook(9)">下载</div>
+				</div>
+				<div class="card">
+					<img class="cover" src="http://s3img.city.sina.com.cn/activity/common/large/2813a878a600d7786cc0a7f392ba5f60.jpg">
+					<div class="name">中国麻将</div>
+					<div class="btn margin0a" onclick="readbook(10)">下载</div>
+				</div>
+				<div class="card">
+					<img class="cover" src="http://s3img.city.sina.com.cn/activity/common/large/468d29762c12982cb522691930c1edc8.jpg">
+					<div class="name">僵尸前线3D</div>
+					<div class="btn margin0a" onclick="readbook(11)">下载</div>
+				</div>
+				<div class="card">
+					<img class="cover" src="http://s3img.city.sina.com.cn/activity/common/large/85234b1c43b7cf1009b801b5abb08b71.jpg">
+					<div class="name">消除之星-糖果传奇</div>
+					<div class="btn margin0a" onclick="readbook(12)">下载</div>
+				</div>
+				<div class="card">
+					<img class="cover" src="http://s3img.city.sina.com.cn/activity/common/large/667886ca8fa71087caf052743b1d7afc.jpg">
+					<div class="name">史上最牛的游戏2</div>
+					<div class="btn margin0a" onclick="readbook(13)">下载</div>
+				</div>
+				<div class="card">
+					<img class="cover" src="http://s3img.city.sina.com.cn/activity/common/large/3abb9e4f04d5acd71e550810130c82a8.jpg">
+					<div class="name">雄霸三国猛将赵云</div>
+					<div class="btn margin0a" onclick="readbook(14)">下载</div>
+				</div>
+
+				<style>
+                .left_fix { height: 0 !important; padding: 0; margin: 0 !important; overflow: hidden;}
+                </style>
+				<span class="card left_fix">&nbsp;</span>
+				<span class="card left_fix">&nbsp;</span>
+				<span class="card left_fix">&nbsp;</span>
+				<span class="card left_fix">&nbsp;</span>
+				<span class="card left_fix">&nbsp;</span>
+			</div>
+
+
+			<style>
+			.popupBox1 { display: none; position: absolute; top: 228px; left: 203px; background-color: #4F248C; width: 489px; height: 337px; padding: 30px; border-radius: 10px;}
+			.popupBox1 .title { font-size: 26px; font-weight: bold; color: #FFF; text-align: center; margin-bottom: 32px;}
+			.popupBox1 .title img { vertical-align: sub; margin-right: 8px;}
+			.popupBox1 .bookcontent { width: 400px; color: #FFF; height: 191px; font-size: 14px; margin: 0 auto; padding: 26px 14px;}
+			.popupBox1 .btn { display: inline-block; margin: 0 20px;}</style>
+			<div class="popupBox1">
+				<div class="title">
+					<img src="http://s3img.city.sina.com.cn/activity/common/large/70d655866c8eed13c0423a7e012e2a08.png"><span id="bookname">民调局异闻录6</span>
+				</div>
+				<div class="bookcontent" id="bookcontent">中国版《纸牌屋》！全国收视率第一！1948年，太平洋战争结束后三年，北平经济崩溃、民生凋敝，看似平静的北平城内暗流汹涌。国民党内部清廉派和贪腐派斗争陷入白热化，特务、间谍、中统、军统齐聚北平，此时中共地下党、国民党反动势力及铁血救国会之间，一场勾心斗角、尔虞我诈的民国大戏即将揭幕……</div>
+				<div style="text-align: center;">
+					<div class="btn" id="continueReadBtn">前往下载</div>
+					<div class="btn" onclick="$('.popupBox1').fadeOut();">关闭</div>
+				</div>
+			</div>
+
+			<script type="text/javascript">
+				var bookname = $("#bookname");
+				var bookcontent = $("#bookcontent");
+				var continueReadBtnDOM = $("#continueReadBtn");
+
+
+				var gameUrl = [ 
+				        "http://g.10086.cn/a/game/760000018306",
+						"http://g.10086.cn/a/game/760000012914",
+						"http://g.10086.cn/a/game/760000006753",
+						"http://g.10086.cn/a/game/760000013934",
+						"http://g.10086.cn/a/game/760000001684",
+						"http://g.10086.cn/a/game/760000006972",
+						"http://g.10086.cn/a/game/760000011355",
+						"http://g.10086.cn/a/game/760000011530",
+						"http://g.10086.cn/a/game/760000000643",
+						"http://g.10086.cn/a/game/760000000442",
+						"http://g.10086.cn/a/game/760000012884",
+						"http://g.10086.cn/a/game/760000012641",
+						"http://g.10086.cn/a/game/760000000196",
+						"http://g.10086.cn/a/game/760000004323"
+
+				];
+				function readbook(num) {
+					var index = num - 1;
+					window.open(gameUrl[index]);
+					return;
+					//bookname.text(bookNames[index]);
+					//bookcontent.text(bookContents[index]);
+					bookname.text("和游戏");
+					bookcontent.html("快点击下方按钮下载吧～<img class='margin0a' src='http://s3img.city.sina.com.cn/activity/common/large/0fe30f1cbf648be83efc6bf5d6aa2d9e.png'>");
+
+					continueReadBtnDOM.attr("onclick","window.open('http://gmubeta.g188.net/client')");
+					$(".popupBox1").fadeIn();
+				}
+			</script>
+
+		</div>
+	</div>
+
+
+	<div id="p5">
+		<div class="content">
+			<div id="tblog_w_cont_0" style="float: left;"></div>
+			<script type="text/javascript">
+				(function() {
+					var key = encodeURI('和娱乐');
+					document.getElementById('tblog_w_cont_0').innerHTML = '<iframe src="http://service.weibo.com/widget/widget_topic_mblog.php?tags='
+							+ key
+							+ '&width=600&height=780" width="600" height="780" scrolling="no" frameborder="0"></iframe>';
+
+				})();
+			</script>
+
+			<iframe width="350" height="800" class="share_self" frameborder="0" scrolling="no"
+				src="http://widget.weibo.com/weiboshow/index.php?language=&width=0&height=800&fansRow=2&ptype=1&speed=0&skin=1&isTitle=1&noborder=1&isWeibo=1&isFans=1&uid=2212119141&verifier=9f7f6304&dpc=1"></iframe>
+		</div>
+	</div>
+
+	<!-- footer begin -->
+	<style>
+.footer {
+ color: #000; text-align: center; line-height: 24px; margin: 30px 0px 30px 0px;
+}
+</style>
+	<div class="content" class="sinafooter">
+		<div class="footer">
+			<p>
+				<a href="http://jiangsu.sina.com.cn/about/sina_js.html" target="_blank">新浪简介</a> | <a href="http://jiangsu.sina.com.cn/about/sinajs_js.html" target="_blank">新浪江苏简介</a> | <a
+					href="http://jiangsu.sina.com.cn/about/sinajs_ggfw.html" target="_blank">广告服务</a> | <a href="http://jiangsu.sina.com.cn/about/sinajs_lxwm.html" target="_blank">联系我们</a> | <a
+					href="http://career.sina.com.cn/" target="_blank">诚聘英才</a> | <a href="http://www.sina.com.cn/intro/lawfirm.shtml" target="_blank">网站律师</a> | <a href="https://login.sina.com.cn/signup/signup.php"
+					target="_blank">通行证注册</a> | <a href="http://help.sina.com.cn/" target="_blank">产品答疑</a>
+			</p>
+			<p class="copyright">Copyright &copy;&nbsp;1996&nbsp;-&nbsp;2014 SINA Corporation, All Rights Reserved</p>
+			<p>新浪公司版权所有</p>
+		</div>
+	</div>
+	<!-- footer end -->
+
+</body>
+<!--please don't change the order of these scripts-->
+<script type="text/javascript" src="http://ria.city.sina.com.cn/s/g=dialog_login_v1.1-sp1.js"></script>
+<script type="text/javascript" src="http://i.sso.sina.com.cn/js/ssologin.js"></script>
+<script type="text/javascript" src="http://i.sso.sina.com.cn/js/sinaSSOManager.js" charset="utf-8"></script>
+<link type="text/css" href="http://ria.city.sina.com.cn/s/g=dialog_login_v1.1-sp1.css" rel="stylesheet" media="all" />
+<script src="http://jiangsu.sinaimg.cn/z/js/weiboApi.js"></script>
+<script type="text/javascript">
+//open the login dialog
+function openLoginDialog(){DFZ.APP.DialogLogin.open();$("#ui-dialog-title-1").html("新浪微博登录");}
+$(".start-btn").live('click',function(){
+	checkWeiboLogin();
+});
+$(".restart-btn").live('click',function(){
+	$(".gameWrapBox").show();
+	$(".gameWrap1").show();
+	$(".gameWrap2").hide();
+	resetGame();
+	
+});
+
+function checkWeiboLogin() {
+	
+	
+	var uinfo = sinaSSOManager.getSinaCookie();
+	if (!uinfo) {
+		//alert("请先登录您的微博哦");
+		openLoginDialog(function() { checkWeiboLogin();	});
+		return false;
+	} else {
+		//开始游戏吧
+		//得到好友头像列表
+		getFriendIco();
+
+	}
+}
+
+</script>
+<script type="text/javascript">
+var i_auto_zombies;
+var i_auto_suns;
+var i_auto_zombies2;
+var i_auto_zombies3;
+var friend_ico_url = ["http://jiangsu.sinaimg.cn/zt/s/blank.gif"];
+</script>
+<script type="text/javascript" charset="utf-8">
+var gameCanvas = $("#gameCanvas"); /*document.getElementById("#gameCanvas");*/
+var pause = false;
+var GAMEBOUNDS = { WIDTH : gameCanvas.width(), HEIGHT : gameCanvas.height() };
+var sourceNum = 0; //阳光资源
+var lawn = [];
+var zombies = [];
+var sunflowers = [];
+var peashooters = [];
+var peas = [];
+var suns = [];
+var zombieCount = 1000;
+var sunflowerCount = 2000;
+var peashooterCount = 3000;
+var peaCount = 4000;
+var sunCount = 5000;
+
+var FPS = 30;
+setInterval(function() {
+  update();
+  draw();
+}, 1000/FPS);
+
+/* 帧更新 */
+function update() {
+	if(pause){return;} //如果暂停，停止更新帧
+	//碰撞检测
+	handlePeasZombiesCollides();
+	handlePlantsZombiesCollides();
+	
+	handleZombiesUpdate();
+	handleSunsUpdate();
+	handleSunflowerUpdate();
+	handlePeashooterUpdate();
+	handlePeasUpdate();
+	
+	handleGameOver();
+}
+
+function draw() {
+	if(pause){return;}
+	handleZombiesDraw();
+	handleSunsDraw();
+	handleSunflowerDraw();
+	handlePeashooterDraw();
+	handlePeasDraw();
+}
+
+
+function handleZombiesUpdate() {
+	zombies.forEach(function(zombie) {
+		zombie.isInited ? zombie.update() : zombie.init();
+	});
+}
+function handleZombiesDraw() {
+	if (zombies.length <= 0 ) { return; }
+	zombies.forEach(function(zombie) {
+		zombie.draw();
+	});
+}
+
+function handleSunsUpdate() {
+	suns.forEach(function(sun) {
+		sun.isInited ? sun.update() : sun.init();
+	});
+}
+function handleSunsDraw() {
+	if (suns.length <= 0 ) { return; }
+	suns.forEach(function(sun) {
+		sun.draw();
+	});
+}
+
+
+function handleSunflowerUpdate() {
+	sunflowers.forEach(function(sunflower) {
+		sunflower.isInited ? sunflower.update() : sunflower.init();
+	});
+}
+function handleSunflowerDraw() {
+	if (sunflowers.length <= 0 ) { return; }
+	sunflowers.forEach(function(sunflower) {
+		sunflower.draw();
+	});
+}
+
+
+function handlePeashooterUpdate() {
+	peashooters.forEach(function(peashooter) {
+		peashooter.isInited ? peashooter.update() : peashooter.init();
+	});
+}
+function handlePeashooterDraw() {
+	if (peashooters.length <= 0 ) { return; }
+	peashooters.forEach(function(peashooter) {
+		peashooter.draw();
+	});
+}
+
+function handlePeasUpdate() {
+	peas.forEach(function(pea) {
+		pea.isInited ? pea.update() : pea.init();
+	});
+}
+function handlePeasDraw() {
+	if (peas.length <= 0 ) { return; }
+	peas.forEach(function(pea) {
+		pea.draw();
+	});
+}
+
+function handlePeasZombiesCollides() {
+	peas.forEach(function(P) {
+		zombies.forEach(function(Z) {
+			var c = collides(P, Z);
+			if (c) {  // 发生碰撞
+				Z.health -= P.harm;
+				P.destory();
+			}
+		});
+	});
+}
+function handlePlantsZombiesCollides() {
+	
+		
+	zombies.forEach(function(Z) {
+		//僵尸 和 植物 碰撞，当植物不存在时，僵尸行走
+		Z.isStopped = false;
+		sunflowers.forEach(function(P) {
+			plantCollides(P);
+		});
+		peashooters.forEach(function(P) {
+			plantCollides(P);
+		});
+		function plantCollides(P){
+			var c = collides(P, Z);
+			if (c) {  // 发生碰撞
+				Z.isStopped = true;
+				P.health -= Z.harm/(1000/FPS);
+				if (P.health <= 0) {
+					Z.isStopped = false;
+				}
+			}
+		} 
+	});
+}
+function handleGameOver() {
+	zombies.forEach(function(Z) {
+		if (Z.position.x < 0) {
+			stopGame();
+			console.log("游戏结束");
+		} 
+	});
+}
+
+
+function collides(a, b) {
+	/*return a.x < b.x + b.width &&
+	       a.x + a.width > b.x &&
+	       a.y < b.y + b.height &&
+	       a.y + a.height > b.y;*/
+   return a.position.x < b.position.x + b.width &&
+	      a.position.x + a.width > b.position.x &&
+	      a.position.y < b.position.y + b.height &&
+	      a.position.y + a.height > b.position.y;
+}
+
+function zombie(Z) {
+	Z = Z || {};
+	//Z.type = 0; // 1 2
+	Z.id = "zombie_" + zombieCount; zombieCount++;
+	Z.health = 7;
+	Z.speed = 0.6;
+	Z.harm = 1;
+	//Z.position = { x : 800, y : 500 };
+	Z.width = 24;
+	Z.height = 100;
+	Z.isInited = false;
+	Z.isStopped = false;
+	Z.init = function() { 
+		// 放入HTML
+		$("<div>",{
+			"class": "zombies " + "type" + this.type,
+	        "id": this.id,
+	        css:{
+	            "left": this.position.x,
+	            "top": this.position.y,
+	            "z-index": this.position.y
+	        },
+	        html: '<img class="u_ico" src="'+friend_ico_url[ parseInt(Math.random()*friend_ico_url.length) ] +'"/>'
+	    }).appendTo(gameCanvas);
+		this.isInited = true;
+		console.info("[程序]生成僵尸");
+	};
+	Z.inBounds = function() {
+		/*return I.x >= 0 && I.x <= GAMEBOUNDS.WIDTH &&
+		I.y >= 0 && I.y <= GAMEBOUNDS.HEIGHT;*/
+	};
+	
+	Z.draw = function() {
+		if (this.health <= 0 | this.position.x < -60 ) {
+			this.destory();
+			return;
+		}
+		$("#"+this.id).css("left",this.position.x);//绘制
+	};
+	Z.update = function() {
+		if (this.isStopped) {    //当僵尸处于停止状态时不移动 
+			$("#"+this.id).addClass("Zstop");
+			return;
+		} else {
+			$("#"+this.id).removeClass("Zstop");
+		}
+		this.position.x -= this.speed; //移动
+	};
+	Z.destory = function() {
+		$("#"+this.id).remove(); //删除此元素
+		var id = this.id;
+		zombies.forEach(function(o,i) {
+			if(o.id === id){
+				zombies.splice(i,1);
+			}
+		});
+	};
+	return Z;
+}
+
+
+function sunflower(S) {
+	S = S || {};
+	S.id = "sunflower_" + sunflowerCount; sunflowerCount++;
+	S.health = 6;
+	S.cooldown = 20;
+	//S.position = { x : 800, y : 500 };
+	//S.lawnIndex = 1;
+	S.width = 70;
+	S.height = 100;
+	S.isInited = false;
+	S.isStopped = false;
+	S.createSunInerval;
+	S.init = function() { //绘制
+		if(plantHandle("plant",this.lawnIndex)){
+			// 放入HTML
+			// 放入HTML
+			$("<div>",{
+				"class": "sunflower",
+		        "id": this.id,
+		        css:{
+		            "left": this.position.x,
+		            "top": this.position.y,
+		            "z-index": this.position.y
+		        }
+		    }).appendTo(gameCanvas);
+			this.isInited = true;
+			console.log("[用户]种植太阳花"+ this.id);
+			this.createSunInerval = setInterval(function() {
+				suns.push(
+						sun({
+							type: "static", //
+							position : { x : S.position.x -10 +Math.random()*50, y : S.position.y + 70+Math.random()*16 },
+							timeout : 15
+						})
+					);
+			}, this.cooldown * 1000);
+		}else{
+			this.destory();
+		}
+	};
+	S.draw = function() {
+		if (this.health <= 0 ) {
+			this.destory();
+			return;
+		}
+	};
+	S.update = function() {
+		
+	};
+	S.destory = function() {
+		$("#"+this.id).remove(); //删除此元素
+		var id = this.id;
+		sunflowers.forEach(function(o,i) {
+			if(o.id === id){
+				sunflowers.splice(i,1);
+			}
+		});
+		clearInterval(this.createSunInerval);
+		console.info("[程序]！太阳花死亡");
+		plantHandle("destory",this.lawnIndex);
+	};
+	return S;
+}
+
+
+function peashooter(P) {
+	P = P || {};
+	P.id = "peashooter_" + peashooterCount; peashooterCount++;
+	P.health = 6;
+	P.cooldown = 2.4; //2.4
+	//P.position = { x : 800, y : 500 };
+	//P.lawnIndex = 1;
+	P.width = 70;
+	P.height = 100;
+	P.isInited = false;
+	P.isStopped = false;
+	P.init = function() { //绘制
+		if(plantHandle("plant",this.lawnIndex)){
+			// 放入HTML
+			$("<div>",{
+				"class": "peashooter",
+		        "id": this.id,
+		        css:{
+		            "left": this.position.x,
+		            "top": this.position.y,
+		            "z-index": this.position.y
+		        }
+		    }).appendTo(gameCanvas);
+			this.isInited = true;
+			console.log("[用户]种植豌豆射手"+ this.id);
+		}else{
+			this.destory();
+		}
+	};
+	P.draw = function() {
+		if (this.health <= 0 ) {
+			this.destory();
+			return;
+		}
+	};
+	P.shootInterval;
+	P.timer = 0;
+	P.update = function() {
+		//放置豌豆射手功能
+		//检测该线路是否有僵尸
+		//检测该线路前方是否有僵尸
+		var createPea = false;
+		var thisx = this.position.x;
+		var thisy = this.position.y;
+		zombies.forEach(function(Z) {
+			if (Z.position.y === thisy &&
+				Z.position.x >= thisx) {
+				createPea = true;
+			}
+		});
+		//创建豌豆
+		//有僵尸 没在冷却
+		if ( createPea  && this.timer === 0) {
+			console.info("[程序]发现僵尸");
+			peas.push(
+					pea({
+						position : { x : thisx, y : thisy }
+					})
+			);
+			setTimeout(function() {
+				console.warn("豌豆射手已填装");
+				P.timer = 0;
+			}, this.cooldown*1000); 
+			this.timer++;
+		} else if (createPea) {
+			this.timer++;
+		}
+		
+		
+	};
+	P.destory = function() {
+		$("#"+this.id).remove(); //删除此元素
+		var id = this.id;
+		peashooters.forEach(function(o,i) {
+			if(o.id === id){
+				peashooters.splice(i,1);
+			}
+		});
+		clearInterval(this.shootInterval);
+		console.info("[程序]！豌豆射手死亡");
+		plantHandle("destory",this.lawnIndex);
+	};
+	return P;
+}
+
+function pea(P) {
+	P = P || {};
+	P.id = "pea_" + sunCount; sunCount++;
+	P.speed = 7.4;
+	//P.position = { x : 800, y : 500 };
+	P.width = 80;
+	P.height = 40;
+	P.harm = 1;
+	P.isInited = false;
+	P.init = function() { //绘制
+		// 放入HTML
+		$("<div>",{
+			"class": "pea",
+	        "id": this.id,
+	        css:{
+	            "left": this.position.x,
+	            "top": this.position.y,
+	            "z-index": 1000
+	        }
+	    }).appendTo(gameCanvas);
+		this.isInited = true;
+		console.info("[程序]豌豆射手射出豌豆"+this.id);
+	};
+	P.draw = function() {
+		if (this.position.x >= GAMEBOUNDS.WIDTH ) {
+			this.destory();
+			return;
+		}
+		$("#"+this.id).css("left",this.position.x);//绘制
+	};
+	P.update = function() {
+		this.position.x += this.speed; // 弹道
+	};
+	P.destory = function() {
+		$("#"+this.id).remove(); //删除此元素
+		var id = this.id;
+		peas.forEach(function(o,i) {
+			if(o.id === id){
+				peas.splice(i,1);
+			}
+		});
+	};
+	return P;
+	
+}
+
+function sun(S) {
+	S = S || {};
+	S.id = "sun_" + sunCount; sunCount++;
+	//S.type = "static"; // drop  自然掉落
+	S.speed = 1.2;
+	//S.distance = 300;
+	//S.timeout = 6;
+	S.sourceNum = 25;
+	//S.position = { x : 800, y : 500 };
+	S.isInited = false;
+	S.isStopped = false;
+	S.init = function() { //绘制
+		// 放入HTML
+		$("<div>",{
+			"class": "sun",
+	        "id": this.id,
+	        css:{
+	            "left": this.position.x,
+	            "top": this.position.y
+	        },
+	        click: function(event) {
+	        	event.preventDefault();
+	        	sourceNum += S.sourceNum;
+                S.destory();
+                sourceBox("show");
+                console.log("[用户]得了阳光资源"+ this.id);
+            }
+	    }).appendTo(gameCanvas);
+		this.isInited = true;
+		console.info("[程序]生成阳光资源"+ this.id);
+	};
+	S.timer = 0;
+	S.draw = function() {
+		if( this.timer >= (this.timeout * 1000) ) {
+			this.destory();
+			console.info("[程序]阳光消逝了"+ this.id);
+			return;
+		}
+		$("#"+this.id).css("top",this.position.y);//绘制
+	};
+	S.update = function() {
+		this.timer += 1000/FPS;
+		//放置太阳功能
+		if (this.type == "static") {
+			// do nothing
+		} else if ( this.type == "drop") {
+			if (this.position.y >= this.distance) {
+				return;
+			}
+			this.position.y += this.speed;	
+		}
+	};
+	S.destory = function() {
+		$("#"+this.id).remove(); //删除此元素
+		var id = this.id;
+		suns.forEach(function(o,i) {
+			if(o.id === id){
+				suns.splice(i,1);
+			}
+		});
+	};
+	return S;
+}
+
+
+
+
+///////////////  UI  //////////////////
+function plantHandle(type, i) {
+	if (type === "plant") {
+		if (lawn[i] === undefined){
+			lawn[i] = "1";
+			$(".lawn").eq(i).addClass("planted");
+		}else{ console.warn("[系统]已被种上植物"); return false; }
+	}else{
+		if (lawn[i] === "1"){
+			lawn[i] = undefined;
+			$(".lawn").eq(i).removeClass("planted");
+		}else{ console.warn("[系统]没有植物供铲除"); return false;}
+	}
+	
+	return true;
+}
+
+/**
+ * 种子
+ */
+var seeds = [{ name : "sunflower", cost : 50 },
+             { name : "peashooter", cost : 100 },
+            ];
+var sunflower_Event = function(param){
+	
+	var i = $(this).index();
+	if (lawn[i] === undefined && sourceNum>= 50) { // 可以种植植物
+		handelSunflowerAdd($(this).position().left + $(".plantBox").position().left, $(this).position().top + $(".plantBox").position().top, i);
+		sourceBox("set", -50);
+		$('.seed').removeClass("select");
+		$(".lawn").unbind().css("cursor","default").removeClass("active");
+	}
+}
+var peashooter_Event = function(){
+	var i = $(this).index();
+	if (lawn[i] === undefined && sourceNum>= 100) { // 可以种植植物
+		handelPeashooterAdd($(this).position().left + $(".plantBox").position().left, $(this).position().top + $(".plantBox").position().top, i);
+		sourceBox("set", -100);
+		$('.seed').removeClass("select");
+		$(".lawn").unbind().css("cursor","default").removeClass("active");
+	}
+}
+
+
+function plantplant_Event(jdom, name) {
+	var i = jdom.index();
+	seeds.forEach(function(S) {
+		if (S.name === name) {
+			if (lawn[i] === undefined && sourceNum>= S.cost) { // 可以种植植物
+				switch (name) {
+				case "sunflower":
+					handelSunflowerAdd(jdom.position().left + $(".plantBox").position().left, jdom.position().top + $(".plantBox").position().top, i);
+					break;
+				case "peashooter":
+					handelPeashooterAdd(jdom.position().left + $(".plantBox").position().left, jdom.position().top + $(".plantBox").position().top, i);
+					break;
+				default:
+					break;
+				}
+				sourceBox("set", -S.cost);
+				$('.seed').removeClass("select");
+				$(".lawn").unbind().css("cursor","default").removeClass("active");
+			}
+		}
+	});
+}
+
+function checkAndPlant(dom, name, cost) {
+	if(dom.hasClass("select")){ // (2) 用户想取消当前选中seed
+		$('.seed').removeClass("select");
+		$(".lawn").unbind().css("cursor","default").removeClass("active");
+		return;
+	} else {
+		$('.seed').removeClass("select");
+		$(".lawn").unbind().css("cursor","default");
+		if( parseInt(cost) > sourceBox("get")){  // 资源不足
+			return;
+		}else{  //资源足够
+			dom.addClass("select");
+			$(".lawn").addClass("active");
+			console.log("[用户]使用种子"+ name);
+			$(".lawn").bind("click",function(e){ plantplant_Event($(this), name); }).css("cursor","pointer");
+		}
+	}
+}
+
+
+
+/* get/set阳光资源 */
+function sourceBox(type) {
+	if (type === "show") {
+		$(".sourceBox").text(sourceNum);	
+	}else if(type === "set"){
+		var num = arguments[1];
+		sourceNum += num;
+		sourceBox("show");
+	}
+	
+	//检测资源数量，对seed面板染色
+	seeds.forEach(function(S) {
+		if ( sourceNum < S.cost ) { //如果资源不足， 给seed加上灰色
+			$("." + S.name + "Seed").addClass("gray");
+		}else{
+			$("." + S.name + "Seed").removeClass("gray");
+		}
+	});
+	
+	return sourceNum;
+}
+
+var timeout_1;
+var timeout_2;
+var timeout_3;
+var timeout_4;
+
+function resetGame() {
+	zombies.forEach(function(Z) {
+		Z.destory();
+	});
+	$(".zombies").remove();
+	sunflowers.forEach(function(Z) {
+		Z.destory();
+	});
+	$(".sunflower").remove();
+	peashooters.forEach(function(Z) {
+		Z.destory();
+	});
+	$(".peashooter").remove();
+	peas.forEach(function(Z) {
+		Z.destory();
+	});
+	$(".pea").remove();
+	suns.forEach(function(Z) {
+		Z.destory();
+	});
+	$(".sun").remove();
+	
+	clearTimeout(timeout_1);
+	clearTimeout(timeout_2);
+	clearTimeout(timeout_3);
+	clearTimeout(timeout_4);
+	clearInterval(i_auto_zombies);
+	clearInterval(i_auto_zombies2);
+	clearInterval(i_auto_zombies3);
+	clearInterval(i_auto_suns);
+	
+	
+	pause = false;
+	GAMEBOUNDS = { WIDTH : gameCanvas.width(), HEIGHT : gameCanvas.height() };
+	sourceNum = 50; //阳光资源
+	sourceBox("show");
+	lawn = [];
+	zombies = [];
+	sunflowers = [];
+	peashooters = [];
+	peas = [];
+	suns = [];
+	zombieCount = 1000;
+	sunflowerCount = 2000;
+	peashooterCount = 3000;
+	peaCount = 4000;
+	sunCount = 5000;
+	console.log("GAME RESETTED!");
+}
+
+function stopGame() {
+	pause = true;
+	$(".gameWrap1").hide();
+	$(".gameWrap2").show();
+	$(".gameWrapBox").show();
+	var contentWeibo = "亲，你的小伙伴被困在和游戏的游戏鬼屋里了，一大波僵尸正在向他逼近，快来解救他吧~ http://jiangsu.sina.com.cn/1/2015-01-04/410.html";
+	addWeiboByCookie(contentWeibo,"","");
+}
+
+function initGame(){
+	resetGame();
+	sourceBox("show");
+	timeout_1 = setTimeout(function() {
+		handelSunAdd();
+	}, 2000);
+	timeout_2 = setTimeout(function() {
+		handelZombiesAdd_AUTO();
+	}, 12000);
+	
+	timeout_3 = setTimeout(function() {
+		var plantBox = $(".plantBox");
+		var lawn = $(".lawn").eq(0);
+		var t = plantBox.position().top;
+		var h = lawn.height();
+		var randomWay = [t, t+h, t+2*h, t+3*h, t+4*h];
+		i_auto_zombies2 = setInterval(function() {
+			var x = GAMEBOUNDS.WIDTH;
+			var y = randomWay[ parseInt(Math.random()*5) ];
+			handelZombiesAdd(x, y);
+		}, 3323);
+	}, 142621);
+	
+	timeout_4 = setTimeout(function() {
+		var plantBox = $(".plantBox");
+		var lawn = $(".lawn").eq(0);
+		var t = plantBox.position().top;
+		var h = lawn.height();
+		var randomWay = [t, t+h, t+2*h, t+3*h, t+4*h];
+		i_auto_zombies3 = setInterval(function() {
+			var x = GAMEBOUNDS.WIDTH;
+			var y = randomWay[ parseInt(Math.random()*5) ];
+			handelZombiesAdd(x, y);
+		}, 1247);
+	}, 203215);
+	
+	
+	handelSunAdd_AUTO();
+	console.log("GAME START!");
+} 
+
+
+
+</script>
+<script type="text/javascript">
+function handelZombiesAdd_AUTO() {
+	var plantBox = $(".plantBox");
+	var lawn = $(".lawn").eq(0);
+	var t = plantBox.position().top;
+	var h = lawn.height();
+	var randomWay = [t, t+h, t+2*h, t+3*h, t+4*h];
+	i_auto_zombies = setInterval(function() {
+		var x = GAMEBOUNDS.WIDTH;
+		var y = randomWay[ parseInt(Math.random()*5) ];
+		handelZombiesAdd(x, y);
+	}, 20000);
+}
+function handelZombiesAdd(x, y) {
+	//新建元素
+	zombies.push(
+		zombie({
+			type: 0, // 2  3
+			position : { x : x, y : y } 
+		})
+	);
+}
+
+function handelSunAdd_AUTO() {
+	i_auto_suns = setInterval(function() {
+		handelSunAdd();
+	}, 10000);
+}
+function handelSunAdd() {
+	suns.push(
+			sun({
+				type: "drop", //
+				position : { x : 100+Math.random()*700, y : -30 },
+				distance : 200+Math.random()*300,
+				timeout : 24
+			})
+		);
+}
+
+function handelSunflowerAdd(x, y, lawnIndex ) {
+	sunflowers.push(
+			sunflower({
+				position : { x : x, y : y },
+				lawnIndex : lawnIndex
+			})
+		);
+}
+function handelSunflowerRemove() {
+	sunflowers.forEach(function (F) {
+		F.destory();
+	});
+}
+function handelPeashooterAdd(x, y, lawnIndex ) {
+	peashooters.push(
+			peashooter({
+				position : { x : x, y : y },
+				lawnIndex : lawnIndex
+			})
+		);
+}
+function handelPeashooterRemove() {
+	peashooters.forEach(function (P) {
+		P.destory();
+	});
+}
+
+function shoot() {
+	peas.push(
+			pea({
+				position : { x : 20, y : $('.plantBox').position().top }
+			})
+	);
+}
+</script>
+
+
+<script type="text/javascript">
+////// 生成lawn
+var html = "";
+for (var i = 0; i < 45; i++) {
+	html +='<div class="lawn"></div>';
+}
+$(".plantBox").html(html);
+////// end 生成lawn
+</script>
+
+<script type="text/javascript">
+
+// 解开下层以启用好友头像 
+function getFriendIco(){
+	if (friend_ico_url.length > 1 ) {
+		$(".gameWrap").hide();
+		$(".gameWrapBox").hide();
+		initGame();
+	}else{
+		var uid = sinaSSOManager.getSinaCookie().uid;
+		$.JSONP("http://mblogv2.city.sina.com.cn/interface/tcommonv2/no_auth/user/json_get_user_followers_by_uid.php?t=jsonp&uid="+uid+"&app_id=159&pcount=30",{},function(json){
+			//json.data.result[0].profile_image_url
+			json.data.result.forEach(function(u) {
+				var imgurl = u.profile_image_url;
+				friend_ico_url.push(imgurl);
+				$(".gameWrap").hide();
+				$(".gameWrapBox").hide();
+				initGame();
+			});
+		});
+	}
+	
+}
+
+
+//亲，你的小伙伴被困在和游戏的游戏鬼屋里了，一大波僵尸正在向他逼近，快来解救他吧~【和游戏专题链接】
+</script>
+
+
+
+
+
+</html>

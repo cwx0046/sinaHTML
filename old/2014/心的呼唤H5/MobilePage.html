@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="GB2312">
+<meta http-equiv="Cache-Control" content="no-cache"/>
+<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0"> 
+<title>中行心的呼唤 江苏站 新浪网</title>
+<meta name="keywords" content="心的呼唤,中国银行,慈善,爱心" />
+<meta name="description" content="中行“心的呼唤”大型慈善活动" />
+
+<script src="http://i2.sinaimg.cn/cj/dfz/js/base.js" type="text/javascript"></script>
+
+<style type="text/css">
+body, ul, ol, li, p, h1, h2, h3, h4, h5, h6, table, td, th, form, fieldset, img, dl, dt, dd { margin:0; padding:0; }
+textarea, input, select, body { font-size:12px; }
+select, input { vertical-align:middle; }
+fieldset, img { border:0; }
+ul, ol { list-style:none; }
+img { border:0; }
+a { text-decoration:none; color:#000; }
+a:hover { color:#ffa10d; }
+.fl { float:left; display:inline; }
+.fr { float:right; display:inline; }
+.cb { clear:both; display:block; height:0px; overflow:hidden; width:100%; }
+.clearfix:after { clear:both; content:""; display:block; height:0; }
+</style>
+<style type="text/css">
+/* document stylesheet */
+body{ background: #fff9e8 url("http://jiangsu.sinaimg.cn/2014/0814/U9263P1194DT20140814113044.jpg") no-repeat center top;background-size:320px;}
+#mobilebody{ width: 320px; margin: 0 auto; }
+.topwarp{ height: 255px;}
+
+#p1{ height:179px; /* background: RGBA(255,255,0,0.5); */ padding: 0 6px 0 12px;}
+#photoshow{ /* background: RGBA(0,0,255,0.5); */ height: 100px;}
+#bigphoto{ /* background: RGBA(0,150,105,0.5); */ width: 232px; height:167px; overflow: hidden; position: relative;}
+#bigphoto img{ width: 232px; height:167px; display: block; position: absolute;}
+#photolist{ margin-left: 3px;}
+#photolist li{ background: #fff9e8; width: 64px; height: 20px; line-height:20px;text-align:center; padding-left: 2px; margin-bottom: 2px; /* overflow: hidden; */ position: relative; cursor: pointer;}
+#photolist li:BEFORE{ 	
+	border:  3px solid transparent;
+	border-right-color: #fff9e8;
+	position: absolute;
+	content: "";
+	top: 7px;
+	left: -6px;
+	}
+#photolist li.plactive{ background-color: #920021; color: #FFF;}
+#photolist li.plactive:BEFORE{border-right-color: #920021;}
+
+
+#banner1{ margin-top: 1px;}
+
+h1{ color:#d8130f; font-size: 16px; line-height: 18px; border-bottom: 1px solid; padding-left: 12px; margin-bottom: 8px;}
+#p2{ margin: 10px 0 0 0; }
+#sina-video-cont1{ padding: 0 10px;}
+
+#p3{ margin: 10px 0 0 0; }
+#p3content{ padding: 0 26px; position: relative;}
+#weibotextbtn{ text-align:right; margin-top: 17px;}
+#zp_des{ width:calc(100% - 12px); height:40px; resize: none; color:#888787;  border:1px solid #dbd1c7; display:block; float:right; padding:6px 6px;}
+#zp_des:FOCUS{ color:#000;}
+#submit_weibo{ width:38px; height:28px; line-height:28px; background:#f33242; border:0;margin-top:2px; color:#fff; font-size:14px; cursor:pointer;}
+#submit_weibo:HOVER{ background:#f33242;}
+#submit_weibo:ACTIVE{ background:#e11126;}
+
+#p3awardshow{ text-align:center; position: absolute; bottom: -6px; right: 26px; }
+#p3awardshow img{ width:44px; height:44px; border: 1px solid #9c8c85;}
+
+#p4{ margin: 10px 0 0 0; background-color: #e1ddd0; }
+</style>
+
+<!-- p1图片切换js -->
+<script type="text/javascript">
+(function () {
+	var li = $("#photolist li");
+	var img = $("#bigphoto img");
+	var index = 0;
+	//自动切换
+	var autoChangePhoto = setInterval(function() {
+		changePhoto(index);
+		index++;
+	}, 2600);
+	
+	//手动切换
+	li.live("click",function(){
+		index = $(this).index();
+		
+		
+			
+		changePhoto(targetIndex);
+		
+	});
+	
+	function changePhoto(targetIndex) {
+		//点击已显示的标签，不进行切换
+		if( $("#bigphoto img:visible").index() == targetIndex ){ 
+			return;
+		}
+		if(targetIndex < 0){
+			index = $("#photolist li").length;
+		}else
+		if(targetIndex >= $("#photolist li").length){
+			index = 0;
+		}else{
+			index = targetIndex;
+		}
+		
+		$("#photolist li").removeClass("plactive"); 
+		$("#photolist li").eq(index).addClass("plactive");
+		
+		var visiablePhoto = $("#bigphoto img:visible");
+		visiablePhoto.css({"z-index":"1"});
+		var aimPhoto = $("#bigphoto img").eq(index);
+		aimPhoto.css({"z-index":2});
+		aimPhoto.fadeIn("200",function(){visiablePhoto.hide()});
+	}
+	
+})();
+
+
+</script>
+
+<!-- 发微博js -->
+<!--please don't change the order of these scripts-->
+<script type="text/javascript" src="http://ria.city.sina.com.cn/s/g=dialog_login_v1.1-sp1.js"></script>
+<script type="text/javascript" src="http://i.sso.sina.com.cn/js/ssologin.js"></script>
+<script type="text/javascript" src="http://i.sso.sina.com.cn/js/sinaSSOManager.js" charset="utf-8"></script>
+<link type="text/css" href="http://ria.city.sina.com.cn/s/g=dialog_login_v1.1-sp1.css" rel="stylesheet" media="all" />
+<script src="http://jiangsu.sinaimg.cn/z/js/weiboApi.js"></script>
+
+<script type="text/javascript">
+$(function()
+{
+	$("#submit_weibo").click(function(){
+		var uinfo = sinaSSOManager.getSinaCookie();
+		if (!uinfo) { //判断登陆
+			openLoginDialog();
+			return false;
+		} else {
+			var contentWeibo = $("#zp_des").val();
+			addWeiboByCookie(contentWeibo,"","发布成功");
+		}	
+
+	});
+
+})
+function openLoginDialog(){DFZ.APP.DialogLogin.open();}
+</script>
+<!-- end 发微博js -->
+
+</head>
+<body>
+<div id="mobilebody">
+	<div class="topwarp"></div>
+	
+	<!-- 图片展示 -->
+	<div id="p1">
+		<div id="photoshow">
+			<div id="bigphoto" class="fl">
+				<img alt="" src="http://jiangsu.sinaimg.cn/2014/0814/U10255P1194DT20140814082436.jpg"/>
+				<img style="display: none;" alt="" src="http://jiangsu.sinaimg.cn/2014/0814/U10255P1194DT20140814082544.jpg"/>
+				<img style="display: none;" alt="" src="http://jiangsu.sinaimg.cn/2014/0814/U10255P1194DT20140814082643.jpg"/>
+				<img style="display: none;" alt="" src="http://jiangsu.sinaimg.cn/2014/0813/U9036P1194DT20140813174242.jpg"/>
+				<img style="display: none;" alt="" src="http://d3.sina.com.cn/201408/13/566798.jpg"/>
+				<img style="display: none;" alt="" src="http://jiangsu.sinaimg.cn/test/369/2012/0523/U8755P1194T369D2F6848DT20140808103951.jpg"/>
+				<img style="display: none;" alt="" src="http://jiangsu.sinaimg.cn/travel2014/js/content/idx/2014/0814/U8755P1194T585D1F12225DT20140814094703.jpg"/>
+			</div>
+			<div id="photolist" class="fl">
+				<ul>
+					<li class="plactive">酒店聚餐</li>
+					<li>南京博物馆</li>
+					<li>青奥景点</li>
+					<li>青奥观赛</li>
+					<li>青奥观赛</li>
+					<li>酒店聚餐</li>
+					<li>欢乐运动会</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	
+	<!-- banner1 -->
+	<div id="banner1">
+		<img alt="“心的呼唤”大型慈善活动" src="http://jiangsu.sinaimg.cn/2014/0814/U9263P1194DT20140814113043.jpg" width="320">
+	</div>
+	
+	<!-- 视频报道 -->
+	<div id="p2">
+		<h1>视频报道</h1>
+		<!-- 视频播放组件 -->
+		<script src="http://video.sina.com.cn/js/sinaFlashLoad.js" type="text/javascript"></script>
+		<div>  
+			<div id="sina-video-cont1" class="c_s_01"></div>
+			<script type="text/javascript" >
+				var flashPlayer_cont_19 = {
+						container: "sina-video-cont1",    //Div容器的id
+						playerWidth: 300,        				  //宽
+						playerHeight: 210,                //高
+						width :  300,  
+						height  : 210, 
+						autoLoad: 0,                      //自动加载
+						autoPlay: 0,                      //自动播放
+						pid: "1/334".split("/")[0],
+						as: 0,                            //广告
+						tjAD: 0,                          //显示擎天柱广告
+						tj: 0,                            //片尾推荐
+						casualPlay: 1,                 		//任意拖动视频
+						head: 0,                          //播放片头动画
+						share : 0,
+						singleRss : "http://rss.sina.com.cn/paihang/bn/top/day/new_news.xml.data_utf8",
+						thumbUrl : "http://www.sinaimg.cn/dy/stencil/temp/sina.jpg",  //请更改这里的缩略图
+						logo: 0,                          //显示logo
+						vid: 77494204                     //视频内部ID号
+					  	};
+			</script>
+			<script>
+				var player_cont_19 = sinaVideoPlayer(flashPlayer_cont_19);	
+				player_cont_19.init();
+			</script>
+		</div>
+	</div>
+	
+	<!-- 有奖转发 -->
+	<div id="p3">
+		<h1>有奖转发</h1>
+		<div id="p3content">
+			<p>方法1.转发评论 @新浪江苏 种子微博。</p>
+			<p>方法2.编辑 #带着爱心游南京#+@中国银行信用卡-江苏+内容，发布微博。</p>
+			<div id="weibotextbtn">
+				<textarea name="xy" id="zp_des" cols="8" >#带着爱心游南京# @中国银行信用卡-江苏 </textarea>
+				<input class="btn-long"  id="submit_weibo" type="submit" value="发布" >
+			</div>
+			<p>奖品：</p>
+			<hr style="border:none; border-top:1px solid #e4d8d0;" />
+			<p>1.新浪公仔5对。<br/>
+			2.新浪靠枕5个。<br/>
+			3.新浪扑克牌4副。</p>
+			
+			<!-- 3个奖品图片 -->
+			<div id="p3awardshow">
+				<img src="http://hubei.sinaimg.cn/2014/0814/S124792T1407979271281.jpg" alt="新浪公仔">
+				<img src="http://hubei.sinaimg.cn/2014/0814/S124792T1407979291203.jpg" alt="新浪靠枕">
+				<img src="http://hubei.sinaimg.cn/2014/0814/S124792T1407979331765.jpg" alt="新浪扑克牌">
+			</div>
+		</div>
+	</div>
+	
+	<!-- 瀑布流 -->
+	<div id="p4">
+		
+		<!-- 新版瀑布流，宽度 320px ，单条宽度 125px -->
+		
+		<script type="text/javascript" src="http://www.sinaimg.cn/cj/dfz/js/base.js" charset="utf-8"></script>
+		<script type="text/javascript" src="http://ria.city.sina.com.cn/s/g=weibo_v2.0-sp2.js"></script>
+		<link type="text/css" href="http://js.city.sina.com.cn/s/g=dialog_login_v1.1-sp1.css" rel="stylesheet" media="all" charset="utf-8"/>
+		<link href="http://js.city.sina.com.cn/s/g=dweibo_v2.0-sp1.css" rel="stylesheet" type="text/css" charset="utf-8" />
+		<style type="text/css">
+		/* Container */
+		#container{width:320px;}
+		#container .colist{float:left;width:125px;margin:10px;margin-bottom:0px;margin-right:0px;display:inline;background:#ddd;padding:10px;}
+		#container .colist img{width:125px;border:1px #eee solid;display:block;overflow:hidden;}
+		#container .colist div{padding-top:13px;}
+		#container .colist p{display:block;width:100%;line-height:20px;color:#666;overflow:hidden;font-size:12px;font-family:Arial, Helvetica, sans-serif;}
+		#container .colist p a{color:#666; text-decoration:none;}
+		#container .colist p a:hover{background:#fafafa;}
+		#container .colist p a.b{font-weight:bold;color:#000;}
+		.imglist{padding-top:50px;}
+		.wbzp{text-align:right;}
+		</style>
+		<script type="text/javascript" src="http://jiangsu.sinaimg.cn/z/js/jquery.masonry.min.js"></script>
+		<script type="text/javascript">
+			$(function(){
+				var $container = $('#container');
+				$container.imagesLoaded( function(){
+					$container.masonry({
+						itemSelector : '.colist'
+					});
+				});
+				$(".wbzf").click(function(){
+					options=
+					{
+						site_id:914,
+						uid:$(this).attr("uid"),
+						mid:$(this).attr("mid")
+					};
+					DFZ.APP.MblogForward.init(options);
+				});
+				$(".wbpl").click(function(){
+					options=
+					{
+						site_id:914,
+						uid:$(this).attr("uid"),
+						mid:$(this).attr("mid")
+					};
+					DFZ.APP.MblogComment.init(options);
+				});
+		  });
+		</script>
+		        <div id="container" class="clearfix">
+		
+				<div class="colist filtergray">
+					<a href="http://weibo.com/1686796290/z1kMOuGP6" target="_blank" title="my caption"><img src="http://ww2.sinaimg.cn/bmiddle/648a7802jw1dy1k1nqp3yj.jpg" /></a>
+					<div>
+					  <p><a href="http://weibo.com/u/1686796290" target="_blank" class="b">朱雷磊</a>:<a href="http://weibo.com/1686796290/z1kMOuGP6" target="_blank">现在居然30℃…</a></p>
+					  <p>2012-10-20 12:26:59</p>
+					  <p class="wbzp"><a href="javascript:void(0);" mid="z1kMOuGP6" uid="1686796290" class="wbzf">转发(1)</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="javascript:void(0);" mid="z1kMOuGP6" uid="1686796290" class="wbpl">评论(5)</a></p>
+					</div>
+				</div>
+		
+				<div class="colist filtergray">
+					<a href="http://weibo.com/1686796290/z1Gw5DP9P" target="_blank" title="my caption"><img src="http://ww2.sinaimg.cn/bmiddle/648a7802jw1dy47zb025rj.jpg" /></a>
+					<div>
+					  <p><a href="http://weibo.com/u/1686796290" target="_blank" class="b">朱雷磊</a>:<a href="http://weibo.com/1686796290/z1Gw5DP9P" target="_blank">好巨大一盘，小米椒爱上小公鸡，好文艺的名字…味道不错！</a></p>
+					  <p>2012-10-22 19:46:14</p>
+					  <p class="wbzp"><a href="javascript:void(0);" mid="z1Gw5DP9P" uid="1686796290" class="wbzf">转发(4)</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="javascript:void(0);" mid="z1Gw5DP9P" uid="1686796290" class="wbpl">评论(10)</a></p>
+					</div>
+				</div>
+		
+			</div>
+		<!--登录组件，请在最后加载-->
+		<script type="text/javascript" src="http://js.city.sina.com.cn/s/g=dialog_login_v1.1-sp1.js" charset="utf-8"></script>
+		<script type="text/javascript" src="http://i.sso.sina.com.cn/js/ssologin.js" charset="utf-8"></script>
+		<script type="text/javascript" src="http://i.sso.sina.com.cn/js/sinaSSOManager.js" charset="utf-8"></script>
+		<link type="text/css" href="http://js.city.sina.com.cn/s/g=dialog_login_v1.1-sp1.css" rel="stylesheet" media="all" charset="utf-8"/>
+		
+	</div>
+</div>
+</body>
+</html>

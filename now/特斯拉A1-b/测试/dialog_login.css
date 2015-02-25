@@ -1,0 +1,53 @@
+﻿.ui-autocomplete{position:absolute;cursor:default}* html .ui-autocomplete{width:1px}.ui-menu{list-style:none;padding:2px;margin:0;display:block;float:left}.ui-menu .ui-menu{margin-top: -3px}.ui-menu .ui-menu-item{margin:0;padding:0;zoom:1;float:left;clear:left;width:100%}.ui-menu .ui-menu-item
+a{text-decoration:none;display:block;padding:.2em .4em;line-height:1.5;zoom:1}.ui-menu .ui-menu-item a.ui-state-hover,
+.ui-menu .ui-menu-item a.ui-state-active{font-weight:normal;margin: -1px}.ui-widget-overlay{background:#000;opacity:0.4;filter:alpha(opacity=40);position:fixed;left:0;top:0;width:100%;height:100%}.ui-dialog{position:absolute;overflow:hidden}.ui-dialog-content{overflow:hidden}.ui-dialog-titlebar{cursor:move}.dfz-app-dialog{width:363px;padding:5px;font-size:12px;font:font-family:"宋体",Tahoma,Geneva,sans-serif;color:#000}.dfz-app-dialog
+textarea{border:1px
+solid #cecece;font-size:12px;font-family:"宋体",Tahoma,Geneva,sans-serif}.dfz-app-dialog ul,
+.dfz-app-dialog li,
+.dfz-app-dialog p,
+.dfz-app-dialog h3,
+.dfz-app-dialog
+fieldset{padding:0;margin:0;border:none}.dfz-app-dialog
+h3{font-size:14px;font-family:"黑体"}.dfz-app-dialog
+input{border:1px
+solid #cecece;height:18px;padding:0;margin:0;font-family:Tahoma,Geneva,sans-serif}.dfz-app-dialog .ui-button,
+.dfz-app-dialog .ui-dialog-titlebar-close,
+.dfz-app-dialog .ui-dialog-titlebar,
+.dfz-app-dialog .ui-dialog-titlebar .ui-dialog-title{background:url(http://ria.city.sina.com.cn/widget/trunk/images/dfz-app-dialog/bg-dfz-app-dialog.png) no-repeat}.dfz-app-dialog .ui-button{width:74px;height:21px;border:none;cursor:pointer}.dfz-app-dialog .dfz-app-dialog-button-submit{background-position:0 -35px}.dfz-app-dialog .dfz-app-dialog-button-cancel{background-position:0 -60px}.dfz-app-dialog .ui-dialog-titlebar-close{width:15px;height:14px;position:absolute;top:6px;right:6px;background-position:0 -90px;cursor:pointer}.dfz-app-dialog .ui-dialog-titlebar .ui-dialog-title{padding-left:38px;margin-left:5px;font-weight:bold;font-size:14px;line-height:28px;height:28px;padding-top:2px;display:block}.dfz-app-dialog .error-info{height:25px;line-height:25px;color:#f00}.dfz-app-dialog .ui-dialog-titlebar{position:absolute;width:361px;height:30px;border-width:1px 1px 0px;border-style:solid;border-color:#a0a0a0;z-index:1;left:5px;top:5px}.dfz-app-dialog .ui-dialog-content{position:absolute;width:341px !important;padding:0
+10px;left:5px;top:36px;background:#fff;border-width:0px 1px 1px;border-style:solid;border-color:#a0a0a0;z-index:1}.dfz-app-dialog .ui-dialog-buttonpane{position:absolute;width:361px !important;height:21px;z-index:2;left:6px}.dfz-app-dialog .dfz-app-dialog-bg{position:absolute;left:0;top:0;width:373px;background:#b90006;opacity:0.2;filter:alpha(opacity=20);-moz-border-radius:3px;z-index:0}.dfz-app-dialog .dfz-app-dialog-loading{position:absolute;background:#eee url(http://ria.city.sina.com.cn/widget/trunk/images/loading.gif) center center no-repeat;opacity:0.8;filter:alpha(opacity=80);z-index:9}.dfz-app-dialog .dfz-app-dialog-message{position:absolute;background:url(http://user.henan.sina.com.cn/images/user/widget/bg-tip.gif) no-repeat scroll 0 0 transparent;height:52px;margin-right:10px;overflow:visible;width:auto;z-index:11;display:none}.dfz-app-dialog .dfz-app-dialog-message
+.content{font-family:Arial;font-size:14px;font-weight:bold;height:32px;line-height:32px;padding:10px
+10px 10px 20px}.dfz-app-dialog .dfz-app-dialog-message
+.right{background:url(http://user.henan.sina.com.cn/images/user/widget/bg-tip.gif) no-repeat scroll right -52px transparent;height:52px;position:absolute;right:-10px;top:0;width:10px}.dfz-app-dialog .dfz-app-dialog-message.error{color:#f00 !important}.dfz-app-dialog .dfz-app-dialog-message.success{color:#090 !important}.dfz-app-dialog .dfz-app-dialog-message
+.text{float:left;color:#000;padding:0px
+0px 0px 15px;margin:0;white-space:nowrap;background:none;border:none;height:auto;width:auto}.dfz-app-dialog .dfz-app-dialog-message
+.icon{float:left}.dfz-app-dialog .dfz-app-dialog-message.error
+.icon{width:32px;height:32px;background:url(http://user.henan.sina.com.cn/images/user/widget/icon-failed.gif) no-repeat 0 0 scroll}.dfz-app-dialog .dfz-app-dialog-message.success
+.icon{width:32px;height:32px;background:url(http://user.henan.sina.com.cn/images/user/widget/icon-success.gif) no-repeat 0 0 scroll}.dfz-app-dialog .ui-dialog-titlebar{cursor:move}.dfz-app-dialog-add-friend{height:218px !important}.dfz-app-dialog-add-friend .dfz-app-dialog-bg{height:228px !important}.dfz-app-dialog-add-friend .ui-dialog-content{height:187px !important}.dfz-app-dialog-add-friend .ui-dialog-buttonpane{bottom:21px}.dfz-app-dialog-add-friend .dfz-app-dialog-button-submit{margin:0
+42px 0px 161px}.dfz-app-dialog-add-friend .ui-dialog-titlebar .ui-dialog-title{background-position:-332px -30px}.dfz-app-dialog-add-friend
+textarea{width:339px;height:91px;border:1px
+solid #cecece}.dfz-app-dialog-add-friend .tip-info{height:32px;line-height:32px}.dfz-app-dialog-add-friend .tip-info .req-user{color:#f00;padding:0
+5px}.dfz-app-dialog-add-friend .dfz-app-dialog-loading{width:363px;height:218px;left:5px;top:5px}.dfz-app-dialog-send-message{height:238px !important}.dfz-app-dialog-send-message .dfz-app-dialog-bg{height:248px !important}.dfz-app-dialog-send-message .ui-dialog-content{height:191px !important;padding-top:15px}.dfz-app-dialog-send-message .ui-dialog-buttonpane{bottom:17px}.dfz-app-dialog-send-message .dfz-app-dialog-button-submit{margin:0
+42px 0px 161px}.dfz-app-dialog-send-message .ui-dialog-titlebar .ui-dialog-title{background-position:-330px -60px;padding-left:39px}.dfz-app-dialog-send-message .dfz-app-dialog-loading{width:363px;height:238px;left:5px;top:5px}.dfz-app-dialog-send-message input,
+.dfz-app-dialog-send-message
+textarea{width:259px}.dfz-app-dialog-send-message
+input{height:20px;line-height:20px}.dfz-app-dialog-send-message
+textarea{height:82px}.dfz-app-dialog-send-message
+p{position:relative;width:259px;padding-left:56px;margin-bottom:17px}.dfz-app-dialog-send-message p.error-info{margin-top:-21px}.dfz-app-dialog-send-message p
+label{position:absolute;width:48px;padding-right:8px;height:20px;line-height:20px;left:0;top:0;text-align:right}.dfz-app-dialog-login{height:218px !important}.dfz-app-dialog-login .dfz-app-dialog-bg{height:228px !important}.dfz-app-dialog-login .ui-dialog-content{height:165px !important;width:246px !important;padding:22px
+71px 0px 44px}.dfz-app-dialog-login .ui-dialog-buttonpane{bottom:39px}.dfz-app-dialog-login .dfz-app-dialog-button-submit{margin:0
+42px 0px 100px}.dfz-app-dialog-login .ui-dialog-titlebar .ui-dialog-title{background-position:-331px -90px}.dfz-app-dialog-login .dfz-app-dialog-loading{width:363px;height:218px;left:5px;top:5px}.dfz-app-dialog-login
+p{height:20px;line-height:20px;padding:8px
+0px 7px;overflow:hidden;zoom:1}.dfz-app-dialog-login p.extra-info{padding-top:4px}.dfz-app-dialog-login p label,
+.dfz-app-dialog-login p input,
+.dfz-app-dialog-login p span,
+.dfz-app-dialog-login p
+a{float:left}.dfz-app-dialog-login p
+label{width:56px;font-size:14px;text-align:right}.dfz-app-dialog-login p
+input{width:188px}.dfz-app-dialog-login p input.check-login-state{width:13px;height:13px;margin:3px
+5px 0px 56px;border:0}.dfz-app-dialog-login p .text-login-state{margin-right:28px;white-space:nowrap}.dfz-app-dialog-login p
+a{color:#369;white-space:nowrap;text-decoration:underline}.dfz-app-dialog-confirm{height:158px !important}.dfz-app-dialog-confirm .dfz-app-dialog-bg{height:168px !important}.dfz-app-dialog-confirm .ui-dialog-content{height:123px !important;padding-top:3px;line-height:35px;text-align:center}.dfz-app-dialog-confirm .ui-dialog-buttonpane{bottom:31px}.dfz-app-dialog-confirm .dfz-app-dialog-button-submit{margin:0
+42px 0px 91px}.dfz-app-dialog-confirm .ui-dialog-titlebar .ui-dialog-title{background-position:-334px -119px;padding-left:27px}.dfz-app-dialog-confirm .dfz-app-dialog-loading{width:363px;height:218px;left:5px;top:5px}.dfz-app-dialog-add-mblog{height:218px !important}.dfz-app-dialog-add-mblog .dfz-app-dialog-bg{height:228px !important}.dfz-app-dialog-add-mblog .ui-dialog-content{height:187px !important}.dfz-app-dialog-add-mblog .ui-dialog-buttonpane{bottom:21px}.dfz-app-dialog-add-mblog .dfz-app-dialog-button-submit{margin:0
+42px 0px 161px}.dfz-app-dialog-add-mblog .ui-dialog-titlebar .ui-dialog-title{background-position:-332px -30px}.dfz-app-dialog-add-mblog
+textarea{width:339px;height:91px;border:1px
+solid #cecece}.dfz-app-dialog-add-mblog .tip-info{height:32px;line-height:32px}.dfz-app-dialog-add-mblog .tip-info .req-user{color:#f00;padding:0
+5px}.dfz-app-dialog-add-mblog .dfz-app-dialog-loading{width:363px;height:218px;left:5px;top:5px}

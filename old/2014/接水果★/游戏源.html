@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="GB2312">
+<meta http-equiv="cache-control" content="no-cache"/>
+<meta name="format-detection" content="telephone=no"/>
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0"> 
+<title>请在此插入网页标题</title>
+<meta name="keywords" content="请在此插入关键词" />
+<meta name="description" content="请在此写入一段页面描述" />
+<script src="http://i2.sinaimg.cn/cj/dfz/js/base.js" type="text/javascript"></script>
+<!-- 
+<script src="http://jiangsu.sinaimg.cn/js/jquery.transit.min.js"></script>
+ -->
+<style type="text/css">
+body, ul, ol, li, p, h1, h2, h3, h4, h5, h6, table, td, th, form, fieldset, img, dl, dt, dd { margin:0; padding:0; }
+textarea, input, select, body { font-size:20px; }
+select, input { vertical-align:middle; }
+fieldset, img { border:0; }
+ul, ol { list-style:none; }
+img { border:0; }
+a { text-decoration:none; color:#000; }
+a:hover { color:#ffa10d; }
+.fl { float:left; display:inline; }
+.fr { float:right; display:inline; }
+.cb { clear:both; display:block; height:0px; overflow:hidden; width:100%; }
+.clearfix:after { clear:both; content:""; display:block; height:0; }
+.abs{position: absolute;}
+</style>
+<!-- 自适应缩放css -->
+<style type="text/css">
+.swiper-container{ width: 640px; height:800px; background-color: #b7d860; -webkit-transform-origin: top left; position: relative; overflow: hidden;}
+</style>
+<!-- end 自适应缩放css -->
+<style type="text/css">
+#ui_disk{ top:750px; left:30px;  width: 140px; height: 30px; background-color: #c7a680; position: relative;
+-webkit-transform: translateZ(0);
+-moz-transform: translateZ(0);
+-ms-transform: translateZ(0);
+transform: translateZ(0);}
+.f_3,.f_1,.f_-1{ font-size: 40px; text-align: center; line-height: 60px; 
+-webkit-transform: translateZ(0);
+-moz-transform: translateZ(0);
+-ms-transform: translateZ(0);
+transform: translateZ(0);}
+/* 
+.f_3{ background-color: #ea9302;}
+.f_1{ background-color: #61cc20;}
+.f_-1{ background-color: #000000; color: #DDD}
+ */
+
+.f_3:AFTER{ content: url("3.png");position: absolute; left: -10px;top:-80px;}
+.f_1:AFTER{ content: url("1.png");position: absolute; left: -10px;top:10px;}
+.f_-1:AFTER{ content: url("-1.png"); margin-left: -10px;}
+#ui_disk:AFTER{ content: url("disk.png"); position: absolute; left: -10px;top:-20px;}
+
+.score_3,.score_1,.score_-1{ font-size: 40px; text-align: center; 
+-webkit-transform: translateZ(0);
+-moz-transform: translateZ(0);
+-ms-transform: translateZ(0);
+transform: translateZ(0);}
+.score_3{ color: #fd7c09;}
+.score_1{ color: #fd7c09;}
+.score_-1{ color: #231b1b;}
+</style>
+</head>
+<body>
+	<!-- 
+	* 说明：
+	* 页面 宽度 640 按宽度缩放
+	*
+	 -->
+	<div class="swiper-container">
+		<div id="ui_disk" class="abs"></div>
+		<input type="button" value="开始" onclick="gameStart()">
+		<input type="button" value="暂停" onclick="gamePause()">
+		<input type="button" value="重置" onclick="gameReset()">
+		<p>时间：<span id="ui_time">30</span></p>
+		<p>得分：<span id="ui_score">0</span></p>
+	</div>
+</body>
+
+<!-- page Auto scale -->
+<script type="text/javascript">
+	var r;
+	$(function() {
+		r = document.body.offsetWidth / 640;
+		$(".swiper-container").css("-webkit-transform", "scale(" + r + ")");
+		$("body").height( $(".swiper-container").height() * r );
+	});
+	$(window).resize(function() {
+		r = document.body.offsetWidth / 640;
+		$(".swiper-container").css("-webkit-transform", "scale(" + r + ")");
+		$("body").height( $(".swiper-container").height() * r );
+		
+	});
+	
+	
+	
+	
+	var continerDom = $(".swiper-container")[0];
+	var diskDom = $("#ui_disk");
+	var scoreDom = $("#ui_score");
+	var timeDom = $("#ui_time");
+	var GAMEWIDTH = 640;
+	var GAMEHEIGHT = 800;
+	var FPS = 60;
+	var fruitCount = 10000; //元素id
+	var frame = 0;
+	var score = 0;
+	var time = 30;
+	var pause = false;
+	var fruits = [];
+	var iFrame; //帧循环器
+	var iTime;  //游戏时间计时器
+	
+	var disk = {
+			x: 30,
+			y: 750,
+			width: 140,
+			height: 30,
+			update: function (x){
+						this.x = x;
+					}
+	};
+	
+	var t_f = [{score : 3, className: "f_3"},
+			   {score : 1, className: "f_1"},
+			   {score : -1,className: "f_-1"}]; 
+	
+	/* 游戏入口 */
+	function gameStart(){
+		gameReset();
+		timer();//计时器
+		/* 帧播放 */
+		iFrame = setInterval(function() {
+			frame++;
+			update();
+		}, 1000/FPS);
+	}
+	
+	function gamePause(){
+		pause = !pause;
+	}
+	
+	/* 游戏重置 */
+	function gameReset(){
+		fruitCount = 10000; //元素id
+		frame = 0;
+		score = 0;
+		time = 30;
+		pause = false;
+		fruits = [];
+		
+		clearInterval(iFrame); //帧停止
+		clearInterval(iTime);  //时间计时停止
+		//移除所有 f_ 开头的类元素
+		$("div:[class^=abs f_]").remove();
+	}
+	
+	/* 帧更新 */
+	function update() {
+		if(pause){return;}
+		handleFruitsAdd();
+		handleFruitsUpdate(); //水果位置更新
+		handleCollisions(); //碰撞检测
+	}
+	
+	function handleFruitsAdd() {
+		if(time<0){return;}
+		if(frame % Math.round(20*Math.random()+20) == 0){ // 生成水果
+			var r = Math.floor(Math.random()*3)//随机水果
+			var f = t_f[r];
+			fruits.push(fruit({
+				x: (GAMEWIDTH - 60) * Math.random(),
+				score : f.score,
+				className: f.className
+			}));
+			//console.info("Fruit pushed!");
+		}
+	}
+	
+	function handleFruitsUpdate() {
+		fruits.forEach(function(F) { //水果位置更新
+			F.isInited ? F.update() : F.init();
+		});
+	}
+	
+	function handleCollisions() {
+		fruits.forEach(function(F) {
+			if (collides(F, disk)) {
+				F.catched();
+			}
+		});
+	}
+	function collides(a, b) {
+		  return a.x < b.x + b.width &&
+		         a.x + a.width > b.x &&
+		         a.y < b.y + b.height &&
+		         a.y + a.height > b.y;
+	}
+	
+	
+	/* 时间 */
+	function timer() {
+		timeDom.html(time);
+		iTime = setInterval(function() {
+			if (pause) {
+				return;
+			}
+			time -= 0.1;
+			if(time <= 0){
+				timeDom.html("0.0");
+				clearInterval(iTime);
+				return;
+			}
+			timeDom.html(time.toFixed(1));
+		}, 100);
+	}
+	
+	
+
+	
+	//水果构造器
+	function fruit(F) {
+		//F.x = 60;
+		F.y = 80;
+		F.width = 60;
+		F.height = 60;
+		//F.score = 3;
+		F.v = -3.6;           //初速度
+		F.a = 1;            //加速度
+		F.frame = 34;       //起始帧
+		F.id = "fruit_"+fruitCount;
+		fruitCount++;
+		//F.className = "f_3"; 
+		F.isInited = false; //这个水果绘制了么？
+		
+		F.init = function() { //绘制水果
+			// 放入HTML
+			$("<div>",{
+		        "class": "abs "+this.className,
+		        "id": this.id,
+		        css:{
+		            "left": this.x,
+		            "top": this.y,
+		            "width": this.width,
+		            "height": this.height
+		        },
+		    }).appendTo(continerDom);
+			this.isInited = true;
+		}
+		F.update = function() {
+			this.frame++;
+			var t = this.frame/(1000/FPS);
+			F.y += (F.v + F.a*t)*t;
+			
+			var obj = $("#"+this.id);
+			obj.css("top",this.y);
+			
+			if(this.y >= 800){
+				F.out();
+			}
+		};
+		F.destory = function() {
+			$("#"+F.id).remove();
+			fruits.forEach(function(o,i) {
+				if(o.id === F.id){
+					fruits.splice(i,1);
+				}
+			});
+		}
+		F.catched = function() { //被接住
+			//console.log("Catched! " +this.score);
+			//销毁div
+			score += this.score; //分数计算
+			scoreDom.html(score);
+			
+			scoreBubble(this.x,this.y,this.score); // 分数气泡
+			 
+			this.destory();
+		};
+		F.out = function() { //跌出屏幕
+			//销毁div
+			this.destory();
+		};
+		
+		
+		return F;
+	}
+	
+	/* 分数气泡 */
+	function scoreBubble(x,y,score) {
+		var scoreText =  score>0 ? "+"+score : ""+score;
+		$("<div>",{
+	        "class": "abs score_"+score,
+	        "id": this.id,
+	        text: scoreText,
+	        css:{
+	            "left": x,
+	            "top": y
+	        }
+	    }).appendTo(continerDom).animate({top:y-100,opacity:0},1000,function(){$(this).remove()});
+	}
+
+	
+	//disk随鼠标移动
+	$(function() {
+		$(".swiper-container").bind("click mousemove touchstart touchmove", function(e) {
+			//e.preventDefault();
+			if (e.type === "touchmove") {
+				e.preventDefault();
+			}
+			
+			
+			if( e.type === "mousemove" | e.type === "click"){
+				var x = e.clientX / r;
+			}else{
+				var touch = event.targetTouches[0];  
+				var x = touch.pageX / r;
+			}
+			diskMove(x);
+		});
+	});
+		
+	
+	
+	function diskMove(x) {
+		var x = x - disk.width/2;
+		disk.update(x); //更新对象属性
+		diskDom.css("left",x); //dom位置更新 
+	}
+	
+</script>
+</html>

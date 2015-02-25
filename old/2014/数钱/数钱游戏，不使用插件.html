@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="GB2312">
+<meta http-equiv="Cache-Control" content="no-cache"/>
+<meta name="format-detection" content="telephone=no"/>
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0"> 
+<title>土豪来数钱</title>
+<meta name="keywords" content="土豪来数钱,游戏,数钱,钞票" />
+<meta name="description" content="土豪来数钱小游戏" />
+<script src="http://i2.sinaimg.cn/cj/dfz/js/base.js" type="text/javascript"></script>
+<script src="http://jiangsu.sinaimg.cn/js/jquery.transit.min.js"></script>
+
+<style type="text/css">
+body, ul, ol, li, p, h1, h2, h3, h4, h5, h6, table, td, th, form, fieldset, img, dl, dt, dd { margin:0; padding:0; }
+textarea, input, select, body { font-size:12px; }
+select, input { vertical-align:middle; }
+fieldset, img { border:0; }
+ul, ol { list-style:none; }
+img { border:0; }
+a { text-decoration:none; color:#000; }
+a:hover { color:#ffa10d; }
+.fl { float:left; display:inline; }
+.fr { float:right; display:inline; }
+.cb { clear:both; display:block; height:0px; overflow:hidden; width:100%; }
+.clearfix:after { clear:both; content:""; display:block; height:0; }
+</style>
+<style type="text/css">
+
+.page{
+	width: 100%;
+	overflow: hidden;
+	background-color: #fbefb5;
+	background-size: 100% auto;
+	background-repeat: no-repeat;
+	-webkit-user-select: none;
+	user-select: none;
+}
+
+.content{
+	width: 320px;
+	height: 480px;
+	position: relative;
+	margin: 0 auto;
+}
+
+#page1 {
+	background-image: url("http://jiangsu.sinaimg.cn/2014/0826/U9263P1194DT20140826160400.jpg");
+
+}
+#page2{
+	background-image: url("http://jiangsu.sinaimg.cn/2014/0826/U9263P1194DT20140826160401.gif");
+	background-color: #a6e3ef;
+}
+
+.money {
+	background-image: url("http://jiangsu.sinaimg.cn/2014/0826/U9263P1194DT20140826160358_1.png");
+	background-size: 100%;
+	width: 168px;
+	height: 338px;
+	position: absolute;
+	/* top: 228px; */
+	bottom: -135px;
+	left: 76px;
+	-webkit-transform: translateZ(0);
+	-moz-transform: translateZ(0);
+	-ms-transform: translateZ(0);
+	transform: translateZ(0);
+}
+
+#totalmoney {
+	width: 144px;
+	text-align: center;
+	height: 32px;
+	line-height: 32px;
+	color: #f8fe4a;
+	font-size: 24px;
+	margin: 0 auto;
+	margin-top: 29px;
+	text-shadow: 0 0px 1px rgba(0, 0, 0, 0.1), 0 0 5px
+		rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.3);
+	background-color: #85b6c0;
+	border-radius: 10px;
+	box-shadow: 1px 2px 2px #5e9eac;
+}
+#timerblock{
+	width: 105px;
+	text-align: center;
+	height: 32px;
+	line-height: 32px;
+	color: #FFF;
+	font-size: 22px;
+	margin: 0 auto;
+	margin-top: 72px;
+	text-shadow: 0 0px 1px rgba(0, 0, 0, 0.1), 0 0 5px
+		rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.3);
+	background-color: #85b6c0;
+	border-radius: 10px;
+	box-shadow: 1px 2px 2px #5e9eac;
+}
+
+#timer{
+	display: inline-block;
+	width: 30px;
+	text-align: right;
+}
+.warp{
+	width: 100%;
+	position: relative;
+	top: 0px;
+}
+.btn{
+	width: 85px;
+	height: 42px;
+	/* background-color: RGBA(0,255,255,0.5); */
+	cursor: pointer;
+	display: inline-block;
+}
+#startbtn{
+	margin-top: -14px;
+	text-align: center;
+}
+.h1{
+	text-align: center;
+	color: #FFF;
+	font-size: 36px;
+	margin-top: 38px;
+}
+#gamefinishblock{
+	width: 100%;
+	margin: 0 auto;
+	/* background-color: RGBA(0,112,136,0.9); */
+}
+#moneynum2{
+	position: absolute;
+	top: 30px;
+	left: 201px;
+	text-align: center;
+	color: #FFF;
+	width: 54px;
+	font-size: 18px;
+	z-index: 1001;
+}
+
+#page2,#page3{
+	display: none;
+}
+#page3{
+	position: absolute;
+	background: none;
+	top: 0;
+}
+
+body{
+	overflow: hidden;
+}
+
+</style>
+
+<!-- webkit 旋转 -->
+<style type="text/css">
+#dropmoney1{
+	-webkit-animation: rotate360 0.6s linear infinite ,position1 2s linear infinite ;
+}
+#dropmoney2{
+	-webkit-animation: rotate360 0.8s linear infinite ,position2 1.6s linear infinite ;
+}
+#dropmoney3{
+	-webkit-animation: rotate360 0.9s linear infinite ,position3 2.2s linear infinite ;
+}
+#dropmoney4{
+	-webkit-animation: rotate360 0.5s linear infinite ,position4 1.8s linear infinite ;
+}
+#dropmoney5{
+	-webkit-animation: rotate360 0.7s linear infinite ,position5 1.4s linear infinite ;
+}
+@-webkit-keyframes rotate360 { 
+from	{-webkit-transform:rotate(0deg);}
+to		{-webkit-transform:rotate(360deg);}
+}
+@-webkit-keyframes position1 { 
+from	{left: -20px; top:-80px;}
+to		{left: 80px; top: 800px;}
+}
+
+@-webkit-keyframes position2 { 
+from	{left: 50px; top:-80px;}
+to		{left: 2px; top: 800px;}
+}
+@-webkit-keyframes position3 { 
+from	{left: 150px; top:-80px;}
+to		{left: 180px; top: 800px;}
+}
+@-webkit-keyframes position4 { 
+from	{left: 240px; top:-80px;}
+to		{left: 280px; top: 800px;}
+}
+@-webkit-keyframes position5 { 
+from	{left: 320px; top:-80px;}
+to		{left: 300px; top: 800px;}
+}
+
+
+#tip{
+	-webkit-animation: tip 0.5s ease infinite alternate;
+	color: #cbeb96;
+	text-shadow: -1px 0px 2px #444;
+}
+@-webkit-keyframes tip { 
+from	{margin-top:220px;}
+to		{margin-top:210px;}
+}
+
+.dropmoney{
+	position: absolute;
+	top: -80px;
+	left: 0;
+	-webkit-transform: translateZ(0);
+	-moz-transform: translateZ(0);
+	-ms-transform: translateZ(0);
+	transform: translateZ(0);
+}
+</style>
+
+</head>
+<body ontouchstart='return false'>
+	<audio id="sound" style="display: none; width: 0;height: 0;">
+		<source src="http://jiangsu.sinaimg.cn/zt/s/1.mp3" type="audio/mpeg">
+		Your browser does not support the audio tag.
+	</audio>
+	<div id="page1" class="page">
+		<div class="content">
+			<div class="warp">
+				<div class="h1"><img alt="" src="http://jiangsu.sinaimg.cn/2014/0826/U9263P1194DT20140826160355.png" width="255"></div>
+			</div>
+			<div class="warp">
+				<div id="startbtn" onclick="page(2)" style="cursor: pointer;"><img alt="" src="http://jiangsu.sinaimg.cn/2014/0826/U9263P1194DT20140826160357.png" width="179"></div>
+			</div>
+		</div>
+	</div>
+	
+	<div id="page2" class="page">
+		<!-- 
+		<img class="dropmoney" id="dropmoney1" alt="" src="http://jiangsu.sinaimg.cn/2014/0827/U9263P1194DT20140827114050.png" width="113">
+		<img class="dropmoney" id="dropmoney2" alt="" src="http://jiangsu.sinaimg.cn/2014/0827/U9263P1194DT20140827114050.png" width="113">
+		<img class="dropmoney" id="dropmoney3" alt="" src="http://jiangsu.sinaimg.cn/2014/0827/U9263P1194DT20140827114050.png" width="113">
+		<img class="dropmoney" id="dropmoney4" alt="" src="http://jiangsu.sinaimg.cn/2014/0827/U9263P1194DT20140827114050.png" width="113">
+		<img class="dropmoney" id="dropmoney5" alt="" src="http://jiangsu.sinaimg.cn/2014/0827/U9263P1194DT20140827114050.png" width="113">
+		 -->
+		<div class="content">
+			<div style="position: absolute;top: 0;left: 0;z-index: 999; width: 100%;">
+				<div id="totalmoney">￥<span id="moneynum">0</span></div>
+			</div>
+			<div style="position: absolute;top: 0;left: 0;z-index: 999; width: 100%;">
+				<div id="timerblock"><img alt="" src="http://s3img.city.sina.com.cn/activity/common/large/427cf6c36f5b7d94139df8a036e30d4f.png" width="20" style="margin:0 0 -2px 0;"><span id="timer">30</span>"</div>
+			</div>
+			<div id="tip" style="position: absolute;top: 0;left: 0;z-index: 999; width: 100%; text-align: center;margin-top: 212px;">
+				<img alt="" src="http://s3img.city.sina.com.cn/activity/common/large/ff734145cf3a6785dbcabe58fd4c1689.png" width="20" style="width: 34px; height: 14px;"><p>向上滑动</p>
+			</div>
+			
+			<div class="money" id="m5"></div>
+			<div class="money" id="m4"></div> 
+			<div class="money" id="m3"></div>
+			<div class="money" id="m2"></div>
+			<div class="money" id="m1"></div>
+		</div>
+		
+	</div>
+	
+	<div id="page3" class="page">
+		<!-- 分享到朋友圈 -->
+		<style>
+			.fenxiang { z-index:99999; text-align: center; padding-top: 25px; width:100%; background:RGBA(0,0,0,0.5) url("http://jiangsu.sinaimg.cn/zt/s/2014qixi/qixi/7.png") no-repeat 94% 0; background-size: 40px auto; color: #FFF; font-size: 20px; height: 50px; position: fixed; top: 0; display: none; }
+		</style>
+		<div class="fenxiang">分享到<span class="red">朋友圈</span></div>
+		<script type="text/javascript">
+			$(".fenxiang").live("touchstart", function() { $(this).fadeOut(300); });
+		</script>
+		<!-- end 分享到朋友圈 -->
+		<div id="gamefinishblock">
+			<div style="margin: 0 auto; position: relative; width: 320px;">
+				<img alt="" src="http://jiangsu.sinaimg.cn/2014/0826/U9263P1194DT20140826160358.png" width="320px;" style="display: block; position:absolute; z-index: 1000;">
+				<div id="moneynum2"></div>
+				<div style="position: absolute; text-align: center; top: 123px; width: 100%; z-index: 1001;">
+					<div id="subscribe" class="btn" onclick=""></div>
+					<div id="replay" class="btn" onclick="resetgame()"></div>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+
+<script type="text/javascript">
+    var gameon = false;
+  	$(".money").each( function( index ) {
+  		var obj = $(this);
+  		
+		obj.bind("touchstart", function(e) {
+			/* 当按下鼠标时，鼠标相对于DOM的位置固定不变 如下： */
+			var mtop = e.originalEvent.changedTouches[0].clientY - obj.offset().top;
+			
+			obj.bind({"touchmove": function(e) {
+				var top = e.originalEvent.changedTouches[0].clientY - mtop;   
+				
+				//console.log(e.originalEvent.changedTouches);
+				//clientY = e.originalEvent.changedTouches[0].clientY;
+				$(this).css("top", top);
+			},"touchend": function() {
+				obj.unbind('touchmove').unbind('touchend');
+			}}
+			
+			);
+			
+			
+		});
+		
+		
+	});
+  	 
+	var moneynum = 0;
+	function moneyPlus() {
+		moneynum +=100;
+  		document.getElementById("moneynum").innerHTML = moneynum;
+	}
+	
+	function getMoneyNum() {
+		return parseInt(document.getElementById("moneynum").innerHTML);
+	}
+	function setMoneyNum(num) {
+		document.getElementById("moneynum").innerHTML = num.toFixed(0);
+	}	
+  	
+  	 
+    </script>
+    
+    <!-- 微信分享js -->
+	<script type="text/javascript">
+	var dataForWeixin = {
+			appId : "",
+			title : "土豪来数钱",
+			TLImg : "http://s3img.city.sina.com.cn/activity/common/large/0c69510be93735b345096ff78bde3e0f.jpg",
+			desc : "我勒个去，听说比数钱免费住五星级大酒店，手抽筋也要来比一比呀！",
+			url : "http://jiangsu.sina.com.cn/zt/s/TuhaoCounttheMoney_H5.html", //请填写分享出去的URL
+			TLTitle: "我勒个去，听说比数钱免费住五星级大酒店，手抽筋也要来比一比呀！" //朋友圈文字
+		};
+	
+		var onBridgeReady = function() {
+			
+			//发送给朋友、群组
+			WeixinJSBridge.on('menu:share:appmessage', function(argv) {
+				WeixinJSBridge.invoke('sendAppMessage', {
+					"appid" : dataForWeixin.appId,
+					"img_url" : dataForWeixin.TLImg, //图片
+					"title" : dataForWeixin.title, //标题
+					"desc" : dataForWeixin.desc, //分享内容
+					"link" : dataForWeixin.url,
+				},function(){
+					//alert("发送给朋友回调()");
+					//location.href = "http://www.baidu.com";
+				});
+			});
+			
+			//分享到朋友圈
+			WeixinJSBridge.on('menu:share:timeline', function(argv) {
+				WeixinJSBridge.invoke('shareTimeline', {
+					"appid" : dataForWeixin.appId,
+					"title" : dataForWeixin.TLTitle, //描述文字
+					"img_url" : dataForWeixin.TLImg, //图片
+					"link" : dataForWeixin.url,
+					"desc" : dataForWeixin.desc, //无用！必须存在！分享内容
+				}, function (){
+					//alert("分享到朋友圈回调()");
+					
+				});
+			});
+	
+		};
+	
+		if (document.addEventListener) {
+			document.addEventListener('WeixinJSBridgeReady', onBridgeReady, false);
+		} else if (document.attachEvent) {
+			document.attachEvent('WeixinJSBridgeReady', onBridgeReady);
+			document.attachEvent('onWeixinJSBridgeReady', onBridgeReady);
+		}
+	</script>
+    
+    
+    
+    <script type="text/javascript">
+    var t;
+    var pause = false; //暂停 boolean
+    
+    /* 计时器 */
+    function timer() {
+    	var time = 30;
+    	document.getElementById("timer").innerHTML = time.toFixed(0);
+    	
+    	t = setInterval(function() {
+    		if (pause) {
+    			return;
+    		}
+    		time -= 0.1;
+    		if(time <= 0){
+    			document.getElementById("timer").innerHTML = "0";
+    			gamefinish(); //游戏结束
+    			return;
+    		}
+    		document.getElementById("timer").innerHTML = time.toFixed(0);
+    	}, 100);
+    	
+    }
+    
+       
+    /* 页面切换 */
+    function page(num) {
+    	$("#page"+num).show();
+    	$(".page:not(#page"+num+")").hide();
+    	/* 
+    	if(num == 2){
+    		gamestart();	
+    	}
+    	 */
+	}
+	
+	/* 游戏开始 */
+    function gamestart() {
+    	timer();//计时器
+    	$("#tip").hide();
+    	
+	}
+    
+	/* 游戏结束 */
+    function gamefinish(){
+    	clearInterval(t);
+    	//alert("游戏结束!\n获得￥"+getMoneyNum());
+    	//微信设置
+    	dataForWeixin.TLTitle = '我30秒内数了'+getMoneyNum()+'元钞票，豪华五星级大酒店随我挑！';
+    	dataForWeixin.desc = '我30秒内数了'+getMoneyNum()+'元钞票，豪华五星级大酒店随我挑！';
+    	
+    	//显示第三页
+    	$(".fenxiang").show();
+    	$("#gamefinishblock").css("margin-top", ($(window).height() - 215)/2);
+    	$("#moneynum2").html(getMoneyNum());
+    	$("#page3").fadeIn();
+    	
+    	//第三页增加按钮响应
+    	setTimeout(function() {
+    		$("#subscribe").live("touchend",function(){
+    			
+    		});
+    		$("#replay").live("touchend",function(){
+    			resetgame();
+    		});
+		}, 1500);
+    	/* 
+		//切换到第三页
+		page(3);
+		//alert("厉害～您闯过了"+level+"关！");
+		$.JSONP('http://act.city.sina.com.cn/interface/activity/json_add_signup.php',{act_id:6886,custom_1:(level-1)},function(bm){});
+		 */
+    }
+	
+	/* 游戏重置 */
+	function resetgame() {
+		moneynum = 0;
+		gameon = false;
+		setMoneyNum(moneynum);
+		$("#tip").show();
+		dataForWeixin.TLTitle = "我勒个去，听说比数钱免费住五星级大酒店，手抽筋也要来比一比呀！";
+    	dataForWeixin.desc = "我勒个去，听说比数钱免费住五星级大酒店，手抽筋也要来比一比呀！";
+		page(1);
+	}
+    </script>
+
+	<!-- 纸币飘动效果 -->
+	<!-- <script type="text/javascript">
+	$(".dropmoney").each(function() {
+		var obj = $(this);
+		
+		var rotateTime = 1 + Math.random(); //旋转一次所需时间
+		var minX = 0;
+		var maxX = $(window).width() - obj.width();
+		var minY = 0 - obj.height();
+		var maxY = $(window).height();
+		
+		///
+		minY = -10;
+		////
+		
+		randomXstart = (maxX-minX) * Math.random();
+		randomXend = randomXstart + 20*(0.5-Math.random());
+		//alert(randomXstart+" "+randomXend);
+		/* 
+		obj.transition({x : randomXstart, y : minY }, 0, function() { //先放页面以上
+			console.log( randomXstart +","+minY+","+randomXend+","+maxY);
+			obj.transition( { x : randomXend, y: maxY },3000);
+		}); */
+		
+		//TODO
+		//用jquery的animate
+		//一下请重制
+		
+		
+		/* 
+		obj.transition({ x: '90px' },8000);
+		*/
+		/*
+		obj.css("left",randomXstart);
+		obj.css("top",minY);
+		
+		var n = 0;
+		var t = setInterval(function () {
+			obj.css("left",randomXstart+n);
+			obj.css("top",minY+n);
+			n++;
+		}, 16);
+		 */
+		
+	});
+	</script> -->
+
+    <script type="text/javascript">
+	$("body").height($(window).height());
+	$(".page").height($(window).height());
+	//$(".content").height($(window).height());
+    </script>
+    <script type="text/javascript">
+    (function() {
+		$("#startbtn").live("touchstart",function(){
+			page(2);
+		});
+		
+	})();
+    </script>
+</html>

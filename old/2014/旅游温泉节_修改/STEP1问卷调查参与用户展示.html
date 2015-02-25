@@ -1,0 +1,68 @@
+<style>
+ <!--
+#wenjuandaren{ font-family: "microsoft yahei"; color: #000;}
+#demo {overflow: hidden;  margin: 10px 0;}
+#indemo {float: left;width: 800%;}
+#demo1 {float: left;}
+#demo2 {float: left;}
+-->
+
+#demo1 { overflow: hidden; }
+#demo1 .card,#demo2 .card{ float: left; margin-right: 10px;  text-align: center;}
+#demo1 .card .uico,#demo2 .card .uico{ width: 75px;height: 75px;border-radius: 50%;border: 3px solid rgba(136,136,136,.39);}
+#demo1 .card .text,#demo2 .card .text{ font-size: 14px;line-height: 1.6em;font-weight: normal;}
+
+</style>
+<div id="wenjuandaren">
+
+				<div id="demo">
+					<div id="indemo">
+						<div id="demo1">
+						
+						</div>
+					<div id="demo2"></div>
+					</div>
+				</div>
+</div>
+<script>
+$(function() {
+	//获取20个参与用户
+	$.JSONP('http://act.city.sina.com.cn/interface/activity/json_get_user_works.php',{act_id:9530,pcount:20,order:'time'},function(json){
+		var html = "";
+		for(var i=0; i<json.data.length; i++){
+			var id = json.data[i].id;
+			var uid = json.data[i].user_id;
+			var user_nick = json.data[i].user_nick;
+			var vote_count = json.data[i].vote_count;
+			var jinqu = json.data[i].form_data.custom_25.value;
+			html += '<div class="card">';
+			//html += '<img class="margin0a" src="http://s3img.city.sina.com.cn/activity/common/large/0ec744129cdb65fc47653be8ff7ed192.png">';
+			html += '<img class="uico" src="http://tp1.sinaimg.cn/' + uid +'/180/0"><br/>';
+			html += '<div class="text">' + user_nick + '</div>';
+			html += '</div>';
+		}
+		document.getElementById("demo1").innerHTML = html;
+		
+		
+		var speed=50;
+		var tab=document.getElementById("demo");
+		var tab1=document.getElementById("demo1");
+		var tab2=document.getElementById("demo2");
+		tab2.innerHTML = tab1.innerHTML;
+		function Marquee() {
+			if (tab2.offsetWidth - tab.scrollLeft <= 0)
+				tab.scrollLeft -= tab1.offsetWidth
+			else {
+				tab.scrollLeft++;
+			}
+		}
+		var MyMar = setInterval(Marquee, speed);
+		tab.onmouseover = function() {
+			clearInterval(MyMar)
+		};
+		tab.onmouseout = function() {
+			MyMar = setInterval(Marquee, speed)
+		};
+	});
+});
+</script>

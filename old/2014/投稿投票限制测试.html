@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="GB2312">
+<meta http-equiv="X-UA-Compatible" content="IE=8" />
+<title>请在此插入网页标题</title>
+<script src="http://i2.sinaimg.cn/cj/dfz/js/base.js" type="text/javascript"></script>
+<style type="text/css">
+body, ul, ol, li, p, h1, h2, h3, h4, h5, h6, table, td, th, form, fieldset, img, dl, dt, dd { margin:0; padding:0; }
+textarea, input, select, body { font-size:12px; }
+select, input { vertical-align:middle; }
+fieldset, img { border:0; }
+ul, ol { list-style:none; }
+img { border:0; }
+a { text-decoration:none; color:#000; }
+a:hover { color:#ffa10d; }
+.fl { float:left; display:inline; }
+.fr { float:right; display:inline; }
+.cb { clear:both; display:block; height:0px; overflow:hidden; width:100%; }
+.clearfix:after { clear:both; content:""; display:block; height:0; }
+</style>
+</head>
+<body>
+<h1>投稿投票限制</h1>
+<hr>
+<h3>说明：全页面1分钟1票，1个作品5分钟1票。</h3>
+<hr>
+<div id="worklist">
+</div>
+<div id="page"></div>
+<!-- 获取作品信息 -->
+<script src="http://i2.sinaimg.cn/cj/dfz/js/base.js" type="text/javascript"></script>
+<script type="text/javascript">
+
+
+function ajaxMess(p){
+	var act_id = 6189;
+	var pcount = 10;
+	$.JSONP('http://act.city.sina.com.cn/interface/activity/json_get_user_works.php',{act_id:act_id,p:p,pcount:pcount,order:'time'},function(json){
+		//addBy NorthWind 20140701
+		if(json.error!=0){
+                	console.log("错误的请求："+json.error+" "+json.errmsg);
+                	return;
+                }
+		//end addBy NorthWind 20140701
+	
+		var html = "";
+		
+	for (var i = 0; i < json.data.length; i++) {
+			var data = json.data[i];
+			//请在这里下一行生成单个元素的完整HTML
+		
+			html += '<h3>作品id:' + data.id + '</h3>'
+			+ '<h4>得票数'+data.vote_count+'</h4>'
+			+ '作者姓名：' + data.other_data.form_value.name
+			+ '<br/>内容：'
+			+ data.other_data.form_value.custom_1
+			+ '<br/><input class="votebtn" type="button" sid="' + data.id +'" value="投票"/>';
+		
+		}
+	$('#worklist').html(html);
+	/* 页码 */
+	var numCount = json.count; //作品总数
+	var pageCount = Math.ceil(parseInt(numCount)
+			/ pcount); //总页数
+	var htmlPage = '';
+	if (pageCount > 1) {
+		for (var k = 1; k <= pageCount; k++) {
+			if (k == p) {
+				htmlPage += '<a href="javascript:;" page="'+k+'" class="cur">'
+						+ k + '</a>'; //当前页码
+			} else {
+				htmlPage += '<a href="javascript:;" page="'+k+'">'
+						+ k + '</a>'; //非当前页码
+			}
+		}
+	}
+	$('#page').html(htmlPage);
+	
+	
+	});
+}
+
+	//初始加载
+	$(function() {
+		ajaxMess(1);
+	})
+	
+	$(function(){
+		$(".votebtn").live("click",function(){
+			/* 开始投票 */
+			/* 实际是投稿，后台通过触发器进行二次投票 */
+			var sid = $(this).attr("sid");
+			console.log("正在向" + sid + "作品投票");
+			
+			/* 微博报名 */
+			
+		    //投票信息
+		    $.JSONP('http://act.city.sina.com.cn/interface/activity/json_add_signup.php',{
+		    		act_id : 6191, //活动id
+		    		custom_1 : sid  //参数
+		    	}, function(bm) { //返回结果
+		    		if (bm.error == 0) {
+		    			alert("投票成功！");
+		    		} else {
+		    			alert(bm.errmsg);
+		    		}
+			});
+			
+			
+		});
+	})
+</script>
+
+
+</body>
+</html>

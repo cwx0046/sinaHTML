@@ -1,0 +1,89 @@
+body{
+	background: #000;
+}
+.content{ width: 320px; width: 100%; } 
+
+#partCardGame{
+	position: relative;
+	width: 100%;
+	height: 500px;
+	background: url("http://s3img.city.sina.com.cn/activity/common/large/05138347472364a46edc03d67e21f08c.jpg") no-repeat;
+}
+#gameblock{
+	margin: 0 auto;
+	position: relative;
+}
+
+#gameul{
+	width: 304px;
+	margin: 0 auto;
+}
+#gamehover{
+	font-family: "microsoft yahei";
+	text-align: center;
+	position: absolute;
+	z-index: 2;
+	width: 100%;
+	display: none;
+}
+
+#gamehover p {
+	font-family: "KaiTi";
+	font-size: 28px;
+	font-weight: bold;
+	color: #f67a00;
+	line-height: 42px;
+	margin: 20px 0;
+}
+
+.btn{ width: 106px;
+	height: 36px;
+	line-height: 36xp;
+	font-size: 14px;
+	color: #FFF;
+	background: url("http://jiangsu.sinaimg.cn/2014/0804/U9263P1194DT20140804095834.png");
+	border: none;
+	cursor: pointer;
+}
+
+.card {
+	overflow: hidden;
+	border: 1px solid transparent;
+	width: 70px;
+	height: 70px;
+	background-color: #00F;
+	float: left;
+	margin: 2px;
+	background: url("http://s3img.city.sina.com.cn/activity/common/large/7d3f48533a5699d67858f64e23d1cce4.jpg") no-repeat center;
+	cursor: pointer;
+}
+.card:hover{
+	border: 1px solid #86aeef ;
+}
+	
+.card img{
+	display: none;
+	width: 70px;
+}
+
+#gametitle, #gametext{
+	color: #FFF;
+	font-family: "microsoft yahei";
+	font-size: 35px;
+	font-weight: bold;
+	text-align: center;
+}
+#gametext{
+	font-weight: normal;
+	font-size: 16px;
+	line-height: 28px;
+	text-indent: 2em;
+	text-align: left;
+}
+
+#step {
+	font-size: 30px;
+	color: #FFF;
+	text-align: center;
+	font-weight: bold;
+}

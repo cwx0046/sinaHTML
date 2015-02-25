@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="GB2312">
+<meta http-equiv="X-UA-Compatible" content="IE=8" />
+<title>请在此插入网页标题</title>
+<meta name="keywords" content="请在此插入关键词" />
+<meta name="description" content="请在此写入一段页面描述" />
+<script src="http://i2.sinaimg.cn/cj/dfz/js/base.js" type="text/javascript"></script>
+<style type="text/css">
+body, ul, ol, li, p, h1, h2, h3, h4, h5, h6, table, td, th, form, fieldset, img, dl, dt, dd { margin:0; padding:0; }
+textarea, input, select, body { font-size:12px; }
+select, input { vertical-align:middle; }
+fieldset, img { border:0; }
+ul, ol { list-style:none; }
+img { border:0; }
+a { text-decoration:none; color:#000; }
+a:hover { color:#ffa10d; }
+.fl { float:left; display:inline; }
+.fr { float:right; display:inline; }
+.cb { clear:both; display:block; height:0px; overflow:hidden; width:100%; }
+.clearfix:after { clear:both; content:""; display:block; height:0; }
+</style>
+<style type="text/css">
+.headimg{ min-width: 1000px; height: 400px; background: url("http://hubei.sinaimg.cn/2014/0721/S122974T1405906828814.jpg") no-repeat center top; }
+.content{ width: 1000px; height:400px; margin: 0 auto; position: relative;} 
+</style>
+<style type="text/css">
+::selection{ background-color: #f2b42f;}
+.activity{ background:url("http://jiangsu.sinaimg.cn/2014/0905/U11392P1194DT20140905024843.jpg") repeat-x center bottom #f2b42f; width:100%; padding-top:30px; padding-bottom:40px;}
+.tit{ text-align:center;}
+.abs{ position: absolute;}
+.activity .wrap { width:1000px; margin:0 auto; position: relative; height: 600px;}
+.activity .pageSwitch{ z-index:2; top: 288px; width:50px; height:114px; cursor:pointer; background-image: url("http://jiangsu.sinaimg.cn/2014/1015/U9263P1194DT20141015171209.png"); }
+.activity .pageSwitch.pageLast{ left:-58px; }
+.activity .pageSwitch.pageNext { left: 959px; background-position: 50px 0px; }
+.activity .pageSwitch.pageLast:HOVER{ background-position: 0px 114px; }
+.activity .pageSwitch.pageNext:HOVER{ background-position: 50px 114px; }
+
+.activityBox{ margin-top:40px; height:400px; position: relative; background-color: #F00; overflow-y: scroll;  }
+.activityBox li{background:url("http://jiangsu.sinaimg.cn/2014/1015/U9263P1194DT20141015164154.png") no-repeat center 0; width:170px; height:223px; float:left; margin:0 10px 20px 10px; position:relative;}
+.activityBox .txt{ width:122px; height:40px; font-size:12px; line-height:20px;margin: 42px 0 12px 25px; overflow: hidden;}
+.activityBox .voteNum { width: 52px; height: 27px; line-height: 27px; text-align: center; top: 94px; left: 31px; }
+.activityBox .voteButton { width: 71px; height: 27px; top: 94px; left: 85px; cursor: pointer; }
+.activityBox .floReason {  width: 122px; height: 64px; top: 149px; left: 21px; color: #dc2425; line-height: 16px; overflow: hidden; }
+
+</style>
+</head>
+<body>
+	<div class="headimg"></div>
+	<div id="p1" class="activity">
+		<div class="content wrap" id="box1">
+			<div class="tit"><img src="http://jiangsu.sinaimg.cn/2014/1015/U9263P1194DT20141015164155.png" /></div>
+			<div class="activityBox" >
+				<!-- 
+				<ul class="clearfix">
+					<li><div class="txt">绝佳的地理位置造就了江苏</div><div class="abs voteNum" id="1111">1234</div><div class="abs voteButton" onclick="voteTo(1111)"></div><div class="abs floReason">绝佳的地理位置造就了江苏苏苏苏苏苏苏苏苏苏苏苏苏苏苏苏苏苏苏苏苏苏苏苏苏</div></li>
+					<li><div class="txt">绝佳的地理位置造就了江苏</div><div class="abs voteNum" id="1111">1234</div><div class="abs voteButton" onclick="voteTo(1111)"></div><div class="abs floReason">绝佳的地理位置造就了江苏苏苏苏苏苏苏苏苏苏苏苏苏苏苏苏苏苏苏苏苏苏苏苏苏</div></li>
+					<li><div class="txt">绝佳的地理位置造就了江苏</div><div class="abs voteNum" id="1111">1234</div><div class="abs voteButton" onclick="voteTo(1111)"></div><div class="abs floReason">绝佳的地理位置造就了江苏苏苏苏苏苏苏苏苏苏苏苏苏苏苏苏苏苏苏苏苏苏苏苏苏</div></li>
+					<li><div class="txt">绝佳的地理位置造就了江苏</div><div class="abs voteNum" id="1111">1234</div><div class="abs voteButton" onclick="voteTo(1111)"></div><div class="abs floReason">绝佳的地理位置造就了江苏苏苏苏苏苏苏苏苏苏苏苏苏苏苏苏苏苏苏苏苏苏苏苏苏</div></li>
+					<li><div class="txt">绝佳的地理位置造就了江苏</div><div class="abs voteNum" id="1111">1234</div><div class="abs voteButton" onclick="voteTo(1111)"></div><div class="abs floReason">绝佳的地理位置造就了江苏苏苏苏苏苏苏苏苏苏苏苏苏苏苏苏苏苏苏苏苏苏苏苏苏</div></li>
+					<li><div class="txt">绝佳的地理位置造就了江苏</div><div class="abs voteNum" id="1111">1234</div><div class="abs voteButton" onclick="voteTo(1111)"></div><div class="abs floReason">绝佳的地理位置造就了江苏苏苏苏苏苏苏苏苏苏苏苏苏苏苏苏苏苏苏苏苏苏苏苏苏</div></li>
+					<li><div class="txt">绝佳的地理位置造就了江苏</div><div class="abs voteNum" id="1111">1234</div><div class="abs voteButton" onclick="voteTo(1111)"></div><div class="abs floReason">绝佳的地理位置造就了江苏苏苏苏苏苏苏苏苏苏苏苏苏苏苏苏苏苏苏苏苏苏苏苏苏</div></li>
+					<li><div class="txt">绝佳的地理位置造就了江苏</div><div class="abs voteNum" id="1111">1234</div><div class="abs voteButton" onclick="voteTo(1111)"></div><div class="abs floReason">绝佳的地理位置造就了江苏苏苏苏苏苏苏苏苏苏苏苏苏苏苏苏苏苏苏苏苏苏苏苏苏</div></li>
+					<li><div class="txt">绝佳的地理位置造就了江苏</div><div class="abs voteNum" id="1111">1234</div><div class="abs voteButton" onclick="voteTo(1111)"></div><div class="abs floReason">绝佳的地理位置造就了江苏苏苏苏苏苏苏苏苏苏苏苏苏苏苏苏苏苏苏苏苏苏苏苏苏</div></li>
+					<li><div class="txt">绝佳的地理位置造就了江苏</div><div class="abs voteNum" id="1111">1234</div><div class="abs voteButton" onclick="voteTo(1111)"></div><div class="abs floReason">绝佳的地理位置造就了江苏苏苏苏苏苏苏苏苏苏苏苏苏苏苏苏苏苏苏苏苏苏苏苏苏</div></li>
+			    </ul>
+				<ul class="clearfix">
+					<li><div class="txt">绝佳的地理位置造就了江苏</div><div class="abs voteNum" id="1111">1234</div><div class="abs voteButton" onclick="voteTo(1111)"></div><div class="abs floReason">绝佳的地理位置造就了江苏苏苏苏苏苏苏苏苏苏苏苏苏苏苏苏苏苏苏苏苏苏苏苏苏</div></li>
+					<li><div class="txt">绝佳的地理位置造就了江苏</div><div class="abs voteNum" id="1111">1234</div><div class="abs voteButton" onclick="voteTo(1111)"></div><div class="abs floReason">绝佳的地理位置造就了江苏苏苏苏苏苏苏苏苏苏苏苏苏苏苏苏苏苏苏苏苏苏苏苏苏</div></li>
+					<li><div class="txt">绝佳的地理位置造就了江苏</div><div class="abs voteNum" id="1111">1234</div><div class="abs voteButton" onclick="voteTo(1111)"></div><div class="abs floReason">绝佳的地理位置造就了江苏苏苏苏苏苏苏苏苏苏苏苏苏苏苏苏苏苏苏苏苏苏苏苏苏</div></li>
+					<li><div class="txt">绝佳的地理位置造就了江苏</div><div class="abs voteNum" id="1111">1234</div><div class="abs voteButton" onclick="voteTo(1111)"></div><div class="abs floReason">绝佳的地理位置造就了江苏苏苏苏苏苏苏苏苏苏苏苏苏苏苏苏苏苏苏苏苏苏苏苏苏</div></li>
+					<li><div class="txt">绝佳的地理位置造就了江苏</div><div class="abs voteNum" id="1111">1234</div><div class="abs voteButton" onclick="voteTo(1111)"></div><div class="abs floReason">绝佳的地理位置造就了江苏苏苏苏苏苏苏苏苏苏苏苏苏苏苏苏苏苏苏苏苏苏苏苏苏</div></li>
+					<li><div class="txt">绝佳的地理位置造就了江苏</div><div class="abs voteNum" id="1111">1234</div><div class="abs voteButton" onclick="voteTo(1111)"></div><div class="abs floReason">绝佳的地理位置造就了江苏苏苏苏苏苏苏苏苏苏苏苏苏苏苏苏苏苏苏苏苏苏苏苏苏</div></li>
+					<li><div class="txt">绝佳的地理位置造就了江苏</div><div class="abs voteNum" id="1111">1234</div><div class="abs voteButton" onclick="voteTo(1111)"></div><div class="abs floReason">绝佳的地理位置造就了江苏苏苏苏苏苏苏苏苏苏苏苏苏苏苏苏苏苏苏苏苏苏苏苏苏</div></li>
+					<li><div class="txt">绝佳的地理位置造就了江苏</div><div class="abs voteNum" id="1111">1234</div><div class="abs voteButton" onclick="voteTo(1111)"></div><div class="abs floReason">绝佳的地理位置造就了江苏苏苏苏苏苏苏苏苏苏苏苏苏苏苏苏苏苏苏苏苏苏苏苏苏</div></li>
+					<li><div class="txt">绝佳的地理位置造就了江苏</div><div class="abs voteNum" id="1111">1234</div><div class="abs voteButton" onclick="voteTo(1111)"></div><div class="abs floReason">绝佳的地理位置造就了江苏苏苏苏苏苏苏苏苏苏苏苏苏苏苏苏苏苏苏苏苏苏苏苏苏</div></li>
+					<li><div class="txt">绝佳的地理位置造就了江苏</div><div class="abs voteNum" id="1111">1234</div><div class="abs voteButton" onclick="voteTo(1111)"></div><div class="abs floReason">绝佳的地理位置造就了江苏苏苏苏苏苏苏苏苏苏苏苏苏苏苏苏苏苏苏苏苏苏苏苏苏</div></li>
+			    </ul>
+			     -->
+			</div>
+		</div>
+	</div>
+	<div id="p2">
+		<div class="content"></div>
+	</div>
+
+</body>
+
+<!-- 滚动懒惰加载  js -->
+<script type="text/javascript">
+$.fn.scrollLazyLoad = function(options, callback) {
+	var defaults = {
+		referenceDom : $(this).parent(),
+		preOffset : 0
+	};
+	var param = $.extend({}, defaults, options);
+	
+	$(this).each(function(index) {
+		var obj = $(this);
+		var needEvent = true;
+		handleScrollEvent(); //先进行一次判断
+		function handleScrollEvent() {
+			var objTop = obj.position().top;
+			if (objTop + obj.height() + param.preOffset <= param.referenceDom.height()) {
+				param.referenceDom.unbind(); //撤销事件绑定
+				callback.call();// handle trigger event;
+				needEvent = false;
+			}
+		}
+		if(needEvent){
+			param.referenceDom.scroll(function() {
+				handleScrollEvent();
+			});
+		}
+	});
+	//end each
+};
+</script>
+
+<script type="text/javascript">
+
+var currentPage = 1;
+function getFromServer(){
+	var pcount = 10;
+	var html="";
+	$.JSONP('http://act.city.sina.com.cn/interface/activity/json_get_user_works.php',{act_id:7157,p:currentPage,pcount:pcount,order:'time'},function(json){
+	//console.log(json);
+	    html+='<ul class="clearfix">';
+		for(var i=0; i<json.data.length; i++){
+	        html+='<li>';
+        	html+='<div class="txt">'+json.data[i].form_data.custom_1.value+'</div>';
+			html+='<div class="abs voteNum" id="'+json.data[i].id+'">'+json.data[i].vote_count+'</div>';
+			html+='<div class="abs voteButton" onclick="voteTo('+json.data[i].id+')">&nbsp;</div>';
+			html+='<div class="abs floReason">'+json.data[i].form_data.custom_1.value+'</div>';
+        	html+='</li>';
+		}
+		html+='</ul>';
+ 		console.log("new page putted Succeed! "+ currentPage)
+		$(html).appendTo($(".activityBox")).scrollLazyLoad({ referenceDom : $(".activityBox"), preOffset: 0}, getFromServer);
+	});
+	currentPage++;
+}
+</script>
+
+<script type="text/javascript">
+$(function() {
+	getFromServer();
+});
+
+</script>
+</html>

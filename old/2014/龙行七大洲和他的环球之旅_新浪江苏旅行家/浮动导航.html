@@ -1,0 +1,47 @@
+<div class="flynav noselect">
+	<ul>
+		<li class="l1 li" tar="body"></li>
+		<li class="l2 li" tar="#part_7">南极洲</li>
+		<li class="l3 li" tar="#part_9">南极洲</li>
+		<li class="l4 li" tar="#part_10">南极洲</li>
+		<li class="l5 li" tar="#part_12">精美图集</li>
+	</ul>
+</div>
+
+<style>
+.noselect{ -webkit-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select:none; }
+
+.flynav { display: none; position: fixed; left: 50%; bottom:40px; margin-left: 437px; font-family:'microsoft yahei'; font-size:16px; color:#FFF;}
+.flynav li{ text-shadow: 0 0 1px RGBA(0,0,0,1); margin: 1px 0; text-align: center; width: 84px; height: 44px; line-height: 44px; cursor: pointer; transition: all 0.2s; }
+.flynav li.li:HOVER{ background-color: #00b3ff; text-shadow: 0 0 4px RGBA(0,0,0,1); }
+.flynav li.l1{  background: #999999 url("http://s3img.city.sina.com.cn/activity/common/large/a7513ef4d3d94e6ada9e758007a404e0.png") no-repeat center; }
+.flynav li.l2{ background-color: #009fe0;}
+.flynav li.l3{ background-color: #0195d1;}
+.flynav li.l4{ background-color: #0085bc;}
+.flynav li.l5{ background-color: #7a9aa7;}
+</style>
+
+<script src="http://i2.sinaimg.cn/cj/dfz/js/base.js" type="text/javascript"></script>
+<script>
+$(function(){
+	$(".flynav li").live("click",function(){
+		var tar = $(this).attr("tar");
+		var topNum = $(""+tar+"").offset().top;
+		$('body,html').stop(true,true).animate({scrollTop:topNum},600);
+	});	
+});
+
+$(window).scroll(
+	function() {
+		if($(".flynav").is(":animated")){ return; }
+		
+		var Yoffset = $(this).scrollTop();
+		if ( Yoffset < $("#wrap").offset().top) {
+			$(".flynav").stop(true,true).fadeOut();
+		} else {
+			$(".flynav").stop(true,true).fadeIn();
+		}
+	}
+);
+
+</script>

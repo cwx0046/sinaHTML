@@ -1,0 +1,194 @@
+@charset "UTF-8";
+
+a, img, div {
+ -webkit-tap-highlight-color: transparent;
+}
+
+body {
+ margin: 0 auto;
+}
+
+.margin0a {
+ display: block; margin: 0 auto;
+}
+
+.left_fix {
+ height: 0; padding: 0; overflow: hidden;
+}
+
+.justify_fix {
+ display: inline-block; width: 100%; height: 0; overflow: hidden;
+}
+
+.addText0109{
+ color:#05599c;
+ display: inline-block;
+}
+
+#p1 {
+ z-index: 2;  
+}
+
+#p2 {
+ display: none;
+}
+
+#p3 {
+ display: none;
+}
+
+.page {
+ min-height: 410px; overflow: hidden;
+ top: 0;
+ width: 100%;
+}
+
+.page {
+ position: absolute; background-image: url("http://s3img.city.sina.com.cn/activity/common/large/a1056efd721e249e390f41208774a15f.jpg"); background-position: top center;
+ background-size: cover;
+}
+
+.bottom {
+ bottom: 0; position: absolute; text-align: center; width: 100%;
+}
+
+.db {
+ display: block;
+}
+
+.pos1 {
+ position: absolute; top: 55%; width: 100%; text-align: center; z-index: 1;
+}
+
+.e1_1 {
+ cursor: pointer; -webkit-user-select: none; user-select: none;
+}
+
+.e1_2 {
+ margin-bottom: 10px; color: #05599c;
+}
+
+.e1_3 {
+ margin-bottom: 10px;
+}
+
+#p2 {
+ background: -webkit-linear-gradient(top, transparent 26px, #e3e3e3 27px), -webkit-linear-gradient(left, transparent 26px, #e3e3e3 27px); background-size: 28px 28px; background-position: center;
+}
+
+.title {
+ text-align: center; padding: 6% 0 3%; 
+}
+
+.questionNo {
+ font-size: 18px; font-weight: bold; color: #439bf0; text-align: center; font-style: italic; margin: -60px 0 28px; text-shadow: 0 0 8px #176DBE;
+}
+
+.questionNo:BEFORE {
+ content: "第";
+}
+
+.questionNo:AFTER {
+ content: "题";
+}
+
+.content {
+ padding: 0 6%;
+}
+
+.question {
+ color: #05599c; font-size: 15px; font-weight: bold; margin-bottom: 22px; line-height: 1.4em; text-shadow: 1px 1px 0px #D8EDFF;
+}
+
+.select {
+ text-align: justify; font-size: 0;
+}
+
+.option {
+ display: inline-block; min-width: 42%; border-radius: 3px; padding: 10px 10px; background-color: #51aded; font-size: 14px; color: #FFF; text-align: center; cursor: pointer; -webkit-user-select: none; user-select: none;
+ margin-bottom: 18px;
+ opacity: 0;
+ text-shadow: 0 0 4px #377EB2;
+}
+
+.option:ACTIVE {
+ background-color: #ed7c2d;
+}
+
+.e3_1{
+ max-width: 320px; height:162px; margin: 89px auto 0;
+ background-image: url("http://s3img.city.sina.com.cn/activity/common/large/eae00267089a36f7419dcefbf742cd47.jpg");
+ background-size: cover;
+ background-position: center;
+}
+
+.e3_1text{
+ width: 158px;
+ margin: 0 auto;
+ text-align: center;
+ margin-top: -97px;
+ color: #FFF;
+ font-size: 12px;
+ line-height: 1.5em;
+ text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.19);
+}
+
+.score{
+ font-size: 18px; 
+ font-weight: bold;
+ color: #F00;
+}
+.score:AFTER{
+ content: "分";
+}
+
+.line1{
+ border-bottom: 2px solid #FFF;
+ line-height: 1.8em;
+ margin-bottom: 8px;
+}
+.e3_2{
+ cursor: pointer;
+}
+.e3_3{
+ cursor: pointer;
+}
+
+
+
+
+
+.option-show{
+  animation: option-show ease-out 0.3s;
+  animation-iteration-count: 1;
+  transform-origin: 0% 0%;
+  animation-fill-mode:forwards; /*when the spec is finished*/
+  -webkit-animation: option-show ease-out 0.3s;
+  -webkit-animation-iteration-count: 1;
+  -webkit-transform-origin: 0% 0%;
+  -webkit-animation-fill-mode:forwards; /*Chrome 16+, Safari 4+*/ 
+}
+
+@keyframes option-show{
+  0% {
+    opacity:0;
+    transform:  translate(0px,18px)  rotate(8deg) ;
+  }
+  100% {
+    opacity:1;
+    transform:  translate(0px,0px)  rotate(0deg) ;
+  }
+}
+
+@-webkit-keyframes option-show {
+  0% {
+    opacity:0;
+    -webkit-transform:  translate(0px,18px)  rotate(8deg) ;
+  }
+  100% {
+    opacity:1;
+    -webkit-transform:  translate(0px,0px)  rotate(0deg) ;
+  }
+}
+
+

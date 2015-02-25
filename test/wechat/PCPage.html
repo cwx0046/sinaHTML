@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="GB2312">
+<meta http-equiv="X-UA-Compatible" content="IE=edge"><!-- 避免IE使用兼容模式 -->
+<meta name="renderer" content="webkit"><!-- 启用360浏览器的极速模式(webkit) -->
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>请在此插入网页标题</title>
+<meta name="keywords" content="请在此插入关键词" />
+<meta name="description" content="请在此写入一段页面描述" />
+<meta name="author" content="NorthWind" />
+<link rel="stylesheet" href="http://jiangsu.sinaimg.cn/zt/s/css/reset.css">
+<script src="http://ria.city.sina.com.cn/s/g=base.js" type="text/javascript"></script>
+<script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+<!-- 
+<script src="http://jiangsu.sinaimg.cn/js/jquery1.11.1.min.js"></script>
+ -->
+<style type="text/css">
+.headimg{ min-width: 1000px; height: 400px; background: url("http://hubei.sinaimg.cn/2014/0721/S122974T1405906828814.jpg") no-repeat center top; }
+.content{ width: 1000px; margin: 0 auto; position: relative;} 
+</style>
+</head>
+<body>
+	<div class="headimg"></div>
+	<div id="p1">
+		<div class="content"></div>
+	</div>
+	<div id="p2">
+		<div class="content"></div>
+	</div>
+	<div id="p3">
+		<div class="content"></div>
+	</div>
+
+</body>
+<script type="text/javascript">
+
+$.JSONP('http://common.jiangsu.sina.com.cn/z/2015wx/sample.php',{},function(json){
+//$.JSONP('http://10.205.135.54/test/wechat/php/getJson.php',{},function(json){
+		/* 
+		var appId = json.appId;
+		var timestamp = json.timestamp;
+		var nonceStr = json.nonceStr;
+		var signature = json.signature;
+		 */
+		console.log(json);
+		wxconfig(json);
+		
+	
+});
+
+
+function wxconfig(c) {
+		wx.config({
+		    debug: true,
+		    appId: c.appId,
+		    timestamp: c.timestamp,
+		    nonceStr: c.nonceStr,
+		    signature: c.signature,
+		    jsApiList: ['onMenuShareTimeline','onMenuShareAppMessage','onMenuShareQQ','onMenuShareWeibo','playVoice','downloadVoice']
+		});
+	  
+		window.shareData = {
+			tTitle:'最美的祝福，送给最爱的你',//标题
+			timeLineLink:'http://jiangsu.sina.com.cn/1/2015-01-29/442.html',//链接
+			imgUrl:"http://jiangsu.sinaimg.cn/2015/0130/U11392P1194DT20150130181051.jpg",//图片
+			tContent:"新春快乐！万事如意！阖家幸福！财源滚滚！"//内容
+		};
+		
+		wx.ready(function(){
+			 
+			 wx.onMenuShareAppMessage({
+					title:window.shareData.tTitle, // 分享标题
+					link:window.shareData.timeLineLink, // 分享链接
+					imgUrl:window.shareData.imgUrl, // 分享图标
+					desc:window.shareData.tContent,
+					success: function(){}
+			});
+			wx.onMenuShareQQ({
+					title:window.shareData.tTitle, // 分享标题
+					link:window.shareData.timeLineLink, // 分享链接
+					imgUrl:window.shareData.imgUrl, // 分享图标
+					desc:window.shareData.tContent,
+					success: function(){}
+			});
+			wx.onMenuShareTimeline({
+				title:window.shareData.tTitle,
+				link:window.shareData.timeLineLink,
+				imgUrl:window.shareData.imgUrl,
+				success: function(){}
+			});
+	
+			wx.error(function(res){
+			});
+			
+						
+			wx.checkJsApi({
+				jsApiList: ['onMenuShareTimeline','onMenuShareAppMessage','onMenuShareQQ','onMenuShareWeibo'],// 需要检测的JS接口列表，所有JS接口列表见附录2,
+				success: function(res) {
+						  if(!res.checkResult.onMenuShareTimeline||!res.checkResult.onMenuShareAppMessage||!res.checkResult.onMenuShareQQ||!res.checkResult.onMenuShareWeibo){
+							  isWeixinShare = false;
+						  } 
+				}
+			});
+		});
+}
+
+</script>
+</html>

@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no,minimal-ui">
+<meta name="format-detection" content="telephone=no" >
+<meta name="apple-mobile-web-app-capable" content="yes"/>
+<link rel="stylesheet" href="http://jiangsu.sinaimg.cn/zt/s/css/reset.css">
+<style type="text/css">
+button, input[type="button"], input[type="reset"], input[type="submit"] { cursor: pointer; -moz-appearance: none; -webkit-appearance: none }
+button::-moz-focus-inner, input::-moz-focus-inner {padding: 0;border: 0}
+body { overflow: hidden; background: #f9f9f9 }
+.page { position:relative; left: 0; top: 0; width: 100%; height: 100%; z-index: 9; background-color:#000;}
+.page.active { z-index: 40 }
+.hide { display: none }
+.show { display: block }
+.main{ width: 100%; height: 100%;}
+</style>
+
+<link rel="apple-touch-icon-precomposed" href="#"/>
+<link rel="stylesheet" type="text/css" href="http://n.sinaimg.cn/finance/zt/2014jinqilin/style.css" />
+<title>《鲜橙生活家》招募啦～</title>
+</head>
+<body>
+
+<div id="j_slider" class="main"> 
+
+ 			<!-- 欢迎页 -->
+		  <section class="page"> 
+		  <img style="position:absolute; top:0px; left:0px;" width="100%" src="http://jiangsu.sinaimg.cn/zt/s/images/xcapp/1.jpg" />
+			<div class="btnBottom"><img src="http://jiangsu.sinaimg.cn/zt/s/jsxwzl/nanjing/images/up.png" width="14" ><br/>向上滑动</div>
+		  </section>
+  
+ 			<section class="page bg_w hide s2_bg">
+            <img style="position:absolute; top:0px;left:0px;" width="100%" src="http://jiangsu.sinaimg.cn/zt/s/images/xcapp/2.jpg" />
+                <div class="btnBottom"><img src="http://jiangsu.sinaimg.cn/zt/s/jsxwzl/nanjing/images/up.png" width="14" ><br/>向上滑动</div>
+			</section>
+ 			<section class="page bg_w hide s2_bg">
+            <img style="position:absolute; top:0px;left:0px;" width="100%" src="http://jiangsu.sinaimg.cn/zt/s/images/xcapp/3.jpg" />
+                <div class="btnBottom"><img src="http://jiangsu.sinaimg.cn/zt/s/jsxwzl/nanjing/images/up.png" width="14" ><br/>向上滑动</div>
+			</section>
+ 			<section class="page bg_w hide s2_bg">
+            <img style="position:absolute; top:0px;left:0px;" width="100%" src="http://jiangsu.sinaimg.cn/zt/s/images/xcapp/4.jpg" />
+                <div class="btnBottom"><img src="http://jiangsu.sinaimg.cn/zt/s/jsxwzl/nanjing/images/up.png" width="14" ><br/>向上滑动</div>
+			</section>
+ 			<section class="page bg_w hide s2_bg">
+            	<img style="position:absolute; top:0px;left:0px;" width="100%" src="http://jiangsu.sinaimg.cn/zt/s/images/xcapp/5.jpg" />
+            	<div class="registBox">
+					<input class="u_custom1" id="weibo">
+					<input class="u_custom2" id="phone">
+					<input class="u_custom3" id="weixin"> 
+					<input class="u_custom4" id="interest">
+					<div id="sub-but">提交</div>
+            	</div>
+            	<style>
+            	.registBox{ position:absolute; top:0; left: 0; width: 100%; height: 100%; }
+            	.registBox input{ position: absolute; top: 61.2%; left: 47%; }
+            	.registBox input.u_custom2{ top: 62.2%;}
+            	.registBox input.u_custom3{ top: 71.2%;}
+            	.registBox input.u_custom4{ top: 76.3%;}
+            	</style>
+            	<script type="text/javascript">
+            	 $("#sub-but").live('click',function(){
+            		   var weibo = $('#weibo').val();
+            		   var phone = $('#phone').val();
+            		   var weixin = $('#weixin').val();
+            		   var interest = $('#interest').val();
+
+            		   if(weibo==""){alert("请填写微博ID！"); return false;}
+            		   if(phone==""){alert("请填写手机号！"); return false;}
+            		   if(weixin==""){alert("请填写微信号！"); return false;}
+            		   if(interest==""){alert("请填写鲜城属性！"); return false;}
+            		   
+            		   
+            		   $.JSONP('http://act.city.sina.com.cn/interface/activity/json_add_signup.php',{act_id:10188,custom_1:weibo,custom_2:phone,custom_3:weixin,custom_4:interest},function(bm){
+            		      if(bm.error==0){
+            		       alert("提交成功！");
+            		      }else{
+            		       alert(bm.errmsg)
+            		      }
+
+            		  });
+
+            		 });
+            	</script>
+            	
+                <div class="btnBottom"><img src="http://jiangsu.sinaimg.cn/zt/s/jsxwzl/nanjing/images/up.png" width="14" ><br/>向上滑动</div>
+			</section>
+ 			<section class="page bg_w hide s2_bg">
+            <img style="position:absolute; top:0px;left:0px;" width="100%" src="http://jiangsu.sinaimg.cn/zt/s/images/xcapp/6.jpg" />
+                <div class="btnBottom"><img src="http://jiangsu.sinaimg.cn/zt/s/jsxwzl/nanjing/images/up.png" width="14" ><br/>向上滑动</div>
+			</section>
+ 			<section class="page bg_w hide s2_bg">
+            <img style="position:absolute; top:0px;left:0px;" width="100%" src="http://jiangsu.sinaimg.cn/zt/s/images/xcapp/7.jpg" />
+                <div class="btnBottom"><img src="http://jiangsu.sinaimg.cn/zt/s/jsxwzl/nanjing/images/up.png" width="14" ><br/>向上滑动</div>
+			</section>
+ 			<section class="page bg_w hide s2_bg">
+            <img style="position:absolute; top:0px;left:0px;" width="100%" src="http://jiangsu.sinaimg.cn/zt/s/images/xcapp/8.jpg" />
+                <div class="btnBottom"><img src="http://jiangsu.sinaimg.cn/zt/s/jsxwzl/nanjing/images/up.png" width="14" ><br/>向上滑动</div>
+			</section>
+ 			<section class="page bg_w hide s2_bg">
+            <img style="position:absolute; top:0px;left:0px;" width="100%" src="http://jiangsu.sinaimg.cn/zt/s/images/xcapp/9.jpg" />
+                <div class="btnBottom"><img src="http://jiangsu.sinaimg.cn/zt/s/jsxwzl/nanjing/images/up.png" width="14" ><br/>向上滑动</div>
+			</section>
+ 			<section class="page bg_w hide s2_bg">
+            <img style="position:absolute; top:0px;left:0px;" width="100%" src="http://jiangsu.sinaimg.cn/zt/s/images/xcapp/10.jpg" />
+                <div class="btnBottom"><img src="http://jiangsu.sinaimg.cn/zt/s/jsxwzl/nanjing/images/up.png" width="14" ><br/>向上滑动</div>
+			</section>
+ 			<section class="page bg_w hide s2_bg">
+            <img style="position:absolute; top:0px;left:0px;" width="100%" src="http://jiangsu.sinaimg.cn/zt/s/images/xcapp/11.jpg" />
+                <div class="btnBottom"><img src="http://jiangsu.sinaimg.cn/zt/s/jsxwzl/nanjing/images/up.png" width="14" ><br/>向上滑动</div>
+			</section>
+ 			<section class="page bg_w hide s2_bg">
+            <img style="position:absolute; top:0px;left:0px;" width="100%" src="http://jiangsu.sinaimg.cn/zt/s/images/xcapp/12.jpg" />
+                <div class="btnBottom"><img src="http://jiangsu.sinaimg.cn/zt/s/jsxwzl/nanjing/images/up.png" width="14" ><br/>向上滑动</div>
+			</section>
+                
+</div>
+<style type="text/css">
+
+/* Bottom Arrow */
+.btnBottom{ position:absolute; bottom: 1%; text-align:center; width: 100%;color: #FFF;text-shadow: 0 1px 0px #000;-webkit-animation-name:btnBottom;-webkit-animation-duration:1.8s;-webkit-animation-timing-function:linear;-webkit-animation-delay:0s;-webkit-animation-iteration-count:infinite;-webkit-animation-direction:normal;-webkit-animation-play-state:running;}
+@-webkit-keyframes btnBottom /* Safari and Chrome */
+{
+0% {-webkit-transform:translateY(0px); opacity: 0;}
+90% { opacity: 1;}
+100% {-webkit-transform:translateY(-15px); opacity: 0;}
+}
+
+.bg_w{ background-color:#000;}
+</style>
+<script src="http://n.sinaimg.cn/finance/zt/2014jinqilin/zepto.js" charset="utf-8"></script> 
+<script src="http://n.sinaimg.cn/finance/jinqilin1/js1.js" charset="utf-8"></script> 
+
+<!-- body code end -->
+</body>
+<script type="text/javascript">
+
+window.innerHeight = window.innerWidth /9 *16;
+</script>
+</html>

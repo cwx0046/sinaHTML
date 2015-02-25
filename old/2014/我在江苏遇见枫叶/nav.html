@@ -1,0 +1,41 @@
+<style>
+<!--
+.abs {
+ position: absolute;
+}
+-->
+</style>
+
+
+
+<style>
+.navBox { position: relative; font-family: "microsoft yahei"; width: 950px; height: 318px;}
+.navBox .nav_i { width: 119px; height: 119px; line-height: 119px; text-align: center; font-size: 45px; color: #FFF; background-image:  url("http://jiangsu.sinaimg.cn/2014/1106/U9263P1194DT20141106194100.png"); cursor: pointer;}
+.navBox #nav_i1 { left: 2px; top: 198px;}
+.navBox #nav_i2 { left: 123px; top: 173px; background-position: -119px 0;}
+.navBox #nav_i3 { left: 244px; top: 156px; background-position: -238px 0;}
+.navBox #nav_i4 { left: 362px; top: 124px; background-position: -357px 0;}
+.navBox #nav_i5 { left: 480px; top: 80px; background-position: -476px 0;}
+.navBox #nav_i6 { left: 599px; top: 44px; background-position: -595px 0;}
+.navBox #nav_i7 { left: 715px; top: 19px; background-position: -714px 0;}
+.navBox #nav_i8 { left: 832px; top: 0px; background-position: -833px 0;}
+</style>
+<div class="navBox">
+	<div class="abs nav_i" id="nav_i1" sid="01">南京</div>
+	<div class="abs nav_i" id="nav_i2" sid="02">无锡</div>
+	<div class="abs nav_i" id="nav_i3" sid="03">扬州</div>
+	<div class="abs nav_i" id="nav_i4" sid="04">常州</div>
+	<div class="abs nav_i" id="nav_i5" sid="05">镇江</div>
+	<div class="abs nav_i" id="nav_i6" sid="06">苏州</div>
+	<div class="abs nav_i" id="nav_i7" sid="07">连云港</div>
+	<div class="abs nav_i" id="nav_i8" sid="08">南通</div>
+</div>
+<script>
+	$(".navBox .nav_i").live("click", function() {
+		var sid = $(this).attr("sid");
+		var topNum = $("#" + sid + "").offset().top - 70;
+		$('body,html').animate({
+			scrollTop : topNum
+		}, 1000);
+	})
+</script>

@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="GB2312">
+<meta http-equiv="cache-control" content="no-cache"/>
+<meta name="format-detection" content="telephone=no"/>
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="viewport" content="width=device-width, user-scalable=yes, initial-scale=1.0"> 
+<title>请在此插入网页标题</title>
+<meta name="keywords" content="请在此插入关键词" />
+<meta name="description" content="请在此写入一段页面描述" />
+<script src="http://jiangsu.sinaimg.cn/js/jquery1.11.1.min.js"></script>
+<!-- 
+<script src="http://ria.city.sina.com.cn/s/g=base.js" type="text/javascript"></script>
+<script src="http://jiangsu.sinaimg.cn/js/jquery.transit.min.js"></script>
+ -->
+<style type="text/css">
+body, ul, ol, li, p, h1, h2, h3, h4, h5, h6, table, td, th, form, fieldset, img, dl, dt, dd { margin:0; padding:0; }
+textarea, input, select, body { font-size:12px; }
+select, input { vertical-align:middle; }
+fieldset, img { border:0; }
+ul, ol { list-style:none; }
+img { border:0; }
+a { text-decoration:none; color:#000; }
+a:hover { color:#ffa10d; }
+.fl { float:left; display:inline; }
+.fr { float:right; display:inline; }
+.cb { clear:both; display:block; height:0px; overflow:hidden; width:100%; }
+.clearfix:after { clear:both; content:""; display:block; height:0; }
+</style>
+<!-- 自适应缩放css -->
+<style type="text/css">
+body{ background-color: #DDD;}
+.bg{ position: absolute; left: 0; top: 0; width: 100%; }
+</style>
+<style type="text/css">
+.content{ position: relative; width: 320px;  margin: 0 auto;} 
+
+.btn{ position: absolute; /* border: 2px solid #000; */ }
+
+.displaynone{ display: none;}
+
+
+#p1 .content,#p2 .content,#p3 .content { height:337px; position: relative;width: 320px;margin: 0 auto;background: url("http://s3img.city.sina.com.cn/activity/common/large/608503423a1a7acd2b499f458eaef2fc.png") no-repeat;background-size: 100% auto; padding-top: 27px;}
+#canvas01{ /* border: 2px solid #000; */cursor: default;display: block;position: absolute;left: 34px;top: 26px;}
+#p1 .content .funcBox{ width: 100%; height: 96px; background: url("http://s3img.city.sina.com.cn/activity/common/large/c78a947a102b34b07512ef39492ca898.png") no-repeat; background-size: 100% auto; position: relative; left: 0; top: 188px;}
+.colorExample{ position: absolute;width: 10px;height: 10px;left: 51px;top: 41px;background-color: #000;border: 1px solid #FFF;}
+.color{ width: 73px;height: 25px; left: 43px;top: 34px;}
+.color .colorselect{ font-size: 12px; background-color: #f4f4f4;   bottom: 0; position: absolute; z-index: 1;}
+.color .coloritem{ padding: 5px 12px;  }
+.color .coloritem .colorblock{ width: 1em; height: 1em; margin-right: 6px;border: 1px solid #000; display: inline-block; vertical-align: sub; }
+.clear{height: 25px; left: 127px; top: 34px; width: 73px;}
+.ok{height: 42px; left: 209px; top: 34px; width: 85px;}
+
+#imagePreview{ position: absolute;left: 34px;top: 26px; } 
+#imageSee{ position: absolute;left: 34px;top: 26px;  width: 254px; height: 208px;} 
+
+.uploadWrap{ display:none;  width: 100%; height: 100%; position:absolute; left:0; top:0; background-color: RGBA(0,0,0,0.7);  -webkit-transform: translateZ(0);-moz-transform: translateZ(0);-ms-transform: translateZ(0);transform: translateZ(0);}
+.uploadStateText{ position: absolute; top: 0; right: 0; bottom: 0; left: 0; margin: auto; width: 300px; height: 100px; color: #FFF;font-size: 30px; text-align: center; }
+.shareArrow{ display:none;  color:#FFF; position: absolute;right: 20px; top: 0;}
+.toolbox{ text-align: center; margin-top: 220px; }
+#p1, #p2, #p3{ display: none;}
+</style>
+</head>
+<body>
+<img class="bg" src="http://s3img.city.sina.com.cn/activity/common/large/35bd3294523bac116e3a28f9d8fb2ca7.jpg">
+<img class="topwarp" src="http://s3img.city.sina.com.cn/activity/common/large/c1b77b733ad6c746620426c127aedf7f.png" width="100%">
+	<!-- 绘制 -->
+	<div id="p1">
+		<div class="content">
+			<div class="funcBox">
+				<div class="colorExample"></div>
+				<div class="clear btn" onclick="clearCanvas()"><!-- 清空 --></div>
+				<div class="color btn">
+					<ul class="colorselect displaynone">
+						<li class="coloritem" onclick="chooseColor('255,20,20')"><span class="colorblock" style="background-color: RGBA(255,20,20,1);"></span>红</li>
+						<li class="coloritem" onclick="chooseColor('255,138,21')"><span class="colorblock" style="background-color: RGBA(255,138,21,1);"></span>橙</li>
+						<li class="coloritem" onclick="chooseColor('255,255,21')"><span class="colorblock" style="background-color: RGBA(255,255,21,1);"></span>黄</li>
+						<li class="coloritem" onclick="chooseColor('39,255,9')"><span class="colorblock" style="background-color: RGBA(39,255,9,1);"></span>绿</li>
+						<li class="coloritem" onclick="chooseColor('9,255,255')"><span class="colorblock" style="background-color: RGBA(9,255,255,1);"></span>青</li>
+						<li class="coloritem" onclick="chooseColor('9,21,255')"><span class="colorblock" style="background-color: RGBA(9,21,255,1);"></span>蓝</li>
+						<li class="coloritem" onclick="chooseColor('119,9,255')"><span class="colorblock" style="background-color: RGBA(119,9,255,1);"></span>紫</li>
+						<li class="coloritem" onclick="chooseColor('255,255,255')"><span class="colorblock" style="background-color: RGBA(255,255,255,1);"></span>白</li>
+						<li class="coloritem" onclick="chooseColor('0,0,0')"><span class="colorblock" style="background-color: RGBA(0,0,0,1);"></span>黑</li>
+					</ul>
+				</div>
+				<div class="ok btn" onclick="convertCanvasToImage()"><!-- 转换图片 --></div>
+			</div>
+			<canvas id="canvas01" width="254" height="208" onselectstart="return false">请升级您的浏览器。</canvas>
+		</div>
+		<div class="uploadWrap">
+			<div class="shareArrow">分享到朋友圈吧　<img width="60" src="http://s3img.city.sina.com.cn/activity/common/large/f318e2446f2cb322be5f06c7388bb52b.png"></div>
+			<div class="uploadStateText">正在上传...</div>
+		</div>
+	</div>
+	
+	<!-- 预览 -->
+	<div id="p2">
+		<div class="content">
+			<img id="imagePreview" src="" style="position: absolute;">
+		</div>
+	</div>
+	
+	<!-- 查看 -->
+	<div id="p3">
+		<div class="content">
+			<img id="imageSee" src="" style="position: absolute;">
+			<div class="toolbox">
+				<img onclick="window.location.href='http://wap.sina.com'" src="http://s3img.city.sina.com.cn/activity/common/large/9a484b308b55f950b351c61c19bbdab0.png" width="75">
+				<img onclick="showPage(1);" src="http://s3img.city.sina.com.cn/activity/common/large/cf3828ec8d11e2dad6238de90585085d.png" width="75">
+			</div>
+		</div>
+	</div>
+</body>
+
+<script type="text/javascript">
+/*获取url参数*/
+function getQueryString(name) {
+	var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
+	var r = window.location.search.substr(1).match(reg);
+	if (r != null) return unescape(r[2]); return null;
+}
+
+var imgsrc = getQueryString("imgsrc");
+if( imgsrc ){
+	console.log("参数发现图片地址");
+	document.getElementById("imageSee").setAttribute("src", imgsrc);
+	// 显示第三页
+	showPage(3);
+} else {
+	// 显示第一页
+	showPage(1);
+}
+
+
+function showPage(num) {
+	var p1 = $("#p1");
+	var p2 = $("#p2");
+	var p3 = $("#p3");
+	p1.hide();
+	p2.hide();
+	p3.hide();
+	switch (num) {
+	case 1:
+		$(".uploadWrap").hide();
+		$(".shareArrow").hide();
+		p1.show();
+		break;
+	case 2:
+		p2.show();
+		break;
+	case 3:
+		p3.show();
+		break;
+	default:
+		break;
+	}
+}
+</script>
+
+<!-- 微信分享js -->
+<script type="text/javascript">
+/*
+ * 发送给朋友   包含 1.标题 2.图片 3.描述文字
+ * 分享到朋友圈 包含 1.文字 2.图片
+ */
+
+var dataForWeixin = {
+	appId : "",            // 应用内部id  例：来自瞎米音乐
+	title : "两个字期盼2015",        // 发送给朋友标题
+	TLImg : "http://jiangsu.sinaimg.cn/2014/",   // 图标
+	desc  : "2015年，我的新年梦想是这个！快来写下你的新年愿望吧！",    // 发送给朋友文字 seems max 40
+	url   : "http://jiangsu.sina.com.cn/1/2014-12-30/402.php",
+	TLTitle: "2015年，我的新年梦想是这个！快来写下你的新年愿望吧！"  // 朋友圈文字 iPhone max 30
+};
+
+var onBridgeReady = function() {
+	
+	//发送给朋友、群组
+	WeixinJSBridge.on('menu:share:appmessage', function(argv) {
+		WeixinJSBridge.invoke('sendAppMessage', {
+			"appid" : dataForWeixin.appId,
+			"img_url" : dataForWeixin.TLImg, // 图片
+			"title" : dataForWeixin.title,   // 标题
+			"desc" : dataForWeixin.desc,     // 分享内容
+			"link" : dataForWeixin.url,
+		},function(){
+			//alert("发送给朋友回调()");
+			//location.href = "http://3g.sina.com";
+			document.location.href = dataForWeixin.url;
+		});
+	});
+	
+	//分享到朋友圈
+	WeixinJSBridge.on('menu:share:timeline', function(argv) {
+		WeixinJSBridge.invoke('shareTimeline', {
+			"appid" : dataForWeixin.appId,
+			"title" : dataForWeixin.TLTitle, // 描述文字
+			"img_url" : dataForWeixin.TLImg, // 图片
+			"link" : dataForWeixin.url,
+			"desc" : dataForWeixin.desc,     // 无用！必须存在！分享内容
+		}, function (){
+			//alert("分享到朋友圈回调()");
+			document.location.href = dataForWeixin.url;
+		});
+	});
+
+};
+
+if (document.addEventListener) {
+	document.addEventListener('WeixinJSBridgeReady', onBridgeReady, false);
+} else if (document.attachEvent) {
+	document.attachEvent('WeixinJSBridgeReady', onBridgeReady);
+	document.attachEvent('onWeixinJSBridgeReady', onBridgeReady);
+}
+</script>
+
+
+<!-- canvas js -->
+<script type="text/javascript">
+
+	var canvasDOM = document.getElementById("canvas01");
+	var canvas = canvasDOM.getContext("2d");
+	var fillStyle = "RGBA(0,0,0,0.9)";
+	var drawLength = 0;
+	
+	$(".color").click(function() {
+		$(".color .colorselect").toggleClass("displaynone");
+	});
+	function chooseColor(str) {
+		fillStyle = "RGBA(" + str + ",0.9)";
+		$(".colorExample").css("background-color","RGBA(" + str + ",1)");
+	}
+	
+	var canvas_mouseX_last;
+	var canvas_mouseY_last;
+	
+	var canvas_mouseX_now;
+	var canvas_mouseY_now;
+	
+	var drawWidth = 6;
+	var distance_last = 60;
+	var distance_now = 60;
+	
+	var bodyMoveHandle = function(eMove){
+		draw(eMove);
+	}
+	
+	var firstTouch = true;
+	
+	function draw(eMove){
+		if (2 <= eMove.touches.length) return;
+		var offset = getPosition(document.getElementById("canvas01"), eMove);
+		drawLength++;
+		canvas_mouseX_now = offset.x;
+		canvas_mouseY_now = offset.y;
+		if (canvas_mouseX_last == canvas_mouseX_now) {
+			return;
+		}
+		distance_now = getDistance(canvas_mouseX_last, canvas_mouseY_last, canvas_mouseX_now, canvas_mouseY_now);
+		var v_now = distance_now; //实时速度
+		
+		if(firstTouch){
+			drawWidth = distance_now;
+			distance_last = distance_now;
+			firstTouch = false;
+		}
+		
+		
+		// 圆填充
+		var s = distance_now;
+		var x1 = canvas_mouseX_last;
+		var y1 = canvas_mouseY_last;
+		var x2 = canvas_mouseX_now;
+		var y2 = canvas_mouseY_now;
+		var v1 = 16 - distance_last*0.91;
+		var v2 = 16 - distance_now*0.91;
+		for (var i = 0; i < s; i=i+2) {
+			var x = x1 + (( x2 - x1 )/s)*i;
+			var y = y1 + (( y2 - y1 )/s)*i;
+			var v = v1 + (( v2 - v1 )/s)*i;
+			if (v <= 5) {
+				v = 5;
+			} else if(v >= 16){
+				v = 16;
+			}
+			drawArc( x, y, v);
+		}
+		
+		
+		console.log("画笔粗细"+ v1.toFixed(3) + " 上次速度" + distance_last.toFixed(3) + " 当前速度" + distance_now.toFixed(3));
+		//绘制完成后
+		distance_last = distance_now;
+		canvas_mouseX_last = canvas_mouseX_now;
+		canvas_mouseY_last = canvas_mouseY_now;
+	}
+	
+	
+	
+	
+	document.getElementById("canvas01").addEventListener("touchstart",function(eDown){
+		eDown.preventDefault();
+		var startPosition = getPosition(this, eDown);
+		canvas_mouseX_last = startPosition.x;
+		canvas_mouseY_last = startPosition.y;
+		 
+		document.getElementById("canvas01").addEventListener("touchmove",bodyMoveHandle);
+	});
+	
+	document.getElementById("canvas01").addEventListener("touchend",function(eUp){
+		document.getElementById("canvas01").removeEventListener("touchmove",bodyMoveHandle);
+		drawWidth = 6;
+		firstTouch = true;
+	});
+	
+	
+	function drawArc( x, y, width ){
+		canvas.beginPath();
+		canvas.arc(x,y,width/2,0,Math.PI*2,true);
+		canvas.fillStyle = fillStyle; 
+		canvas.fill();
+	}
+	
+	
+	function clearCanvas() {
+		var conform = confirm("确定要清空吗？");
+		if (!conform) {
+			return;
+		}			
+		drawLength = 0;
+		canvas.clearRect(0,0,canvasDOM.width,canvasDOM.height);
+	}
+	
+	
+	function getPosition(dom,event){
+		var offset = new Object();
+		var clientRect = dom.getBoundingClientRect();
+		var clientX = event.clientX;
+		var clientY = event.clientY;
+		
+		var touch = event.targetTouches[0];  
+		touch.x = touch.pageX - clientRect.left  - window.scrollX;
+		touch.y = touch.pageY - clientRect.top  - window.scrollY;
+		if(touch){
+			return touch;			
+		}
+		
+		offset.x = clientX - clientRect.left - window.scrollX;
+		offset.y = clientY - clientRect.top - window.scrollY;
+		
+		return offset;
+	}
+	
+	
+	
+	/* 返回俩点间直线距离 */
+	function getDistance(ox, oy, cx, cy) {
+		var distance;
+		var width = Math.abs( cx - ox );
+		var height = Math.abs( cy - oy );
+		distance = Math.sqrt( Math.pow(width, 2) + Math.pow(height, 2) );
+		return distance;
+	}
+	
+	
+	function convertCanvasToImage(canvas) {
+		
+		//绘制长度判断
+		if(drawLength<=20){ alert("多写点什么吧"); return ;}
+		
+		window.scrollTo(0,0);
+		$(".uploadWrap").fadeIn();
+		var image = new Image();
+		img = canvasDOM.toDataURL("image/png");
+		image.src = img;
+		console.log("生成完毕");
+		console.log(image);
+		document.getElementById("imagePreview").src=image.src;
+		
+		//////////// TEST ///////////
+		setTimeout(function() {
+			$(".shareArrow").show();
+			$(".uploadStateText").text("上传完成");
+			
+			dataForWeixin.TLImg = "图片地址";
+			dataForWeixin.url = "http://jiangsu.sina.com.cn/1/2014-12-30/402.php";
+		}, 1000);
+
+		/////////////////////////
+		/* $.getJSON("http://je99.sinaapp.com/zt/cocacola/music.php?img="+img+"&callback=?", function(data)
+		{
+			console.log(data);
+			
+			$(".shareArrow").show();
+			$(".uploadStateText").text("上传完成");
+			
+			dataForWeixin.TLImg = "图片地址";
+			dataForWeixin.url = "http://jiangsu.sina.com.cn/1/2014-12-30/402.php";
+			
+		}); */
+		//showPage(2);
+		return image;
+	}
+</script>
+
+
+</html>

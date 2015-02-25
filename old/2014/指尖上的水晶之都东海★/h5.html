@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="GB2312">
+<meta http-equiv="cache-control" content="no-cache"/>
+<meta name="format-detection" content="telephone=no"/>
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0"> 
+<title>指尖上的水晶之都</title>
+<meta name="keywords" content="指尖,东海" />
+<meta name="description" content="指尖上的水晶之都,东海" />
+<script src="http://i2.sinaimg.cn/cj/dfz/js/base.js" type="text/javascript"></script>
+<script src="http://jiangsu.sinaimg.cn/js/jquery.transit.min.js"></script>
+<link rel="stylesheet" href="http://jiangsu.sinaimg.cn/js/idangerous.swiper.css">
+<script src="http://jiangsu.sinaimg.cn/js/idangerous.swiper.min.js"></script>
+<style type="text/css">
+body, ul, ol, li, p, h1, h2, h3, h4, h5, h6, table, td, th, form, fieldset, img, dl, dt, dd { margin:0; padding:0; }
+textarea, input, select, body { font-size:12px; }
+select, input { vertical-align:middle; }
+fieldset, img { border:0; }
+ul, ol { list-style:none; }
+img { border:0; }
+a { text-decoration:none; color:#000; }
+a:hover { color:#ffa10d; }
+.fl { float:left; display:inline; }
+.fr { float:right; display:inline; }
+.cb { clear:both; display:block; height:0px; overflow:hidden; width:100%; }
+.clearfix:after { clear:both; content:""; display:block; height:0; }
+</style>
+<!-- 自适应缩放css -->
+<style type="text/css">
+body{ overflow-x: hidden; background-color: #000; }
+.swiper-container{ width: 640px; height: 960px; -webkit-transform-origin: top left; margin: 0; background-color: #fefcef; }
+.swiper-wrapper *{ -webkit-backface-visibility: hidden; } /* 避免ip4Safari闪动 */
+.page-provider{ position:absolute;top:0; text-align: center; width: 100%; font-size: 24px;line-height: 80px; color: #e5d2d4; }
+.page-provider#page-provider-bottom{ top:auto; bottom: 0; }
+.swiper-slide{ width: 640px; height: 960px; position: relative; overflow: hidden; }
+</style>
+<!-- end 自适应缩放css -->
+<style type="text/css">
+.abs{ position: absolute; }
+.e_bg{ left: 0; top: 0; }
+.e_logo{ left: 56px; top: 41px; }
+
+.btnBottom
+{
+display: none;
+position:absolute; bottom:20px; text-align:center; width:640px;
+-webkit-animation-name:btnBottom;
+-webkit-animation-duration:1.8s;
+-webkit-animation-timing-function:linear;
+-webkit-animation-delay:1s;
+-webkit-animation-iteration-count:infinite;
+-webkit-animation-direction:normal;
+-webkit-animation-play-state:running;
+-webkit-transform: translateZ(0);
+-moz-transform: translateZ(0);
+-ms-transform: translateZ(0);
+transform: translateZ(0);
+}
+
+@-webkit-keyframes btnBottom /* Safari and Chrome */
+{
+0% {-webkit-transform:translateY(0px); opacity: 0;}
+90% { opacity: 1;}
+100% {-webkit-transform:translateY(-25px); opacity: 0;}
+}
+
+#s1 { background-color: #fefcef;}
+#s1 .e1_1{ left: 283px; top: 376px; -webkit-animation:round2D 4s linear infinite;}
+#s1 .e1_loadingNum{ left: 283px; top: 376px; width: 76px;line-height:74px; text-align: center; font-size: 20px; }
+#s1 .e1_loadingText{ left: 0; top: 477px; width: 100%; text-align: center; font-size: 20px; letter-spacing: 3px;}
+#s1 .e1_2_1{ left: 164px; top: 507px; opacity: 0; }
+#s1 .e1_2_2{ left: 289px; top: 549px; opacity: 0; }
+#s1 .e1_2_3{ left: 383px; top: 540px; opacity: 0; }
+#s1 .e1_2_4{ left: 441px; top: 538px; opacity: 0; }
+#s1 .e1_2_5{ left: 294px; top: 502px; opacity: 0; -webkit-transform-origin: 25% 0; }
+
+#s2 .e2_1{ left: 238px; top: 314px; }
+#s2 .e2_1_1{ left: 492px; top: 346px; }
+#s2 .e2_1_2{ left: 492px; top: 444px; }
+#s2 .e2_1_3{ left: 238px; top: 314px; }
+
+#s3 .e3_1_1{ left: 330px; top: 396px; }
+#s3 .e3_1_2{ left: 330px; top: 396px; }
+
+#s4 .e4_1{ left: 325px; top: 386px; }
+
+#s5 .e5_0{ left: 0px; top: 300px; -webkit-animation: mist 7s linear infinite; z-index: 0;}
+#s5 .e5_1{ left: 127px; top: 384px; }
+
+#s6 .e6_1{ left: 360px; top: 250px; }
+
+#s7 .e7_1_bg{ left: 301px; top: 360px; width: 287px; height: 400px; background-color: RGBA(98,61,32,0.49);}
+#s7 .e7_1{ left: 322px; top: 394px; }
+#s8 .e8_1{ left: 73px; top: 479px; }
+
+#s9 .e9_1{ left: 89px; top: 585px; }
+#s9 .e9_2{ left: 170px; top: 712px; color:#FFF; font-size:20px;padding: 0 9px; letter-spacing: 6.2px;  border: 3px solid #FFF; border-top: none; border-bottom: none; }
+#s9 .e9_3{ left: 160px; top: 763px; }
+
+#s10 { background-color: #000; }
+#s10 .e_bg { background-color: #000; -webkit-animation: round2D 20s linear infinite; z-index: 0;}
+#s10 .e10_1{ left: 307px; top: 90px; }
+#s10 .e10_2{ left: 230px; top: 720px; cursor: pointer;}
+#s10 .e10_3{ left: 0px; top: 0px; -webkit-animation: shine 2s linear infinite alternate; z-index: 0;} 
+</style>
+<!-- keyframes css -->
+<style type="text/css">
+@-webkit-keyframes round2D{
+	0%	 {-webkit-transform:rotate(0deg)}
+	25%	 {-webkit-transform:rotate(-90deg)}
+	50%	 {-webkit-transform:rotate(-180deg)}
+	75%	 {-webkit-transform:rotate(-270deg)}
+	100% {-webkit-transform:rotate(-359deg)}	
+}
+@-webkit-keyframes shine{
+	0%	 { opacity:0;}
+	100% { opacity:1;}	
+}
+@-webkit-keyframes mist{
+	0%	 { top:300px; opacity:0;}
+	10%	 { opacity:1;}
+	90%  { opacity:1;}	
+	100% { top:-300px; opacity:0;}	
+}
+</style>
+
+</head>
+<body>
+<audio id="bgm" src="http://jiangsu.sinaimg.cn/zt/s/dzwbqdh/bgm.mp3" autoplay="autoplay" loop style="display: none; width: 0; height: 0;"></audio>
+	<!-- 
+	* 说明：
+	* 多页面滑动模板，适用于 类ppt 页面
+	* 页面 640x960 按宽度缩放
+	* 使用 idangerous.swiper 插件切换页面 ，参数请在下方 【Initialize swiper】中自行更改
+	*
+	 -->
+	<div class="swiper-container">
+		<!-- 版权声明 -->
+		<div class="page-provider" id="page-provider-top">新浪江苏 SINA 2014</div>
+		<div class="page-provider" id="page-provider-bottom">新浪江苏 SINA 2014</div>
+		
+		<div class="swiper-wrapper">
+		    <!--First Slide-->
+			<div class="swiper-slide" id="s1">
+				<img class="abs e_bg" src="http://jiangsu.sinaimg.cn/zt/s/blank.gif" data-src="http://jiangsu.sinaimg.cn/zt/s/dzwbqdh/images/1.jpg">
+				
+				<div class="e1_loadingBlock">
+					<img class="abs e1_1" src="http://jiangsu.sinaimg.cn/zt/s/dzwbqdh/images/1.1.png">
+					<div class="abs e1_loadingNum">&nbsp;</div>
+					<div class="abs e1_loadingText">等待加载也是一种幸福</div>
+				</div>
+				<img class="abs e1_2_1" data-src="http://jiangsu.sinaimg.cn/zt/s/dzwbqdh/images/1.2.1.png">
+				<img class="abs e1_2_2" data-src="http://jiangsu.sinaimg.cn/zt/s/dzwbqdh/images/1.2.2.png">
+				<img class="abs e1_2_3" data-src="http://jiangsu.sinaimg.cn/zt/s/dzwbqdh/images/1.2.3.png">
+				<img class="abs e1_2_4" data-src="http://jiangsu.sinaimg.cn/zt/s/dzwbqdh/images/1.2.4.png">
+				<img class="abs e1_2_5" data-src="http://jiangsu.sinaimg.cn/zt/s/dzwbqdh/images/1.2.5.png">
+				
+				<div class="btnBottom"><img src="http://jiangsu.sinaimg.cn/zt/s/blank.gif" data-src="http://jiangsu.sinaimg.cn/zt/s/dzwbqxz/images/up.png" style="background-color: rGBA(0,0,0,0.2);padding: 10px;border-radius: 5px;"></div>
+			</div>
+			
+			<!--Second Slide-->
+			<div class="swiper-slide" id="s2">
+				<img class="abs e_bg" data-src="http://jiangsu.sinaimg.cn/zt/s/dzwbqdh/images/2.jpg">
+				<img class="abs e_logo" data-src="http://jiangsu.sinaimg.cn/zt/s/dzwbqdh/images/logo_w.png">
+				
+				<img class="abs e2_1" data-src="http://jiangsu.sinaimg.cn/zt/s/dzwbqdh/images/2.1.png">
+				<img class="abs e2_1_1" data-src="http://jiangsu.sinaimg.cn/zt/s/dzwbqdh/images/2.1.1.png">
+				<img class="abs e2_1_2" data-src="http://jiangsu.sinaimg.cn/zt/s/dzwbqdh/images/2.1.2.png">
+				<img class="abs e2_1_3" data-src="http://jiangsu.sinaimg.cn/zt/s/dzwbqdh/images/2.1.3.png">
+				
+				<div class="btnBottom"><img data-src="http://jiangsu.sinaimg.cn/zt/s/dzwbqxz/images/up.png"></div>
+			</div>
+			
+			<!--Third Slide-->
+			<!--4 Slide-->
+			<div class="swiper-slide" id="s4">
+				<img class="abs e_bg" data-src="http://jiangsu.sinaimg.cn/zt/s/dzwbqdh/images/4.jpg">
+				<img class="abs e_logo" data-src="http://jiangsu.sinaimg.cn/zt/s/dzwbqdh/images/logo_w.png">
+				
+				<img class="abs e4_1" data-src="http://jiangsu.sinaimg.cn/zt/s/dzwbqdh/images/4.1.png">
+				
+				<div class="btnBottom"><img data-src="http://jiangsu.sinaimg.cn/zt/s/dzwbqxz/images/up.png"></div>
+			</div>
+			
+			<!--5 Slide-->
+			<div class="swiper-slide" id="s5">
+				<img class="abs e_bg" data-src="http://jiangsu.sinaimg.cn/zt/s/dzwbqdh/images/5.jpg">
+				<img class="abs e_logo" data-src="http://jiangsu.sinaimg.cn/zt/s/dzwbqdh/images/logo_w.png">
+				
+				<img class="abs e5_0" data-src="http://jiangsu.sinaimg.cn/zt/s/dzwbqdh/images/5.0.png" width="640">
+				<img class="abs e5_1" data-src="http://jiangsu.sinaimg.cn/zt/s/dzwbqdh/images/5.1.png">
+				
+				<div class="btnBottom"><img data-src="http://jiangsu.sinaimg.cn/zt/s/dzwbqxz/images/up.png"></div>
+			</div>
+			
+			<!--6 Slide-->
+			<div class="swiper-slide" id="s6">
+				<img class="abs e_bg" data-src="http://jiangsu.sinaimg.cn/zt/s/dzwbqdh/images/6.jpg">
+				<img class="abs e_logo" data-src="http://jiangsu.sinaimg.cn/zt/s/dzwbqdh/images/logo_b.png">
+				
+				<img class="abs e6_1" data-src="http://jiangsu.sinaimg.cn/zt/s/dzwbqdh/images/6.1.png">
+				
+				<div class="btnBottom"><img data-src="http://jiangsu.sinaimg.cn/zt/s/dzwbqxz/images/up.png"></div>
+			</div>
+			
+			<!--7 Slide-->
+			<div class="swiper-slide" id="s7">
+				<img class="abs e_bg" data-src="http://jiangsu.sinaimg.cn/zt/s/dzwbqdh/images/7.jpg">
+				<img class="abs e_logo" data-src="http://jiangsu.sinaimg.cn/zt/s/dzwbqdh/images/logo_w.png">
+				
+				<div class="abs e7_1_bg"></div>
+				<img class="abs e7_1" data-src="http://jiangsu.sinaimg.cn/zt/s/dzwbqdh/images/7.1.png">
+				
+				<div class="btnBottom"><img data-src="http://jiangsu.sinaimg.cn/zt/s/dzwbqxz/images/up.png"></div>
+			</div>
+			
+			<!--8 Slide-->
+			<div class="swiper-slide" id="s8">
+				<img class="abs e_bg" data-src="http://jiangsu.sinaimg.cn/zt/s/dzwbqdh/images/8.jpg">
+				<img class="abs e_logo" data-src="http://jiangsu.sinaimg.cn/zt/s/dzwbqdh/images/logo_r.png">
+				
+				<img class="abs e8_1" data-src="http://jiangsu.sinaimg.cn/zt/s/dzwbqdh/images/8.1.png">
+				
+				<div class="btnBottom"><img data-src="http://jiangsu.sinaimg.cn/zt/s/dzwbqxz/images/up.png"></div>
+			</div>
+			
+			<!--9 Slide-->
+			<div class="swiper-slide" id="s9">
+				<img class="abs e_bg" data-src="http://jiangsu.sinaimg.cn/zt/s/dzwbqdh/images/9.jpg">
+				<img class="abs e_logo" data-src="http://jiangsu.sinaimg.cn/zt/s/dzwbqdh/images/logo_w.png">
+				
+				<img class="abs e9_1" data-src="http://jiangsu.sinaimg.cn/zt/s/dzwbqdh/images/9.1.png">
+				<div class="abs e9_2">A Bite Of Donghai</div>
+				<img class="abs e9_3" data-src="http://jiangsu.sinaimg.cn/zt/s/dzwbqdh/images/9.3.png">
+				
+				<div class="btnBottom"><img data-src="http://jiangsu.sinaimg.cn/zt/s/dzwbqxz/images/up.png"></div>
+			</div>
+			
+			<!--10 Slide-->
+			<div class="swiper-slide" id="s10">
+				<img class="abs e_bg" data-src="http://jiangsu.sinaimg.cn/zt/s/dzwbqdh/images/10.jpg">
+				<img class="abs e_logo" data-src="http://jiangsu.sinaimg.cn/zt/s/dzwbqdh/images/logo_w.png">
+				
+				<img class="abs e10_3" data-src="http://jiangsu.sinaimg.cn/zt/s/dzwbqdh/images/10.3.png">
+				<img class="abs e10_1" data-src="http://jiangsu.sinaimg.cn/zt/s/dzwbqdh/images/10.1.png">
+				<img class="abs e10_2" onclick="window.open('http://weibo.com/u/3624176551')" data-src="http://jiangsu.sinaimg.cn/zt/s/dzwbqdh/images/10.2.png">
+			</div>
+			<!--Etc..-->
+		</div>
+	</div>
+</body>
+
+<!-- page Auto scale -->
+<script type="text/javascript">
+	$(function() {
+		pageAutoScale();
+	});
+	$(window).resize(function() {
+		pageAutoScale();
+	});
+	
+	function pageAutoScale(){
+		var r = document.body.offsetWidth / 640;
+		$(".swiper-container").css("-webkit-transform", "scale(" + r + ")");
+		$("body").height( window.innerHeight ); //修正整数页面高度
+		if (window.innerHeight<=960*r) {  //当用户显示区域小于960高度时，调整每页高度。
+			$(".swiper-container").css("height", parseInt( window.innerHeight / r) );
+			// $(".btnBottom").css("top",(window.innerHeight / r - parseInt($(".btnBottom").css("bottom")) ) );  //滑动提示箭头
+			// $("#page-provider-bottom").css({"top":(window.innerHeight / r ) - $("#page-provider-bottom").height() , "bottom" : "auto"});  //服务提供商置于可视区域bottom
+		}
+	}
+</script>
+
+<!-- 图片预加载 -->
+<script type="text/javascript">
+var loadImage = function(url, callback) {
+	var img = new Image();
+	img.src = url;
+	if (img.complete) {
+		callback.call(img);
+		return;
+	};
+	img.onload = function() {
+		callback.call(img);
+	};
+};
+var imgLoad = function(srcs, callback) {
+	var srcs = srcs || [];
+	var len = srcs.length;
+	if (len < 1)
+		return;
+	// 记录加载长度
+	var loadNum = 0;
+	var loading_p = 0;
+	var loading = function() {
+		if (loadNum < len) {
+			loading_p = Math.ceil(100 * loadNum / len);
+			var _src = srcs[loadNum];
+			loadImage(_src, function(img) {
+				loadNum++;
+				callback && callback(loading_p);
+				loading();
+			});
+		} else {
+			loading_p = '100';
+			callback && callback(loading_p);
+		};
+	}
+	loading();
+};
+var initPage = function() {
+	var _img = $('.swiper-container img');
+	var arr = [];
+	_img.each(function(i, v) {
+		var _src = $(v).data('src');
+		if (_src) {
+			arr.push(_src);
+		};
+	});
+
+	if (arr.length < 1) {
+		// initSwiper();
+		return;
+	};
+
+	var obj = {
+		num : 0,
+		timer : null
+	};
+
+	imgLoad(arr, function(num) {
+		obj.timer && clearTimeout(obj.timer);
+		if (num >= 100) {
+			num = 100;
+			_img.each(function(_i, _v) {
+				$(_v).attr('src', $(_v).data('src'));
+			});
+			// obj.timer = setTimeout(initSwiper,500);
+		};
+		$('.e1_loadingNum').html(num + '%');
+		if (num == 100) {
+			$('.e1_loadingNum').html(num + '%');
+			
+			
+			setTimeout(function() {
+				var p = {
+						activeIndex : 0
+					};
+				$(".e1_loadingBlock").fadeOut(300,function(){
+					Swipercallback(p);
+				});
+			}, 400);
+			
+			//直接开启主页面
+			/* setTimeout(function() {
+				slideStart($('#s0'));
+			}, 400);
+			 */
+		}
+	});
+};
+initPage();
+</script>
+
+<!-- Initialize swiper -->
+<script type="text/javascript">
+var mySwiper;
+	window.onload = function() {
+		mySwiper = new Swiper('.swiper-container',{
+			// options
+			mode:'vertical',
+			mousewheelControl: true,
+			onSlideChangeEnd : Swipercallback,
+		});  
+	}
+	
+	/* SlideChangeEndCallback */
+	function Swipercallback(p){
+	    var act = p.activeIndex; //slideEndIndex
+	    resetAll();
+  		if(act == 0 | act == -0){
+  			//$(".e1_2").css({opacity: 0, scale: 1.8}).transition({opacity: 1, scale: 1,delay: 100},800 ,"ease-out");
+  			$(".e1_2_1").css({opacity: 0, scale: 1.8}).transition({opacity: 1, scale: 1,delay: 100},1300 ,"ease-out");
+  			$(".e1_2_2").css({opacity: 0, scale: 1.8}).transition({opacity: 1, scale: 1,delay: 250},1300 ,"ease-out");
+  			$(".e1_2_3").css({opacity: 0, scale: 1.8}).transition({opacity: 1, scale: 1,delay: 400},1300 ,"ease-out");
+  			$(".e1_2_4").css({opacity: 0, scale: 1.8}).transition({opacity: 1, scale: 1,delay: 550},1300 ,"ease-out");
+  			$(".e1_2_5").css({opacity: 0, scaleX: 1.2}).transition({opacity: 1, scaleX: 1,delay: 1800},1200 ,"ease-out");
+  			
+  		}else if (act == 1){
+	    	$(".e2_1").css({opacity: 0, y: '+20px' }).transition({opacity: 1, y: 0},600);
+	    	$(".e2_1_1").css({opacity: 0, x: '-20px' }).transition({opacity: 1, x: 0,delay:500},1200);
+	    	$(".e2_1_2").css({opacity: 0, x: '+20px' }).transition({opacity: 1, x: 0,delay:500},1200);
+	    	$(".e2_1_3").css({opacity: 0, x: '-10px' }).transition({opacity: 1, x: 0,delay:1800},1000);
+	    	
+	    }else if (act == 2){
+	    	$(".e4_1").css({perspective: '1640px',transformOrigin: '150% 50%', rotateY: 30}).transition({rotateY: 0,opacity: 1 },1000,'out');
+	    }else if (act == 3){
+	    	$(".e5_1").css({opacity: 0,rotate: -10 ,transformOrigin: '0% 100%'}).transition({opacity: 1,rotate: 0},1400,'out');
+	    }else if (act == 4){
+	    	$(".e6_1").css({opacity: 0, x: '-100px' }).transition({opacity: 1,x:'0'},1600,'out');
+	    }else if (act == 5){
+	    	$(".e7_1_bg").css({perspective: '640px',transformOrigin: '-20% 50%', rotateY: -60}).transition({rotateY: 0,opacity: 1 },1000,'out');
+	    	$(".e7_1").css({opacity: 0}).transition({opacity: 1,delay: 600},1200);
+	    }else if (act == 6){
+	    	$(".e8_1").css({perspective: '640px',opacity: 0, rotateY: 90,rotateX: 30}).transition({ rotateX: 0,rotateY: 0 ,opacity: 1 ,delay:100},1300,'out');
+	    }else if (act == 7){
+	    	$(".e9_1").css({opacity: 0}).transition({opacity: 1,delay: 100},1200);
+	    	$(".e9_2").css({opacity: 0}).transition({opacity: 1,delay: 800},1000);
+	    	$(".e9_3").css({opacity: 0, y: '+30px' }).transition({opacity: 1, y: 0, delay: 1800},1400);
+	    }else if (act == 8){
+	    	$(".e10_1").css({opacity: 0}).transition({opacity: 1,delay: 100},1400);
+	    	$(".e10_2").css({opacity: 0, scale:1.9}).transition({opacity: 1,scale:1, delay: 1600},300,"easeOutBack");
+	    	mySwiper.destroy();
+	    }
+  		
+  		if(act>=2){ act++;}
+  		
+  		/* logo */
+  		try{
+  			$("#s"+(act+1)+" .e_logo").css({opacity: 0, y:'-6'}).transition({opacity: 1, y:'0', delay:100},1100);
+  		} catch (e) {
+			// TODO: handle exception
+		}
+  		
+  		/* 上下翻页箭头 */
+  		try{
+  			setTimeout(function(){$("#s"+(act+1)+" .btnBottom").fadeIn();},1000);
+  		}catch (e) {
+			// TODO: handle exception
+		}
+	    
+	}
+	
+	function resetAll(){
+		$(".swiper-wrapper .abs:not(.e_bg)").css({opacity: 0});
+		$(".btnBottom").css('display','none');
+	}
+</script>
+
+<!-- Touch to play BGM. -->
+<script type="text/javascript">
+$('body').live("touchstart",function(e){  
+	document.getElementById('bgm').play();
+}, false);
+</script>
+
+
+<!-- 微信分享js -->
+<script type="text/javascript">
+	var dataForWeixin = {
+		appId : "",
+		title : "指尖上的水晶之都",
+		TLImg : "http://jiangsu.sinaimg.cn/2014/1014/U9263P1194DT20141014113535.jpg",
+		desc : '寻“晶"彩世界，泡幸福之泉，这个冬天，一起去东海幸福泡汤~',
+		url : "http://jiangsu.sina.com.cn/zt/s/zjsdsjzd.html", //请填写分享出去的URL
+		TLTitle: '寻“晶"彩世界，泡幸福之泉，这个冬天，一起去东海幸福泡汤~' //朋友圈文字
+
+	};
+
+	var onBridgeReady = function() {
+		
+		//发送给朋友、群组
+		WeixinJSBridge.on('menu:share:appmessage', function(argv) {
+			WeixinJSBridge.invoke('sendAppMessage', {
+				"appid" : dataForWeixin.appId,
+				"img_url" : dataForWeixin.TLImg, //图片
+				"title" : dataForWeixin.title, //标题
+				"desc" : dataForWeixin.desc, //分享内容
+				"link" : dataForWeixin.url,
+			},function(){
+				//alert("发送给朋友回调()");
+				//location.href = "http://www.baidu.com";
+			});
+		});
+		
+		//分享到朋友圈
+		WeixinJSBridge.on('menu:share:timeline', function(argv) {
+			WeixinJSBridge.invoke('shareTimeline', {
+				"appid" : dataForWeixin.appId,
+				"title" : dataForWeixin.TLTitle, //描述文字
+				"img_url" : dataForWeixin.TLImg, //图片
+				"link" : dataForWeixin.url,
+				"desc" : dataForWeixin.desc, //无用！必须存在！分享内容
+			}, function (){
+				//alert("分享到朋友圈回调()");
+				
+			});
+		});
+
+	};
+
+	if (document.addEventListener) {
+		document.addEventListener('WeixinJSBridgeReady', onBridgeReady, false);
+	} else if (document.attachEvent) {
+		document.attachEvent('WeixinJSBridgeReady', onBridgeReady);
+		document.attachEvent('onWeixinJSBridgeReady', onBridgeReady);
+	}
+</script>
+</html>

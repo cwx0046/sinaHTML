@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="Cache-Control" content="no-cache"/>
+<meta name="format-detection" content="telephone=no"/>
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0"> 
+<title>请在此插入网页标题</title>
+<meta name="keywords" content="请在此插入关键词" />
+<meta name="description" content="请在此写入一段页面描述" />
+<script src="http://i2.sinaimg.cn/cj/dfz/js/base.js" type="text/javascript"></script>
+<script src="http://jiangsu.sinaimg.cn/js/jquery.transit.min.js"></script>
+
+<style type="text/css">
+body, ul, ol, li, p, h1, h2, h3, h4, h5, h6, table, td, th, form, fieldset, img, dl, dt, dd { margin:0; padding:0; }
+textarea, input, select, body { font-size:12px; }
+select, input { vertical-align:middle; }
+fieldset, img { border:0; }
+ul, ol { list-style:none; }
+img { border:0; }
+a { text-decoration:none; color:#000; }
+a:hover { color:#ffa10d; }
+.fl { float:left; display:inline; }
+.fr { float:right; display:inline; }
+.cb { clear:both; display:block; height:0px; overflow:hidden; width:100%; }
+.clearfix:after { clear:both; content:""; display:block; height:0; }
+</style>
+<style type="text/css">
+#p1{
+	width: 320px;
+	height: 480px;
+	background-color: RGBA(0,0,255,0.5);
+	position: relative;
+	overflow: hidden;
+}
+.money{
+	background-image: url("./images/mb0.png");
+	background-size: 100%;
+	width:  190px;
+	height: 386px;
+	position: absolute;
+	/* top: 228px; */
+	bottom: -135px;
+	left: 67px;
+	
+	-webkit-transform: translateZ(0);
+	-moz-transform: translateZ(0);
+	-ms-transform: translateZ(0);
+	transform: translateZ(0);
+}
+#totalmoney{
+	width: 100%;
+	text-align: center;
+	color: #FFF;
+	font-size: 48px;
+	margin-top: 100px;
+}
+</style>
+<script type="text/javascript">
+$(document).ready(function() {
+
+});
+</script>
+
+</head>
+<body ontouchstart='return false'>
+	<div id="p1" class="page">
+		<div id="totalmoney">￥<span id="moneynum">0</span></div>
+		
+		<!-- <div class="money" id="m6"></div>
+		<div class="money" id="m5"></div>
+		<div class="money" id="m4"></div> 
+		<div class="money" id="m3"></div>-->
+		<div class="money" id="m2"></div>
+		<div class="money" id="m1"></div>
+		
+		
+	</div>
+</body>
+ <script src="./hammer.js"></script> 
+ 
+
+<script type="text/javascript">
+    $(".money").live("touchstart", function() {
+    	$(this).css( 'background-image','url("./images/m0.png")');
+	});
+    
+  	 $(".money").each(function() {
+		
+		var container = $(this).get(0),
+        shouts = {}
+        shouts['hold'] = '长按';
+        shouts['tap'] = '点击';
+        shouts['doubletap'] = '双击';
+        shouts['transformstart'] = '转换开始';
+        shouts['transform'] = '转换中';
+        shouts['transformend'] = '转换结束';
+        shouts['dragstart'] = '拖动开始';
+        shouts['drag'] = '拖动中';
+        shouts['dragend'] = '拖动结束';
+        shouts['swipe'] = '快速拖动';
+
+        container.onselectstart = function() { return false; }; // IE fix for doubletap
+        
+        var hammer = new Hammer(container, {
+            tap_max_interval: 700 // seems to bee needed for IE8
+        });
+		
+        
+        var orginalY = $("#m1").position().top;
+        function shout(e){
+            if(e.type == "dragend"){
+            	//console.log("拖动结束");
+            	if(e.distance >= 100 && e.direction == "up"){ //向上拖动了至少100px
+            		//钱币向上飞出
+            		$("#m1").transition({ y: "-614px"}, 100, function() {
+            			$("#m1").css("transform","");
+            			$("#m1").css("bottom","-135px");
+					});
+            		
+            		moneyPlus();
+            	
+            	}else{
+            		$("#m1").transition({ y: 0 }, 80, function() {
+            			$("#m1").css("transform","");
+            			$("#m1").css("bottom","-135px");
+					});
+            	}
+            	$(".money").css("background-image",'url("./images/mb0.png")')
+            }
+            if(e.type == "dragstart"){
+            	//console.log("拖动开始");
+            	document.getElementById("m1").style.backgroundImage = 'url("./images/m0.png")';
+            	
+
+            }
+            if(e.type == "drag"){
+            	//console.log("拖动ing");
+            	$("#m1").transition({ y: e.distanceY },0);
+            }
+            if(e.type == "swipe"){
+            	if(e.distance >= 100 && e.direction == "up"){ //向上拖动了至少100px
+            		//钱币向上飞出
+            		$("#m1").transition({ y: -526  }, 100, function() {
+            			$("#m1").css("transform","");
+            			$("#m1").css("bottom","-135px");
+					});
+            	
+            		moneyPlus();
+            		
+            	}else{
+            		$("#m1").transition({ y: 0 }, 80, function() {
+            			$("#m1").css("transform","");
+            			$("#m1").css("bottom","-135px");
+					});
+            	}
+            	$(".money").css("background-image",'url("./images/mb0.png")')
+            }
+            if(e.type == "tap"){
+            	$(".money").css("background-image",'url("./images/mb0.png")');
+            }
+            if(e.type == "doubletap"){
+            	$(".money").css("background-image",'url("./images/mb0.png")');
+            }
+            
+        }
+
+        var type;
+        for(type in shouts) {
+            hammer['on'+ type] = shout;
+        }
+	});
+  	 
+  	 var moneynum = 0;
+  	 function moneyPlus() {
+  		moneynum +=100;
+  		document.getElementById("moneynum").innerHTML = moneynum;
+	}
+  	 
+    </script>
+    
+    <script type="text/javascript">
+	$("body").height($(window).height());
+	$(".page").height($(window).height());
+    </script>
+</html>

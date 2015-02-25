@@ -1,0 +1,672 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="cache-control" content="no-cache"/>
+<meta name="format-detection" content="telephone=no"/>
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0"> 
+<title>江苏寻味之旅·南京</title>
+<meta name="keywords" content="南京,旅游,美食" />
+<meta name="description" content="京大排档品尝特色秦淮风味，画舫夜游秦淮河，赏十里珠帘美如画；早起吃一份鸡鸣汤包，明孝陵感受清幽，对话明城墙，在老门东追忆往昔" />
+<script src="http://i2.sinaimg.cn/cj/dfz/js/base.js" type="text/javascript"></script>
+<script src="http://jiangsu.sinaimg.cn/js/jquery.transit.min.js"></script>
+<link rel="stylesheet" href="http://jiangsu.sinaimg.cn/js/idangerous.swiper.css">
+<script src="http://jiangsu.sinaimg.cn/js/idangerous.swiper.min.js"></script>
+<style type="text/css">
+body, ul, ol, li, p, h1, h2, h3, h4, h5, h6, table, td, th, form, fieldset, img, dl, dt, dd { margin:0; padding:0; }
+textarea, input, select, body { font-size:12px; }
+select, input { vertical-align:middle; }
+fieldset, img { border:0; }
+ul, ol { list-style:none; }
+img { border:0; }
+a { text-decoration:none; color:#000; }
+a:hover { color:#ffa10d; }
+.fl { float:left; display:inline; }
+.fr { float:right; display:inline; }
+.cb { clear:both; display:block; height:0px; overflow:hidden; width:100%; }
+.clearfix:after { clear:both; content:""; display:block; height:0; }
+</style>
+<!-- 自适应缩放css -->
+<style type="text/css">
+body{ overflow-x: hidden; background-color: #fdfef9; color: #000; font-size: 24px; }
+.swiper-container{ width: 640px; height: 1008px; -webkit-transform-origin: top left; margin: 0; background-color: #fefcef; }
+.swiper-wrapper *{ -webkit-backface-visibility: hidden; } /* 避免ip4Safari闪动 */
+.page-provider{ position:absolute;top:0; text-align: center; width: 100%; font-size: 24px;line-height: 80px; color: #e5d2d4; }
+.page-provider#page-provider-bottom{ top:auto; bottom: 0; }
+.swiper-slide{ width: 640px; height: 1008px; position: relative; overflow: hidden; }
+</style>
+<!-- end 自适应缩放css -->
+<style type="text/css">
+.abs{ position: absolute; }
+.e_bg{ left: 0; top: 0; }
+.e_logo{ left: 35px; top: 35px; }
+.detailbtn{ cursor: pointer; display: none;
+/* -webkit-animation: detailbtnShake 1.2s linear 0.1s infinite normal running; */
+-webkit-animation-name: detailbtnShake;
+-webkit-animation-duration: 1.2s;
+-webkit-animation-timing-function: linear;
+-webkit-animation-delay: 0.1s;
+-webkit-animation-iteration-count: infinite;
+-webkit-animation-direction: normal;
+-webkit-animation-play-state: running;
+}
+
+@-webkit-keyframes detailbtnShake /* Safari and Chrome */
+{
+0%   { -webkit-transform:rotateZ(0deg); }
+50%  { -webkit-transform:rotateZ(0deg); }
+60%  { -webkit-transform:rotateZ(-9deg); }
+70%  { -webkit-transform:rotateZ(8deg); }
+80%  { -webkit-transform:rotateZ(-7deg); }
+90%  { -webkit-transform:rotateZ(6deg); }
+100% { -webkit-transform:rotateZ(-5deg); }
+}
+
+.btnBottom{
+display: none;
+position:absolute; bottom:20px; text-align:center; width:640px;
+/* -webkit-animation:btnBottom 1.8s linear 1s infinite normal running; */
+-webkit-animation-name: btnBottom;
+-webkit-animation-duration: 1.8s;
+-webkit-animation-timing-function: linear;
+-webkit-animation-delay: 1s;
+-webkit-animation-iteration-count: infinite;
+-webkit-animation-direction: normal;
+-webkit-animation-play-state: running;
+-webkit-transform: translateZ(0);
+-moz-transform: translateZ(0);
+-ms-transform: translateZ(0);
+transform: translateZ(0);
+}
+
+@-webkit-keyframes btnBottom /* Safari and Chrome */
+{
+0% {-webkit-transform:translateY(0px); opacity: 0;}
+90% { opacity: 1;}
+100% {-webkit-transform:translateY(-25px); opacity: 0;}
+}
+
+#s1 { background-color: #fefcef;}
+#s1 .e1_1{ left: 283px; top: 376px; -webkit-animation:round2D 4s linear infinite;}
+#s1 .e1_loadingNum{ left: 283px; top: 376px; width: 76px;line-height:74px; text-align: center; font-size: 20px; }
+#s1 .e1_loadingText{ left: 0; top: 477px; width: 100%; text-align: center; font-size: 20px; letter-spacing: 3px;}
+#s1 .e1_pre{ display: none; width: 100%; height: 100%; }
+#s1 .e1_pre .e1_pre_text{ width:410px; height:290px; font-size: 24px; line-height: 44px; color: #000; top: 0; right: 0; bottom: 0; left: 0; margin: auto; }
+#s1 .e1_pre .e1_pre_text .e1_pre_btn{ right:0; bottom:-42px; }
+
+#s1 .e1_2_1{ left: 97px; top: 187px; display: none; }
+#s1 .e1_2_2{ left: 30px; top: 504px; display: none; }
+#s1 .e1_2_3{ left: 196px; top: 642px; display: none; }
+
+#s2 .e2_1{ left: 512px; top: 57px;}
+#s2 .e2_1_1{ left: 388px; top: 103px; color: #FFF;}
+#s2 .e2_1_2{ left: 388px; top: 133px; color: #FFF;}
+#s2 .e2_2{ left: 32px; top: 649px;}
+#s2 .e2_2_1{ left: 34px; top: 700px;}
+#s2 .e2_2_2{ left: 34px; top: 732px;}
+#s2 .detailbtn{ left: 133px; top: 329px;}
+#s2 .detailbtn_text{ left: 130px; top: 421px; text-align: center; -webkit-transform: rotateZ(-17.8deg);}
+
+#s3 .e3_1{ left: 516px; top: 78px;}
+#s3 .e3_1_1{ left: 398px; top: 124px; color: #FFF;}
+#s3 .e3_1_2{ left: 397px; top: 155px; color: #FFF;}
+#s3 .e3_2{ left: 112px; top: 698px;}
+#s3 .e3_2_1{ left: 118px; top: 746px; color: #FFF;}
+#s3 .e3_2_2{ left: 117px; top: 779px; color: #FFF;}
+#s3 .detailbtn{ left: 454px; top: 227px;}
+#s3 .detailbtn_text{ left: 434px;top: 329px;text-align: center;-webkit-transform: rotateZ(-9.8deg);color: #FFF;}
+
+#s4 .e4_1{ left: 429px; top: 190px;}
+#s4 .e4_1_1{ left: 361px; top: 233px; color: #FFF;}
+#s4 .e4_1_1,#s4 .e4_2_1{ padding: 10px; background-color: RGBA(0,0,0,0.3);}
+#s4 .e4_2{ left: 66px; top: 630px;}
+#s4 .e4_2_1{ left: 61px; top: 673px; color: #FFF;}
+#s4 .detailbtn{ left: 144px; top: 398px;}
+#s4 .detailbtn_text{ left: 130px;top: 492px;text-align: center;-webkit-transform: rotateZ(-15.8deg);color: #FFF;}
+
+#s5 .e5_1{ left: 450px; top: 230px;}
+#s5 .e5_1_1{ left: 394px; top: 281px; color: #FFF;}
+#s5 .e5_2{ left: 73px; top: 614px;}
+#s5 .e5_2_1{ left: 74px; top: 663px; color: #FFF;}
+#s5 .detailbtn{ left: 122px; top: 400px;}
+#s5 .detailbtn_text{ left: 105px;top: 494px;text-align: center;-webkit-transform: rotateZ(-13.8deg);}
+
+#s6 .e6_1{ left: 498px; top: 216px;}
+#s6 .e6_1_1{ left: 333px; top: 261px; color: #FFF;}
+#s6 .e6_2{ left: 470px; top: 681px;}
+#s6 .e6_2_1{ left: 387px; top: 735px; color: #FFF;}
+#s6 .detailbtn{ left: 102px; top: 637px;}
+#s6 .detailbtn_text{ left: 112px;top: 723px;text-align: center;-webkit-transform: rotateZ(-14.8deg);}
+
+#s7 .e7_1{ left: 95px; top: 102px; }
+#s7 .e7_2,#s7 .e7_3{ left: 253px; top: 448px; cursor:pointer;
+    line-height: 54px; font-size:20px; color:#FFF; text-align:center;
+	width: 138px;	height: 54px;	border-radius: 6px;	color: #fff;
+	box-shadow: 0 4px 0 rgba(165,40,23,.75), inset 0 2px 0 rgba(224,108,89,.75), 0 0 4px rgba(0,0,0,.5);
+	background-color: #d6422b;
+}
+#s7 .e7_3{ left: 253px; top: 543px; }
+#s7 .e7_4,#s7 .e7_5,#s7 .e7_6,#s7 .e7_7{ top: 646px; text-align: center; width: 100%; }
+#s7 .e7_4{ color: #9a1f24; font-weight: bold; }
+#s7 .e7_5{ top: 686px; }
+#s7 .e7_6{ top: 724px; }
+#s7 .e7_7{ top: 764px; }
+
+</style>
+<!-- keyframes css -->
+<style type="text/css">
+@-webkit-keyframes round2D{
+	0%	 {-webkit-transform:rotate(0deg)}
+	25%	 {-webkit-transform:rotate(-90deg)}
+	50%	 {-webkit-transform:rotate(-180deg)}
+	75%	 {-webkit-transform:rotate(-270deg)}
+	100% {-webkit-transform:rotate(-359deg)}	
+}
+@-webkit-keyframes shine{
+	0%	 { opacity:0;}
+	100% { opacity:1;}	
+}
+@-webkit-keyframes mist{
+	0%	 { top:300px; opacity:0;}
+	10%	 { opacity:1;}
+	90%  { opacity:1;}	
+	100% { top:-300px; opacity:0;}	
+}
+</style>
+<style type="text/css">
+.sublayer { display:none; width: 100%; height: 100%; }
+.sublayer img.blur { -webkit-filter:blur(3px); }
+.sublayer .subp { padding:16px 14px; width: 498px;	height: 713px; background-image: url("http://jiangsu.sinaimg.cn/zt/s/jsxwzl/nanjing/images/subp.jpg"); top: 0; right: 0; bottom: 0; left: 0; margin: auto;}
+.sublayer .subp p { font-size: 20px; line-height: 30px; color: #000; padding: 6px 14px;}
+.sublayer .subp .closebtn{ right: -28px; top: -28px; border: 4px solid #FFF; border-radius: 50%; }
+.sublayer .subbtn {	width: 107px; height: 35px;left:264px; top:845px; line-height:35px; border: 3px solid rgba(255,255,255,.3); background-color: #b00000; text-align: center; color: #FFF; letter-spacing: 8px;}
+
+</style>
+</head>
+<body>
+	<!-- 
+	* 说明：
+	* 多页面滑动模板，适用于 类ppt 页面
+	* 页面 640x1008 按宽度缩放
+	* 使用 idangerous.swiper 插件切换页面 ，参数请在下方 【Initialize swiper】中自行更改
+	*
+	 -->
+	<div class="swiper-container">
+		<!-- 版权声明 -->
+		<div class="page-provider" id="page-provider-top">新浪江苏 SINA 2014</div>
+		<div class="page-provider" id="page-provider-bottom">新浪江苏 SINA 2014</div>
+		
+		<div class="swiper-wrapper">
+		    <!--First Slide-->
+			<div class="swiper-slide" id="s1">
+				<img class="abs e_bg" data-src="http://jiangsu.sinaimg.cn/zt/s/jsxwzl/nanjing/images/p1.jpg">
+				
+				<div class="e1_loadingBlock">
+					<img class="abs e1_1" src="http://jiangsu.sinaimg.cn/zt/s/dzwbqdh/images/1.1.png">
+					<div class="abs e1_loadingNum">&nbsp;</div>
+					<div class="abs e1_loadingText">等待加载也是一种幸福</div>
+				</div>
+				<div class="abs e1_pre">
+					<div class="abs e1_pre_text">　　六朝古都，王谢风流，在南京寻觅秦淮之风。不得不去，南京大排档品尝特色秦淮风味，画舫夜游秦淮河，赏十里珠帘美如画；早起吃一份鸡鸣汤包，明孝陵感受清幽，对话明城墙，在老门东追忆往昔……<img class="abs e1_pre_btn" data-src="http://jiangsu.sinaimg.cn/zt/s/jsxwzl/nanjing/images/e1_pre_btn.png"></div>
+				</div>
+				
+				<img class="abs elem e1_2_1" data-src="http://jiangsu.sinaimg.cn/zt/s/jsxwzl/nanjing/images/1.2.1.png">
+				<img class="abs elem e1_2_2" data-src="http://jiangsu.sinaimg.cn/zt/s/jsxwzl/nanjing/images/1.2.2.png">
+				<img class="abs elem e1_2_3" data-src="http://jiangsu.sinaimg.cn/zt/s/jsxwzl/nanjing/images/1.2.3.jpg">
+				
+				<div class="btnBottom"><img data-src="http://jiangsu.sinaimg.cn/zt/s/jsxwzl/nanjing/images/up.png" style="background-color: rGBA(0,0,0,0.2);padding: 10px 20px;border-radius: 3px;"><p style="color: #FFF;">滑动切换</p></div>
+			</div>
+			
+			<!--Second Slide-->
+			<div class="swiper-slide" id="s2">
+				<img class="abs e_bg" data-src="http://jiangsu.sinaimg.cn/zt/s/jsxwzl/nanjing/images/p2.jpg">
+				<img class="abs elem e_logo" data-src="http://jiangsu.sinaimg.cn/zt/s/jsxwzl/nanjing/images/logo.png">
+				
+				<img class="abs elem e2_1" data-src="http://jiangsu.sinaimg.cn/zt/s/jsxwzl/nanjing/images/2.1.png">
+				<p   class="abs elem e2_1_1">文采风流，甲于海内；</p>
+				<p   class="abs elem e2_1_2">珠帘十里，目炫神迷。</p>
+				<img class="abs elem e2_2" data-src="http://jiangsu.sinaimg.cn/zt/s/jsxwzl/nanjing/images/2.2.png">
+			  	<p   class="abs elem e2_2_1">六百年石像，看人来人往，</p>
+				<p   class="abs elem e2_2_2">四季轮回，沧海桑田。</p>
+				
+				<img class="abs elem detailbtn" data-src="http://jiangsu.sinaimg.cn/zt/s/jsxwzl/nanjing/images/detailbtn.png">
+		 	  	<p   class="abs elem detailbtn_text">点击了解详情</p>
+				
+				<div class="abs sublayer">
+					<img class="abs blur" data-src="http://jiangsu.sinaimg.cn/zt/s/jsxwzl/nanjing/images/p2.jpg">
+					<div class="abs subp">
+						<img data-src="http://jiangsu.sinaimg.cn/zt/s/jsxwzl/nanjing/images/sub2.1.jpg">
+						<p>@大愛麗絲王翎芳：今晚提早一天到南京，为明天的记者发布会提早准备，听说明日下雨，趁着今晚夜色正好、风光绮旎，在秦淮河畔先抓几张夜景！走一圈下来，江南之美尽收眼底！更期待明晚夜乘画舫再游秦淮河。</p>
+						<img data-src="http://jiangsu.sinaimg.cn/zt/s/jsxwzl/nanjing/images/sub2.2.jpg">
+						<p>@大愛麗絲王翎芳：久仰明孝陵大名，今日终于得偿夙愿！虽下微雨，但这时节的神道还是超级美的，两侧石刻神兽超级萌，搭配秋冬黄金树叶很棒！若落叶不清扫，铺满神地道面一定更美！ </p>
+						<img class="abs closebtn" data-src="http://jiangsu.sinaimg.cn/zt/s/jsxwzl/nanjing/images/closebtn.png">
+					</div>
+					<!-- <div class="abs subbtn">返回</div> -->
+				</div>
+				
+				<div class="btnBottom"><img data-src="http://jiangsu.sinaimg.cn/zt/s/jsxwzl/nanjing/images/up.png"></div>
+			</div>
+			
+			<!--3 Slide-->
+			<div class="swiper-slide" id="s3">
+				<img class="abs e_bg" data-src="http://jiangsu.sinaimg.cn/zt/s/jsxwzl/nanjing/images/p3.jpg">
+				<img class="abs e_logo" data-src="http://jiangsu.sinaimg.cn/zt/s/jsxwzl/nanjing/images/logo.png">
+				
+				<img class="abs elem e3_1" data-src="http://jiangsu.sinaimg.cn/zt/s/jsxwzl/nanjing/images/3.1.png">
+				<p   class="abs elem e3_1_1">百年古迹，对话历史;</p>
+				<p   class="abs elem e3_1_2">城之脊梁，时代见证。</p>
+				<img class="abs elem e3_2" data-src="http://jiangsu.sinaimg.cn/zt/s/jsxwzl/nanjing/images/3.2.png">
+			 	<p   class="abs elem e3_2_1">岁月沧桑，民国风韵;</p>
+				<p   class="abs elem e3_2_2">两岸孪生，血脉牵连。</p>
+				
+				<img class="abs elem detailbtn" data-src="http://jiangsu.sinaimg.cn/zt/s/jsxwzl/nanjing/images/detailbtn.png">
+				<p   class="abs elem detailbtn_text">点击了解详情</p>
+				
+				<div class="abs sublayer">
+					<img class="abs blur" data-src="http://jiangsu.sinaimg.cn/zt/s/jsxwzl/nanjing/images/p3.jpg">
+					<div class="abs subp">
+						<img data-src="http://jiangsu.sinaimg.cn/zt/s/jsxwzl/nanjing/images/sub3.1.jpg">
+						<p>@大愛麗絲王翎芳：在明城墙看到一块块以阳刻方式留下铸砖人名字的明代石砖，亲手触摸这些几百年前的古迹，想到历史的过程，内心真的很激动的，仿若借着石砖和前人对话一般！这世界最大的古城墙是中国人的骄傲，希望这老城墙持续守护南京，继续为时代作见证。</p>
+						<img data-src="http://jiangsu.sinaimg.cn/zt/s/jsxwzl/nanjing/images/sub3.2.jpg">
+						<p>@大愛麗絲王翎芳：再探南京总统府，身为台湾人，贴近民国建筑，发现建筑之格局与台湾许多老国民党建筑及官舍大致雷同，尤其和中山楼更相似！想来老蒋当年应该也是复制南京之貌建设台湾，走入总统府彷佛回到台湾，这种两岸孪生的建筑风格，正说明了本同一家的血脉牵连。 </p>
+						<img class="abs closebtn" data-src="http://jiangsu.sinaimg.cn/zt/s/jsxwzl/nanjing/images/closebtn.png">
+					</div>
+					<!-- <div class="abs subbtn">返回</div> -->
+				</div>
+							
+				<div class="btnBottom"><img data-src="http://jiangsu.sinaimg.cn/zt/s/jsxwzl/nanjing/images/up.png"></div>
+			</div>
+			
+			<!--4 Slide-->
+			<div class="swiper-slide" id="s4">
+				<img class="abs e_bg" data-src="http://jiangsu.sinaimg.cn/zt/s/jsxwzl/nanjing/images/p4.jpg">
+				<img class="abs e_logo" data-src="http://jiangsu.sinaimg.cn/zt/s/jsxwzl/nanjing/images/logo.png">
+				
+				<img class="abs elem e4_1" data-src="http://jiangsu.sinaimg.cn/zt/s/jsxwzl/nanjing/images/4.1.png">
+				<p   class="abs elem e4_1_1">食色生活，人气美味。</p>
+				<img class="abs elem e4_2" data-src="http://jiangsu.sinaimg.cn/zt/s/jsxwzl/nanjing/images/4.2.png">
+			  	<p   class="abs elem e4_2_1">百年老店，手艺精湛。</p>
+				
+				<img class="abs elem detailbtn" data-src="http://jiangsu.sinaimg.cn/zt/s/jsxwzl/nanjing/images/detailbtn.png">
+				<p   class="abs elem detailbtn_text">点击了解详情</p>
+				
+				<div class="abs sublayer">
+					<img class="abs blur" data-src="http://jiangsu.sinaimg.cn/zt/s/jsxwzl/nanjing/images/p4.jpg">
+					<div class="abs subp">
+						<img data-src="http://jiangsu.sinaimg.cn/zt/s/jsxwzl/nanjing/images/sub4.1.jpg">
+						<p>@大愛麗絲王翎芳：结束下午四场南京小吃的录像采访后，领悟到南京菜比起「闻着香」更讲究「入口香」，晚餐时分转移至「南京大排档」着实吃不下了，却依然被糯米蒸肉、金陵双臭吸引得吃多了！最惊异的是南京独有水煮孵了15天的鸡仔「活珠子」，剥开蛋壳胚胎雏形清晰可见，南京美食的初体验就此展开！</p>
+						<img data-src="http://jiangsu.sinaimg.cn/zt/s/jsxwzl/nanjing/images/sub4.2.jpg">
+						<p>@大愛麗絲王翎芳：已传承至第四代的百年老店李记清真馆，皮色金黄的牛肉锅贴底板脆香，一口咬下肉嫩汁香肉卤四溢！其祖传熏牛肉工艺更是一绝，先腌后蒸再微煨四至五小时，耗时费工入口咸香软糯弹性依旧，而常因皮子薄软承受不住肉馅重量断裂后肉汁流泄不止的现蒸汤包大喇叭，亦成汤包控追逐目标！</p>
+						<img class="abs closebtn" data-src="http://jiangsu.sinaimg.cn/zt/s/jsxwzl/nanjing/images/closebtn.png">
+					</div>
+					<!-- <div class="abs subbtn">返回</div> -->
+				</div>
+				
+				<div class="btnBottom"><img data-src="http://jiangsu.sinaimg.cn/zt/s/jsxwzl/nanjing/images/up.png"></div>
+			</div>
+			
+			<!--5 Slide-->
+			<div class="swiper-slide" id="s5">
+				<img class="abs e_bg" data-src="http://jiangsu.sinaimg.cn/zt/s/jsxwzl/nanjing/images/p5.jpg">
+				<img class="abs e_logo" data-src="http://jiangsu.sinaimg.cn/zt/s/jsxwzl/nanjing/images/logo.png">
+				
+				<img class="abs elem e5_1" data-src="http://jiangsu.sinaimg.cn/zt/s/jsxwzl/nanjing/images/5.1.png">
+			  	<p   class="abs elem e5_1_1">心之美味，感恩回馈。</p>
+				<img class="abs elem e5_2" data-src="http://jiangsu.sinaimg.cn/zt/s/jsxwzl/nanjing/images/5.2.png">
+			  	<p   class="abs elem e5_2_1">必备老卤，经典之味。</p>
+				
+				<img class="abs elem detailbtn" data-src="http://jiangsu.sinaimg.cn/zt/s/jsxwzl/nanjing/images/detailbtn.png">
+				<p   class="abs elem detailbtn_text">点击了解详情</p>
+				
+				<div class="abs sublayer">
+					<img class="abs blur" data-src="http://jiangsu.sinaimg.cn/zt/s/jsxwzl/nanjing/images/p5.jpg">
+					<div class="abs subp">
+						<img data-src="http://jiangsu.sinaimg.cn/zt/s/jsxwzl/nanjing/images/sub5.1.jpg">
+						<p>@大愛麗絲王翎芳：因为饥荒，在1958年带着瘫痪的公公婆婆从溧水来到南京的芳婆糕团店女主人史芳婆，当时不会烧煤，为了卖蒸儿糕，70多岁的街坊周奶奶每天早起教她如何生火，当婆糕团店生意做火了，芳婆把对于南京老街坊的感恩转化到对质量的要求，板栗肉粽、糖芋苗、酒酿元宵赤豆都保留了温情老南京味儿！</p>
+						<img data-src="http://jiangsu.sinaimg.cn/zt/s/jsxwzl/nanjing/images/sub5.2.jpg">
+						<p>@大愛麗絲王翎芳：采访坐拥五十年老卤，至今仍保留着结账去零头习惯的＂章云板鸭＂邵老板时，路人主动发言表示此鸭是老南京人家中餐桌上的必备菜肴！皮白、肉嫩、骨髓绿的盐水鸭及皮脆骨香、前脯肥嫩的烤鸭，是邵老板凝聚全家精、气、神共同完成的＂炼鸭协奏曲＂，情感及专业兼具，一品尝立刻会意！ </p>
+						<img class="abs closebtn" data-src="http://jiangsu.sinaimg.cn/zt/s/jsxwzl/nanjing/images/closebtn.png">
+				  </div>
+					<!-- <div class="abs subbtn">返回</div> -->
+			  </div>
+				
+				<div class="btnBottom"><img data-src="http://jiangsu.sinaimg.cn/zt/s/jsxwzl/nanjing/images/up.png"></div>
+		  </div>
+			
+			<!--6 Slide-->
+			<div class="swiper-slide" id="s6">
+				<img class="abs e_bg" data-src="http://jiangsu.sinaimg.cn/zt/s/jsxwzl/nanjing/images/p6.jpg">
+				<img class="abs e_logo" data-src="http://jiangsu.sinaimg.cn/zt/s/jsxwzl/nanjing/images/logo.png">
+				
+				<img class="abs elem e6_1" data-src="http://jiangsu.sinaimg.cn/zt/s/jsxwzl/nanjing/images/6.1.png">
+				<p   class="abs elem e6_1_1">慕名而来，寻找南京美味。</p>
+				<img class="abs elem e6_2" data-src="http://jiangsu.sinaimg.cn/zt/s/jsxwzl/nanjing/images/6.2.png">
+			 	<p   class="abs elem e6_2_1">人气爆棚，栗栗香甜。</p>
+				
+				<img class="abs elem detailbtn" data-src="http://jiangsu.sinaimg.cn/zt/s/jsxwzl/nanjing/images/detailbtn.png">
+				<p   class="abs elem detailbtn_text">点击了解详情</p>
+				
+				<div class="abs sublayer">
+					<img class="abs blur" data-src="http://jiangsu.sinaimg.cn/zt/s/jsxwzl/nanjing/images/p6.jpg">
+					<div class="abs subp">
+						<img data-src="http://jiangsu.sinaimg.cn/zt/s/jsxwzl/nanjing/images/sub6.1.jpg">
+						<p>@大愛麗絲王翎芳：奇芳阁主厨昨天带我进了他家厨房，女厨师把一块豆干切成三十二根细干丝做成素麻油干丝，做牛肉汤包的女厨师则说汤包中汤汁来源于牛蹄筋，这间开设于1920年清末的老店招牌，端頼这几位三十年以上资历的老厨师以「初心」相护，长此以往，秦淮河畔伴秦淮八絶相生相息，因而能留下前朝滋味！</p>
+						<img data-src="http://jiangsu.sinaimg.cn/zt/s/jsxwzl/nanjing/images/sub6.2.jpg">
+						<p>@大愛麗絲王翎芳：位于南京白下区明瓦廊大香炉23号的金味栗子，大概是我吃过最好的秋栗了，皮薄易剥，不用糖炒，吃的是原味，还能绵香柔蜜，松甜软润，毫不干涩，这要归功于炒的火候与栗子的质量，每天只卖4、5小时，一年只卖秋天三个月，日日大排长龙下，难怪风格异类的老板低调神秘！</p>
+						<img class="abs closebtn" data-src="http://jiangsu.sinaimg.cn/zt/s/jsxwzl/nanjing/images/closebtn.png">
+					</div>
+					<!-- <div class="abs subbtn">返回</div> -->
+				</div>
+				
+				<div class="btnBottom"><img data-src="http://jiangsu.sinaimg.cn/zt/s/jsxwzl/nanjing/images/up.png"></div>
+			</div>
+			
+			<!--7 Slide-->
+			<div class="swiper-slide" id="s7">
+				<img class="abs e_bg" data-src="http://jiangsu.sinaimg.cn/zt/s/jsxwzl/nanjing/images/p7.jpg">
+				<img class="abs elem e7_1" data-src="http://jiangsu.sinaimg.cn/zt/s/jsxwzl/nanjing/images/1.2.1.png">
+				<div class="abs elem e7_2" onclick="window.open('http://jiangsu.sina.com.cn/1/2014-10-28/349.html')">开启旅程</div>
+				<div class="abs elem e7_3" onclick="window.open('http://jiangsu.sina.com.cn/zt/s/jsxwzlhah5.html')">下一站：淮安</div>
+				<div class="abs elem e7_4">特别鸣谢</div>
+				<div class="abs elem e7_5">愛麗絲魔境</div>
+				<div class="abs elem e7_6">@大愛麗絲王翎芳</div>
+				<div class="abs elem e7_7">@貼布導演</div>
+<style>
+#s7 .e7_8{ top: 445px;left: 462px;text-align: center;text-shadow: 1px 1px 6px RGBA(0,0,0,0.4); }
+</style>
+<div class="abs elem e7_8" onclick="window.open('http://jiangsu.sina.com.cn/1/2014-10-28/349.html')">
+	<img src="http://jiangsu.sinaimg.cn/2014/0802/U9263P1194DT20140802224251_1.png">
+	<div>返　回</div>
+</div>
+			</div>
+			
+			<!--Etc..-->
+		</div>
+	</div>
+</body>
+
+<!-- page Auto scale -->
+<script type="text/javascript">
+	$(function() {
+		pageAutoScale();
+	});
+	$(window).resize(function() {
+		pageAutoScale();
+	});
+	
+	function pageAutoScale(){
+		var r = document.body.offsetWidth / 640;
+		$(".swiper-container").css("-webkit-transform", "scale(" + r + ")");
+		$("body").height( window.innerHeight ); //修正整数页面高度
+		if (window.innerHeight<=1008*r) {  //当用户显示区域小于1008高度时，调整每页高度。
+			$(".swiper-container").css("height", parseInt( window.innerHeight / r) );
+			// $(".btnBottom").css("top",(window.innerHeight / r - parseInt($(".btnBottom").css("bottom")) ) );  //滑动提示箭头
+			// $("#page-provider-bottom").css({"top":(window.innerHeight / r ) - $("#page-provider-bottom").height() , "bottom" : "auto"});  //服务提供商置于可视区域bottom
+		}
+	}
+</script>
+
+<!-- 微信分享js -->
+<script type="text/javascript">
+	var dataForWeixin = {
+		appId : "",
+		title : "【江苏寻味之旅】寻找秋日南京味 迷醉悠悠秦淮风",
+		TLImg : "http://jiangsu.sinaimg.cn/zt/s/jsxwzl/nanjing/images/ico.jpg",
+		desc : '南京大排档品尝特色秦淮风味，画舫夜游秦淮河，赏十里珠帘美如画；早起吃一份鸡鸣汤包，明孝陵感受清幽，对话明城墙，在老门东追忆往昔……',
+		url : "http://jiangsu.sina.com.cn/zt/s/jsxwzlnjh5.html", //请填写分享出去的URL
+		TLTitle: '【江苏寻味之旅】寻找秋日南京味 迷醉悠悠秦淮风' //朋友圈文字
+
+	};
+
+	var onBridgeReady = function() {
+		
+		//发送给朋友、群组
+		WeixinJSBridge.on('menu:share:appmessage', function(argv) {
+			WeixinJSBridge.invoke('sendAppMessage', {
+				"appid" : dataForWeixin.appId,
+				"img_url" : dataForWeixin.TLImg, //图片
+				"title" : dataForWeixin.title, //标题
+				"desc" : dataForWeixin.desc, //分享内容
+				"link" : dataForWeixin.url,
+			},function(){
+				//alert("发送给朋友回调()");
+				//location.href = "http://www.baidu.com";
+			});
+		});
+		
+		//分享到朋友圈
+		WeixinJSBridge.on('menu:share:timeline', function(argv) {
+			WeixinJSBridge.invoke('shareTimeline', {
+				"appid" : dataForWeixin.appId,
+				"title" : dataForWeixin.TLTitle, //描述文字
+				"img_url" : dataForWeixin.TLImg, //图片
+				"link" : dataForWeixin.url,
+				"desc" : dataForWeixin.desc, //无用！必须存在！分享内容
+			}, function (){
+				//alert("分享到朋友圈回调()");
+				
+			});
+		});
+
+	};
+
+	if (document.addEventListener) {
+		document.addEventListener('WeixinJSBridgeReady', onBridgeReady, false);
+	} else if (document.attachEvent) {
+		document.attachEvent('WeixinJSBridgeReady', onBridgeReady);
+		document.attachEvent('onWeixinJSBridgeReady', onBridgeReady);
+	}
+</script>
+
+<!-- 图片预加载 -->
+<script type="text/javascript">
+var loadImage = function(url, callback) {
+	var img = new Image();
+	img.src = url;
+	if (img.complete) {
+		callback.call(img);
+		return;
+	};
+	img.onload = function() {
+		callback.call(img);
+	};
+};
+var imgLoad = function(srcs, callback) {
+	var srcs = srcs || [];
+	var len = srcs.length;
+	if (len < 1)
+		return;
+	// 记录加载长度
+	var loadNum = 0;
+	var loading_p = 0;
+	var loading = function() {
+		if (loadNum < len) {
+			loading_p = Math.ceil(100 * loadNum / len);
+			var _src = srcs[loadNum];
+			loadImage(_src, function(img) {
+				loadNum++;
+				callback && callback(loading_p);
+				loading();
+			});
+		} else {
+			loading_p = '100';
+			callback && callback(loading_p);
+		};
+	}
+	loading();
+};
+var initPage = function() {
+	var _img = $('.swiper-container img');
+	var arr = [];
+	_img.each(function(i, v) {
+		var _src = $(v).data('src');
+		if (_src) {
+			arr.push(_src);
+		};
+	});
+
+	if (arr.length < 1) {
+		// initSwiper();
+		return;
+	};
+
+	var obj = {
+		num : 0,
+		timer : null
+	};
+
+	imgLoad(arr, function(num) {
+		obj.timer && clearTimeout(obj.timer);
+		if (num >= 100) {
+			num = 100;
+			_img.each(function(_i, _v) {
+				$(_v).attr('src', $(_v).data('src'));
+			});
+			// obj.timer = setTimeout(initSwiper,500);
+		};
+		$('.e1_loadingNum').html(num + '%');
+		if (num == 100) {
+			$('.e1_loadingNum').html(num + '%');
+			
+			
+			setTimeout(function() {
+
+				$(".e1_loadingBlock").fadeOut(300,function(){
+					var $dom = $(".e1_pre").fadeIn(600);
+					var t = setTimeout(function() {
+						if ( $dom.css("display") === "block" ) {
+							e1_preOut();
+						}else{
+							clearTimeout(t);
+							return;
+						}
+					}, 30000);
+					$dom.click(function(){
+						e1_preOut();
+					});
+					
+					function e1_preOut(){
+						$(".e1_pre").fadeOut(300,function(){
+							var p = {activeIndex : 0};
+							Swipercallback(p);
+						});
+					}
+					
+				});
+			}, 400);
+			
+			//直接开启主页面
+			/* setTimeout(function() {
+				slideStart($('#s0'));
+			}, 400);
+			 */
+			}
+	});
+};
+initPage();
+</script>
+
+<!-- Initialize swiper -->
+<script type="text/javascript">
+var mySwiper;
+	window.onload = function() {
+		mySwiper = new Swiper('.swiper-container',{
+			// options
+			mode:'vertical',
+			mousewheelControl: true,
+			onSlideChangeEnd : Swipercallback,
+		});  
+	}
+	
+	/* SlideChangeEndCallback */
+	function Swipercallback(p){
+	    var act = p.activeIndex; //slideEndIndex
+	    resetAll();
+  		if(act == 0 | act == -0){
+  			$(".e1_2_1").css({opacity: 0, scale: 1.8, display: 'block'}).transition({opacity: 1, scale: 1,delay: 100},1300 ,'cubic-bezier(0.680,-0.550,0.265,1.550)');
+  			$(".e1_2_2").css({opacity: 0.4,clip: 'rect(0px 0px 65px 0)', display: 'block'}).transition({opacity: 1,clip: 'rect(0px 501px 65px 0)',delay: 1600},800 ,"ease-out");
+  			$(".e1_2_3").css({opacity: 0, display: 'block'}).transition({opacity: 1, delay: 2600},1300 ,"ease-out");
+  			
+  		}else if (act == 1){
+	    	$(".e2_1").css({opacity: 0, y: '+20px' }).transition({opacity: 1, y: 0},600);
+	    	$(".e2_2").css({opacity: 0, y: '-20px' }).transition({opacity: 1, y: 0},600);
+	    	$(".e2_1_1").css({opacity: 0, y: '-20px' }).transition({opacity: 1, y: 0, delay: 500},600);
+	    	$(".e2_1_2").css({opacity: 0, y: '-20px' }).transition({opacity: 1, y: 0, delay: 640},600);
+	    	$(".e2_2_1").css({opacity: 0, y: '+20px' }).transition({opacity: 1, y: 0, delay: 500},600);
+	    	$(".e2_2_2").css({opacity: 0, y: '+20px' }).transition({opacity: 1, y: 0, delay: 640},600);
+	    }else if (act == 2){
+	    	$(".e3_1").css({opacity: 0, y: '+20px' }).transition({opacity: 1, y: 0},600);
+	    	$(".e3_2").css({opacity: 0, y: '-20px' }).transition({opacity: 1, y: 0},600);
+	    	$(".e3_1_1").css({opacity: 0, y: '-20px' }).transition({opacity: 1, y: 0},600);
+	    	$(".e3_1_2").css({opacity: 0, y: '-20px' }).transition({opacity: 1, y: 0},600);
+	    	$(".e3_2_1").css({opacity: 0, y: '-20px' }).transition({opacity: 1, y: 0},600);
+	    	$(".e3_2_2").css({opacity: 0, y: '-20px' }).transition({opacity: 1, y: 0},600);
+	    }else if (act == 3){
+	    	$(".e4_1").css({opacity: 0, y: '+20px' }).transition({opacity: 1, y: 0},600);
+	    	$(".e4_2").css({opacity: 0, y: '-20px' }).transition({opacity: 1, y: 0},600);
+	    	$(".e4_1_1").css({opacity: 0, y: '-20px' }).transition({opacity: 1, y: 0},600);
+	    	$(".e4_2_1").css({opacity: 0, y: '-20px' }).transition({opacity: 1, y: 0},600);
+	    }else if (act == 4){
+	    	$(".e5_1").css({opacity: 0, y: '+20px' }).transition({opacity: 1, y: 0},600);
+	    	$(".e5_2").css({opacity: 0, y: '-20px' }).transition({opacity: 1, y: 0},600);
+	    	$(".e5_1_1").css({opacity: 0, y: '-20px' }).transition({opacity: 1, y: 0},600);
+	    	$(".e5_2_1").css({opacity: 0, y: '-20px' }).transition({opacity: 1, y: 0},600);
+	    }else if (act == 5){
+	    	$(".e6_1").css({opacity: 0, y: '+20px' }).transition({opacity: 1, y: 0},600);
+	    	$(".e6_2").css({opacity: 0, y: '-20px' }).transition({opacity: 1, y: 0},600);
+	    	$(".e6_1_1").css({opacity: 0, y: '-20px' }).transition({opacity: 1, y: 0},600);
+	    	$(".e6_2_1").css({opacity: 0, y: '-20px' }).transition({opacity: 1, y: 0},600);
+	    }else if (act == 6){
+	    	$(".e7_1").css({opacity: 0,perspective: '400px',transformOrigin: '50% 150%',rotateX: '6deg'}).transition({rotateX: '0deg',opacity: 1 },1200);
+	    	$(".e7_2").css({opacity: 0, x: '-60px' }).transition({opacity: 1, x: 0,delay: 1300},600);
+	    	$(".e7_3").css({opacity: 0, x: '+60px' }).transition({opacity: 1, x: 0,delay: 1300},600);
+	    	$(".e7_4").css({opacity: 0, x: '-30px' }).transition({opacity: 1, x: 0,delay: 1900},600);
+	    	$(".e7_5").css({opacity: 0, x: '+40px' }).transition({opacity: 1, x: 0,delay: 2100},600);
+	    	$(".e7_6").css({opacity: 0, x: '-50px' }).transition({opacity: 1, x: 0,delay: 2300},600);
+	    	$(".e7_7").css({opacity: 0, x: '+60px' }).transition({opacity: 1, x: 0,delay: 2500},600);
+	    	$(".e7_8").css({opacity: 0}).transition({opacity: 1,delay: 2700},400);
+	    }
+  		
+  		/* 详情按钮 */
+  		try{
+  			setTimeout(function(){$("#s"+(act+1)+" .detailbtn, #s"+(act+1)+" .detailbtn_text").css({opacity : 1}).fadeIn(300);},600);
+  		}catch (e) {
+			// TODO: handle exception
+		}
+  		
+  		/* logo */
+  		try{
+  			$("#s"+(act+1)+" .e_logo").css({opacity: 0, y:'-6'}).transition({opacity: 1, y:'0', delay:100},1100);
+  		} catch (e) {
+			// TODO: handle exception
+		}
+  		
+  		/* 上下翻页箭头 */
+  		try{
+  			setTimeout(function(){$("#s"+(act+1)+" .btnBottom").fadeIn();},1000);
+  		}catch (e) {
+			// TODO: handle exception
+		}
+	    
+	}
+	
+	function resetAll(){
+		$(".swiper-wrapper .elem").css({opacity: 0});
+		$(".btnBottom").css('display','none');
+	}
+</script>
+
+<script type="text/javascript">
+$(function() {
+	$(".detailbtn").click(function() {
+		$(this).nextAll(".sublayer").fadeIn();
+	});
+	$(".sublayer").click(function() {
+		$(this).fadeOut();
+	});
+});
+</script>
+
+
+</html>

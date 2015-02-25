@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="Cache-Control" content="no-cache"/>
+<meta name="viewport" content="width=device-width,user-scalable=no"> 
+<meta name="keywords" content="翻牌游戏,游戏,手机游戏" />
+<meta name="description" content="翻牌游戏" />
+<title>翻牌游戏 移动页面</title>
+<script src="http://i2.sinaimg.cn/cj/dfz/js/base.js" type="text/javascript"></script>
+<script type="text/javascript" src="./cardgame.js"></script>
+<!--please don't change the order of these scripts-->
+<script type="text/javascript" src="http://ria.city.sina.com.cn/s/g=dialog_login_v1.1-sp1.js"></script>
+<script type="text/javascript" src="http://i.sso.sina.com.cn/js/ssologin.js"></script>
+<script type="text/javascript" src="http://i.sso.sina.com.cn/js/sinaSSOManager.js" charset="utf-8"></script>
+<!-- <link type="text/css" href="http://ria.city.sina.com.cn/s/g=dialog_login_v1.1-sp1.css" rel="stylesheet" media="all" /> -->
+<link type="text/css" href="http://jiangsu.sinaimg.cn/zt/s/css/dialog_login_app.css" rel="stylesheet" media="all" />
+<link rel="stylesheet" type="text/css" href="./cardgamepage.css">
+<style type="text/css">
+body, ul, ol, li, p, h1, h2, h3, h4, h5, h6, table, td, th, form, fieldset, img, dl, dt, dd { margin:0; padding:0; }
+textarea, input, select, body { font-size:12px; }
+select, input { vertical-align:middle; }
+fieldset, img { border:0; }
+ul, ol { list-style:none; }
+img { border:0; }
+a { text-decoration:none; color:#000; }
+a:hover { color:#ffa10d; }
+.fl { float:left; display:inline; }
+.fr { float:right; display:inline; }
+.cb { clear:both; display:block; height:0px; overflow:hidden; width:100%; }
+.clearfix:after { clear:both; content:""; display:block; height:0; }
+</style>
+<style type="text/css">
+</style>
+</head>
+<body>
+	<div id="p1">
+		<div class="content">
+			<div id="partCardGame">
+				<p id="gametitle">免费赢礼包</p>
+				<p id="gametext">
+					点击左侧卡片每次最多翻开2张卡片，若翻开的2张卡片相同，即可看到相应的图片。所有卡片都被翻开，游戏结束。完成游戏没有机会获得<span
+						style="color: #F00;">礼包</span>一份哟！
+				</p>
+				<div id="step">0</div>
+				<div id="gameblock">
+					<ul id="gameul">
+						<li class="card"><img alt="" src=""></li>
+						<li class="card"><img alt="" src=""></li>
+						<li class="card"><img alt="" src=""></li>
+						<li class="card"><img alt="" src=""></li>
+						<li class="card"><img alt="" src=""></li>
+						<li class="card"><img alt="" src=""></li>
+
+						<li class="card"><img alt="" src=""></li>
+						<li class="card"><img alt="" src=""></li>
+						<li class="card"><img alt="" src=""></li>
+						<li class="card"><img alt="" src=""></li>
+						<li class="card"><img alt="" src=""></li>
+						<li class="card"><img alt="" src=""></li>
+					</ul>
+					<div id="gamehover">
+						<p>亲，恭喜您在<span id="steptext">0</span>步完成了所有的翻牌。分享微博才有机会获奖哦！</p>
+						<div style="text-align:center;">
+						<input id="submitbtn" class="btn" type="button" onclick="sendweibo()" value="分享微博">
+						<input class="btn" type="button" onclick="onceagain()" value="再次挑战">
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

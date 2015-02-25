@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="GB2312">
+<meta http-equiv="X-UA-Compatible" content="IE=8" />
+<title>请在此插入网页标题</title>
+<meta name="keywords" content="请在此插入关键词" />
+<meta name="description" content="请在此写入一段页面描述" />
+<script src="http://i2.sinaimg.cn/cj/dfz/js/base.js" type="text/javascript"></script>
+<style type="text/css">
+body, ul, ol, li, p, h1, h2, h3, h4, h5, h6, table, td, th, form, fieldset, img, dl, dt, dd { margin:0; padding:0; }
+textarea, input, select, body { font-size:12px; }
+select, input { vertical-align:middle; }
+fieldset, img { border:0; }
+ul, ol { list-style:none; }
+img { border:0; }
+a { text-decoration:none; color:#000; }
+a:hover { color:#ffa10d; }
+.fl { float:left; display:inline; }
+.fr { float:right; display:inline; }
+.cb { clear:both; display:block; height:0px; overflow:hidden; width:100%; }
+.clearfix:after { clear:both; content:""; display:block; height:0; }
+</style>
+<style type="text/css">
+.headimg{ min-width: 1000px; height: 400px; background: url("http://hubei.sinaimg.cn/2014/0721/S122974T1405906828814.jpg") no-repeat center top; }
+.content{ width: 1000px; height:400px; margin: 0 auto; position: relative;} 
+#box1{ width: 1000px; height: 500px;  overflow-y:scroll; }
+.listItem li{ height: 10px;}
+#li1{ background-color: RGBA(255,255,0,0.5);}
+#li2{ background-color: RGBA(255,0,255,0.5);}
+#li3{ background-color: RGBA(0,255,255,0.5);}
+.newdiv{  height: 300px; background-color: RGBA(100,100,255,0.5);}
+</style>
+</head>
+<body>
+	<div class="headimg"></div>
+	<div id="p1">
+		<div class="content" id="box1">
+			<ul class="lazyLoad-box">
+				
+				
+			</ul>
+		</div>
+	</div>
+	<div id="p2">
+		<div class="content"></div>
+	</div>
+
+</body>
+
+
+<!-- 滚动懒惰加载  js -->
+<script type="text/javascript">
+$.fn.scrollLazyLoad = function(options, callback) {
+	var defaults = {
+		referenceDom : $(this).parent(),
+		preOffset : 0
+	};
+	var param = $.extend({}, defaults, options);
+	
+	$(this).each(function(index) {
+		var obj = $(this);
+		var needEvent = true;
+		handleScrollEvent(); //先进行一次判断
+		function handleScrollEvent() {
+			var objTop = obj.position().top;
+			if (objTop + obj.height() + param.preOffset <= param.referenceDom.height()) {
+				param.referenceDom.unbind(); //撤销事件绑定
+				callback.call();// handle trigger event;
+				needEvent = false;
+			}
+		}
+		if(needEvent){
+			param.referenceDom.scroll(function() { //添加滚动监听
+				handleScrollEvent();
+			});
+		}
+	});
+	//end each
+};
+</script>
+
+<script type="text/javascript">
+function getFromServer(){
+	var html = '<li class="newdiv">111</li>'; // 需要懒惰载入的html 
+	$(html).appendTo($(".lazyLoad-box")).scrollLazyLoad({ referenceDom : $(".lazyLoad-box"), preOffset: 0}, getFromServer);
+}
+</script>
+
+<script type="text/javascript">
+$(function() {
+	getFromServer();
+});
+
+</script>
+</html>

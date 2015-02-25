@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="GB2312">
+<meta http-equiv="X-UA-Compatible" content="IE=8" />
+<title>请在此插入网页标题</title>
+<meta name="keywords" content="请在此插入关键词" />
+<meta name="description" content="请在此写入一段页面描述" />
+
+<script src="http://i2.sinaimg.cn/cj/dfz/js/base.js" type="text/javascript"></script> 
+<script src="http://jiangsu.sinaimg.cn/z/js/weiboApi.js" type="text/javascript"></script> 
+<script src="http://act.city.sina.com.cn/js/uploadButton.js" type="text/javascript"></script> 
+<script src="http://jiangsu.sinaimg.cn/js/popBox.js" type="text/javascript"></script> 
+<style type="text/css">
+.red{color: #F00;}
+</style>
+
+<script>
+
+
+
+
+function openLoginDialog(){DFZ.APP.DialogLogin.open();}
+
+
+var data = [
+["1", "南京", "默认推荐", "盐水鸭", "旅游食品", "5225", "http://jiangsu.sinaimg.cn/zt/s/zfbg/votegoods/4/4.1.jpg"],
+["2", "常州", "默认推荐", "常州萝卜干", "旅游食品", "4778", "http://jiangsu.sinaimg.cn/zt/s/zfbg/votegoods/4/4.2.jpg"],
+["3", "镇江", "默认推荐", "镇江肴肉", "旅游食品", "2232", "http://jiangsu.sinaimg.cn/zt/s/zfbg/votegoods/4/4.3.jpg"],
+["4", "淮安", "默认推荐", "盱眙十三香龙虾", "旅游食品", "1938", "http://jiangsu.sinaimg.cn/zt/s/zfbg/votegoods/4/4.4.jpg"],
+["5", "无锡", "默认推荐", "无锡酱排骨", "旅游食品", "1339", "http://jiangsu.sinaimg.cn/zt/s/zfbg/votegoods/4/4.5.jpg"],
+["6", "南通", "默认推荐", "西亭脆饼", "旅游食品", "1216", "http://jiangsu.sinaimg.cn/zt/s/zfbg/votegoods/4/4.6.jpg"],
+["7", "宿迁", "默认推荐", "乾隆贡酥", "旅游食品", "1092", "http://jiangsu.sinaimg.cn/zt/s/zfbg/votegoods/4/4.7.jpg"],
+["8", "徐州", "默认推荐", "小孩酥糖", "旅游食品", "1083", "http://jiangsu.sinaimg.cn/zt/s/zfbg/votegoods/4/4.8.jpg"],
+["9", "徐州", "默认推荐", "山楂糕", "旅游食品", "1035", "http://jiangsu.sinaimg.cn/zt/s/zfbg/votegoods/4/4.9.jpg"],
+["10", "淮安", "默认推荐", "淮安茶馓", "旅游食品", "902", "http://jiangsu.sinaimg.cn/zt/s/zfbg/votegoods/4/4.10.jpg"],
+["11", "扬州", "默认推荐", "牛皮糖", "旅游食品", "779", "http://jiangsu.sinaimg.cn/zt/s/zfbg/votegoods/4/4.11.jpg"],
+["12", "南通", "默认推荐", "白蒲茶干", "旅游食品", "684", "http://jiangsu.sinaimg.cn/zt/s/zfbg/votegoods/4/4.12.jpg"],
+["13", "盐城", "默认推荐", "阜宁大糕", "旅游食品", "646", "http://jiangsu.sinaimg.cn/zt/s/zfbg/votegoods/4/4.13.jpg"],
+["14", "徐州", "默认推荐", "新沂捆香蹄", "旅游食品", "579", "http://jiangsu.sinaimg.cn/zt/s/zfbg/votegoods/4/4.14.jpg"],
+["15", "常州", "网友填写", "马蹄酥", "旅游食品", "560", "http://jiangsu.sinaimg.cn/zt/s/zfbg/votegoods/4/4.15.jpg"],
+["16", "盐城", "默认推荐", "大纵湖醉蟹", "旅游食品", "532", "http://jiangsu.sinaimg.cn/zt/s/zfbg/votegoods/4/4.16.jpg"],
+["17", "泰州", "默认推荐", "靖江肉脯", "旅游食品", "494", "http://jiangsu.sinaimg.cn/zt/s/zfbg/votegoods/4/4.17.jpg"],
+["18", "连云港", "默认推荐", "连云港风鹅", "旅游食品", "465", "http://jiangsu.sinaimg.cn/zt/s/zfbg/votegoods/4/4.18.jpg"],
+["19", "泰州", "默认推荐", "黄桥烧饼", "旅游食品", "456", "http://jiangsu.sinaimg.cn/zt/s/zfbg/votegoods/4/4.19.jpg"],
+["20", "南通", "默认推荐", "新中乳腐", "旅游食品", "408", "http://jiangsu.sinaimg.cn/zt/s/zfbg/votegoods/4/4.20.jpg"],
+["21", "淮安", "网友填写", "钦工肉圆", "旅游食品", "399", "http://jiangsu.sinaimg.cn/zt/s/zfbg/votegoods/4/4.21.jpg"],
+["22", "淮安", "网友填写", "高沟捆蹄", "旅游食品", "190", "http://jiangsu.sinaimg.cn/zt/s/zfbg/votegoods/4/4.22.jpg"],
+["23", "常州", "网友填写", "常州大麻糕", "旅游食品", "161", "http://jiangsu.sinaimg.cn/zt/s/zfbg/votegoods/4/4.23.jpg"],
+["24", "盐城", "默认推荐", "伍佑糖麻花", "旅游食品", "142", "http://jiangsu.sinaimg.cn/zt/s/zfbg/votegoods/4/4.24.jpg"],
+["25", "泰州", "默认推荐", "嵌桃麻糕", "旅游食品", "57", "http://jiangsu.sinaimg.cn/zt/s/zfbg/votegoods/4/4.25.jpg"]
+];
+
+
+
+
+
+$(function()
+{
+	$(".submit2").click(function(){
+		var uinfo = sinaSSOManager.getSinaCookie();
+		 if (!uinfo) {
+			openLoginDialog();
+			return false;
+		} else {		
+			$(this).attr("disabled","disabled");
+			clickVote();
+		}
+	});
+});
+
+
+var hang = 0;
+
+function clickVote() {
+	
+	$.JSONP('http://act.city.sina.com.cn/interface/activity/json_add_signup.php',
+		{act_id:7974,custom_1:data[hang][0],custom_2:data[hang][1],custom_3:data[hang][2],custom_4:data[hang][3],custom_5:data[hang][4],custom_6:data[hang][6]},
+		function(bm){
+			if (bm.error == 0) {
+    			$("#info").html( $("#info").html() + "<br/>信息添加成功！" + hang +" : "+data[hang][0] +data[hang][1]+data[hang][2]+data[hang][3]+data[hang][4]+data[hang][6]);
+    			//console.log("信息添加成功！" + hang +" : "+data[hang][0] +data[hang][1]+data[hang][2]+data[hang][3]+data[hang][4]+data[hang][6]);
+    			hang++;
+    			if(hang==data.length){
+	    			$("#info").html( $("#info").html() + '<br/><span class="red">工作完成！ 总数：'+hang+'</span>');
+	    			return;
+    			}
+    			clickVote();
+    		} else {
+    		}
+		}
+			
+	);
+	
+	
+}		
+</script>
+</head>
+<body>
+ <input type="button" class="submit2" value="提交2" />
+ <div id="info"></div>
+</body>
+
+<!--please don't change the order of these scripts--> 
+<script type="text/javascript" src="http://i0.sinaimg.cn/cj/dfz/dialog_login_v1.1-sp1/js/dialog_login.js" charset="utf-8"></script> 
+<script type="text/javascript" src="http://i.sso.sina.com.cn/js/ssologin.js" charset="utf-8"></script> 
+<script type="text/javascript" src="http://i.sso.sina.com.cn/js/sinaSSOManager.js" charset="utf-8"></script>
+<link type="text/css" href="http://i0.sinaimg.cn/cj/dfz/dialog_login_v1.1-sp1/css/dialog_login.css" rel="stylesheet" media="all" />
+</html>

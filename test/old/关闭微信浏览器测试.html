@@ -1,0 +1,10 @@
+<div class="posbottom"><div class="btn" onclick="closeWindow()">¹Ø±Õ</div></div>
+<script type="text/javascript">
+function closeWindow() {
+	if (typeof(WeixinJSBridge) == "undefined") {  
+		window.close();
+	}else{
+		WeixinJSBridge.call('closeWindow');
+	}   
+}
+</script>

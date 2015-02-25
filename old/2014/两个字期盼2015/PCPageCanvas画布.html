@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="GB2312">
+<meta http-equiv="X-UA-Compatible" content="IE=8" />
+<title>请在此插入网页标题</title>
+<meta name="keywords" content="请在此插入关键词" />
+<meta name="description" content="请在此写入一段页面描述" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="viewport" content="width=device-width, user-scalable=yes, initial-scale=1.0"> 
+
+<!-- 
+<script src="http://jiangsu.sinaimg.cn/js/jquery1.11.1.min.js"></script>
+<script src="http://ria.city.sina.com.cn/s/g=base.js" type="text/javascript"></script>
+ -->
+<style type="text/css">
+body, ul, ol, li, p, h1, h2, h3, h4, h5, h6, table, td, th, form, fieldset, img, dl, dt, dd { margin:0; padding:0; }
+textarea, input, select, body { font-size:12px; }
+select, input { vertical-align:middle; }
+fieldset, img { border:0; }
+ul, ol { list-style:none; }
+img { border:0; }
+a { text-decoration:none; color:#000; }
+a:hover { color:#ffa10d; }
+.fl { float:left; display:inline; }
+.fr { float:right; display:inline; }
+.cb { clear:both; display:block; height:0px; overflow:hidden; width:100%; }
+.clearfix:after { clear:both; content:""; display:block; height:0; }
+</style>
+<style type="text/css">
+body{ background-color: #DDD;}
+.content{ width: 320px; margin: 0 auto; position: relative;} 
+#canvas01{ border: 2px solid #000; cursor: default;
+}
+.clear{ font-size: 30px; border: 2px solid #000;  margin-top: 6px; display: inline-block; padding:  0 10px; }
+</style>
+</head>
+<body>
+	<div id="p1">
+		<div class="content">
+		<canvas id="canvas01" width="320" height="400"  onselectstart="return false">请升级您的浏览器。</canvas>
+		<div class="clear" onclick="clearCanvas()">清空</div>
+		<div class="clear" onclick="convertCanvasToImage()">转换图片</div>
+		<img id="imageDom" src="">
+		</div>
+	</div>
+
+</body>
+
+
+<!-- canvas js -->
+<script type="text/javascript">
+
+	var canvasDOM = document.getElementById("canvas01");
+	var canvas = canvasDOM.getContext("2d");
+	var fillStyle = "RGBA(0,0,255,0.6)";
+	
+	var canvas_mouseX_last;
+	var canvas_mouseY_last;
+	
+	var canvas_mouseX_now;
+	var canvas_mouseY_now;
+	
+	var drawWidth = 6;
+	var distance_last = 60;
+	var distance_now = 60;
+	
+	var bodyMoveHandle = function(eMove){
+		//console.log("[mousemove]\n");
+		//console.log(eMove);
+		draw(eMove);
+		
+	}
+	
+	var firstTouch = true;
+	
+	function draw(eMove){
+		if (2 <= eMove.touches.length) return;
+		var offset = getPosition(document.getElementById("canvas01"), eMove);
+		//console.log("[last] " +"x:"+ canvas_mouseX_last + ", y:" + canvas_mouseX_last);
+		//console.log("[last] " +"x:"+ canvas_mouseX_now + ", y:" + canvas_mouseX_now);
+		//console.log("[current] " +"x:"+ offset.x + ", y:" +offset.y);
+		
+		canvas_mouseX_now = offset.x;
+		canvas_mouseY_now = offset.y;
+		if (canvas_mouseX_last == canvas_mouseX_now) {
+			return;
+		}
+		distance_now = getDistance(canvas_mouseX_last, canvas_mouseY_last, canvas_mouseX_now, canvas_mouseY_now);
+		var v_now = distance_now; //实时速度
+		
+		//画图
+		//distance_last = (distance_now > distance_last) ? (distance_last - 1) : (distance_last + 1);
+		//drawWidth = (distance_now > 20) ? (drawWidth -1) : (drawWidth +1);
+		
+		if(firstTouch){
+			drawWidth = distance_now;
+			distance_last = distance_now;
+			firstTouch = false;
+		}
+		
+		
+		// 圆填充
+		var s = distance_now;
+		var x1 = canvas_mouseX_last;
+		var y1 = canvas_mouseY_last;
+		var x2 = canvas_mouseX_now;
+		var y2 = canvas_mouseY_now;
+		var v1 = 22 - distance_last*0.66;
+		var v2 = 22 - distance_now*0.66;
+		for (var i = 0; i < s; i=i+2) {
+			var x = x1 + (( x2 - x1 )/s)*i;
+			var y = y1 + (( y2 - y1 )/s)*i;
+			var v = v1 + (( v2 - v1 )/s)*i;
+			if (v <= 6) {
+				v = 6;
+			} else if(v >= 22){
+				v = 22;
+			}
+			
+			
+			drawArc( x, y, v);
+		}
+		
+		
+		// 步长填充
+		/* 
+		var movestep = 6;
+		var drawstep = 0.7; 
+		
+		if( distance_now > movestep){
+			drawWidth -= drawstep;			
+		}else if( distance_now < movestep){
+			drawWidth += drawstep;			
+		}
+		 */
+		 
+		/* var stepdis = Math.abs( distance_now - distance_last );
+		if( distance_now > movestep+2){
+			drawWidth -= drawstep+stepdis*0.3;			
+		}else if( distance_now < movestep-2){
+			drawWidth += drawstep+stepdis*0.3;			
+		}
+		 */
+		
+		
+		//速度
+		/* 
+		var stepdis = Math.abs( distance_now - distance_last );
+		 console.log(stepdis);
+		drawWidth = 23-(stepdis*15/6);
+		 */
+		
+		//drawWidth = 30 - ((5/10)*distance_now);
+		 
+		// 笔画粗细限制
+		/* if (drawWidth <= 6) {
+			drawWidth = 6;
+		} else if(drawWidth >= 23){
+			drawWidth = 23;
+		} */
+		
+		console.log("画笔粗细"+ v1.toFixed(3) + " 上次速度" + distance_last.toFixed(3) + " 当前速度" + distance_now.toFixed(3));
+		 
+		
+		//起始点
+		/* canvas.beginPath();
+		canvas.arc(canvas_mouseX_last,canvas_mouseY_last,drawWidth/2,0,Math.PI*2,true);
+		canvas.fillStyle = "RGBA(0,0,0,0.96)"; 
+		canvas.fill(); */
+		
+		//中间连线
+		/* 
+		canvas.beginPath();
+		canvas.moveTo(canvas_mouseX_last, canvas_mouseY_last);
+		canvas.lineTo(canvas_mouseX_now, canvas_mouseY_now);
+		canvas.lineWidth = drawWidth;
+		canvas.strokeStyle = "RGBA(0,0,0,1)"; 
+		canvas.stroke();
+		 */
+		
+		//结束点
+		/* canvas.beginPath();
+		canvas.arc(canvas_mouseX_now,canvas_mouseY_now,drawWidth/2,0,Math.PI*2,true);
+		canvas.fillStyle = "RGBA(0,0,0,0.96)"; 
+		canvas.fill(); */
+		
+		
+		
+		
+		//绘制完成后
+		distance_last = distance_now;
+		canvas_mouseX_last = canvas_mouseX_now;
+		canvas_mouseY_last = canvas_mouseY_now;
+	}
+	
+	
+	
+	
+	document.getElementById("canvas01").addEventListener("touchstart",function(eDown){
+		if (2 <= eDown.touches.length) return;
+
+		eDown.preventDefault();
+		//eDown.stopPropagation();  
+		//console.log("[mousedown]\n");
+		//console.log(eDown);
+		
+		var startPosition = getPosition(this, eDown);
+		canvas_mouseX_last = startPosition.x;
+		canvas_mouseY_last = startPosition.y;
+		//刚开始时画个圆
+		/* canvas.beginPath();
+		canvas.arc(canvas_mouseX_last,canvas_mouseY_last,drawWidth/2,0,Math.PI*2,true);
+		canvas.fillStyle = "RGBA(0,0,0,0.96)"; 
+		canvas.fill();
+		 */
+		 
+		document.getElementsByTagName("body")[0].addEventListener("touchmove",bodyMoveHandle);
+	});
+	
+	document.getElementById("canvas01").addEventListener("touchend",function(eUp){
+		document.getElementsByTagName("body")[0].removeEventListener("touchmove",bodyMoveHandle);
+		
+		/* canvas.beginPath();
+		canvas.arc(canvas_mouseX_now,canvas_mouseY_now,drawWidth/2,0,Math.PI*2,true);
+		canvas.fillStyle = "RGBA(0,0,0,0.8)"; 
+		canvas.fill(); */
+		
+		drawWidth = 6;
+		firstTouch = true;
+	});
+	
+	
+	function drawArc( x, y, width ){
+		canvas.beginPath();
+		canvas.arc(x,y,width/2,0,Math.PI*2,true);
+		canvas.fillStyle = fillStyle; 
+		canvas.fill();
+	}
+	
+	
+	function clearCanvas() {
+		canvas.clearRect(0,0,320,400);
+	}
+	
+	
+	function getPosition(dom,event){
+		var offset = new Object();
+		var clientRect = dom.getBoundingClientRect();
+		var clientX = event.clientX;
+		var clientY = event.clientY;
+		
+		var touch = event.targetTouches[0];  
+		touch.x = touch.pageX - clientRect.left;
+		touch.y = touch.pageY - clientRect.top;
+		if(touch){
+			return touch;			
+		}
+		
+		offset.x = clientX - clientRect.left;
+		offset.y = clientY - clientRect.top;
+		
+		return offset;
+	}
+	
+	
+	
+	/* 返回俩点间直线距离 */
+	function getDistance(ox, oy, cx, cy) {
+		var distance;
+		var width = Math.abs( cx - ox );
+		var height = Math.abs( cy - oy );
+		distance = Math.sqrt( Math.pow(width, 2) + Math.pow(height, 2) );
+		return distance;
+	}
+	
+	
+	function convertCanvasToImage(canvas) {
+		  var image = new Image();
+		  image.src = canvasDOM.toDataURL("image/png");
+		  console.log("生成完毕");
+		  console.log(image);
+		  document.getElementById("imageDom").src=image.src;
+		  document.getElementById("imageSize").innerHTML=image.sizes;
+		  return image;
+	}
+</script>
+
+</html>

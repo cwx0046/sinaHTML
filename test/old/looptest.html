@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html xmlns:wb="http://open.weibo.com/wb">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="cache-control" content="no-cache"/>
+<meta name="format-detection" content="telephone=no"/>
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0"> 
+<title>江苏寻味之旅</title>
+<meta name="description" content="跟@大愛麗絲王翎芳 畅游江苏，开启十一天的精彩旅程！踏秋寻味，沉醉南京悠悠秦淮风；传承淮安人与菜的精神；感受泰州身与心的慢生活；行走昆山江南水乡；吃遍南通天下鲜……" />
+<script src="http://jiangsu.sinaimg.cn/js/jquery1.11.1.min.js"></script>
+<!-- 
+<script src="http://i2.sinaimg.cn/cj/dfz/js/base.js" type="text/javascript"></script>
+<script src="http://jiangsu.sinaimg.cn/js/jquery.transit.min.js"></script>
+ -->
+<link rel="stylesheet" href="http://jiangsu.sinaimg.cn/js/idangerous.swiper.css">
+<link rel="stylesheet" href="http://jiangsu.sinaimg.cn/js/idangerous.swiper.3dflow.css">
+<script src="http://jiangsu.sinaimg.cn/js/idangerous.swiper.min.js"></script>
+<script src="http://jiangsu.sinaimg.cn/js/idangerous.swiper.3dflow.min.js"></script>
+<script src="http://tjs.sjs.sinajs.cn/open/api/js/wb.js?appkey=" type="text/javascript" charset="utf-8"></script>
+<style type="text/css">
+body, ul, ol, li, p, h1, h2, h3, h4, h5, h6, table, td, th, form, fieldset, img, dl, dt, dd { margin:0; padding:0; }
+textarea, input, select, body { font-size:12px; }
+select, input { vertical-align:middle; }
+fieldset, img { border:0; }
+ul, ol { list-style:none; }
+img { border:0; }
+a { text-decoration:none; color:#000; }
+a:hover { color:#ffa10d; }
+.fl { float:left; display:inline; }
+.fr { float:right; display:inline; }
+.cb { clear:both; display:block; height:0px; overflow:hidden; width:100%; }
+.clearfix:after { clear:both; content:""; display:block; height:0; }
+</style>
+<!-- 自适应缩放css -->
+<style type="text/css">
+body{ overflow-x: hidden; background-color: #000; }
+#base-container{ width: 640px; height: 1008px; -webkit-transform-origin: top left; margin: 0; background-color: #fefcef; }
+.swiper-wrapper *{ -webkit-backface-visibility: hidden; } /* 避免ip4Safari闪动 */
+#base-container{ width: 640px; height: 1008px; position: relative; overflow: hidden; }
+.swiper-slide{ position: relative;}
+</style>
+<style type="text/css">
+.abscenter{ position: absolute; top: 0; right: 0; bottom: 0; left: 0; margin: auto;  }
+
+#base-container{ background-image: url("http://s3img.city.sina.com.cn/activity/common/large/bd817313a288b00801922b3ef04e94b2.jpg"); background-size: cover;}
+#s1{ background: url("http://jiangsu.sinaimg.cn/2014/1106/U11392P1194DT20141106145906.jpg") no-repeat top center; }
+#s2{ }
+#s3{ }
+#s4{ }
+#s5{ }
+
+.swiper-slide h3 { color:  #a40000; padding: 20px; font-size: 48px;	 }
+
+.swiper-4 { width: 640px; height: 630px; padding: 60px 0;}
+.swiper-4 .swiper-slide img{ width: 400px;}
+.swiper-4 .swiper-slide{ width: 400px; height: 550px; opacity:0.5;  }
+.swiper-4 .swiper-slide-active{ opacity: 1; }
+
+.swiper-2{ padding:60px 0; width: 640px; height: 100px; }
+.swiper-2 .swiper-slide{ width: 100px; height: 100px; -webkit-transform: scale(0.8); -webkit-transition: all 0.4s; }
+.swiper-2 .swiper-slide-active{ -webkit-transform: scale(1.1); }
+
+.swiper-3{ width: 640px; height: 500px; color: #FFF; font-size: 80px; }
+.swiper-3 .swiper-slide{ width: 500px; height: 500px; -webkit-transform: scale(0.8); opacity:0.4; -webkit-transition: all 0.4s;border-radius: 10px;background-color: rgba(219, 219, 219, 0.61);}
+.swiper-3 .swiper-slide-active{ -webkit-transform: scale(1); opacity:1; }
+</style>
+
+<style>
+.swiper-3 .swiper-slide .photo{ margin: 50px auto; display:block;  border-radius: 50%; }
+.swiper-3 .swiper-slide .zhuangshi{ position: absolute; left: 79px; top: 273px; }
+
+.swiper-3 .swiper-slide .name{ color: #9a1e23; font-size: 26px; position: absolute; left: 129px; top: 273px; }
+.swiper-3 .swiper-slide .name:AFTER{ content: url('http://jiangsu.sinaimg.cn/zt/s/qjms/images2/ren/v.png');}
+.swiper-3 .swiper-slide .fansnum:BEFORE{ content: "粉丝："; }
+.swiper-3 .swiper-slide .fansnum{ color: #9a1e23; font-size: 16px; position: absolute; left: 129px; top: 305px;  }
+.swiper-3 .swiper-slide .fansnum:AFTER{ content: "万"; }
+.swiper-3 .swiper-slide .text{ color: #030000; font-size: 16px;position: absolute; top: 345px; padding: 0 86px;line-height: 22px;}
+.swiper-3 .swiper-slide .btn{ position: absolute;color: #FFF;font-size: 16px;text-align: center;left: 172px;top: 445px;width: 156px; height: 38px; line-height: 38px; background-color: #9d2a24;}
+
+.loadingPage{ position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 2; background-color: #f3f4ee; }
+.loadingPage .centerbox{ top: 0;right: 0;bottom: 0;left: 0;margin: auto;position: absolute;width: 159px;height: 153px;text-align: center; }
+.loadingPage .ico{ 
+-webkit-animation-name:boat;-webkit-animation-duration:1.8s;-webkit-animation-timing-function:ease-in-out;
+-webkit-animation-iteration-count:infinite;-webkit-animation-direction:alternate;
+ }
+.loadingPage .txt{ font-size: 24px; }
+
+
+@-webkit-keyframes boat{
+from {transform: translate(-41px);}
+to   {transform: translate(41px);}
+}
+@keyframes boat{
+from {transform: translate(-41px);}
+to   {transform: translate(41px);}
+}
+
+.btnTop img, .btnBottom img{padding: 10px 20px;background-color: RGBA(0,0,0,0.145);border-radius: 8px;}
+.btnTop img{-webkit-transform: rotateZ(180deg);}
+
+.btnBottom{position:absolute; bottom:20px; text-align:center; width:640px;-webkit-animation-name:btnBottom;-webkit-animation-duration:1.8s;-webkit-animation-timing-function:linear;-webkit-animation-delay:1s;-webkit-animation-iteration-count:infinite;-webkit-animation-direction:normal;-webkit-animation-play-state:running;-webkit-transform: translateZ(0);-moz-transform: translateZ(0);-ms-transform: translateZ(0);transform: translateZ(0);}
+
+@-webkit-keyframes btnBottom /* Safari and Chrome */
+{
+0% {-webkit-transform:translateY(0px); opacity: 0;}
+90% { opacity: 1;}
+100% {-webkit-transform:translateY(-25px); opacity: 0;}
+}
+.btnTop{position:absolute; top:20px; text-align:center; width:640px;-webkit-animation-name:btnTop;-webkit-animation-duration:1.8s;-webkit-animation-timing-function:linear;-webkit-animation-delay:1s;-webkit-animation-iteration-count:infinite;-webkit-animation-direction:normal;-webkit-animation-play-state:running;-webkit-transform: translateZ(0);-moz-transform: translateZ(0);-ms-transform: translateZ(0);transform: translateZ(0);}
+
+@-webkit-keyframes btnTop /* Safari and Chrome */
+{
+0% {-webkit-transform:translateY(0px); opacity: 0;}
+90% { opacity: 1;}
+100% {-webkit-transform:translateY(25px); opacity: 0;}
+}
+</style>
+
+
+<script type="text/javascript">
+document.onreadystatechange = subSomething;
+function subSomething(){
+	if(document.readyState == "complete"){ 
+		setTimeout(function(){
+            $(".loadingPage").fadeOut();
+        },300);
+	}
+}
+
+</script>
+
+</head>
+<body ontouchmove="event.preventDefault()"> <!-- 阻止ios浏览器整页上下滑动 -->
+	<!-- 
+	* 说明：
+	* 多页面滑动模板，适用于 类ppt 页面
+	* 页面 640x1008 按宽度缩放
+	* 使用 idangerous.swiper 插件切换页面 ，参数请在下方 【Initialize swiper】中自行更改
+	*
+	 -->
+<div class="loadingPage">
+	<div class="centerbox">
+		<img class="ico" width="100" src="http://jiangsu.sinaimg.cn/2014/0802/U9263P1194DT20140802224251_1.png">
+		<div class="txt">加载中...</div>
+	</div>
+</div>
+	 
+	 
+	<div class="swiper-container" id="base-container">
+		<div class="swiper-wrapper" id="base-wraper">
+
+		
+		    <!--First Slide-->
+			<div class="swiper-slide base-slide" id="s1">
+				<div class="btnBottom"><img src="http://jiangsu.sinaimg.cn/zt/s/dzwbqxz/images/up.png"></div>
+			</div>
+			
+			<!--Second Slide-->
+			<div class="swiper-slide" id="s2">
+				<div class="btnTop"><img src="http://jiangsu.sinaimg.cn/zt/s/dzwbqxz/images/up.png"></div>
+				<div class="swiper-container swiper-4 abscenter">
+					<div class="swiper-wrapper">
+						<div class="swiper-slide"><a href="http://jiangsu.sina.com.cn/zt/s/jsxwzlnjh5.html" target="_blank"><img src="http://jiangsu.sinaimg.cn/2014/1230/U11392P1194DT20141230104253.jpg"></a></div> 
+						<div class="swiper-slide"><a href="http://jiangsu.sina.com.cn/zt/s/jsxwzlhah5.html" target="_blank"><img src="http://jiangsu.sinaimg.cn/2014/1230/U11392P1194DT20141230104249.jpg"></a></div> 
+						<div class="swiper-slide"><a href="http://jiangsu.sina.com.cn/zt/s/jsxwzltzh5.html" target="_blank"><img src="http://jiangsu.sinaimg.cn/2014/1230/U11392P1194DT20141230104256.jpg"></a></div> 
+						<div class="swiper-slide"><a href="http://jiangsu.sina.com.cn/zt/s/jsxwzlksh5.html" target="_blank"><img src="http://jiangsu.sinaimg.cn/2014/1230/U11392P1194DT20141230104252.jpg"></a></div> 
+						<div class="swiper-slide"><a href="http://jiangsu.sina.com.cn/zt/s/jsxwzlnth5.html" target="_blank"><img src="http://jiangsu.sinaimg.cn/2014/1230/U11392P1194DT20141230104255.jpg"></a></div> 
+					</div>
+				</div>
+				<div class="btnBottom"><img src="http://jiangsu.sinaimg.cn/zt/s/dzwbqxz/images/up.png"></div>
+			</div>
+			
+			<!--Third Slide-->
+			<div class="swiper-slide base-slide" id="s3">
+				<div class="btnTop"><img src="http://jiangsu.sinaimg.cn/zt/s/dzwbqxz/images/up.png"></div>
+				<h3>嘉宾名册</h3>
+				<div class="abscenter" style="width: 100%; height: 840px;">
+					<!-- 人物头像 -->
+					<div class="swiper-container swiper-2">
+						<div class="swiper-wrapper">
+							<div class="swiper-slide"><img src="http://jiangsu.sinaimg.cn/zt/s/qjms/images2/ren/head0.png"></div>
+							<div class="swiper-slide"><img src="http://jiangsu.sinaimg.cn/zt/s/qjms/images2/ren/head1.png"></div>
+							<div class="swiper-slide"><img src="http://jiangsu.sinaimg.cn/zt/s/qjms/images2/ren/head2.png"></div>
+							<div class="swiper-slide"><img src="http://jiangsu.sinaimg.cn/zt/s/qjms/images2/ren/head3.png"></div>
+							<div class="swiper-slide"><img src="http://jiangsu.sinaimg.cn/zt/s/qjms/images2/ren/head4.png"></div>
+							<div class="swiper-slide"><img src="http://jiangsu.sinaimg.cn/zt/s/qjms/images2/ren/head5.png"></div>
+							<div class="swiper-slide"><img src="http://jiangsu.sinaimg.cn/zt/s/qjms/images2/ren/head6.png"></div>
+							<div class="swiper-slide"><img src="http://jiangsu.sinaimg.cn/zt/s/qjms/images2/ren/head7.png"></div>
+							<div class="swiper-slide"><img src="http://jiangsu.sinaimg.cn/zt/s/qjms/images2/ren/head8.png"></div>
+							<div class="swiper-slide"><img src="http://jiangsu.sinaimg.cn/zt/s/qjms/images2/ren/head9.png"></div>
+							<div class="swiper-slide"><img src="http://jiangsu.sinaimg.cn/zt/s/qjms/images2/ren/head10.png"></div>
+							<div class="swiper-slide"><img src="http://jiangsu.sinaimg.cn/zt/s/qjms/images2/ren/head11.png"></div>
+
+						</div>
+					</div>
+					
+					<!-- 人物卡片 -->
+					<div class="swiper-container swiper-3">
+						<div class="swiper-wrapper">
+							
+							<div class="swiper-slide">
+								<img class="photo" src="http://jiangsu.sinaimg.cn/zt/s/qjms/images2/ren/photo0.jpg">
+								<img class="zhuangshi" src="http://jiangsu.sinaimg.cn/zt/s/qjms/images2/ren/zhuangshi.png">
+								<div class="name">@大愛麗絲王翎芳</div>
+								<div class="fansnum">21</div>
+								<div class="text">
+									旅遊觀察家及作家，貴婦美食達人。
+								</div>
+								<a class="btn" href="http://t.cn/RzmvBUV">进入话题&gt;&gt;</a>
+							</div>
+							
+							<div class="swiper-slide">
+								<img class="photo" src="http://jiangsu.sinaimg.cn/zt/s/qjms/images2/ren/photo1.jpg">
+								<img class="zhuangshi" src="http://jiangsu.sinaimg.cn/zt/s/qjms/images2/ren/zhuangshi.png">
+								<div class="name">@坨坨mama</div>
+								<div class="fansnum">42</div>
+								<div class="text">
+									美食作家、新浪名博、职业撰稿人、摄影师，多家旅游网站特约旅游体验师，著有《美食达人秀：坨坨妈 小吃诱惑》、《我和宝宝的手作健康烘培》《宝宝最喜欢的健康甜点》。
+								</div>
+								<a class="btn" href="http://t.cn/RzmvBUV">进入话题&gt;&gt;</a>
+							</div>
+							
+							<div class="swiper-slide">
+								<img class="photo" src="http://jiangsu.sinaimg.cn/zt/s/qjms/images2/ren/photo2.jpg">
+								<img class="zhuangshi" src="http://jiangsu.sinaimg.cn/zt/s/qjms/images2/ren/zhuangshi.png">
+								<div class="name">@我爱厨房韩伟</div>
+								<div class="fansnum">12</div>
+								<div class="text">
+									《美食圈》杂志主编，<br/>
+									《带好胃口去旅行》作者。
+								</div>
+								<a class="btn" href="http://t.cn/RzmvBUV">进入话题&gt;&gt;</a>
+							</div>
+							
+							<div class="swiper-slide">
+								<img class="photo" src="http://jiangsu.sinaimg.cn/zt/s/qjms/images2/ren/photo3.jpg">
+								<img class="zhuangshi" src="http://jiangsu.sinaimg.cn/zt/s/qjms/images2/ren/zhuangshi.png">
+								<div class="name">@83小钟</div>
+								<div class="fansnum">23</div>
+								<div class="text">
+									美食旅行生活类作者，新浪美食名博，<br/>
+									著有《厨说新语》系列美食图书。
+								</div>
+								<a class="btn" href="http://t.cn/RzmvBUV">进入话题&gt;&gt;</a>
+							</div>
+							
+							<div class="swiper-slide">
+								<img class="photo" src="http://jiangsu.sinaimg.cn/zt/s/qjms/images2/ren/photo4.jpg">
+								<img class="zhuangshi" src="http://jiangsu.sinaimg.cn/zt/s/qjms/images2/ren/zhuangshi.png">
+								<div class="name">@恐怖大王李西闽</div>
+								<div class="fansnum">46</div>
+								<div class="text">
+									著名作家。中国新概念恐怖小说的领军人物和倡导者。代表作《死亡之书》《狗岁月》《血钞票》《崩溃》等。
+								</div>
+								<a class="btn" href="http://t.cn/RzmvBUV">进入话题&gt;&gt;</a>
+							</div>
+							
+							<div class="swiper-slide">
+								<img class="photo" src="http://jiangsu.sinaimg.cn/zt/s/qjms/images2/ren/photo5.jpg">
+								<img class="zhuangshi" src="http://jiangsu.sinaimg.cn/zt/s/qjms/images2/ren/zhuangshi.png">
+								<div class="name">@行者风雷</div>
+								<div class="fansnum">32</div>
+								<div class="text">
+									北大国际MBA,新华社、中新社摄影师,
+									美国新闻摄影协会会员, 中国摄影师协会会员,美国国家地理协会会员,
+									《中国国家旅游》《DEEP中国科学探险》
+									等杂志摄影师,撰稿人。
+								</div>
+								<a class="btn" href="http://t.cn/RzmvBUV">进入话题&gt;&gt;</a>
+							</div>
+							
+							<div class="swiper-slide">
+								<img class="photo" src="http://jiangsu.sinaimg.cn/zt/s/qjms/images2/ren/photo6.jpg">
+								<img class="zhuangshi" src="http://jiangsu.sinaimg.cn/zt/s/qjms/images2/ren/zhuangshi.png">
+								<div class="name">@朴骞Jason</div>
+								<div class="fansnum">21</div>
+								<div class="text">
+									美食旅行生活类作者，新浪美食名博，<br/>
+									著有《厨说新语》系列美食图书。
+								</div>
+								<a class="btn" href="http://t.cn/RzmvBUV">进入话题&gt;&gt;</a>
+							</div>
+							
+							<div class="swiper-slide">
+								<img class="photo" src="http://jiangsu.sinaimg.cn/zt/s/qjms/images2/ren/photo7.jpg">
+								<img class="zhuangshi" src="http://jiangsu.sinaimg.cn/zt/s/qjms/images2/ren/zhuangshi.png">
+								<div class="name">@六零先生</div>
+								<div class="fansnum">2</div>
+								<div class="text">
+									十余年资深旅游达人，<br/>
+									足迹遍布祖国各地，旅游体验师，<br/>
+									签约摄影师，插画师。
+								</div>
+								<a class="btn" href="http://t.cn/RzmvBUV">进入话题&gt;&gt;</a>
+							</div>
+							
+							<div class="swiper-slide">
+								<img class="photo" src="http://jiangsu.sinaimg.cn/zt/s/qjms/images2/ren/photo8.jpg">
+								<img class="zhuangshi" src="http://jiangsu.sinaimg.cn/zt/s/qjms/images2/ren/zhuangshi.png">
+								<div class="name">@K哥爱美食</div>
+								<div class="fansnum">11</div>
+								<div class="text">
+									行走多国，旅行家。
+								</div>
+								<a class="btn" href="http://t.cn/RzmvBUV">进入话题&gt;&gt;</a>
+							</div>
+							
+							<div class="swiper-slide">
+								<img class="photo" src="http://jiangsu.sinaimg.cn/zt/s/qjms/images2/ren/photo9.jpg">
+								<img class="zhuangshi" src="http://jiangsu.sinaimg.cn/zt/s/qjms/images2/ren/zhuangshi.png">
+								<div class="name">@寒残一叶食</div>
+								<div class="fansnum">5</div>
+								<div class="text">
+									中国摄影师协会会员。
+								</div>
+								<a class="btn" href="http://t.cn/RzmvBUV">进入话题&gt;&gt;</a>
+							</div>
+							
+							<div class="swiper-slide">
+								<img class="photo" src="http://jiangsu.sinaimg.cn/zt/s/qjms/images2/ren/photo10.jpg">
+								<img class="zhuangshi" src="http://jiangsu.sinaimg.cn/zt/s/qjms/images2/ren/zhuangshi.png">
+								<div class="name">@凌子看世界</div>
+								<div class="fansnum">21</div>
+								<div class="text">
+									喜欢吃美食，也喜欢做美食。吃货一枚，<br/>
+									喜欢旅游，驴子一名。<br/>
+									吃好玩好就是我的座右铭。
+								</div>
+								<a class="btn" href="http://t.cn/RzmvBUV">进入话题&gt;&gt;</a>
+							</div>
+							
+							<div class="swiper-slide">
+								<img class="photo" src="http://jiangsu.sinaimg.cn/zt/s/qjms/images2/ren/photo11.jpg">
+								<img class="zhuangshi" src="http://jiangsu.sinaimg.cn/zt/s/qjms/images2/ren/zhuangshi.png">
+								<div class="name">@石泡泡大仙</div>
+								<div class="fansnum">1</div>
+								<div class="text">
+									爱吃爱拍爱写，晒物达人，美食达人。
+								</div>
+								<a class="btn" href="http://t.cn/RzmvBUV">进入话题&gt;&gt;</a>
+							</div>
+							
+						</div>
+					</div>
+				</div>
+				<div class="btnBottom"><img src="http://jiangsu.sinaimg.cn/zt/s/dzwbqxz/images/up.png"></div>
+			</div>
+			
+			
+		    <!--4 Slide-->
+			<div class="swiper-slide base-slide" id="s4">
+				<style>
+				#s4 { position: relative; }
+				#s4 .live{ position: absolute;top: 0;right: 0;bottom: 0;left: 0;margin: auto;height: 410px;width: 320px;-webkit-transform: scale(1.8); }
+				
+				</style>
+				<div class="live">
+				<wb:livestream skin="silver" topic="%E6%B1%9F%E8%8B%8F%E5%AF%BB%E5%91%B3%E4%B9%8B%E6%97%85|%E6%B1%9F%E8%8B%8F%E5%AF%BB%E5%91%B3%E4%B9%8B%E6%97%85" width="320" height="410" ></wb:livestream>
+				</div>
+			</div>
+			
+		</div>
+	</div>
+</body>
+
+
+<!-- Initialize swiper -->
+<script type="text/javascript">
+var mySwiper;
+var swiperNested1;
+var swiperNested2;
+	window.onload = function() {
+		mySwiper = new Swiper('.swiper-container',{
+			// options
+			mode:'vertical',//horizontal
+			mousewheelControl: true
+		}); 
+		
+		swiperNested1 = new Swiper('.swiper-2',{
+			mode:'horizontal',//horizontal
+			slidesPerView : 'auto',
+			watchActiveIndex: true,
+			centeredSlides: true,
+			
+		});
+		swiperNested2 = new Swiper('.swiper-3',{
+			mode:'horizontal',//horizontal
+			slidesPerView : 'auto',
+			watchActiveIndex: true,
+			centeredSlides: true,
+			onSlideChangeEnd : Swiper3callback
+			
+		});
+		
+		var swiper4 = new Swiper('.swiper-4',{
+			// options
+			mode:'horizontal',//horizontal
+			slidesPerView : "auto",
+			centeredSlides: true,
+			loop:true,
+			tdFlow: {
+		        rotate : 30,
+		        stretch : 100,
+		        depth: 300,
+		        modifier : 1,
+		        shadows : false
+		    }
+		}); 
+		
+		
+		$(".swiper-2 .swiper-slide").click(function() {
+			var index = $(this).index();
+			swiperNested1.swipeTo(index);
+			swiperNested2.swipeTo(index);
+		});
+	}
+	
+	/* SlideChangeEndCallback */
+	function Swipercallback(p){
+	    var act = p.activeIndex; //slideEndIndex
+	    // todo sth...
+	}
+	
+	function Swiper3callback(p) {
+	    var act = p.activeIndex; //slideEndIndex
+	    swiperNested1.swipeTo(act);
+		
+	} 
+	
+	
+</script>
+
+<!-- page Auto scale -->
+<script type="text/javascript">
+	$(function() {
+		pageAutoScale();
+	});
+	$(window).resize(function() {
+		pageAutoScale();
+	});
+	
+	function pageAutoScale(){
+		var r = document.body.offsetWidth / 640;
+		$("#base-container").css("-webkit-transform", "scale(" + r + ")");
+		$("body").height( window.innerHeight ); //修正整数页面高度
+		
+		$(".base-slide").css("height",parseInt(window.innerHeight / r) );  //调整页面高度
+		$("#base-container").css("height",parseInt(window.innerHeight / r) );  //调整页面高度
+		if (window.innerHeight<=1008*r) {  //当用户显示区域小于1008高度时，调整每页高度。
+			// $(".btnBottom").css("top",(window.innerHeight / r - parseInt($(".btnBottom").css("bottom")) ) );  //下滑动提示箭头位置始终距底
+		}
+	}
+</script>
+<!-- 微信分享js -->
+<script type="text/javascript">
+	var dataForWeixin = {
+		appId : "",
+		title : "江苏寻味之旅 ",
+		TLImg : "http://s3img.city.sina.com.cn/activity/common/large/4174b50ba76e86c66ceb08277695889b.jpg",
+		desc : "跟@大愛麗絲王翎芳 畅游江苏，开启十一天的精彩旅程！踏秋寻味，沉醉南京悠悠秦淮风；传承淮安人与菜的精神；感受泰州身与心的慢生活；行走昆山江南水乡；吃遍南通天下鲜……",
+		url : "http://jiangsu.sina.com.cn/1/2014-12-06/378.html", //请填写分享出去的URL 
+		TLTitle: "江苏寻味之旅 " //朋友圈文字 iPhone max 30
+
+	};
+
+	var onBridgeReady = function() {
+		
+		//发送给朋友、群组
+		WeixinJSBridge.on('menu:share:appmessage', function(argv) {
+			WeixinJSBridge.invoke('sendAppMessage', {
+				"appid" : dataForWeixin.appId,
+				"img_url" : dataForWeixin.TLImg, //图片
+				"title" : dataForWeixin.title, //标题
+				"desc" : dataForWeixin.desc, //分享内容
+				"link" : dataForWeixin.url,
+			},function(){
+				//alert("发送给朋友回调()");
+				//location.href = "http://www.baidu.com";
+			});
+		});
+		
+		//分享到朋友圈
+		WeixinJSBridge.on('menu:share:timeline', function(argv) {
+			WeixinJSBridge.invoke('shareTimeline', {
+				"appid" : dataForWeixin.appId,
+				"title" : dataForWeixin.TLTitle, //描述文字
+				"img_url" : dataForWeixin.TLImg, //图片
+				"link" : dataForWeixin.url,
+				"desc" : dataForWeixin.desc, //无用！必须存在！分享内容
+			}, function (){
+				//alert("分享到朋友圈回调()");
+				
+			});
+		});
+
+	};
+
+	if (document.addEventListener) {
+		document.addEventListener('WeixinJSBridgeReady', onBridgeReady, false);
+	} else if (document.attachEvent) {
+		document.attachEvent('WeixinJSBridgeReady', onBridgeReady);
+		document.attachEvent('onWeixinJSBridgeReady', onBridgeReady);
+	}
+</script>
+
+</html>

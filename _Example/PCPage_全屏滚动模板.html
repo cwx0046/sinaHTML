@@ -1,0 +1,60 @@
+<!-- 全屏滚动模板 -->
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="GB2312">
+<meta http-equiv="X-UA-Compatible" content="IE=8" />
+<title>请在此插入网页标题</title>
+<meta name="keywords" content="请在此插入关键词" />
+<meta name="description" content="请在此写入一段页面描述" />
+<link rel="stylesheet" href="http://jiangsu.sinaimg.cn/zt/s/css/reset.css">
+<script src="http://jiangsu.sinaimg.cn/js/jquery1.11.1.min.js"></script>
+<script src="http://jiangsu.sinaimg.cn/js/jquery.fullPage.min.js"></script>
+<script src="http://jiangsu.sinaimg.cn/js/jquery.easing.min.js"></script>
+<link rel="stylesheet" href="http://jiangsu.sinaimg.cn/js/css/jquery.fullPage.css">
+
+<style type="text/css">
+.content{ width: 1000px; margin: 0 auto; position: relative;} 
+</style>
+<style type="text/css">
+#p1{ background: url("http://jiangsu.sinaimg.cn/2014/1031/U9263P1194DT20141031100125.jpg") no-repeat center center;}
+</style>
+</head>
+<body>
+	<div id="fullpage">
+		<div class="section" id="p1">
+			<div class="content">第一屏</div>
+		</div>
+		<div class="section" id="p2">
+			<div class="content">第二屏</div>
+		</div>
+		<div class="section" id="p3">
+			<div class="content">第三屏</div>
+		</div>
+		<div class="section" id="p4">
+			<div class="content">第四屏</div>
+		</div>
+		
+		
+	</div>
+</body>
+<script>
+$(function(){
+    $('#fullpage').fullpage({
+    	// 参数参见 http://www.dowebok.com/77.html
+    	easing : "swing",
+    	navigation : true,
+    	onLeave : scrollBefore,
+    	afterLoad : scrollCallback
+    });
+});
+
+function scrollBefore(index, direction) { //index 是离开的“页面”的序号，从1开始计算；nextIndex 是滚动到的“页面”的序号，从1开始计算；direction 判断往上滚动还是往下滚动，值是 up 或 down。
+	alert("离开" + index + "页  方向" + direction);	
+}
+
+function scrollCallback(anchorLink, index) { // anchorLink 是锚链接的名称，index 是序号 从1开始
+	alert("已经翻到第" + index + "页");	
+}
+</script>
+</html>

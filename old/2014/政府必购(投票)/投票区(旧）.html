@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="GB2312">
+<meta http-equiv="X-UA-Compatible" content="IE=8" />
+<title>请在此插入网页标题</title>
+<meta name="keywords" content="请在此插入关键词" />
+<meta name="description" content="请在此写入一段页面描述" />
+<script src="http://i2.sinaimg.cn/cj/dfz/js/base.js" type="text/javascript"></script>
+<!--please don't change the order of these scripts-->
+<script type="text/javascript" src="http://ria.city.sina.com.cn/s/g=dialog_login_v1.1-sp1.js"></script>
+<script type="text/javascript" src="http://i.sso.sina.com.cn/js/ssologin.js"></script>
+<script type="text/javascript" src="http://i.sso.sina.com.cn/js/sinaSSOManager.js" charset="utf-8"></script>
+<link type="text/css" href="http://ria.city.sina.com.cn/s/g=dialog_login_v1.1-sp1.css" rel="stylesheet" media="all" />
+<script src="http://jiangsu.sinaimg.cn/z/js/weiboApi.js"></script>
+<style type="text/css">
+body, ul, ol, li, p, h1, h2, h3, h4, h5, h6, table, td, th, form, fieldset, img, dl, dt, dd { margin:0; padding:0; }
+textarea, input, select, body { font-size:12px; }
+select, input { vertical-align:middle; }
+fieldset, img { border:0; }
+ul, ol { list-style:none; }
+img { border:0; }
+a { text-decoration:none; color:#000; }
+a:hover { color:#ffa10d; }
+.fl { float:left;  }
+.fr { float:right;  }
+.cb { clear:both; display:block; height:0px; overflow:hidden; width:100%; }
+.clearfix:after { clear:both; content:""; display:block; height:0; }
+</style>
+<style type="text/css">
+body{ font-family: "microsoft yahei";}
+.headimg{ min-width: 1000px; height: 400px; background: url("http://hubei.sinaimg.cn/2014/0721/S122974T1405906828814.jpg") no-repeat center top; }
+.content{ width: 1000px; margin: 0 auto; position: relative;} 
+.abs{position: absolute;}
+
+.pvote .current{ color: #eb4848; }
+.pvote .pvote_img1{left: 22px; top: 0px;}
+.pvote .pvote_img2{left: 48px; top: 165px;}
+.pvote .pvote_toplist{left: 48px; top: 225px;}
+.pvote .pvote_toplist li{ width: 143px;  font-size: 16px; font-weight:bold; margin: 18px 0;padding-left: 30px;}
+
+.pvote .pvote_main{ width: 744px; min-height: 711px;}
+
+.pvote .pvote_main .title{ color: #FFF; font-size: 14px; line-height: 40px; padding: 85px 4px 39px;}
+.pvote .pvote_main .chooseType{ font-size: 20px; color: #410500; text-align: center;  font-weight: bold; margin-bottom: 19px;}
+.pvote .pvote_main .chooseType li { width: 143px; height: 46px; line-height: 46px; float: left; background-image: url("http://jiangsu.sinaimg.cn/2014/1020/U9263P1194DT20141020101520.png"); cursor: pointer; margin-right: 21px;}
+.pvote .pvote_main .votebtn{ margin: 56px auto 40px; display: block; cursor: pointer; }
+
+.pvote .goodslist .selBox {}
+.pvote .goodslist .selBox li { position:relative;width:124px; height:216px; float:left; margin: 5px 16px 5px 5px; }
+.pvote .goodslist .selBox li .selPic{background:url(http://jiangsu.sinaimg.cn/2014/1020/U9263P1194DT20141020101521.png) no-repeat 0 0; width:124px; height:216px; position:absolute; top:0; left:0;}
+.pvote .goodslist .selBox li .picBox{ margin: 0 auto; width:110px; margin-top:55px; text-align:center; overflow: hidden;}
+.pvote .goodslist .selBox li .picBox a{ display:inline-block;}
+.pvote .goodslist .selBox li .picBox img{ height:122px; margin: 0 -50%;}
+.pvote .goodslist .selBox li .optionPic{ position:absolute; top:58px; left:8px;width:110px; height:122px; display:inline-block;}
+.pvote .goodslist .selBox li .optionPic img{width:110px; height:122px;}
+
+.pvote .goodslist .selBox li .txtBox{ margin-top:17px; margin-left:10px;font: bold 14px/16px "Microsoft YaHei","SimHei"; text-align:center; color:#F33; position:relative; z-index:1;}
+.pvote .goodslist .selBox li .txtBox input{ float:left;}
+.pvote .goodslist .selBox li .txtBox span{ line-height: 17px;}
+
+</style>
+</head>
+<body>
+	<div id="p1">
+		<div class="content clearfix pvote" style="background-image: url('http://jiangsu.sinaimg.cn/zt/s/zfbg/bg.jpg');">
+			<img class="abs pvote_img1" alt="" src="http://jiangsu.sinaimg.cn/2014/1020/U9263P1194DT20141020101518.png">
+			<img class="abs pvote_img2" alt="" src="http://jiangsu.sinaimg.cn/2014/1020/U9263P1194DT20141020101519.png">
+			<div class="abs pvote_toplist">
+				<ul id="voteRanking">
+					<li>正在加载</li>
+				</ul>
+			</div>
+			
+			<div class="pvote_main fr">
+				<div class="title">
+					<img class="fl" alt="" src="http://jiangsu.sinaimg.cn/zt/s/zfbg/7.png" style="margin-right: 10px;">每个分类每个IP每天可投票1次，每次请选择1～10个旅游商品
+				</div>
+				<div class="chooseType clearfix">
+					<ul id="chooseTypeUl">
+						<li id="7974">旅游食品</li>
+						<li id="7970">旅游工艺品</li>
+						<li id="7971">旅游农副产品</li>
+						<li id="7973">旅游日用品</li>
+					</ul>
+				</div>
+				<div class="goodsBox">
+					<div class="goodslist">
+					
+						<ul class="selBox clearfix">
+	                	<!-- 商品卡片 -->
+	          
+	        			</ul>
+					
+					</div>
+					<img class="votebtn" src="http://jiangsu.sinaimg.cn/2014/1020/U9263P1194DT20141020101519_1.png" onclick="voteFun()"/>
+				</div>
+			</div>
+			
+			
+			<!-- 抽奖弹出层 -->
+			<style>
+			.pvote .popuplayer{ position:fixed; z-index:100; left:0; top:0; width: 100%; height: 100%; background-color: RGBA(0,0,0,0.5); filter:progid:DXImageTransform.Microsoft.Gradient(startColorStr=#80000000,endColorStr=#80000000); }
+			.pvote .sp{ position:relative; width: 692px; height: 445px; margin: 20px auto;  background-image: url("http://jiangsu.sinaimg.cn/2014/1021/U9263P1194DT20141021145947.png");}
+			.pvote #sp2{ background-image: url("http://jiangsu.sinaimg.cn/2014/1021/U9263P1194DT20141021145949.png"); }
+			.pvote #sp3{ background-image: url("http://jiangsu.sinaimg.cn/2014/1021/U9263P1194DT20141021145950.png"); }
+			.popuplayer,#sp1,#sp2,#sp3{ display: none;}
+			.popuplayer .closeBtn{ position: absolute; top: 10px; left: 620px; width: 60px; height: 60px; cursor: pointer;   background-image: url("http://jiangsu.sinaimg.cn/zt/s/blank.gif"); }
+			.popuplayer #sp1 .choujiang{ position: absolute;top: 131px;left: 225px;width: 248px;height: 119px; cursor: pointer;   background-image: url("http://jiangsu.sinaimg.cn/zt/s/blank.gif"); }
+			.popuplayer #sp2 .sp2CloseBtn{ position: absolute;top: 131px;left: 225px;width: 248px;height: 119px; cursor: pointer;   background-image: url("http://jiangsu.sinaimg.cn/zt/s/blank.gif"); }
+			
+			.popuplayer #sp3 .awardInfo{  font-size: 24px; color: #FFF; text-align: center;padding-top: 270px;  }
+			.popuplayer #sp3 .uinfo{ position: absolute;top: 354px;left: 114px;width: 159px;height: 30px; font-size: 20px;}
+			.popuplayer #sp3 .uinfo#uphone{ left: 368px; }
+			.popuplayer #sp3 .submitBtn{ position: absolute;top: 354px;left: 545px;width: 94px;height: 43px; cursor: pointer;   background-image: url("http://jiangsu.sinaimg.cn/zt/s/blank.gif"); }
+			</style>
+			<div class="popuplayer">
+				<div id="sp1" class="sp">
+					<div class="closeBtn" onclick="$('.popuplayer').fadeOut()"></div>
+					<div class="choujiang" onclick="choujiangFun()"></div>
+				</div>
+				<div id="sp2" class="sp">
+					<div class="closeBtn" onclick="$('.popuplayer').fadeOut()"></div>
+					<div class="sp2CloseBtn" onclick="$('.popuplayer').fadeOut()"></div>
+				</div>
+				<div id="sp3" class="sp">
+					<div class="closeBtn" onclick="$('.popuplayer').fadeOut()"></div>
+					<div class="awardInfo">中奖啦！恭喜你获得<span id="awardName"></span></div>
+					<input class="uinfo" id="uname" type="text">
+					<input class="uinfo" id="uphone" type="tel">
+					<div class="submitBtn" onclick="submitZhongjiangInfo()"></div>
+				</div>
+			</div>
+			
+			
+		</div>
+	</div>
+
+</body>
+
+
+
+<script type="text/javascript">
+
+var type = "";
+var huodongid = "";
+var voteJson = '';
+
+$(function() {
+	$(".chooseType li").click(function() {
+		$(".chooseType li").removeClass("current");
+		$(this).addClass("current");
+		
+		var type = $(this).html();
+		huodongid = $(this).attr("id");
+		
+		$(".selBox").html("请稍后 加载中...");
+		
+		if (voteJson == '' | voteJson == undefined | voteJson) {
+			$.JSONP('http://act.city.sina.com.cn/interface/activity/json_get_user_works.php',{act_id:7941,pcount:9999,order:'-time'},function(json)
+					{
+						voteJson = json;
+						var html = '';
+					
+						for(var i=0; i<json.data.length; i++){
+
+							var id = json.data[i].id;
+							var zixuhao = json.data[i].form_data.custom_1.value;
+							var chandi = json.data[i].form_data.custom_2.value;
+							var laiyuan = json.data[i].form_data.custom_3.value;
+							var mingcheng = json.data[i].form_data.custom_4.value;
+							var leibie = json.data[i].form_data.custom_5.value;
+							var imgurl = json.data[i].form_data.custom_6.value;
+							
+							if( type == leibie ){
+								
+								html+= '<li>';
+								html+= '<div class="picBox"><img src="'+ imgurl +'"></div>';
+								html+= '<div class="txtBox">';
+								html+= '<input name="choose" type="checkbox" value="'+ id +'">';
+								html+= '<span>'+mingcheng+'</span></div>';
+								html+= '<div class="selPic"></div>';
+								html+= '</li>';
+								
+							}
+						
+						}
+						
+						$(".selBox").html(html);
+					});
+					// end json[]
+		}else{
+			var html = '';
+			
+			for(var i=0; i<voteJson.data.length; i++){
+
+				var id = voteJson.data[i].id;
+				var zixuhao = voteJson.data[i].form_data.custom_1.value;
+				var chandi = voteJson.data[i].form_data.custom_2.value;
+				var laiyuan = voteJson.data[i].form_data.custom_3.value;
+				var mingcheng = voteJson.data[i].form_data.custom_4.value;
+				var leibie = voteJson.data[i].form_data.custom_5.value;
+				var imgurl = voteJson.data[i].form_data.custom_6.value;
+				
+				if( type == leibie ){
+					
+					html+= '<li>';
+					html+= '<div class="picBox"><img src="'+ imgurl +'"></div>';
+					html+= '<div class="txtBox">';
+					html+= '<input name="choose" type="checkbox" value="'+ id +'">';
+					html+= '<span>'+mingcheng+'</span></div>';
+					html+= '<div class="selPic"></div>';
+					html+= '</li>';
+				}
+			}
+			$(".selBox").html(html);
+		}
+		
+	});
+	
+	$(".chooseType li").removeClass("current");
+	$(".chooseType li").eq(parseInt($(".chooseType li").length * Math.random())).click().addClass("current");
+	
+	loadRanking();
+	
+});
+
+
+/* Top10 排名 */
+function loadRanking(){
+	
+	/* 此功能暂时放弃 */
+
+	$.JSONP('http://act.city.sina.com.cn/interface/activity/json_get_user_works.php',{act_id:7941,pcount:10,order:'vote'},function(json)
+		{
+			var html = '';
+		
+			for(var i=0; i<json.data.length; i++){
+
+				var mingcheng = json.data[i].form_data.custom_4.value;
+				
+				if (i<3) {
+					html+= '<li class="current">';
+				}else{
+					html+= '<li>';
+				}
+				html+= mingcheng;
+				html+= '</li>';
+			
+			}
+			
+			$("#voteRanking").html(html);
+		});
+}
+
+
+var goodsIds = [];
+
+/* 投票功能 */
+function voteFun(){
+	goodsIds = [];
+	
+	var selectedNum = $(".selBox input[type=checkbox]:checked").length;
+	
+	if(selectedNum<1 | selectedNum>10){
+		alert("请选择1~10个商品");
+		return;
+	}
+	
+	//登录
+	function openLoginDialog(){DFZ.APP.DialogLogin.open();$("#ui-dialog-title-1").html("新浪微博登录");}
+	var uinfo = sinaSSOManager.getSinaCookie();
+	if (!uinfo) { //判断登陆
+		openLoginDialog();
+		return false;
+	}
+	
+	
+	$(".selBox input[type=checkbox]:checked").each(
+		function(){
+			var id = $(this).val();
+			goodsIds.push(id);
+		}
+	);
+	
+	
+	/* 
+	功能规划
+	
+	1 先给[0]投票
+	   成功：2
+	   失败：3
+	   
+	2 给goodsIds[]剩余的投票
+	   弹框“点击抽奖”！
+	   中奖    ：填写姓名、手机号
+	   没中奖：真遗憾
+	3 弹框失败，您今天已给+type+投过票了
+	
+	
+	*/
+	$.JSONP('http://act.city.sina.com.cn/interface/activity/json_add_signup.php',{act_id:huodongid,custom_8:"PC"},function(bm)
+	{
+		if(bm.error==0){
+			//alert("报名成功");
+			$.JSONP('http://act.city.sina.com.cn/interface/activity/json_add_vote.php',{
+		id : goodsIds[0]
+	}, function(bm) { //返回结果
+		if (bm.error == 0) {
+			//   弹框“点击抽奖”！
+			// window.show();
+			// click function(){  VOTE { id:7946,custom_1: goodsIds.toString}  }
+			$(".popuplayer").show();
+			$(".popuplayer .sp").hide();
+			$("#sp1").show();
+			
+		}else{
+			// 例如：已经透过票了
+			alert(bm.errmsg);
+		}
+	});
+	
+		}else{
+			alert(bm.errmsg)
+		}	
+	});
+	
+	
+	
+}
+
+
+
+
+//抽奖按钮函数
+function choujiangFun() {
+	$(".choujiang").attr("onclick","javascript;");
+	
+	////////////////////TEST///////////////////
+	////////////////////TEST///////////////////
+	
+	
+	$.JSONP('http://act.city.sina.com.cn/interface/activity/json_add_signup.php',
+	{act_id:7946,custom_1:goodsIds.toString()},
+	function(bm){
+		$(".choujiang").attr("onclick","choujiangFun()");
+		if (bm.error == 0) {
+			//判断是否中奖
+			if (bm.draw.is_win == 1) {
+				
+				//中了啥奖？
+				$("#awardName").text(bm.draw.hit_prize.name);
+				
+				//中奖
+				$(".popuplayer .sp").hide();
+				$("#sp3").show();
+				document.getElementById("uname").focus();
+				
+				var selector = "#"+goodsIds[0]+" ~ span";
+				
+				var content = '#江苏旅游商品推荐# 天上掉馅儿饼啦！我刚刚在“江苏推荐旅游商品征集评选”活动中为'+ $(selector).text() +'等商品投了一票，一不小心就获得了'+bm.draw.hit_prize.name+'一份！这么好中？！你也来试试→_→http://t.cn/RhvsQsg';
+				//addWeiboByCookie(content,"http://jiangsu.sinaimg.cn/2014/1021/U9263P1194DT20141021160657.jpg","");
+				repostWeiboByCookie ( content, 'BsBlYzvEK', 1, '' );
+				
+			} else {
+				// 没中奖
+				$(".popuplayer .sp").hide();
+				$("#sp2").show();
+				var selector = "#"+goodsIds[0]+" ~ span";
+				var content = '#江苏旅游商品推荐# 差点就中了！！我刚刚在“江苏旅游商品征集评选”活动中为'+ $(selector).text() +'等商品投了一票，与500元加油卡、100元电话充值卡失之交臂好心塞！不管我还要再来一次→_→http://t.cn/RhvsQsg';
+				//addWeiboByCookie(content,"http://jiangsu.sinaimg.cn/2014/1021/U9263P1194DT20141021160657.jpg","");
+				repostWeiboByCookie ( content, 'BsBlYzvEK', 1, '' );
+			}
+			
+			
+		}else{
+			alert(bm.errmsg);
+		}
+	});
+	
+	//2 给goodsIds[]剩余的投票
+	for (var i = 1; i < goodsIds.length; i++) {
+		$.JSONP('http://act.city.sina.com.cn/interface/activity/json_add_vote.php',{
+			id : goodsIds[i]
+		}, function(bm) {});
+	}
+}
+	
+//提交姓名手机号码函数
+function submitZhongjiangInfo() {
+	var name = $("#uname").val();
+    var custom_0 = $("#uphone").val();
+    var partten = /^1[3,5,8]\d{9}$/;
+    if((name=="") || (name=="请输入姓名")){alert("请输入姓名！");document.getElementById("uname").focus(); return false;}
+    if(!partten.test(custom_0)){alert("请填写正确的手机号！");document.getElementById("uphone").focus(); return false;}
+    
+    $.JSONP('http://act.city.sina.com.cn/interface/activity/json_add_signup.php',{
+	    act_id:7963,
+	    custom_1:name,
+	    custom_2:custom_0
+	},function(bm){
+        if(bm.error==0){
+            	alert("提交成功");
+            	$('.popuplayer').fadeOut();
+            }else{
+            alert(bm.errmsg);
+        }
+    }); 
+}
+	
+	
+	//报名投稿抽奖
+	/* 
+	$.JSONP('http://act.city.sina.com.cn/interface/activity/json_add_signup.php',
+	{act_id:7946,custom_1:goodsIds.toString()},
+		function(bm){
+			if (bm.error == 0) {
+				//成功后挨个给投票
+				for (var i = 0; i < goodsIds.length; i++) {
+					$.JSONP('http://act.city.sina.com.cn/interface/activity/json_add_vote.php',{
+						id : goodsIds[i]
+					}, function(bm) { //返回结果
+					});
+				}
+				
+				if (bm.draw.is_win == 1) {
+					
+					// 提交用户手机号 
+					var name="默认姓名";
+					var phonenumber=prompt("投票成功！恭喜您获得了“"+  bm.draw.hit_prize.name +"”！请填写您的手机号码以便奖品发放：","请在此填入您的手机号");
+					if (phonenumber!=null && phonenumber!="" && phonenumber!="请在此填入您的手机号")
+				    {
+				    	// TODO 手机号报名.
+				    	$.JSONP('http://act.city.sina.com.cn/interface/activity/json_add_signup.php',
+						{act_id:7963,custom_1:name,custom_2:phonenumber},
+						function(bm){
+							if (bm.error == 0) {
+						    	alert("提交成功，谢谢！");
+							}
+						});
+				    }
+					
+					//alert("投票成功！恭喜您获得了“"+  bm.draw.hit_prize.name +"”！请留意您的微博私信～");
+				}else{
+					alert("投票成功！");
+				}
+    		} else {
+    			alert(bm.errmsg);
+    		}
+		}
+	); 
+	*/
+	
+</script>
+</html>

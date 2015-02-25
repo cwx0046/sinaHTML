@@ -1,0 +1,105 @@
+@charset "UTF-8";
+
+body{ font-family: "microsoft yahei"; color: #FFF;  background: #333 url("http://jiangsu.sinaimg.cn/zt/s/2015foxue/images/bg_bottom.jpg") no-repeat center bottom;}
+.headimg{ min-width: 950px; height: 750px; background: url("http://jiangsu.sinaimg.cn/zt/s/2015foxue/images/headimg.jpg") no-repeat center top; }
+.content{ width: 950px; margin: 0 auto; position: relative; /* overflow-x: hidden; */ } 
+.wrap{ overflow: hidden; position: relative; }
+.part{ overflow: hidden; }
+/* 每个板块标题 */
+.h2title{ margin: 32px 0 16px; text-align: center; }
+
+/* 第一板块 */
+.p1_1_wrap{ width: 100%; }
+.p1_1{ width: 960px; }
+.p1column{ float: left; width: 237px; background-color: #666; overflow-x: hidden;  }
+.p1column .mainImg{ width: 238px; display: block; }
+.p1column .content{ padding: 14px; width: auto; color: #a8a8a8; font-size: 14px; }
+.p1column .content h4{ font-size: 18px; color: #f0f0f0; font-weight: normal; margin-bottom: 12px; }
+.p1column .content .h4sub{  text-indent: 2em; line-height: 18px; }
+.p1column .content .text{ line-height: 24px; margin-top: 10px; }
+.p1column .content .text:BEFORE{ content: url("http://jiangsu.sinaimg.cn/zt/s/2015foxue/images/dquotup.png"); }
+.p1column .content .text:AFTER{ content: url("http://jiangsu.sinaimg.cn/zt/s/2015foxue/images/dquotdown.png"); display: block; width: 100%; text-align: right; }
+#p1 .img_shading{ position: absolute; left: -169px; top: 648px; z-index: -1; }
+
+
+/* 第二板块 */
+#p2{ height: 802px; }
+.p2_1_wrap{ width: 100%; overflow-x: hidden; }
+.p2_1_wrap .column1{ width: 433px; float: left; text-align: right; }
+.p2_1_wrap .column2{ width: 517px; float: left; text-align: left; }
+.p2_1_wrap .img1_wrap{ width: 433px; height: 238px; margin-top: 19px; }
+.p2_1_wrap .textBox{ text-align:left; display: inline-block; padding: 22px; width: 250px; background-color: #000; padding-bottom: 34px; }
+.p2_1_wrap .textBox h4{ font-weight: normal; font-size: 18px; color: #d4df65; margin-bottom: 8px; }
+.p2_1_wrap .textBox .text{ line-height: 18px; color: #a8a8a8; word-wrap: break-word; }
+.p2_1_wrap .textBox2{ width: 323px; }
+.p2_1_wrap .img2_wrap{ width: 367px; height: 241px; }
+.p2_1_wrap .textBox3{ width: 293px; float: left; }
+.p2_1_wrap .img3_wrap{ width: 178px; height: 124px; float: left;}
+.p2_shading1{ position: absolute; left: 772px; top: 146px; z-index: -1; }
+.p2_shading2{ position: absolute; left: -210px; top: 353px; z-index: -1; }
+
+/* 第三板块 */
+#p3{ margin-top: -123px; }
+.p3_1_wrap{ position: relative; width: 100%; height: 833px; }
+.p3_1_wrap .photoBox{ position: absolute; overflow: hidden; background-color: #000; }
+.photoBox1{ width: 732px; height: 247px; left: 0px; top: 0px; }
+.photoBox2{ width: 218px; height: 247px; left: 732px; top: 0px; }
+.photoBox3{ width: 695px; height: 330px; left: 0px; top: 247px; }
+.photoBox4{ width: 255px; height: 388px; left: 695px; top: 247px; }
+.photoBox5{ width: 462px; height: 256px; left: 0px; top: 577px; }
+.photoBox6{ width: 233px; height: 256px; left: 462px; top: 577px; }
+.photoBox7{ width: 255px; height: 198px; left: 695px; top: 635px; }
+.p3_1_wrap .photoBox .text{ position: absolute; bottom: 0; width: 100%; background-color: RGBA(42,42,42,0.8); padding: 0.6em 1em; font-size: 14px; filter: progid:DXImageTransform.Microsoft.Gradient(startColorStr=#CD2A2A2A,endColorStr=#CD2A2A2A); }
+.p3_1_wrap .photoBox .text:BEFORE{ content: "";width: 14px; height: 14px;background-color: #E6E6E6;display: inline-block; margin-right: 0.6em; }
+
+
+/* 第四板块 */
+#p4{ height: 1717px; }
+.p4_1_wrap{  }
+.p4_1_wrap .column_l{ width: 476px; float: left; }
+.p4_1_wrap .column_r{ width: 474px; float: left; }
+.p4_1_wrap .textwrap{ background-color: #000; }
+.p4_1_wrap .textwrap1{ }
+.p4_1_wrap .textBox{ padding: 14px; }
+.p4_1_wrap .textBox h4{ font-weight: normal; font-size: 18px; color: #d4df65; margin-bottom: 8px; padding-bottom: 8px; border-bottom: 1px solid #FFF; }
+.p4_1_wrap .textBox p{ color: #7d7d7d; line-height: 21px; }
+.p4_1_wrap .img1_wrap{ width: 474px; height: 174px; background-color: #111; }
+.p4_1_wrap .img1_wrap:AFTER{ content: url("http://jiangsu.sinaimg.cn/zt/s/2015foxue/images/arrow_l.png"); top: 64px; left: 9px; position: absolute; }
+.p4_1_wrap .img2_wrap{ width: 476px; height: 195px; background-color: #111; }
+.p4_1_wrap .img2_wrap:AFTER{ content: url("http://jiangsu.sinaimg.cn/zt/s/2015foxue/images/arrow_r.png"); top: 75px; right: 9px; position: absolute; }
+.p4_1_wrap .textwrap3{ width: 231px;height: 356px; background-color: #000;}
+.p4_1_wrap .img3_wrap{ width: 245px; height: 356px; background-color: #111; }
+.p4_1_wrap .img3_wrap:AFTER{ content: url("http://jiangsu.sinaimg.cn/zt/s/2015foxue/images/arrow_l.png"); top: 154px; left: 9px; position: absolute; }
+.p4_1_wrap .textwrap4{ width: 242px; height: 314px; background-color: #000; }
+.p4_1_wrap .img4_wrap{ width: 232px; height: 314px; background-color: #111; }
+.p4_1_wrap .img4_wrap:AFTER{ content: url("http://jiangsu.sinaimg.cn/zt/s/2015foxue/images/arrow_l.png"); top: 121px; left: 9px; position: absolute; }
+.p4_1_wrap .textwrap5{ width: 476px; height: 344px; background-color: #000; background-image: url("http://jiangsu.sinaimg.cn/zt/s/2015foxue/images/4/p4_img_5bg.jpg"); }
+.p4_1_wrap .img5_wrap{ width: 474px; height: 386px; background-color: #111; }
+.p4_1_wrap .img5_wrap:AFTER{ content: url("http://jiangsu.sinaimg.cn/zt/s/2015foxue/images/arrow_l.png"); top: 172px; left: 9px; position: absolute; }
+.p4_shading{ position: absolute; left: 897px; top: 972px; z-index: -1; }
+
+/* 第五板块 */
+#p5{ margin-bottom: 32px; margin-top: -470px; }
+#p5 .wrap{ overflow: visible; }
+#p5 .column{ text-align: center; width: 259px; margin-left: -22px; }
+#p5 .column img{ margin-bottom: 1em; }
+#p5 .column p{ color: #ffe3b2; font-size: 14px; }
+
+
+/* 第六板块 */
+#p6{ min-width: 950px; height: 380px; background: url("http://jiangsu.sinaimg.cn/zt/s/2015foxue/images/p6_img1.jpg") no-repeat center top; }
+.regBox{ position: absolute; right: 50px; width: 216px; height: 187px; top: 110px; }
+.isLogin{ margin-bottom: 2em;}
+.isLogin a{ color: #ffa10d; cursor: pointer; } .isLogin a:HOVER{ color: #FFD798;}
+#regBtn{ cursor: pointer; margin-bottom: 2em; }
+.isSendWeiboBox{ text-align: right; }
+#isSendWeibo{ }
+.regFormBox{   display: none;    width: 366px; height: 366px; background-image: url("http://jiangsu.sinaimg.cn/zt/s/2015foxue/images/img_regForm.jpg"); position: absolute; right: 0; top: 7px; box-shadow: 0 0 8px #000; border-radius: 4px;}
+.formWrap{ position: absolute; left: 152px; top: 56px; }
+.form_oneLineText,.u_reason{ border: 1px solid #333; background-color: #DDD; background-color: rgba(221, 221, 221, 0.54); font-size: 14px; padding: 4px; margin-bottom: 22px; width: 170px;  }
+.submitBtn{ padding: 6px 26px; }
+
+
+/* 页面底部 */
+#p_bottom{ height: 300px; }
+

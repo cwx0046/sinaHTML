@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="GB2312">
+<meta http-equiv="cache-control" content="no-cache"/>
+<meta name="format-detection" content="telephone=no"/>
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0"> 
+<title>请在此插入网页标题</title>
+<meta name="keywords" content="请在此插入关键词" />
+<meta name="description" content="请在此写入一段页面描述" />
+<script src="http://jiangsu.sinaimg.cn/js/jquery1.11.1.min.js"></script>
+<!-- 
+<script src="http://ria.city.sina.com.cn/s/g=base.js" type="text/javascript"></script>
+<script src="http://jiangsu.sinaimg.cn/js/jquery.transit.min.js"></script>
+ -->
+<style type="text/css">
+body, ul, ol, li, p, h1, h2, h3, h4, h5, h6, table, td, th, form, fieldset, img, dl, dt, dd { margin:0; padding:0; }
+textarea, input, select, body { font-size:12px; }
+select, input { vertical-align:middle; }
+fieldset, img { border:0; }
+ul, ol { list-style:none; }
+img { border:0; }
+a { text-decoration:none; color:#000; }
+a:hover { color:#ffa10d; }
+.fl { float:left; display:inline; }
+.fr { float:right; display:inline; }
+.cb { clear:both; display:block; height:0px; overflow:hidden; width:100%; }
+.clearfix:after { clear:both; content:""; display:block; height:0; }
+</style>
+<style type="text/css">
+</style>
+</head>
+<body>
+		<div id="p2">
+		<div class="content">
+			<!-- STEP1 -->
+			<div class="c48112d">
+				<div style="font-size: 40px;line-height: 1.4em;">Step1</div>
+				<h4 class="Q1">1.如果您去温泉度假，您会选择哪种出行方式：</h4>
+					<label><input type="radio" class="Q1" name="Q1" value="独自一人">独自一人</label>
+					<label><input type="radio" class="Q1" name="Q1" value="和朋友前往">和朋友前往</label>
+					<label><input type="radio" class="Q1" name="Q1" value="和家人前往">和家人前往</label>
+					<label><input type="radio" class="Q1" name="Q1" value="商务活动前往">商务活动前往</label>
+					<label><input type="radio" class="Q1" name="Q1" value="其他" onclick="$('.Q1_text').focus();">其他<input type="text" class="Q1_text textOther"></label>
+				<h4 class="Q2">2.您在选择温泉度假时最关注的是：（可多选）</h4>
+					<label><input type="checkbox" class="Q2" name="Q2" value="温泉水质">温泉水质</label>
+					<label><input type="checkbox" class="Q2" name="Q2" value="景区环境">景区环境</label>
+					<label><input type="checkbox" class="Q2" name="Q2" value="特色美食">特色美食</label>
+					<label><input type="checkbox" class="Q2" name="Q2" value="住宿设施">住宿设施</label>
+					<label><input type="checkbox" class="Q2" name="Q2" value="交通便利性">交通便利性</label>
+					<label><input type="checkbox" class="Q2" name="Q2" value="配套娱乐、商务设施">配套娱乐、商务设施</label>
+					<label><input type="checkbox" class="Q2" name="Q2" value="个性化的服务项">个性化的服务项</label>
+					<label><input type="checkbox" class="Q2" name="Q2" value="其他">其他</label>
+				<h4 class="Q3">3.您通过哪些方式了解温泉旅游信息：（可多选）</h4>
+					<label><input type="checkbox" class="Q3" name="Q3" value="旅行社咨询">旅行社咨询</label>
+					<label><input type="checkbox" class="Q3" name="Q3" value="网络搜索">网络搜索</label>
+					<label><input type="checkbox" class="Q3" name="Q3" value="报刊广告">报刊广告</label>
+					<label><input type="checkbox" class="Q3" name="Q3" value="亲友介绍 ">亲友介绍</label>
+					<label><input type="checkbox" class="Q3" name="Q3" value="其他" onclick="$('.Q3_text').focus();">其他<input type="text" class="Q3_text textOther"></label>
+			</div>
+		
+			<!-- 江苏温泉景区评测报告 -->
+			<!-- 个人资料 -->
+			<div style="font-size: 25px;">江苏温泉景区评测报告</div>
+			<h3><span style="font-family: 'simsun';">◎</span>个人资料</h3>
+			<h4 class="Q4">1.您的性别</h4>
+				<label><input type="radio" class="Q4" name="Q4" value="A.男">A.男</label>
+				<label><input type="radio" class="Q4" name="Q4" value="B.女">B.女</label>
+			<h4 class="Q5">2.您的年龄</h4>
+				<label><input type="radio" class="Q5" name="Q5" value="A.18岁以下">A.18岁以下</label>
+				<label><input type="radio" class="Q5" name="Q5" value="B.18-30岁">B.18-30岁</label>
+				<label><input type="radio" class="Q5" name="Q5" value="C.31-45岁">C.31-45岁</label>
+				<label><input type="radio" class="Q5" name="Q5" value="D.45-60岁">D.45-60岁</label>
+				<label><input type="radio" class="Q5" name="Q5" value="E.61岁以上">E.61岁以上</label>
+			<h4 class="Q6">3.您从事的职业</h4>
+				<label><input type="radio" class="Q6" name="Q6" value="A.学生">A.学生</label>
+				<label><input type="radio" class="Q6" name="Q6" value="B.教师 ">B.教师</label>
+				<label><input type="radio" class="Q6" name="Q6" value="C.公务员">C.公务员</label>
+				<label><input type="radio" class="Q6" name="Q6" value="D.企业管理人员">D.企业管理人员</label>
+				<label><input type="radio" class="Q6" name="Q6" value="E.公司职员">E.公司职员</label>
+				<label><input type="radio" class="Q6" name="Q6" value="F.自由职业者">F.自由职业者</label>
+				<label><input type="radio" class="Q6" name="Q6" value="G.其他" onclick="$('.Q6_text').focus();">G.其他<input type="text" class="Q6_text textOther"></label>
+
+			<!-- 二、您入住温泉酒店的真实体验感受 -->
+			<h3><label style="margin-left:0;padding:0;"><span style="font-family: 'simsun';">◎</span>您入住<span class="Q26" style="display:none;">您入住的温泉名称</span><input type="text" class="Q26_text textOther">温泉(酒店/景区）的真实体验感受</label></h3>
+			<h4 class="Q7">1.温泉水水质</h4>
+				<label><input type="radio" class="Q7" name="Q7" value="A.非常满意（5分）">A.非常满意（5分）</label>
+				<label><input type="radio" class="Q7" name="Q7" value="B.较满意 （3分）" >B.较满意 （3分）</label>
+				<label><input type="radio" class="Q7" name="Q7" value="C.一般（2分）"    >C.一般（2分）</label>
+				<label><input type="radio" class="Q7" name="Q7" value="D.不太满意 （1分）">D.不太满意 （1分）</label>
+				<label><input type="radio" class="Q7" name="Q7" value="E.非常不满意"     >E.非常不满意</label>
+			<h4 class="Q8">2.温泉规模</h4>
+				<label><input type="radio" class="Q8" name="Q8" value="A.非常满意（5分）">A.非常满意（5分）</label>
+				<label><input type="radio" class="Q8" name="Q8" value="B.较满意 （3分）" >B.较满意 （3分）</label>
+				<label><input type="radio" class="Q8" name="Q8" value="C.一般（2分）"    >C.一般（2分）</label>
+				<label><input type="radio" class="Q8" name="Q8" value="D.不太满意 （1分）">D.不太满意 （1分）</label>
+				<label><input type="radio" class="Q8" name="Q8" value="E.非常不满意"     >E.非常不满意</label>
+			<!-- 	
+			<h4 class="Q9"><span style="color: #F00;">第三题空缺！！</span></h4>
+				<label><input type="radio" class="Q9" name="Q9" value="A.非常满意（5分）">A.非常满意（5分）</label>
+				<label><input type="radio" class="Q9" name="Q9" value="B.较满意 （3分）" >B.较满意 （3分）</label>
+				<label><input type="radio" class="Q9" name="Q9" value="C.一般（2分）"    >C.一般（2分）</label>
+				<label><input type="radio" class="Q9" name="Q9" value="D.不太满意 （1分）">D.不太满意 （1分）</label>
+				<label><input type="radio" class="Q9" name="Q9" value="E.非常不满意"     >E.非常不满意</label>
+			 -->	
+			<h4 class="Q10">3.医疗保健美容功效</h4>
+				<label><input type="radio" class="Q10" name="Q10" value="A.非常满意（5分）">A.非常满意（5分）</label>
+				<label><input type="radio" class="Q10" name="Q10" value="B.较满意 （3分）" >B.较满意 （3分）</label>
+				<label><input type="radio" class="Q10" name="Q10" value="C.一般（2分）"    >C.一般（2分）</label>
+				<label><input type="radio" class="Q10" name="Q10" value="D.不太满意 （1分）">D.不太满意 （1分）</label>
+				<label><input type="radio" class="Q10" name="Q10" value="E.非常不满意"     >E.非常不满意</label>
+			<h4 class="Q11">4.温泉池种类</h4>
+				<label><input type="radio" class="Q11" name="Q11" value="A.非常满意（5分）">A.非常满意（5分）</label>
+				<label><input type="radio" class="Q11" name="Q11" value="B.较满意 （3分）" >B.较满意 （3分）</label>
+				<label><input type="radio" class="Q11" name="Q11" value="C.一般（2分）"    >C.一般（2分）</label>
+				<label><input type="radio" class="Q11" name="Q11" value="D.不太满意 （1分）">D.不太满意 （1分）</label>
+				<label><input type="radio" class="Q11" name="Q11" value="E.非常不满意"     >E.非常不满意</label>
+			<h4 class="Q12">5.温泉地交通条件</h4>
+				<label><input type="radio" class="Q12" name="Q12" value="A.非常满意（5分）">A.非常满意（5分）</label>
+				<label><input type="radio" class="Q12" name="Q12" value="B.较满意 （3分）" >B.较满意 （3分）</label>
+				<label><input type="radio" class="Q12" name="Q12" value="C.一般（2分）"    >C.一般（2分）</label>
+				<label><input type="radio" class="Q12" name="Q12" value="D.不太满意 （1分）">D.不太满意 （1分）</label>
+				<label><input type="radio" class="Q12" name="Q12" value="E.非常不满意"     >E.非常不满意</label>
+			<h4 class="Q13">6.沐浴设施</h4>
+				<label><input type="radio" class="Q13" name="Q13" value="A.非常满意（5分）">A.非常满意（5分）</label>
+				<label><input type="radio" class="Q13" name="Q13" value="B.较满意 （3分）" >B.较满意 （3分）</label>
+				<label><input type="radio" class="Q13" name="Q13" value="C.一般（2分）"    >C.一般（2分）</label>
+				<label><input type="radio" class="Q13" name="Q13" value="D.不太满意 （1分）">D.不太满意 （1分）</label>
+				<label><input type="radio" class="Q13" name="Q13" value="E.非常不满意"     >E.非常不满意</label>
+			<h4 class="Q14">7.餐饮设施</h4>
+				<label><input type="radio" class="Q14" name="Q14" value="A.非常满意（5分）">A.非常满意（5分）</label>
+				<label><input type="radio" class="Q14" name="Q14" value="B.较满意 （3分）" >B.较满意 （3分）</label>
+				<label><input type="radio" class="Q14" name="Q14" value="C.一般（2分）"    >C.一般（2分）</label>
+				<label><input type="radio" class="Q14" name="Q14" value="D.不太满意 （1分）">D.不太满意 （1分）</label>
+				<label><input type="radio" class="Q14" name="Q14" value="E.非常不满意"     >E.非常不满意</label>
+			<h4 class="Q15">8.住宿设施</h4>
+				<label><input type="radio" class="Q15" name="Q15" value="A.非常满意（5分）">A.非常满意（5分）</label>
+				<label><input type="radio" class="Q15" name="Q15" value="B.较满意 （3分）" >B.较满意 （3分）</label>
+				<label><input type="radio" class="Q15" name="Q15" value="C.一般（2分）"    >C.一般（2分）</label>
+				<label><input type="radio" class="Q15" name="Q15" value="D.不太满意 （1分）">D.不太满意 （1分）</label>
+				<label><input type="radio" class="Q15" name="Q15" value="E.非常不满意"     >E.非常不满意</label>
+			<h4 class="Q16">9.康体娱乐设施</h4>
+				<label><input type="radio" class="Q16" name="Q16" value="A.非常满意（5分）">A.非常满意（5分）</label>
+				<label><input type="radio" class="Q16" name="Q16" value="B.较满意 （3分）" >B.较满意 （3分）</label>
+				<label><input type="radio" class="Q16" name="Q16" value="C.一般（2分）"    >C.一般（2分）</label>
+				<label><input type="radio" class="Q16" name="Q16" value="D.不太满意 （1分）">D.不太满意 （1分）</label>
+				<label><input type="radio" class="Q16" name="Q16" value="E.非常不满意"     >E.非常不满意</label>
+			<h4 class="Q17">10.环境舒适度</h4>
+				<label><input type="radio" class="Q17" name="Q17" value="A.非常满意（5分）">A.非常满意（5分）</label>
+				<label><input type="radio" class="Q17" name="Q17" value="B.较满意 （3分）" >B.较满意 （3分）</label>
+				<label><input type="radio" class="Q17" name="Q17" value="C.一般（2分）"    >C.一般（2分）</label>
+				<label><input type="radio" class="Q17" name="Q17" value="D.不太满意 （1分）">D.不太满意 （1分）</label>
+				<label><input type="radio" class="Q17" name="Q17" value="E.非常不满意"     >E.非常不满意</label>
+			<h4 class="Q18">11.服务接待</h4>
+				<label><input type="radio" class="Q18" name="Q18" value="A.非常满意（5分）">A.非常满意（5分）</label>
+				<label><input type="radio" class="Q18" name="Q18" value="B.较满意 （3分）" >B.较满意 （3分）</label>
+				<label><input type="radio" class="Q18" name="Q18" value="C.一般（2分）"    >C.一般（2分）</label>
+				<label><input type="radio" class="Q18" name="Q18" value="D.不太满意 （1分）">D.不太满意 （1分）</label>
+				<label><input type="radio" class="Q18" name="Q18" value="E.非常不满意"     >E.非常不满意</label>
+			<h4 class="Q19">12.提供个性化服务</h4>
+				<label><input type="radio" class="Q19" name="Q19" value="A.非常满意（5分）">A.非常满意（5分）</label>
+				<label><input type="radio" class="Q19" name="Q19" value="B.较满意 （3分）" >B.较满意 （3分）</label>
+				<label><input type="radio" class="Q19" name="Q19" value="C.一般（2分）"    >C.一般（2分）</label>
+				<label><input type="radio" class="Q19" name="Q19" value="D.不太满意 （1分）">D.不太满意 （1分）</label>
+				<label><input type="radio" class="Q19" name="Q19" value="E.非常不满意"     >E.非常不满意</label>
+			<h4 class="Q20">13.卫生安全状况管理</h4>
+				<label><input type="radio" class="Q20" name="Q20" value="A.非常满意（5分）">A.非常满意（5分）</label>
+				<label><input type="radio" class="Q20" name="Q20" value="B.较满意 （3分）" >B.较满意 （3分）</label>
+				<label><input type="radio" class="Q20" name="Q20" value="C.一般（2分）"    >C.一般（2分）</label>
+				<label><input type="radio" class="Q20" name="Q20" value="D.不太满意 （1分）">D.不太满意 （1分）</label>
+				<label><input type="radio" class="Q20" name="Q20" value="E.非常不满意"     >E.非常不满意</label>
+			<h4 class="Q21">14.温泉享受过程</h4>
+				<label><input type="radio" class="Q21" name="Q21" value="A.非常满意（5分）">A.非常满意（5分）</label>
+				<label><input type="radio" class="Q21" name="Q21" value="B.较满意 （3分）" >B.较满意 （3分）</label>
+				<label><input type="radio" class="Q21" name="Q21" value="C.一般（2分）"    >C.一般（2分）</label>
+				<label><input type="radio" class="Q21" name="Q21" value="D.不太满意 （1分）">D.不太满意 （1分）</label>
+				<label><input type="radio" class="Q21" name="Q21" value="E.非常不满意"     >E.非常不满意</label>
+			<h4 class="Q22">15.温泉池私密度</h4>
+				<label><input type="radio" class="Q22" name="Q22" value="A.非常满意（5分）">A.非常满意（5分）</label>
+				<label><input type="radio" class="Q22" name="Q22" value="B.较满意 （3分）" >B.较满意 （3分）</label>
+				<label><input type="radio" class="Q22" name="Q22" value="C.一般（2分）"    >C.一般（2分）</label>
+				<label><input type="radio" class="Q22" name="Q22" value="D.不太满意 （1分）">D.不太满意 （1分）</label>
+				<label><input type="radio" class="Q22" name="Q22" value="E.非常不满意"     >E.非常不满意</label>
+			<h4 class="Q23">16.人文底蕴浓厚</h4>
+				<label><input type="radio" class="Q23" name="Q23" value="A.非常满意（5分）">A.非常满意（5分）</label>
+				<label><input type="radio" class="Q23" name="Q23" value="B.较满意 （3分）" >B.较满意 （3分）</label>
+				<label><input type="radio" class="Q23" name="Q23" value="C.一般（2分）"    >C.一般（2分）</label>
+				<label><input type="radio" class="Q23" name="Q23" value="D.不太满意 （1分）">D.不太满意 （1分）</label>
+				<label><input type="radio" class="Q23" name="Q23" value="E.非常不满意"     >E.非常不满意</label>
+			<h4 class="Q24">17.收费水平</h4>
+				<label><input type="radio" class="Q24" name="Q24" value="A.非常满意（5分）">A.非常满意（5分）</label>
+				<label><input type="radio" class="Q24" name="Q24" value="B.较满意 （3分）" >B.较满意 （3分）</label>
+				<label><input type="radio" class="Q24" name="Q24" value="C.一般（2分）"    >C.一般（2分）</label>
+				<label><input type="radio" class="Q24" name="Q24" value="D.不太满意 （1分）">D.不太满意 （1分）</label>
+				<label><input type="radio" class="Q24" name="Q24" value="E.非常不满意"     >E.非常不满意</label>
+		
+			<!-- 19.您对此温泉有什么建议和意见？ -->
+			<h4 class="Q25">18.您对此温泉有什么建议和意见？</h4>
+				<label><textarea class="Q25_text" name="Q25" cols="76" rows="5"></textarea></label>
+			
+			
+			<div type="button" id="btn_sub" onclick="submit()">提交问卷</div>
+
+		</div>
+	</div>
+
+
+
+
+
+<style>
+#p2  { border: 1px solid #231815;  font-family: "microsoft yahei";}
+#p2 .content {  font-size: 14px; line-height: 36px; position: relative;}
+#p2 .content .c48112d{ color: #48112d;}
+#p2 h4{ font-size: 18px; font-weight: normal;}
+#p2 input[type=radio]{ margin-bottom: 5px;}
+#p2 input{ margin-right: 0.4em;}
+#p2 div.sort span { margin-left: 10px;}
+#p2 div.sort span:HOVER { background-color: #EEE;}
+#p2 label { cursor: pointer; margin-left: 7px; display: inline-block; padding: 0 10px;}
+#p2 label:HOVER { background-color: #FFE1BB;}
+#btn_sub { font-family: "microsoft yahei";color: #000;border: 2px solid #000;width: 204px;height: 44px;border-radius: 4px;
+line-height: 40px;font-size: 24px;display: block;margin: 42px auto 58px;cursor: pointer; text-align: center; }
+#btn_back { font-family: "microsoft yahei"; color: #FFF; background-color: #e51673; width: 204px; height: 44px; margin: 0 auto; border: none; border-radius: 4px; line-height: 40px; font-size: 24px; display: block; margin: 42px auto 58px; cursor: pointer; box-shadow: 0px 4px 0px #9e1050;}
+#endmsg { font-size: 26px; line-height: 43px; padding: 35px 0; text-align: center;}
+#p2 .textOther { border: none; background: none; border-bottom: 1px solid; width: 100px; margin-left: 0.5em;}
+#p2 textarea { display: block; font-family: "microsoft yahei";}
+
+</style>
+
+<!--please don't change the order of these scripts-->
+<script type="text/javascript" src="http://ria.city.sina.com.cn/s/g=dialog_login_v1.1-sp1.js"></script>
+<script type="text/javascript" src="http://i.sso.sina.com.cn/js/ssologin.js"></script>
+<script type="text/javascript" src="http://i.sso.sina.com.cn/js/sinaSSOManager.js" charset="utf-8"></script>
+<link type="text/css" href="http://ria.city.sina.com.cn/s/g=dialog_login_v1.1-sp1.css" rel="stylesheet" media="all" />
+<script src="http://jiangsu.sinaimg.cn/z/js/weiboApi.js"></script>
+<script type="text/javascript">
+	var question = [ "Q1", "Q2", "Q3", "Q4", "Q5", "Q6", "Q7", "Q8", /* "Q9", */
+			"Q10", "Q11", "Q12", "Q13", "Q14", "Q15", "Q16", "Q17", "Q18",
+			"Q19", "Q20", "Q21", "Q22", "Q23", "Q24", "Q25" ,"Q26", "Q27" ];
+	var answer = [];
+
+	function submit() {
+		for (var i = 0; i < question.length; i++) {
+			var ans = checkQuestionReply(question[i]);
+			
+			console.log(ans);
+			if (ans) {
+				answer[i] = [ question[i], ans ];
+			} else {
+				//没有填写答案
+				alert("抱歉！您还有题目未填写：\n" + $("#p2 ." + question[i]).eq(0).text());
+				if (question[i] === "Q26") {
+					$('#p2').animate({
+						scrollTop : 652
+					}, 600);
+					return false;
+				}
+				pageScrollTo(question[i], 0); //滚屏
+				return false;
+			}
+		}
+		
+		//登录微博
+		function openLoginDialog(callback){DFZ.APP.DialogLogin.open(callback);$("#ui-dialog-title-1").html("新浪微博登录");}
+		var uinfo = sinaSSOManager.getSinaCookie();
+		if (!uinfo) { //判断登陆
+			openLoginDialog(function() {
+				submit();
+			});
+			return false;
+		}/*  else {
+			var contentWeibo = "微博内容";
+			addWeiboByCookie(contentWeibo,"","");   //发微博
+		}	 */
+
+		//向服务器提交表单
+		//console.log(answer);
+		$("#btn_sub").attr("value", "正在提交...");
+		submitData(answer);
+	}
+
+	function submitData(answer) {
+
+		var data = {};
+		data.act_id = 9530;
+
+		for (var i = 0; i < answer.length; i++) {
+			var objName = "custom_" + (i + 1);
+			data[objName] = answer[i][1].toString();
+		}
+
+		$.JSONP('http://act.city.sina.com.cn/interface/activity/json_add_signup.php',data, function(bm) { //返回结果
+			if (bm.error == 0) {
+				submitSuccess(bm);
+			} else {
+				alert(bm.errmsg);
+				//submitSuccess();  
+			}
+		});
+
+	}
+
+	function submitSuccess(bm) {
+		$('#p2').animate({
+			scrollTop : 0
+		}, 600);
+		$("#p2 .content").html('<div id="endmsg">我们已经收到了您的调查表<br>非常感谢您的参与！</div><input type="button" value="关闭" id="btn_back" onclick="$(\'#p2\').fadeOut()"/>');
+		
+		if( bm.draw.is_win == 1){
+			alert("恭喜您获得" + bm.draw.hit_prize.name + "一份！\n请留意您的微博私信");
+		}else{
+			// alert("未中奖");
+			console.log("抱歉您未能中奖，好运先攒着");
+		}
+		
+		
+	}
+
+	function checkQuestionReply(questionClass) {
+		var value = [];
+		//特殊题目
+		if (questionClass === "Q2" | questionClass === "Q3") { // 多选题  
+			$("#p2 ." + questionClass + ":checked").each(function() {
+				if ($(this).attr("checked")) {
+					value.push($(this).val());
+				}
+			});
+		} else if (questionClass === "Q25") { // textarea 
+			value = $('#p2 .' + questionClass+ "_text").val();
+		} else if (questionClass === "Q26") { // 酒店名称
+			value = $('#p2 .' + questionClass+ "_text").val();
+		} else if (questionClass === "Q27") { // 分数统计
+			// 计算分数
+			// 依据选项ABCDE生成分数
+			var score = 0;
+			for (var i = 6; i <= 22; i++) {
+				switch (answer[i][1].substr(0,1)) {  // 取得选项首字母来判断
+				case 'A':
+					score += 5;
+					break;
+				case 'B':
+					score += 3;
+					break;
+				case 'C':
+					score += 2;
+					break;
+				case 'D':
+					score += 1;
+					break;
+				case 'E':
+					score += 0;
+					break;
+				default:
+					break;
+				}
+			}
+			score = (score === 0) ? "0分" : score ;
+			value = score;
+			
+		} else { // 单选题
+			value = $('#p2 .' + questionClass + ':checked').val();
+		}
+		
+
+		if (questionClass === "Q1" | questionClass === "Q6") { // 有“其它”选项
+			if(value === "其他" | value === "E.其他" | value === "G.其他" ){
+				value += "：" + $("#p2 ." + questionClass + "_text").val();
+			}
+		}
+		if( questionClass === "Q3"){
+			for ( var index in value) {
+				if (value[index] === "其他"
+				   |value[index] === "E.其他"
+				   |value[index] === "G.其他"
+				) {
+					value[index] += "：" + $("#p2 ." + questionClass + "_text").val();
+				}
+			}
+		}
+		
+		if( questionClass === "Q25"){
+			if( value == undefined | value == "")
+			return "[未填写]";
+		}		
+
+		if (value == undefined | value == "") {
+			return false;
+		} else {
+			return value;
+		}
+	}
+
+	function pageScrollTo(className, offset) {
+		//var topNum = $("." + className + "").offset().top;
+		/* $('body,html').animate({
+			scrollTop : topNum + offset
+		}, 600);
+		 */
+		var topNum = $("#p2 ." + className + "").position().top;
+		$('#p2').animate({
+			scrollTop : topNum + offset
+		}, 600);
+	}
+</script>
+
+</body>
+</html>
+	
+	

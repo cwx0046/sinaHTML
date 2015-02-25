@@ -1,0 +1,442 @@
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="author" content="">
+<meta name="description" content="">
+<meta name="viewport" content="minimal-ui">
+<script>document.documentElement.className = 'js';</script>
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">
+<!-- Force latest IE rendering engine & Chrome Frame -->
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<!-- Make IE recognise HTML5 elements for styling -->
+<!--[if lte IE 8]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+
+
+
+<script type="text/javascript" src="./jquery-1.11.1.js"></script>
+<script src="./jquery.event.move.js"></script>
+<script src="./jquery.event.swipe.js"></script>
+<script src="./weixin.js"></script>
+
+<script src="./jquery.transit.min.js"></script>
+</head>
+
+
+<style>
+body {
+	background: gray;
+	font-family: "Microsoft YaHei", 微软雅黑, "MicrosoftJhengHei", 华文细黑, STHeiti, MingLiu;
+}
+
+.page {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	left: 0%;
+	top: 0%;
+	background: white;
+	overflow: hidden;
+}
+
+.pagecontent {
+	position: absolute;
+	width: 320px;
+	height: 504px;
+	left: 50%;
+	top: 50%;
+	margin: -252px 0 0 -160px;
+}
+
+.fullscreen {
+	position: absolute;
+	width: 330px;
+	height: 514px;
+	left: 50%;
+	top: 50%;
+	margin: -257px 0 0 -165px;
+}
+</style>
+<body>
+	<div id="pages" style="position: absolute; left: 0%; top: 0%; width: 100%; height: 100%; overflow: hidden">
+	</div>
+
+	<div id="makaad" class='pagecontent' style="top: 150%">
+		<div style="border-radius: 10px; position: absolute; background: rgba(255, 255, 255, 0); width: 160px; height: 200px; left: 80px; top: 2px; overflow: hidden;">
+			<div
+				style="font-size: small; position: absolute; top: 2px; width: 160px; height: 30px; text-align: center; color: white"
+				onclick="javascript:window.location.href='weixin://contacts/profile/gh_99e0c68f2230'">
+				© MAKA.</div>
+		</div>
+	</div>
+	<div id="preload"
+		style="position: absolute; left: 0%; top: 0%; width: 100%; height: 100%; background: white; overflow: hidden"></div>
+</body>
+
+
+
+<script>
+	window.onload = function() {
+
+		window.setInterval(function() {
+			window.scrollTo(0, 1);
+		}, 0);
+
+	};
+
+	var preload = "preload.php";
+	var pagearray = [ "commute", "schedule", "guest", "meeting", "cover" ];
+	//
+	var pagedata = new Array(pagearray.length);
+	page_framework();
+
+	var page = $('#pages');
+	var pages = page.find('.page');
+	var page_i = pagearray.length - 1;
+
+	var ajax_num = 0;
+	loadpage_init();
+
+	function loadpage_init() {
+
+		$.ajax({
+			type : 'post',//可选get
+			url : preload,//这里是接收数据的PHP程序
+			data : 'pid=demo',//传给PHP的数据，多个参数用&连接
+			dataType : 'html',//服务器返回的数据类型 可选XML ,Json jsonp script html text等
+			timeout : 100000,
+			success : function(msg) {
+
+				//这里是ajax提交成功后，PHP程序返回的数据处理函数。msg是返回的数据，数据类型在dataType参数里定义！
+				$('#preload').html(msg);
+				for (var i = 0; i < pagearray.length; i++) {
+					ajax_request(i);
+				}
+			},
+			error : function() {
+				/* alert("error loading"); */
+				loadpage_init();
+
+			}
+		});
+	}
+
+	var is_adshow = 0;
+	function showad() {
+		$('#makaad').transition({
+			y : '-25px'
+		}, page_ublock);
+		is_adshow = 1;
+	}
+
+	function hidead() {
+		$('#makaad').transition({
+			y : '-25px'
+		}, page_ublock);
+		is_adshow = 0;
+	}
+
+	function showadbar() {
+		$('#makaad').transition({
+			y : '-25px'
+		});
+		$('#makaad').unbind();
+		$('#makaad').bind('move', function(e) {
+			e.preventDefault();
+		})
+
+	}
+	function hideadbar() {
+		$('#makaad').transition({
+			y : '0'
+		});
+	}
+
+	function page_framework() {
+		for (var i = 0; i < pagearray.length; i++) {
+
+			$('#pages').append("<div class='page'>page </div>");
+		}
+		hideadbar();
+	}
+
+	function ajax_request(num) {
+
+		$.ajax({
+			type : 'post',//可选get
+			url : pagearray[num] + '.php',//这里是接收数据的PHP程序
+			data : 'pid=demo',//传给PHP的数据，多个参数用&连接
+			dataType : 'html',//服务器返回的数据类型 可选XML ,Json jsonp script html text等
+
+			success : function(msg) {
+				//这里是ajax提交成功后，PHP程序返回的数据处理函数。msg是返回的数据，数据类型在dataType参数里定义！
+				pagedata[num] = msg;
+				load_page(num);
+				ajax_count();
+
+			},
+			error : function() {
+				ajax_request(num);
+
+			}
+		});
+	}
+
+	function ajax_count() {
+		ajax_num++;
+		if (ajax_num == pagearray.length) {
+
+			ajax_end();
+		}
+	}
+
+	function ajax_end() {
+
+		init_page();
+		ws = document.body.clientWidth / 320.0;
+		hs = document.body.clientHeight / 504.0;
+
+		$('.fullscreen').each(function() {
+
+			if (ws - hs > 1)
+				ws = hs;
+			$(this).css({
+				scale : hs < ws ? ws : hs
+			});
+		});
+
+		$('.pagecontent').each(function() {
+			$(this).css({
+				scale : hs > ws ? ws : hs
+			});
+		});
+
+		for (var i = 0; i < pages.length; i++) {
+
+			pages.eq(i).on('swipeup', {
+				a : i
+			}, function(e) {
+
+				if (page_lock == 1) {
+					return;
+				}
+				if (e.data.a === 0) {
+					return
+				}
+				page_lock = 1;
+				eval(pagearray[e.data.a] + "_disappear_effect()");
+				eval(pagearray[e.data.a - 1] + "_show_effect_up()");
+				pages.eq(e.data.a - 1).css({
+					y : '0',
+					scale : 1.1
+				}).delay(1).transition({
+					scale : 1
+				}, 2000);
+				pages.eq(e.data.a).transition({
+					y : '-101%'
+				}, 1600, 'ease', function() {
+
+					page_lock = 0;
+					eval(pagearray[e.data.a - 1] + "_init()");
+
+					if (e.data.a == 1)
+						showadbar();
+				});
+			}).on('swipedown', {
+				a : i
+			}, function(e) {
+
+				if (page_lock == 1) {
+					return;
+				}
+				if (e.data.a === pages.length - 1) {
+					return;
+				}
+				page_lock = 1;
+				if (is_adshow == 1) {
+					hidead();
+					return
+				}
+				hideadbar();
+
+				eval(pagearray[e.data.a] + "_disappear_effect()");
+				eval(pagearray[e.data.a + 1] + "_show_effect_down()");
+
+				pages.eq(e.data.a + 1).css({
+					scale : 1.1
+				}).transition({
+					y : 0,
+					scale : 1
+				}, 1000, 'ease', function() {
+
+					page_lock = 0;
+					eval(pagearray[e.data.a + 1] + "_init()");
+					pages.eq(e.data.a).css({
+						y : '-100%'
+					}, 100, 'ease');
+				});
+			}).on('movestart', {
+				a : i
+			}, function(e) {
+				//if(e.pageY<document.body.clientHeight/10){pages.eq(e.data.a).trigger("swipedown")}
+				//if(e.pageY>document.body.clientHeight*0.9){pages.eq(e.data.a).trigger("swipep")}
+			}).on('moveend', {
+				a : i
+			}, function(e) {
+				//setTimeout('page_ublock()',2000); 
+				//if(e.pageY<document.body.clientHeight/10){pages.eq(e.data.a).trigger("swipedown")}
+				//if(e.pageY>document.body.clientHeight*0.9){pages.eq(e.data.a).trigger("swipep")}
+			}).on('touchstart', {
+				a : i
+			}, function(e) {
+				if (e.data.a == pages.length - 1) {
+					pages.eq(e.data.a).trigger("swipeup");
+					return
+				}
+				;
+				if (event.touches[0].pageY < document.body.clientHeight / 10) {
+					pages.eq(e.data.a).trigger("swipedown")
+				}
+				if (event.touches[0].pageY > document.body.clientHeight * 0.9) {
+					pages.eq(e.data.a).trigger("swipeup")
+				}
+			}).on('click', {
+				a : i
+			}, function(e) {
+				if (e.data.a == pages.length - 1) {
+					pages.eq(e.data.a).trigger("swipeup");
+					return
+				}
+				;
+				if (e.pageY < document.body.clientHeight / 10) {
+					pages.eq(e.data.a).trigger("swipedown")
+				}
+				if (e.pageY > document.body.clientHeight * 0.9) {
+					pages.eq(e.data.a).trigger("swipeup")
+				}
+			})
+
+		}
+
+	}
+	var page_lock = 0;
+	function page_ublock() {
+		page_lock = 0;
+
+	}
+
+	function init_page() {
+
+		load_page(page_i);
+
+		eval(pagearray[page_i] + "_init()");
+
+		eval(pagearray[page_i] + "_disappear_effect()");
+		pages.eq(page_i).css({
+			scale : 1.1,
+			'-webkit-filter' : 'brightness(0.2)'
+		});
+		$('#preload').delay(2000).transition({
+			'top' : '-100%',
+			opacity : 0
+		}, 500, function() {
+
+			pages.eq(page_i).transition({
+				y : 0,
+				scale : 1,
+				'-webkit-filter' : 'brightness(1)'
+			}, 1000, 'ease');
+			eval(pagearray[page_i] + "_show_effect_down()");
+		});
+
+		//gravityeffect();
+
+	}
+	function gravityeffect() {
+		window.addEventListener('devicemotion', deviceMotionHandler);
+
+		function deviceMotionHandler(eventData) {
+			var acceleration = eventData.accelerationIncludingGravity;
+
+			var facingUp = -1;
+			if (acceleration.z > 0) {
+				facingUp = +1;
+			}
+
+			var tiltLR = Math.round(((acceleration.x) / 9.81) * -90);
+			var tiltFB = Math
+					.round(((acceleration.y + 9.81) / 9.81) * 90 + 180);
+
+			$('.gravitymove').css({
+				x : tiltLR / 10 + "px",
+				y : (tiltFB - 330) / 10 + "px"
+			});
+
+		}
+	}
+
+	function load_page(i) {
+		if (i >= 0 || i <= pagearray.length - 1)
+			pages.eq(i).html(pagedata[i]);
+		//alert("load"+i);
+	}
+
+	function clean_page(i) {
+		if (i >= 0 || i <= pagearray.length - 1)
+			pages.eq(i).empty();
+		//alert("clean"+i);
+	}
+
+	(function(jQuery, undefined) {
+
+		document.addEventListener('WeixinJSBridgeReady',
+				function onBridgeReady() {
+					WeixinJSBridge.call('hideToolbar');
+				});
+
+		window.onresize = function() {
+
+			ws = document.body.clientWidth / 320.0;
+			hs = document.body.clientHeight / 504.0;
+
+			$('.fullscreen').each(function() {
+
+				if (ws - hs > 1)
+					ws = hs;
+				$(this).css({
+					scale : hs < ws ? ws : hs
+				});
+			});
+
+			$('.pagecontent').each(function() {
+				$(this).css({
+					scale : hs
+				});
+			});
+
+		}
+
+		jQuery(document).ready(function() {
+
+			ws = document.body.clientWidth / 320.0;
+			hs = document.body.clientHeight / 504.0;
+
+			$('.fullscreen').each(function() {
+
+				if (ws - hs > 1)
+					ws = hs;
+				$(this).css({
+					scale : [ ws, hs ]
+				});
+			});
+
+			$('.pagecontent').each(function() {
+				$(this).css({
+					scale : hs
+				});
+			});
+
+		})
+	})(jQuery);
+</script>

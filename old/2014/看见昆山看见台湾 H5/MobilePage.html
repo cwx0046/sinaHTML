@@ -1,0 +1,888 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,user-scalable=no"> 
+<title>看见昆山 看见台湾</title>
+<meta name="keywords" content="昆山,台湾,旅游,美食,特产,美景" />
+<meta name="description" content="看见昆山 看见台湾专题，移动版页面，新浪江苏" />
+<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+<script src="http://code.jquery.com/mobile/1.4.3/jquery.mobile-1.4.3.min.js"></script>
+
+<style type="text/css">
+body, ul, ol, li, p, h1, h2, h3, h4, h5, h6, table, td, th, form, fieldset, img, dl, dt, dd { margin:0; padding:0; }
+textarea, input, select, body { font-size:12px; }
+select, input { vertical-align:middle; }
+fieldset, img { border:0; }
+ul, ol { list-style:none; }
+img { border:0; }
+a { text-decoration:none; color:#FFF; }
+a:hover { text-decoration: underline; }
+.fl { float:left; display:inline; }
+.fr { float:right; display:inline; }
+.cb { clear:both; display:block; height:0px; overflow:hidden; width:100%; }
+.clearfix:after { clear:both; content:""; display:block; height:0; }
+</style>
+<style type="text/css">
+.ui-loader{ display: none;}
+body{ background: url("http://jiangsu.sinaimg.cn/2014/0808/U9263P1194DT20140808153824.jpg"); }
+#p2title{ z-index: -1;  height: 45px; position: relative;}
+#boat{
+	position: absolute;
+	bottom: 16px;
+	left: 4px;
+	z-index: -1;
+}
+#p2nav{ position: relative; text-align: left;}
+
+#p2nav ul{
+	position: absolute;
+	left: 53px;
+	top: -11px;
+}
+#p2nav li{
+	/* background: RGBA(255,0,0,.5);  */
+	float:left;
+	width: 64px;
+	height: 33px;
+	cursor: pointer;
+} 
+.actday{
+	position: absolute;
+	width: 320px;
+	overflow: hidden;
+
+}
+.navarrow{
+	height:0;
+	width: 0;
+	border-width:0px 10px 10px 10px;
+	border-style:solid;
+	border-color: transparent;
+	border-bottom-color: #bc6162;
+	margin-left: 76px;
+}
+#actdays{ margin-top: -5px; height: 339px; overflow: hidden;}
+
+.actday .actdaybg{}
+
+
+#actday1 .actam .actdaytextblock,#actday1 .actam .actdaytextam{ background-color: RGBA(162,171,166,.7);}
+#actday1 .actpm .actdaytextblock,#actday1 .actpm .actdaytextpm{ background-color: RGBA(44,92,156,.5);}
+
+#actday2 .navarrow{ margin-left: 140px; }
+#actday2 .actam .actdaytextblock,#actday2 .actam .actdaytextam{ background-color: RGBA(126,181,234,.6);}
+#actday2 .actpm .actdaytextblock,#actday2 .actpm .actdaytextpm{ background-color: RGBA(162,170,123,0.6);}
+
+#actday3 .navarrow{ margin-left: 204px; }
+#actday3 .actam .actdaytextblock,#actday3 .actam .actdaytextam{ background-color: RGBA(76,189,227,0.65);}
+#actday3 .actpm .actdaytextblock,#actday3 .actpm .actdaytextpm{ background-color: RGBA(106,108,120,.5);}
+
+#actday4 .navarrow{ margin-left: 268px; }
+#actday4 .actam .actdaytextblock,#actday4 .actam .actdaytextam{ background-color: RGBA(38,24,14,.5);}
+#actday4 .actpm .actdaytextblock,#actday4 .actpm .actdaytextpm{ background-color: RGBA(133,188,163,.72);}	
+.actam, .actpm{
+	position: relative;
+}
+.actam{
+	margin-bottom: 4px;
+}
+
+	.actdaytextblock{
+		position: absolute;
+		width: 130px;
+		top: 10px;
+		left: 30px;
+		padding-bottom: 6px;
+		font-family: "microsoft yahei";
+		color:#FFF;
+	}
+	
+	.actdaytexttitle{
+		width: 100%;
+		text-align: center;
+		line-height: 24px;
+		font-size: 12px;
+		font-weight: bold;
+	}
+	.actdaytextsubtitle{
+		text-align: right;
+		padding: 0 10px;
+		font-size: 9px;
+		margin-bottom: 1px;
+	}
+	.actdaytext{
+		/* background: RGBA(0,0,255,0.3); */
+		width: 114px;
+		overflow: hidden;
+		padding: 0 8px;
+		text-indent: 2em;
+		font-size: 10px;
+		line-height: 12px;
+	}
+	.actdaytextam,.actdaytextpm{
+		position: absolute;
+		left: -23px;
+		width: 1em;
+		text-align: center;
+		top: 0;
+		font-size: 8px;
+		padding: 5px 5px;
+	}
+	.actdaytextpm{
+		left: 133px;
+	}
+	
+	.actpm .actdaytextblock{
+		left: auto;
+		right: 34px;
+	}
+	
+</style>
+
+<!-- book stylesheet -->
+<style type="text/css">
+/* book */
+#flip{position:absolute;left:150px;width:310px;height:204px;overflow:hidden;z-index:100;display:none;}
+#flip .overlayer{height:204px;width:100%;position:absolute;left:0;top:0;z-index:200;}
+#flip .overlayer img{width:100%;position:absolute;left:0;top:0;}
+#flip .container{width:100%;overflow:hidden;height:204px;}
+*html #flip .ie_r{filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(enabled=true,sizingMethod=scale,src="http://jiangsu.sinaimg.cn/2014/0802/U9263P1194DT20140802224743.png");background:none;}
+*html #flip .ie_l{filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(enabled=true,sizingMethod=scale,src="http://jiangsu.sinaimg.cn/2014/0802/U9263P1194DT20140802224741.png");background:none;}
+#left{width:155px;height:204px;position:absolute;top:0;z-index:10;}
+#right{width:155px;height:204px;position:absolute;left:155px;top:0;z-index:10;}
+#book .content{width:155px;padding:0;line-height:25px;height:204px;display:block;overflow:hidden;}
+#book .content img{ display: block;}
+#book .content .title{font-size:24px;text-align:center;color:#bf5934;padding-bottom:28px;font-family:"Microsoft Yahei","SimHei";}
+#book .content .i_1{margin-top:-20px;}
+#book{position:relative;width:310px;background:url(http://jiangsu.sinaimg.cn/2014/0802/U9263P1194DT20140802224553.png);height:204px;}
+#book #foot{background:url("http://jiangsu.sinaimg.cn/2014/0802/U9263P1194DT20140802224554.png");height:12px;font-size:0;position:absolute;left:0;top:204px;width:310px;}
+#book .pager{text-align:center;font-family:Arial;word-spacing:-2px;width:155px;}
+#book .label{height:46px;text-align:right;font-family:Microsoft yahei;font-size:14px;padding:14px 45px 0;display:in-line;}
+#book .label span{background:#bf5934;color:#fff;font-size:12px;padding:0 4px;}
+#book .label a{font:12px SimSun;color:#70634b;text-decoration:none;}
+#book .label a:hover{color:#ff6600;text-decoration:none;}
+#book .label a img{padding:0 7px 0 5px;margin-bottom:-2px;}
+#book .label img{padding:0 7px;}
+#book .arrow{width:42px;position:absolute;left:-27px;top:0;height:204px;}
+#book .mask{background:#000;opacity:0.1;filter:Alpha(opacity=10);width:100%;height:100%;cursor:pointer;}
+#book .default{text-align:center;padding-top:30px;}
+#book .default img{padding:6px 0;}
+#book .bookshow .title{padding-left:104px;_padding-left:0;_margin-left:0;padding-bottom:20px;}
+#book .bookshow .title img{display:block;padding:0;}
+#book .bookshow .cotent .booklist{float:left;width:208px;height:165px;padding-bottom:32px;overflow:hidden;}
+#book .bookshow .cotent .booklistlitt{float:left;width:176px;height:165px;padding-bottom:32px;}
+#book .bookshow .cotent .booklist .title{padding-left:1px;padding-bottom:0;text-align:left;}
+#book .bookshow .cotent .booklist .title{font:700 14px/25px simsun;color:#27333c;}
+#book .bookshow .cotent .booklist .title a:hover{text-decoration:underline;}
+#book .bookshow .cotent .booklist .details_pic{float:left;margin:3px 7px 0 0;}
+#book .bookshow .cotent .booklist .details_pic img{display:block;width:96px;height:135px;padding:0;}
+#book .bookshow .cotent .booklist .details_w{float:left;font:400 12px/20px simsun;color:#27333c;}
+#book .bookshow .cotent .booklist .details_w p span{font:400 12px/20px simsun;color:#666666;}
+#book .bookshow .cotent .booklist .details_w .buttread{padding-top:20px;}
+#book .bookshow .cotent .booklist .details_w .buttread .butt_sc{width:71px;height:24px;display:block;}
+#book .bookshow .cotent .booklist .details_w .buttread .butt_read{width:71px;height:24px;display:block;margin-top:10px;}
+#book .bookshow .more{text-align:right;padding-top:30px;}
+#book .bookshow .more a{font:400 12px/25px simsun;color:#666666;}
+#book .bookshow .more a:hover{text-decoration:underline;}
+#book .bookshow .more a .raquo{font:normal 14px arial;color:#666666;}
+.pageleft, .pageright{ position: relative;}
+</style>
+
+<style type="text/css">
+#p1{
+	width: 320px;
+}
+#p1booktabs{
+	width: 320px;
+	height: 16px;
+	position: relative;
+	overflow: hidden;
+}
+.p1booktab{
+	/* background: url("http://jiangsu.sinaimg.cn/2014/0802/U9263P1194DT20140802224249.png") no-repeat; */
+	width: 60px;
+	position: absolute;
+	right: 0;
+	bottom: 0;
+	color: #547387;
+	font-size: 10px;
+	line-height: 16px;
+	text-align: center;
+	cursor: pointer;
+}
+.p1booktab:hover{
+	font-weight: bold;
+}
+.p1booktab img{
+	position: absolute;
+	display: block;
+	z-index: -1;
+	width: 60px;
+}
+
+#book .content{
+	width: 155px;
+	height: 204px;
+	overflow: hidden;
+ 	position: relative;
+	font-family: "microsoft yahei";
+}
+#booktab1{ z-index:4;/*  background-position: 0 -0px; */ right: 150px; }
+#booktab2{ z-index:3; /* background-position: 0 -58px; */ right: 100px; }
+#booktab3{ z-index:2; /* background-position: 0 -116px;  */right: 50px; }
+#booktab4{ z-index:1;/*  background-position: 0 -174px;  */right: 0px; }
+#book .content img{
+	width: 155px;
+	height: 204px;
+}
+</style>
+<script type="text/javascript">
+/* script BY 电子杂志幻灯片翻书效果（兼容IE6浏览器） */
+$(document).ready(function() {
+    var Beacon={}
+    //check page_content
+    if (!page_content || page_content.length == 0) {
+        alert('page_content is null');
+        return;
+    }
+
+    var book = $('#book');
+    var left = $('#book #left');
+    var right = $('#book #right');
+    var left_w = $('#book #left').width();
+    //var left_bar = $('#book .arrow').eq(0);
+    //var right_bar = $('#book .arrow').eq(1);
+    var left_bar = $('#book .pagel');
+    var right_bar = $('#book .pager');
+    var flip = $('#book #flip');
+    var flip_time = 600;
+    var sid = typeof spaceid != "undefined" ? spaceid : 2143768475;
+    var current = start_page ? start_page : 0;
+    var total = page_content.length;
+
+    var isIE = false;
+    var arVersion = navigator.appVersion.split("MSIE");
+    var version = parseFloat(arVersion[1]);
+    if (version > 0) {
+        isIE = true;
+        flip_time = 800;
+        flip.find('.overlayer img').hide();
+        flip.find('.overlayer').addClass('ie_r');
+    }
+
+    //check pager
+    left.find('.pager').html((current + 1) + " / " + Math.ceil(total / 2));
+   
+    
+    $('#book').on("swiperight",".pageleft",function() {
+        if (current - 2 >= 0) {
+            //(new Image).src = "http://bj.data.cn.yahoo.com/sns?s=" + sid + "&t=" + Math.random() + "&r=" + encodeURIComponent(document.referrer);
+            Beacon.ajax_refer = current / 2 + 1; // current index
+            Beacon.ajax_url = current / 2;  // target index
+            Beacon.ajax_isLastPage = 0; // 0 or 1
+            //Beacon.ajaxRequest();
+
+            current = current - 2;
+            if (isIE) {
+                flip.find('.overlayer').removeClass('ie_r').addClass('ie_l');
+            } else {
+                flip.find('img').attr('src', 'http://jiangsu.sinaimg.cn/2014/0802/U9263P1194DT20140802224741.png');
+            }
+            //flip.find('.container').css('background', 'url(images/book_r.jpg) left top no-repeat');
+            flip.find('.label').html(right.find('.label').html());
+            flip.find('.content').html(page_content[current + 1]);
+            flip.find('.pager').html('');
+            left.find('.pager').html('');
+
+            if (isIE) {
+                left.find('.content').hide();
+                window.setTimeout(function() {
+                    if (page_content[current]) {
+                        left.find('.content').html(page_content[current]).show();
+                    } else {
+                        left.find('.content').html('').show();
+                    }
+                }, flip_time / 4);
+            } else {
+                window.setTimeout(function() {
+                    if (page_content[current]) {
+                        left.find('.content').hide().html(page_content[current]).css({ opacity: 0.5, display: 'block' }).animate({ opacity: 1 }, (flip_time - (flip_time / 4)));
+                    } else {
+                        left.find('.content').html('');
+                    }
+                }, flip_time / 4);
+            }
+
+            flip.find('.container').stop().css({
+                'margin-left': -150
+            }).animate({
+                'margin-left': 0
+            }, flip_time, 'linear');
+
+            flip.find('.overlayer').stop().css({
+                'width': 150,
+                'margin-left': 0
+            }).animate({
+                'width': 300,
+                'margin-left': -150
+            }, flip_time, 'linear');
+
+            flip.stop().css({
+                'left': 0,
+                'display': 'block'
+            }).animate({
+                'left': 150
+            }, flip_time, 'linear', function() {
+                right.find('.content').html(flip.find('.content').html());
+                left.find('.pager').html((current + 1 + 1) / 2 + " / " + Math.ceil(total / 2));
+                slider.slider("value", (current + 1) * step);
+                $(this).hide(0);
+            });
+        }
+    });
+
+    $('#book').on("swipeleft",".pageright",function() {
+        if (current + 2 <= total - 1) {
+            //(new Image).src = "http://bj.data.cn.yahoo.com/sns?s=" + sid + "&t=" + Math.random() + "&r=" + encodeURIComponent(document.referrer);
+            Beacon.ajax_refer = current / 2 + 1; // current index
+            Beacon.ajax_url = current / 2 + 2;  // target index
+            Beacon.ajax_isLastPage = 0; // 0 or 1
+            //Beacon.ajaxRequest();
+
+            current = current + 2;
+            if (isIE) {
+                flip.find('.overlayer').removeClass('ie_l').addClass('ie_r');
+            } else {
+                flip.find('img').attr('src', 'http://jiangsu.sinaimg.cn/2014/0802/U9263P1194DT20140802224743.png');
+            }
+            //flip.find('.container').css('background', 'url(images/book_l.jpg) left top no-repeat');
+            flip.find('.label').html('');
+            flip.find('.content').html(page_content[current]);
+            flip.find('.pager').html((current + 1 + 1) / 2 + " / " + Math.ceil(total / 2));
+            flip.find('.overlayer').css({ 'width': '100%', 'margin-left': 0 });
+
+            if (isIE) {
+                right.find('.content').hide();
+                window.setTimeout(function() {
+                    if (page_content[current + 1]) {
+                        right.find('.content').html(page_content[current + 1]).show();
+                    } else {
+                        right.find('.content').html('').show();
+                    }
+                }, flip_time / 4);
+            } else {
+                window.setTimeout(function() {
+                    if (page_content[current + 1]) {
+                        right.find('.content').hide().html(page_content[current + 1]).css({ opacity: 0.5, display: 'block' }).animate({ opacity: 1 }, (flip_time - (flip_time / 4)));
+                    } else {
+                        right.find('.content').html('');
+                    }
+                }, flip_time / 4);
+            }
+
+            flip.stop().css({
+                'left': 320,
+                'width': 0,
+                'display': 'block'
+            }).animate({
+                'left': 0,
+                'width': 150
+            }, flip_time, 'linear', function() {
+                left.find('.content').html(flip.find('.content').html());
+                left.find('.pager').html((current + 1 + 1) / 2 + " / " + Math.ceil(total / 2));
+                slider.slider("value", (current + 1) * step);
+                $(this).hide(0);
+            });
+        }
+    });
+
+    var left_bar_w = left_bar.width();
+    $('#book').hover(function(e) {
+        left_bar.find('.mask').stop().animate({ opacity: 0.1 }, 200, 'linear').next().show();
+        right_bar.find('.mask').stop().animate({ opacity: 0.1 }, 200, 'linear').next().show();
+    }, function(e) {
+        left_bar.find('.mask').animate({ opacity: 0 }, 500, 'linear', function() { $(this).next().hide(); });
+        right_bar.find('.mask').animate({ opacity: 0 }, 500, 'linear', function() { $(this).next().hide(); });
+    });
+
+    //glide
+    var step = parseInt($('.glide').width() / (Math.ceil(total / 2) * 2 - 1));
+    var slider = $('.glide').slider({
+        min: step,
+        max: $('.glide').width(),
+        step: step * 2,
+        slide: function(event, ui) {
+            $('.glide a').attr('title', (ui.value / step + 1) / 2 + '/' + Math.ceil(total / 2));
+            if (ui.value / step > current) {
+                current = ui.value / step - 2 - 1;
+                right_bar.click();
+            } else if (ui.value / step < current) {
+                current = ui.value / step + 2 - 1;
+                left_bar.click();
+            }
+        }
+    });
+    $('.glide a').attr('title', 1 + '/' + Math.ceil(total / 2)).attr('hidefocus', 'true').css('outline', '0').focus(function() { $(this).blur(); });
+
+
+    //review
+    (function() {
+        var spacing = 166;
+        var container = $('#review ul');
+        var left = $('#review .ab_l');
+        var right = $('#review .ab_r');
+        var on_class = 'on';
+
+        function checkStatus() {
+            if (parseInt(container.css('left')) < 0) {
+                left.unbind('click').one('click', leftClick).addClass(on_class);
+            } else {
+                left.removeClass(on_class);
+            }
+            if (parseInt(container.css('left')) > -(parseInt(container.css('width')) - (spacing * 5))) {
+                right.unbind('click').one('click', rightClick).addClass(on_class);
+            } else {
+                right.removeClass(on_class);
+            }
+        }
+
+        function leftClick(e) {
+            e.preventDefault();
+            if (parseInt(container.css('left')) < 14) {
+                container.animate({
+                    left: '+=' + (spacing * 5)
+                }, 800, function() {
+                    checkStatus();
+                });
+            }
+        }
+
+        function rightClick(e) {
+            e.preventDefault();
+            if (parseInt(container.css('left')) > -(parseInt(container.css('width')) - (spacing * 5)) + 14) {
+                container.animate({
+                    left: '-=' + (spacing * 5)
+                }, 800, function() {
+                    checkStatus();
+                });
+            }
+        }
+        container.css('width', spacing * container.children().length);
+        checkStatus();
+    })();
+    
+    
+    ////////////////////////////////////////////////
+    /* 指定翻页 */
+    $(".p1booktab").click(function(){
+    	var targetpage = parseInt($(this).attr("sid"));
+    	if( targetpage == current+1){ return;}
+		if (targetpage > current+1) {
+			/* 右翻页 */
+			current = targetpage-3;
+	    	 if (current + 2 <= total - 1) {
+		            //(new Image).src = "http://bj.data.cn.yahoo.com/sns?s=" + sid + "&t=" + Math.random() + "&r=" + encodeURIComponent(document.referrer);
+		            Beacon.ajax_refer = current / 2 + 1; // current index
+		            Beacon.ajax_url = current / 2 + 2;  // target index
+		            Beacon.ajax_isLastPage = 0; // 0 or 1
+		            //Beacon.ajaxRequest();
+
+		            current = current + 2;
+		            if (isIE) {
+		                flip.find('.overlayer').removeClass('ie_l').addClass('ie_r');
+		            } else {
+		                flip.find('img').attr('src', 'http://jiangsu.sinaimg.cn/2014/0802/U9263P1194DT20140802224743.png');
+		            }
+		            //flip.find('.container').css('background', 'url(images/book_l.jpg) left top no-repeat');
+		            flip.find('.label').html('');
+		            flip.find('.content').html(page_content[current]);
+		            flip.find('.pager').html((current + 1 + 1) / 2 + " / " + Math.ceil(total / 2));
+		            flip.find('.overlayer').css({ 'width': '100%', 'margin-left': 0 });
+
+		            if (isIE) {
+		                right.find('.content').hide();
+		                window.setTimeout(function() {
+		                    if (page_content[current + 1]) {
+		                        right.find('.content').html(page_content[current + 1]).show();
+		                    } else {
+		                        right.find('.content').html('').show();
+		                    }
+		                }, flip_time / 4);
+		            } else {
+		                window.setTimeout(function() {
+		                    if (page_content[current + 1]) {
+		                        right.find('.content').hide().html(page_content[current + 1]).css({ opacity: 0.5, display: 'block' }).animate({ opacity: 1 }, (flip_time - (flip_time / 4)));
+		                    } else {
+		                        right.find('.content').html('');
+		                    }
+		                }, flip_time / 4);
+		            }
+
+		            flip.stop().css({
+		                'left': 320,
+		                'width': 0,
+		                'display': 'block'
+		            }).animate({
+		                'left': 0,
+		                'width': 150
+		            }, flip_time, 'linear', function() {
+		                left.find('.content').html(flip.find('.content').html());
+		                left.find('.pager').html((current + 1 + 1) / 2 + " / " + Math.ceil(total / 2));
+		                slider.slider("value", (current + 1) * step);
+		                $(this).hide(0);
+		            });
+		        }
+		}else{
+			/* 左翻页 */
+			current = targetpage+1;
+			if (current - 2 >= 0) {
+	            //(new Image).src = "http://bj.data.cn.yahoo.com/sns?s=" + sid + "&t=" + Math.random() + "&r=" + encodeURIComponent(document.referrer);
+	            Beacon.ajax_refer = current / 2 + 1; // current index
+	            Beacon.ajax_url = current / 2;  // target index
+	            Beacon.ajax_isLastPage = 0; // 0 or 1
+	            //Beacon.ajaxRequest();
+
+	            current = current - 2;
+	            if (isIE) {
+	                flip.find('.overlayer').removeClass('ie_r').addClass('ie_l');
+	            } else {
+	                flip.find('img').attr('src', 'http://jiangsu.sinaimg.cn/2014/0802/U9263P1194DT20140802224741.png');
+	            }
+	            //flip.find('.container').css('background', 'url(images/book_r.jpg) left top no-repeat');
+	            flip.find('.label').html(right.find('.label').html());
+	            flip.find('.content').html(page_content[current + 1]);
+	            flip.find('.pager').html('');
+	            left.find('.pager').html('');
+
+	            if (isIE) {
+	                left.find('.content').hide();
+	                window.setTimeout(function() {
+	                    if (page_content[current]) {
+	                        left.find('.content').html(page_content[current]).show();
+	                    } else {
+	                        left.find('.content').html('').show();
+	                    }
+	                }, flip_time / 4);
+	            } else {
+	                window.setTimeout(function() {
+	                    if (page_content[current]) {
+	                        left.find('.content').hide().html(page_content[current]).css({ opacity: 0.5, display: 'block' }).animate({ opacity: 1 }, (flip_time - (flip_time / 4)));
+	                    } else {
+	                        left.find('.content').html('');
+	                    }
+	                }, flip_time / 4);
+	            }
+
+	            flip.find('.container').stop().css({
+	                'margin-left': -150
+	            }).animate({
+	                'margin-left': 0
+	            }, flip_time, 'linear');
+
+	            flip.find('.overlayer').stop().css({
+	                'width': 150,
+	                'margin-left': 0
+	            }).animate({
+	                'width': 300,
+	                'margin-left': -150
+	            }, flip_time, 'linear');
+
+	            flip.stop().css({
+	                'left': 0,
+	                'display': 'block'
+	            }).animate({
+	                'left': 150
+	            }, flip_time, 'linear', function() {
+	                right.find('.content').html(flip.find('.content').html());
+	                left.find('.pager').html((current + 1 + 1) / 2 + " / " + Math.ceil(total / 2));
+	                slider.slider("value", (current + 1) * step);
+	                $(this).hide(0);
+	            });
+	        }
+		}
+    });
+    
+    //////////////////////////////////////////////
+    
+    
+});
+
+/* 每页一个数组 */
+var page_content = [
+'<div class="pageleft"><img src="http://jiangsu.sinaimg.cn/2014/0808/U9263P1194DT20140808154331.jpg" usemap="#startgame"><map id="startgame" name="startgame"><area shape="rect" coords="16,126,130,186" href="http://jiangsu.sina.com.cn/zt/s/kunshaCardgameh5.html" target="_blank" alt="开始游戏吧～" /></map><div style="position: absolute;top: 120px; line-height: 12px; font-size: 8px; padding: 0 10px;">周庄万三蹄、芡实糕、蓝印花布折扇。</div></div>',
+'<div class="pageright"><img src="http://jiangsu.sinaimg.cn/2014/0808/U9263P1194DT20140808154331_1.jpg"><div style="position: absolute; top: 24px; line-height: 12px; font-size: 10px;"><p style="text-align: center; font-weight: bold; font-size: 10px; line-height: 14px;">“看见昆山•看见台湾”双城记</p><p style="text-align: right;font-size: 9px; line-height: 10px;padding: 0 6px;">——新浪旅行家征集</p><p style="text-indent: 2em;padding: 8px 10px;">你连世界都没观过，哪来的世界观！热爱旅行的你，此刻是否疯狂向往一段精彩旅程昆山旅游局新浪江苏征集20位两岸旅游达人，9月5日—9月8日带你看昆山、说昆山、写昆山、玩昆山、拍昆山深度体验昆山之美，感受这个夏天的无限激情！其中8位将赴台湾七日游~</p></div></div>',
+'<div class="pageleft"><img src="http://jiangsu.sinaimg.cn/2014/0808/U9263P1194DT20140808154332.jpg"></div>',
+'<div class="pageright"><img src="http://jiangsu.sinaimg.cn/2014/0808/U9263P1194DT20140808154333.jpg"></div>',
+'<div class="pageleft"><img src="http://jiangsu.sinaimg.cn/2014/0808/U9263P1194DT20140808154333_1.jpg"></div>',
+
+'<div class="pageright"><img src="http://jiangsu.sinaimg.cn/2014/0808/U9263P1194DT20140808154334.jpg"></div>',
+'<div class="pageleft"><img src="http://jiangsu.sinaimg.cn/2014/0808/U9263P1194DT20140808154335.jpg"></div>',
+'<div class="pageright"><img src="http://jiangsu.sinaimg.cn/2014/0808/U9263P1194DT20140808154336.jpg"></div>',
+'<div class="pageleft"><img src="http://jiangsu.sinaimg.cn/2014/0808/U9263P1194DT20140808154336_1.jpg"></div>',
+'<div class="pageright"><img src="http://jiangsu.sinaimg.cn/2014/0808/U9263P1194DT20140808154337.jpg"></div>',
+
+
+];
+
+var start_page = 0;
+
+function scrollToGame(){
+       var targetY = $("#booktab1").offset().top;
+       $('body,html').animate({scrollTop:targetY - 20}, 700, function() {
+    	   $('#cardgame').fadeIn(500);
+	});
+      
+}
+
+
+$(document).bind( 'mobileinit', function(){
+	$.mobile.loader.prototype.options.text = "loading";
+	$.mobile.loader.prototype.options.textVisible = false;
+	$.mobile.loader.prototype.options.theme = "a";
+	$.mobile.loader.prototype.options.html = "";
+});
+
+$.mobile.loading( 'show', {
+	text: 'foo',
+	textVisible: false,
+	theme: 'z',
+	html: ""
+});
+</script>
+</head>
+<body>
+	<div class="headimg" id="headimg1"><img alt="" src="http://jiangsu.sinaimg.cn/2014/0808/U9263P1194DT20140808153827.jpg" width="100%"></div>
+	<div style="width: 320px; margin: 0 auto;">
+	
+	<div id="p1" class="bookarea">
+		<!-- 书签 -->
+		<div id="p1booktabs">
+			<ul>
+				<li id="booktab1" class="p1booktab" sid="3"><img alt="" src="http://jiangsu.sinaimg.cn/2014/0808/U9263P1194DT20140808154253.png">两岸灯会</li>
+				<li id="booktab2" class="p1booktab" sid="5"><img alt="" src="http://jiangsu.sinaimg.cn/2014/0808/U9263P1194DT20140808154253_1.png">寻美昆山</li>
+				<li id="booktab3" class="p1booktab" sid="7"><img alt="" src="http://jiangsu.sinaimg.cn/2014/0808/U9263P1194DT20140808154254.png">品味昆山</li>
+				<li id="booktab4" class="p1booktab" sid="9"><img alt="" src="http://jiangsu.sinaimg.cn/2014/0808/U9263P1194DT20140808154255.png">戏说昆山</li>
+			</ul>
+		</div>
+		
+		<!-- 翻页书 -->
+		<div id="book" style="margin: 0 auto;">
+			<div id="flip">
+				<div class="container">
+					<div class="content"></div>
+				</div>
+				<div class="overlayer ie_l"></div>
+			</div>
+			<div id="left">
+				<div class="content">
+					<div class="pageleft">
+						<img
+							src="http://jiangsu.sinaimg.cn/2014/0808/U9263P1194DT20140808154331.jpg"
+							usemap="#startgame">
+						<map id="startgame" name="startgame">
+							<area shape="rect" coords="16,126,130,186"
+								href="http://jiangsu.sina.com.cn/zt/s/kunshaCardgameh5.html" target="_blank" alt="开始游戏吧～" />
+						</map>
+						<div style="position: absolute;top: 120px; line-height: 12px; font-size: 8px; padding: 0 10px;">
+							周庄万三蹄、芡实糕、蓝印花布折扇。
+						</div>
+					</div>
+				</div>
+			</div>
+			<div id="right">
+				<div class="content">
+					<div class="pageright">
+						<img src="http://jiangsu.sinaimg.cn/2014/0808/U9263P1194DT20140808154331_1.jpg">
+						<div style="position: absolute;top: 24px; line-height: 12px; font-size: 10px;">
+						<p style="text-align: center; font-weight: bold; font-size: 10px; line-height: 14px;">“看见昆山•看见台湾”双城记</p>
+                              <p style="text-align: right;font-size: 9px; line-height: 10px;padding: 0 6px;">——新浪旅行家征集</p>
+    <p style="text-indent: 2em;padding: 8px 10px;">你连世界都没观过，哪来的世界观！热爱旅行的你，此刻是否疯狂向往一段精彩旅程昆山旅游局新浪江苏征集20位两岸旅游达人，9月5日—9月8日带你看昆山、说昆山、写昆山、玩昆山、拍昆山深度体验昆山之美，感受这个夏天的无限激情！其中8位将赴台湾七日游~</p>
+						</div>						
+						<div onclick="$(this).fadeOut();" style="position: absolute; bottom: 0px;right: 0; width: 120px; height: 30px; background: RGBA(0,0,0,.7); font-size: 20px;color: #FFF; line-height: 30px;">
+							<img alt="" src="data:image/png;base64,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" style="width:10px; height: 13px; display: inline; margin:0 10px;">向左滑动
+						</div>
+					</div>
+				</div>
+			</div>
+			<div id="foot"></div>
+		</div>
+	</div>
+		
+	
+	
+	<div id="p2" class="tourarea" style="margin-top: 16px;">
+		<!-- 标题 -->
+		<div style="height: 45px; position: relative;">
+			<div style="height: 45px; position: absolute; z-index: -1;width:320px; text-align: center;">
+				<img height="44" src="http://jiangsu.sinaimg.cn/2014/0808/U9263P1194DT20140808153827.png">
+			</div>
+		</div>
+		<!-- 导航 -->
+		<div id="p2nav">
+			<img alt="" src="http://jiangsu.sinaimg.cn/2014/0808/U9263P1194DT20140808153825.png" width="320">
+			<img id="boat" width="37" alt="" src="http://jiangsu.sinaimg.cn/2014/0808/U9263P1194DT20140808153826.png">
+			<ul>
+				<li id="navday1"></li>
+				<li id="navday2"></li>
+				<li id="navday3"></li>
+				<li id="navday4"></li>
+			</ul>
+		</div>
+		<!-- 内容 -->
+		<div id="actdays">
+			<!-- day1 -->
+			<div id="actday1" class="actday" style="">
+				<div class="navarrow"></div>
+				<div class="actam">
+					<img class="actdaybg" alt="" src="http://jiangsu.sinaimg.cn/2014/0808/U9263P1194DT20140808154144.jpg" width="100%">
+					<div class="actdaytextblock">
+						<div class="actdaytexttitle">旅行分享会</div>
+						<div class="actdaytextsubtitle">——我们为什么旅行</div>
+						<div class="actdaytext">我们为什么旅行?因为我们需要给心灵放假;因为我们只有在旅途中才能释放自己;因为我们想获得爱;因为是行者,所以一直在路上……</div>
+						<div class="actdaytextam">上午</div>
+					</div>
+				</div>
+				<div class="actpm">
+						<img class="actdaybg" alt="" src="http://jiangsu.sinaimg.cn/2014/0808/U9263P1194DT20140808154145.jpg" width="100%">
+					<div class="actdaytextblock">
+						<div class="actdaytexttitle">中秋灯会</div>
+						<div class="actdaytextsubtitle"></div>
+							<div class="actdaytext">2014海峡两岸中秋灯会将于9月5日至21日在昆山开发区举行,以“花开并蒂,灯映两岸”为主题｡设置了美丽昆山区宝岛风情区､梦幻奇乐区､动漫游艺区 ､创意竞赛区,与美食商贸长廊和艺术长廊｡</div>
+						<div class="actdaytextpm">下午</div>
+					</div>
+				</div>
+			</div>
+			<!-- actday2 -->
+				<div id="actday2" class="actday" style="display: none;">
+					<div class="navarrow"></div>
+					<div class="actam">
+							<img class="actdaybg" alt="" src="http://jiangsu.sinaimg.cn/2014/0808/U9263P1194DT20140808154145_1.jpg" width="100%">
+						<div class="actdaytextblock">
+							<div class="actdaytexttitle">梦里锦溪</div>
+							<div class="actdaytextsubtitle"></div>
+								<div class="actdaytext">这里没有江山国事,到处看得见生活的鸡零狗碎｡低头就是那碗饭,左右都是邻家的烦｡还有,那镇上的酥饼,那身边的美人｡</div>
+							<div class="actdaytextam">上午</div>
+						</div>
+					</div>
+					<div class="actpm">
+							<img class="actdaybg" alt="" src="http://jiangsu.sinaimg.cn/2014/0808/U9263P1194DT20140808154146.jpg" width="100%">
+						<div class="actdaytextblock">
+							<div class="actdaytexttitle">水乡周庄</div>
+							<div class="actdaytextsubtitle"></div>
+								<div class="actdaytext">这一季,周庄的季候风是绿色的,就连平日里炙热的阳光都仿佛一下子变得清凉起来,它古朴典雅,像是一位藏在深闺中的小家碧玉｡如此洒脱,又是如此淡然｡</div>
+							<div class="actdaytextpm">下午</div>
+						</div>
+					</div>
+				</div>
+				
+				<!-- actday3 -->
+				<div id="actday3" class="actday" style="display: none;">
+					<div class="navarrow"></div>
+					<div class="actam">
+							<img class="actdaybg" alt="" src="http://jiangsu.sinaimg.cn/2014/0808/U9263P1194DT20140808154147.jpg" width="100%">
+						<div class="actdaytextblock">
+							<div class="actdaytexttitle">淀山湖</div>
+							<div class="actdaytextsubtitle"></div>
+								<div class="actdaytext">这里,有烟波浩渺的湖泊､碧绿如翡翠的湿地､飘逸如缎带的环湖大道,还有那映衬在蓝天下金黄耀眼的银杏林……</div>
+							<div class="actdaytextam">上午</div>
+						</div>
+					</div>
+					<div class="actpm">
+						<img class="actdaybg" alt="" src="http://jiangsu.sinaimg.cn/2014/0808/U9263P1194DT20140808154148.jpg" width="100%">
+						<div class="actdaytextblock">
+							<div class="actdaytexttitle">千灯古镇</div>
+							<div class="actdaytextsubtitle"></div>
+								<div class="actdaytext">秦峰塔下,梵声低唱,牡丹亭内,千古情伤｡避开熙熙攘攘的人群,目光宛转绕过那些名声显赫的江南小镇,落在了千灯这个地方｡</div>
+							<div class="actdaytextpm">下午</div>
+						</div>
+					</div>
+				</div>
+				
+				<!-- actday4 -->
+				<div id="actday4" class="actday" style="display: none;">
+					<div class="navarrow"></div>
+					<div class="actam">
+						<img class="actdaybg" alt="" src="http://jiangsu.sinaimg.cn/2014/0808/U9263P1194DT20140808154148_1.jpg" width="100%">
+						<div class="actdaytextblock">
+							<div class="actdaytexttitle">亭林园</div>
+							<div class="actdaytextsubtitle"></div>
+								<div class="actdaytext">这一处个性十足的城中公园,绿水环抱,闹中取静｡每到夏日,红荷绿叶,繁树凉 荫,实在是一个赏荷､避暑的好地方｡</div>
+							<div class="actdaytextam">上午</div>
+						</div>
+					</div>
+					<div class="actpm">
+						<img class="actdaybg" alt="" src="http://jiangsu.sinaimg.cn/2014/0808/U9263P1194DT20140808154149.jpg" width="100%">
+						<div class="actdaytextblock">
+							<div class="actdaytexttitle">阳澄湖</div>
+							<div class="actdaytextsubtitle"></div>
+								<div class="actdaytext">秋风起,蟹肥时,也是阳澄湖最丰腴的时节｡有田园风情,有各色湖鲜,还有花开 遍野,草长莺飞｡</div>
+							<div class="actdaytextpm">下午</div>
+						</div>
+					</div>
+				</div>
+
+			
+		</div>
+	</div>
+	
+	<div id="p3" class="foot" style="margin-top: 12px; margin-bottom: 20px;">
+	<p style="text-align: center; color: #d3bba0">2014 新浪江苏</p>
+	</div>
+	
+</div>
+</body>
+<script type="text/javascript">
+$(function(){
+	$("#p2nav li").on("mouseover",function(){
+		
+			/* 小船移动 */
+			var boat = $("#boat");
+			boat.stop(false).animate({left:$(this).position().left+69},3000);
+			
+			var navindex = $(this).index();
+			var actday = $(".actday").slice(navindex, navindex+1);
+			if (actday.css("display")!="none") {
+				return;
+			}
+			
+			/* 切换日期板块 */
+			$(".actday:visible").css("z-index",1).fadeOut(500);
+			actday.css("z-index",2).fadeIn(500); 
+		
+	});
+	
+	$(".actday").on("swipeleft",function(){
+		var index = $(this).index();
+		if(index==3){
+		index = -1;
+		}
+		changeday(index+1);
+	});
+	$(".actday").on("swiperight",function(){
+		var index = $(this).index();
+		if(index==0){
+		index = 4;
+		}
+		changeday(index-1);
+	});
+	
+	function changeday(index){
+		/* 小船移动 */
+		var boat = $("#boat");
+		boat.stop(false).animate({left:$("#p2nav li").slice(index, index+1).position().left+69},3000);
+		
+		var navindex = index;
+		var actday = $(".actday").slice(navindex, navindex+1);
+		if (actday.css("display")!="none") {
+			return;
+		}
+		
+		/* 切换日期板块 */
+		$(".actday:visible").css("z-index",1).fadeOut(500);
+		actday.css("z-index",2).fadeIn(500); 
+		
+	}
+});
+</script>
+</html>

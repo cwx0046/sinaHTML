@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="GB2312">
+<meta http-equiv="X-UA-Compatible" content="IE=8" />
+<title>请在此插入网页标题</title>
+<meta name="keywords" content="请在此插入关键词" />
+<meta name="description" content="请在此写入一段页面描述" />
+<script src="./jquery-1.11.1.js" type="text/javascript"></script>
+<!-- 
+<script src="http://i2.sinaimg.cn/cj/dfz/js/base.js" type="text/javascript"></script>
+ -->
+<style type="text/css">
+body, ul, ol, li, p, h1, h2, h3, h4, h5, h6, table, td, th, form, fieldset, img, dl, dt, dd { margin:0; padding:0; }
+textarea, input, select, body { font-size:12px; }
+select, input { vertical-align:middle; }
+fieldset, img { border:0; }
+ul, ol { list-style:none; }
+img { border:0; }
+a { text-decoration:none; color:#000; }
+a:hover { color:#ffa10d; }
+.fl { float:left; display:inline; }
+.fr { float:right; display:inline; }
+.cb { clear:both; display:block; height:0px; overflow:hidden; width:100%; }
+.clearfix:after { clear:both; content:""; display:block; height:0; }
+</style>
+<style type="text/css">
+body { background-image: url("http://s3img.city.sina.com.cn/activity/common/large/5b50415b9865ef80662136243794ca63.jpg");background-position: center;background-attachment: fixed; }
+.part_01{ width: 960px; margin: 0 auto;}
+.part_01 .logo{ margin: 50px;}
+.part_01 .cardbox{  text-align: justify; font-family: "microsoft yahei"; width: 954px;margin: 0 auto;padding: 6px 6px;background-color: RGBA(255,255,255,0.5);filter: progid:DXImageTransform.Microsoft.Gradient(startColorStr=#7FFFFFFF,endColorStr=#7FFFFFFF);}
+.part_01 .cardbox .card{ overflow: hidden; display: inline-block; width: 232px; height: 424px; vertical-align: top;margin-bottom: 14px;background-color: #fff;box-shadow: 0 2px 3px rgba(16,4,7,.25);position: relative; }
+ 
+ /* safari transform css */
+.part_01 .cardbox .card{ -webkit-transition: -webkit-transform 0.8s; }
+.part_01 .cardbox .card:hover{ -webkit-transform: scale(1.06); z-index: 2; box-shadow: 2px 2px 5px rgba(16,4,7,.75); }
+.part_01 .cardbox .card .moreinfoBox{  -webkit-transition: -webkit-transform 0.6s cubic-bezier(0.71,0.71,0.29,1); }
+.part_01 .cardbox .card:hover .moreinfoBox{ -webkit-transform: translateY(338px); }
+.part_01 .cardbox .card .toolbox{  -webkit-transition: -webkit-transform 0.8s cubic-bezier(0.680,-0.550,0.265,2.450); bottom:0; -webkit-transform: rotateX(90deg); -webkit-transform-origin: bottom;}
+.part_01 .cardbox .card:hover .toolbox{ -webkit-transform: perspective(8000) rotateX(0deg); }
+ /* transform css */
+.part_01 .cardbox .card{ transition: transform 0.8s; }
+.part_01 .cardbox .card:hover{ transform: scale(1.06); z-index: 2; box-shadow: 2px 2px 5px rgba(16,4,7,.75); }
+.part_01 .cardbox .card .moreinfoBox{  transition: transform 0.6s  cubic-bezier(0.71,0.71,0.29,1); }
+.part_01 .cardbox .card:hover .moreinfoBox{ transform: translateY(338px) ; }
+.part_01 .cardbox .card .toolbox{  transition: transform 0.8s  cubic-bezier(0.680,-0.550,0.265,2.450); bottom:0; transform: rotateX(90deg); transform-origin: bottom;}
+.part_01 .cardbox .card:hover .toolbox{ transform: perspective(8000px) rotateX(0deg); }
+
+.part_01 .cardbox .card.left_fix{ height:0; padding:0; overflow:hidden; }
+
+.part_01 .cardbox .card .box1{ padding: 6px 6px 12px; border-bottom: 1px dashed #858585; position: relative; }
+.part_01 .cardbox .card .box1 .photobox{ height: 329px; position:relative; overflow:hidden; }
+.part_01 .cardbox .card .box1 .tag:BEFORE{ content: "第"; }
+.part_01 .cardbox .card .box1 .tag:AFTER{  content: "期"; }
+.part_01 .cardbox .card .box1 .tag{ position: absolute; top: 26px; left: -1px; width:118px; padding-right:12px; height:37px; line-height:34px; text-align:center; color:#FFF; font-size: 16px;background-image: url("http://s3img.city.sina.com.cn/activity/common/large/846cac45a66556bf59cd794171d91f23.png"); }
+
+.part_01 .cardbox .card .title{ text-align: center; line-height: 76px; color: #d36300;	font-size: 16px;	font-weight: bold;	text-decoration: underline; }
+
+
+
+.part_01 .cardbox .card .moreinfoBox{ padding: 6px; height: 326px; background-color: #FFF; position: absolute; top: -338px; }
+.part_01 .cardbox .card .moreinfoBox .moreinfo{ background: url(http://jiangsu.sinaimg.cn/zt/s/bssd/bs_07.gif) repeat 0 0; }
+.part_01 .cardbox .card .moreinfoBox .moreinfo .uinfo{ height: 76px; border-bottom: 1px solid #cacaca;}
+.part_01 .cardbox .card .moreinfoBox .moreinfo .ico { margin: 14px; float: left; border: 2px solid #FFF; width: 50px; height: 50px; }
+.part_01 .cardbox .card .moreinfoBox .moreinfo .name { margin-top: 11px; font-size: 22px;border-bottom: 1px solid #efefef; display: inline-block;max-width: 142px;overflow: hidden; }
+.part_01 .cardbox .card .moreinfoBox .moreinfo .fans:BEFORE { content: "粉丝"; }
+.part_01 .cardbox .card .moreinfoBox .moreinfo .fans { color: #013399;font-size: 16px; }
+.part_01 .cardbox .card .moreinfoBox .moreinfo .fans:AFTER { content: "人"; }
+.part_01 .cardbox .card .moreinfoBox .moreinfo .textbox { height: 250px; }
+.part_01 .cardbox .card .moreinfoBox .moreinfo .textbox .text { padding: 16px 8px; color: #000; font-size: 14px; line-height: 24px; text-indent: 2em; }
+
+.part_01 .cardbox .card .toolbox{ position: absolute; /* bottom: -72px; */ width: 100%; background-color: #ECECEC; color: #9a9999;font-size: 14px;text-align: center;line-height: 76px; }
+.part_01 .cardbox .card .toolbox a{ display: inline-block; margin:0 3px; width: 93px; height: 28px; line-height: 28px; color: #000; border:1px solid #000; text-align: center; -webkit-transition:all 0.3s;}
+.part_01 .cardbox .card .toolbox a:HOVER{ background-color: #ffa93b; color: #000; border-color: #000;}
+</style>
+</head>
+<body>
+
+<div class="part_01">
+	<img class="logo" src="http://s3img.city.sina.com.cn/activity/common/large/fba6c5e2b80ef42041c528924ea47f39.png">
+	<div class="cardbox clearfix">
+		
+		<div class="card">
+			<div class="box1">
+				<div class="photobox">
+					<img src="http://s3img.city.sina.com.cn/activity/common/large/fe9fad525bc468b9b42b2bfda5635edc.jpg">
+				</div>
+				<div class="tag">1</div>
+			</div>
+			<div class="title">龙行七大洲和他的环球之旅</div>
+
+			<!-- 滑出页 -->
+			<div class="moreinfoBox">
+				<div class="moreinfo">
+					<div class="uinfo">
+						<img class="ico" src="http://tp1.sinaimg.cn/1601383852/50/5619441583/1">
+						<div class="name">龙行七大洲</div>
+						<div class="fans">5000</div>
+					</div>
+					<div class="textbox">
+						<div class="text">尤其纯文艺作品的诗文方面更是延用已久，甚至写景多于言情，几乎和旅游打成了一片。像晋书便有这么一段：“过江人士，每至暇日，相要出新亭饮宴周（伯仁）叹曰：风景不殊，举目有江山之异。”李白子美乐天、杜牧、苏赋、张继人谢灵的灵运有不同。</div>
+					</div>
+				</div>
+			</div>
+			<div class="toolbox">
+				<a href="#" target="_blank">分享到微博</a>
+				<a href="#" target="_blank">进入阅读</a>
+			</div>
+		</div>
+		
+		<div class="card">
+			<div class="box1">
+				<div class="photobox">
+					<img src="http://s3img.city.sina.com.cn/activity/common/large/fe9fad525bc468b9b42b2bfda5635edc.jpg">
+				</div>
+				<div class="tag">1</div>
+			</div>
+			<div class="title">龙行七大洲和他的环球之旅</div>
+
+			<!-- 滑出页 -->
+			<div class="moreinfoBox">
+				<div class="moreinfo">
+					<div class="uinfo">
+						<img class="ico" src="http://tp1.sinaimg.cn/1601383852/50/5619441583/1">
+						<div class="name">龙行七大洲</div>
+						<div class="fans">5000</div>
+					</div>
+					<div class="textbox">
+						<div class="text">尤其纯文艺作品的诗文方面更是延用已久，甚至写景多于言情，几乎和旅游打成了一片。像晋书便有这么一段：“过江人士，每至暇日，相要出新亭饮宴周（伯仁）叹曰：风景不殊，举目有江山之异。”李白子美乐天、杜牧、苏赋、张继人谢灵的灵运有不同。</div>
+					</div>
+				</div>
+			</div>
+			<div class="toolbox">
+				<a href="#" target="_blank">分享到微博</a>
+				<a href="#" target="_blank">进入阅读</a>
+			</div>
+		</div>
+		
+		<div class="card">
+			<div class="box1">
+				<div class="photobox">
+					<img src="http://s3img.city.sina.com.cn/activity/common/large/fe9fad525bc468b9b42b2bfda5635edc.jpg">
+				</div>
+				<div class="tag">1</div>
+			</div>
+			<div class="title">龙行七大洲和他的环球之旅</div>
+
+			<!-- 滑出页 -->
+			<div class="moreinfoBox">
+				<div class="moreinfo">
+					<div class="uinfo">
+						<img class="ico" src="http://tp1.sinaimg.cn/1601383852/50/5619441583/1">
+						<div class="name">龙行七大洲</div>
+						<div class="fans">5000</div>
+					</div>
+					<div class="textbox">
+						<div class="text">尤其纯文艺作品的诗文方面更是延用已久，甚至写景多于言情，几乎和旅游打成了一片。像晋书便有这么一段：“过江人士，每至暇日，相要出新亭饮宴周（伯仁）叹曰：风景不殊，举目有江山之异。”李白子美乐天、杜牧、苏赋、张继人谢灵的灵运有不同。</div>
+					</div>
+				</div>
+			</div>
+			<div class="toolbox">
+				<a href="#" target="_blank">分享到微博</a>
+				<a href="#" target="_blank">进入阅读</a>
+			</div>
+		</div>
+		
+		<div class="card">
+			<div class="box1">
+				<div class="photobox">
+					<img src="http://s3img.city.sina.com.cn/activity/common/large/fe9fad525bc468b9b42b2bfda5635edc.jpg">
+				</div>
+				<div class="tag">1</div>
+			</div>
+			<div class="title">龙行七大洲和他的环球之旅</div>
+
+			<!-- 滑出页 -->
+			<div class="moreinfoBox">
+				<div class="moreinfo">
+					<div class="uinfo">
+						<img class="ico" src="http://tp1.sinaimg.cn/1601383852/50/5619441583/1">
+						<div class="name">龙行七大洲</div>
+						<div class="fans">5000</div>
+					</div>
+					<div class="textbox">
+						<div class="text">尤其纯文艺作品的诗文方面更是延用已久，甚至写景多于言情，几乎和旅游打成了一片。像晋书便有这么一段：“过江人士，每至暇日，相要出新亭饮宴周（伯仁）叹曰：风景不殊，举目有江山之异。”李白子美乐天、杜牧、苏赋、张继人谢灵的灵运有不同。</div>
+					</div>
+				</div>
+			</div>
+			<div class="toolbox">
+				<a href="#" target="_blank">分享到微博</a>
+				<a href="#" target="_blank">进入阅读</a>
+			</div>
+		</div>
+		
+		<div class="card">
+			<div class="box1">
+				<div class="photobox">
+					<img src="http://s3img.city.sina.com.cn/activity/common/large/fe9fad525bc468b9b42b2bfda5635edc.jpg">
+				</div>
+				<div class="tag">1</div>
+			</div>
+			<div class="title">龙行七大洲和他的环球之旅</div>
+
+			<!-- 滑出页 -->
+			<div class="moreinfoBox">
+				<div class="moreinfo">
+					<div class="uinfo">
+						<img class="ico" src="http://tp1.sinaimg.cn/1601383852/50/5619441583/1">
+						<div class="name">龙行七大洲</div>
+						<div class="fans">5000</div>
+					</div>
+					<div class="textbox">
+						<div class="text">尤其纯文艺作品的诗文方面更是延用已久，甚至写景多于言情，几乎和旅游打成了一片。像晋书便有这么一段：“过江人士，每至暇日，相要出新亭饮宴周（伯仁）叹曰：风景不殊，举目有江山之异。”李白子美乐天、杜牧、苏赋、张继人谢灵的灵运有不同。</div>
+					</div>
+				</div>
+			</div>
+			<div class="toolbox">
+				<a href="#" target="_blank">分享到微博</a>
+				<a href="#" target="_blank">进入阅读</a>
+			</div>
+		</div>
+		
+		<div class="card">
+			<div class="box1">
+				<div class="photobox">
+					<img src="http://s3img.city.sina.com.cn/activity/common/large/fe9fad525bc468b9b42b2bfda5635edc.jpg">
+				</div>
+				<div class="tag">1</div>
+			</div>
+			<div class="title">龙行七大洲和他的环球之旅</div>
+
+			<!-- 滑出页 -->
+			<div class="moreinfoBox">
+				<div class="moreinfo">
+					<div class="uinfo">
+						<img class="ico" src="http://tp1.sinaimg.cn/1601383852/50/5619441583/1">
+						<div class="name">龙行七大洲</div>
+						<div class="fans">5000</div>
+					</div>
+					<div class="textbox">
+						<div class="text">尤其纯文艺作品的诗文方面更是延用已久，甚至写景多于言情，几乎和旅游打成了一片。像晋书便有这么一段：“过江人士，每至暇日，相要出新亭饮宴周（伯仁）叹曰：风景不殊，举目有江山之异。”李白子美乐天、杜牧、苏赋、张继人谢灵的灵运有不同。</div>
+					</div>
+				</div>
+			</div>
+			<div class="toolbox">
+				<a href="#" target="_blank">分享到微博</a>
+				<a href="#" target="_blank">进入阅读</a>
+			</div>
+		</div>
+		
+		<div class="card">
+			<div class="box1">
+				<div class="photobox">
+					<img src="http://s3img.city.sina.com.cn/activity/common/large/fe9fad525bc468b9b42b2bfda5635edc.jpg">
+				</div>
+				<div class="tag">1</div>
+			</div>
+			<div class="title">龙行七大洲和他的环球之旅</div>
+
+			<!-- 滑出页 -->
+			<div class="moreinfoBox">
+				<div class="moreinfo">
+					<div class="uinfo">
+						<img class="ico" src="http://tp1.sinaimg.cn/1601383852/50/5619441583/1">
+						<div class="name">龙行七大洲</div>
+						<div class="fans">5000</div>
+					</div>
+					<div class="textbox">
+						<div class="text">尤其纯文艺作品的诗文方面更是延用已久，甚至写景多于言情，几乎和旅游打成了一片。像晋书便有这么一段：“过江人士，每至暇日，相要出新亭饮宴周（伯仁）叹曰：风景不殊，举目有江山之异。”李白子美乐天、杜牧、苏赋、张继人谢灵的灵运有不同。</div>
+					</div>
+				</div>
+			</div>
+			<div class="toolbox">
+				<a href="#" target="_blank">分享到微博</a>
+				<a href="#" target="_blank">进入阅读</a>
+			</div>
+		</div>
+		
+		
+		
+		
+		<!-- 下面4个是撑着的，别删呐～ -->
+		<div class="card left_fix">&nbsp;</div>
+		<div class="card left_fix">&nbsp;</div>
+		<div class="card left_fix">&nbsp;</div>
+		<div class="card left_fix">&nbsp;</div>
+	
+	</div>
+</div>
+<script type="text/javascript">
+/* 卡片照片详情 */
+$(function() {
+	/* .part_01 .card .box1:HOVER .photobox .moreinfo{ display: block; */
+
+	/* 土鳖览器动画 */
+	var isIE=!!window.ActiveXObject;
+	var isIE6=isIE&&!window.XMLHttpRequest;
+	var isIE8=isIE&&!!document.documentMode;
+	var isIE7=isIE&&!isIE6&&!isIE8;
+	if (isIE){
+		if (isIE6 | isIE7 |isIE8){
+			$(".part_01 .cardbox .card .toolbox").css("bottom","-72px");
+			$(".part_01 .card").hover(
+			function () {
+				$(this).find(".moreinfoBox").stop(true,false).animate({top: "0"},500);
+				$(this).find(".toolbox").stop(true,false).animate({bottom: "0"},500);
+			},
+			function () {
+				$(this).find(".moreinfoBox").stop(true,false).animate({top: "-338px"},500);
+				$(this).find(".toolbox").stop(true,false).animate({bottom: "-72px"},500);
+			});
+		}
+	}
+	
+	
+});
+</script>
+
+</body>
+</html>

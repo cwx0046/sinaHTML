@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="GB2312">
+<meta http-equiv="cache-control" content="no-cache"/>
+<meta name="format-detection" content="telephone=no"/>
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0"> 
+<title>请在此插入网页标题</title>
+<meta name="keywords" content="请在此插入关键词" />
+<meta name="description" content="请在此写入一段页面描述" />
+<link rel="stylesheet" href="http://jiangsu.sinaimg.cn/zt/s/css/reset.css">
+<!-- 
+<script src="http://jiangsu.sinaimg.cn/js/jquery1.11.1.min.js"></script>
+<script src="http://ria.city.sina.com.cn/s/g=base.js" type="text/javascript"></script>
+<script src="http://jiangsu.sinaimg.cn/js/jquery.transit.min.js"></script>
+<link rel="stylesheet" href="http://jiangsu.sinaimg.cn/js/idangerous.swiper.css">
+<script src="http://jiangsu.sinaimg.cn/js/idangerous.swiper.min.js"></script>
+<script type="text/javascript" src="./idangerous.swiper.progress.js"></script>
+ -->
+<!-- 自适应缩放css -->
+<style type="text/css">
+#wrapbox{ display:block; background-color: #F00; font-size: 30px; color: #FFF;}
+</style>
+
+</head>
+<body ontouchmove="event.preventDefault();"> <!-- 阻止ios浏览器整页上下滑动 -->
+	<div id="wrapbox"></div>
+	<br>	<br>	<br>	<br>
+	<br>	<br>	<br>	<br>
+	<br>	<br>	<br>	<br>
+	<br>	<br>	<br>	<br>
+</body>
+
+
+<script type="text/javascript">
+	var wrapbox = document.getElementById("wrapbox");
+	var position = function(e) {
+		if(e.touches){
+			for ( var i = 0; i < e.touches.length; i++) {
+				console.log( i + " : " + e.touches[i].radiusX );
+				var x = wrapbox.style.width = e.touches[i].pageX+"px";
+				var y = wrapbox.style.height = e.touches[i].pageY+"px";
+				wrapbox.innerHTML = "x:" + x + "<br/>y:" + y + "<br/>t:" + (i+1);
+				//wrapbox.innerHTML =  i + " : " + e.touches[i].radiusX;
+			}
+			return;
+		}
+		
+		var x = e.pageX;
+		var y = e.pageY;
+		wrapbox.style.width = x+"px";
+		wrapbox.style.height = y+"px";
+		
+		wrapbox.innerHTML = "x:" + x + "<br/>y:" + y;
+		
+	}
+
+
+	window.onload = function() {
+		document.body.addEventListener("mousemove",position);
+		document.body.addEventListener("touchmove",position);
+		//document.body.addEventListener("touchstart",position);
+	}
+
+</script>
+</html>

@@ -1,0 +1,51 @@
+<!-- 全屏滚动模板 -->
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="GB2312">
+<meta http-equiv="X-UA-Compatible" content="IE=8" />
+<title>请在此插入网页标题</title>
+<meta name="keywords" content="请在此插入关键词" />
+<meta name="description" content="请在此写入一段页面描述" />
+<script src="http://jiangsu.sinaimg.cn/js/jquery1.11.1.min.js"></script>
+<script src="http://jiangsu.sinaimg.cn/js/jquery.fullPage.min.js"></script>
+<script src="http://jiangsu.sinaimg.cn/js/jquery.easing.min.js"></script>
+<link rel="stylesheet" href="http://jiangsu.sinaimg.cn/js/css/jquery.fullPage.css">
+
+<style type="text/css">
+body, ul, ol, li, p, h1, h2, h3, h4, h5, h6, table, td, th, form, fieldset, img, dl, dt, dd { margin:0; padding:0; }
+textarea, input, select, body { font-size:12px; }
+select, input { vertical-align:middle; }
+fieldset, img { border:0; }
+ul, ol { list-style:none; }
+img { border:0; }
+a { text-decoration:none; color:#000; }
+a:hover { color:#ffa10d; }
+.fl { float:left; display:inline; }
+.fr { float:right; display:inline; }
+.cb { clear:both; display:block; height:0px; overflow:hidden; width:100%; }
+.clearfix:after { clear:both; content:""; display:block; height:0; }
+</style>
+<style type="text/css">
+.headimg{ min-width: 1000px; height: 400px; background: url("http://hubei.sinaimg.cn/2014/0721/S122974T1405906828814.jpg") no-repeat center top; }
+.content{ width: 1000px; margin: 0 auto; position: relative;} 
+</style>
+</head>
+<body>
+	<div id="fullpage">
+		<div class="section">
+
+		</div>
+		<div class="section">第二屏</div>
+		<div class="section">第三屏</div>
+		<div class="section">第四屏</div>
+	</div>
+</body>
+<script>
+$(function(){
+    $('#fullpage').fullpage({
+    	easing : "swing"
+    });
+});
+</script>
+</html>

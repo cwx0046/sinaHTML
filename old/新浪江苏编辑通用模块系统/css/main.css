@@ -1,0 +1,64 @@
+@charset "utf-8";
+body, ul, ol, li, p, h1, h2, h3, h4, h5, h6, table, td, th, form, fieldset, img, dl, dt, dd { margin:0; padding:0; }
+textarea, input, select, body { font-size:12px; }
+select, input { vertical-align:middle; }
+fieldset, img { border:0; }
+ul, ol { list-style:none; }
+img { border:0; }
+a { text-decoration:none; color:#000; }
+a:hover { color:#ffa10d; }
+.fl { float:left; display:inline; }
+.fr { float:right; display:inline; }
+.cb { clear:both; display:block; height:0px; overflow:hidden; width:100%; }
+.clearfix:after { clear:both; content:""; display:block; height:0; }
+.noselect{ -webkit-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select:none; }
+
+body{ background-color: #f3f3f3; font-family: 'microsoft yahei'; font-size: 14px; min-width: 1237px;}
+.topwrap .box_logotool{ position: relative; background-color: #FFF; }
+.topwrap .box_logotool .logo{ height: 60px; background: url("../images/logo.png") no-repeat 36px 4px; }
+.topwrap .box_logotool .tool{ position: absolute; left: 280px; bottom: 0; }
+.topwrap .box_logotool .tool li{ float: left; cursor: pointer; padding: 6px 12px; min-width: 30px; border: 1px solid #DDD; background-color:#F8F8F8; background: -moz-linear-gradient(top, #FFF, #EBEBEB); background: -webkit-gradient(linear, 0 0, 0 bottom, from(#FFF), to(#EBEBEB));  }
+.topwrap .box_logotool .tool li:HOVER{ color: #FFF; background-color:#007ecb; border: 1px solid #0078c4; background: -moz-linear-gradient(top, #0097f0, #007ecb); background: -webkit-gradient(linear, 0 0, 0 bottom, from(#0097f0), to(#007ecb)); }
+
+.topwrap .navbar{ background-color: #ebebeb; border-top: 4px solid #0078c4; border-bottom: 1px solid #d5d5d5; }
+.topwrap .navbar li{ float:left; width: 86px; padding: 6px 0; color: #797979; text-align: center; cursor: pointer; }
+.topwrap .navbar li:HOVER{ transition:all 0.2s; background-color: #0080d5; color: #FFF;}
+.topwrap .navbar li.curr{ background-color: #0078c4; color: #FFF; cursor: default; }
+
+.box_func{ float: left; margin: 33px 15px 0 0; width:218px; background-color: #FFF; box-shadow: 0 0 6px 0 rgba(65,65,65,.16); }
+.box_func .head{ padding:18px; background-color: #0078c4; color: #FFF; }
+.box_func ul{ margin: 8px auto 34px auto; width: 208px; }
+.box_func ul li{ color: #797979; cursor: pointer; margin: 6px 0; padding: 10px 40px; border-radius: 3px; }
+.box_func ul li:BEFORE{ content:''; width: 0; height: 0; font-size:0; margin-right: 4px; border-width: 5px 0px 5px 5px;border-style: solid;border-color: transparent;border-left-color: #797979;vertical-align: super;}
+.box_func ul li:HOVER { transition:all 0.2s; background-color: #0080d5; color: #FFF; border-left-color: #FFF;}
+.box_func ul li:HOVER:BEFORE { border-left-color: #FFF; box-shadow: 0 0 3px #AAA;}
+.box_func ul li.curr{ background-color: #0078c4; color: #FFF; cursor: default; }
+.box_func ul li.curr:BEFORE{ border-left-color: #FFF; }
+
+.box_content{ float:left; margin: 33px 0 0 0;  }
+.box_content .jslist>li{ margin-bottom: 40px;  min-width:952px; background-color: #FFF; box-shadow: 0 0 6px 0 rgba(65,65,65,.16); }
+.box_content .jslist>li .content{ padding: 20px 24px; }
+.box_content .jslist>li h3{}
+.box_content .jslist>li .desc:BEFORE{ content: '说明：'; }
+.box_content .jslist>li .desc{ color: #797979; width: 952px; word-break: break-all;}
+.box_content .jslist>li .box_preview{ border: 1px solid #f3f3f3;}
+.box_content .jslist>li .box_preview iframe{ width: 100%; height: auto; border: 0; }
+.box_content .jslist>li .codefunc{ border: 1px solid #f3f3f3;}
+.box_content .jslist>li .codefunc li{ float: left; width: 148px; padding: 8px 0; text-align: center; color: #797979; cursor: pointer; }
+.box_content .jslist>li .codefunc li:HOVER{ background-color: #EEE;  }
+.box_content .jslist>li .codefunc li span{ padding: 3px 0; border-right:1px solid #d9d9d9; width: 100%; display: block; }
+.box_content .jslist>li .box_code{ width: 100%; min-height:300px; display: block; height: auto; border: 1px solid #f3f3f3;}
+.box_content .jslist>li .act_submit{ display: inline-block; margin: 10px 0; text-align: center; min-width: 120px; padding: 6px 12px; color: #FFF; background-color: #0078c4; cursor: pointer;}
+.box_content .jslist>li .act_submit:HOVER{ background-color: #0088e3; box-shadow: 0 0 3px #AAA; }
+
+
+
+
+
+
+
+
+
+
+
+

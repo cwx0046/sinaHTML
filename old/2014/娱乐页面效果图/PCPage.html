@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="GB2312">
+<meta http-equiv="X-UA-Compatible" content="IE=8" />
+<title>请在此插入网页标题</title>
+<meta name="keywords" content="请在此插入关键词" />
+<meta name="description" content="请在此写入一段页面描述" />
+<!-- 
+<script src="http://i2.sinaimg.cn/cj/dfz/js/base.js" type="text/javascript"></script>
+ -->
+<style type="text/css">
+body, ul, ol, li, p, h1, h2, h3, h4, h5, h6, table, td, th, form, fieldset, img, dl, dt, dd { margin:0; padding:0; }
+textarea, input, select, body { font-size:12px; }
+select, input { vertical-align:middle; }
+fieldset, img { border:0; }
+ul, ol { list-style:none; }
+img { border:0; }
+a { text-decoration:none;  color: #747474; }
+a:HOVER{ color: #ee0758; }
+.fl { float:left; display:inline; }
+.fr { float:right; display:inline; }
+.cb { clear:both; display:block; height:0px; overflow:hidden; width:100%; }
+.clearfix:after { clear:both; content:""; display:block; height:0; }
+</style>
+<style type="text/css">
+body{ font-family: "microsoft yahei";} 
+.wrap{ width: 950px; margin: 0 auto; position: relative;} 
+.part{ color: #747474; }
+.more{ color: #ee0758;}
+.column_l{ width: 660px; }
+.column_r{ width: 276px; margin-left: 13px; }
+.blue{color: #0066ff;}
+.mb0{ margin-bottom: 0!important;}
+h3{ color: #ee0356; font-size: 22px; font-weight: normal; line-height: 38px; height: 38px; overflow: hidden;}
+h4{ color: #363636; font-size: 16px; font-weight: normal; line-height: 28px; height: 28px; overflow: hidden; }
+li{ overflow: hidden;}
+.part .bannertitle{ width: 950px; height: 41px; margin-bottom:15px; background-image: url("./images/title.png"); }
+.part .bannertitle span{ color: #FFF; font-size: 20px; line-height: 41px; margin-left: 8px; text-align: center; width: 122px; display: block;}
+
+.column_l { border-right:1px solid #ababab; }
+
+.column_l .newsbox {  margin-bottom: 24px;}
+.column_l .newsbox .newstext{ margin-left: 231px; width: 416px;}
+.column_l .newsbox .newstext ul{ margin-top:6px; list-style:url("./images/listyle_square.png") inside; font-size:14px; line-height: 26px; }
+.column_l .newsbox .newstext ul li.curr{ list-style:url("./images/listyle_square_curr.png") inside; }
+.column_r .title{ height: 26px; color:#f30558; font-size:18px;line-height:18px; background: url("./images/r_title.png") no-repeat left bottom; }
+.videoli{ list-style:url("./images/listyle_video.png") inside; }
+
+.snd_header{ margin: 20px auto; }
+.snd_header .s_logo{}
+.snd_header .s_class{ margin-left: 10px; }
+.snd_navs{ height:56px; margin-bottom:12px; background-image: url("./images/snd_nav.png");}
+.snd_navs li{ width: 125px; height: 56px; line-height: 56px; overflow:hidden; float:left; text-align: center; font-size: 18px; color: #FFF; cursor: pointer;}
+.snd_navs li.snd_navs_curr{ background-image: url("./images/snd_nav_curr.png");}
+
+.newsbox .newstext .content{ text-indent: 2em; line-height: 26px; padding: 8px 0; height: 52px; overflow: hidden; border-bottom: 1px solid #efefef;}
+.column_r .actBox { margin-top: 16px;}
+.column_r .actBox .newsbox { margin-bottom: 12px;}
+.column_r .newsbox .newstext h5{ line-height: 14px; font-weight: bold;}
+.column_r .newsbox .newstext{ margin-left: 132px;}
+.column_r .newsbox .newstext .content{ text-indent: 0; border-bottom: none;}
+.column_r .newsbox .newstext .ticketInfo{ margin-bottom: 3px;}
+.column_r .newsbox .newstext .qiangpiaoBtn {	width: 143px;	height: 26px; line-height:26px; text-align:center; color: #FFF; background-image: url("./images/qiangpiaoBtn.png"); cursor: pointer;}
+
+</style>
+<style type="text/css">
+
+#p1 .column_l ,#p2 .column_l { border-right:none; }
+
+/* 独家策划 */
+#p1 .column_r .title{ width: 276px; height: 16px; font-size:16px; background-image: url("./images/spe_r_title.png"); }
+#p1 .column_r .title span{ display:block; padding-left: 16px; color:#ee0758; font-size: 16px; line-height: 16px;}
+#p1 .column_r .newslist{ margin: 14px auto; }
+#p1 .column_r .newsbox{ padding: 6px 0;}
+#p1 .column_r .newsbox .newstext{ margin-left: 132px;}
+#p1 .column_r .newsbox .newstext h5{ line-height: 28px;       height: 28px; overflow: hidden;}
+#p1 .column_r .newsbox .newstext .content{ line-height: 26px; padding: 0;     height: 78px; overflow: hidden;}
+#p1 .column_r .ad img{ border: 1px solid #d8d8d8; width: 276px; height: 176px; }
+/* p2 、 p2视频 */
+#p2 .column_l .newsbox { margin-bottom: 15px;}
+#p2 .column_r .videoBox{ margin: 10px 0 0;}
+#p2 .column_r .videoBox .video{ position: relative; padding: 5px 0;}
+#p2 .column_r .videoBox .video img{ display: block;}
+#p2 .column_r .videoli{line-height: 26px;}
+/* p4 */
+#p4 .column_l .newsbox {margin-bottom: 0;} 
+#p4 .column_l .newsbox .imgbox {width: 212px;} 
+#p4 .column_l .newsbox .imgbox img{margin-bottom: 20px;} 
+#p4 .column_l .newsbox .newstextBlock{ margin-bottom: 16px;}
+
+#p1{ margin-bottom: 12px;}
+#div_AD2{ margin-bottom: 12px;}
+#p5{ margin-bottom: 12px;}
+</style>
+<style type="text/css">
+</style>
+</head>
+<body>
+	<!-- sina head -->
+
+	<!-- 顶部广告 -->
+	<div id="div_ADtop" class="wrap">
+		<img src="./images/ADtop.png" alt="AD" onclick="window.open('http://www.sina.com.cn')"/>
+	</div>
+	
+	<!-- 子站点标题 -->
+	<div class="snd_header wrap">
+		<div class="s_logo"><a href="http://mobile.sina.com.cn/"><img class="s_logo" src="./images/s_logo.png"/><img class="s_class" src="./images/s_class.png"/></a></div>
+	</div>
+	
+	<!-- 导航栏 -->
+	<div class="snd_navs">
+		<ul class="wrap">
+			<li class="snd_navs_curr">栏目1长长长长长长长长长长长</li>
+			<li>栏目2</li>
+			<li>栏目3</li>
+			<li>栏目4</li>
+			<li>栏目5</li>
+		</ul>
+	</div>
+	
+	<!-- 内容 -->
+	<div class="part wrap clearfix" id="p1">
+		<div class="column_l fl">
+			<!-- 焦点图区域 -->
+			<div style="width: 660px; height: 460px; background-color: RGBA(255,0,0,0.5);"></div>
+		</div>
+		<div class="column_r fl">
+			<div class="title"><span>独家策划</span></div>
+			<div class="newslist">
+				<div class="newsbox clearfix">
+					<img class="fl" src="./images/p1_e2.png">
+					<div class="newstext" class="fl">
+						<h5>所谓秀恩爱死得快快快快快快快快快快快快快快快快快快快</h5>
+						<div class="content">所谓秀恩爱死得快，大约是因为一旦开始刻意无论状况就有些奇怪。<a class="more" href="" target="_blank">[详细]</a></div>
+					</div>
+				</div>
+				<div class="newsbox clearfix">
+					<img class="fl" src="./images/p1_e2.png">
+					<div class="newstext" class="fl">
+						<h5>所谓秀恩爱死得快快快快快快快快快快快快快快快快快快快</h5>
+						<div class="content">所谓秀恩爱死得快，大约是因为一旦开始刻意无论状况就有些奇怪。<a class="more" href="" target="_blank">[详细]</a></div>
+					</div>
+				</div>
+			</div>
+			<div class="ad">
+				<img src="./images/p1_e3.png"/>
+			</div>
+		</div>
+	</div>
+	
+	<div class="part wrap clearfix" id="p2">
+		<!-- 左侧 -->
+		<div class="column_l fl">
+			<div class="newsbox clearfix">
+				<img class="fl" src="./images/p2_e1.png">
+				<div class="newstext" class="fl">
+					<h3>少女被下药洗澡20次死亡 给单身姑娘忠告</h3>
+					<ul>
+						<li class="curr">林心如约会男星遭偷拍 曾拍搂腰照</li>
+						<li>吴启华将与小21岁嫩妻离婚：为了女儿</li>
+						<li>李维嘉新恋情疑曝光 拥抱神秘“女友”</li>
+						<li>周慧敏被曝与老公分房睡 经纪人拒回应</li>
+					</ul>
+				</div>
+			</div>
+			<div class="newsbox clearfix">
+				<img class="fl" src="./images/p2_e1.png">
+				<div class="newstext" class="fl">
+					<h3>少女被下药洗澡20次死亡 给单身姑娘忠告</h3>
+					<ul>
+						<li class="curr">林心如约会男星遭偷拍 曾拍搂腰照</li>
+						<li>吴启华将与小21岁嫩妻离婚：为了女儿</li>
+						<li>李维嘉新恋情疑曝光 拥抱神秘“女友”</li>
+						<li>周慧敏被曝与老公分房睡 经纪人拒回应</li>
+					</ul>
+				</div>
+			</div>
+			<div class="newsbox clearfix">
+				<img class="fl" src="./images/p2_e1.png">
+				<div class="newstext" class="fl">
+					<h3>少女被下药洗澡20次死亡 给单身姑娘忠告</h3>
+					<ul>
+						<li class="curr">林心如约会男星遭偷拍 曾拍搂腰照</li>
+						<li>吴启华将与小21岁嫩妻离婚：为了女儿</li>
+						<li>李维嘉新恋情疑曝光 拥抱神秘“女友”</li>
+						<li>周慧敏被曝与老公分房睡 经纪人拒回应</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<!-- 右侧 -->
+		<div class="column_r fl">
+			<div class="title"><span>精彩视频</span></div>
+			<div class="videoBox">
+				<div class="video"><img src="./images/p2_e2.png"></div>
+				<div class="video"><img src="./images/p2_e2.png"></div>
+			</div>
+			<ul class="videoli">
+				<li>[时尚大片]香奈儿N°5只想拥有你幕后花</li>
+				<li>[第一时尚]明星奔赴秀场为哪般</li>
+				<li>[北京时装周]李艾霸道抢占王培沂礼服</li>
+				<li>[女神的新衣]巅峰对决男神周杰伦坐镇</li>
+				<li>[北京时装周]查可欣喜欢绿色皮质</li>
+			</ul>
+			
+		</div>
+	</div>
+	
+	<div class="part wrap clearfix" id="p3">
+		<div class="bannertitle">
+			<span>玩乐江苏</span>
+		</div>
+		<!-- 左侧 -->
+		<div class="column_l fl">
+			<div class="newsbox clearfix">
+				<img class="fl" src="./images/p2_e1.png">
+				<div class="newstext" class="fl">
+					<h4>林依晨订婚群星拱照 两叫夫婿Honey甜爆</h4>
+					<div class="content">昨天(10月29日)32岁生日，林依晨与潜水业老板林于超在台北举行订婚宴，踏进人生新阶段。<a class="more" href="" target="_blank">[详细]</a></div>
+					<ul>
+						<li>陈柏霖、柯震东、陈晓东等男星云集，似偶像剧拍摄现场。</li>
+						<li>央视今将开发布会 宣布哈文任春晚总导演</li>
+					</ul>
+				</div>
+			</div>
+			<div class="newsbox clearfix">
+				<img class="fl" src="./images/p2_e1.png">
+				<div class="newstext" class="fl">
+					<h4>林依晨订婚群星拱照 两叫夫婿Honey甜爆</h4>
+					<div class="content">昨天(10月29日)32岁生日，林依晨与潜水业老板林于超在台北举行订婚宴，踏进人生新阶段。<a class="more" href="" target="_blank">[详细]</a></div>
+					<ul>
+						<li>陈柏霖、柯震东、陈晓东等男星云集，似偶像剧拍摄现场。</li>
+						<li>央视今将开发布会 宣布哈文任春晚总导演</li>
+					</ul>
+				</div>
+			</div>
+			<div class="newsbox clearfix mb0">
+				<img class="fl" src="./images/p2_e1.png">
+				<div class="newstext" class="fl">
+					<h4>林依晨订婚群星拱照 两叫夫婿Honey甜爆</h4>
+					<div class="content">昨天(10月29日)32岁生日，林依晨与潜水业老板林于超在台北举行订婚宴，踏进人生新阶段。<a class="more" href="" target="_blank">[详细]</a></div>
+					<ul>
+						<li>陈柏霖、柯震东、陈晓东等男星云集，似偶像剧拍摄现场。</li>
+						<li>央视今将开发布会 宣布哈文任春晚总导演</li>
+					</ul>
+				</div>
+			</div>
+			
+		</div>
+		<!-- 右侧 -->
+		<div class="column_r fl">
+			<div class="title"><span>精彩活动</span></div>
+			<div class="actBox">
+				<div class="newsbox clearfix">
+					<img class="fl" src="./images/p3_e2.png">
+					<div class="newstext" class="fl">
+						<h5>标题</h5>
+						<div class="content">业老板林于踏进人生新阶段业老板林于踏进。<a class="more" href="" target="_blank">[详细]</a></div>
+						<div class="ticketInfo">
+							<div>剩余票数：<span class="blue">205</span> 份</div>
+							<div>演出地些：<span class="blue">江苏南京大剧院</span></div>
+						</div>
+						<div class="qiangpiaoBtn">立即抢票</div>
+					</div>
+				</div>
+				<div class="newsbox clearfix">
+					<img class="fl" src="./images/p3_e2.png">
+					<div class="newstext" class="fl">
+						<h5>标题</h5>
+						<div class="content">业老板林于踏进人生新阶段业老板林于踏进。<a class="more" href="" target="_blank">[详细]</a></div>
+						<div class="ticketInfo">
+							<div>剩余票数：<span class="blue">205</span> 份</div>
+							<div>演出地些：<span class="blue">江苏南京大剧院</span></div>
+						</div>
+						<div class="qiangpiaoBtn">立即抢票</div>
+					</div>
+				</div>
+				<div class="newsbox clearfix mb0">
+					<img class="fl" src="./images/p3_e2.png">
+					<div class="newstext" class="fl">
+						<h5>标题</h5>
+						<div class="content">业老板林于踏进人生新阶段业老板林于踏进。<a class="more" href="" target="_blank">[详细]</a></div>
+						<div class="ticketInfo">
+							<div>剩余票数：<span class="blue">205</span> 份</div>
+							<div>演出地些：<span class="blue">江苏南京大剧院</span></div>
+						</div>
+						<div class="qiangpiaoBtn">立即抢票</div>
+					</div>
+				</div>
+			</div>
+			
+			
+		</div>
+	</div>
+
+	<!-- 中部广告 -->
+	<div id="div_AD2" class="wrap">
+		<img src="./images/ADtop.png" alt="AD" onclick="window.open('http://www.sina.com.cn')"/>
+	</div>
+	
+	<div class="part wrap clearfix" id="p4">
+		<div class="bannertitle">
+			<span>时尚潮流</span>
+		</div>
+		<!-- 左侧 -->
+		<div class="column_l fl">
+			<div class="newsbox clearfix">
+				<div class="imgbox fl">
+					<img src="./images/p2_e1.png">
+					<img src="./images/p2_e1.png">
+					<img src="./images/p2_e1.png" class="mb0">
+				</div>
+				<div class="newstext" class="fl">
+					<div class="newstextBlock">
+						<h4>林依晨订婚群星拱照 两叫夫婿Honey甜爆</h4>
+						<div class="content">昨天(10月29日)32岁生日，林依晨与潜水业老板林于超在台北举行订婚宴，踏进人生新阶段。<a class="more" href="" target="_blank">[详细]</a></div>
+					</div>
+					<div class="newstextBlock">
+						<h4>林依晨订婚群星拱照 两叫夫婿Honey甜爆</h4>
+						<div class="content">昨天(10月29日)32岁生日，林依晨与潜水业老板林于超在台北举行订婚宴，踏进人生新阶段。<a class="more" href="" target="_blank">[详细]</a></div>
+					</div>
+					<div class="newstextBlock">
+						<h4>林依晨订婚群星拱照 两叫夫婿Honey甜爆</h4>
+						<div class="content">昨天(10月29日)32岁生日，林依晨与潜水业老板林于超在台北举行订婚宴，踏进人生新阶段。<a class="more" href="" target="_blank">[详细]</a></div>
+					</div>
+					
+					<ul>
+						<li><a href="htt://">陈柏霖、柯震东、陈晓东等男星云集，似偶像剧拍摄现场。</a></li>
+						<li>央视今将开发布会 宣布哈文任春晚总导演</li>
+						<li>陈柏霖、柯震东、陈晓东等男星云集，似偶像剧拍摄现场。</li>
+						<li>央视今将开发布会 宣布哈文任春晚总导演</li>
+						<li>陈柏霖、柯震东、陈晓东等男星云集，似偶像剧拍摄现场。</li>
+						<li>央视今将开发布会 宣布哈文任春晚总导演</li>
+					</ul>
+				</div>
+			</div>
+			
+		</div>
+		<!-- 右侧 -->
+		<div class="column_r fl">
+			<div class="title"><span>精彩活动</span></div>
+			<div class="actBox">
+				<div class="newsbox clearfix">
+					<img class="fl" src="./images/p3_e2.png">
+					<div class="newstext" class="fl">
+						<h5>标题</h5>
+						<div class="content">业老板林于踏进人生新阶段业老板林于踏进。<a class="more" href="" target="_blank">[详细]</a></div>
+						<div class="ticketInfo">
+							<div>剩余票数：<span class="blue">205</span> 份</div>
+							<div>演出地些：<span class="blue">江苏南京大剧院</span></div>
+						</div>
+						<div class="qiangpiaoBtn">立即抢票</div>
+					</div>
+				</div>
+				<div class="newsbox clearfix">
+					<img class="fl" src="./images/p3_e2.png">
+					<div class="newstext" class="fl">
+						<h5>标题</h5>
+						<div class="content">业老板林于踏进人生新阶段业老板林于踏进。<a class="more" href="" target="_blank">[详细]</a></div>
+						<div class="ticketInfo">
+							<div>剩余票数：<span class="blue">205</span> 份</div>
+							<div>演出地些：<span class="blue">江苏南京大剧院</span></div>
+						</div>
+						<div class="qiangpiaoBtn">立即抢票</div>
+					</div>
+				</div>
+				<div class="newsbox clearfix mb0">
+					<img class="fl" src="./images/p3_e2.png">
+					<div class="newstext" class="fl">
+						<h5>标题</h5>
+						<div class="content">业老板林于踏进人生新阶段业老板林于踏进。<a class="more" href="" target="_blank">[详细]</a></div>
+						<div class="ticketInfo">
+							<div>剩余票数：<span class="blue">205</span> 份</div>
+							<div>演出地些：<span class="blue">江苏南京大剧院</span></div>
+						</div>
+						<div class="qiangpiaoBtn">立即抢票</div>
+					</div>
+				</div>
+			</div>
+			
+			
+		</div>
+	</div>
+	
+	<div class="part wrap clearfix" id="p5">
+		<div class="bannertitle">
+			<span>票务中心</span>
+		</div>
+		<img src="./images/Ppiaowu.png">
+	</div>
+	
+	<div class="part wrap clearfix" id="p6">
+		<div class="bannertitle">
+			<span>合作单位</span>
+		</div>
+		<img src="./images/Phezuo.png">
+	</div>
+	
+	
+	<!-- sina foot -->
+</body>
+</html>

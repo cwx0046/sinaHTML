@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="cache-control" content="no-cache"/>
+<meta name="format-detection" content="telephone=no"/>
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0"> 
+<title>新浪江苏观剧团</title>
+<meta name="keywords" content="新浪,江苏,戏剧,观剧团,台湾" />
+<meta name="description" content="新浪江苏观剧团" />
+<script src="http://i2.sinaimg.cn/cj/dfz/js/base.js" type="text/javascript"></script>
+<script src="http://jiangsu.sinaimg.cn/js/jquery.transit.min.js"></script>
+<link rel="stylesheet" href="http://jiangsu.sinaimg.cn/js/idangerous.swiper.css">
+<script src="http://jiangsu.sinaimg.cn/js/idangerous.swiper.min.js"></script>
+<style type="text/css">
+body, ul, ol, li, p, h1, h2, h3, h4, h5, h6, table, td, th, form, fieldset, img, dl, dt, dd { margin:0; padding:0; }
+textarea, input, select, body { font-size:12px; }
+select, input { vertical-align:middle; }
+fieldset, img { border:0; }
+ul, ol { list-style:none; }
+img { border:0; }
+a { text-decoration:none; color:#000; }
+a:hover { color:#ffa10d; }
+.fl { float:left; display:inline; }
+.fr { float:right; display:inline; }
+.cb { clear:both; display:block; height:0px; overflow:hidden; width:100%; }
+.clearfix:after { clear:both; content:""; display:block; height:0; }
+</style>
+<!-- 自适应缩放css -->
+<style type="text/css">
+body{ overflow-x: hidden;}
+.swiper-slide{ width: 640px; height: 960px; position: relative; overflow: hidden;}
+.swiper-container{ width: 640px; height: 960px; -webkit-transform-origin: top left; margin: 0; overflow: hidden;}
+</style>
+<!-- end 自适应缩放css -->
+<style type="text/css">
+#s1{ background: url("http://jiangsu.sinaimg.cn/zt/s/xljsgjtty/images/1.jpg") no-repeat left top; }
+#s2{ background: url("http://jiangsu.sinaimg.cn/zt/s/xljsgjtty/images/2.jpg") no-repeat left top; }
+#s3{ background: url("http://jiangsu.sinaimg.cn/zt/s/xljsgjtty/images/3.jpg") no-repeat left top; }
+#s4{ background: url("http://jiangsu.sinaimg.cn/zt/s/xljsgjtty/images/4.jpg") no-repeat left top; }
+#s5{ background: url("http://jiangsu.sinaimg.cn/zt/s/xljsgjtty/images/5.jpg") no-repeat left top; }
+#s6{ background: url("http://jiangsu.sinaimg.cn/zt/s/xljsgjtty/images/6.jpg") no-repeat left top; }
+</style>
+
+<!-- wenxuan's css -->
+<style>
+.spic{ position: absolute; }
+span{ display: inline-block;}
+body{ color: #a2a2a2; font-size: 20px; line-height: 36px; }
+p{ text-indent: 2em;}
+
+.set2_2 { left: 446px; top: 95px; }
+
+
+#s1 .set1_1 { left: 21px; top: 58px; }
+#s1 .set1_2 { left: 0px; top: 328px; }
+#s1 .set1_3 { left: 357px; top: 435px; color: #ffe400; font-size: 24px; }
+#s1 .set1_4 { left: 364px; top: 485px; }
+#s1 .set1_5 { left: 370px; top: 521px;}
+#s1 .set1_6 { left: 370px; top: 561px;}
+#s1 .set1_7 { left: 370px; top: 602px;}
+#s1 .text1_1 { color: #ffe400; background-color:#5a595a; border-radius:4px; padding:0 5px; margin-right:6px; line-height:30px; font-size: 20px;}
+
+#s2 .set2_1 { left: 47px; top: 201px; }
+#s2 .set2_2 { left: 446px; top: 95px; }
+#s2 .set2_3 { left: 61px; top: 741px; }
+#s2 .set2_4 { left: 389px; top: 590px; }
+#s2 .set2_5 { left: 120px; top: 746px;}
+#s2 .set2_6 { left: 120px; top: 782px;}
+#s2 .set2_7 { left: 120px; top: 817px;}
+#s2 .set2_8 { left: 120px; top: 852px;}
+
+#s3 .set3_1 { left: 296px; top: 215px; }
+#s3 .set3_2 { left: 294px; top: 290px; }
+#s3 .set3_3 { left: 299px; top: 348px; }
+#s3 .set3_4 { left: 299px; top: 420px; }
+#s3 .set3_5 { left: 298px; top: 461px; }
+#s3 .set3_6 { left: 0px; top: 61px; font-size: 18px; line-height:28px; background-color: RGBA(146,0,0,0.5); width: 181px; padding: 30px 38px 30px 52px; }
+
+#s4 .set4_1 { left: 130px; top: 859px; z-index: 2;}
+#s4 .set4_2 { left: 36px; top: 659px;}
+#s4 .set4_3 { left: 308px; top: 689px; color: #a8872f; width: 304px; }
+
+#s5 .set5_1 { left: 212px; top: 573px; z-index: 2;}
+#s5 .set5_2 { left: 145px; top: 536px; width: 488px; height: 337px; background-color: RGBA(163, 17, 29, 0.89);}
+#s5 .set5_3 { left: 213px; top: 626px; width: 385px; color: #f3f2f7;}
+
+#s6 .set6_1 { left: 186px; top: 560px; z-index: 2;}
+#s6 .set6_2 { left: 0px; top: 538px; width: 531px; height: 337px; background-color: RGBA(136, 87, 2, 0.8);}
+#s6 .set6_3 { left: 62px; top: 620px; width: 409px; color: #f3f2f7;}
+
+#s7{ background-color: #F0F; background:url("http://jiangsu.sinaimg.cn/zt/s/xljsgjtty/images/7.jpg") no-repeat center 0;}
+#s7 .set7_1{top:142px; left:78px; z-index:3;}
+#s7 .set7_2{top:142px; left:78px; z-index:2;}
+#s7 .set7_3{top:108px; left:0; background-color:#ff6600; width:100%; height:184px;}
+#s7 .set7_4{top:402px; left:0px;}
+#s7 .set7_5{top:462px; left:468px; background-color:#d70252; width:148px; height:62px; border-radius:4px; line-height:62px; text-align:center; font-size:26px; color:#fff;}
+#s7 .set7_6{top:622px; left:220px;}
+#s7 .set7_7{top:720px; left:140px;}
+
+</style>
+
+<style>
+.set2_4{top:220px; left:226px;opacity:1;
+-webkit-animation:set2_4 0.5s ease 0.2s infinite alternate;
+}
+@-webkit-keyframes set2_4 /* Safari and Chrome */
+{
+0% {top:589px;}
+100% {top:577px;}
+}
+
+.btnTop
+{
+position:absolute; top:5px; text-align:center; width:100%;
+/* Safari and Chrome: */
+-webkit-animation-name:btnTop;
+-webkit-animation-duration:2s;
+-webkit-animation-timing-function:linear;
+-webkit-animation-delay:2s;
+-webkit-animation-iteration-count:infinite;
+-webkit-animation-direction:alternate;
+-webkit-animation-play-state:running;
+-webkit-transform: translateZ(0);
+-moz-transform: translateZ(0);
+-ms-transform: translateZ(0);
+transform: translateZ(0);
+}
+@-webkit-keyframes btnTop /* Safari and Chrome */
+{
+0% {top:5px;}
+50% {top:25px;}
+100% {top:5px;}
+}
+
+.btnBottom
+{
+position:absolute; bottom:10%; text-align:center; width:100%;
+-webkit-animation-name:btnBottom;
+-webkit-animation-duration:2s;
+-webkit-animation-timing-function:linear;
+-webkit-animation-delay:2s;
+-webkit-animation-iteration-count:infinite;
+-webkit-animation-direction:alternate;
+-webkit-animation-play-state:running;
+-webkit-transform: translateZ(0);
+-moz-transform: translateZ(0);
+-ms-transform: translateZ(0);
+transform: translateZ(0);
+}
+
+@-webkit-keyframes btnBottom /* Safari and Chrome */
+{
+0% {top:88%;}
+50% {top:83%;}
+100% {top:88%;}
+}
+</style>
+<!-- end wenxuan's css -->
+</head>
+<body>
+
+<audio id="bgm" src="http://jiangsu.sinaimg.cn/zt/s/xljsgjtty/bg.mp3" autoplay="autoplay" loop="loop"></audio>
+
+	<!-- 
+	* 说明：
+	* 多页面滑动模板，适用于 类ppt 页面
+	* 页面 640x960 按宽度缩放
+	* 使用 idangerous.swiper 插件切换页面 ，参数请在下方 【Initialize swiper】中自行更改
+	*
+	 -->
+	<div class="swiper-container">
+		<div class="swiper-wrapper">
+		    <!--First Slide-->
+			<div class="swiper-slide" id="s1"> 
+				<img class="spic set1_1" src="http://jiangsu.sinaimg.cn/zt/s/xljsgjtty/images/1.1.png"></img>
+				<img class="spic set1_2" src="http://jiangsu.sinaimg.cn/zt/s/xljsgjtty/images/1.2.png"></img>
+				
+				<div class="spic set1_3">《最后14堂星期二的课》</div>
+				<div class="spic set1_4">台湾果陀剧场精致出品</div>
+				<div class="spic set1_5"><span class="text1_1">表演艺术家</span>金士杰</div>
+				<div class="spic set1_6"><span class="text1_1">全方位艺人</span>卜学亮</div>
+				<div class="spic set1_7"><span class="text1_1">国际大导演</span>杨世彭</div>
+				
+				<div class="btnBottom"><img src="http://jiangsu.sinaimg.cn/zt/s/mslxj/5.png" width="54"></div>
+			</div>
+			
+			<!--Second Slide-->
+			<div class="swiper-slide" id="s2">
+				<img class="spic set2_1" src="http://jiangsu.sinaimg.cn/zt/s/xljsgjtty/images/2.1.png"></img>
+				<img class="spic set2_3" src="http://jiangsu.sinaimg.cn/zt/s/xljsgjtty/images/2.3.png"></img>
+				<img class="spic set2_4" src="http://jiangsu.sinaimg.cn/zt/s/xljsgjtty/images/2.4.png"></img>
+				<div class="spic set2_5">“2014年两岸掌声加演 </div>
+				<div class="spic set2_6">逾20万观众热烈推荐</div>
+				<div class="spic set2_7">一部笑中带泪 </div>
+				<div class="spic set2_8">要你静下心来看的经典话剧” </div>
+				<img class="spic set2_2" src="http://jiangsu.sinaimg.cn/zt/s/xljsgjtty/images/2.2.png"></img>
+				
+				<div class="btnTop"><img src="http://jiangsu.sinaimg.cn/zt/s/mslxj/4.png" width="54"></div>
+				<div class="btnBottom"><img src="http://jiangsu.sinaimg.cn/zt/s/mslxj/5.png" width="54"></div>
+			</div>
+			
+			<!--Third Slide-->
+			<div class="swiper-slide" id="s3"> 
+				<img class="spic set3_1" src="http://jiangsu.sinaimg.cn/zt/s/xljsgjtty/images/3.1.png"></img>
+				<img class="spic set3_2" src="http://jiangsu.sinaimg.cn/zt/s/xljsgjtty/images/3.2.png"></img>
+				<img class="spic set3_3" src="http://jiangsu.sinaimg.cn/zt/s/xljsgjtty/images/3.3.png"></img>
+				<img class="spic set3_4" src="http://jiangsu.sinaimg.cn/zt/s/xljsgjtty/images/3.4.png"></img>
+				<img class="spic set3_5" src="http://jiangsu.sinaimg.cn/zt/s/xljsgjtty/images/3.5.png"></img>
+				<div class="spic set3_6">
+					<p>一位体育专栏作家米奇毕业16年后，在自己的许多理想中迷失了自我。偶尔从电视上看见大学时期的教授莫利，当时莫利罹患了「肌萎缩性脊髓侧索硬化症」（俗称「渐冻人」），无药可医，只剩下最后几个月的时间可以存活，米奇决定启程与教授相见……</p>
+					<p>莫利利用生命最后的几个月，把自己的生命经验与感动教授给这位世故冷漠、追求物质的学生米奇。14个星期二的时间，一连串生命的对话……</p> 
+				</div>
+				<img class="spic set2_2" src="http://jiangsu.sinaimg.cn/zt/s/xljsgjtty/images/2.2.png"></img>
+				
+				<div class="btnTop"><img src="http://jiangsu.sinaimg.cn/zt/s/mslxj/4.png" width="54"></div>
+				<div class="btnBottom"><img src="http://jiangsu.sinaimg.cn/zt/s/mslxj/5.png" width="54"></div>
+			</div>
+			
+			<!-- Fourth Slide-->
+			<div class="swiper-slide" id="s4"> 
+				<img class="spic set4_1" src="http://jiangsu.sinaimg.cn/zt/s/xljsgjtty/images/4.1.png"></img>
+				<img class="spic set4_2" src="http://jiangsu.sinaimg.cn/zt/s/xljsgjtty/images/4.2.png"></img>
+				<div class="spic set4_3">
+					<p>兰陵剧坊创始团员，台湾剧场界最重要的创作者之一，多年来一直从事于舞台剧表演及编导工作，于1984年获学术交流基金会傅尔布莱特艺术家奖金赴美研读。曾任教于台北艺术大学。</p>
+				</div>
+				<img class="spic set2_2" src="http://jiangsu.sinaimg.cn/zt/s/xljsgjtty/images/2.2.png"></img>
+				
+				<div class="btnTop"><img src="http://jiangsu.sinaimg.cn/zt/s/mslxj/4.png" width="54"></div>
+				<div class="btnBottom"><img src="http://jiangsu.sinaimg.cn/zt/s/mslxj/5.png" width="54"></div>
+			</div>
+			
+			<!-- Fifth Slide-->
+			<div class="swiper-slide" id="s5"> 
+				<img class="spic set5_1" src="http://jiangsu.sinaimg.cn/zt/s/xljsgjtty/images/5.1.png"></img>
+				<div class="spic set5_2"></div>
+				<div class="spic set5_3">
+					<p>1985年参加《TV新秀争霸站》一鸣惊人。之后陆续参与《好彩头》、《鸡蛋碰石头》等节目的主持和演出。退伍后，以《我们一家都是人——台湾精神》里“恰吉”一角，掀起狂潮、风靡全台湾，唱片。</p>
+					<p>单曲《子曰》红遍二岸三地。</p>
+				</div>
+				<img class="spic set2_2" src="http://jiangsu.sinaimg.cn/zt/s/xljsgjtty/images/2.2.png"></img>
+				
+				<div class="btnTop"><img src="http://jiangsu.sinaimg.cn/zt/s/mslxj/4.png" width="54"></div>
+				<div class="btnBottom"><img src="http://jiangsu.sinaimg.cn/zt/s/mslxj/5.png" width="54"></div>
+			</div>
+			
+			<!-- Sixth Slide-->
+			<div class="swiper-slide" id="s6"> 
+				<img class="spic set6_1" src="http://jiangsu.sinaimg.cn/zt/s/xljsgjtty/images/6.1.png"></img>
+				<div class="spic set6_2"></div>
+				<div class="spic set6_3">
+					<p>台湾大学外文系学士，美国夏威夷大学戏剧系艺术硕士，威斯康辛大学戏剧博士。</p>
+					<p>美国科罗拉大学戏剧舞蹈系荣休正教授、系主任及剧场主任；兼任全美著名的科洲莎翁戏剧节艺术及行政总监长达10年，制作大型莎剧40出；香港话剧团荣休艺术总监。</p>
+				</div>
+				<img class="spic set2_2" src="http://jiangsu.sinaimg.cn/zt/s/xljsgjtty/images/2.2.png"></img>
+				
+				<div class="btnTop"><img src="http://jiangsu.sinaimg.cn/zt/s/mslxj/4.png" width="54"></div>
+				<div class="btnBottom"><img src="http://jiangsu.sinaimg.cn/zt/s/mslxj/5.png" width="54"></div>
+			</div>
+			
+			<div class="swiper-slide" id="s7"> 
+				<img class="spic set7_1" src="http://jiangsu.sinaimg.cn/zt/s/xljsgjtty/images/7.3.png" />
+				<img class="spic set7_2" src="http://jiangsu.sinaimg.cn/zt/s/xljsgjtty/images/7.4.png" />
+				<div class="spic set7_3"></div>
+				<img class="spic set7_4" onclick="$('.fenxiang').fadeIn()" src="http://jiangsu.sinaimg.cn/zt/s/xljsgjtty/images/7.2.jpg" />
+				<div class="spic set7_5" onclick="$('.fenxiang').fadeIn()">分享</div>
+				<img class="spic set7_6" src="http://jiangsu.sinaimg.cn/zt/s/xljsgjtty/images/2.2.png" />
+				<a href="tel:18652956219">
+					<img class="spic set7_7" src="http://jiangsu.sinaimg.cn/zt/s/xljsgjtty/images/7.1.png" />
+				</a>
+				
+				<div class="btnTop"><img src="http://jiangsu.sinaimg.cn/zt/s/mslxj/4.png" width="54"></div>
+			</div>
+			
+			<!--Etc..-->
+		</div>
+	</div>
+	
+	<!-- 分享到朋友圈 -->
+	<style>
+		.fenxiang { z-index:99999; text-align: center; padding-top: 25px; width:100%; background:RGBA(0,0,0,0.5) url("http://jiangsu.sinaimg.cn/zt/s/2014qixi/qixi/7.png") no-repeat 94% 0; background-size: 40px auto; color: #FFF; font-size: 20px; height: 50px; position: fixed; top: 0; display: none; }
+	</style>
+	<div class="fenxiang">分享到<span class="red">朋友圈</span></div>
+	<script type="text/javascript">
+		$(".fenxiang").live("touchstart", function() { $(this).fadeOut(300); });
+	</script>
+	<!-- end 分享到朋友圈 -->
+</body>
+
+<!-- Initialize swiper -->
+<script type="text/javascript">
+	window.onload = function() {
+		var p = {};
+		p.activeIndex = 0;
+		Swipercallback(p);
+		var mySwiper = new Swiper('.swiper-container',{
+			// options
+			mode:'vertical',
+			onSlideChangeEnd : Swipercallback
+		}); 
+		
+		
+	}
+	function Swipercallback(p){
+	    var act = p.activeIndex;
+	    //console.log(p.activeIndex);
+	    resetAll();
+	    if (act == 0 || act == -0) {
+	    	$(".set1_1").css({y: '-100px'}).transition({y:'0',opacity: 1,delay: 100},500);
+	    	$(".set1_2").css({y: '-40px'}).transition({y:'0',opacity: 1,delay: 400},300);
+	    	$(".set1_3").css({x: '+100px'}).transition({x:'0',opacity: 1,delay: 600},500);
+	    	$(".set1_4").css({x: '+100px'}).transition({x:'0',opacity: 1,delay: 800},500);
+	    	$(".set1_5").css({y: '-20px'}).transition({y:'0',opacity: 1,delay: 1000},300);
+	    	$(".set1_6").css({y: '-20px'}).transition({y:'0',opacity: 1,delay: 1200},300);
+	    	$(".set1_7").css({y: '-20px'}).transition({y:'0',opacity: 1,delay: 1400},300);
+	    }else if (act==1){
+	    	$(".set2_1").css({scale: 0.1}).transition({opacity: 1,scale: 1,delay: 300},1000,"easeOutBack");
+	    	$(".set2_4").css({opacity: 1});
+	    	$(".set2_3").css({x: '-20px'}).transition({x:'0',opacity: 1,delay: 800},500);
+	    	$(".set2_5").css({x: '+20px'}).transition({x:'0',opacity: 1,delay: 1000},600);
+	    	$(".set2_6").css({x: '+20px'}).transition({x:'0',opacity: 1,delay: 1100},600);
+	    	$(".set2_7").css({x: '+20px'}).transition({x:'0',opacity: 1,delay: 1200},600);
+	    	$(".set2_8").css({x: '+20px'}).transition({x:'0',opacity: 1,delay: 1300},600);
+	    	
+	    	$("#s2 .set2_2").css({opacity: 0,y: '-20px' }).transition({opacity: 1,y:'0',delay: 80},300);
+	    }else if (act==2){
+	    	$(".set3_1").css({y: '-10px'}).transition({y:'0',opacity: 1,delay: 300},500);
+	    	$(".set3_2").css({x: '-20px'}).transition({x:'0',opacity: 1,delay: 800},600);
+	    	$(".set3_3").css({x: '+20px'}).transition({x:'0',opacity: 1,delay: 800},600);
+	    	$(".set3_4").transition({opacity: 1,delay: 1300},1000);
+	    	$(".set3_5").transition({opacity: 1,delay: 1800},1000);
+	    	$(".set3_6").css({x: '-80px'}).transition({x:'0',opacity: 1,delay: 1100},600);
+	    	
+	    	$("#s2 .set2_2").css({opacity: 0,y: '-20px' }).transition({opacity: 1,y:'0',delay: 80},300);
+	    	
+	    }else if (act==3){
+	    	$(".set4_1").css({x: '+60px'}).transition({x:'0',opacity: 1,delay: 300},600);
+	    	$(".set4_2").css({x: '+60px'}).transition({x:'0',opacity: 1,delay: 300},600);
+	    	$(".set4_3").transition({opacity: 1,delay: 700},1000);
+	    	
+	    	$("#s2 .set2_2").css({opacity: 0,y: '-20px' }).transition({opacity: 1,y:'0',delay: 80},300);
+	    }else if (act==4){
+	    	$(".set5_1").css({x: '+60px'}).transition({x:'0',opacity: 1,delay: 300},600);
+	    	$(".set5_2").css({x: '+60px'}).transition({x:'0',opacity: 1,delay: 300},600);
+	    	$(".set5_3").transition({opacity: 1,delay: 700},1000);
+	    	
+	    	$("#s2 .set2_2").css({opacity: 0,y: '-20px' }).transition({opacity: 1,y:'0',delay: 80},300);
+	    }else if (act==5){
+	    	$(".set6_1").css({x: '-60px'}).transition({x:'0',opacity: 1,delay: 300},600);
+	    	$(".set6_2").css({x: '-60px'}).transition({x:'0',opacity: 1,delay: 300},600);
+	    	$(".set6_3").transition({opacity: 1,delay: 700},1000);
+	    	
+	    	$("#s2 .set2_2").css({opacity: 0,y: '-20px' }).transition({opacity: 1,y:'0',delay: 80},300);
+	    	
+	    	
+	    }else if (act==6){
+	        $(".set7_1").css({scale: 1.6,opacity: 0}).transition({scale: 1,opacity: 1,delay: 1500},500);
+	        $(".set7_2").css({opacity: 0}).transition({opacity: 1,delay: 1500},1500);
+	        $(".set7_3").css({opacity: 0, y: '-100px'}).transition({ y: '0',opacity: 1,delay: 500},1500);
+	        
+	        $(".set7_4").css({opacity: 0, x: '-100px'}).transition({ x: '0',opacity: 1,delay: 2000},1500);
+	        $(".set7_5").css({opacity: 0, x: '100px'}).transition({ x: '0',opacity: 1,delay: 2000},1500);
+	        $(".set7_6").css({opacity: 0, y: '-100px'}).transition({ y: '0',opacity: 1,delay: 2500},1500);
+	        $(".set7_7").css({opacity: 0, y: '100px'}).transition({ y: '0',opacity: 1,delay: 2500},1500);
+ 	    }
+	}
+	
+	function resetAll(){
+		$(".spic").css({opacity: 0});
+	}
+</script>
+
+<!-- Touch to play BGM. -->
+<script type="text/javascript">
+$('body').live("touchstart",function(e){  
+	document.getElementById('bgm').play();
+}, false);
+</script>
+
+<!-- 微信分享js -->
+<script type="text/javascript">
+var dataForWeixin = {
+		appId : "",
+		title : "新浪江苏观剧团",
+		TLImg : "http://jiangsu.sinaimg.cn/zt/s/xljsgjtty/images/ico.jpg",
+		desc : "话剧《最后14堂星期二的课》邀您感动国庆！ ",
+		url : "http://jiangsu.sina.com.cn/zt/s/xljsgjtty.html", //请填写分享出去的URL
+		TLTitle: "“新浪江苏观剧团”携话剧《最后14堂星期二的课》邀您感动国庆！ " //朋友圈文字
+
+	};
+
+	var onBridgeReady = function() {
+		
+		//发送给朋友、群组
+		WeixinJSBridge.on('menu:share:appmessage', function(argv) {
+			WeixinJSBridge.invoke('sendAppMessage', {
+				"appid" : dataForWeixin.appId,
+				"img_url" : dataForWeixin.TLImg, //图片
+				"title" : dataForWeixin.title, //标题
+				"desc" : dataForWeixin.desc, //分享内容
+				"link" : dataForWeixin.url,
+			},function(){
+				//alert("发送给朋友回调()");
+				//location.href = "http://www.baidu.com";
+			});
+		});
+		
+		//分享到朋友圈
+		WeixinJSBridge.on('menu:share:timeline', function(argv) {
+			WeixinJSBridge.invoke('shareTimeline', {
+				"appid" : dataForWeixin.appId,
+				"title" : dataForWeixin.TLTitle, //描述文字
+				"img_url" : dataForWeixin.TLImg, //图片
+				"link" : dataForWeixin.url,
+				"desc" : dataForWeixin.desc, //无用！必须存在！分享内容
+			}, function (){
+				//alert("分享到朋友圈回调()");
+				
+			});
+		});
+
+	};
+
+	if (document.addEventListener) {
+		document.addEventListener('WeixinJSBridgeReady', onBridgeReady, false);
+	} else if (document.attachEvent) {
+		document.attachEvent('WeixinJSBridgeReady', onBridgeReady);
+		document.attachEvent('onWeixinJSBridgeReady', onBridgeReady);
+	}
+</script>
+<!-- page Auto scale -->
+<script type="text/javascript">
+	$(function() {
+		var r = document.body.offsetWidth / 640;
+		$(".swiper-container").css("-webkit-transform", "scale(" + r + ")");
+		$("body").height( $(".swiper-container").height()*r );
+	});
+	$(window).resize(function() {
+		var r = document.body.offsetWidth / 640;
+		$(".swiper-container").css("-webkit-transform", "scale(" + r + ")");
+		$("body").height( $(".swiper-container").height()*r );
+		
+	});
+</script>
+</html>

@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="GB2312">
+<meta http-equiv="X-UA-Compatible" content="IE=8" />
+<title>请在此插入网页标题</title>
+<meta name="keywords" content="请在此插入关键词" />
+<meta name="description" content="请在此写入一段页面描述" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="viewport" content="width=device-width, user-scalable=yes, initial-scale=1.0"> 
+
+<!-- 
+<script src="http://jiangsu.sinaimg.cn/js/jquery1.11.1.min.js"></script>
+<script src="http://ria.city.sina.com.cn/s/g=base.js" type="text/javascript"></script>
+ -->
+<style type="text/css">
+body, ul, ol, li, p, h1, h2, h3, h4, h5, h6, table, td, th, form, fieldset, img, dl, dt, dd { margin:0; padding:0; }
+textarea, input, select, body { font-size:12px; }
+select, input { vertical-align:middle; }
+fieldset, img { border:0; }
+ul, ol { list-style:none; }
+img { border:0; }
+a { text-decoration:none; color:#000; }
+a:hover { color:#ffa10d; }
+.fl { float:left; display:inline; }
+.fr { float:right; display:inline; }
+.cb { clear:both; display:block; height:0px; overflow:hidden; width:100%; }
+.clearfix:after { clear:both; content:""; display:block; height:0; }
+</style>
+<style type="text/css">
+body{ background-color: #DDD;}
+.content{ width: 320px; margin: 0 auto; position: relative;} 
+#canvas{ border: 2px solid #000; cursor: default;
+-webkit-touch-callout: none;
+-webkit-user-select: none; 
+}
+.clear{ font-size: 30px; border: 2px solid #000;  margin-top: 6px; display: inline-block; padding:  0 10px; }
+</style>
+</head>
+<body>
+	<div id="p1">
+		<div class="content">
+		<canvas id="canvas" width="320" height="400"  onselectstart="return false">请升级您的浏览器。</canvas>
+		<div class="clear" onclick="clearCanvas()">清空</div>
+		</div>
+	</div>
+
+</body>
+
+
+<!-- canvas js -->
+<script type="text/javascript">
+(function() {
+	var j = "iVBORw0KGgoAAAANSUhEUgAAAGUAAAAnCAMAAAAhMnaaAAAC/VBMVEUAAADQyLPg2s24rIy3qom3qon8/Pr///+3qor///7////BtZm3qor///+2qYj///+3qon+/v38/Pvi3dDBtpr///7//v66rY63qoq9spT9/fy4q4u4rIz///////+4rIy4q4v+/v3+/v27r5HSyrbTzLj////Mw6z///63qoq3qoq4rIy2qYm4rIz////OxrDEuqC8sJK/tJe+s5a9spS5rI3///79/PvWz73t6uK5rY65rY7CuJzRybTNxa66ro+5rY3+/v24q4v////8/Pv9/fv8/Pr//v7////m4tbMxK3Lw6zq593HvaS6ro/Px7LFu6D5+PbSybX18u7y7+nq593v7OTSyrbGvKP08u3u7OS4rIy3q4q4q4u3qom2qYn9/fz////Y0b/r596/tJj////////////e2MnDuJ3b1cTx7ufWz73HvaXBt5y8sJLq5ty6ro/Wz73Mw6z////EuZ/Jv6b59/S4rIz39fG/s5bPx7L+/v3X0L7Qx7L+/v25rY7////GvaP9/Pv08+7PxrH+/v3////r6N////////+2qYjHvqXJwKfHvqX9/Pvl4NXu6+P////h3M7Z08Ld18jY0sHJwKfh3M/Fu6Hf2cr+/v3l4db18+/5+PX////c1cXn49jBtpvHvaTLwqvY0sD+/v7s6eC9spX39fHx7+nt6uL///+6ro/////Kwam7r5D////Y0sD39fG+s5W5rY76+fbZ0sH////r59/FuqD08u3IvqX9/fzUzLjf2svi3tHZ0sHg283DuZ3g283y7+nu7OTt6uL////i3dDMw6zJwKjKwKnl4dX29PC+s5bg2szPx7Hk4NTWzrzHvaO6ro/Px7He2crSyrbc1sfNxK3////j3tH6+fbr6N/f2cvUzbrTy7jSy7fPx7LMxK3UzbnHvqXDuJ3QyLPKwqr49/TVzrzRybXOxq/Y0sHJwKjb1MS/s5f7+vjGvKLBtprd18fo5Nrf2szEup/w7ebj39LX0L7z8uzx7+js6eBUyNMAAAAA4HRSTlMAAQMLBhMIuj0lBPcZqR/MOBwW/OfAoFkj/OyrmHtPQy0Z/v338O3r5HtrZmEoDvz35t7XyMUsIPnt3dXSysm8sYl1c1M5KRQL/vz79vTz7Ozo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";
+
+	function d(a) {
+		return document.getElementById(a)
+	}
+	function m() {
+		function a() {
+			"number" == typeof window.orientation && 0 !== window.orientation || "function" != typeof m || location.reload()
+		}
+		window.onorientationchange = a;
+		if ("number" == typeof window.orientation && 0 !== window.orientation) alert("请旋转您的手机为竖立状态，在横屏界面下无法操作！"), a();
+		else {
+			m = null;
+			var c = document.body.clientWidth,
+				b = c / 640;
+			document.body.style.fontSize = 16 * b + "px";
+			document.body.style.width = c + "px";
+			var n = d("canvas"),
+				e = d("paperLogo");
+			n.width = 590 * b;
+			n.height = 590 * b;
+			var f = new r(n);
+			f.b = c;
+			document.getElementById("clearCanvas").onclick = function() {
+				f.A();
+				p = 0;
+				k = ""
+			};
+			e.src = "data:image/png;base64," + j;
+			document.ontouchmove = function(b) {
+				b.preventDefault()
+			};
+			var l = 0,
+				h = d("palette"),
+				q = d("penColor");
+			d("btnPenColor").onclick = function() {
+				l ? (l = 0, h.style.display = "none") : (l = 1, h.style.display = "block")
+			};
+			h.onclick = function(b) {
+				b = b.target;
+				if ("LI" == b.tagName) {
+					var a = b.getAttribute("value");
+					f.color = a;
+					q.style.background = b.style.background;
+					l = 0;
+					h.style.display = "none"
+				}
+			};
+			d("shareBtn").onclick = function() {
+				if (0 == f.k) alert("别逗了，我怎么什么都没看到哪！");
+				else if (20 > f.k) alert("不要这么任性，这也太简洁了！");
+				else if (p == f.k && "" != k) g("share");
+				else {
+					p = f.k;
+					g("upload", "<p>生成图片中...</p>");
+					var b, a;
+					a = f.B("jpeg", .6);
+					"data:image/png" == a.substr(0, 14) ? (a = a.substr(22), b = "png") : (a = a.substr(23), b = "jpg");
+					"png" != b || t || !s || confirm("生成的图片为" + Math.round((a.length + 0) / 1024) + "k，是否上传？") ? (g("upload", "<p>上传图片中(共" + Math.round((a.length + 0) / 1024) + ")</p>"), u(a, b)) : g("editor")
+				}
+			};
+			d("toEditorBtn").onclick = function() {
+				g("editor")
+			};
+			(c = location.href.match(/\/(\d+)($|\?)/)) ? (g("show", "http://i0.peopleurl.cn/msgimage/weixin/" + c[1].substr(0, 25 == c[1].length ? 8 : 10) + "/" + c[1] + ".jpg"), window.localStorage && localStorage.onewordId == c[1] && (d("saveMemo").style.display = "block", setShareData("一个字形容这一年，我字写得怎样？也来晒一下你的书法吧！", "http://t.people.com.cn/wx/oneword/" + c[1], "http://i0.peopleurl.cn/msgimage/weixin/" + c[1].substr(0, 25 == c[1].length ? 8 : 10) + "/s_" + c[1] + ".jpg"))) : g("editor")
+		}
+	}
+	function u(a, c) {
+		var b = new XMLHttpRequest;
+		c = c || "jpg";
+		b.onreadystatechange = function() {
+			if (4 == b.readyState && 200 == b.status) {
+				var a = b.responseText;
+				a && /^\d+$/.test(a) ? (k = "http://i0.peopleurl.cn/msgimage/weixin/" + a.substr(0, 25 == a.length ? 8 : 10) + "/s_" + a + ".jpg", setShareData("一个字形容这一年，我字写得怎样？也来晒一下你的书法吧！", "http://t.people.com.cn/wx/oneword/" + a, k), g("share"), window.localStorage && (localStorage.onewordId = a)) : (alert("上传失败，请稍后再试！"), g("editor"))
+			} else 4 == b.readyState && 200 !== b.status && (alert("网络忙，请稍后再试！code:" + b.status), g("editor"))
+		};
+		b.ontimeout = function() {
+			alert("上传超时，请在较好的网络环境中再试！");
+			g("editor")
+		};
+		b.upload && (b.upload.onprogress = function(a) {
+			a.lengthComputable && g("upload", "<p>图片上传中<span>(共" + Math.round(a.total / 1024) + "k/进度" + Math.round(a.loaded / a.total * 100) + "%)</span></p>")
+		});
+		b.open("POST", "/weixinImageUpload.action", !0);
+		b.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+		a = "dataStr=" + encodeURIComponent(a) + "&type=" + c;
+		g("upload", "<p>图片上传中(" + Math.round(a.length / 1024) + "k)...</p>");
+		b.send(a)
+	}
+	function g(a, c) {
+		"upload" == a && "" != c ? (h(), d("editorPage").style.display = "block", d("uploadPage").style.display = "block", d("uploadPage").innerHTML = c) : "editor" == a ? -1 !== navigator.userAgent.indexOf("MSIE") ? document.write('<div style="font-size:2em;text-align:center;padding:2em;">需要使用IE 11以上版本浏览器，或者使用Chrome、Firefox等支持HTML5的浏览器。</div>') : (h(), d("editorPage").style.display = "block") : "show" == a && "" != c ? (h(), d("showPage").style.display = "block", d("showImg").src = c) : "share" == a && (h(), d("editorPage").style.display = "block", d("shareAlert").style.display = "block", setTimeout(function() {
+			d("shareAlert").style.display = "none"
+		}, 15E3))
+	}
+	function h() {
+		d("editorPage").style.display = d("uploadPage").style.display = d("showPage").style.display = "none"
+	}
+	function r(a) {
+		if (a.nodeType) this.canvas = a;
+		else if ("string" == typeof a) this.canvas = document.getElementById(a);
+		else return;
+		this.C()
+	}
+	var q = navigator.userAgent.match(/ OS (\d+).*? Mac OS/) || !1,
+		k = "",
+		p = 0,
+		t = -1 !== navigator.userAgent.indexOf("NetType/WIFI"),
+		s = -1 !== navigator.userAgent.indexOf("Messenger");
+	s && "t.people.com.cn" != location.host ? location.href = "http://t.people.com.cn/wx/oneword" : (window.console && window.console.log && console.log("Copyright by people.cn"), r.prototype = {
+		lineWidth: 1,
+		color: "rgba(0,0,0, .6)",
+		c: 8,
+		b: 320,
+		v: "/microblog-v3/2014subject/1216_oneword/images/paper.jpg",
+		k: 0,
+		C: function() {
+			var a = this;
+			if (this.canvas.getContext) {
+				this.a = this.canvas.getContext("2d");
+				this.a.strokeStyle = this.color;
+				this.a.fillStyle = this.color;
+				this.h(this.canvas, "selectstart", function() {
+					return !1
+				});
+				this.o = new Image;
+				this.o.src = this.v;
+				this.p = new Image;
+				this.p.src = "data:image/png;base64," + j;
+				var c = function(b) {
+						var d, e;
+						if ("touchstart" == b.type) {
+							if (2 <= b.touches.length) return;
+							d = b.touches[0].pageX;
+							e = b.touches[0].pageY;
+							a.f(a.canvas, "mousedown", c)
+						} else d = b.pageX, e = b.pageY;
+						a.D(d, e, b.type);
+						b.preventDefault()
+					};
+				this.h(this.canvas, "touchstart", c);
+				this.h(this.canvas, "mousedown", c)
+			}
+		},
+		D: function(a, c, b) {
+			var d = this;
+			this.i = this.canvas.getBoundingClientRect();
+			this.i = {
+				left: this.i.left + (window.scrollX || window.pageXOffset),
+				top: this.i.top + (window.scrollY || window.pageYOffset)
+			};
+			window.getSelection() ? window.getSelection().removeAllRanges() : document.selection.empty();
+			this.a.moveTo(a - this.i.left, c - this.i.top);
+			this.e = null;
+			this.s = 0;
+			this.d = [];
+			this.lineWidth = this.c / 2 * (this.b / 320);
+			this.g && (this.f(document, "mousemove", this.g), this.f(document, "touchmove", this.g), this.f(document, "mouseup", this.j), this.f(document, "touchend", this.j));
+			this.g = function(a) {
+				var b, c;
+				if ("touchmove" == a.type) {
+					if (2 <= a.touches.length) return;
+					b = a.touches[0].pageX;
+					c = a.touches[0].pageY
+				} else b = a.pageX, c = a.pageY;
+				d.t(b, c);
+				a.preventDefault()
+			};
+			this.j = function() {
+				d.F()
+			};
+			"touchstart" == b ? (this.h(document, "touchmove", this.g), this.h(document, "touchend", this.j)) : (this.h(document, "mousemove", this.g), this.h(document, "mouseup", this.j));
+			this.w();
+			this.t(a, c)
+		},
+		t: function(a, c) {
+			var b;
+			b = 0;
+			a -= this.i.left;
+			c -= this.i.top;
+			if (this.d.length && (b = this.d[this.d.length - 1], b = Math.sqrt((b.x - a) * (b.x - a) + (b.y - c) * (b.y - c)), 0 == b)) return;
+			this.k++;
+			this.d.push({
+				x: a,
+				y: c,
+				r: b
+			});
+			3 <= this.d.length && (b = this.d.shift(), this.q(b))
+		},
+		q: function(a, c) {
+			var b = a.x,
+				d = a.y,
+				e = a.r,
+				f = q ? 4 : 2;
+			if (!this.e || 0 !== e) {
+				var g = this.d.length ? this.d[0] : null;
+				if (e) {
+					this.a.moveTo(this.e.x, this.e.y);
+					if (!this.s && (this.s = 1, g && e > g.r * f)) for (e /= 4, f = 1; 4 >= f; f++) this.u(b + f / 4 * (this.e.x - b), d + f / 4 * (this.e.y - d));
+					c || (c = e < .003125 * this.b ? this.b / 320 * this.c * 1.625 : e < .00625 * this.b ? this.b / 320 * this.c * 1.375 : e < .009375 * this.b ? this.b / 320 * this.c * 1.25 : e < .015625 * this.b ? this.b / 320 * this.c * 1.125 : e < .021875 * this.b ? this.b / 320 * this.c : e < .028125 * this.b ? this.b / 320 * this.c * .875 : e < .034375 * this.b ? this.b / 320 * this.c * .75 : e < .046875 * this.b ? this.b / 320 * this.c * .625 : e < .0625 * this.b ? this.b / 320 * this.c * .5 : this.b / 320 * this.c * .375);
+					this.n = c;
+					Math.abs(this.lineWidth - this.n) > this.b / 320 * this.c * .025 && (this.lineWidth -= (this.lineWidth - this.n) / 8, this.a.lineWidth = this.lineWidth)
+				}
+				this.e = a;
+				this.u(b, d)
+			}
+		},
+		F: function() {
+			this.f(document, "mousemove", this.g);
+			this.f(document, "touchmove", this.g);
+			this.f(document, "mouseup", this.j);
+			this.f(document, "touchend", this.j);
+			--this.a.lineWidth;
+			for (var a; this.d.length;) a = this.d.shift(), this.q(a, this.b / 320 * this.c / 4)
+		},
+		A: function() {
+			this.e = null;
+			this.k = 0;
+			this.a.clearRect(0, 0, this.canvas.width, this.canvas.height);
+			this.a.beginPath()
+		},
+		u: function(a, c) {
+			var b, d, e;
+			this.a.fillStyle = this.color;
+			this.a.strokeStyle = this.color;
+			this.a.lineTo(this.e.x, this.e.y);
+			this.a.stroke();
+			this.a.beginPath();
+			this.a.strokeStyle = "rgba(0, 0, 0, 0)";
+			if (this.l || this.m) if (b = this.l - a, d = this.m - c, e = Math.sqrt((this.l - a) * (this.l - a) + (this.m - c) * (this.m - c)), Math.abs(e) > this.lineWidth / 3) {
+				e = Math.floor(Math.abs(e) / (this.lineWidth / 3));
+				for (var f = 1; f <= e; f++) Math.abs(this.lineWidth - this.n) > this.b / 320 * this.c * .025 && (this.lineWidth -= Math.round(this.lineWidth - this.n) / 8, this.a.lineWidth = this.lineWidth), this.a.arc(this.l - f / e * b, this.m - f / e * d, this.lineWidth, 0, 2 * Math.PI), this.a.fill(), this.a.stroke(), this.a.beginPath()
+			}
+			this.a.arc(a, c, this.lineWidth, 0, 2 * Math.PI);
+			this.a.fill();
+			this.a.stroke();
+			this.a.beginPath();
+			this.l = a;
+			this.m = c
+		},
+		w: function() {
+			this.m = this.l = 0
+		},
+		h: function(a, c, b) {
+			a.attachEvent ? a.attachEvent("on" + c, b) : a.addEventListener(c, b, !1)
+		},
+		f: function(a, c, b) {
+			a.detachEvent ? a.detachEvent("on" + c, b) : a.removeEventListener(c, b, !1)
+		},
+		B: function(a, c) {
+			var b;
+			var d;
+			if (this.p.complete && this.o.complete) {
+				b = a || "png";
+				d = c || .7;
+				var e = document.createElement("canvas");
+				e.width = e.height = 590;
+				var f = e.getContext("2d");
+				f.drawImage(this.o, 0, 0, 590, 590);
+				f.drawImage(this.canvas, 0, 0, 590, 590);
+				f.drawImage(this.p, 19, 16, 101, 39);
+				b = e.toDataURL("image/" + b, d)
+			} else b = "";
+			return b
+		}
+	}, m())
+})();
+</script>
+
+</html>

@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="cache-control" content="no-cache"/>
+<meta name="format-detection" content="telephone=no"/>
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0"> 
+<title>2014微博之夜</title>
+<meta name="keywords" content="微博之夜,时尚,南京移动,四奇传媒,MARUI,1912街区" />
+<meta name="description" content="2014微博之夜南京1912街区" />
+<script src="http://jiangsu.sinaimg.cn/js/jquery1.11.1.min.js"></script>
+<!-- 
+<script src="http://ria.city.sina.com.cn/s/g=base.js" type="text/javascript"></script>
+ -->
+<script src="http://jiangsu.sinaimg.cn/js/jquery.transit.min.js"></script>
+<link rel="stylesheet" href="http://jiangsu.sinaimg.cn/js/idangerous.swiper.css">
+<script src="http://jiangsu.sinaimg.cn/js/idangerous.swiper.min.js"></script>
+<style type="text/css">
+body, ul, ol, li, p, h1, h2, h3, h4, h5, h6, table, td, th, form, fieldset, img, dl, dt, dd { margin:0; padding:0; }
+textarea, input, select, body { font-size:12px; }
+select, input { vertical-align:middle; }
+fieldset, img { border:0; }
+ul, ol { list-style:none; }
+img { border:0; }
+a { text-decoration:none; color:#000; }
+a:hover { color:#ffa10d; }
+.fl { float:left; display:inline; }
+.fr { float:right; display:inline; }
+.cb { clear:both; display:block; height:0px; overflow:hidden; width:100%; }
+.clearfix:after { clear:both; content:""; display:block; height:0; }
+</style>
+<!-- 自适应缩放css -->
+<style type="text/css">
+body{ overflow-x: hidden; background-color: #000; }
+#base-container{ width: 640px; height: 1008px; -webkit-transform-origin: top left; margin: 0; background-color: #fefcef; position: relative; overflow: hidden;}
+.swiper-wrapper *{ -webkit-backface-visibility: hidden; } /* 避免ip4Safari闪动 */
+.page-provider{ position:absolute;top:0; text-align: center; width: 100%; font-size: 24px;line-height: 80px; color: #e5d2d4; }
+.page-provider#page-provider-bottom{ top:auto; bottom: 0; }
+.swiper-slide{ width: 640px; height: 1008px; position: relative; overflow: hidden; }
+</style>
+<style type="text/css">
+.abscenter{ position: absolute; top: 0; right: 0; bottom: 0; left: 0; margin: auto;  }
+#base-container{ color:#FFF; background-image: url("http://s3img.city.sina.com.cn/activity/common/large/7f34adc67a6c10033a26a92e63a26cd2.jpg"); background-size: cover;}
+#s1{  }
+#s2{  }
+#s3{  }
+#s4{  }
+#s5{  }
+
+.swiper-2{ padding:60px 0; width: 640px; height: 100px; }
+.swiper-2 .swiper-slide{ width: 100px; height: 100px; -webkit-transform: scale(0.8); -webkit-transition: all 0.4s;  padding: 0 20px;}
+.swiper-2 .swiper-slide img{ width: 100px; height: 100px; }
+.swiper-2 .swiper-slide-active{ -webkit-transform: scale(1.1); }
+
+.swiper-3{ width: 640px; height: 500px; color: #FFF; }
+.swiper-3 .swiper-slide{ width: 398px; height: 410px;  -webkit-transform: scale(0.8); opacity:0.4; -webkit-transition: all 0.4s;border-radius: 10px;background-color: rgba(255,255,255,0.2);}
+
+.swiper-3 .swiper-slide-active{ -webkit-transform: scale(1); opacity:1; }
+
+.swiper-3 .swiper-slide .photo{ margin: 50px auto 20px; display:block;  border-radius: 50%; }
+.swiper-3 .swiper-slide .zhuangshi{ position: absolute; left: 79px; top: 273px; }
+
+.swiper-3 .swiper-slide .name{ font-size: 24px; font-weight: bold; text-align: center; margin-bottom: 57px;}
+.swiper-3 .swiper-slide .text1{ font-size: 18px; text-align: center; margin-bottom: 20px;}
+.swiper-3 .swiper-slide .text2{ font-size: 24px; font-weight: bold; text-align: center;}
+.swiper-3 .swiper-slide .btn{ position: absolute;color: #FFF;font-size: 16px;text-align: center;left: 172px;top: 445px;width: 156px; height: 38px; line-height: 38px; background-color: #9d2a24;}
+
+
+.loadingPage{ position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 2; background-color: #171020; color: #FFF; }
+.loadingPage .centerbox{ top: 0;right: 0;bottom: 0;left: 0;margin: auto;position: absolute;width: 230px;height: 228px;text-align: center; }
+.loadingPage .title{ font-size: 30px; margin-bottom: 20px; }
+.loadingPage .txt{ font-size: 14px; margin-top: 10px; }
+
+.btnTop img, .btnBottom img{padding: 10px 20px;background-color: RGBA(0,0,0,0.145);border-radius: 8px;}
+.btnTop img{-webkit-transform: rotateZ(180deg);}
+
+.btnBottom{position:absolute; bottom:20px; text-align:center; width:640px;-webkit-animation-name:btnBottom;-webkit-animation-duration:1.8s;-webkit-animation-timing-function:linear;-webkit-animation-delay:1s;-webkit-animation-iteration-count:infinite;-webkit-animation-direction:normal;-webkit-animation-play-state:running;-webkit-transform: translateZ(0);-moz-transform: translateZ(0);-ms-transform: translateZ(0);transform: translateZ(0);}
+
+@-webkit-keyframes btnBottom /* Safari and Chrome */
+{
+0% {-webkit-transform:translateY(0px); opacity: 0;}
+90% { opacity: 1;}
+100% {-webkit-transform:translateY(-25px); opacity: 0;}
+}
+.btnTop{position:absolute; top:20px; text-align:center; width:640px;-webkit-animation-name:btnTop;-webkit-animation-duration:1.8s;-webkit-animation-timing-function:linear;-webkit-animation-delay:1s;-webkit-animation-iteration-count:infinite;-webkit-animation-direction:normal;-webkit-animation-play-state:running;-webkit-transform: translateZ(0);-moz-transform: translateZ(0);-ms-transform: translateZ(0);transform: translateZ(0);}
+
+@-webkit-keyframes btnTop /* Safari and Chrome */
+{
+0% {-webkit-transform:translateY(0px); opacity: 0;}
+90% { opacity: 1;}
+100% {-webkit-transform:translateY(25px); opacity: 0;}
+}
+
+.abs{ position: absolute;}
+.e1_1{ left: 104px; top: 116px; }
+.e1_2{ left: 203px; top: 545px; }
+.e2_2{ position:absolute; left: 0; top: 50px; }
+.e3_1{ position:absolute; left: 106px; top: 51px; }
+.e4_1{ left: 106px; top: 51px; }
+.e4_2{ left: 134px;top: 206px;width: 383px;height: 634px;overflow-y: scroll; }
+
+
+.bgm-btn{ position:absolute; top: 10px; left: 10px; zoom: 0.75; width: 72px; height: 72px; background-image: url("http://s3img.city.sina.com.cn/activity/common/large/9f9acca088ab3e67f12eb612bdd12c07.png"); z-index: 1;}
+.bgm-btn.mut{ background-position: 0px -72px; }
+
+
+
+#signal1{ -webkit-animation-name:fade;-webkit-animation-duration:0.72s;-webkit-animation-timing-function:ease-in-out;
+-webkit-animation-iteration-count:infinite;-webkit-animation-direction:alternate; }
+#signal2{ -webkit-animation-name:fade;-webkit-animation-duration:1.07s;-webkit-animation-timing-function:ease-in-out;
+-webkit-animation-delay: 0.33s;
+-webkit-animation-iteration-count:infinite;-webkit-animation-direction:alternate; }
+
+@-webkit-keyframes fade{
+from { opacity: 0;}
+to   { opacity: 1;}
+}
+@keyframes fade{
+from { opacity: 0;}
+to   { opacity: 1;}
+}
+</style>
+<script type="text/javascript">
+var mySwiper;
+var swiperNested1;
+var swiperNested2;
+</script>
+
+</head>
+<body ontouchmove="event.preventDefault()"> <!-- 阻止ios浏览器整页上下滑动 -->
+	<!-- 
+	* 说明：
+	* 多页面滑动模板，适用于 类ppt 页面
+	* 页面 640x1008 按宽度缩放
+	* 使用 idangerous.swiper 插件切换页面 ，参数请在下方 【Initialize swiper】中自行更改
+	*
+	 -->
+<audio id="bgm" src="http://jiangsu.sinaimg.cn/zt/s/music/The_Dawn.mp3" autoplay="autoplay" loop style="display: none; width: 0; height: 0;"></audio>
+
+<div class="loadingPage">
+	<div class="centerbox">
+
+		<svg version="1.0" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 width="160px" height="120px" viewBox="0 0 529 381" enable-background="new 0 0 529 381" xml:space="preserve">
+<g>
+	<g>
+		<path fill="#FFFFFF" d="M216.92,178.16c28.56-2.99,58.51,0.37,84.3,13.59c14.41,7.47,27.6,18.81,34.01,34.04
+			c5.57,12.7,5.23,27.6-0.18,40.29c-7.5,18.09-22.49,31.96-38.86,42.1c-28.26,17.14-61.8,24.58-94.67,23.7
+			c-25.77-1.08-52.32-7.37-73.17-23.21c-12.43-9.45-22.22-23.32-23.96-39.12c-2.01-17.1,5.4-33.98,16.49-46.66
+			c16.62-19.01,39.77-31.24,63.72-38.35C195.16,181.46,205.98,179.3,216.92,178.16z M207.94,211.09
+			c-19.7,2.05-38.91,12.13-50.28,28.58c-7.99,11.46-11.69,26.27-8.27,39.99c3.29,14.44,13.9,26.52,27.02,33.04
+			c27.19,13.95,63.1,6.77,83.45-15.84c8.9-9.86,14.63-22.93,14.22-36.35c-0.2-13.34-6.6-26.25-16.67-34.9
+			C244.02,213.86,225.43,209.29,207.94,211.09z"/>
+	</g>
+	<path fill="#FFFFFF" d="M221.84,245.73c4.67-1.96,11.21,0.44,12.02,5.82c0.92,6.81-7.08,11.88-13.19,9.92
+		c-3.07-0.86-5.59-3.72-5.63-6.98C214.93,250.42,218.16,246.99,221.84,245.73z"/>
+	<path fill="#FFFFFF" d="M186.92,255.04c7.54-2.19,16.49-0.84,22.19,4.85c4.61,4.39,6.19,11.47,4.16,17.47
+		c-4.96,15.72-28.04,22.34-39.69,10.06c-3.93-4.15-5.42-10.35-3.91-15.85C171.76,263.4,178.95,257.23,186.92,255.04z"/>
+</g>
+<g>
+	<path id="signal2" fill="#E67817" d="M337.91,44.17c11.58-1.25,23.24,0.38,34.41,3.47c24.25,6.72,47.08,20.39,62.6,40.44
+		c6.89,8.97,12.11,19.31,14.63,30.38c2.6,11.47,2.84,23.31,2.8,35.02c-0.09,10.21-1.02,20.85-5.84,30.04
+		c-2.79,5.71-10.18,6.82-15.82,5.73c-5.87-1.35-9.31-7.25-10.26-12.82c-1.35-6.37,1.15-12.62,1.63-18.93
+		c1.55-15.12-2.21-30.37-8.49-44.05c-6.48-14.04-18.07-25.75-32.47-31.59c-11.83-5.03-24.83-6.64-37.6-6.07
+		c-7.21-0.02-15.21,1.47-21.66-2.59c-6.22-3.93-6.24-12.75-3.5-18.8C322.03,47.3,330.62,45.2,337.91,44.17z"/>
+	<path id="signal1"  fill="#E67817" d="M341.9,99.18c10.27-2.04,21.38-1.66,30.92,3c11.59,5.58,20.12,16.2,25.13,27.86
+		c2.99,7.94,3.7,16.76,2.21,25.11c-1.31,6.46-4.41,13.23-10.37,16.6c-4.36,1.96-10.63,2.55-13.89-1.66
+		c-3.62-4.34-2.83-10.38-2.36-15.59c0.85-7.74-0.52-16.23-5.81-22.23c-4.57-5.13-11.45-7.78-18.21-8.08
+		c-4.52-0.29-9.39,0.21-13.44-2.23c-6.98-3.37-8.22-14.27-2.36-19.25C335.99,100.69,338.99,99.8,341.9,99.18z"/>
+</g>
+<g>
+	<g>
+		<path fill="#DA251C" d="M213.89,89.1c10.28-1.17,21.62-0.68,30.2,5.78c10.7,7.96,13.9,22.9,10.8,35.37
+			c-1.21,5.09-4.73,9.67-4.4,15.07c0.1,2.92,3.44,3.51,5.72,2.81c4.12-1.2,7.73-3.63,11.72-5.19c15.04-6.18,31.35-9.08,47.58-9.18
+			c8.66-0.33,17.78,0.69,25.14,5.62c12.3,7.73,17.75,24.45,12.72,38c-1.76,4.95-6.32,8.28-8.06,13.23
+			c-0.99,2.76,1.19,5.54,3.86,6.13c5.15,1.48,10.57,1.83,15.69,3.45c11.02,3.16,21.87,8.74,28.82,18.14
+			c7.44,9.82,9.54,22.84,7.64,34.82c-4.42,25.84-19.25,49.22-39.28,65.87c-25.14,21.03-56.65,33.01-88.53,39.23
+			c-36.65,6.78-74.72,6.42-111.12-1.79c-27.07-6.41-53.92-17.22-74.8-36.06c-12.98-11.61-22.96-26.84-27.1-43.85
+			c-2.93-12.09-3.17-24.81-0.9-37.03c2.74-12.85,8.27-24.9,14.68-36.3c9.99-17.36,22.54-33.14,36.2-47.75
+			c14.49-15.26,30.21-29.43,47.4-41.6C174.56,101.93,193.23,91.66,213.89,89.1z M216.92,178.16c-10.94,1.14-21.76,3.3-32.32,6.38
+			c-23.95,7.11-47.1,19.34-63.72,38.35c-11.09,12.68-18.5,29.56-16.49,46.66c1.74,15.8,11.53,29.67,23.96,39.12
+			c20.85,15.84,47.4,22.13,73.17,23.21c32.87,0.88,66.41-6.56,94.67-23.7c16.37-10.14,31.36-24.01,38.86-42.1
+			c5.41-12.69,5.75-27.59,0.18-40.29c-6.41-15.23-19.6-26.57-34.01-34.04C275.43,178.53,245.48,175.17,216.92,178.16z"/>
+	</g>
+</g>
+<g>
+	<g>
+		<path fill="#0A0B0D" d="M207.94,211.09c17.49-1.8,36.08,2.77,49.47,14.52c10.07,8.65,16.47,21.56,16.67,34.9
+			c0.41,13.42-5.32,26.49-14.22,36.35c-20.35,22.61-56.26,29.79-83.45,15.84c-13.12-6.52-23.73-18.6-27.02-33.04
+			c-3.42-13.72,0.28-28.53,8.27-39.99C169.03,223.22,188.24,213.14,207.94,211.09z M221.84,245.73c-3.68,1.26-6.91,4.69-6.8,8.76
+			c0.04,3.26,2.56,6.12,5.63,6.98c6.11,1.96,14.11-3.11,13.19-9.92C233.05,246.17,226.51,243.77,221.84,245.73z M186.92,255.04
+			c-7.97,2.19-15.16,8.36-17.25,16.53c-1.51,5.5-0.02,11.7,3.91,15.85c11.65,12.28,34.73,5.66,39.69-10.06
+			c2.03-6,0.45-13.08-4.16-17.47C203.41,254.2,194.46,252.85,186.92,255.04z"/>
+	</g>
+</g>
+</svg>
+		<div class="txt">加载中...</div>
+	</div>
+</div>
+
+	 
+	<div class="swiper-container" id="base-container">
+	
+		<div class="swiper-wrapper">
+		    <!--First Slide-->
+			<div class="swiper-slide" id="s1" onclick="mySwiper.swipeNext()">
+				<img src="http://s3img.city.sina.com.cn/activity/common/large/6e8d9e0ea808e1566b0c66d6ab240e64.png">
+				<div class="btnBottom"><img src="http://jiangsu.sinaimg.cn/zt/s/dzwbqxz/images/up.png"></div>
+			</div>
+			
+			<!--Second Slide-->
+			<div class="swiper-slide" id="s2" onclick="mySwiper.swipeNext()">
+				<img class="e4_1 abs" src="http://s3img.city.sina.com.cn/activity/common/large/b8487b9011e711cf95f60255a3790c7b.png">
+				<div class="e4_2 abs" >
+					<img style="margin: 0 auto; padding: 300px 0 634px; display: block;" src="http://s3img.city.sina.com.cn/activity/common/large/291be3f27b624e05134cb2ebce45af79.png">
+				</div>
+				<script type="text/javascript">
+				/* 阻止冒泡 */
+				$(".e4_2").on("touchmove",function(e){
+			        e.stopPropagation();  
+				});
+				
+				</script>
+				
+				<div class="btnTop"><img src="http://jiangsu.sinaimg.cn/zt/s/dzwbqxz/images/up.png"></div>
+				<div class="btnBottom"><img src="http://jiangsu.sinaimg.cn/zt/s/dzwbqxz/images/up.png"></div>
+			</div>
+			
+			<!--Third Slide-->
+			<div class="swiper-slide" id="s3">
+				<img class="e3_1" src="http://s3img.city.sina.com.cn/activity/common/large/0aa3a982b13cd8e4b21af7a93e3733d1.png">
+				<div class="abscenter" style="width: 100%; height: 638px;">
+					<!-- 人物头像 -->
+					<div class="swiper-container swiper-2">
+						<div class="swiper-wrapper">
+							<div class="swiper-slide"><img src="http://s3img.city.sina.com.cn/activity/common/large/d96ae05ee98f2316dfab4aa690983a52.png"></div>
+							<div class="swiper-slide"><img src="http://s3img.city.sina.com.cn/activity/common/large/dc8e9129fe55dd1a80d961a0befac163.png"></div>
+							<div class="swiper-slide"><img src="http://s3img.city.sina.com.cn/activity/common/large/182f18ccddeb13b9895b9c08ab0fd55c.png"></div>
+							<div class="swiper-slide"><img src="http://s3img.city.sina.com.cn/activity/common/large/e039f9564b1c43a258b155247ca5b631.png"></div>
+							<div class="swiper-slide"><img src="http://s3img.city.sina.com.cn/activity/common/large/643cbc019315e95900611b8ab063d134.png"></div>
+						</div>
+					</div>
+					
+					<!-- 人物卡片 -->
+					<div class="swiper-container swiper-3">
+						<div class="swiper-wrapper">
+							
+							<div class="swiper-slide">
+								<img class="photo" src="http://s3img.city.sina.com.cn/activity/common/large/d96ae05ee98f2316dfab4aa690983a52.png">
+								
+								<div class="name">吴文璟William_Wu</div>
+								<div class="text1">CCTV梦想中国冠军    演员 歌手</div>
+								<div class="text2">吴文璟最新单曲《十字路口》</div>
+							</div>
+							
+							<div class="swiper-slide">
+								<img class="photo" src="http://s3img.city.sina.com.cn/activity/common/large/dc8e9129fe55dd1a80d961a0befac163.png">
+								
+								<div class="name">邓煌</div>
+								<div class="text1">江苏南京FM97.5</div>
+								<div class="text2">《阳光倾城》女主播</div>
+							</div>
+							
+							<div class="swiper-slide">
+								<img class="photo" src="http://s3img.city.sina.com.cn/activity/common/large/182f18ccddeb13b9895b9c08ab0fd55c.png">
+								
+								<div class="name">花清晨</div>
+								<div class="text1">情感作家</div>
+								<div class="text2">《寻爱上弦月》《美人在侧花满堂》</div>
+							</div>
+							
+							<div class="swiper-slide">
+								<img class="photo" src="http://s3img.city.sina.com.cn/activity/common/large/e039f9564b1c43a258b155247ca5b631.png">
+								
+								<div class="name">碧晴碧小晴</div>
+								<div class="text1">新锐作家</div>
+								<div class="text2">《施主快醒醒》《良相，不要走》</div>
+							</div>
+							
+							<div class="swiper-slide">
+								<img class="photo" src="http://s3img.city.sina.com.cn/activity/common/large/643cbc019315e95900611b8ab063d134.png">
+								
+								<div class="name">阳光tino</div>
+								<div class="text1">江苏人民广播电台</div>
+								<div class="text2">主持人杨光</div>
+							</div>
+							
+							
+							
+							
+							
+						</div>
+					</div>
+					
+					
+				</div>
+				
+				<div class="btnTop"><img src="http://jiangsu.sinaimg.cn/zt/s/dzwbqxz/images/up.png"></div>
+				<div class="btnBottom"><img src="http://jiangsu.sinaimg.cn/zt/s/dzwbqxz/images/up.png"></div>
+			</div>
+			
+			<!--4 Slide-->
+			<div class="swiper-slide" id="s4">
+				<img class="e2_2" src="http://s3img.city.sina.com.cn/activity/common/large/6fef22c5e68bed9e049badb658d5c41e.png">
+
+				<div class="btnTop"><img src="http://jiangsu.sinaimg.cn/zt/s/dzwbqxz/images/up.png"></div>
+				<div class="btnBottom"><img src="http://jiangsu.sinaimg.cn/zt/s/dzwbqxz/images/up.png"></div>
+			</div>
+			
+			<!--5 Slide-->
+			<div class="swiper-slide" id="s5" onclick="$('.cover').fadeIn();">
+				<img class="e1_1 abs" src="http://s3img.city.sina.com.cn/activity/common/large/b409daee747c56b28e5b8921976be01a.png">
+				<img class="e1_2 abs" src="http://s3img.city.sina.com.cn/activity/common/large/685e3ebc26bb3c5f4789b68d3eb2b531.png">
+
+				<div class="btnTop"><img src="http://jiangsu.sinaimg.cn/zt/s/dzwbqxz/images/up.png"></div>
+			</div>
+			<!--Etc..-->
+			
+		</div>
+		
+		<div class="bgm-btn"></div>
+		
+<!-- 弹出页 -->
+<style>
+.cover{   display: none;     position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-color: RGBA(0,0,0,0.9); -webkit-transform: translateZ(0); -moz-transform: translateZ(0); -ms-transform: translateZ(0); transform: translateZ(0); }
+.cover .arrow{ position: absolute; top: 0px; right: 30px; }
+.cover .continer{ position: absolute;top: 0;right: 0;bottom: 0;left: 0;margin: auto;width: 540px;height: 420px; }
+.cover .continer .text{ font-size: 30px;text-align: center;line-height: 54px; }
+.cover .continer .text .yellow{ font-size: 48px; color: #feb300; }
+.cover .continer .btn{ font-size: 37px;text-align: center;display: block;width: 186px;margin: 60px auto 0;padding: 10px 30px;background-color: #FC2121;box-shadow: 0px 8px 0 #A00B0B;border-radius: 10px;color: #FFF; }
+</style>
+<div class="cover">
+	<img class="arrow" src="http://s3img.city.sina.com.cn/activity/common/large/f318e2446f2cb322be5f06c7388bb52b.png">
+	<div class="continer">
+		<div class="text">
+			分享此邀请函至朋友圈<br/>
+			并截图给<span class="yellow">新浪江苏微信</span><br/>
+			即有机会获得<span class="yellow">价值2286元<br/>造型券</span>一张
+		</div>
+		<div class="btn" id="subscribeweixiBtn">关注我们</div>
+	</div>
+</div>
+		
+<script type="text/javascript">
+$("#subscribeweixiBtn").click(function(e){
+	window.open('http://mp.weixin.qq.com/s?__biz=MjM5MDI4MTUwMA==&mid=202383220&idx=1&sn=cc0130f26e992e3c1feb31eedbea9f85#rd');
+	e.stopPropagation();
+});
+
+$("#s5").bind("click",function(){
+	//$(this).fadeOut();
+	$(".cover").fadeIn(600,function(){
+		$(".cover").click(function(){
+			 $(this).unbind("click").fadeOut();
+		});
+	});
+});
+</script>
+<!-- end 弹出页  -->
+
+		
+	</div>
+</body>
+
+
+<!-- Initialize swiper -->
+<script type="text/javascript">
+	window.onload = function() {
+		mySwiper = new Swiper('.swiper-container',{
+			// options
+			mode:'vertical',
+			mousewheelControl: true,
+			keyboardControl: true,
+			onSlideChangeEnd : Swipercallback
+		});  
+		
+		swiperNested1 = new Swiper('.swiper-2',{
+			mode:'horizontal',//horizontal
+			slidesPerView : 'auto',
+			watchActiveIndex: true,
+			centeredSlides: true,
+			onSlideChangeEnd : Swiper2callback
+		});
+		swiperNested2 = new Swiper('.swiper-3',{
+			mode:'horizontal',//horizontal
+			slidesPerView : 'auto',
+			watchActiveIndex: true,
+			centeredSlides: true,
+			onSlideChangeEnd : Swiper3callback
+			
+		});
+		
+		$(".swiper-2 .swiper-slide").click(function() {
+			var index = $(this).index();
+			swiperNested1.swipeTo(index);
+			swiperNested2.swipeTo(index);
+		});
+	}
+	
+    var autoScroll;
+	/* SlideChangeEndCallback */
+	function Swipercallback(p){
+	    var act = p.activeIndex; //slideEndIndex
+	    resetAll();
+		$(".e4_2").scrollTop(0);
+	    clearInterval(autoScroll);
+	    if(act == 0 | act == -0){
+  			
+  		}else if( act == 1){
+  			$(".e4_1").css({opacity: 0, scale: 3}).transition({opacity: 1, scale: 1},300 ,"ease-out");
+  			$(".e4_2").css({opacity: 0, scale: 3,transform: 'perspective(100px) rotateX(7deg)'}).transition({opacity: 1, scale: 1,transform: 'perspective(100px) rotateX(3deg)',delay: 300},500 ,"ease-out", function() {
+ 				clearInterval(autoScroll);
+	  			autoScroll = setInterval(function() {
+  					var top = $(".e4_2").scrollTop();
+  					$(".e4_2").scrollTop(top+1);
+  					
+  					if (top >= 1120) {
+  						$(".e4_2").css({ opacity: 0}).scrollTop(0).transition({opacity:1},1200);
+					}
+				}, 16);
+	  			
+			});
+  			
+  			
+  		}else if( act == 4){
+  			$(".e1_1").css({opacity: 0, scale: 3}).transition({opacity: 1, scale: 1,delay: 100},300 ,"ease-out");
+  			$(".e1_2").css({opacity: 0, scale: 3}).transition({opacity: 1, scale: 1,delay: 400},300 ,"ease-out");
+  			
+  			setTimeout(function() {
+				$("#s5").click();
+			}, 2000);
+  		}
+	    
+	    
+	}
+	
+	function Swiper2callback(p) {
+	    var act = p.activeIndex; //slideEndIndex
+	    swiperNested2.swipeTo(act);
+	} 
+	function Swiper3callback(p) {
+	    var act = p.activeIndex; //slideEndIndex
+	    swiperNested1.swipeTo(act);
+	} 
+	
+	function resetAll(){
+		$(".swiper-wrapper .abs").css({opacity: 0});
+	}
+</script>
+<script type="text/javascript">
+document.onreadystatechange = subSomething;
+function subSomething(){
+	if(document.readyState == "complete"){ 
+		setTimeout(function(){
+            $(".loadingPage").fadeOut(200);
+           	var p = {activeIndex : 0};
+			Swipercallback(p);
+        },300);
+	}
+}
+</script>
+<!-- page Auto scale -->
+<script type="text/javascript">
+	$(function() {
+		pageAutoScale();
+	});
+	$(window).resize(function() {
+		pageAutoScale();
+	});
+	
+	function pageAutoScale(){
+		var r = document.body.offsetWidth / 640;
+		$("#base-container").css("-webkit-transform", "scale(" + r + ")");
+		$("body").height( window.innerHeight ); //修正整数页面高度
+		
+		$(".swiper-slider").css("height",parseInt(window.innerHeight / r) );  //调整页面高度
+		$("#base-container").css("height",parseInt(window.innerHeight / r) );  //调整页面高度
+		if (window.innerHeight<=1008*r) {  //当用户显示区域小于1008高度时，调整每页高度。
+			// $(".btnBottom").css("top",(window.innerHeight / r - parseInt($(".btnBottom").css("bottom")) ) );  //下滑动提示箭头位置始终距底
+		}
+	}
+</script>
+<!-- Touch to play BGM. -->
+<script type="text/javascript">
+
+var firstTouch = true;
+$('body').on("touchstart",function(e){
+	if ( firstTouch ) {
+		firstTouch = false;
+		document.getElementById('bgm').play();
+	}else{
+		return;
+	}
+});
+
+$(".bgm-btn").on("touchstart",function(e){  
+	//e.preventDefault();
+	//e.stopPropagation();
+	var dom = document.getElementById('bgm');
+	if( dom.paused){
+		dom.play();
+		$(".bgm-btn").removeClass("mut");
+	}else{
+		dom.pause();
+		$(".bgm-btn").addClass("mut");
+	}
+});
+
+
+function videoMutBGM() {
+	document.getElementById('bgm').pause();
+	$(".bgm-btn").addClass("mut");
+}
+
+</script>
+
+
+
+<!-- 微信分享js -->
+<script type="text/javascript">
+	var dataForWeixin = {
+		appId : "",
+		title : "中国移动和娱乐·2014新浪江苏微博之夜邀请函",
+		TLImg : "http://s3img.city.sina.com.cn/activity/common/large/c03d775e7aeb4b3ff31d5224dc61b34a.jpg",
+		desc : "年度盛典，不嗨不行！中国移动和娱乐·2014新浪江苏微博之夜邀您参加！",
+		url : document.location.href, //请填写分享出去的URL
+		TLTitle: "中国移动和娱乐·2014新浪江苏微博之夜邀您参加！" //朋友圈文字 iPhone max 30
+
+	};
+
+	var onBridgeReady = function() {
+		
+		//发送给朋友、群组
+		WeixinJSBridge.on('menu:share:appmessage', function(argv) {
+			WeixinJSBridge.invoke('sendAppMessage', {
+				"appid" : dataForWeixin.appId,
+				"img_url" : dataForWeixin.TLImg, //图片
+				"title" : dataForWeixin.title, //标题
+				"desc" : dataForWeixin.desc, //分享内容
+				"link" : dataForWeixin.url,
+			},function(){
+				//alert("发送给朋友回调()");
+				//location.href = "http://www.baidu.com";
+			});
+		});
+		
+		//分享到朋友圈
+		WeixinJSBridge.on('menu:share:timeline', function(argv) {
+			WeixinJSBridge.invoke('shareTimeline', {
+				"appid" : dataForWeixin.appId,
+				"title" : dataForWeixin.TLTitle, //描述文字
+				"img_url" : dataForWeixin.TLImg, //图片
+				"link" : dataForWeixin.url,
+				"desc" : dataForWeixin.desc, //无用！必须存在！分享内容
+			}, function (){
+				//alert("分享到朋友圈回调()");
+				
+			});
+		});
+
+	};
+
+	if (document.addEventListener) {
+		document.addEventListener('WeixinJSBridgeReady', onBridgeReady, false);
+	} else if (document.attachEvent) {
+		document.attachEvent('WeixinJSBridgeReady', onBridgeReady);
+		document.attachEvent('onWeixinJSBridgeReady', onBridgeReady);
+	}
+</script>
+</html>

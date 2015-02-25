@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=8" />
+<title>请在此插入网页标题</title>
+<script src="http://i2.sinaimg.cn/cj/dfz/js/base.js" type="text/javascript"></script>
+</head>
+
+<style>
+img {
+	width: 40px; height: 40px;
+	float: left;
+	cursor: pointer;
+	padding: 2px;
+	border-radius: 13px;
+}
+body {
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	user-select: none;
+}
+.none{
+	display: none;
+}
+</style>
+<body>
+	<div id="gameIcoBlock"></div>
+	<div id="timer">0</div>
+	<div>第<div id="currentLever">0</div>关</div>
+<input type="button" onclick="gamestart()" value="开始！"/>
+<input type="button" onclick="gamepause()" value="暂停">
+<input type="button" onclick="resetGame()" value="重置！">
+
+
+</body>
+<script type="text/javascript" src="./game.js"></script>
+</html>

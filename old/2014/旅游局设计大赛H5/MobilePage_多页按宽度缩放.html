@@ -1,0 +1,743 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="GB2312">
+<meta http-equiv="cache-control" content="no-cache"/>
+<meta name="format-detection" content="telephone=no"/>
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0"> 
+<title>“乐购江苏”旅游纪念品创意设计大赛</title>
+<meta name="keywords" content="乐购江苏,旅游纪念品,创意" />
+<meta name="description" content="“乐购江苏”旅游纪念品创意设计大赛" />
+<script src="http://i2.sinaimg.cn/cj/dfz/js/base.js" type="text/javascript"></script>
+<!-- 
+<script src="http://jiangsu.sinaimg.cn/js/jquery.transit.min.js"></script>
+ -->
+<link rel="stylesheet" href="http://jiangsu.sinaimg.cn/js/idangerous.swiper.css">
+<script src="http://jiangsu.sinaimg.cn/js/idangerous.swiper.min.js"></script>
+<style type="text/css">
+body, ul, ol, li, p, h1, h2, h3, h4, h5, h6, table, td, th, form, fieldset, img, dl, dt, dd { margin:0; padding:0; }
+textarea, input, select, body { font-size:12px; }
+select, input { vertical-align:middle; }
+fieldset, img { border:0; }
+ul, ol { list-style:none; }
+img { border:0; }
+a { text-decoration:none; color:#000; }
+a:hover { color:#ffa10d; }
+.fl { float:left; display:inline; }
+.fr { float:right; display:inline; }
+.cb { clear:both; display:block; height:0px; overflow:hidden; width:100%; }
+.clearfix:after { clear:both; content:""; display:block; height:0; }
+</style>
+<!-- 自适应缩放css -->
+<style type="text/css">
+body{ overflow-x: hidden; background-color: #ff8400; }
+.swiper-container{ width: 640px; height: 960px; -webkit-transform-origin: top left; margin: 0; background-color: #ff8400; }
+.swiper-wrapper *{ -webkit-backface-visibility: hidden; } /* 避免ip4Safari闪动 */
+.page-provider{ position:absolute;top:0; text-align: center; width: 100%; font-size: 24px;line-height: 80px; color: #e5d2d4; }
+.page-provider#page-provider-bottom{ top:auto; bottom: 0; }
+.swiper-slide{ width: 640px; height: 960px; position: relative; overflow: auto; }
+.abs{position: absolute;}
+</style>
+<!-- end 自适应缩放css -->
+<style type="text/css">
+#s1{ background-image: url("http://jiangsu.sinaimg.cn/2014/1107/U9263P1194DT20141107174437.jpg"); }
+#s2{ background-image: url("http://jiangsu.sinaimg.cn/2014/1107/U9263P1194DT20141107174438.jpg"); }
+#s3{ background-image: url("http://jiangsu.sinaimg.cn/2014/1107/U9263P1194DT20141107174630.jpg"); }
+#s4{ background-color:#6728bc;  height: auto; }
+
+#s1 .e1_1,#s1 .e1_2,#s1 .e1_3{ width: 150px; height: 150px;  top: 640px; cursor: pointer; display: block;}
+#s1 .e1_1{left: 65px;}
+#s1 .e1_2{left: 246px;}
+#s1 .e1_3{left: 426px;}
+
+#s4 .e4_1{ left:45px; top:302px;  font-size: 24px; color: #FFF; width: 544px;  }
+
+
+.tip_next{ left: 503px;top: 849px;width: 100px;height: 76px; cursor: pointer;}
+</style>
+<!-- Initialize swiper -->
+<script type="text/javascript">
+var mySwiper;
+window.onload = function() {
+	mySwiper = new Swiper('.swiper-container',{
+		// options
+		mode:'horizontal',
+		mousewheelControl: true,
+		onSlideChangeEnd : Swipercallback
+	});  
+}
+
+/* SlideChangeEndCallback */
+function Swipercallback(p){
+    var act = p.activeIndex; //slideEndIndex
+    if(act==3){
+		//加载用户信息
+		//登录
+		function openLoginDialog(){DFZ.APP.DialogLogin.open();$("#ui-dialog-title-1").html("新浪微博登录");}
+		var uinfo = sinaSSOManager.getSinaCookie();
+		if (!uinfo) { //判断登陆
+			h5_login();
+			return;
+		}
+	   	if (page3Loaded) {
+		}else{
+	    	fillWorks(); //填充作品列表
+	    	
+		}
+	   	
+    }
+}
+</script>
+<style type="text/css">
+.actZone{ width: 640px; background-color:#8839db; margin: 0 auto; position: relative;} 
+
+.workCards { padding: 0 13px; overflow: hidden;}
+.workCards .workTab {   }
+.workCards li {zoom:1.27; margin:0px 0px; width: 160px; height: 203px; background-image: url("http://jiangsu.sinaimg.cn/2014/1023/U9263P1194DT20141023174949.png"); position: relative; display: inline-block; }
+.workCards li .w_img,.workCards li .w_name,.workCards li .w_author,.workCards li .w_vote_count,.workCards li .w_voteLabel,.workCards li .w_voteCheckbox{ position: absolute;}
+.workCards li .w_img{ left: 5px; top: 5px; width: 148px; height: 111px; background-color: RGBA(0,255,0,0.5); }
+.workCards li .w_name { left: 8px; top: 120px; font-size: 14px; color: #ef575a; height: 16px; width: 146px; overflow: hidden;  background-color: #FFF;}
+.workCards li .w_name:HOVER{height: auto;padding: 8px;left: 0px;top: 112px;background-color: #FFE2E2;border-radius: 4px;}
+.workCards li .w_author { left: 8px; top: 143px; width: 85px; height: 14px; overflow: hidden;}
+.workCards li .w_vote_count { right: 28px; top: 143px; color: #ef575a; text-align: right;}
+.workCards li .w_voteLabel { left: 3px; top: 162px; width: 153px; height: 36px; cursor: pointer;}
+.workCards li .w_voteCheckbox { left: 17px; top: 11px; cursor: pointer; margin: 0px; left: 14px\9; top: 8px\9; }
+
+.pageSwitch{ text-align: center; margin: 20px 0; font-size: 24px;}
+.pageSwitch .pageNums{ display: inline;}
+.pageSwitch ul li{ display:inline-block; width: 65px; line-height:38px; margin:0 2px; text-align: center; cursor: pointer; color: #35235f;border: 2px solid #222;border-radius: 2px;}
+.pageSwitch ul li:HOVER{ background-color: #ac73d2; }
+.pageSwitch ul li.current{ color:#FFF; background-color:#35235f;  }
+.pageSwitch .pageInput{ width: 30px;  }
+
+.voteBtn{ margin: 0px auto; display: block; cursor: pointer; padding-bottom: 20px; }
+
+.layer2{ position: absolute; top: 0; left: 0; width: 100%; font-family: "microsoft yahei"; }
+.layer2 .bigWheel{ display:none; position:relative; width: 523px; height: 523px; margin: 170px auto; background-image:url("http://jiangsu.sinaimg.cn/2014/1024/U9263P1194DT20141024103603.png");  }
+.layer2 .bigWheel .closeBtn{ position: absolute; left: 445px; top: 26px; width: 40px; height: 40px; background-image: url("http://jiangsu.sinaimg.cn/zt/s/blank.gif"); cursor: pointer;}
+.layer2 .bigWheel .arrow{ position: absolute; left: 168px; top: 165px; cursor:pointer;}
+.layer2 .bigWheel .startBtn{ text-align: center; width:128px;color: #FFF; font-size:24px; font-weight: bold; left:198px; top: 244px; position:absolute; cursor: pointer; }
+.layer2 .bigWheel .startBtn:HOVER{ color: #ffcc46;}
+
+.layer2 .result_no{ position:absolute; left: 189px; top: 332px; width:254px; height:180px;  background-image: url("http://jiangsu.sinaimg.cn/2014/1024/U9263P1194DT20141024103604.png"); }
+.layer2 .result_no .closeBtn{ position: absolute; bottom:0; width: 100%; height: 80px; background-image: url("http://jiangsu.sinaimg.cn/zt/s/blank.gif"); cursor: pointer;}
+
+.layer2 .result_yes{ position:absolute; left: 189px; top: 312px; width:254px; height:226px;  background-image: url("http://jiangsu.sinaimg.cn/2014/1024/U9263P1194DT20141024103605.png"); }
+.layer2 .result_yes .priceText{ margin-top:46px; text-align: center; font-size: 15px; color: #8839db;}
+.layer2 .result_yes #u_name,.layer2 .result_yes #u_phone {	position: absolute;	border: none;	background: none;	left: 90px;	top: 106px;	width: 123px; font-size: 16px;}
+.layer2 .result_yes #u_phone {	top: 140px;}
+.layer2 .result_yes .submitBtn{ position: absolute; bottom:0; width: 100%; height: 60px; background-image: url("http://jiangsu.sinaimg.cn/zt/s/blank.gif"); cursor: pointer;}
+
+.layer2 .baoxiang_get {position:absolute; left: 155px; top: 236px;width:360px; height:417px;  background-image: url("http://jiangsu.sinaimg.cn/2014/1024/U9263P1194DT20141024172527.png"); }
+.layer2 .baoxiang_get .sendWeiboBtn{ position: absolute; bottom:0; width: 100%; height: 100px; background-image: url("http://jiangsu.sinaimg.cn/zt/s/blank.gif"); cursor: pointer;}
+
+.layer2 .baoxiang_open {position:absolute; left: 155px; top: 236px;width:360px; height:417px;  background-image: url("http://jiangsu.sinaimg.cn/2014/1024/U9263P1194DT20141024172528.png"); }
+.layer2 .baoxiang_open .openboxBtn{position: absolute;top:100px;width: 100%;height: 240px;background-image: url("http://jiangsu.sinaimg.cn/zt/s/blank.gif");cursor: pointer;}
+.layer2 .baoxiang_open .friendNumText{  margin-top:357px; text-align: center; font-size: 15px; color: #000; }
+
+</style>
+
+
+
+
+<script src="http://i2.sinaimg.cn/cj/dfz/js/base.js" type="text/javascript"></script>
+<script src="http://jiangsu.sinaimg.cn/zt/s/jiangnan/jQueryRotate.2.2.js"></script>
+<script src="http://jiangsu.sinaimg.cn/zt/s/jiangnan/jquery.easing.min.js"></script>
+<!--please don't change the order of these scripts-->
+<script type="text/javascript" src="http://ria.city.sina.com.cn/s/g=dialog_login_v1.1-sp1.js"></script>
+<script type="text/javascript" src="http://i.sso.sina.com.cn/js/ssologin.js"></script>
+<script type="text/javascript" src="http://i.sso.sina.com.cn/js/sinaSSOManager.js" charset="utf-8"></script>
+<link type="text/css" href="http://ria.city.sina.com.cn/s/g=dialog_login_v1.1-sp1.css" rel="stylesheet" media="all" />
+<script src="http://jiangsu.sinaimg.cn/z/js/weiboApi.js"></script>
+<script>
+var baoxiangUrl;
+var work_id;
+var priceName = '';
+var workid;
+var ztUrl = 'http://jiangsu.sina.com.cn/z/2014jslegou/index.shtml';
+var seedId = 'BtX9rqGql'; 
+var page3Loaded = false;
+
+// ssowireless登录
+function h5_login(){
+	window.location.href = "http://login.weibo.cn/login/setssocookie/?loginpage=h5&backUrl="+encodeURIComponent(window.location.href);
+}
+
+
+function openLoginDialog(){DFZ.APP.DialogLogin.open();$("#ui-dialog-title-1").html("新浪微博登录");}
+/*获取url参数*/
+	function getQueryString(name) {
+		var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
+		var r = window.location.search.substr(1).match(reg);
+		if (r != null) return unescape(r[2]); return null;
+    }
+$(function(){
+	var uid = getQueryString("uid");
+	work_id = getQueryString("wid");
+	if(uid && work_id){
+		//block
+                     get_vote_num(work_id);
+                     $(".baoxiang_open").show();
+
+	}else{
+		//none
+	}
+	//显示当前宝箱被打开次数
+	
+})
+
+/* 获取单个作品信息 */
+function get_vote_num(work_id){
+	$.JSONP('http://act.city.sina.com.cn/interface/activity/json_get_one_user_work.php',{work_id:work_id},function(json){
+//console.log(json);
+			//var id = json.data[0].id;
+			var vote_count = json.data.vote_count;
+			//var create_uid = json.data.create_uid;
+			//var user_nick = json.data.user_nick;
+			
+			//$(".u_ico").attr('src','http://tp1.sinaimg.cn/'+create_uid+'/50/0');
+			//$(".u_nick").text(user_nick);
+			$(".friendNum").html(vote_count);
+		}
+	);
+}
+
+var custom_2;
+var rotateFunc = function(awards,angle,text){  //awards:奖项，angle:奖项对应的角度
+	$('#lotteryBtn').stopRotate();
+	$("#lotteryBtn").rotate({
+		angle:0, 
+		duration: 5000, 
+		animateTo: angle+1440, //angle是图片上各奖项对应的角度，1440是我要让指针旋转4圈。所以最后的结束的角度就是这样子^^
+		callback:function(){
+			if(awards==0)
+			{
+				//$.popBox({popid:'myCon',bgid:'myBg',ishtml:false,width:445,height:400});
+                $(".result_no").show();
+                
+				var content = '差点就中了！！我刚刚在【畅游江苏】首届“乐购江苏”#旅游纪念品创意设计大赛#活动中为入围作品投了一票，与500元加油卡、100元电话充值卡失之交臂好心塞！不管我还要再来一次→_→'+baoxiangUrl;
+				repostWeiboByCookie ( content, seedId, 0, '' );
+                
+			}
+			else{
+				
+				$(".priceName").html(priceName); //赋值
+				$(".result_yes").show();
+				
+				var content = '天上掉馅儿饼啦！我刚刚在“江苏推荐旅游商品征集评选”活动中为入围作品 投了一票，一不小心就获得了'+priceName+'一份！这么好中？！你也来试试→_→'+baoxiangUrl;
+				repostWeiboByCookie ( content, seedId, 0, '' );
+				
+				//custom_2 = text ;
+			}
+
+		}
+	}); 
+};
+	
+function getPrize(a)
+{
+	var data = a;
+	if(data==4121){
+		priceName = "500元加油卡";
+		rotateFunc(1,30,'恭喜您获得：500元加油卡');
+	}
+	if(data==4122){
+		priceName = "100元电话充值卡";
+		rotateFunc(2,300,'恭喜您获得：100元电话充值卡');
+	}
+	if(data==4123){
+		priceName = "50元电话充值卡";
+		rotateFunc(3,120,'恭喜您获得：50元电话充值卡');
+	}
+	if(data==4124){
+		priceName = "新浪吉祥物";
+		var angle = [0,90,180,240];
+			angle = angle[Math.floor(Math.random()*angle.length)]
+		rotateFunc(4,angle,'恭喜您获得：新浪吉祥物')
+	}
+	if(data==0){
+		var angle = [60,150,210,270,330];
+			angle = angle[Math.floor(Math.random()*angle.length)]
+		rotateFunc(0,angle,'很遗憾，您未抽中奖！')
+	}
+	
+	
+	
+}
+
+
+//抢宝箱
+
+function qiangbaoxiang(){
+	var uinfo = sinaSSOManager.getSinaCookie();
+	if (!uinfo) {
+		//alert("失败");
+		h5_login();
+		return false;
+	} else {
+		var uid = uinfo.uid;
+		$.JSONP('http://act.city.sina.com.cn/interface/activity/json_add_signup.php',{act_id:8012,custom_1:uid},function(bm){
+			if(bm.error==0){
+				// 获得了一个宝箱 work_id
+				workid = bm.work_id;
+				baoxiangUrl = ztUrl+ "?uid="+uid+"&wid="+workid;
+				
+				$(".baoxiang_get").show();
+	                  
+			}else{
+				//已经获得宝箱
+				//alert(bm.errmsg);
+			}
+		});
+	}
+}
+	
+/* 
+$(".closeBtn").click(function()
+{
+$('.result_no').fadeOut();
+qiangbaoxiang();
+});
+ */
+$(function() {
+	$("#lotteryBtn").rotate({ 
+		   bind: 
+			 { 
+				click: function()
+				{
+					var uinfo = sinaSSOManager.getSinaCookie();
+					if (!uinfo) {
+						//alert("失败");
+						h5_login();
+						return false;
+					} else {
+						
+						$.JSONP('http://act.city.sina.com.cn/interface/activity/json_add_signup.php',{act_id:8092,custom_1:"PC"},function(bm){
+						if(bm.error==0){
+							if(typeof(bm.draw.is_win)=="undefined"){
+								alert("您今天已经抽过1次了，明天再来吧！"); 
+								return false;
+							} else if(bm.draw.is_win==0){
+								getPrize(0);
+							} else{
+								var pid = bm.draw.hit_prize.id;
+								getPrize(pid);
+
+							}						
+							//alert("报名成功");
+						}else{
+							alert("您今天已经抽过1次了，明天再来吧！"); 
+						}
+					 });
+					}
+				}
+			 } 
+		   
+		});
+});
+
+</script>
+
+
+</head>
+<body>
+	<!-- 
+	* 说明：
+	* 多页面滑动模板，适用于 类ppt 页面
+	* 页面 640x960 按宽度缩放
+	* 使用 idangerous.swiper 插件切换页面 ，参数请在下方 【Initialize swiper】中自行更改
+	*
+	 -->
+	<div class="swiper-container">
+		<!-- 底层 -->
+		<div class="page-provider" id="page-provider-top">新浪江苏 SINA 2014</div>
+		<div class="page-provider" id="page-provider-bottom">新浪江苏 SINA 2014</div>
+		
+		<div class="swiper-wrapper">
+		    <!--First Slide-->
+			<div class="swiper-slide" id="s1">
+				<div class="abs e1_1" onclick="mySwiper.swipeTo(1)"></div>
+				<div class="abs e1_2" onclick="mySwiper.swipeTo(2)"></div>
+				<div class="abs e1_3" onclick="mySwiper.swipeTo(3)"></div>
+				
+			</div>
+			
+			<!--Second Slide-->
+			<div class="swiper-slide" id="s2">
+				<div class="abs tip_next" onclick="mySwiper.swipeNext()"></div>
+			</div>
+			
+			<!--Third Slide-->
+			<div class="swiper-slide" id="s3">
+				<div class="abs tip_next" onclick="mySwiper.swipeNext()"></div>
+			</div>
+			
+			<!--4 Slide-->
+			<div class="swiper-slide" id="s4">
+				<div class="actZone">
+					<div class="workCards">
+							<div style="color: #FFF; font-size: 40px; text-align: center;">请稍候 正在加载....</div>
+					</div>
+					
+					<div class="pageSwitch">
+						<ul class="pageNums">
+							<li onclick="page(1)">首页</li>
+							<li onclick="page(1)">1</li>
+							<li onclick="page(2)">2</li>
+							<li onclick="page(3)">3</li>
+							<li onclick="page(4)">4</li>
+							<li onclick="page(5)">5</li>
+							<li onclick="page(99999)">尾页</li>
+						</ul>
+					</div>
+							
+					<img class="voteBtn" src="http://jiangsu.sinaimg.cn/2014/1023/U9263P1194DT20141023174950.png" onclick="voteFun()" />
+					
+					
+					<!-- 第二层 -->
+					<div class="layer2">
+						<div class="bigWheel">
+							<div class="closeBtn" onclick="$('.bigWheel').fadeOut()"></div>
+							<img class="arrow" src="http://jiangsu.sinaimg.cn/2014/1024/U11392P1194DT20141024174923.png" id="lotteryBtn"/>
+						</div>
+						<div class="result_no" style="display:none;">
+							<div class="closeBtn"  onclick="$('.result_no').fadeOut()"></div>
+						</div>
+						<div class="result_yes" style="display:none;">
+							<div class="priceText">获得<span class="priceName">&nbsp;</span>！</div>
+							<input id="u_name" name="u_name" value=""/>
+							<input id="u_phone" name="u_phone" type="tel" value=""/>
+							<div class="submitBtn" onclick="submit_userInfo()"></div>
+						</div>
+						<div class="baoxiang_get" style="display:none;">
+							<div class="sendWeiboBtn" onclick="sendWeibo()"></div>
+						</div>
+						<div class="baoxiang_open" style="display:none;">
+							<img src="http://s3img.city.sina.com.cn/activity/common/large/5f321cbb33e997aafdde2b5ea2372b3f.png" style="position: absolute;right: 6px;top: 4px; cursor: pointer;" onclick="$('.baoxiang_open').fadeOut();" />
+							<div class="openboxBtn" onclick="openBox()"></div>
+							<div class="friendNumText">已有<span class="friendNum">0</span>位小伙伴为他打开了宝箱</div>
+						</div>
+					</div>
+					
+				</div>
+			</div>
+			
+		</div>
+	</div>
+</body>
+
+<!-- page Auto scale -->
+<script type="text/javascript">
+	$(function() {
+		pageAutoScale();
+	});
+	$(window).resize(function() {
+		pageAutoScale();
+	});
+	
+	function pageAutoScale(){
+		var r = document.body.offsetWidth / 640;
+		$(".swiper-container").css("-webkit-transform", "scale(" + r + ")");
+		$("body").height( window.innerHeight ); //修正整数页面高度
+	}
+</script>
+
+<script type="text/javascript">
+var voteJson; //作品json
+var currentPage = 1; //当前页码
+var work_select = []; //已被勾选的作品
+$(function() {
+	
+	//加载用户信息
+	//登录
+	function openLoginDialog(){DFZ.APP.DialogLogin.open();$("#ui-dialog-title-1").html("新浪微博登录");}
+	var uinfo = sinaSSOManager.getSinaCookie();
+	if (!uinfo) { //判断登陆
+		//h5_login();
+		return false;
+	}else{
+	}
+	
+	
+	//fillWorks(); //填充作品列表
+	//移动端不需要宝箱
+	//searchBaoxiang();//查找是否有宝箱 设置url
+});
+
+
+//填充作品列表
+function fillWorks(){
+	//访问服务器
+	//填充数据
+
+	$.JSONP('http://act.city.sina.com.cn/interface/activity/json_get_user_works.php',{act_id:8206,pcount:300,order:'rand'},function(json)
+	{
+		voteJson = json;
+		page3Loaded=true;
+		// 默认打开第一页
+		loadworkPage(1);
+	});
+	// end json[]
+	
+}
+
+
+function loadworkPage( pagenum ){
+	// 实际看到页数    数组页数
+	var page = pagenum - 1;
+	
+	var startIndex = page*15;
+	var endIndex = startIndex + 14;
+	endIndex = (endIndex >= voteJson.data.length) ? (voteJson.data.length - 1) : endIndex ;
+	
+	var dom = $(".workCards");
+	var html = '';
+	
+	for(var i=startIndex; i<=endIndex; i++){
+
+		var id = voteJson.data[i].id;
+		var mingcheng = voteJson.data[i].form_data.custom_1.value;
+		var leibie = ' ';
+		var imgurl = 'http://jiangsu.sinaimg.cn/zt/s/lgjslyjnp/photo/'+voteJson.data[i].form_data.custom_2.value;
+		var img_lurl = 'http://jiangsu.sinaimg.cn/zt/s/lgjslyjnp/photo_l/'+voteJson.data[i].form_data.custom_2.value;
+		var count = voteJson.data[i].vote_count;
+			
+		
+		if( i%15 == 0 ){ html+='<ul class="workTab">';}
+		
+		html+= '<li>';
+		html+= '<a target="_blank" href="'+img_lurl+'">';
+		html+= '<img class="w_img" src="'+ imgurl +'">';
+		html+= '</a>';
+		html+= '<div class="w_author">'+leibie+'</div>';
+		html+= '<div class="w_vote_count">'+count+'</div>';
+		html+= '<label class="w_voteLabel">';
+		html+= '<input class="w_voteCheckbox" type="checkbox" id="'+id+'" value="'+id+'"/>';
+		html+= '</label>';
+		html+= '<div class="w_name">'+mingcheng+'</div>';
+		html+= '</li>';
+			
+		if( (i+1)%15 == 0 ){ html+='</ul>';}
+	}
+	
+	dom.html(html);
+	
+	
+	//加载打勾的按钮
+	fillCheckbox_with_workSelected();
+}
+
+$(function() {
+	$(".w_voteCheckbox").live('click',function(){
+		var id = $(this).attr('id');
+		var isChecked = false;
+		var index;
+		for (var i = 0; i < work_select.length; i++) {
+			if (work_select[i] == id) {
+				isChecked = true;	
+				index = i;
+			}
+		}
+		if (isChecked) { // 如果已经打勾
+			work_select.splice(index, 1);
+		}else{
+			work_select.push(id);
+		}
+	});
+});
+function fillCheckbox_with_workSelected() {
+	for (var i = 0; i < work_select.length; i++) {
+		$("#"+work_select[i]).attr('checked', true);
+	}
+}
+
+
+//查找是否有宝箱 设置url
+function searchBaoxiang() {
+	var uinfo = sinaSSOManager.getSinaCookie();
+	if( !uinfo.uid ){ return;}
+	
+	//获得全部作品
+	$.JSONP('http://act.city.sina.com.cn/interface/activity/json_get_user_works.php',{act_id:8012,pcount:99999,order:'-time'},function(json)
+	{
+		for(var i=0; i<json.data.length; i++){
+			var wid = json.data[i].id;
+			var uid = json.data[i].form_data.custom_1.value;
+			if( uinfo.uid == uid ){
+				// 这个用户有宝箱了！
+				workid = wid;
+				baoxiangUrl = ztUrl+ "?uid="+uid+"&wid="+workid;
+			}
+		}
+	});
+	// end json[]
+}
+
+
+
+/* 翻页 */
+function changePage(){ 
+	var p = parseInt(document.getElementById("jumpPage").value);
+	if( isNaN(p) | p == "" | p ==undefined){ alert("页码不正确");return;}
+	page(p);
+}
+function page(p) {
+	p = (p < 1) ? 1 : p; 
+	p = (p > 20) ? 20 : p; 
+	
+	// 翻页
+	loadworkPage(p);
+	
+	// 修改翻页页码
+
+	p = (p < 3) ? 3 : p; 
+	p = (p > 18) ? 18 : p; 
+	var html = '';
+	html += '<li onclick="page(1)">首页</li>';
+	html += '<li onclick="page('+(p-2)+')">'+(p-2)+'</li>';
+	html += '<li onclick="page('+(p-1)+')">'+(p-1)+'</li>';
+	html += '<li onclick="page('+p+')">'+p+'</li>';
+	html += '<li onclick="page('+(p+1)+')">'+(p+1)+'</li>';
+	html += '<li onclick="page('+(p+2)+')">'+(p+2)+'</li>';
+	html += '<li onclick="page(99999)">尾页</li>';
+	
+	$(".pageNums").html(html);
+}
+
+
+/* 投票 */
+function voteFun() {
+	goodsIds = work_select;
+	if(goodsIds.length<1 | goodsIds.length>10){
+		alert("请勾选1~10个作品");
+		return;
+	}
+	
+	//登录
+	function openLoginDialog(){DFZ.APP.DialogLogin.open();$("#ui-dialog-title-1").html("新浪微博登录");}
+	var uinfo = sinaSSOManager.getSinaCookie();
+	if (!uinfo) { //判断登陆
+		h5_login();
+		return false;
+	}
+	
+	
+	$(".workCards input[type=checkbox]:checked").each(
+		function(){
+			var id = $(this).val();
+			goodsIds.push(id);
+		}
+	);
+	
+	qiangbaoxiang();
+	
+//今天可以投票么？？？
+	var username = uinfo.uid + uinfo.nick;
+	$.JSONP('http://act.city.sina.com.cn/interface/activity/json_add_signup.php',{
+	    act_id:8256,
+	    custom_1:username
+	},function(bm){
+		if(bm.error==0){
+			
+			//今天可以投票！
+			$.JSONP('http://act.city.sina.com.cn/interface/activity/json_add_vote.php',{
+					id : goodsIds[0]
+			}, function(bm) { //返回结果
+				if (bm.error == 0) {
+					//   弹框“点击抽奖”！
+					
+					//2 给goodsIds[]剩余的投票
+					for (var i = 1; i < goodsIds.length; i++) {
+						$.JSONP('http://act.city.sina.com.cn/interface/activity/json_add_vote.php',{
+							id : goodsIds[i]
+						}, function(bm) {});
+					}
+					$("#s4").scrollTop(0);
+					alert('投票成功！恭喜您获得一次大转盘机会');
+					$(".bigWheel").show();
+				}else{
+					// 例如：已经透过票了
+					alert(bm.errmsg);
+				}
+			});
+			
+        }else{
+	        alert('您今天已经参与过投票了！明天再来吧');
+   		}
+	});
+}
+
+
+
+
+/* 中奖用户提交 姓名、手机号 */
+function submit_userInfo() {
+	var name = $("#u_name").val();
+    var custom_0 = $("#u_phone").val();
+    var partten = /^1[3,5,8]\d{9}$/;
+    if((name=="") || (name=="请输入姓名")){alert("请输入姓名！");document.getElementById("u_name").focus(); return false;}
+    if(!partten.test(custom_0)){alert("请填写正确的手机号！");document.getElementById("u_phone").focus(); return false;}
+
+    //////////// 测试 ////////////////
+    /*
+    alert("提交：" +name+ " "+ custom_0+" ....成功！");
+    $('.result_yes').fadeOut();
+	qiangbaoxiang();
+    return;
+    */
+    //////////// end 测试 ////////////////
+    
+    $.JSONP('http://act.city.sina.com.cn/interface/activity/json_add_signup.php',{
+	    act_id:8093,
+	    custom_1:name,
+	    custom_2:custom_0,
+	    custom_3:priceName
+	},function(bm){
+        if(bm.error==0){
+            	alert("提交成功");
+            	$('.result_yes').fadeOut();
+                //qiangbaoxiang();
+            }else{
+            alert(bm.errmsg);
+        }
+    }); 
+}
+
+/* 发微博召集小伙伴 */
+function sendWeibo() {
+	var content = '快来参加【畅游江苏】首届“乐购江苏”#旅游纪念品创意设计大赛#投票评选活动，赢取土豪奖品～戳这里为我开启宝箱→_→'+baoxiangUrl;
+	repostWeiboByCookie( content, seedId, 0, '' );
+	//alert("发出微博");
+	$(".baoxiang_get").fadeOut();
+}
+
+/* 打开宝箱 */
+function openBox() {
+	//alert("打开宝箱");
+var uinfo = sinaSSOManager.getSinaCookie();
+	  if (!uinfo) {
+			h5_login();
+			return false;
+		}
+	$.JSONP('http://act.city.sina.com.cn/interface/activity/json_add_vote.php',{id:work_id},function(json){
+		if(json.error==0){
+			//var contentWeibo = '';
+			//var mid = '';
+			//repostWeiboByCookie ( contentWeibo, mid, 3, '成功' );
+			$(".u_voteNum").text(parseInt($(".u_voteNum").text())+1);
+			alert('成功打开');
+		}else{
+			//alert(json.errmsg);
+			alert('每天只能为他打开一次');
+		}
+		
+	});
+
+	$(".baoxiang_open").fadeOut();
+} 
+ 
+</script>
+
+
+</html>

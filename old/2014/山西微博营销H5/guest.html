@@ -1,0 +1,395 @@
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="author" content="">
+<meta name="description" content="">
+<meta name="viewport" content="minimal-ui">
+<script>
+	document.documentElement.className = 'js';
+</script>
+<meta name="viewport"
+	content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">
+<!-- Force latest IE rendering engine & Chrome Frame -->
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<!-- Make IE recognise HTML5 elements for styling -->
+<!--[if lte IE 8]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+
+<script type="text/javascript" src="./jquery-1.11.1.js"></script>
+<script src="./jquery.event.move.js"></script>
+<script src="./jquery.event.swipe.js"></script>
+<script src="./weixin.js"></script>
+
+<script src="./jquery.transit.min.js"></script>
+</head>
+
+<style>
+body {
+	background: gray;
+	font-family: "Microsoft YaHei", 微软雅黑, "MicrosoftJhengHei", 华文细黑, STHeiti,
+		MingLiu;
+}
+
+.page {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	left: 0%;
+	top: 0%;
+	background: white;
+	overflow: hidden;
+}
+
+.pagecontent {
+	position: absolute;
+	width: 320px;
+	height: 504px;
+	left: 50%;
+	top: 50%;
+	margin: -252px 0 0 -160px;
+}
+
+.fullscreen {
+	position: absolute;
+	width: 330px;
+	height: 514px;
+	left: 50%;
+	top: 50%;
+	margin: -257px 0 0 -165px;
+}
+</style>
+<body>
+	<div id="pages"
+		style="position: absolute; left: 0%; top: 0%; width: 100%; height: 100%; overflow: hidden">
+	</div>
+
+	<!-- saved from url=(0062)http://www.grameenvision.org/maka/project/sinashanxi/guest.php -->
+<style>
+.guest_thum_tab {
+	width: 60px;
+	height: 60px;
+	margin: 10px;
+	border-radius: 60px;
+}
+
+#guest_info {
+	position: absolute;
+	width: 280px;
+	left: 20px;
+	top: 120px;
+}
+
+.guest_info_tab {
+	width: 280px;
+	border-radius: 5px;
+	overflow: hidden;
+	position: absolute;
+	opacity: 0;
+	background: rgba(255, 255, 255, 0.8);
+	border-radius: 10px;
+}
+
+.guest_info_img {
+	border-radius: 5px;
+	width: 280px;
+}
+
+.guest_info_textfied {
+	margin: 10px 5px;
+	height: auto;
+	left: 0px;
+}
+
+.guest_info_title {
+	margin: 0;
+	text-align: left;
+	font-size: small;
+}
+
+.guest_info_text {
+	font-size: 12px;
+	margin: 2px 0;
+	word-break: break-all;
+	text-align: left;
+	text-justify: distribute-all-lines; /*ie6-8*/
+	text-align-last: justify; /* ie9*/
+	-moz-text-align-last: justify; /*ff*/
+	-webkit-text-align-last: justify; /*chrome 20+*/
+	line-height: 18px;
+}
+
+.guest_info_name {
+	font-size: medium;
+	font-weight: bold;
+}
+</style>
+<div class="fullscreen gravitymove">
+	<img style="position: absolute; height: 100%; left: 0%; top: 0%"
+		src="./guest.php_files/p3bg.jpg">
+</div>
+
+<div id="guest" class="pagecontent">
+
+	<img id="guest_arrow_down" src="./guest.php_files/arrow_reversal.png"
+		style="position: absolute; width: 40px; height: 20px; left: 140px; top: 0px;">
+	<div id="guest_thum"
+		style="position: absolute; width: 1000px; height: 20px; left: 20px; top: 40px;">
+		<img class="guest_thum_tab " src="./guest.php_files/guest_thum_1.jpg">
+		<img class="guest_thum_tab " src="./guest.php_files/guest_thum_2.jpg">
+		<img class="guest_thum_tab " src="./guest.php_files/guest_thum_3.jpg">
+		<img class="guest_thum_tab " src="./guest.php_files/p3guest4_thum.png">
+		<img class="guest_thum_tab " src="./guest.php_files/guest_thum_4.jpg">
+		<img class="guest_thum_tab " src="./guest.php_files/guest_thum_5.jpg">
+	</div>
+
+	<div id="guest_info">
+		<div class="guest_info_tab">
+			<img class="guest_info_img" src="./guest.php_files/guest1.jpg">
+			<div class="guest_info_textfied">
+				<p class="guest_info_title">
+					<span class="guest_info_name">@景�&nbsp;�</span> 微博副总裁 <br>2000年2月�&nbsp;盟新浪，现任微博副总裁，香港大学国际工商管理硕士。葛景�&nbsp;�先生极具前瞻性的战略眼光，通过一系列创新性的整合营销�&nbsp;播，构建了新浪以及新浪微博的品牌管理、产品推广体系。新浪微博在葛景�&nbsp;�主导的一系列市场活动中，品牌影响力与市场�&nbsp;有率日益增强，成为全球华人首选的社交媒体平台，同时带来了新浪母品牌的年轻化重塑。
+				</p>
+
+			</div>
+		</div>
+		<div class="guest_info_tab">
+			<img class="guest_info_img" src="./guest.php_files/guest2.jpg">
+			<div class="guest_info_textfied">
+				<p class="guest_info_title">
+					<span class="guest_info_name">@申晨</span>微博商学院首席讲师 资深媒体评论人<br>
+					他具有8年人力资源管理经验，毕业指导讲座《饭碗》被誉为最受学生欢迎的讲座。他是中国教育电视台《职来职往》节目嘉宾，尤其擅长为职场人的心理健康、职业生涯及职场中面临的种种困惑提供专业指导，被很多职场人亲切地称为“职场知音”。他点评选手时一针见血，往往会为他们打开一扇属于自己的门。
+				</p>
+			</div>
+		</div>
+		<div class="guest_info_tab">
+			<img class="guest_info_img" src="./guest.php_files/guest3.jpg">
+			<div class="guest_info_textfied">
+				<p class="guest_info_title">
+					<span class="guest_info_name">@杜子建</span> 华艺�&nbsp;媒集团创始人兼首席战略官 <br>先后为国资委、中国电信、招商银行、北大MBA、清华MBA、三星电子、创维、新浪乐居、南都�&nbsp;媒等近百家单位机构做过专题演讲和培训。�&nbsp;其独特的思维和不拘一�&nbsp;�的形象，被业界成为“营销奇人”，《EMBA视界》总编刘元煌誉其为“中国企业家必须会见的20人之一”。
+				</p>
+			</div>
+		</div>
+
+		<div class="guest_info_tab">
+			<img class="guest_info_img" src="./guest.php_files/p3guest4.jpg">
+			<div class="guest_info_textfied">
+				<p class="guest_info_title">
+					<span class="guest_info_name">@蒋政文</span>2013年褚橙推广策划及负责人
+				</p>
+			</div>
+		</div>
+
+		<div class="guest_info_tab">
+			<img class="guest_info_img" src="./guest.php_files/guest4.jpg">
+			<div class="guest_info_textfied">
+				<p class="guest_info_title">
+					<span class="guest_info_name">@李峥嵘</span>新浪地方业务&amp;政府合作副总经理
+				</p>
+			</div>
+		</div>
+		<div class="guest_info_tab">
+			<img class="guest_info_img" src="./guest.php_files/guest5.jpg">
+			<div class="guest_info_textfied">
+				<p class="guest_info_title">
+					<span class="guest_info_name">@敏lisa</span>微博商学院总监
+				</p>
+			</div>
+		</div>
+
+
+	</div>
+
+	<div id="guest_header">
+		<img src="./guest.php_files/header.png"
+			style="position: absolute; width: 50px; height: 80px; left: 250px; top: -5px;">
+		<div
+			style="color: rgb(66, 40, 47); font-size: 12px; position: absolute; width: 30px; height: 80px; left: 260px; top: 5px; text-align: center; word-break: break-all">
+			嘉宾<br>介绍
+		</div>
+	</div>
+
+	<img id="guest_arrow" src="./guest.php_files/arrow.png"
+		style="position: absolute; width: 40px; height: 20px; left: 140px; top: 480px;">
+</div>
+</body>
+<script>
+
+
+function guest_disappear_effect()
+{
+	
+}
+
+function guest_show_effect_up()
+{
+	$('#guest_info').css({'scale':'0',opacity:0}).delay(500).transition({'scale':'1',opacity:1},800);
+	if(is_thum==0){$('#guest_thum').css({x:$("#guest_thum").find(".guest_thum_tab").length*70}).delay(700).transition({x:0},1200,page_ublock)};
+	$('#guest_header').css({y:'-100px'}).delay(800).transition({y:0},800,page_ublock);
+	is_thum=0;
+}
+
+function guest_show_effect_down()
+{
+	$('#guest_info').css({'scale':'0',opacity:0}).delay(900).transition({'scale':'1',opacity:1},800);
+	if(is_thum==0){$('#guest_thum').css({x:-$("#guest_thum").find(".guest_thum_tab").length*70}).delay(700).transition({x:0},1200,page_ublock )};
+	$('#guest_header').css({y:'-100px'}).delay(500).transition({y:0},800,page_ublock);
+	is_thum=0;
+}
+
+
+var is_thum=0;
+function guest_init() //加载动画
+{
+	
+	init();
+	var ischange=0;
+	var height;
+	
+	var guest_thum=$("#guest_thum");
+	var guest_thum_tab=guest_thum.find(".guest_thum_tab");
+	
+	guest_thum_tab.eq(0).css({scale:1.3});
+	
+	if(guest_thum_tab.length<5){
+			start_x=(320-guest_thum_tab.length*70)/2;
+			guest_thum.transition({left:start_x},500);	
+	}
+	
+	var start_x=0;
+	guest_thum.unbind();
+	if(guest_thum_tab.length>4){
+	guest_thum
+	.on('move', function(e) {
+		e.distY=0;
+		var left = e.distX;
+		guest_thum.css({x:start_x+left+'px'});	
+
+	})
+	.on('moveend', function(e) {
+		start_x=start_x+e.distX;
+	
+		if(start_x<-70*guest_thum_tab.length+320) start_x=-70*guest_thum_tab.length+240;
+		else if(start_x>10)  {start_x=10;}
+		else return;
+		guest_thum.transition({x:start_x},200);	
+	})
+	.on('movestart', function(e) {
+					// If the movestart heads off in a upwards or downwards
+					// direction, prevent it so that the browser scrolls normally.
+					is_thum=1;
+					
+					// To allow the slide to keep step with the finger,
+					// temporarily disable transitions.
+	})
+	}
+	
+	guest_thum_tab.unbind()
+	guest_thum_tab
+	.on('click', function(e) {
+		guest_to_tab(guest_thum_tab.index($(this)));
+			
+	})
+	
+	var guest_info_slider=$('#guest_info');
+	var guest_info_tabs=guest_info_slider.find('.guest_info_tab');
+	var guest_info_tabs_img=guest_info_tabs.find('.guest_info_img');
+	
+	var guest_info_active=guest_info_tabs.filter('.active');
+	var guest_info_i;
+	var guest_tab_width=guest_info_slider.width();
+	guest_to_tab(0);
+	
+	guest_info_tabs.unbind();
+	guest_info_tabs
+	.on('swipeleft', function(e) {
+		if (guest_info_i === guest_info_tabs.length - 1) { return; }
+		guest_info_tabs.eq(guest_info_i+1).trigger('activate');
+		guest_info_i++;				
+	})
+	.on('swiperight', function(e) {
+		if (guest_info_i === 0) { return; }
+		guest_info_tabs.eq(guest_info_i-1).trigger('activate');
+		guest_info_i--;
+	})
+	
+	.on('activate', function(e) {
+					
+		guest_info_tabs.eq(guest_info_i).removeClass('active');
+		jQuery(e.target).addClass('active');					
+	})			
+	.on('moveend', function(e) {
+	
+		guest_to_tab(guest_info_i);
+				
+	})
+
+
+	.on('movestart', function(e) {
+					// If the movestart heads off in a upwards or downwards
+					// direction, prevent it so that the browser scrolls normally.
+					e.distY=0;
+					// To allow the slide to keep step with the finger,
+					// temporarily disable transitions.
+					
+	});
+	
+	var guest_thum_x;
+	function guest_to_tab(num)
+	{
+	
+		for(var i=0;i<guest_thum_tab.length;i++){
+			if(num!=i) guest_thum_tab.eq(i).transition({scale:0.8,'opacity':"0.9"},500);
+			if(i<num) guest_info_tabs.eq(i).transition({x:-1.5*guest_tab_width+"px",'opacity':"0"},500);
+			else if(i>num) guest_info_tabs.eq(i).transition({x:1.5*guest_tab_width+"px",'opacity':"0"},500);
+		}
+		
+		guest_info_i=num;
+		guest_thum_tab.eq(num).transition({scale:1,'opacity':"1"},500);
+		guest_info_tabs.eq(guest_info_tabs.length-1-num).delay(1).transition({'opacity':1});
+		
+		guest_info_tabs.eq(num).transition({x:0,'opacity':"1"},500);
+		
+		if(guest_thum_tab.length<5) return;
+		else if(num>guest_thum_tab.length-4) guest_thum.transition({x:-(guest_thum_tab.length-4)*85-30},500); 
+		else guest_thum.transition({x:-num*85},500);
+		
+		
+	}
+	
+	var able;
+	function init()
+	{
+		able=1;
+		arrow();
+		function arrow()
+		{
+			if(able==1){
+			$('#guest_arrow').css({y:'0px'}).transition({ y: '-20px'},1500,'linear',arrow);
+			$('#guest_arrow_down').css({y:'1px'}).transition({ y: '20px'},1500,'linear');
+			}
+		}
+		var i=0;
+	}
+	
+	function disable()
+	{
+		able=0;
+	}
+}	
+
+var page_lock = 0;
+function page_ublock() {
+	page_lock = 0;
+
+}
+
+(function() {
+	guest_show_effect_up();
+	guest_init();
+})();
+
+</script>
+</html>
+
+

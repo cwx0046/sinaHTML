@@ -1,0 +1,895 @@
+<!DOCTYPE html>
+<html>
+<html xmlns:wb=“http://open.weibo.com/wb”>
+<head>
+<meta charset="GB2312">
+<meta http-equiv="X-UA-Compatible" content="IE=8" />
+<title>和你一起 智慧生活</title>
+<meta name="keywords" content="中国移动" />
+<meta name="description" content="和你一起 智慧生活江苏移动专题" />
+
+<script src="http://i2.sinaimg.cn/cj/dfz/js/base.js" type="text/javascript"></script>
+<script src="http://tjs.sjs.sinajs.cn/open/api/js/wb.js" type="text/javascript" charset="utf-8"></script>
+<script src="http://video.sina.com.cn/js/sinaFlashLoad.js" type="text/javascript"></script>
+<script src="Scripts/swfobject_modified.js" type="text/javascript"></script>
+<style type="text/css">
+body, ul, ol, li, p, h1, h2, h3, h4, h5, h6, table, td, th, form, fieldset, img, dl, dt, dd { margin:0; padding:0; }
+textarea, input, select, body { font-size:12px; }
+select, input { vertical-align:middle; }
+fieldset, img { border:0; }
+ul, ol { list-style:none; }
+img { border:0; }
+a { text-decoration:none; color:#000; }
+a:hover { color:#ffa10d; }
+.fl { float:left; display:inline; }
+.fr { float:right; display:inline; }
+.cb { clear:both; display:block; height:0px; overflow:hidden; width:100%; }
+.clearfix:after { clear:both; content:""; display:block; height:0; }
+</style>
+<style type="text/css">
+.headimg{ min-width: 1000px; height: 1027px; background: url("http://jiangsu.sinaimg.cn/zt/s/zgydbxjg/images/bg_01.jpg") no-repeat center top; }
+.content{ width: 1000px; margin: 0 auto; position: relative;} 
+.t{ position: relative; height: 100px; width: 100%; }/* title 每个区块标题 */
+.timg{ position: absolute; bottom: 0; right: 0; }
+</style>
+<style type="text/css">
+/* 为特别元素指定的样式表 */
+#p1{ margin-top: -152px; }
+#p1.p1bg{ margin-left: -45px; }
+#p2{ margin-top: -91px; }
+#p3 #p3t .timg{ right:-11px; }
+#p3{ margin-top: 30px; }
+#p4{ }
+#p5{ margin-top: 3px; }
+
+/* 
+#p1 .p1i li{ position: absolute; top: 301px; left: 420px; width: 120px; height: 120px; background: url("http://jiangsu.sinaimg.cn/zt/s/zgydbxjg/images/ibg.png") no-repeat center center;  }
+#p1 .p1i li:HOVER{ cursor: pointer; }
+#p1 .p1i li img{ display:block; margin: 0 auto; margin-top: 10px; }
+#p1 .p1i li p{ text-align: center; font-size: 20px; color:#666; font-family: "microsoft yahei"; }
+#p1 .p1i li.zoom{ width: 186px; height: 187px; }
+#p1 .p1i #i1{ left: 420px; top:100px; }
+#p1 .p1i #i1.zoom{ left: 400px; top:80px; }
+ */
+#p1 #phoneItemHot div{ background-image:url("http://jiangsu.sinaimg.cn/zt/s/blank.gif"); cursor:pointer; position: absolute; left:0; top:0; width: 186px; height: 187px; /* background-color: RGBA(255,255,0,0.5); */}
+#p1 #phoneItem img{ cursor:pointer; display: none; position: absolute; left:0; top:0;}
+#p1 #phoneItemTip #tip_l{ position: absolute; width: 310px; height: 185px; background: url("http://jiangsu.sinaimg.cn/zt/s/zgydbxjg/images/tip_l.gif") no-repeat; left: 0px; top: 342px; }
+#p1 #phoneItemTip #tip_r{position: absolute; width: 275px; height: 169px; background: url("http://jiangsu.sinaimg.cn/zt/s/zgydbxjg/images/tip_r.gif") no-repeat; left: 767px; top: 203px; }
+#p1 #phoneItemTip img{ position: absolute; left: 12px; top: 26px; }
+#p1 #phoneItemTip { color: #666; font-family: "microsoft yahei"; }
+#p1 #phoneItemTip #tip_l .imgName{ position: absolute; font-size: 18px; left: 122px; top: 61px; }
+#p1 #phoneItemTip #tip_l .dashedLine{ position: absolute; width: 72px; border-bottom: 1px dashed #333; left: 199px; top: 71px; }
+#p1 #phoneItemTip #tip_l .imgEName{ position: absolute; left: 121px; top: 88px; }
+#p1 #phoneItemTip #tip_l .imgDesc{ position: absolute; font-size: 18px; left: 64px; top: 131px; }
+#p1 #phoneItemTip #tip_r .imgName{ position: absolute; font-size: 18px; left: 120px; top: 56px; }
+#p1 #phoneItemTip #tip_r .dashedLine{ position: absolute; width: 65px; border-bottom: 1px dashed #333; left: 190px; top: 69px; }
+#p1 #phoneItemTip #tip_r .imgEName{ position: absolute; left: 123px; top: 84px; }
+#p1 #phoneItemTip #tip_r .imgDesc{ position: absolute; font-size: 18px; left: 54px; top: 125px; }
+#p1 #phoneItemLine div{ display: none; position: absolute; /* background-color: RGBA(50,255,50,0.5); */ }
+#p1 #phoneItemLine div.line_l{ border: 1px dashed #e40077; }
+#p1 #phoneItemLine div.line_r{ border: 1px dashed #90c31f; }
+#p1 #phoneItemTip #tip_l,#p1 #phoneItemTip #tip_r { display: none; }
+
+#p2 .p2photo { padding: 0 17px; }
+#p2 .p2photo img{ display: inline-block; width: 180px; height: 135px; margin: 0 4px; }
+
+#p3 #p3p1{ padding-top: 44px; color:#666; line-height: 23px; }
+#p3 #p3p1 .p3c{ padding: 0 30px; display: inline-block; vertical-align:top;}
+#p3 #p3p1 .p3c img{ display:block; margin: 0 auto; margin-bottom: 20px;}
+#p3 #p3p1 .p3c p{ text-indent:2em; color: #666; }
+#p3 #p3p1 #p3c1{ width: 218px; position: relative;}
+#p3 #p3p1 #p3c2{ width: 329px; padding:0 20px; margin-top: -16px;}
+#p3 #p3p1 #p3c2 li{ position: relative; border-bottom: 1px dashed #333333; padding: 10px 0px 12px; }
+#p3 #p3p1 #p3c2 li h2{ font-size: 18px; color: #c02366; font-family: "microsoft yahei"; font-weight: normal; line-height: 36px;}
+#p3 #p3p1 #p3c2 li h2:HOVER{ cursor: pointer; text-decoration: underline; }
+#p3 #p3p1 #p3c2 li p{}
+#p3 #p3p1 #p3c2 li .more{ font-size: 13px; color: #c02366; position: absolute; right: 0; bottom: 11px;}
+#p3 #p3p1 #p3c2 li .more:HOVER{ cursor: pointer; text-decoration: underline; }
+#p3 #p3p1 #p3c2 li.last{ border-bottom: none;}
+#p3 #p3p1 #p3c3{ width: 280px;}
+
+.more{ font-size: 13px; color: #c02366 !important; text-align: right;}
+.more:HOVER{ cursor: pointer; text-decoration: underline; }
+
+#p4 .mingjiatan{ padding: 42px 87px 33px; height: 191px; position: relative; }
+#p4 .mingjiatan .jiabin_page{ position:absolute; width: 827px; height: 191px; }
+#p4 .mingjiatan .jiabin_page .mjimg{ float: left; margin-right: 22px; }
+#p4 .mingjiatan .jiabin_page h3{ color: #c02366; line-height: 58px; font-size: 14px; border-bottom: 1px dashed #666; margin-left: 309px; }
+#p4 .mingjiatan .jiabin_page h3:HOVER{ cursor: pointer; text-decoration: underline; }
+#p4 .mingjiatan .jiabin_page p{ color: #666; line-height: 23px; padding-top: 10px; text-indent: 2em; }
+
+#p5 #weiboBox{ position: relative; padding-top: 20px; }
+#p5 #weiboBox #customWeibo{ 
+	/* display:none; */
+ position: absolute; /* background: RGBA(0,255,255,0.5); */ background:#FFF; top: 248px; left: 19px; width: 703px; height: 600px; }
+</style>
+</head>
+<body>
+
+
+
+
+
+<div class="headimg">
+<!-- sinaHead -->
+<style type="text/css"> 
+.secondaryHeader{font-size:12px;font-family:"宋体";height:33px;overflow:hidden;background:url("http://i2.sinaimg.cn/dy/images/header/2008/standardl2nav_bg.gif") repeat-x #fff;color:#000;font-size:12px;font-weight:100;padding:0;margin:0 auto;} 
+.secondaryHeader div,.secondaryHeader span,.secondaryHeader a,.secondaryHeader img{padding:0;margin:0;border:0 none;} 
+.secondaryHeader a,.secondaryHeader a:visited{color:#000;text-decoration:none;margin:0 4px;} 
+.secondaryHeader a:hover,.secondaryHeader a:active{color:#c00;text-decoration:underline;} 
+.secondaryHeader .sHBorder{border:1px #e3e3e3 solid;padding:0 10px 0 12px;overflow:hidden;zoom:1;} 
+.secondaryHeader .sHLogo{float:left;height:31px;line-height:31px;overflow:hidden;} 
+.sHLogo a img,.sHLogo a:link img,.sHLogo a:visited img,.sHLogo a:hover img{vertical-align:middle;} 
+.secondaryHeader .subLinks{float:left;line-height:31px;padding-left:16px;} 
+.secondaryHeader .sHLinks{float:right;line-height:31px;} 
+</style> 
+<div class="secondaryHeader" style="width: 1000px;"> 
+<div class="sHBorder"> 
+<div class="sHLogo"><a href="http://jiangsu.sina.com.cn/"><img src="http://i1.sinaimg.cn/dy/images/header/2009/standardl2nav_sina_new.gif" alt="新浪网" /><img src="http://jiangsu.sinaimg.cn/js_20111121_v1/img/sinajs_word.jpg" alt="新浪江苏" /></a></div> 
+<div class="subLinks"> <a href="http://jiangsu.sina.com.cn/">首页</a>|<a href="http://jiangsu.sina.com.cn/news/">新闻</a>|<a href="http://jiangsu.sina.com.cn/video/">视频</a>|<a href="http://jiangsu.sina.com.cn/photo/">读图</a>|<a href="http://jiangsu.sina.com.cn/city/">城市</a>|<a href="http://nanjing.meishitui.com/">美食</a>|<a href="http://jiangsu.sina.com.cn/fashion/">时尚</a>|<a href="http://jiangsu.travel.sina.com.cn/">旅游</a>|<a href="http://nj.auto.sina.com.cn/">汽车</a>|<a href="http://jiangsu.sina.com.cn/redirect/weiba.html?url=http://weiba.weibo.com/nanjing">同城</a>|<a href="http://jiangsu.sina.com.cn/z/food/union/index.html">优惠商家</a>|<a href="http://jiangsu.sina.com.cn/zt/news/list.html">专题</a></div> 
+<div class="sHLinks"><a href="http://jiangsu.sina.com.cn/">新浪江苏</a>|<a href="http://www.sina.com.cn/">新浪首页</a>|<a href="http://jiangsu.sina.com.cn/wdh/guide.html">网站导航</a></div> 
+</div> 
+</div>
+<embed id="headflash"  src="http://jiangsu.sinaimg.cn/zt/s/zgydbxjg/images/welcome.swf" width="1366" type="application/x-shockwave-flash" style="margin: 0 auto; display: block;" onfocus="this.blur()" height="768" quality="high" align="middle" allowscriptaccess="always" allowfullscreen="true" mode="" wmode="transparent" loop="false">
+</div>
+	<div id="p1">
+		<div class="content">
+			<img class="p1bg" alt="" src="http://jiangsu.sinaimg.cn/zt/s/zgydbxjg/images/p1.png">
+			
+			<!-- 连线 -->
+			<div id="phoneItemLine">
+				<div class="line_l" style="top: 240px; left: 245px; width: 271px; height: 101px; border-right: none; border-bottom: none;"></div>
+				<div class="line_l" style="top: 291px; left: 244px; width: 138px; height: 50px; border-right: none; border-bottom: none;"></div>
+				<div class="line_r" style="top: 303px; left: 669px; width: 99px; height: 12px; border-right: none; border-top: none; border-left: none;"></div>
+				<div class="line_l" style="top: 426px; left: 300px; width: 28px; height: 36px; border-right: none; border-top: none; border-left: none;"></div>
+				<div class="line_r" style="top: 372px; left: 624px; width: 173px; height: 141px; border-top: none; border-left: none;"></div>
+				<div class="line_r" style="top: 373px; left: 756px; width: 62px; height: 116px; border-top: none; border-left: none;"></div>
+				<div class="line_l" style="top: 527px; left: 242px; width: 203px; height: 90px; border-top: none; border-right: none;"></div>
+				<div class="line_r" style="top: 372px; left: 589px; width: 206px; height: 64px; border-top: none; border-left: none;"></div>
+			</div>
+			
+			<!-- 手机热点区域 -->
+			<div id="phoneItemHot">
+				<div style="left: 503px; top: 204px; width: 80px; height: 82px;"></div>
+				<div style="left: 372px; top: 243px; width: 100px; height: 100px;"></div>
+				<div style="left: 568px; top: 262px; width: 117px; height: 117px;"></div>
+				<div style="left: 328px; top: 388px; width: 113px; height: 116px;"></div>
+				<div style="left: 538px; top: 438px; width: 100px; height: 100px;"></div>
+				<div style="left: 670px; top: 443px; width: 66px; height: 68px;"></div>
+				<div style="left: 436px; top: 537px; width: 100px; height: 100px;"></div>
+				<div style="left: 420px; top: 301px; width: 187px; height: 188px;"></div>
+			</div>
+			
+			<!-- 手机上图片块 -->
+			<div id="phoneItem">
+				<a href="http://jiangsu.sina.com.cn/zt/s/zgydbxjg2.shtml?id=12" target="_blank"><img alt="" src="http://jiangsu.sinaimg.cn/zt/s/zgydbxjg/images/i/i_01.png" style="left: 446px; top: 162px;"></a>
+				<a href="http://jiangsu.sina.com.cn/zt/s/zgydbxjg2.shtml?id=10" target="_blank"><img alt="" src="http://jiangsu.sinaimg.cn/zt/s/zgydbxjg/images/i/i_02.png" style="left: 325px; top: 198px;"></a>
+				<a href="http://jiangsu.sina.com.cn/zt/s/zgydbxjg2.shtml?id=2" target="_blank"><img alt="" src="http://jiangsu.sinaimg.cn/zt/s/zgydbxjg/images/i/i_03.png" style="left: 545px; top: 226px;"></a>
+				<a href="http://jiangsu.sina.com.cn/zt/s/zgydbxjg2.shtml?id=6" target="_blank"><img alt="" src="http://jiangsu.sinaimg.cn/zt/s/zgydbxjg/images/i/i_04.png" style="left: 303px; top: 340px;"></a>
+				<a href="http://jiangsu.sina.com.cn/zt/s/zgydbxjg2.shtml?id=3" target="_blank"><img alt="" src="http://jiangsu.sinaimg.cn/zt/s/zgydbxjg/images/i/i_05.png" style="left: 498px; top: 391px;"></a>
+				<a href="http://jiangsu.sina.com.cn/zt/s/zgydbxjg2.shtml?id=4" target="_blank"><img alt="" src="http://jiangsu.sinaimg.cn/zt/s/zgydbxjg/images/i/i_06.png" style="left: 614px; top: 382px;"></a>
+                <a href="http://jiangsu.sina.com.cn/zt/s/zgydbxjg2.shtml?id=9" target="_blank"><img alt="" src="http://jiangsu.sinaimg.cn/zt/s/zgydbxjg/images/i/i_07.png" style="left: 390px; top: 485px;"></a>
+                <a href="http://jiangsu.sina.com.cn/zt/s/zgydbxjg2.shtml?id=1" target="_blank"><img alt="" src="http://jiangsu.sinaimg.cn/zt/s/zgydbxjg/images/i/i_08.png" style="left: 420px; top: 301px;"></a>
+			</div>
+
+
+			
+			<!-- 左右俩个提示块 -->
+			<div id="phoneItemTip">
+				<div id="tip_l">
+					<img alt="" src="http://jiangsu.sinaimg.cn/zt/s/zgydbxjg/images/e/e1.jpg">
+					<span class="imgName">智慧政府</span><div class="dashedLine"></div>
+					<span class="imgEName">Wisdom Government</span>
+					<span class="imgDesc">小手机变身政务专家</span>
+				</div>
+				<div id="tip_r">
+					<img alt="" src="http://jiangsu.sinaimg.cn/zt/s/zgydbxjg/images/e/e1.jpg">
+					<span class="imgName">智慧政府</span><div class="dashedLine"></div>
+					<span class="imgEName">Wisdom Government</span>
+					<span class="imgDesc">小手机变身政务专家</span>
+				</div>
+			</div>
+			
+		</div>
+	</div>
+	<div id="p2">
+		<div class="content">
+			<div class="t" id="p2t">
+				<img class="timg" alt="" src=http://jiangsu.sinaimg.cn/zt/s/zgydbxjg/images/p2t.png>
+			</div>
+			<style>
+			.p2con { padding: 10px 20px; color: #333; }
+			.p2conli {background: #EEE; padding: 10px;margin-bottom: 10px;}
+			.p2con img{ width: 120px;  }
+			.p2con h3{ line-height: 50px; font-family: "microsoft yahei"; font-size: 16px;}
+			.p2con .p2conli img{ margin-right: 20px; }
+			</style>
+			<div class="p2con">
+				<div class="p2conli clearfix">
+					<img alt="" src="http://jiangsu.sinaimg.cn/zt/s/zgydbxjg/images/QR/hsh.png" style="float: left;">
+					<h3>和生活</h3>
+					<p>全国354个城市的掌上生活助手，提供衣食住行游购娱等九大类精品应用，让生活从此简单。
+					</p>
+				</div>
+				<div class="p2conli clearfix" style="display: block;">
+					<div style="float: left;">
+					<img alt="" src="http://jiangsu.sinaimg.cn/zt/s/zgydbxjg/images/QR/image002.png" style="margin-right: 0px;">
+					<img alt="" src="http://jiangsu.sinaimg.cn/zt/s/zgydbxjg/images/QR/image001.png">
+					</div>
+					<h3>移动外勤</h3>
+					<p>移动外勤是为外销、外修、外送、外巡类的中小企业提供基于位置的外勤管理信息化产品，该产品依托中国移动的2G/3G/4G网络、GIS、LBS、短信等能力，通过PC及移动终端，满足企业对外勤人员的定位调度、考勤管理、工作协同等需求，提高外勤人员的工作效率，节约企业运营管理成本。
+					</p>
+				</div>
+				<div class="p2conli clearfix">
+					<img alt="" src="http://jiangsu.sinaimg.cn/zt/s/zgydbxjg/images/QR/image003.png" style="float: left;">
+					<h3>V网通</h3>
+					<p>V网通以网络信息交互为基础，提供语音、文字、图片信息交互；个人通讯录集成；云端（集团）通讯录集成；工作圈；任务；会议；公告等功能。<br>
+V网通作为企业内部的新兴交流工具，在高安全的保障下，具有使用快捷、功能丰富、便于沟通等特点。
+					</p>
+				</div>
+				
+			</div>
+			
+			<div class="p2photo">
+				<img alt="" src="http://jiangsu.sinaimg.cn/zt/s/zgydbxjg/photo/pic1.jpg">
+				<img alt="" src="http://jiangsu.sinaimg.cn/zt/s/zgydbxjg/photo/pic2.jpg">
+				<img alt="" src="http://jiangsu.sinaimg.cn/zt/s/zgydbxjg/photo/pic3.jpg">
+				<img alt="" src="http://jiangsu.sinaimg.cn/zt/s/zgydbxjg/photo/pic4.jpg">
+				<img alt="" src="http://jiangsu.sinaimg.cn/zt/s/zgydbxjg/photo/pic5.jpg">
+			</div>
+		</div>
+	</div>
+	<div id="p3">
+		<div class="content">
+			<div class="t" id="p3t">
+				<img class="timg" alt="" src=http://jiangsu.sinaimg.cn/zt/s/zgydbxjg/images/p3t.png>
+			</div>
+			<div id="p3p1">
+				<div class="p3c" id="p3c1">
+					<a href="http://jiangsu.sina.com.cn/news/b/2014-09-15/1755112563.html" target="_blank">
+						<img alt="" src="http://jiangsu.sinaimg.cn/2014/0915/U9036P1194DT20140915181048.jpg" width="218">
+						<p>9月13日，一座由数千部手机拼装而成的“变形金刚”突现无锡城市职业技术学院体育馆，而当日恰逢新生报到，引发多位在场同学的惊叹。</p>
+	    				<p>据悉，此次展出的巨型手机变形金刚共由2000多部手机拼装而成，高度近3米，是江苏移动“和你一起智慧生活”信息化展江苏巡展的“代言人”。无锡是这次巡展的第一站......</p>
+	    				<p class="more">详细>></p>
+					</a>
+				</div>
+				<div class="p3c" id="p3c2">
+					<ul>
+						<li>
+							<a href="http://jiangsu.sina.com.cn/news/s/2014-08-22/1635110887.html" target="_blank">
+								<h2>中国的信息化政策</h2>
+							</a>
+							<p>我国的信息化政策不理想，在电子商务方面体现尤为明显。相应的法律、法规，相关的标准还 ......</p>
+							<a href="http://jiangsu.sina.com.cn/news/s/2014-08-22/1635110887.html" target="_blank">
+								<div class="more">详细>></div>
+							</a>
+						</li>
+						<li>
+							<a href="http://jiangsu.sina.com.cn/news/s/2014-08-22/1633110886.html" target="_blank">
+								<h2>网络安全与信息化发展：亦步亦趋</h2>
+							</a>
+							<p>今年是中国接入国际互联网20周年。20年来，中国互联网抓住机遇，快速推进，成果斐然。</p>
+							<a href="http://jiangsu.sina.com.cn/news/s/2014-08-22/1633110886.html" target="_blank">
+								<div class="more">详细>></div>
+							</a>
+							
+							
+						</li>
+						<li>
+							<a href="http://jiangsu.sina.com.cn/news/s/2014-08-22/1630110885.html" target="_blank">
+								<h2>国家出台政策 发展物联网</h2>
+							</a>
+							<p>东莞物联网产业抓住了黄金时期而迅速发展，一些技术已经成熟，但规模不够大，缺乏龙头。</p>
+							<a href="http://jiangsu.sina.com.cn/news/s/2014-08-22/1630110885.html" target="_blank">
+								<div class="more">详细>></div>
+							</a>
+						</li>
+						<li class="last">
+							<a href="http://jiangsu.sina.com.cn/news/s/2014-08-22/1618110878.html" target="_blank">
+								<h2>《信息化发展规划》</h2>
+							</a>
+							<p>近年来，我国信息化发展取得长足进展，经济社会信息化水平全面提升。</p>
+							<a href="http://jiangsu.sina.com.cn/news/s/2014-08-22/1618110878.html" target="_blank">
+								<div class="more">详细>></div>
+							</a>
+						</li>
+					</ul>
+				</div>
+				<div class="p3c" id="p3c3">
+					<a href="http://jiangsu.sina.com.cn/news/s/2014-08-22/1608110877.html" target="_blank">
+						<img alt="" src="http://jiangsu.sinaimg.cn/zt/s/zgydbxjg/images/img2.jpg">
+						<p>信息化是现代化的重要内容。</p>
+						<p>当前，全球信息技术创新快速发展，各种信息网络已达到无处不在的状态，智能终端基本实现全民普及，信息平台用户规模急剧膨胀，各类信息系统互联互通、综合协同，信息化呈现出互联网化、移动化、智慧化的新特点，引起了全社会、全领域的重大变革。</p>
+						<p>信息化深入发展在事实上已经形成了一个高效率、跨时空、多功能的网络空间。</p>
+					</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div id="p4">
+		<div class="content">
+			<div class="t" id="p4t">
+				<img class="timg" alt="" src=http://jiangsu.sinaimg.cn/zt/s/zgydbxjg/images/p4t.png>
+			</div>
+			<div class="mingjiatan">
+				<!-- 翻页 -->
+				<div class="lastpage"></div>
+				<div class="nextpage"></div>
+				
+				<div style="position: relative; width: 827px; height: 191px; overflow: hidden;">
+
+
+					<div id="jiabin_page1" class="jiabin_page" style="">
+						<!-- <img class="mjimg" alt="" src="http://jiangsu.sinaimg.cn/zt/s/zgydbxjg/images/img3.jpg"> -->
+						<div id="sina-video-cont1" class="mjimg"></div>
+						<a href="http://jiangsu.sina.com.cn/video/news/2014-09-01/16503463.html" target="_blank">
+							<h3>王宏图：智能信息化服务于各类产业链上的各类客户</h3>
+						</a>
+						<p>在交通方面，4G服务将实现全省覆盖，基站获得有效数据帮助市民选择最佳路线。在旅游方面，可以利用客源分析平台帮助景点制作定向方案，信息化产品服务于旅游产业链各领域的客户。医疗方面，可以为用户提供免费的预约挂号和远程会诊，坚持便民、惠民和利民的理念，为用户服务。</p>
+					</div>
+
+
+					<div id="jiabin_page2" class="jiabin_page" style="display: none;">
+						<!-- <img class="mjimg" alt="" src="http://jiangsu.sinaimg.cn/zt/s/zgydbxjg/images/img3.jpg"> -->
+						<div id="sina-video-cont2" class="mjimg"></div>
+						<a href="http://jiangsu.sina.com.cn/video/news/2014-09-01/16533464.html" target="_blank">
+							<h3>智勇：中国移动和你一起智慧生活</h3>
+						</a>
+						<p>信息化的应用广泛的覆盖了广大市民的生活，在各行各业的领域中，也有了相当大的突破。4G进公交的信息技术实现了人和信息的互动，方便广大市民出行。同时在旅游方面，信息化也运用大数据给旅游产业带来了产业化的革命。在教育方面，信息化能帮助推动素质学习和碎片学习，从而推进整体素质水平的提高。</p>
+					</div>
+
+					<div id="jiabin_page3" class="jiabin_page" style="display: none;">
+						<!-- <img class="mjimg" alt="" src="http://jiangsu.sinaimg.cn/zt/s/zgydbxjg/images/img3.jpg"> -->
+						<div id="sina-video-cont3" class="mjimg"></div>
+						<a href="http://jiangsu.sina.com.cn/video/news/2014-09-19/11553498.html" target="_blank">
+							<h3>殷天星：江苏移动4G进公交</h3>
+						</a>
+						<p>目前为止，江苏移动4G进公交已经完成了4379辆车的4G信号覆盖，已覆盖了南京主城区大部分的公交线路。据数据统计每天会有超过100万人可以在公交车上享受到移动4G带给我们市民的快速和便捷的服务。</p>
+					</div>
+					
+					<div id="jiabin_page4" class="jiabin_page" style="display: none;">
+						<div id="sina-video-cont4" class="mjimg"></div>
+						<a href="http://jiangsu.sina.com.cn/video/news/2014-09-19/11563500.html" target="_blank">
+							<h3>管正涛：移动"手机一卡通"便利办公</h3>
+						</a>
+						<p>移动技术在医疗方面发挥的作用也是不容小觑，据江苏省卫生厅副调研员管正涛介绍，移动“手机一卡通”已经在卫生厅办公中得到普及，并且，卫生厅正在为进一步的医疗信息化做准备，以便更好的惠民利民。</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div id="p5">
+		<div class="content">
+			<div class="t" id="p5t">
+				<img class="timg" alt="" src=http://jiangsu.sinaimg.cn/zt/s/zgydbxjg/images/p5t.png>
+			</div>
+			
+			
+			<div id="weiboBox">
+				<wb:topic uid="1812610191" column="y" border="y" width="1000" height="1190" tags="%E5%92%8C%E4%BD%A0%E4%B8%80%E8%B5%B7%20%E6%99%BA%E6%85%A7%E7%94%9F%E6%B4%BB" language="zh_cn" version="base" footbar="y" filter="y" ></wb:topic>
+				
+				<!-- 自定义微博板 -->
+				<link rel="stylesheet" type="text/css" href="http://img.t.sinajs.cn/t4/appstyle/widget/css/weiboTopic/weiboTopic.css?version=d804de3d29281819">
+				<div id="customWeibo" class="WB_widget">
+					<div node-type="feedlist">
+						<div class="feed_list_container" node-type="scroll_list" style="height:600px;">
+                        	<ul class="feed_list">
+                                                    <!-- 话题微博搜索结果显示区域 -->
+                                                                                                                                                            <li class="feed_item S_separate_l">
+                                                        <div class="user_avatar_container ">
+                                                            <a class="user_avatar_link" href="http://weibo.com/u/2372145973" target="_blank" title="全球IT数码科技"><img class="user_avatar" width="50" height="50" src="http://tp2.sinaimg.cn/2372145973/180/5639986024/0" alt="全球IT数码科技"></a>
+                                                                                                                    </div>
+                                                        <div class="weibo_content">
+                                                            <div class="weibo_text">
+                                                                <a class="user_name" href="http://weibo.com/u/2372145973" target="_blank" title="全球IT数码科技">全球IT数码科技</a><cite class="user_words">：【手机版变形金刚变形金刚的粉们注意啦，iPhone 6就要上市了，各位的肾准备好了没？面对即将掀起的“换手机”热潮，大伙儿猜猜旧手机都去哪儿了？po主大胆判断：它们都去江苏移动啦！因为po主昨日在附近工厂“偶遇手机搭建变形金刚”，近3米高，数千部旧手机组装而成，气场很是震撼！咱们拭目以待吧！<a href="http://weibo.com/jsmcc" target="_blank">@江苏移动</a></cite>
+                                                            </div>
+                                                                                                                        <div class="weibo_img_container">
+                                                                <img class="WB_big_cursor" src="http://ww1.sinaimg.cn/square/8d641335tw1ek9va1bn3oj20ha0cxmyq.jpg" action-type="preview" alt="">
+                                                            </div>
+                                                                                                                        <div class="weibo_bottom">
+                                                                <div class="weibo_info S_text_l">
+                                                                    <a class="weibo_time" href="http://weibo.com/2372145973/BmFY9eYte" target="_blank">9月12日 18:27</a><cite class="weibo_from">来自<a href="http://weibo.com/" rel="nofollow" target="_blank">微博 weibo.com</a></cite>
+                                                                </div>
+                                                                <div class="weibo_handle">
+                                                                    <a class="weibo_handler_a" href="http://weibo.com/2372145973/BmFY9eYte" action-type="forward" action-data="mid=3755025727743128" title="">转发
+                                                                                                                                                (346)
+                                                                                                                                            </a><cite class="WB_vline">|</cite><a class="weibo_handler_a" href="http://weibo.com/2372145973/BmFY9eYte" action-type="favorite" action-data="mid=3755025727743128"  title="">收藏</a><cite class="WB_vline">|</cite><a class="weibo_handler_a" href="http://weibo.com/2372145973/BmFY9eYte" action-type="comment" action-data="mid=3755025727743128"  title="">评论
+                                                                                                                                                (55)
+                                                                                                                                            </a>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                                                                            </li>
+                                                                                                                                                                                                                <li class="feed_item S_separate_l">
+                                                        <div class="user_avatar_container ">
+                                                            <a class="user_avatar_link" href="http://weibo.com/u/2076921663" target="_blank" title="全球最in科技"><img class="user_avatar" width="50" height="50" src="http://tp4.sinaimg.cn/2076921663/180/5705543609/0" alt="全球最in科技"></a>
+                                                                                                                    </div>
+                                                        <div class="weibo_content">
+                                                            <div class="weibo_text">
+                                                                <a class="user_name" href="http://weibo.com/u/2076921663" target="_blank" title="全球最in科技">全球最in科技</a><cite class="user_words">：【手机版变形金刚变形金刚的粉们注意啦，iPhone 6就要上市了，各位的肾准备好了没？面对即将掀起的“换手机”热潮，大伙儿猜猜旧手机都去哪儿了？po主大胆判断：它们都去江苏移动啦！因为po主昨日在附近工厂“偶遇手机搭建变形金刚”，近3米高，数千部旧手机组装而成，气场很是震撼！咱们拭目以待吧！<a href="http://weibo.com/jsmcc" target="_blank">@江苏移动</a></cite>
+                                                            </div>
+                                                                                                                        <div class="weibo_img_container">
+                                                                <img class="WB_big_cursor" src="http://ww1.sinaimg.cn/square/8d641335tw1ek9va1bn3oj20ha0cxmyq.jpg" action-type="preview" alt="">
+                                                            </div>
+                                                                                                                        <div class="weibo_bottom">
+                                                                <div class="weibo_info S_text_l">
+                                                                    <a class="weibo_time" href="http://weibo.com/2076921663/BmFYl4hIu" target="_blank">9月12日 18:28</a><cite class="weibo_from">来自<a href="http://weibo.com/" rel="nofollow" target="_blank">微博 weibo.com</a></cite>
+                                                                </div>
+                                                                <div class="weibo_handle">
+                                                                    <a class="weibo_handler_a" href="http://weibo.com/2076921663/BmFYl4hIu"  action-type="forward" action-data="mid=3740148393029730" title="">转发
+                                                                    																			(375)
+                                                                                                                                            </a><cite class="WB_vline">|</cite><a class="weibo_handler_a" href="http://weibo.com/2076921663/BmFYl4hIu" action-type="favorite" action-data="mid=3740148393029730"  title="">收藏</a><cite class="WB_vline">|</cite><a class="weibo_handler_a" href="http://weibo.com/2076921663/BmFYl4hIu" action-type="comment" action-data="mid=3740148393029730"  title="">评论
+                                                                                                                                            	(75)
+                                                                                                                                            </a>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                                                                            </li>
+                                                                                                                                                                                                                <li class="feed_item S_separate_l">
+                                                        <div class="user_avatar_container ">
+                                                            <a class="user_avatar_link" href="http://weibo.com/u/2737976597" target="_blank" title="全球电影娱乐榜"><img class="user_avatar" width="50" height="50" src="http://tp2.sinaimg.cn/2737976597/180/22854354128/0" alt="全球电影娱乐榜"></a>
+                                                                                                                    </div>
+                                                        <div class="weibo_content">
+                                                            <div class="weibo_text">
+                                                                <a class="user_name" href="http://weibo.com/u/2737976597" target="_blank" title="全球电影娱乐榜">全球电影娱乐榜</a><cite class="user_words">：【手机版变形金刚变形金刚的粉们注意啦，iPhone 6就要上市了，各位的肾准备好了没？面对即将掀起的“换手机”热潮，大伙儿猜猜旧手机都去哪儿了？po主大胆判断：它们都去江苏移动啦！因为po主昨日在附近工厂“偶遇手机搭建变形金刚”，近3米高，数千部旧手机组装而成，气场很是震撼！咱们拭目以待吧！<a href="http://weibo.com/jsmcc" target="_blank">@江苏移动</a></cite>
+                                                            </div>
+                                                                                                                        <div class="weibo_img_container">
+                                                                <img class="WB_big_cursor" src="http://ww1.sinaimg.cn/square/8d641335tw1ek9va1bn3oj20ha0cxmyq.jpg" action-type="preview" alt="">
+                                                            </div>
+                                                                                                                        <div class="weibo_bottom">
+                                                                <div class="weibo_info S_text_l">
+                                                                    <a class="weibo_time" href="http://weibo.com/2737976597/BmFYInO4k" target="_blank">9月12日 18:28</a><cite class="weibo_from">来自<a href="http://weibo.com/" rel="nofollow" target="_blank">微博 weibo.com</a></cite>
+                                                                </div>
+                                                                <div class="weibo_handle">
+                                                                    <a class="weibo_handler_a" href="http://weibo.com/2737976597/BmFYInO4k"  action-type="forward" action-data="mid=3740148393029730" title="">转发
+                                                                    																			(325)
+                                                                                                                                            </a><cite class="WB_vline">|</cite><a class="weibo_handler_a" href="http://weibo.com/2737976597/BmFYInO4k" action-type="favorite" action-data="mid=3740148393029730"  title="">收藏</a><cite class="WB_vline">|</cite><a class="weibo_handler_a" href="http://weibo.com/2737976597/BmFYInO4k" action-type="comment" action-data="mid=3740148393029730"  title="">评论
+                                                                                                                                            	(54)
+                                                                                                                                            </a>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                                                                            </li>
+                                                                                                                                                                                                                <li class="feed_item S_separate_l">
+                                                        <div class="user_avatar_container ">
+                                                            <a class="user_avatar_link" href="http://weibo.com/339797678" target="_blank" title="全球热门视频榜"><img class="user_avatar" width="50" height="50" src="http://tp4.sinaimg.cn/1307201711/180/5659682238/0" alt="全球热门视频榜"></a>
+                                                                                                                    </div>
+                                                        <div class="weibo_content">
+                                                            <div class="weibo_text">
+                                                                <a class="user_name" href="http://weibo.com/339797678" target="_blank" title="全球热门视频榜">全球热门视频榜</a><cite class="user_words">：<em nick-name="全球热门视频榜">今天到徐州出差，偶遇大龙湖畔江苏移动<a render="ext" extra-data="type=topic" class="a_topic" href="http://huati.weibo.com/k/4G%E5%92%8C%E4%BD%A0+%E7%95%85%E5%BF%AB%E9%85%B7%E8%B7%91?from=501">#4G和你 畅快酷跑#</a>活动，现场提供免费4G网络，于是就拿手机测了一下徐州的4G。快！跟南京4G一样快！看视频几乎不用缓冲，进度条可以即拖即看，发个几M的大邮件嗖的一下就发出去，微博上传给视频、高清图片什么的毫无压力。用的挺爽！</em></cite>
+                                                            </div>
+                                                                                                                        <div class="weibo_bottom">
+                                                                <div class="weibo_info S_text_l">
+                                                                    <a class="weibo_time" href="http://weibo.com/1307201711/BmO8XiYvH" target="_blank">9月13日 15:16</a><cite class="weibo_from">来自<a class="S_link2" suda-uatrack="key=single_weibo_source&amp;value=source" action-type="app_source" target="_blank" href="http://app.weibo.com/t/feed/2o92Kh" rel="nofollow">vivo_Xplay</a></cite>
+                                                                </div>
+                                                                <div class="weibo_handle">
+                                                                    <a class="weibo_handler_a" href="http://weibo.com/1307201711/BmO8XiYvH"  action-type="forward" action-data="mid=3740144433471313" title="">转发
+                                                                    																			(326)
+                                                                                                                                            </a><cite class="WB_vline">|</cite><a class="weibo_handler_a" href="http://weibo.com/1307201711/BmO8XiYvH" action-type="favorite" action-data="mid=3740144433471313"  title="">收藏</a><cite class="WB_vline">|</cite><a class="weibo_handler_a" href="http://weibo.com/1307201711/BmO8XiYvH" action-type="comment" action-data="mid=3740144433471313"  title="">评论
+                                                                                                                                            	(53)
+                                                                                                                                            </a>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                                                                            </li>
+                                                                                                                                                                                                                <li class="feed_item S_separate_l">
+                                                        <div class="user_avatar_container ">
+                                                            <a class="user_avatar_link" href="http://weibo.com/u/2095530281" target="_blank" title="科技你的生活"><img class="user_avatar" width="50" height="50" src="http://tp2.sinaimg.cn/2095530281/180/5664158065/0" alt="科技你的生活"></a>
+                                                                                                                    </div>
+                                                        <div class="weibo_content">
+                                                            <div class="weibo_text">
+                                                                <a class="user_name" href="http://weibo.com/u/2095530281" target="_blank" title="科技你的生活">科技你的生活</a><cite class="user_words">：<em nick-name="科技你的生活">今天在花园广场闲遛时，正好看到江苏移动<a render="ext" extra-data="type=topic" class="a_topic" href="http://huati.weibo.com/k/4G%E5%92%8C%E4%BD%A0+%E7%95%85%E5%BF%AB%E9%85%B7%E8%B7%91?from=501">#4G和你 畅快酷跑#</a>活动连云港站在此举办，现场人山人海很热闹，原来是4G游戏体验环节开放邀请！本人没能禁得住诱惑,也上前畅玩了一把4G和游戏,还通过4G微打印一键无线打印了手机里照片,不得不说,4G应用真是蛮神奇的！信息化发展如此高大上,江苏移动也是蛮拼的~</em></cite>
+                                                            </div>
+                                                                                                                        <div class="weibo_bottom">
+                                                                <div class="weibo_info S_text_l">
+                                                                    <a class="weibo_time" href="http://weibo.com/2095530281/BmO9jpSMC" target="_blank">9月13日 15:17</a><cite class="weibo_from">来自<a href="http://weibo.com/" rel="nofollow" target="_blank">微博 weibo.com</a></cite>
+                                                                </div>
+                                                                <div class="weibo_handle">
+                                                                    <a class="weibo_handler_a" href="http://weibo.com/2095530281/BmO9jpSMC"  action-type="forward" action-data="mid=3739875242853429" title="">转发
+                                                                                                                                                (372)
+                                                                                                                                            </a><cite class="WB_vline">|</cite><a class="weibo_handler_a" href="http://weibo.com/2095530281/BmO9jpSMC" action-type="favorite" action-data="mid=3739875242853429"  title="">收藏</a><cite class="WB_vline">|</cite><a class="weibo_handler_a" href="http://weibo.com/2095530281/BmO9jpSMC" action-type="comment" action-data="mid=3739875242853429"  title="">评论
+                                                                                                                                                (66)
+                                                                                                                                            </a>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                                                                            </li>
+                                                                                                                                                                                                                <li class="feed_item S_separate_l">
+                                                        <div class="user_avatar_container ">
+                                                            <a class="user_avatar_link" href="http://weibo.com/u/2091639913" target="_blank" title="赢在IT时代"><img class="user_avatar" width="50" height="50" src="http://tp2.sinaimg.cn/2091639913/180/40041008781/0" alt="赢在IT时代"></a>
+                                                                                                                    </div>
+                                                        <div class="weibo_content">
+                                                            <div class="weibo_text">
+                                                                <a class="user_name" href="http://weibo.com/u/2091639913" target="_blank" title="赢在IT时代">赢在IT时代</a><cite class="user_words">：<em nick-name="赢在IT时代">今天，博主作为江苏移动<a render="ext" extra-data="type=topic" class="a_topic" href="http://huati.weibo.com/k/4G%E5%92%8C%E4%BD%A0+%E7%95%85%E5%BF%AB%E9%85%B7%E8%B7%91?from=501">#4G和你 畅快酷跑#</a>活动参赛选手，在古黄河水景公园跟移动4G来了场轰轰烈烈的约会，靠着移动4G强大的信号覆盖率，一口气完成所有比赛任务，so easy！听说除了江苏省内的普通城区外，移动4G已经完成了高铁、高速、航站楼、景区、商圈等等的覆盖。以后真是走哪儿都有4G了。</em></cite>
+                                                            </div>
+                                                                                                                        <div class="weibo_bottom">
+                                                                <div class="weibo_info S_text_l">
+                                                                    <a class="weibo_time" href="http://weibo.com/2091639913/BmO9IflVv" target="_blank">9月13日 15:18</a><cite class="weibo_from">来自<a class="S_link2" suda-uatrack="key=single_weibo_source&amp;value=source" action-type="app_source" target="_blank" href="http://app.weibo.com/t/feed/l4RWD" rel="nofollow">Weico.Android</a></cite>
+                                                                </div>
+                                                                <div class="weibo_handle">
+                                                                    <a class="weibo_handler_a" href="http://weibo.com/2091639913/BmO9IflVv"  action-type="forward" action-data="mid=3736952358580753" title="">转发
+                                                                                                                                                (368)
+                                                                                                                                            </a><cite class="WB_vline">|</cite><a class="weibo_handler_a" href="http://weibo.com/2091639913/BmO9IflVv" action-type="favorite" action-data="mid=3736952358580753"  title="">收藏</a><cite class="WB_vline">|</cite><a class="weibo_handler_a" href="http://weibo.com/2091639913/BmO9IflVv" action-type="comment" action-data="mid=3736952358580753"  title="">评论
+                                                                                                                                                (67)
+                                                                                                                                            </a>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                                                                            </li>
+                                                                                                                                                                                                                <li class="feed_item S_separate_l">
+                                                        <div class="user_avatar_container ">
+                                                            <a class="user_avatar_link" href="http://weibo.com/u/2697765451" target="_blank" title="全球IT科技数码"><img class="user_avatar" width="50" height="50" src="http://tp4.sinaimg.cn/2697765451/180/5652855305/0" alt="全球IT科技数码"></a>
+                                                                                                                    </div>
+                                                        <div class="weibo_content">
+                                                            <div class="weibo_text">
+                                                                <a class="user_name" href="http://weibo.com/u/2697765451" target="_blank" title="全球IT科技数码">全球IT科技数码</a><cite class="user_words">：<em nick-name="全球IT科技数码"><a render="ext" extra-data="type=topic" class="a_topic" href="http://huati.weibo.com/k/%E5%81%B6%E9%81%87%E5%85%A8%E5%9B%BD%E7%AC%AC%E4%B8%80%E4%B8%AA%E6%89%8B%E6%9C%BA%E7%89%88%E5%8F%98%E5%BD%A2%E9%87%91%E5%88%9A?from=501">#偶遇全国第一个手机版变形金刚#</a>今日得闲去校园追忆青春来着,没想到偶遇“擎天柱”降临无锡城市职业技术学院！原来是江苏移动为移动信息化宣传助阵,同时为广大大学新生们做的迎新惊喜准备 .用旧手机打造3米多高的巨型“擎天柱”,见证智能手机变迁的同时,也寓意着信息化给生活带来便捷的变化.<a render="ext" extra-data="type=atname" href="/n/%E6%B1%9F%E8%8B%8F%E7%A7%BB%E5%8A%A8?from=feed&amp;loc=at" usercard="name=江苏移动">@江苏移动</a></em></cite>
+                                                            </div>
+                                                                                                                        <div class="weibo_img_container">
+                                                                <img class="WB_big_cursor" src="http://ww3.sinaimg.cn/square/a0cca24bjw1ekb4au3kmwj20k00qo425.jpg" action-type="preview" alt="">
+                                                            </div>
+                                                                                                                        <div class="weibo_bottom">
+                                                                <div class="weibo_info S_text_l">
+                                                                    <a class="weibo_time" href="http://weibo.com/2697765451/BmQaoEDRT" target="_blank">9月13日 20:25</a><cite class="weibo_from">来自<a class="S_link2" suda-uatrack="key=single_weibo_source&amp;value=source" action-type="app_source" target="_blank" href="http://app.weibo.com/t/feed/3auC5p" rel="nofollow">皮皮时光机</a></cite>
+                                                                </div>
+                                                                <div class="weibo_handle">
+                                                                    <a class="weibo_handler_a" href="http://weibo.com/2697765451/BmQaoEDRT"  action-type="forward" action-data="mid=3593753736664890" title="">转发(325)
+                                                                                                                                            </a><cite class="WB_vline">|</cite><a class="weibo_handler_a" href="http://weibo.com/2697765451/BmQaoEDRT" action-type="favorite" action-data="mid=3593753736664890"  title="">收藏</a><cite class="WB_vline">|</cite><a class="weibo_handler_a" href="http://weibo.com/2697765451/BmQaoEDRT" action-type="comment" action-data="mid=3593753736664890"  title="">评论
+                                                                                                                                            (49)
+                                                                                                                                            </a>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                                                                            </li>
+                                                                                                                                                                                                                <li class="feed_item S_separate_l">
+                                                        <div class="user_avatar_container ">
+                                                            <a class="user_avatar_link" href="http://weibo.com/u/2065240833" target="_blank" title="IT新掌门"><img class="user_avatar" width="50" height="50" src="http://tp2.sinaimg.cn/2065240833/180/5663211717/0" alt="IT新掌门"></a>
+                                                                                                                    </div>
+                                                        <div class="weibo_content">
+                                                            <div class="weibo_text">
+                                                                <a class="user_name" href="http://weibo.com/u/2065240833" target="_blank" title="IT新掌门">IT新掌门</a><cite class="user_words">：<em nick-name="IT新掌门"><a render="ext" extra-data="type=topic" class="a_topic" href="http://huati.weibo.com/k/%E8%8B%B1%E9%9B%84%E5%BD%92%E6%9D%A5%EF%BC%81%E5%8F%98%E5%BD%A2%E9%87%91%E5%88%9A%E7%AA%81%E9%99%8D%E6%97%A0%E9%94%A1%E6%A0%A1%E5%9B%AD?from=501">#英雄归来！变形金刚突降无锡校园#</a> 你造吗，无锡城市职业技术学院粗大事了！变形金刚擎天柱一夜之间降临校体育馆中心，同学们都惊呆了。原来这款3米高的庞然大物是由江苏移动用耗时半个月，用2000多部旧手机精心拼装而成，为移动信息化代言站岗、为智能生活呐喊助威！戳图了解真相→<a render="ext" extra-data="type=atname" href="/n/%E6%B1%9F%E8%8B%8F%E7%A7%BB%E5%8A%A8?from=feed&amp;loc=at" usercard="name=江苏移动">@江苏移动</a></em></cite>
+                                                            </div>
+                                                                                                                        <div class="weibo_img_container">
+                                                                <img class="WB_big_cursor" src="http://ww2.sinaimg.cn/square/7b191301jw1ekb2fxvzldj20fk0kq0ty.jpg" action-type="preview" alt="">
+                                                            </div>
+                                                                                                                        <div class="weibo_bottom">
+                                                                <div class="weibo_info S_text_l">
+                                                                    <a class="weibo_time" href="http://weibo.com/2065240833/BmPLahlHk" target="_blank">9月13日 19:23</a><cite class="weibo_from">来自<a href="http://weibo.com/" rel="nofollow" target="_blank">微博 weibo.com</a></cite>
+                                                                </div>
+                                                                <div class="weibo_handle">
+                                                                    <a class="weibo_handler_a" href="http://weibo.com/2065240833/BmPLahlHk"  action-type="forward" action-data="mid=3587390612691965" title="">转发(381)
+                                                                                                                                            </a><cite class="WB_vline">|</cite><a class="weibo_handler_a" href="http://weibo.com/2065240833/BmPLahlHk" action-type="favorite" action-data="mid=3587390612691965"  title="">收藏</a><cite class="WB_vline">|</cite><a class="weibo_handler_a" href="http://weibo.com/2065240833/BmPLahlHk" action-type="comment" action-data="mid=3587390612691965"  title="">评论
+                                                                                                                                            (65)
+                                                                                                                                            </a>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                                                                            </li>
+                                                                                                                                                                                                                <li class="feed_item S_separate_l">
+                                                        <div class="user_avatar_container ">
+                                                            <a class="user_avatar_link" href="http://weibo.com/u/1949133842" target="_blank" title="南京无限好"><img class="user_avatar" width="50" height="50" src="http://tp3.sinaimg.cn/1949133842/180/40042038572/0" alt="南京无限好"></a>
+                                                                                                                    </div>
+                                                        <div class="weibo_content">
+                                                            <div class="weibo_text">
+                                                                <a class="user_name" href="http://weibo.com/u/1949133842" target="_blank" title="南京无限好">南京无限好</a><a href="http://club.weibo.com/intro" target="_blank"><span class="WB_ico_club feed_icon"></span></a><cite class="user_words">：<a href="http://huati.weibo.com/k/%E7%88%B1%E7%9A%84%E5%AE%A3%E8%A8%80%EF%BC%8C%E9%87%8A%E6%94%BE%E6%97%A0%E4%B8%8E%E4%BC%A6%E6%AF%94%E7%9A%84%E7%88%B1%E6%83%85%E8%83%BD%E9%87%8F%EF%BC%81?from=601" target="_blank">#爱的宣言，释放无与伦比的爱情能量！#</a> <a href="http://huati.weibo.com/k/%E6%96%B0%E6%98%A5%E6%83%85%E4%BA%BA%E8%8A%82%E5%85%B1%E5%88%86%E4%BA%AB?from=601" target="_blank">#新春情人节共分享#</a>喜欢被你呵护着的感觉，想和你一起慢慢变老，直到我们哪也去不了，你还把我当成手心里的宝。祝我们的爱情天长地久！ <a target="_blank" href="http://weibo.com/n/LG智慧生活">@LG智慧生活</a>  <a href="http://t.cn/zYbwAwH" target="_blank">http://t.cn/zYbwAwH</a></cite>
+                                                            </div>
+                                                                                                                        <div class="weibo_img_container">
+                                                                <img class="WB_big_cursor" src="http://ww1.sinaimg.cn/square/742d6c12jw1ekb2gzw2ulj20fk0bot9f.jpg" action-type="preview" alt="">
+                                                            </div>
+                                                                                                                        <div class="weibo_bottom">
+                                                                <div class="weibo_info S_text_l">
+                                                                    <a class="weibo_time" href="http://weibo.com/1949133842/BmPLYePEi" target="_blank">9月13日 19:25</a><cite class="weibo_from">来自<a href="http://weibo.com/" rel="nofollow" target="_blank">微博 weibo.com</a></cite>
+                                                                </div>
+                                                                <div class="weibo_handle">
+                                                                    <a class="weibo_handler_a" href="http://weibo.com/1949133842/BmPLYePEi"  action-type="forward" action-data="mid=3546704856871216" title="">转发(372)
+                                                                                                                                            </a><cite class="WB_vline">|</cite><a class="weibo_handler_a" href="http://weibo.com/1949133842/BmPLYePEi" action-type="favorite" action-data="mid=3546704856871216"  title="">收藏</a><cite class="WB_vline">|</cite><a class="weibo_handler_a" href="http://weibo.com/1949133842/BmPLYePEi" action-type="comment" action-data="mid=3546704856871216"  title="">评论
+                                                                                                                                            (60)
+                                                                                                                                            </a>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                                                                            </li>
+                                                                                                                                                                                                                <li class="feed_item S_separate_l">
+                                                        <div class="user_avatar_container ">
+                                                            <a class="user_avatar_link" href="http://weibo.com/u/2074674805" target="_blank" title="IT最前沿资讯"><img class="user_avatar" width="50" height="50" src="http://tp2.sinaimg.cn/2074674805/180/5663211858/0" alt="IT最前沿资讯"></a>
+                                                                                                                    </div>
+                                                        <div class="weibo_content">
+                                                            <div class="weibo_text">
+                                                                <a class="user_name" href="http://weibo.com/u/2074674805" target="_blank" title="IT最前沿资讯">IT最前沿资讯</a><cite class="user_words">：<em nick-name="IT最前沿资讯"><a render="ext" extra-data="type=topic" class="a_topic" href="http://huati.weibo.com/k/%E6%B1%9F%E8%8B%8F%E7%A7%BB%E5%8A%A8%E9%80%86%E5%A4%A9%E7%BB%84%E8%A3%85%E6%89%8B%E8%89%BA%EF%BC%8C%E6%88%91%E4%BC%99%E5%91%86%EF%BC%81?from=501">#江苏移动逆天组装手艺，我伙呆！#</a>超市大妈DIY大神地位不保，江苏移动逆天组装再破纪录！今天无锡城市职业技术学院体育馆内，一个由2000多部旧手机纯手工打造变形金刚霸气亮相，完美的拼装技巧，让在场的每一个人都争抢着拍照合影，移动为宣传信息化，这样的创新方式值得给个赞！<a render="ext" extra-data="type=atname" href="/n/%E6%B1%9F%E8%8B%8F%E7%A7%BB%E5%8A%A8?from=feed&amp;loc=at" usercard="name=江苏移动">@江苏移动</a></em></cite>
+                                                            </div>
+                                                                                                                        <div class="weibo_img_container">
+                                                                <img class="WB_big_cursor" src="http://ww3.sinaimg.cn/square/7ba90675jw1ekb2fxtydij20fk0kq3zq.jpg" action-type="preview" alt="">
+                                                            </div>
+                                                                                                                        <div class="weibo_bottom">
+                                                                <div class="weibo_info S_text_l">
+                                                                    <a class="weibo_time" href="http://weibo.com/2074674805/BmPLzop2U" target="_blank">9月13日 19:24</a><cite class="weibo_from">来自<a href="http://weibo.com/" rel="nofollow" target="_blank">微博 weibo.com</a></cite>
+                                                                </div>
+                                                                <div class="weibo_handle">
+                                                                    <a class="weibo_handler_a" href="http://weibo.com/2074674805/BmPLzop2U"  action-type="forward" action-data="mid=3546672162374880" title="">转发(379)
+                                                                                                                                            </a><cite class="WB_vline">|</cite><a class="weibo_handler_a" href="http://weibo.com/2074674805/BmPLzop2U" action-type="favorite" action-data="mid=3546672162374880"  title="">收藏</a><cite class="WB_vline">|</cite><a class="weibo_handler_a" href="http://weibo.com/2074674805/BmPLzop2U" action-type="comment" action-data="mid=3546672162374880"  title="">评论
+                                                                                                                                            (62)
+                                                                                                                                            </a>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                                                                            </li>
+                                                                                                                                                                                                                <li class="feed_item S_separate_l">
+                                                        <div class="user_avatar_container ">
+                                                            <a class="user_avatar_link" href="http://weibo.com/u/1896675707" target="_blank" title="时尚热门新生活"><img class="user_avatar" width="50" height="50" src="http://tp4.sinaimg.cn/1896675707/180/40053010191/0" alt="时尚热门新生活"></a>
+                                                                                                                    </div>
+                                                        <div class="weibo_content">
+                                                            <div class="weibo_text">
+                                                                <a class="user_name" href="http://weibo.com/u/1896675707" target="_blank" title="时尚热门新生活">时尚热门新生活</a><cite class="user_words">：<em nick-name="时尚热门新生活"><a render="ext" extra-data="type=topic" class="a_topic" href="http://huati.weibo.com/k/%E6%99%BA%E6%85%A7%E7%94%9F%E6%B4%BB%E9%A3%8E+%E5%90%B9%E8%BF%9B%E9%94%A1%E5%9F%8E?from=501">#智慧生活风 吹进锡城#</a>今天，无锡城市职业技术学院大门都快被人挤破了！因为江苏移动在体育馆内展出了巨型变形金刚，为移动信息化代言和开学迎新做迎宾！多部旧手机拼装而成的变形金刚震撼之极！场馆内一片“咔嚓”拍照声，不说了，偶要去排队与英雄合影了。</em></cite>
+                                                            </div>
+                                                                                                                        <div class="weibo_img_container">
+                                                                <img class="WB_big_cursor" src="http://ww3.sinaimg.cn/square/710cf97btw1ekb1rx2qodj20qo0k0782.jpg" action-type="preview" alt="">
+                                                            </div>
+                                                                                                                        <div class="weibo_bottom">
+                                                                <div class="weibo_info S_text_l">
+                                                                    <a class="weibo_time" href="http://weibo.com/1896675707/BmPAXlwUc" target="_blank">9月13日 18:57</a><cite class="weibo_from">来自<a class="S_link2" suda-uatrack="key=single_weibo_source&amp;value=source" action-type="app_source" target="_blank" href="http://app.weibo.com/t/feed/1tqBja" rel="nofollow">360安全浏览器</a></cite>
+                                                                </div>
+                                                                <div class="weibo_handle">
+                                                                    <a class="weibo_handler_a" href="http://weibo.com/1896675707/BmPAXlwUc"  action-type="forward" action-data="mid=3545629010103201" title="">转发(314)
+                                                                                                                                            </a><cite class="WB_vline">|</cite><a class="weibo_handler_a" href="http://weibo.com/1896675707/BmPAXlwUc" action-type="favorite" action-data="mid=3545629010103201"  title="">收藏</a><cite class="WB_vline">|</cite><a class="weibo_handler_a" href="http://weibo.com/1896675707/BmPAXlwUc" action-type="comment" action-data="mid=3545629010103201"  title="">评论
+                                                                                                                                            (50)
+                                                                                                                                            </a>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                                                                            </li>
+                                                                                                                                                        </ul>
+                                                                                            </div>
+					</div>
+				</div>
+				
+			</div>
+		</div>
+	</div>
+<script type="text/javascript">
+swfobject.registerObject("FlashID");
+    </script>
+</body>
+
+	<!-- 切换 -->
+	<style>
+	.lastpage, .nextpage{
+		position: absolute;
+		top:85px;
+		cursor: pointer;
+		width: 40px;
+		height: 98px;
+		z-index: 3;
+		-webkit-user-select: none;
+		-moz-user-select: none;
+		-o-user-select: none;
+		-ms-user-select: none;
+		user-select: none;
+	}
+	
+	.lastpage{
+		left: 23px;
+		background-image: url("http://hubei.sinaimg.cn/2014/0721/S122974T1405908695080.png");
+	}
+	.nextpage{
+		right: 23px;
+		background-image: url("http://hubei.sinaimg.cn/2014/0721/S122974T1405908709861.png");
+	}
+	
+	.lastpage:hover, .nextpage:hover{
+		background-position: 0 -98px;
+	}
+	.lastpage:active, .nextpage:active{
+		background-position: 0 -196px;
+	}
+	</style>
+	
+	<script type="text/javascript">
+	var currentPage = 1;
+	window.onload = function(){
+		$(".lastpage").bind("click", function() {
+ $(".jiabin_page").stop(true,true);
+			changePage('last');
+		});
+		$(".nextpage").bind("click",function() {
+ $(".jiabin_page").stop(true,true);
+			changePage('next');
+		});
+	}
+
+	function changePage(direction){
+		var totalPages = $(".jiabin_page").size();
+                if(totalPages==1 ){
+                    return;
+                }
+		var innerWidth = $(".jiabin_page").innerWidth();
+		if(direction=="last"){
+			
+			$("#jiabin_page"+currentPage).css({
+				"z-index" : "1"
+			}).fadeOut(300);
+			
+			if (currentPage == 1) {
+				currentPage = totalPages;
+			}else{
+				currentPage--;
+			}
+
+			$("#jiabin_page"+currentPage).show().css({
+				"z-index" : "2"
+			}).animate({
+				left : -innerWidth
+			}, 0).animate({
+				left : 0
+			}, 300);
+			
+			
+		}else{
+			$("#jiabin_page"+currentPage).css({
+				"z-index" : "1"
+			}).fadeOut(300);
+			
+			
+			if (currentPage == totalPages) {
+				currentPage = 1;
+			}else{
+				currentPage++;
+			}
+			
+			$("#jiabin_page"+currentPage).show().css({
+				"z-index" : "2"
+			}).animate({
+				left : innerWidth
+			}, 0).animate({
+				left : 0
+			}, 300);
+			
+			
+			
+		}
+	}
+	
+	</script>
+
+
+	<!-- hide Flash -->
+	<script type="text/javascript">
+	(function () {
+	    var flash = document.getElementById("headflash");
+	  
+	    var t = setInterval(function () {
+	        try {
+	            if(flash.IsPlaying() == false) { //轮询flash的某个方法即可
+		   $("#headflash").hide();
+	//	            	hideflash();
+	                clearInterval(t);
+	            }
+	        } catch (ex) {
+	  
+	        }
+	    }, 2000);
+	  
+	   function hideflash(){
+		   alert(1);
+	   }
+	})();
+	</script>
+
+
+	<!-- 视频播放 -->
+	<script type="text/javascript" >
+		var flashPlayer_cont_19 = {
+				container: "sina-video-cont1",    //Div容器的id
+				playerWidth: 287,        				  //宽
+				playerHeight: 190,                //高
+				width :  0,  			  //好像没用
+				height  : 0, 			  //好像也没用
+				autoLoad: 0,                      //自动加载
+				autoPlay: 0,                      //自动播放
+				pid: "1/334".split("/")[0],
+				as: 0,                            //广告
+				tjAD: 0,                          //显示擎天柱广告
+				tj: 0,                            //片尾推荐
+				casualPlay: 1,                 		//任意拖动视频
+				head: 0,                          //播放片头动画
+				share : 0,
+				singleRss : "http://rss.sina.com.cn/paihang/bn/top/day/new_news.xml.data_utf8",
+				thumbUrl : "",  //请更改这里的缩略图
+				logo: 0,                          //显示logo
+				vid: 77494204                     //视频内部ID号
+			  	};
+	</script>
+	<script>
+		var video1 = {
+				container: "sina-video-cont1",
+				vid: 135582521,
+		};
+		var video2 = {
+				container: "sina-video-cont2",
+				vid: 135510692,
+		};
+		var video3 = {
+				container: "sina-video-cont3",
+				vid: 135721179,
+		};
+		var video4 = {
+				container: "sina-video-cont4",
+				vid: 135721167,
+		};
+		var player_cont_1 = sinaVideoPlayer($.extend({}, flashPlayer_cont_19, video1));	
+		var player_cont_2 = sinaVideoPlayer($.extend({}, flashPlayer_cont_19, video2));	
+		var player_cont_3 = sinaVideoPlayer($.extend({}, flashPlayer_cont_19, video3));	
+		var player_cont_4 = sinaVideoPlayer($.extend({}, flashPlayer_cont_19, video4));
+		player_cont_1.init();
+		player_cont_2.init();
+		player_cont_3.init();
+		player_cont_4.init();
+	</script>
+	
+	<script type="text/javascript">
+
+	$(function() {
+		$("#phoneItemHot div").hover(function() {
+			$("#phoneItem img").hide();
+			$("#phoneItemLine div").hide();
+			$("#phoneItemTip #tip_l").hide();
+			$("#phoneItemTip #tip_r").hide();
+			
+			
+			// hover
+			var index = $(this).index();
+			$("#phoneItem img").eq(index).show();
+			$("#phoneItemLine div").eq(index).show();
+			
+			var _img = ["http://jiangsu.sinaimg.cn/zt/s/zgydbxjg/images/e/e1.jpg",
+			            "http://jiangsu.sinaimg.cn/zt/s/zgydbxjg/images/e/e2.jpg",
+			            "http://jiangsu.sinaimg.cn/zt/s/zgydbxjg/images/e/e3.jpg",
+			            "http://jiangsu.sinaimg.cn/zt/s/zgydbxjg/images/e/e4.jpg",
+			            "http://jiangsu.sinaimg.cn/zt/s/zgydbxjg/images/e/e5.jpg",
+			            "http://jiangsu.sinaimg.cn/zt/s/zgydbxjg/images/e/e6.jpg",
+			            "http://jiangsu.sinaimg.cn/zt/s/zgydbxjg/images/e/e7.jpg",
+			            "http://jiangsu.sinaimg.cn/zt/s/zgydbxjg/images/e/e8.jpg"
+			            ];
+			var _name = ["智慧旅游",
+			             "智慧农业",
+			             "智慧教育",
+			             "智慧医疗",
+			             "智慧金融",
+			             "智能交通",
+			             "智慧社区",
+			             "智慧政府"
+			            ];
+			var _Ename = ["Wisdom Tourism",
+			              "Wisdom Agriculture",
+			              "Wisdom Education",
+			              "Wisdom Healthcare",
+			              "Wisdom Financial",
+			              "Wisdom Transportation",
+			              "Wisdom Community",
+			              "Wisdom Government"
+			              ];
+			var _desc = ["小手机变身贴身导游",
+			             "小手机变身农业专家",
+			             "小手机变身随身课堂",
+			             "小手机变身随身医生",
+			             "小手机变身掌上钱包",
+			             "小手机变身智能导航",
+			             "小手机变身社区管家",
+			             "小手机变身政务专家"
+			             ]
+			$("#phoneItemTip img").attr("src",_img[index]);
+			$("#phoneItemTip .imgName").html(_name[index]);
+			$("#phoneItemTip .imgEName").html(_Ename[index]);
+			$("#phoneItemTip .imgDesc").html(_desc[index]);
+			
+			if (index <= 1 | index === 3 | index === 6) { // 左侧
+				$("#phoneItemTip #tip_l").show();
+			}else{ // 右侧
+				$("#phoneItemTip #tip_r").show();
+			}
+			
+		},function(){
+			// leave
+		});
+	});
+	</script>
+	
+</html>

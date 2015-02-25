@@ -1,0 +1,718 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="UTF-8"/>
+<meta http-equiv="Cache-Control" content="no-cache"/>
+<meta content="telephone=no" name="format-detection" />
+<meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=3.0"/>
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="format-detection" content="telephone=no"/>
+<title>江苏推荐旅游商品征集评选活动</title>
+<meta name="Keywords" content="江苏,旅游,推荐,商品,评选,新浪江苏" />
+<meta name="Description" content="2014畅游江苏推荐旅游商品征集评选活动" />
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<style>
+body, ul, ol, li, p, h1, h2, h3, h4, h5, h6, table, td, th, form, fieldset, img, dl, dt, dd { margin: 0; padding: 0; }
+textarea, input, select, body { font-size: 12px; }
+select, input { vertical-align: middle; }
+fieldset, img { border: 0; }
+ul, ol { list-style: none; }
+img { border: 0; }
+a { text-decoration: none; color: #000; }
+a:hover { color: #ffa10d; }
+.fl { float: left; display: inline; }
+.fr { float: right; display: inline; }
+.red { color: #a40000; }
+.cb { clear: both; display: block; height: 0px; overflow: hidden; width: 100%; }
+.clearfix:after { clear: both; content: " "; display: block; height: 0; }
+body { background: url("http://jiangsu.sinaimg.cn/zt/s/zfbg/h5/bg_10.jpg") repeat 0 0;background-size:15px auto; }
+.header { background: url("http://jiangsu.sinaimg.cn/zt/s/zfbg/h5/bg_01.jpg") no-repeat center 0;background-size:100% auto; position:relative;}
+.map{background:url("http://jiangsu.sinaimg.cn/zt/s/zfbg/h5/1.png") no-repeat center 0;background-size:211px 195px; width:211px; height:195px; position:absolute; left:3%; top:10%;}
+.slogan{position:absolute; left:50%; top:2%;}
+.headCityNav li { position: absolute; top: 10px; left: 10px; background: url(http://jiangsu.sinaimg.cn/zt/s/zfbg/h5/4.png) no-repeat center 0;background-size:27px 25px; width: 27px; height: 25px; text-align: center; font: bold 8px/36px "Microsoft YaHei", "SimHei"; color: #600; cursor: pointer; }
+.headCityNav li.cur { }
+.headCityNav li.city1 { top: 140px; left: 74px; }
+.headCityNav li.city2 { top: 136px; left: 100px; }
+.headCityNav li.city3 { top: 164px; left: 104px; }
+.headCityNav li.city4 { top: 151px; left: 140px; }
+.headCityNav li.city5 { top: 172px; left: 158px; }
+.headCityNav li.city6 { top: 123px; left: 164px; }
+.headCityNav li.city7 { top: 111px; left: 125px; }
+.headCityNav li.city8 { top: 99px; left: 108px; }
+.headCityNav li.city9 { top: 56px; left: 129px; }
+.headCityNav li.city10 { top: 65px; left: 89px; }
+.headCityNav li.city11 { top: 50px; left: 60px; }
+.headCityNav li.city12 { top: 38px; left: 20px; }
+.headCityNav li.city13 { top: 14px; left: 86px; }
+.wrap { width: 300px; margin: 0 auto; }
+</style>
+<script type="text/javascript" src="http://ria.city.sina.com.cn/s/g=base.js"></script>
+<script src="http://jiangsu.sinaimg.cn/z/js/weiboApi.js"></script>
+<script src="http://jiangsu.sinaimg.cn/zt/s/zfbg/service.js" type="text/javascript"></script>
+<script type="text/javascript">
+/* ==== slider nameSpace ==== */
+var slider = function() {
+	/* ==== private methods ==== */
+	function getElementsByClass(object, tag, className) {
+		var o = object.getElementsByTagName(tag);
+		for ( var i = 0, n = o.length, ret = []; i < n; i++) {
+			if (o[i].className == className) ret.push(o[i]);
+		}
+		if (ret.length == 1) ret = ret[0];
+		return ret;
+	}
+	function setOpacity (obj,o) {
+		if (obj.filters) obj.filters.alpha.opacity = Math.round(o);
+		else obj.style.opacity = o / 100;
+	}
+	/* ==== Slider Constructor ==== */
+	function Slider(oCont, speed, iW, iH, oP) {
+		this.slides = [];
+		this.over   = false;
+		this.S      = this.S0 = speed;
+		this.iW     = iW;
+		this.iH     = iH;
+		this.oP     = oP;
+		this.oc     = document.getElementById(oCont);
+		this.frm    = getElementsByClass(this.oc, 'div', 'slide');
+		this.NF     = this.frm.length;
+		this.resize();
+		for (var i = 0; i < this.NF; i++) {
+			this.slides[i] = new Slide(this, i);
+		}
+		this.oc.parent = this;
+		this.view      = this.slides[0];
+		this.Z         = this.mx;
+		/* ==== on mouse out event ==== */
+		//this.oc.onmouseout = function () {
+			//this.parent.mouseout();
+			//return false;
+		///}
+	}
+	Slider.prototype = {
+		/* ==== animation loop ==== */
+		run : function () {
+			this.Z += this.over ? (this.mn - this.Z) * .5 : (this.mx - this.Z) * .5;
+			this.view.calc();
+			var i = this.NF;
+			while (i--) this.slides[i].move();
+		},
+		/* ==== resize  ==== */
+		resize : function () {
+			this.wh = this.oc.clientWidth;
+			this.ht = this.oc.clientHeight;
+			this.wr = this.wh * this.iW;
+			this.r  = this.ht / this.wr;
+			this.mx = this.wh / this.NF;
+			this.mn = (this.wh * (1 - this.iW)) / (this.NF - 1);
+		},
+		/* ==== rest  ==== */
+		mouseout : function () {
+			this.over      = false;
+			setOpacity(this.view.img, this.oP);
+		}
+	}
+	/* ==== Slide Constructor ==== */
+	Slide = function (parent, N) {
+		this.parent = parent;
+		this.N      = N;
+		this.x0     = this.x1 = N * parent.mx;
+		this.v      = 0;
+		this.loaded = false;
+		this.cpt    = 0;
+		this.start  = new Date();
+		this.obj    = parent.frm[N];
+		this.txt    = getElementsByClass(this.obj, 'div', 'text');
+		this.alink    = getElementsByClass(this.obj, 'a', 'slideLink');
+		this.img    = getElementsByClass(this.obj, 'img', 'diapo');
+		this.bkg    = document.createElement('div');
+		this.bkg.className = 'backgroundText';
+		this.obj.insertBefore(this.bkg, this.txt);
+		if (N == 0) this.obj.style.borderLeft = 'none';
+		this.obj.style.left = Math.floor(this.x0) + 'px';
+		setOpacity(this.img, parent.oP);
+		/* ==== mouse events ==== */
+		this.obj.parent = this;
+		//this.obj.onclick = function() {
+			//alert(111)
+			//this.getElementsByTagName("a").setAttribute("href","http://travel.sina.com.cn/china/2014-08-28/1136274310.shtml")
+			//this.parent.over();
+			//return false;
+		//}
+		this.obj.addEventListener('touchstart', function(event) { 
+			this.parent.over();
+			return false;
+		}, false);
+	}
+	Slide.prototype = {
+		/* ==== target positions ==== */
+		calc : function() {
+			var that = this.parent;
+			// left slides
+			for (var i = 0; i <= this.N; i++) {
+				that.slides[i].x1 = i * that.Z;
+			}
+			// right slides
+			for (var i = this.N + 1; i < that.NF; i++) {
+				that.slides[i].x1 = that.wh - (that.NF - i) * that.Z;
+			}
+		},
+		/* ==== HTML animation : move slides ==== */
+		move : function() {
+			var that = this.parent;
+			var s = (this.x1 - this.x0) / that.S;
+			/* ==== lateral slide ==== */
+			if (this.N && Math.abs(s) > .5) {
+				this.obj.style.left = Math.floor(this.x0 += s) + 'px';
+			}
+			/* ==== vertical text ==== */
+			var v = (this.N < that.NF - 1) ? that.slides[this.N + 1].x0 - this.x0 : that.wh - this.x0;
+			if (Math.abs(v - this.v) > .5) {
+				this.bkg.style.top = this.txt.style.top = Math.floor(2 + that.ht - (v - that.Z) * that.iH * that.r) + 'px';
+				this.v = v;
+				this.cpt++;
+			} else {
+				if (!this.pro) {
+					/* ==== adjust speed ==== */
+					this.pro = true;
+					var tps = new Date() - this.start;
+					if(this.cpt > 1) {
+						that.S = Math.max(2, (28 / (tps / this.cpt)) * that.S0);
+					}
+				}
+			}
+			if (!this.loaded) {
+				if (this.img.complete) {
+					this.img.style.visibility = 'visible';
+					this.loaded = true;
+				}
+			}
+		},
+		/* ==== light ==== */
+		over : function () {
+			this.parent.resize();
+			this.parent.over = true;
+			setOpacity(this.parent.view.img, this.parent.oP);
+			this.parent.view = this;
+			this.start = new Date();
+			this.cpt = 0;
+			this.pro = false;
+			this.calc();
+			setOpacity(this.img, 100);
+		}
+	}
+	/* ==== public method - script initialization ==== */
+	return {
+		init : function() {
+			// create instances of sliders here
+			// parameters : HTMLcontainer name, speed (2 fast - 20 slow), Horizontal ratio, vertical text ratio, opacity
+			this.s1 = new Slider("slider", 12, 1.84/3, 1/3.2, 70);
+			setInterval("slider.s1.run();", 16);
+		}
+	}
+}();
+
+</script>
+<script type="text/javascript" src="http://act.city.sina.com.cn/js/uploadButton.js"></script>
+<script type="text/javascript">
+document.domain = "sina.com.cn";
+</script>
+<script>
+<!--
+var thisChooseCity = 0;
+function getUnloadPic(p)
+{
+	var act_id = 7022;
+	var pcount = 200;
+	$.JSONP('http://act.city.sina.com.cn/interface/activity/json_get_user_works.php',{act_id:act_id,p:p,pcount:pcount,order:'time'},function(json){
+		var html =""
+		var picNum = 0
+		for(var i=0; i<json.data.length;i++){
+			var data = json.data[i];
+			if(data.form_data.custom_4.value!=1){
+				picNum++;
+				if(picNum==15){break;return false; }
+			 html +=  '<li><img width="52" height="35" src="'+data.form_data.custom_4.value+'" /><p>'+data.form_data.custom_1.value+":"+data.form_data.custom_2.value+'</p></li>';
+			 }
+		}
+		$('.proul').html(html);
+		$.mscroll({left:'.goleft2',center:'.proul',right:'.goright2'},{num:4,auto:true});
+	});
+}
+
+
+$(function()
+{
+	getUnloadPic(1)
+	//南京  ["图片路径110*122","图片名称","链接地址"]
+	var city = ["南京","无锡","徐州","常州","苏州","南通","连云港","淮安","盐城","扬州","镇江","泰州","宿迁"]
+	
+var city0 = [["http://jiangsu.sinaimg.cn/zt/s/zfbg/goods/1/1.jpg","雨花石","http://travel.sina.com.cn/china/2014-08-28/1119274306.shtml"],["http://jiangsu.sinaimg.cn/zt/s/zfbg/goods/1/2.jpg","云锦","http://travel.sina.com.cn/china/2014-08-28/1119274306.shtml"],["http://jiangsu.sinaimg.cn/zt/s/zfbg/goods/1/3.jpg","盐水鸭","http://travel.sina.com.cn/china/2014-08-28/1119274306.shtml"],["http://jiangsu.sinaimg.cn/zt/s/zfbg/goods/1/4.jpg","南京绒花","http://travel.sina.com.cn/china/2014-08-28/1119274306.shtml"],["http://jiangsu.sinaimg.cn/zt/s/zfbg/goods/1/5.jpg","雨花茶","http://travel.sina.com.cn/china/2014-08-28/1119274306.shtml"]
+]
+	//无锡 
+	var city1 = [["http://jiangsu.sinaimg.cn/zt/s/zfbg/goods/2/1.jpg","惠山泥人","http://travel.sina.com.cn/china/2014-08-28/1152274317.shtml"],["http://jiangsu.sinaimg.cn/zt/s/zfbg/goods/2/2.jpg","阳山水蜜桃","http://travel.sina.com.cn/china/2014-08-28/1152274317.shtml"],["http://jiangsu.sinaimg.cn/zt/s/zfbg/goods/2/3.jpg","无锡酱排骨","http://travel.sina.com.cn/china/2014-08-28/1152274317.shtml"],["http://jiangsu.sinaimg.cn/zt/s/zfbg/goods/2/4.jpg","太湖珍珠","http://travel.sina.com.cn/china/2014-08-28/1152274317.shtml"],["http://jiangsu.sinaimg.cn/zt/s/zfbg/goods/2/5.jpg","宜兴紫砂","http://travel.sina.com.cn/china/2014-08-28/1152274317.shtml"]]
+	//徐州
+	var city2 = [["http://jiangsu.sinaimg.cn/zt/s/zfbg/goods/3/1.jpg","山楂糕","http://travel.sina.com.cn/china/2014-08-28/1520274356.shtml"],["http://jiangsu.sinaimg.cn/zt/s/zfbg/goods/3/2.jpg","小孩酥糖","http://travel.sina.com.cn/china/2014-08-28/1520274356.shtml"],["http://jiangsu.sinaimg.cn/zt/s/zfbg/goods/3/3.jpg","新沂捆香蹄","http://travel.sina.com.cn/china/2014-08-28/1520274356.shtml"],["http://jiangsu.sinaimg.cn/zt/s/zfbg/goods/3/4.jpg","徐州香包","http://travel.sina.com.cn/china/2014-08-28/1520274356.shtml"],["http://jiangsu.sinaimg.cn/zt/s/zfbg/goods/3/5.jpg","徐州玉雕","http://travel.sina.com.cn/china/2014-08-28/1520274356.shtml"]
+]
+	//常州 
+	var city3 = [["http://jiangsu.sinaimg.cn/zt/s/zfbg/goods/4/1.jpg","梳篦","http://travel.sina.com.cn/china/2014-08-28/1136274310.shtml"],["http://jiangsu.sinaimg.cn/zt/s/zfbg/goods/4/2.jpg","乱针绣","http://travel.sina.com.cn/china/2014-08-28/1136274310.shtml"],["http://jiangsu.sinaimg.cn/zt/s/zfbg/goods/4/3.jpg","留青竹刻","http://travel.sina.com.cn/china/2014-08-28/1136274310.shtml"],["http://jiangsu.sinaimg.cn/zt/s/zfbg/goods/4/4.jpg","常州萝卜干","http://travel.sina.com.cn/china/2014-08-28/1136274310.shtml"],["http://jiangsu.sinaimg.cn/zt/s/zfbg/goods/4/5.jpg","溧阳白茶","http://travel.sina.com.cn/china/2014-08-28/1136274310.shtml"]
+]
+	//苏州
+	var city4 = [["http://jiangsu.sinaimg.cn/zt/s/zfbg/goods/5/1.jpg","苏绣","http://travel.sina.com.cn/china/2014-08-28/1153274318.shtml"],["http://jiangsu.sinaimg.cn/zt/s/zfbg/goods/5/2.jpg","丝绸","http://travel.sina.com.cn/china/2014-08-28/1153274318.shtml"],["http://jiangsu.sinaimg.cn/zt/s/zfbg/goods/5/3.jpg","碧螺春","http://travel.sina.com.cn/china/2014-08-28/1153274318.shtml"],["http://jiangsu.sinaimg.cn/zt/s/zfbg/goods/5/4.jpg","大闸蟹","http://travel.sina.com.cn/china/2014-08-28/1153274318.shtml"],["http://jiangsu.sinaimg.cn/zt/s/zfbg/goods/5/5.jpg","太仓肉松","http://travel.sina.com.cn/china/2014-08-28/1153274318.shtml"]
+]
+	//南通
+	var city5 = [["http://jiangsu.sinaimg.cn/zt/s/zfbg/goods/6/1.jpg","西亭脆饼","http://travel.sina.com.cn/news/2014-08-28/1554274364.shtml"],["http://jiangsu.sinaimg.cn/zt/s/zfbg/goods/6/2.jpg","蓝印花布","http://travel.sina.com.cn/news/2014-08-28/1554274364.shtml"],["http://jiangsu.sinaimg.cn/zt/s/zfbg/goods/6/3.jpg","白蒲茶干","http://travel.sina.com.cn/news/2014-08-28/1554274364.shtml"],["http://jiangsu.sinaimg.cn/zt/s/zfbg/goods/6/4.jpg","董糖","http://travel.sina.com.cn/news/2014-08-28/1554274364.shtml"],["http://jiangsu.sinaimg.cn/zt/s/zfbg/goods/6/5.jpg","新中乳腐","http://travel.sina.com.cn/news/2014-08-28/1554274364.shtml"]
+]
+	//连云港 
+	var city6 = [["http://jiangsu.sinaimg.cn/zt/s/zfbg/goods/7/1.jpg","东海水晶","http://travel.sina.com.cn/china/2014-08-28/1243274326.shtml"],["http://jiangsu.sinaimg.cn/zt/s/zfbg/goods/7/2.jpg","连云港风鹅","http://travel.sina.com.cn/china/2014-08-28/1243274326.shtml"],["http://jiangsu.sinaimg.cn/zt/s/zfbg/goods/7/3.jpg","云台山云雾茶","http://travel.sina.com.cn/china/2014-08-28/1243274326.shtml"],["http://jiangsu.sinaimg.cn/zt/s/zfbg/goods/7/4.jpg","连云港柳编","http://travel.sina.com.cn/china/2014-08-28/1243274326.shtml"],["http://jiangsu.sinaimg.cn/zt/s/zfbg/goods/7/5.jpg","赣榆黑陶","http://travel.sina.com.cn/china/2014-08-28/1243274326.shtml"]  
+]
+	//淮安 
+	var city7 = [["http://jiangsu.sinaimg.cn/zt/s/zfbg/goods/8/1.jpg","淮安蒲菜","http://travel.sina.com.cn/china/2014-08-28/1525274357.shtml"],["http://jiangsu.sinaimg.cn/zt/s/zfbg/goods/8/2.jpg","淮安茶馓","http://travel.sina.com.cn/china/2014-08-28/1525274357.shtml"],["http://jiangsu.sinaimg.cn/zt/s/zfbg/goods/8/3.jpg","盱眙地皮菜","http://travel.sina.com.cn/china/2014-08-28/1525274357.shtml"],["http://jiangsu.sinaimg.cn/zt/s/zfbg/goods/8/4.jpg","洪泽湖四宝","http://travel.sina.com.cn/china/2014-08-28/1525274357.shtml"],["http://jiangsu.sinaimg.cn/zt/s/zfbg/goods/8/5.jpg","盱眙十三香龙虾","http://travel.sina.com.cn/china/2014-08-28/1525274357.shtml"]  
+]
+	//盐城
+	var city8 = [["http://jiangsu.sinaimg.cn/zt/s/zfbg/goods/9/1.jpg","阜宁大糕","http://travel.sina.com.cn/china/2014-08-28/1426274344.shtml"],["http://jiangsu.sinaimg.cn/zt/s/zfbg/goods/9/2.jpg","射阳农民画","http://travel.sina.com.cn/china/2014-08-28/1426274344.shtml"],["http://jiangsu.sinaimg.cn/zt/s/zfbg/goods/9/3.jpg","大纵湖醉蟹","http://travel.sina.com.cn/china/2014-08-28/1426274344.shtml"],["http://jiangsu.sinaimg.cn/zt/s/zfbg/goods/9/4.jpg","发绣","http://travel.sina.com.cn/china/2014-08-28/1426274344.shtml"],["http://jiangsu.sinaimg.cn/zt/s/zfbg/goods/9/5.jpg","伍佑糖麻花","http://travel.sina.com.cn/china/2014-08-28/1426274344.shtml"]  
+]
+	//扬州
+	var city9 = [["http://jiangsu.sinaimg.cn/zt/s/zfbg/goods/10/1.jpg","牛皮糖","http://travel.sina.com.cn/china/2014-08-28/1138274311.shtml"],["http://jiangsu.sinaimg.cn/zt/s/zfbg/goods/10/2.jpg","扬州酱菜","http://travel.sina.com.cn/china/2014-08-28/1138274311.shtml"],["http://jiangsu.sinaimg.cn/zt/s/zfbg/goods/10/3.jpg","扬州剪纸","http://travel.sina.com.cn/china/2014-08-28/1138274311.shtml"],["http://jiangsu.sinaimg.cn/zt/s/zfbg/goods/10/4.jpg","扬州漆器","http://travel.sina.com.cn/china/2014-08-28/1138274311.shtml"],["http://jiangsu.sinaimg.cn/zt/s/zfbg/goods/10/5.jpg","扬州玉器","http://travel.sina.com.cn/china/2014-08-28/1138274311.shtml"]
+]
+	//镇江
+	var city10 = [["http://jiangsu.sinaimg.cn/zt/s/zfbg/goods/11/4.jpg","镇江香醋","http://travel.sina.com.cn/china/2014-08-28/1218274325.shtml"],["http://jiangsu.sinaimg.cn/zt/s/zfbg/goods/11/2.jpg","丹阳眼镜","http://travel.sina.com.cn/china/2014-08-28/1218274325.shtml"],["http://jiangsu.sinaimg.cn/zt/s/zfbg/goods/11/5.jpg","镇江肴肉","http://travel.sina.com.cn/china/2014-08-28/1218274325.shtml"],["http://jiangsu.sinaimg.cn/zt/s/zfbg/goods/11/3.jpg","扬中河豚","http://travel.sina.com.cn/china/2014-08-28/1218274325.shtml"],["http://jiangsu.sinaimg.cn/zt/s/zfbg/goods/11/1.jpg","丹阳面塑","http://travel.sina.com.cn/china/2014-08-28/1218274325.shtml"]
+]
+	//泰州
+	var city11 = [["http://jiangsu.sinaimg.cn/zt/s/zfbg/goods/12/1.jpg","嵌桃麻糕","http://travel.sina.com.cn/china/2014-08-28/1303274332.shtml"],["http://jiangsu.sinaimg.cn/zt/s/zfbg/goods/12/2.jpg","泰州酱菜","http://travel.sina.com.cn/china/2014-08-28/1303274332.shtml"],["http://jiangsu.sinaimg.cn/zt/s/zfbg/goods/12/3.jpg","黄桥烧饼","http://travel.sina.com.cn/china/2014-08-28/1303274332.shtml"],["http://jiangsu.sinaimg.cn/zt/s/zfbg/goods/12/4.jpg","靖江肉脯","http://travel.sina.com.cn/china/2014-08-28/1303274332.shtml"],["http://jiangsu.sinaimg.cn/zt/s/zfbg/goods/12/5.jpg","活性炭雕","http://travel.sina.com.cn/china/2014-08-28/1303274332.shtml"]
+]
+	//宿迁
+	var city12 = [["http://jiangsu.sinaimg.cn/zt/s/zfbg/goods/13/1.jpg","乾隆贡酥","http://travel.sina.com.cn/china/2014-08-28/1503274353.shtml"],["http://jiangsu.sinaimg.cn/zt/s/zfbg/goods/13/2.jpg","骆马湖四宝","http://travel.sina.com.cn/china/2014-08-28/1503274353.shtml"],["http://jiangsu.sinaimg.cn/zt/s/zfbg/goods/13/3.jpg","泗阳膘鸡","http://travel.sina.com.cn/china/2014-08-28/1503274353.shtml"],["http://jiangsu.sinaimg.cn/zt/s/zfbg/goods/13/4.jpg","云渡桃雕","http://travel.sina.com.cn/china/2014-08-28/1503274353.shtml"],["http://jiangsu.sinaimg.cn/zt/s/zfbg/goods/13/5.jpg","黄狗猪头肉","http://travel.sina.com.cn/china/2014-08-28/1503274353.shtml"]]
+	
+	//$.mscroll({left:'.goleft1',center:'.selBox',right:'.goright1'},{num:5,auto:false});
+	
+	$(".intMore,.depBtn").click(function()
+	{
+		$(".detail").slideToggle(1000);
+	})
+
+	function intMoreFloat()
+	{
+		$(".intMoreFloat").css("marginRight", 5)
+		$(".intMoreFloat").animate({"marginRight":12},800,function()
+		{
+			intMoreFloat();
+		})	
+	}
+	intMoreFloat();
+	
+	$(".fb5").live("click", function()
+	{
+		$(this).parent(".fillBox").hide();	
+		$(this).parent(".fillBox").find("input").val("")
+	})
+	
+	function resetGoods(num)
+	{
+		//alert(num)
+		$(".picBox").find("img").attr("src","http://jiangsu.sinaimg.cn/zt/s/zfbg/loading.gif");
+		var cityNum = eval("city"+num);
+		cityNum[0][1];
+		for(var i=0;i<5;i++)
+		{
+			$(".picBox").eq(i).find("img").attr("src",cityNum[i][0]);
+			$(".optionPic").eq(i).attr("href",cityNum[i][2]);
+			$(".txtBox").eq(i).find("span").html(cityNum[i][1]);
+		}	
+	}
+	resetGoods(0)
+	$(".headCityNav li,.cityArea a").live("touchstart",function()
+	{
+		var num = $(this).index();
+		thisChooseCity = num;
+		$(".cityArea a").removeClass("curB");
+		$(".cityArea a").eq(num).addClass("curB");
+		var topNum = $(".cityArea").offset().top;
+		$('body,html').animate({scrollTop:topNum},500);
+		resetGoods(num);
+	})
+	$("#getMore").click(function()
+	{
+		var fillBox = $(".fillBox").length;
+		var html = '<ul class="fillBox"><li class="fb1"><input class="inp1" name="" type="text" placeholder="产地" /></li><li class="fb2"><input class="inp2" name="" type="text" placeholder="旅游商品名称" /></li> <li class="fb3"><input class="inp3" name="" type="text" placeholder="推荐理由" maxlength="100" /></li> <li id="in_upImg'+(fillBox+1)+'" class="fb4"><span class="tups"><input id="upImg'+(fillBox+1)+'" type="button" value="上传图片" plugin-name="pic_file" plugin-type="file" plugin-action="http://act.city.sina.com.cn/interface/common/pic_upload.php?callback_func=pic_upload_callback&pic_id=mission_image&charset=gb2312" plugin-onsubmit="pic_on_submit(this.button.id)" plugin-disabled=""/></span><br/><span class="nikeName"></span><input class="fbBox" name="" type="hidden" value="" /> </li><li class="fb5"><img src="http://jiangsu.sinaimg.cn/2014/0829/U11392P1194DT20140829110203.png" width="15" /></li></ul>';
+		$(".fillArea").append(html)	;
+		window.$.tools.BindFileBeautify()
+	})
+	$("#getRelease").click(function()
+	{
+		var uinfo = sinaSSOManager.getSinaCookie();
+		if (!uinfo) {
+			openLoginDialog();
+			return false;
+		} else {
+				var weibotxt = "";
+				var allGoodsAt = [];
+				var allGoodsMt = [];
+				var choose = $("[name='choose']:checked");
+				var goods = choose.length;
+				for(var i=0;i<choose.length;i++)
+				{
+					var pic = choose.eq(i).parent().siblings(".picBox").find("img").attr("src");
+					var txt = choose.eq(i).siblings("span").html();
+					weibotxt+= txt+'、'
+					allGoodsAt[i] = [city[thisChooseCity],txt] 
+				}
+				var fillBox = $(".fillBox");
+				for(var i=0;i<fillBox.length;i++)
+				{
+					var chandi = fillBox.eq(i).find(".inp1").val();
+					var mingc = fillBox.eq(i).find(".inp2").val();
+					var liyou = fillBox.eq(i).find(".inp3").val();
+					var pic = fillBox.eq(i).find(".fbBox").val();
+					if(chandi!=""&&mingc!="")
+					{
+						goods++;
+						weibotxt += mingc+'、';
+						if(!liyou){liyou=1}
+						if(!pic){pic=1}
+						allGoodsMt[i] = [chandi,mingc,liyou,pic]
+					}
+				}
+				if(goods<3)
+				{alert("至少推荐3个商品")}
+				else
+				{
+					var content = '#江苏推荐旅游商品#【畅游江苏·推荐旅游商品征集评选启动】来江苏，选神马伴手礼最正宗？我推荐'+city[thisChooseCity]+'的（'+weibotxt.substring(0,weibotxt.length-1)+'）[好棒]跟我一起来推荐吧！还有机会赢取微单、山地车等大奖！详戳：http://t.cn/RhvsQsg @江苏微旅游@新浪江苏旅游';
+repostWeiboByCookie ( content, 'BmvnDdwMp', 3, '' );
+					for(var j=0 in allGoodsMt)
+					{
+						$.JSONP('http://act.city.sina.com.cn/interface/activity/json_add_signup.php',
+						{
+							act_id:7022,
+							custom_1:allGoodsMt[j][0],
+							custom_2:allGoodsMt[j][1],
+							custom_3:allGoodsMt[j][2],
+							custom_4:allGoodsMt[j][3]
+						},function(){});
+					}
+					for(var i=0 in allGoodsAt)
+					{
+						$.JSONP('http://act.city.sina.com.cn/interface/activity/json_add_signup.php',
+						{
+							act_id:7030,
+							custom_1:allGoodsAt[0][0],
+							custom_2:allGoodsAt[i][1]
+						},function(){});
+					}
+					getUnloadPic(1);
+					//alert(content)
+					alert("发布成功");
+					$(".fenxiang").fadeIn(300);
+					//location.reload();
+				}
+		}
+	})
+})
+var oldhref="";
+var oldhref_thumbnail="";
+var thisPic = ""
+function pic_on_submit(a)
+{
+	thisPic = a;
+	$("#in_"+thisPic+"").find(".nikeName").html("正在上传...")
+}
+function pic_upload_callback(json){
+	//alert($(this).attr("sid"))
+	var real_pic_name = json.real_pic_name; //上传后的图片名称
+	var pic_url = json.pic_large;  //上传后的图片url
+	$("#in_"+thisPic+"").find(".nikeName").html("图片上传成功！")
+	$("#in_"+thisPic+"").find(".fbBox").val(pic_url)
+	//alert(oldhref_thumbnail)
+}
+//open the login dialog
+function openLoginDialog(){DFZ.APP.DialogLogin.open();$("#ui-dialog-title-1").html("新浪微博登录");}
+
+-->
+</script>
+</head>
+<body>
+<div class="header">
+    <img class="headerBg" src="http://jiangsu.sinaimg.cn/zt/s/zfbg/h5/bg_01.jpg" width="100%" /> 
+    <div class="wrap headerBox">
+    	<div class="map">
+            <ul class="headCityNav">
+              <li class="city1">南京</li>
+              <li class="city4">无锡</li>
+              <li class="city12">徐州</li>
+              <li class="city3">常州</li>
+              <li class="city5">苏州</li>
+              <li class="city6">南通</li>
+              <li class="city13">连云港</li>
+              <li class="city10">淮安</li>
+              <li class="city9">盐城</li>
+              <li class="city8">扬州</li>
+              <li class="city2">镇江</li>
+              <li class="city7">泰州</li>
+              <li class="city11">宿迁</li>
+            </ul>
+        </div>
+        <div class="slogan">
+        	<img src="http://jiangsu.sinaimg.cn/2014/0912/U11392P1194DT20140912142154.png" height="133" />
+        </div>
+    </div>
+</div>
+<div class="wrap">
+  <style>
+    .intro { background: url(http://jiangsu.sinaimg.cn/zt/s/zfbg/h5/bg_04.jpg) no-repeat center top; background-size:300px auto;height: 172px; margin-top: 50px; }
+    .intro p { padding:10px 5px 0 110px; font: normal 10px/18px "Microsoft YaHei", "SimHei"; color: #603; }
+    .intro .intMore { background: url(http://jiangsu.sinaimg.cn/zt/s/zfbg/2.png) no-repeat center 0; background-size:53px auto; width: 53px; height: 21px; display: inline-block; margin-left: 150px; margin-top: 5px; float: left; }
+    .intro .intMoreFloat { background: url(http://jiangsu.sinaimg.cn/2014/0901/U11392P1194DT20140901153822.gif) no-repeat 0 0; background-size:20px auto; padding-left: 22px; display: inline-block; height: 22px; font: normal 10px/18px "Microsoft YaHei", "SimHei"; color: #603; float: right; margin-right: 5px; margin-top: 5px;}
+  </style>
+  <div class="intro">
+    <p> 小伙伴们！刚刚结束的青奥会让江苏变成了最"潮"旅游胜地！<br />
+      一大批游客涌入江苏，吃什么玩什么买什么，热情好客的江苏人给大家支支招吧~<br />
+      快来点击地图，选择图片，把家乡最优秀的旅游商品推荐给全世界的游客！我的家乡，我来教你怎么玩！ </p>
+    <span class="intMoreFloat">点击查看大奖</span> <a href="javascript:void(0);" class="intMore"></a> </div>
+  <style>
+.detail { background: url(http://jiangsu.sinaimg.cn/zt/s/zfbg/h5/bg_18.jpg) repeat-y center top; background-size:300px auto; font-size: 14px;  margin-top: 20px; position:relative; padding-top:20px; padding-bottom:20px; display:none;-webkit-transform: translateZ(0);
+-moz-transform: translateZ(0);
+-ms-transform: translateZ(0);
+transform: translateZ(0);}
+.detail .floTop { position:absolute; top:0;}
+.detail .floBottom { position:absolute; bottom:0; height:13px;}
+.dep_tit{ text-align:center; margin-top:10px;}
+.dep_txt{width:240px; margin:0 auto;font: normal 8px/12px "Microsoft YaHei","SimHei";}
+.dep_txt1{ background:url("http://jiangsu.sinaimg.cn/zt/s/zfbg/h5/bg_26.gif") no-repeat 0 0;background-size:18px auto; padding-left:20px;}
+.dep_txt2{ width:250px;}
+.detail .dep1 { padding: 188px 152px 0; }
+.detail .dep2 { padding: 156px 90px 0; }
+.detail .dep3 { padding: 178px 90px 0; }
+.detail .dep4 { padding: 575px 152px 0; text-align: center; line-height: 70px; }
+.detail .depBtn:hover { background-position: 0 -95px; }
+</style>
+<div class="detail">
+    <div class="floTop"><img src="http://jiangsu.sinaimg.cn/zt/s/zfbg/h5/bg_16.jpg" width="300" /></div>
+    <div class="floBottom"><img src="http://jiangsu.sinaimg.cn/zt/s/zfbg/h5/bg_19.jpg" width="300" /></div>
+    <div class="dep_tit"><img src="http://jiangsu.sinaimg.cn/zt/s/zfbg/h5/bg_22.gif" width="104" /></div>
+    <div class="dep_txt dep_txt1"> 专题推荐：网友可直接选择专题中推荐的旅游商品，也可按照“旅游商品名称（不能含有品牌）+产地+文字介绍+旅游  商品图片”的格式自行推荐。(每个城市推荐不少于3个旅游商品)<br>
+      邮箱推荐：jiangsucity@sina.com <br>
+      邮寄推荐: 南京市紫东路1号紫东国际创意园F4五层 新浪江苏 运营部 旅游频道（收） </div>
+    <div class="dep_tit"><img src="http://jiangsu.sinaimg.cn/zt/s/zfbg/h5/bg_29.gif" width="104" /></div>
+    <div class="dep_txt dep_txt2"><strong>1、</strong>“江苏旅游推荐商品”的定义：便于游客携带，体现江苏地域特色和民俗风情的特色资<br>
+      源，且最受游客喜爱的优质土特产、纪念品、工艺品等商品。<br>
+      <strong>2、</strong>按照“旅游商品名称+产地+文字介绍+旅游商品图片”的格式进行推荐，且不能出现品牌信息。<br>
+      <strong>3、</strong>通过专题参与的网友必须保留发布微博，删除微博将取消抽奖资格。<br>
+      <strong>4、</strong>推荐人须保证所上传图片及作品未侵犯他人知识产权。凡涉及著作权、版权纠纷等法律<br>
+      问题，均由推荐人自行承担一切后果，征集主办方不承担法律和相关连带责任，并以此<br>
+      启事视同完成告知义务。 </div>
+    <div class="dep_tit"><img src="http://jiangsu.sinaimg.cn/zt/s/zfbg/h5/bg_31.gif" width="104" /></div>
+    <div class="dep_txt dep_txt2"><strong>1、</strong>本次活动不收报名费，来稿的邮寄费和作品制作等费用自理。主办方对参投稿件在邮寄
+      途中的损坏和丢失不负有责任。<br>
+      <strong>2、</strong>江苏省旅游局保留对此次活动的最终解释权。<br>
+      <strong>3、</strong>凡活动参与者均视为同意并遵守征集主办方的一切规定及要求。 </div>
+    <div class="dep_tit"><img src="http://jiangsu.sinaimg.cn/zt/s/zfbg/h5/bg_33.gif" width="104" /></div>
+    <div class="dep_tit"><img src="http://jiangsu.sinaimg.cn/zt/s/zfbg/h5/bg_36.gif" width="270" /></div>
+    <div class="dep_tit"><img src="http://jiangsu.sinaimg.cn/zt/s/zfbg/h5/bg_40.gif" width="240" /></div>
+    <div class="dep_tit"><img class="depBtn" src="http://jiangsu.sinaimg.cn/zt/s/zfbg/h5/bg_44.gif" width="83" /></div>
+  </div>
+<style>
+.conBoxNav{background:url("http://jiangsu.sinaimg.cn/2014/0912/U11392P1194DT20140912151817.gif") no-repeat center 0; background-size:302px auto; padding-left:4px;margin-top:5px;}
+.conBoxNav a{font: normal 11px/26px "Microsoft YaHei","SimHei"; padding:0px 5px; display:inline-block;}
+.conBoxNav a.curB { font-weight:bold; color:#660000;}
+.conBox { background:url(http://jiangsu.sinaimg.cn/zt/s/zfbg/h5/bg_57.jpg) repeat-y 0 0;background-size:300px auto; position:relative; width:300px; padding-bottom:20px; margin-top:5px;}
+.conBox .floTop { position:absolute; top:0;}
+.conBox .floBottom { position:absolute; bottom:0; height:19px;}
+.conBox .tips { background:url(http://jiangsu.sinaimg.cn/zt/s/zfbg/h5/bg_59.jpg) no-repeat 0 28px;background-size:39px auto; padding-left:45px;padding-right: 20px; position:relative; padding-top:18px; margin-left:10px; font: normal 8px/12px "Microsoft YaHei", "SimHei"; }
+.conBox .selScroll { position:relative;margin-left: 5px;margin-top: 10px; padding-bottom: 10px; padding-left: 10px;
+    padding-top: 0px;}
+
+.conBox .selBox {}
+.conBox .selBox li { position:relative;width:50px; height:85px; float:left; margin:2px; }
+.conBox .selBox li .selPic{background:url(http://jiangsu.sinaimg.cn/zt/s/zfbg/11.png) no-repeat 0 0;background-size:50px auto; width:50px; height:88px; position:absolute; top:0; left:0;}
+
+.conBox .selBox li .picBox{ margin-top:23px; text-align:center;}
+.conBox .selBox li .picBox a{ display:inline-block;}
+.conBox .selBox li .picBox img{ width:42px; height:48px;}
+.conBox .selBox li .optionPic{ position:absolute; top:24px; left:4px;width:42px; height:48px; display:inline-block;}
+.conBox .selBox li .optionPic img{width:42px; height:48px;}
+.conBox .selBox li .txtBox{ margin-top:0px; margin-left:2px;font: bold 8px/18px "Microsoft YaHei","SimHei"; text-align:center; color:#F33; position:relative; z-index:99;}
+.conBox .selBox li .txtBox input{ float:left; width:10px; height:10px;}
+.conBox .goleft1{ position:absolute; top:102px; left:-10px;}
+.conBox .goright1{ position:absolute; top:102px; left:685px;}
+.conBox .fillTit { background:url(http://jiangsu.sinaimg.cn/zt/s/zfbg/h5/bg_67.jpg) no-repeat 0 0;background-size:90px auto; height:20px; padding-left:92px; margin-left:10px; line-height:20px; margin-top: 20px;margin-bottom: 20px}
+.conBox .fillBox { background:url(http://jiangsu.sinaimg.cn/zt/s/zfbg/h5/bg_71.gif) no-repeat 0 0;background-size:260px auto; width:300px; height:30px; margin-left:10px; margin-top:5px; }
+.conBox .fillBox li{ float:left; width:40px;}
+.conBox .fillBox li input{ width:30px; height:14px; font-size:8px; font-weight:bold; border:none; }
+input{border-radius:0px;}
+
+.conBox .fillBox li.fb1 { margin-top:4px; margin-left:10px;}
+.conBox .fillBox li.fb2 { margin-top:4px; margin-left:28px;}
+.conBox .fillBox li.fb3 { margin-top:4px; margin-left:28px;}
+.conBox .fillBox li.fb4 { margin-top:4px; margin-left:28px;}
+.conBox .fillBox li.fb5 { margin-top:4px; margin-left:7px; width:15px; cursor:pointer;}
+.conBox .fillBox li.fb4 .nikeName { font-size:6px;}
+
+.conBox .fillMore { background:url(http://jiangsu.sinaimg.cn/zt/s/zfbg/13.png) no-repeat center 0;background-size:55px 22px; width:55px; height:22px; line-height:999px; display:inline-block; margin-left:10px; margin-top:10px; overflow:hidden; }
+.conBox .fillMore:hover { }
+.conBox .fillRelease { background:url(http://jiangsu.sinaimg.cn/zt/s/zfbg/14.png) no-repeat 0 0;background-size:33px auto; width:33px; height:13px; line-height:999px; display:inline-block; margin-left:45px; margin-top:30px; float:right; margin-right:30px; margin-top:25px; overflow:hidden; }
+
+.conBox .newsRecomTit { background:url(http://jiangsu.sinaimg.cn/zt/s/zfbg/16.gif) no-repeat 0 0;background-size:86px auto; height:44px; padding-left:230px; margin-left:10px; margin-top:10px; height: 22px;}
+.conBox .newsRecomBox { background:url(http://jiangsu.sinaimg.cn/zt/s/zfbg/18.jpg) no-repeat center 0;background-size:250px auto; width:255px; height:50px; margin-left:15px; padding-top:5px; padding-bottom:5px; padding-left:10px; margin-top:10px; position:relative;}
+.conBox .newsRecomBox .goleft2{ position:absolute; top:18px; left:-8px;}
+.conBox .newsRecomBox .goright2{ position:absolute; top:18px; left:264px;}
+.conBox .proul {}
+.conBox .proul li { float:left; margin:0 5px; text-align:center; font-size:8px;}
+.conBox .proul li img { width:52px; height:35px; }
+
+</style>
+<div class="conBoxNav clearfix">
+<div class="cityArea">
+        <a href="javascript:;" class="curB">南京</a> |
+        <a href="javascript:;">无锡</a> |
+        <a href="javascript:;">徐州</a> |
+        <a href="javascript:;">常州</a> |
+        <a href="javascript:;">苏州</a> |
+        <a href="javascript:;">南通</a> |
+        <a href="javascript:;">连云港</a>
+        <a href="javascript:;">淮安</a> |
+        <a href="javascript:;">盐城</a> |
+        <a href="javascript:;">扬州</a> |
+        <a href="javascript:;">镇江</a> |
+        <a href="javascript:;">泰州</a> |
+        <a href="javascript:;">宿迁</a>
+</div>
+</div>
+<div class="conBox">
+      <div class="floTop"><img src="http://jiangsu.sinaimg.cn/zt/s/zfbg/h5/bg_55.jpg" width="300" /></div>
+      <div class="floBottom"><img src="http://jiangsu.sinaimg.cn/zt/s/zfbg/h5/bg_56.jpg" width="300" /></div>
+      <div class="tips">"我为家乡代言"——“皎皎星河月，浓浓家乡情。”什么旅游商品最能代表江苏？江苏的小伙伴们，速速义气相挺来推荐~！ 勾选你最爱的旅游商品，或上传新商品即可。<br/>
+        （PS：勾选+新推荐 至少3个以上，才能参与抽奖哦！） </div>
+      <div class="selScroll clearfix"> 
+        <!--div class="goleft1"><a href="javascript:void(0)"><img src="http://jiangsu.sinaimg.cn/zt/s/zfbg/left.png" /></a></div-->
+        <ul class="selBox clearfix">
+          <li>
+            <div class="picBox"><img src="http://jiangsu.sinaimg.cn/zt/s/zfbg/goods/1/1.jpg" /></div>
+            <div class="txtBox">
+              <input name="choose" type="checkbox" value="" />
+              <span>雨花石</span></div>
+            <div class="selPic"></div>
+            <a class="optionPic" href="#" target="_blank"><img src="http://jiangsu.sinaimg.cn/z/2013/njzysc0621/images/traGif.gif" /></a> </li>
+          <li>
+            <div class="picBox"><img src="http://jiangsu.sinaimg.cn/zt/s/zfbg/goods/1/2.jpg" /></div>
+            <div class="txtBox">
+              <input name="choose" type="checkbox" value="" />
+              <span>云锦</span></div>
+            <div class="selPic"></div>
+            <a class="optionPic" href="#" target="_blank"><img src="http://jiangsu.sinaimg.cn/z/2013/njzysc0621/images/traGif.gif" /></a> </li>
+          <li>
+            <div class="picBox"><img src="http://jiangsu.sinaimg.cn/zt/s/zfbg/goods/1/3.jpg" /></div>
+            <div class="txtBox">
+              <input name="choose" type="checkbox" value="" />
+              <span>盐水鸭</span></div>
+            <div class="selPic"></div>
+            <a class="optionPic" href="#" target="_blank"><img src="http://jiangsu.sinaimg.cn/z/2013/njzysc0621/images/traGif.gif" /></a> </li>
+          <li>
+            <div class="picBox"><img src="http://jiangsu.sinaimg.cn/zt/s/zfbg/goods/1/4.jpg" /></div>
+            <div class="txtBox">
+              <input name="choose" type="checkbox" value="" />
+              <span>南京绒花</span></div>
+            <div class="selPic"></div>
+            <a class="optionPic" href="#" target="_blank"><img src="http://jiangsu.sinaimg.cn/z/2013/njzysc0621/images/traGif.gif" /></a> </li>
+          <li>
+            <div class="picBox"><img src="http://jiangsu.sinaimg.cn/zt/s/zfbg/goods/1/5.jpg" /></div>
+            <div class="txtBox">
+              <input name="choose" type="checkbox" value="" />
+              <span>雨花茶</span></div>
+            <div class="selPic"></div>
+            <a class="optionPic" href="#" target="_blank"><img src="http://jiangsu.sinaimg.cn/z/2013/njzysc0621/images/traGif.gif" /></a> </li>
+        </ul>
+        <!--div class="goright1"><a href="javascript:void(0)"><img src="http://jiangsu.sinaimg.cn/zt/s/zfbg/right.png" /></a></div--> 
+      </div>
+      <div class="fillTit">（带*为必填项）</div>
+      <div class="fillArea">
+        <ul class="fillBox">
+          <li class="fb1">
+            <input class="inp1" name="" type="text" placeholder="产地" />
+          </li>
+          <li class="fb2">
+            <input class="inp2" name="" type="text" placeholder="商品名称" />
+          </li>
+          <li class="fb3">
+            <input class="inp3" name="" type="text" placeholder="推荐理由" maxlength="100" />
+          </li>
+          <li id="in_upImg1" class="fb4"> <span class="tups">
+            <input id="upImg1" type="button" value="上传图片"
+						plugin-name="pic_file"
+
+						plugin-type="file"
+						plugin-action="http://act.city.sina.com.cn/interface/common/pic_upload.php? callback_func=pic_upload_callback&pic_id=mission_image&charset=gb2312"
+						plugin-onsubmit="pic_on_submit(this.button.id)"
+						plugin-disabled=""/>
+            </span> <span class="nikeName"></span>
+            <input class="fbBox" name="" type="hidden" value="" />
+          </li>
+          <li class="fb5"><img src="http://jiangsu.sinaimg.cn/2014/0829/U11392P1194DT20140829110203.png" width="15" /></li>
+        </ul>
+        <ul class="fillBox">
+          <li class="fb1">
+            <input class="inp1" name="" type="text" placeholder="产地" />
+          </li>
+          <li class="fb2">
+            <input class="inp2" name="" type="text" placeholder="商品名称" />
+          </li>
+          <li class="fb3">
+            <input class="inp3" name="" type="text" placeholder="推荐理由" maxlength="100" />
+          </li>
+          <li id="in_upImg2" class="fb4"> <span class="tups">
+            <input id="upImg2" type="button" value="上传图片"
+						plugin-name="pic_file"
+						plugin-type="file"
+						plugin-action="http://act.city.sina.com.cn/interface/common/pic_upload.php? callback_func=pic_upload_callback&pic_id=mission_image&charset=gb2312"
+						plugin-onsubmit="pic_on_submit(this.button.id)"
+						plugin-disabled=""/>
+            </span> <span class="nikeName"></span>
+            <input class="fbBox" name="" type="hidden" value="" />
+          </li>
+          <li class="fb5"><img src="http://jiangsu.sinaimg.cn/2014/0829/U11392P1194DT20140829110203.png" width="15" /></li>
+        </ul>
+      </div>
+      <a id="getMore" class="fillMore" href="javascript:void(0);" onfocus="this.blur()">推荐更多</a> <a id="getRelease" class="fillRelease" href="javascript:void(0);" onfocus="this.blur()">发布</a>
+      <div class="newsRecomTit"></div>
+      <div class="newsRecomBox clearfix">
+        <div class="goleft2"><a href="javascript:void(0)"><img src="http://jiangsu.sinaimg.cn/zt/s/zfbg/left.png" width="10" /></a></div>
+        <ul class="proul">
+          <!--li><img width="136" height="90" src="http://jiangsu.sinaimg.cn/zt/s/zfbg/15.jpg" />
+            <p>盐水鸭</p>
+          </li>
+          <li><img width="136" height="90" src="http://jiangsu.sinaimg.cn/zt/s/zfbg/15.jpg" />
+            <p>盐水鸭</p>
+          </li>
+          <li><img width="136" height="90" src="http://jiangsu.sinaimg.cn/zt/s/zfbg/15.jpg" />
+            <p>盐水鸭</p>
+          </li>
+          <li><img width="136" height="90" src="http://jiangsu.sinaimg.cn/zt/s/zfbg/15.jpg" />
+            <p>盐水鸭</p>
+          </li>
+          <li><img width="136" height="90" src="http://jiangsu.sinaimg.cn/zt/s/zfbg/15.jpg" />
+            <p>盐水鸭</p>
+          </li>
+          <li><img width="136" height="90" src="http://jiangsu.sinaimg.cn/zt/s/zfbg/15.jpg" />
+            <p>盐水鸭</p>
+          </li-->
+        </ul>
+        <div class="goright2"><a href="javascript:void(0)"><img src="http://jiangsu.sinaimg.cn/zt/s/zfbg/right.png" width="10"/></a></div>
+      </div>
+    </div>
+
+</div>
+
+          <style>
+			.fenxiang { z-index:99999; padding-top: 25px; width:100%; background:RGBA(0,0,0,0.5) url("http://jiangsu.sinaimg.cn/zt/s/2014qixi/qixi/7.png") no-repeat 94% 0; background-size: 40px auto; color: #FFF; font-size: 17px; font-weight: bold; height: 50px; position: fixed; top: 0; display: none; }
+		</style>
+		<div class="fenxiang"><span style="margin-left:10px">点击这里分享到朋友圈</span></div>
+		<script type="text/javascript">
+			$(".fenxiang").live("touchstart", function() { $(this).fadeOut(300); });
+		</script>
+        
+<!--please don't change the order of these scripts--> 
+<script type="text/javascript" src="http://ria.city.sina.com.cn/s/g=dialog_login_v1.1-sp1.js"></script> 
+<script type="text/javascript" src="http://i.sso.sina.com.cn/js/ssologin.js"></script> 
+<script type="text/javascript" src="http://i.sso.sina.com.cn/js/sinaSSOManager.js" charset="utf-8"></script>
+<link type="text/css" href="http://jiangsu.sinaimg.cn/zt/s/css/dialog_login_app.css" rel="stylesheet" media="all" />
+</body>
+</html>

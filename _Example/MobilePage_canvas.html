@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="GB2312">
+<meta http-equiv="cache-control" content="no-cache"/>
+<meta name="format-detection" content="telephone=no"/>
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0,"> 
+<title>请在此插入网页标题</title>
+<meta name="keywords" content="请在此插入关键词" />
+<meta name="description" content="请在此写入一段页面描述" />
+<link rel="stylesheet" href="http://jiangsu.sinaimg.cn/zt/s/css/reset.css">
+<script src="http://jiangsu.sinaimg.cn/js/jquery1.11.1.min.js"></script>
+<!-- 
+<script src="http://ria.city.sina.com.cn/s/g=base.js" type="text/javascript"></script>
+<script src="http://jiangsu.sinaimg.cn/js/jquery.transit.min.js"></script>
+ -->
+<!-- 自适应缩放css -->
+<style type="text/css">
+.swiper-container{ width: 320px; -webkit-transform-origin: top left;}
+</style>
+<!-- end 自适应缩放css -->
+<style type="text/css">
+</style>
+</head>
+<body>
+	<!-- 
+	* 说明：
+	* 页面 宽度 320 按宽度缩放
+	*
+	 -->
+	<div class="swiper-container">
+		<canvas id="canvas01" width="320" height="480"></canvas>
+	</div>
+</body>
+
+<!-- page Auto scale -->
+<script type="text/javascript">
+	$(function() {
+		var r = document.body.offsetWidth / 320;
+		$(".swiper-container").css("-webkit-transform", "scale(" + r + ")");
+		$("body").height( $(".swiper-container").height() * r );
+	});
+	$(window).resize(function() {
+		var r = document.body.offsetWidth / 320;
+		$(".swiper-container").css("-webkit-transform", "scale(" + r + ")");
+		$("body").height( $(".swiper-container").height() * r );
+		
+	});
+</script>
+
+<!-- canvas js -->
+<script type="text/javascript">
+	var canvas01 = document.getElementById("canvas01");
+	var canvas = canvas01.getContext("2d");
+	var FPS = 60;
+	
+	setInterval(function() {
+		update();
+	}, 1000/FPS);
+	
+	function update() {
+		canvas.clearRect(0, 0, canvas01.width, canvas01.height);
+		// handle sth. else: 
+	}
+</script>
+</html>

@@ -1,0 +1,606 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>方太美食课堂</title>
+<meta name="Keywords" content="" />
+<meta name="Description" content="" />
+<style>
+<!--
+body, ul, ol, li, p, h1, h2, h3, h4, h5, h6, table, td, th, form, fieldset, img, dl, dt, dd { margin:0; padding:0; }
+textarea, input, select, body { font-size:12px; }
+select, input { vertical-align:middle; }
+fieldset, img { border:0; }
+ul, ol { list-style:none; }
+img { border:0; }
+a { text-decoration:none; color:#000; }
+a:hover { color:#ffa10d; }
+.fl { float:left; display:inline; }
+.fr { float:right; display:inline; }
+.cb { clear:both; display:block; height:0px; overflow:hidden; width:100%; }
+.clearfix:after { clear: both; content: " "; display: block; height: 0; }
+
+body{ background-color:#270542;}
+.head{background:url(http://jiangsu.sinaimg.cn/2014/0819/U11392P1194DT20140819050054.jpg) no-repeat center top; height:1072px;}
+.wrap{width:1002px; margin:0 auto;}
+
+.main{ padding-bottom:50px;}
+.con_box{ margin-top:20px;}
+.con01{background:url(http://jiangsu.sinaimg.cn/2014/0819/U11392P1194DT20140819050056.jpg) no-repeat center top; height:633px;}
+.con02{background:url(http://jiangsu.sinaimg.cn/2014/0819/U11392P1194DT20140819050057.jpg) no-repeat center top; height:387px;}
+.con03{background:url(http://jiangsu.sinaimg.cn/2014/0819/U11392P1194DT20140819050059.jpg) no-repeat center top; height:67px; position:relative;}
+#t_name{ position:absolute; width:145px; height:28px; border:none; font-size:14px; top:18px; left:256px;}
+#t_phone{ position:absolute; width:250px; height:28px; border:none; font-size:14px; top:18px; left:471px;}
+#t_submit{ position:absolute; background:url(http://jiangsu.sinaimg.cn/2014/0819/U11392P1194DT20140819050105.png) no-repeat center 0; width:132px; height:44px; top:11px; left:809px;}
+#t_submit:hover{ background-position:0 -67px;}
+.con04{background:url(http://jiangsu.sinaimg.cn/2014/0819/U11392P1194DT20140819050100.jpg) no-repeat center top; height:1017px;}
+.con05{background:url(http://jiangsu.sinaimg.cn/2014/0819/U11392P1194DT20140819050102.jpg) no-repeat center top; height:940px;}
+.con06{background:url(http://jiangsu.sinaimg.cn/2014/0819/U11392P1194DT20140819050103.jpg) no-repeat center top; height:700px;}
+.con01 .gameBox_left{ float:left; width:600px; height:600px;margin-top:18px; margin-left:16px; position:relative;}
+.con01 .gameBox_right{ float:left;}
+.con01 .game_rank{font: bold 18px/28px "Microsoft YaHei","SimHei"; color:#FFF; margin-top:140px; margin-left:50px;height: 300px;}
+.con01 .game_rank tr{ height:25px;}
+.con01 .game_scroll {font: bold 16px/28px "Microsoft YaHei","SimHei"; color:#FFF; margin-top:66px; margin-left:50px;}
+
+.game_main{ width:600px; height:600px; margin-top:10px; margin-left:10px;}
+.game_right{ margin-left:30px;}
+.con li{ background:url("http://s3img.city.sina.com.cn/activity/common/large/55d1024746b91dcd072ec3f0a783566c.png") no-repeat center 0; width:60px; height:60px; float:left; margin:0 1px; cursor:pointer;}
+.con li.cur{ background:url("http://jiangsu.sinaimg.cn/2014/0819/U11392P1194DT20140819050057.png") no-repeat center 0;}
+.con li.cat{ background:url("http://jiangsu.sinaimg.cn/2014/0819/U11392P1194DT20140819050058.png") no-repeat center 0;}
+.con li.cat2{ background:url("http://s3img.city.sina.com.cn/activity/common/large/a4895a90300be2f94328aea253519073.png") no-repeat center 0;}
+
+.popBoxStar{width:600px; height:600px;position:absolute;background:url("http://jiangsu.sinaimg.cn/2014/0819/U11392P1194DT20140819050054.png") repeat center 0; top:0; left:0; }
+.game_tit{ text-align:center; margin-top:50px; font: bold 22px/22px "Microsoft YaHei","SimHei"; color:#f3d400;}
+.game_pic{ text-align:center;margin-top:50px;}
+.game_star{ text-align:center; margin-top:50px;}
+
+.popBoxLose{width:600px; height:600px;position:absolute;background:url("http://jiangsu.sinaimg.cn/2014/0819/U11392P1194DT20140819050054.png") repeat center 0; top:0; left:0; display:none;}
+.popBoxLose .game_tit{ font-size:28px; margin-top:100px;}
+.game_btn{ text-align:center; margin-top:50px;}
+a.bm-but{background:url(http://jiangsu.sinaimg.cn/2014/0819/U11392P1194DT20140819050104.png) no-repeat center 0; width:143px; height:48px; display:inline-block; margin:0 auto; font: normal 20px/40px "Microsoft YaHei","SimHei"; color:#FFF; margin:0 5px;}
+a.bm-but:hover{ background-position:0 -76px;}
+
+.popBoxSucc{width:600px; height:600px;position:absolute;background:url("http://jiangsu.sinaimg.cn/2014/0819/U11392P1194DT20140819050054.png") repeat center 0; top:0; left:0;display:none;}
+.popBoxSucc .game_pic{width:350px; height:212px; color:#ff0000; margin:50px auto 0;font: normal 18px/30px "Microsoft YaHei","SimHei"; text-align:left;}
+.game_phone{ text-align:center;}
+#g_phone{ width:300px; height:30px; border:none; font-size:16px; padding-left:10px;}
+
+-->
+</style>
+<script src="http://i2.sinaimg.cn/cj/dfz/js/base.js" type="text/javascript"></script> 
+<script>
+<!--
+function topTen()
+{
+	$("#top_ten").html("");
+	$(".game_scroll ul").html("");
+	$.JSONP('http://act.city.sina.com.cn/interface/activity/json_get_user_works.php',{act_id:6825,p:1,pcount:999999,order:'vote'},function(json){
+		var jDate = json.data;	
+		for (var i = 0; i < jDate.length; i++)
+        {
+            for (var j = i; j < jDate.length; j++)
+             {
+               if (parseFloat(jDate[i]["form_data"]["custom_1"]["value"]) > parseFloat(jDate[j]["form_data"]["custom_1"]["value"]))
+                {
+                    var temp = jDate[i];
+                    jDate[i] = jDate[j];
+                    jDate[j] = temp;
+                }
+            }
+		}
+		$.each(jDate, function (index, value) 
+		{	
+			//console.log(jDate);
+			
+			var custom_3 = 	value.form_data.custom_3.value;
+			var html =  '<tr><td>Top'+(index+1)+'</td> <td>'+custom_3.substring(0,3)+'**'+custom_3.substring(5)+'</td><td>'+value.form_data.custom_1.value+'</td></tr>';
+			$("#top_ten").append(html);
+			 if(index<3){
+			var html2= '<li>'+custom_3.substring(0,3)+'**'+custom_3.substring(5)+'  获得'+value.form_data.custom_2.value+'元方太蒸箱现金券</li>'
+			$(".game_scroll ul").append(html2)
+			 }
+			if(index==9){return false;}
+		});
+	});
+}
+
+
+$(function()
+{
+	topTen();
+	$("#t_submit").live('click',function(){
+			var t_name = $('#t_name').val();
+			var t_phone = $('#t_phone').val();
+			if(t_name==""){alert("请填写姓名！"); return false;}
+			if(t_phone==""){alert("请填写手机号码！"); return false;}
+			
+			$.JSONP('http://act.city.sina.com.cn/interface/activity/json_add_signup.php',{act_id:6824,custom_1:t_name,custom_2:t_phone},function(bm){
+				if(bm.error==0){
+					alert("报名成功");
+				}else{
+					alert(bm.errmsg)
+				}
+
+		});
+
+	});	
+})
+-->
+</script>
+<script>
+<!--
+var curArr = [];
+var catX=4,catY=4,succ=0,score=0,game_price=0;
+function resetaGame()
+{
+	curArr.length = 0; 
+	catX=4,catY=4,succ=0,score=0;
+	$(".con li").removeClass("cur")
+	$(".con li").removeClass("cat")
+	$(".con li").removeClass("cat2") // add By wenxuan @ 20140819am
+	resetCur(8);
+	getData(catX,catY).addClass("cat");
+	
+}
+function getData(x,y)
+{
+	return ($(".con").eq(x).find("li").eq(y));
+	//console.log($(".con").eq(x).find("li").eq(y)); 
+}
+function resetCur(num)
+{
+	for(var i=0; i<num;i++)
+	{
+		var x = Math.floor(Math.random()*9);
+		var y = Math.floor(Math.random()*9);
+		curArr[i]=[x,y];
+		getData(x,y).addClass("cur")
+	}
+}
+function getRowsArr(x)
+{
+	var oneArr=[[-1,-1],[-1,0],[1,-1],[1,0],[0,-1],[0,1]];
+	var twoArr=[[-1,0],[-1,1],[1,0],[1,1],[0,-1],[0,1]];	
+	if(x%2==0)
+	{
+		return oneArr;
+		
+	}else if(x%2==1)
+	{
+		return twoArr;
+	}
+}
+
+function getNextCat(x,y)
+{
+	succ++;
+	var r = Math.floor(Math.random()*6);
+	setCat(getRowsArr(x)[r][0],getRowsArr(x)[r][1])
+}
+
+function setCat(x,y)
+{
+	if(ruleOut((catX+x),(catY+y)))
+	{
+		catX+=x;
+		catY+=y;
+		$(".con li").removeClass("cat")
+		$(".con li").removeClass("cat2") // add By wenxuan @ 20140819am
+		getData(catX,catY).addClass("cat");
+		succ=0;
+	}else
+	{
+		if(succ>=30)
+		{
+			//您成功了
+			$(".popBoxSucc").fadeIn();
+			$(".game_scroe").html(score);
+			
+			var a = [800,600,400];
+			var r = Math.floor(Math.random()*3);
+			game_price = a[r];
+			$(".game_price").html(game_price);
+			
+			//alert("您成功了,用了"+score+"步！")	
+		}else
+		{
+			getNextCat(catX,catY);		
+		}
+			
+	}	
+}
+
+function gameSuccess(x)
+{
+	var succ=0;
+	var rowsArr = getRowsArr(x);
+	for(var i=0;i<rowsArr.length;i++)
+	{
+		for(var j=0;j<curArr.length;j++)
+		{
+			if(((rowsArr[i][0]+catX)+catX==curArr[j][0])&&((rowsArr[i][1]+catY)==curArr[j][1]))
+			{
+				succ++;
+				break;
+			}
+		}
+	}
+	return succ;
+}
+
+
+function ruleOut(x,y)
+{
+	//alert(x+","+y)
+	for(var i=0;i<curArr.length;i++)
+	{
+		//alert(curArr[i][0]+","+x+"."+curArr[i][1]+","+y); 
+		if((curArr[i][0]==x)&&(curArr[i][1]==y))
+		{
+			return false;
+		}else{
+			//alert(222)
+			//return true;
+		}
+	}
+	return true;
+}
+
+$(function()
+{
+	getData(catX,catY).addClass("cat");
+	resetCur(8);
+	
+	$(".con li").click(function()
+	{
+		if(catX==0||catX==8||catY==0||catY==8)
+		{
+			//您失败了
+			$(".popBoxLose").fadeIn();
+			return false;
+		}else if(succ>=15)
+		{
+				return false;
+		}
+		else
+		{
+			score++;
+			$(this)	.addClass("cur");
+			curArr[curArr.length]=[$(this).parent().index(),$(this).index()]; //记录墙
+			getNextCat(catX,catY);////执行猫下一步
+			//gameSuccess(catX)
+			//console.log(curArr);	
+		}
+	})
+	
+	$("#starGame").click(function()
+	{
+		$(".popBoxStar").fadeOut();
+		resetaGame();
+	})
+	
+	$(".againGame").click(function()
+	{
+		$(".popBoxLose,.popBoxSucc").fadeOut();
+		resetaGame();
+	})
+	
+	$(".subData").live('click',function(){
+		
+			var g_phone = $('#g_phone').val();
+			if(t_phone==""){alert("请填写电话！"); return false;}
+			$.JSONP('http://act.city.sina.com.cn/interface/activity/json_add_signup.php',{act_id:6825,custom_1:score,custom_2:game_price,custom_3:g_phone},function(bm){
+						if(bm.error==0){
+							alert("提交成功");
+							topTen();
+						}else{
+							alert(bm.errmsg)
+						}
+						$(".popBoxSucc").fadeOut();
+						$(".popBoxStar").fadeIn();
+						resetaGame();
+		});
+
+	});
+	
+	
+})
+
+-->
+</script>
+<!-- 方太猫左右动 -->
+<script>
+(function(){
+	t = setInterval(function() {
+		$(".cat").toggleClass("cat2");
+	}, 400);
+	
+})();
+</script>
+</head>
+
+<body>
+<div class="head"></div>
+<div class="main wrap">
+ <div class="con_box con01">
+ 	<div class="gameBox_left">
+    
+    <div class="game_main">
+    <ul class="con left">
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+    <ul class="con game_right">
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+    <ul class="con left">
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+    <ul class="con game_right">
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+        <ul class="con left">
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+    <ul class="con game_right">
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+        <ul class="con left">
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+    <ul class="con game_right">
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+    <ul class="con left">
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+ </div>
+    
+    <div class="popBoxStar">
+    	<div class="game_tit"><img src="http://jiangsu.sinaimg.cn/2014/0819/U11392P1194DT20140819050059.png" /></div>
+        <div class="game_pic"><img src="http://jiangsu.sinaimg.cn/2014/0819/U11392P1194DT20140819050102.png" /></div>
+        <div class="game_star"><a href="javascript:void(0);" id="starGame"><img src="http://jiangsu.sinaimg.cn/2014/0819/U11392P1194DT20140819050101.png" /></a></div>
+    </div>
+    
+    <div class="popBoxLose">
+    	<div class="game_tit">&nbsp;&nbsp;&nbsp;您失败了！</div>
+        <div class="game_pic"><img src="http://jiangsu.sinaimg.cn/2014/0819/U11392P1194DT20140819050102.png" /></div>
+        <div class="game_btn"><a class="bm-but againGame" href="javascript:void(0);">再来一次</a></div>
+        
+    </div>
+    
+    <div class="popBoxSucc">
+    	<div class="game_tit">&nbsp;&nbsp;&nbsp;五星电器&方太杯美食课堂</div>
+        <div class="game_pic">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;太棒了！你用了<span class="game_scroe">0</span>台方太蒸箱就围住了贪吃的馋嘴猫,
+恭喜你获得一张<span class="game_price">0</span>元的方太蒸箱/烤箱现金券（单件商品限用一张，期限：8月22-24日），查看页面活动规则进行兑换使用。</div>
+        <div class="game_phone"><input id="g_phone" name="" type="text"  placeholder="输入手机号（仅作兑奖通知使用）"/></div>
+        <div class="game_btn"><a class="bm-but againGame" href="javascript:void(0);">再来一次</a><a class="bm-but subData" href="javascript:void(0);">提交号码</a></div>
+        
+    </div>
+    
+    
+    </div>
+    <div class="gameBox_right">
+    	<div class="game_rank">
+        	<table id="top_ten" width="290" border="0">
+  <tr>
+    <td>Top1</td>
+    <td>137***0016</td>
+    <td>7</td>
+  </tr>
+  <tr>
+    <td>Top1</td>
+    <td>137***0016</td>
+    <td>7</td>
+  </tr>
+    <tr>
+    <td>Top1</td>
+    <td>137***0016</td>
+    <td>7</td>
+  </tr>
+    <tr>
+    <td>Top1</td>
+    <td>137***0016</td>
+    <td>7</td>
+  </tr>
+    <tr>
+    <td>Top1</td>
+    <td>137***0016</td>
+    <td>7</td>
+  </tr>
+    <tr>
+    <td>Top1</td>
+    <td>137***0016</td>
+    <td>7</td>
+  </tr>
+    <tr>
+    <td>Top1</td>
+    <td>137***0016</td>
+    <td>7</td>
+  </tr>
+    <tr>
+    <td>Top1</td>
+    <td>137***0016</td>
+    <td>7</td>
+  </tr>
+    <tr>
+    <td>Top1</td>
+    <td>137***0016</td>
+    <td>7</td>
+  </tr>
+    <tr>
+    <td>Top1</td>
+    <td>137***0016</td>
+    <td>7</td>
+  </tr>
+  </table>
+
+    </div>
+    <div class="game_scroll">
+        <ul>
+            <!--li>微博昵称  获得800元方太蒸箱现金券</li>
+            <li>微博昵称  获得600元方太蒸箱现金券</li>
+            <li>微博昵称  获得400元方太蒸箱现金券</li-->
+        </ul>
+    </div>
+    </div>
+    
+    
+ </div>
+ <div class="con_box con02"></div>
+ <div class="con_box con03">
+ 	<input id="t_name" name="" type="text" placeholder="请输入姓名..." /><input id="t_phone" name="" type="text" placeholder="请输入号码..." /><a id="t_submit" href="javascript:void(0);"></a>
+ </div>
+ <div class="con_box con04"></div>
+ <div class="con_box con05"></div>
+ <div class="con_box con06"></div>
+</div>
+
+<!-- 两侧浮动二维码 -->
+<div class="flowAd">
+<script language="JavaScript">
+var admydelta=0.08
+var collection;
+function floaters() {
+	this.items	= [];
+	this.addItem	= function(id,x,y,content)
+			  {
+				document.write('<DIV id='+id+' style="Z-INDEX: 10; POSITION: absolute;  width:140px; height:293px;left:'+(typeof(x)=='string'?eval(x):x)+'px;top:600px">'+content+'</DIV>');
+				var newItem				= {};
+				newItem.object			= document.getElementById(id);
+				newItem.x				= x;
+				newItem.y				= y;
+
+				this.items[this.items.length]		= newItem;
+			  }
+	this.admyplay	= function()
+			  {
+				collection				= this.items
+				setInterval('admyplay()',10);
+			  }
+	}
+function admyplay(){
+
+		//alert(dt)
+		for(var i=0;i<collection.length;i++)
+		{
+			var followObj		= collection[i].object;
+			var followObj_x		= (typeof(collection[i].x)=='string'?eval(collection[i].x):collection[i].x);
+			var followObj_y		= (typeof(collection[i].y)=='string'?eval(collection[i].y):collection[i].y);
+
+			if(followObj.offsetLeft!=(document.documentElement.scrollLeft+followObj_x)) {
+				var dx=(document.documentElement.scrollLeft+followObj_x-followObj.offsetLeft)*admydelta;
+				dx=(dx>0?1:-1)*Math.ceil(Math.abs(dx));
+				followObj.style.left=followObj.offsetLeft+dx+"px";
+				}
+			//alert(document.documentElement.scrollTop)
+			var dt = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
+			if (dt<340) {return;}
+			if(followObj.offsetTop!=(dt+followObj_y)) {
+				var dy=(dt+followObj_y-followObj.offsetTop)*admydelta;
+				dy=(dy>0?1:-1)*Math.ceil(Math.abs(dy));
+				followObj.style.top=followObj.offsetTop+dy+"px";
+				//alert(111);
+				}
+			followObj.style.display	= '';
+			//alert(111)
+		}
+	}	
+
+var theFloaters	= new floaters();
+  //右面
+theFloaters.addItem('followDiv1','document.body.clientWidth-158',260,'<div class="QRBlock"><img src="http://s3img.city.sina.com.cn/activity/common/large/4475f19740670162130c69f9e11b0aa6.gif"/><p class="QRText1">扫我！</p><p class="QRText2">回复"姓名+电话+方太"<br/>领电子券</p></div>');
+//左面
+//theFloaters.addItem('followDiv2',6,200,'<img src="http://minnan.sinaimg.cn/mn_2013/201306cocacola/images/card-back.jpg" />');
+theFloaters.admyplay();
+</script>
+<style>
+.QRBlock{
+	text-align: center;
+	width: 148px;
+}
+.QRText1, .QRText2{
+	color: #e0caf4; 
+	font-family: "microsoft yahei";
+	font-size: 14px;
+}
+.QRText1{
+	font-size: 22px;
+	line-height: 32px;
+}
+</style>
+</div>
+
+</body>
+</html>

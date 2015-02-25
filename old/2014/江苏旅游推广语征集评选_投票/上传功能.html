@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="GB2312">
+<meta http-equiv="X-UA-Compatible" content="IE=8" />
+<title>请在此插入网页标题</title>
+<meta name="keywords" content="请在此插入关键词" />
+<meta name="description" content="请在此写入一段页面描述" />
+
+<script src="http://i2.sinaimg.cn/cj/dfz/js/base.js" type="text/javascript"></script> 
+<script src="http://jiangsu.sinaimg.cn/z/js/weiboApi.js" type="text/javascript"></script> 
+<script src="http://act.city.sina.com.cn/js/uploadButton.js" type="text/javascript"></script> 
+<script src="http://jiangsu.sinaimg.cn/js/popBox.js" type="text/javascript"></script> 
+<style type="text/css">
+.red{color: #F00;}
+</style>
+
+<script>
+
+
+
+
+function openLoginDialog(){DFZ.APP.DialogLogin.open();}
+
+
+var data = [
+["畅游江苏　乐享苏式生活","简洁大气，琅琅上口，符合江苏特色"],
+["乐山，乐水，乐在江苏","江苏山水甲天下，简洁明了"],
+["畅游江苏，醉美苏韵","畅游江苏中，感知江苏的韵味"],
+["画里山水，梦里江苏","江苏如梦，来江苏如同来到梦之仙境，美妙无比"],
+["畅游江苏，品山品水品繁华","突出江苏山水人文等全方位的魅力"],
+["“游”缘千里来江苏","口号精炼简洁，内涵丰富，易记易传播"],
+["醉吴韵汉风，游水乡梦境","意欲表述江苏的大美，感染力强，令人向往"],
+["游水乡江南　品古韵悠悠","在江南古镇中品味江苏的独特魅力"],
+["心之旅，梦之境，江苏行","视角独特，识别性强，延展空间丰富"],
+["吴韵汉风，畅游江苏","历史文化的精粹中感受江苏"],
+["诗画山水，魅力江苏","突出江苏的地理环境、人文时代风貌"],
+["山灵水秀，乐到江苏","山清水秀，感受灵动江苏"],
+["画中江苏，梦里水乡","在诗情画意中，感受水乡韵味"],
+["畅游江苏，享受慢时光之旅","充分体现顺畅、舒畅、欢畅的旅游理念"],
+["畅游江苏，梦境江南","突出江苏江南水乡特色"],
+["山水名片，人文江苏","言简意赅，简单易懂"],
+["畅游江苏，不同凡“享”","游江苏，感受不一样的美丽"],
+["畅游江苏，悦行阅美","畅游江苏，感受不一样的快乐"],
+["畅游江苏，乐享生活","表达对江苏的热爱，突出旅游，十分切题"],
+["畅游江苏，畅享美好","简单明了，用语精当，突出特色"],
+["畅游江苏，感知江南","在江苏山水美景中感受美好"],
+["畅游江苏，畅享美好","体现江苏魅力无极限，富有感染力，令人神往"],
+["畅游江苏，感受幸福","朗朗上口，一读难忘"],
+["美好时光，畅游江苏","有吸引力，且充满活力、通俗易懂"],
+["畅游江苏，乐享美好","通俗易懂，易于传播和记忆"],
+["畅游江苏，感悟（受）美好","脍炙人口，为大众所熟知，朗朗上口"],
+["畅游江苏　美好旅程","大气上口，易传易记，极具艺术表现力"],
+["畅游江苏，游历江苏山川，感受美好","江苏山水人文俱佳，令人如痴如醉"],
+["畅游江苏，感受精彩","该推广语响亮，富有感染力"],
+["畅游江苏，赏心悦目","江苏山水旖旎，风光秀丽，心情愉快"]
+];
+
+
+
+
+
+$(function()
+{
+	$(".submit2").click(function(){
+		var uinfo = sinaSSOManager.getSinaCookie();
+		 if (!uinfo) {
+			openLoginDialog();
+			return false;
+		} else {		
+			$(this).attr("disabled","disabled");
+			clickVote();
+		}
+	});
+});
+
+
+var hang = 0;
+
+function clickVote() {
+	
+	$.JSONP('http://act.city.sina.com.cn/interface/activity/json_add_signup.php',
+		{act_id:7994,custom_1:data[hang][0],custom_2:data[hang][1]},
+		function(bm){
+			if (bm.error == 0) {
+    			$("#info").html( $("#info").html() + "<br/>信息添加成功！" + hang +" : "+data[hang][0] +data[hang][1]);
+    			//console.log("信息添加成功！" + hang +" : "+data[hang][0] +data[hang][1]+data[hang][2]+data[hang][3]+data[hang][4]+data[hang][6]);
+    			hang++;
+    			if(hang==data.length){
+	    			$("#info").html( $("#info").html() + '<br/><span class="red">工作完成！ 总数：'+hang+'</span>');
+	    			return;
+    			}
+    			clickVote();
+    		} else {
+    		}
+		}
+			
+	);
+	
+	
+}		
+</script>
+</head>
+<body>
+ <input type="button" class="submit2" value="提交2" />
+ <div id="info"></div>
+</body>
+
+<!--please don't change the order of these scripts--> 
+<script type="text/javascript" src="http://i0.sinaimg.cn/cj/dfz/dialog_login_v1.1-sp1/js/dialog_login.js" charset="utf-8"></script> 
+<script type="text/javascript" src="http://i.sso.sina.com.cn/js/ssologin.js" charset="utf-8"></script> 
+<script type="text/javascript" src="http://i.sso.sina.com.cn/js/sinaSSOManager.js" charset="utf-8"></script>
+<link type="text/css" href="http://i0.sinaimg.cn/cj/dfz/dialog_login_v1.1-sp1/css/dialog_login.css" rel="stylesheet" media="all" />
+</html>

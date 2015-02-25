@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="GB2312">
+<meta http-equiv="cache-control" content="no-cache"/>
+<meta name="format-detection" content="telephone=no"/>
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0"> 
+<title>iSlider测试</title>
+<meta name="keywords" content="请在此插入关键词" />
+<meta name="description" content="请在此写入一段页面描述" />
+<!-- 
+<script src="http://i2.sinaimg.cn/cj/dfz/js/base.js" type="text/javascript"></script>
+<script src="http://jiangsu.sinaimg.cn/js/jquery.transit.min.js"></script>
+ -->
+<script src="./islider.js"></script>
+<style type="text/css">
+body, ul, ol, li, p, h1, h2, h3, h4, h5, h6, table, td, th, form, fieldset, img, dl, dt, dd { margin:0; padding:0; }
+textarea, input, select, body { font-size:12px; }
+select, input { vertical-align:middle; }
+fieldset, img { border:0; }
+ul, ol { list-style:none; }
+img { border:0; }
+a { text-decoration:none; color:#000; }
+a:hover { color:#ffa10d; }
+.fl { float:left; display:inline; }
+.fr { float:right; display:inline; }
+.cb { clear:both; display:block; height:0px; overflow:hidden; width:100%; }
+.clearfix:after { clear:both; content:""; display:block; height:0; }
+</style>
+<!-- 自适应缩放css -->
+<style type="text/css">
+body{ overflow-x: hidden; background-color: #000; }
+.swiper-container{ width: 640px; height: 960px; -webkit-transform-origin: top left; margin: 0; background-color: #fefcef; }
+.swiper-wrapper *{ -webkit-backface-visibility: hidden; } /* 避免ip4Safari闪动 */
+.page-provider{ position:absolute;top:0; text-align: center; width: 100%; font-size: 24px;line-height: 80px; color: #e5d2d4; }
+.swiper-slide{ width: 640px; height: 960px; position: relative; overflow: hidden; }
+</style>
+<style type="text/css">
+#s1,#s2,#s3{ background-position: center; background-repeat: no-repeat;}
+#s1{ background-image: url("./images/1.jpg"); background-color: #F00; }
+#s2{ background-image: url("./images/2.jpg"); background-color: #FF0; }
+#s3{ background-image: url("./images/2.jpg"); background-color: #0F0; }
+#s4{ background-image: url("./images/3.jpg"); background-color: #0FF; }
+#s5{ background-image: url("./images/3.jpg"); background-color: #00F; }
+</style>
+</head>
+<body ontouchmove="event.preventDefault()"> <!-- 阻止ios浏览器整页上下滑动 -->
+	<!-- 
+	* 说明：
+	* 多页面滑动模板，适用于 类ppt 页面
+	* 页面 640x960 按宽度缩放
+	* 使用 iSlider 插件切换页面 ，参数请在下方 【Initialize iSlider】中自行更改
+	*
+	 -->
+	 <div id="iSlider-wrapper">
+	 
+	 </div>
+</body>
+
+
+<!-- Initialize iSlider -->
+<script type="text/javascript">
+	var data = [{
+	    'height' : '100%',
+	    'width' : '100%',
+	    'content' : '<div><h1>Home</h1><h2>This is home page</h2><p>home is pretty awsome</p><div>'
+	},{
+	    'height' : '100%',
+	    'width' : '100%',
+	    'content' : '<div><h1>Page1</h1><h2>This is page1</h2><p>page1 is pretty awsome</p><div>'
+	},{
+	    'height' : '100%',
+	    'width' : '100%',
+	    'content' : '<div><h1>Page2</h1><h2>This is Page2</h2><p>Page2 is pretty awsome</p><div>'
+	}];
+
+    var iSlider = new iSlider({
+        dom : document.getElementById('iSlider-wrapper'),
+        data : data,
+        type: 'dom',
+        duration: 2000,
+        animateType : 'rotate',
+        isVertical: true,
+        isLooping: true,
+        isDebug: true,
+        isAutoplay: true
+    });
+</script>
+
+<!-- page Auto scale -->
+
+
+</html>

@@ -1,0 +1,412 @@
+<!-- 破坏整体宽度 -->
+<style>
+.VBody>#wrap{ width: 960px;}
+</style>
+<!-- 移除专题广告 -->
+<style>
+.AdPosition{ display: none; }
+</style>
+<!-- 快搭默认导航栏修正 -->
+<style type="text/css">
+/* 100%伸展 */
+#headBox{ width: 960px; }
+#headBox .secondaryHeader { width: auto!important; height: auto; }
+</style>
+
+<script src="http://i2.sinaimg.cn/cj/dfz/js/base.js" type="text/javascript"></script>
+<style type="text/css">
+body, ul, ol, li, p, h1, h2, h3, h4, h5, h6, table, td, th, form, fieldset, img, dl, dt, dd { margin:0; padding:0; }
+textarea, input, select, body { font-size:12px; }
+select, input { vertical-align:middle; }
+fieldset, img { border:0; }
+ul, ol { list-style:none; }
+img { border:0; }
+a { text-decoration:none; color:#000; }
+a:hover { color:#ffa10d; text-decoration: blink; }
+.fl { float:left; display:inline; }
+.fr { float:right; display:inline; }
+.cb { clear:both; display:block; height:0px; overflow:hidden; width:100%; }
+.clearfix:after { clear:both; content:""; display:block; height:0; }
+</style>
+<style type="text/css">
+body { background-image: url("http://s3img.city.sina.com.cn/activity/common/large/5b50415b9865ef80662136243794ca63.jpg")!important;background-position: center;background-attachment: fixed!important; }
+.part_01{ width: 960px; margin: 0 auto;}
+.part_01 .logo{ margin: 50px;}
+.part_01 .cardbox{  text-align: justify; font-family: "microsoft yahei"; width: 954px;margin: 0 auto;padding: 6px 6px;background-color: RGBA(255,255,255,0.5);filter: progid:DXImageTransform.Microsoft.Gradient(startColorStr=#7FFFFFFF,endColorStr=#7FFFFFFF);}
+.part_01 .cardbox .card{ overflow: hidden; display: inline-block; width: 232px; height: 424px; vertical-align: top;margin-bottom: 14px;background-color: #fff;box-shadow: 0 2px 3px rgba(16,4,7,.25);position: relative; }
+ 
+ /* safari transform css */
+.part_01 .cardbox .card{ -webkit-transition: -webkit-transform 0.8s; }
+.part_01 .cardbox .card:hover{ -webkit-transform: scale(1.06); z-index: 2; box-shadow: 2px 2px 5px rgba(16,4,7,.75); }
+.part_01 .cardbox .card .moreinfoBox{  -webkit-transition: -webkit-transform 0.6s cubic-bezier(0.71,0.71,0.29,1); }
+.part_01 .cardbox .card:hover .moreinfoBox{ -webkit-transform: translateY(338px); }
+.part_01 .cardbox .card .toolbox{  -webkit-transition: -webkit-transform 0.8s cubic-bezier(0.680,-0.550,0.265,2.450); bottom:0; -webkit-transform: rotateX(90deg); -webkit-transform-origin: bottom;}
+.part_01 .cardbox .card:hover .toolbox{ -webkit-transform: perspective(1200) rotateX(0deg); }
+ /* transform css */
+.part_01 .cardbox .card{ transition: transform 0.8s; }
+.part_01 .cardbox .card:hover{ transform: scale(1.06); z-index: 2; box-shadow: 2px 2px 5px rgba(16,4,7,.75); }
+.part_01 .cardbox .card .moreinfoBox{  transition: transform 0.6s  cubic-bezier(0.71,0.71,0.29,1); }
+.part_01 .cardbox .card:hover .moreinfoBox{ transform: translateY(338px) ; }
+.part_01 .cardbox .card .toolbox{  transition: transform 0.8s  cubic-bezier(0.680,-0.550,0.265,2.450); bottom:0; transform: rotateX(90deg); transform-origin: bottom;}
+.part_01 .cardbox .card:hover .toolbox{ transform: perspective(1200px) rotateX(0deg); }
+
+.part_01 .cardbox .card.left_fix{ height:0; padding:0; overflow:hidden; }
+
+.part_01 .cardbox .card .box1{ padding: 6px 6px 12px; border-bottom: 1px dashed #858585; position: relative; }
+.part_01 .cardbox .card .box1 .photobox{ height: 329px; position:relative; overflow:hidden; }
+.part_01 .cardbox .card .box1 .tag:BEFORE{ content: "第"; }
+.part_01 .cardbox .card .box1 .tag:AFTER{  content: "期"; }
+.part_01 .cardbox .card .box1 .tag{ position: absolute; top: 26px; left: -1px; width:118px; padding-right:12px; height:37px; line-height:34px; text-align:center; color:#FFF; font-size: 16px;background-image: url("http://s3img.city.sina.com.cn/activity/common/large/846cac45a66556bf59cd794171d91f23.png"); }
+
+.part_01 .cardbox .card .title{ text-align: center; line-height: 76px; color: #d36300;	font-size: 16px;	font-weight: bold;	text-decoration: underline; }
+
+
+
+.part_01 .cardbox .card .moreinfoBox{ padding: 6px; height: 326px; background-color: #FFF; position: absolute; top: -338px; }
+.part_01 .cardbox .card .moreinfoBox .moreinfo{ background: url(http://jiangsu.sinaimg.cn/zt/s/bssd/bs_07.gif) repeat 0 0; }
+.part_01 .cardbox .card .moreinfoBox .moreinfo .uinfo{ height: 76px; border-bottom: 1px solid #cacaca;}
+.part_01 .cardbox .card .moreinfoBox .moreinfo .ico { margin: 12px; float: left; border: 2px solid #FFF; width: 50px; height: 50px; }
+.part_01 .cardbox .card .moreinfoBox .moreinfo .name { margin: 13px 0 2px;font-size: 18px;border-bottom: 1px solid efefef;display: inline-block; width: 142px;height: 26px;overflow: hidden; }
+.part_01 .cardbox .card .moreinfoBox .moreinfo .fans:BEFORE { content: "粉丝"; }
+.part_01 .cardbox .card .moreinfoBox .moreinfo .fans { color: #013399;font-size: 16px; }
+.part_01 .cardbox .card .moreinfoBox .moreinfo .fans:AFTER { content: "人"; }
+.part_01 .cardbox .card .moreinfoBox .moreinfo .textbox { height: 250px; }
+.part_01 .cardbox .card .moreinfoBox .moreinfo .textbox .text { padding: 16px 8px; color: #000; font-size: 14px; line-height: 24px; text-indent: 2em; }
+
+.part_01 .cardbox .card .toolbox{ position: absolute; /* bottom: -72px; */ width: 100%; background-color: #ECECEC; color: #9a9999;font-size: 14px;text-align: center;line-height: 76px; }
+.part_01 .cardbox .card .toolbox a{ display: inline-block; margin:0 3px; width: 93px; height: 28px; line-height: 28px; color: #000; border:1px solid #000; text-align: center; -webkit-transition:all 0.3s;}
+.part_01 .cardbox .card .toolbox a:HOVER{ background-color: #ffa93b; color: #000; border-color: #000;}
+</style>
+
+<div class="part_01">
+	<img class="logo" src="http://s3img.city.sina.com.cn/activity/common/large/fba6c5e2b80ef42041c528924ea47f39.png">
+	<div class="cardbox clearfix">
+
+<!-- #########################     卡片    ##########################   -->
+		<div class="card">
+			<div class="box1">
+				<div class="photobox"><img src="http://s3img.city.sina.com.cn/activity/common/large/fe9fad525bc468b9b42b2bfda5635edc.jpg"></div><!-- ■卡片大图 -->
+				<div class="tag">10</div><!-- ■黄色标签：第几期 -->
+			</div>
+			<div class="title">龙行七大洲和他的环球之旅</div><!-- ■卡片下方文字 -->
+			<!-- 滑出页 -->
+			<div class="moreinfoBox">
+				<div class="moreinfo">
+					<div class="uinfo">
+						<img class="ico" src="http://tp1.sinaimg.cn/1601383852/50/5619441583/1"><!-- ■微博头像 -->
+						<div class="name">龙行七大洲</div><!-- ■微博名称 -->
+						<div class="fans">5000</div><!-- ■粉丝数量 -->
+					</div>
+					<div class="textbox">
+						<div class="text">他喜欢摄影，喜欢旅行，退休前7年他就开始了专职旅行，其实与退休无关，在他看来这是他生活的重要组成部分。每次旅行回来他都会与家人分享他的旅行故事，并用博客记录下他每一次的旅程。 </div><!-- ■滑出页文字 -->
+					</div>
+				</div>
+			</div>
+			<div class="toolbox">
+				<a class="share" href="javascript:void(0);">分享到微博</a><!-- ■滑出页 按钮1 -->
+				<a href="http://jiangsu.sina.com.cn/z/lxqdzhqzl/index.shtml" target="_blank">进入阅读</a><!-- ■滑出页 按钮2 -->
+			</div>
+		</div>
+<!-- ######################    end 卡片    ###########################   -->
+<!-- #########################     卡片    ##########################   -->
+		<div class="card">
+			<div class="box1">
+				<div class="photobox"><img src="http://jiangsu.sinaimg.cn/2014/1215/U8752P1194DT20141215133957.jpg"></div><!-- ■卡片大图 -->
+				<div class="tag">9</div><!-- ■黄色标签：第几期 -->
+			</div>
+			<div class="title">就这样，遇见</div><!-- ■卡片下方文字 -->
+			<!-- 滑出页 -->
+			<div class="moreinfoBox">
+				<div class="moreinfo">
+					<div class="uinfo">
+						<img class="ico" src="http://jiangsu.sinaimg.cn/2014/1212/U8752P1194DT20141212181051.jpg"><!-- ■微博头像 -->
+						<div class="name">行者橙子</div><!-- ■微博名称 -->
+						<div class="fans">149944</div><!-- ■粉丝数量 -->
+					</div>
+					<div class="textbox">
+						<div class="text">他，一个来自北方的阳光男孩，工作，旅行，公益，摄影，始终带着橙子的味道。国内第一支公益驴友团队80公升创始人。为了追求“不靠谱”的梦想，最终成为了朋友圈里最靠谱的人。</div><!-- ■滑出页文字 -->
+					</div>
+				</div>
+			</div>
+			<div class="toolbox">
+				<a class="share" href="javascript:void(0);">分享到微博</a><!-- ■滑出页 按钮1 -->
+				<a href="http://jiangsu.sina.com.cn/z/jsfxh11/index.shtml" target="_blank">进入阅读</a><!-- ■滑出页 按钮2 -->
+			</div>
+		</div>
+<!-- ######################    end 卡片    ###########################   -->
+<!-- #########################     卡片    ##########################   -->
+		<div class="card">
+			<div class="box1">
+				<div class="photobox"><img src="http://jiangsu.sinaimg.cn/2014/1212/U8752P1194DT20141212175607.jpg"></div><!-- ■卡片大图 -->
+				<div class="tag">8</div><!-- ■黄色标签：第几期 -->
+			</div>
+			<div class="title">女孩子也能闯世界</div><!-- ■卡片下方文字 -->
+			<!-- 滑出页 -->
+			<div class="moreinfoBox">
+				<div class="moreinfo">
+					<div class="uinfo">
+						<img class="ico" src="http://jiangsu.sinaimg.cn/2014/1212/U8752P1194DT20141212175606.jpg"><!-- ■微博头像 -->
+						<div class="name">王泓人</div><!-- ■微博名称 -->
+						<div class="fans">67618</div><!-- ■粉丝数量 -->
+					</div>
+					<div class="textbox">
+						<div class="text">她带着不足四千美金上路，本来只想去新疆和西藏，可是一路上，惊险刺激、令人不可思议的人和故事持续不断，令人上瘾，停不下来。至今她已行走了22个月，走遍以色列、埃及、苏丹、埃塞俄比亚、肯尼亚、乌干达、卢旺达、布隆迪、坦桑尼亚等27个国家。</div><!-- ■滑出页文字 -->
+					</div>
+				</div>
+			</div>
+			<div class="toolbox">
+				<a class="share" href="javascript:void(0);">分享到微博</a><!-- ■滑出页 按钮1 -->
+				<a href="http://jiangsu.sina.com.cn/z/jstrip_fxh10/index.shtml" target="_blank">进入阅读</a><!-- ■滑出页 按钮2 -->
+			</div>
+		</div>
+<!-- ######################    end 卡片    ###########################   -->
+<!-- #########################     卡片    ##########################   -->
+		<div class="card">
+			<div class="box1">
+				<div class="photobox"><img src="http://jiangsu.sinaimg.cn/2014/1215/U8752P1194DT20141215135130.jpg"></div><!-- ■卡片大图 -->
+				<div class="tag">7</div><!-- ■黄色标签：第几期 -->
+			</div>
+			<div class="title">占星小姐去旅行</div><!-- ■卡片下方文字 -->
+			<!-- 滑出页 -->
+			<div class="moreinfoBox">
+				<div class="moreinfo">
+					<div class="uinfo">
+						<img class="ico" src="http://jiangsu.sinaimg.cn/2014/1212/U8752P1194DT20141212174921.jpg"><!-- ■微博头像 -->
+						<div class="name">占星师伊伊</div><!-- ■微博名称 -->
+						<div class="fans">65881</div><!-- ■粉丝数量 -->
+					</div>
+					<div class="textbox">
+						<div class="text">她，十年前与占星结缘，现已成为一名星座专栏作家并成立了自己的工作室。与此同时，她也是一名国际领队，足迹遍布东南亚，台湾、内蒙、云南、北京···她的旅行故事，充满着跃动的旋律。</div><!-- ■滑出页文字 -->
+					</div>
+				</div>
+			</div>
+			<div class="toolbox">
+				<a class="share" href="javascript:void(0);">分享到微博</a><!-- ■滑出页 按钮1 -->
+				<a href="http://jiangsu.sina.com.cn/z/jstrip_fxh9/index.shtml" target="_blank">进入阅读</a><!-- ■滑出页 按钮2 -->
+			</div>
+		</div>
+<!-- ######################    end 卡片    ###########################   -->
+<!-- #########################     卡片    ##########################   -->
+		<div class="card">
+			<div class="box1">
+				<div class="photobox"><img src="http://jiangsu.sinaimg.cn/2014/1212/U8752P1194DT20141212174027.jpg"></div><!-- ■卡片大图 -->
+				<div class="tag">6</div><!-- ■黄色标签：第几期 -->
+			</div>
+			<div class="title">南京周园皇家风范</div><!-- ■卡片下方文字 -->
+			<!-- 滑出页 -->
+			<div class="moreinfoBox">
+				<div class="moreinfo">
+					<div class="uinfo">
+						<img class="ico" src="http://jiangsu.sinaimg.cn/2014/1212/U8752P1194DT20141212173643.jpg"><!-- ■微博头像 -->
+						<div class="name">郑金氏家的小Y</div><!-- ■微博名称 -->
+						<div class="fans">190</div><!-- ■粉丝数量 -->
+					</div>
+					<div class="textbox">
+						<div class="text">周园是一组仿古建筑，赋故宫风范，藏皇家气度，其主建筑狮龙堂由御膳房、尚书房、养心斋、太和斋、保和斋和狮龙堂等六个展馆组成，收藏了主人家五世之百年收藏，为集中国古典家具之大成者。周园主建筑狮龙堂为五开间重檐歇山顶，气势恢宏，金碧辉煌。</div><!-- ■滑出页文字 -->
+					</div>
+				</div>
+			</div>
+			<div class="toolbox">
+				<a class="share" href="javascript:void(0);">分享到微博</a><!-- ■滑出页 按钮1 -->
+				<a href="http://jiangsu.sina.com.cn/z/zhouyuan/index.shtml" target="_blank">进入阅读</a><!-- ■滑出页 按钮2 -->
+			</div>
+		</div>
+<!-- ######################    end 卡片    ###########################   -->
+<!-- #########################     卡片    ##########################   -->
+		<div class="card">
+			<div class="box1">
+				<div class="photobox"><img src="http://jiangsu.sinaimg.cn/2014/1215/U8752P1194DT20141215114157.jpg"></div><!-- ■卡片大图 -->
+				<div class="tag">5</div><!-- ■黄色标签：第几期 -->
+			</div>
+			<div class="title">我们的旅行 左手&张千里</div><!-- ■卡片下方文字 -->
+			<!-- 滑出页 -->
+			<div class="moreinfoBox">
+				<div class="moreinfo">
+					<div class="uinfo">
+						<img class="ico" src="http://jiangsu.sinaimg.cn/2014/1212/U8752P1194DT20141212180600.jpg"><!-- ■微博头像 -->
+						<div class="name">by_左手</div><!-- ■微博名称 -->
+						<div class="fans">93612</div><!-- ■粉丝数量 -->
+					</div>
+					<div class="textbox">
+						<div class="text">他们，认识27年，恋爱11年，结婚8年，自助旅行10年，23个国家，十几万张照片，几十万文字。从大学生到小编辑再到自由摄影师，唯有梦想始终绽放微小的光芒。爱情迟早褪去激情，唯有他们始终牵手旅行。</div><!-- ■滑出页文字 -->
+					</div>
+				</div>
+			</div>
+			<div class="toolbox">
+				<a class="share" href="javascript:void(0);">分享到微博</a><!-- ■滑出页 按钮1 -->
+				<a href="http://jiangsu.sina.com.cn/z/jstrip_fxh7/index.shtml" target="_blank">进入阅读</a><!-- ■滑出页 按钮2 -->
+			</div>
+		</div>
+<!-- ######################    end 卡片    ###########################   -->
+
+<!-- #########################     卡片    ##########################   -->
+		<div class="card">
+			<div class="box1">
+				<div class="photobox"><img src="http://jiangsu.sinaimg.cn/2014/1212/U8752P1194DT20141212171208.jpg"></div><!-- ■卡片大图 -->
+				<div class="tag">4</div><!-- ■黄色标签：第几期 -->
+			</div>
+			<div class="title">孙有军和他的穷游历程</div><!-- ■卡片下方文字 -->
+			<!-- 滑出页 -->
+			<div class="moreinfoBox">
+				<div class="moreinfo">
+					<div class="uinfo">
+						<img class="ico" src="http://jiangsu.sinaimg.cn/2014/1212/U8752P1194DT20141212171209.jpg"><!-- ■微博头像 -->
+						<div class="name">太阳1975_E旅行</div><!-- ■微博名称 -->
+						<div class="fans">109508</div><!-- ■粉丝数量 -->
+					</div>
+					<div class="textbox">
+						<div class="text">低成本环游世界越来越受到“驴友”的关注，E旅行网CEO孙有军致力于提供廉价机票、打折酒店、打折旅行保险等一手促销资讯。当旅行费用越发低价，行程日益明朗，花很少的钱出国旅行，不再是梦想！</div><!-- ■滑出页文字 -->
+					</div>
+				</div>
+			</div>
+			<div class="toolbox">
+				<a class="share" href="javascript:void(0);">分享到微博</a><!-- ■滑出页 按钮1 -->
+				<a href="http://jiangsu.sina.com.cn/z/dcbhysj/index.shtml" target="_blank">进入阅读</a><!-- ■滑出页 按钮2 -->
+			</div>
+		</div>
+<!-- ######################    end 卡片    ###########################   -->
+<!-- #########################     卡片    ##########################   -->
+		<div class="card">
+			<div class="box1">
+				<div class="photobox"><img src="http://jiangsu.sinaimg.cn/2014/1215/U8752P1194DT20141215114656.jpg"></div><!-- ■卡片大图 -->
+				<div class="tag">3</div><!-- ■黄色标签：第几期 -->
+			</div>
+			<div class="title">快乐逍遥旅行者</div><!-- ■卡片下方文字 -->
+			<!-- 滑出页 -->
+			<div class="moreinfoBox">
+				<div class="moreinfo">
+					<div class="uinfo">
+						<img class="ico" src="http://jiangsu.sinaimg.cn/2014/1212/U8752P1194DT20141212164638.jpg"><!-- ■微博头像 -->
+						<div class="name">朱伟刚</div><!-- ■微博名称 -->
+						<div class="fans">24254</div><!-- ■粉丝数量 -->
+					</div>
+					<div class="textbox">
+						<div class="text">旅行在路上，不只是行走，更要快乐而行。每一次旅行，都要用身体每一个部位去感知这个世界的美好，让眼睛去看更广阔的世界，让双耳记住动听的旋律，用嗅觉和味蕾记录每一次享受，用足迹印证你的到来。逍遥之行，在路上。</div><!-- ■滑出页文字 -->
+					</div>
+				</div>
+			</div>
+			<div class="toolbox">
+				<a class="share" href="javascript:void(0);">分享到微博</a><!-- ■滑出页 按钮1 -->
+				<a href="http://jiangsu.sina.com.cn/z/jstrip_fxh5/index.shtml" target="_blank">进入阅读</a><!-- ■滑出页 按钮2 -->
+			</div>
+		</div>
+<!-- ######################    end 卡片    ###########################   -->
+<!-- #########################     卡片    ##########################   -->
+		<div class="card">
+			<div class="box1">
+				<div class="photobox"><img src="http://jiangsu.sinaimg.cn/2014/1212/U8752P1194DT20141212162635.jpg"></div><!-- ■卡片大图 -->
+				<div class="tag">2</div><!-- ■黄色标签：第几期 -->
+			</div>
+			<div class="title">城墙内外看南京</div><!-- ■卡片下方文字 -->
+			<!-- 滑出页 -->
+			<div class="moreinfoBox">
+				<div class="moreinfo">
+					<div class="uinfo">
+						<img class="ico" src="http://jiangsu.sinaimg.cn/2014/1212/U8752P1194DT20141212152625.jpg"><!-- ■微博头像 -->
+						<div class="name">城墙内外看南京</div><!-- ■微博名称 -->
+						<div class="fans">1206</div><!-- ■粉丝数量 -->
+					</div>
+					<div class="textbox">
+						<div class="text">不是每座城市的古城墙，都有南京那么伟岸。小城的城堞上，即使坐过某位古人，人们也早已淡忘。。游弋于古老城墙的背后，看世事变化，岁月变迁。600年光阴在此流过，记录下一份南京城墙的走读笔记。</div><!-- ■滑出页文字 -->
+					</div>
+				</div>
+			</div>
+			<div class="toolbox">
+				<a class="share" href="javascript:void(0);">分享到微博</a><!-- ■滑出页 按钮1 -->
+				<a href="http://jiangsu.sina.com.cn/z/jstrip_fxh3/index.shtml" target="_blank">进入阅读</a><!-- ■滑出页 按钮2 -->
+			</div>
+		</div>
+<!-- ######################    end 卡片    ###########################   -->
+<!-- #########################     卡片    ##########################   -->
+		<div class="card">
+			<div class="box1">
+				<div class="photobox"><img src="http://jiangsu.sinaimg.cn/2014/1212/U8752P1194DT20141212154723.jpg"></div><!-- ■卡片大图 -->
+				<div class="tag">1</div><!-- ■黄色标签：第几期 -->
+			</div>
+			<div class="title">火车控——苏阳“列车长”</div><!-- ■卡片下方文字 -->
+			<!-- 滑出页 -->
+			<div class="moreinfoBox">
+				<div class="moreinfo">
+					<div class="uinfo">
+						<img class="ico" src="http://jiangsu.sinaimg.cn/2014/1212/U8752P1194DT20141212152626.jpg"><!-- ■微博头像 -->
+						<div class="name">纯真的光影</div><!-- ■微博名称 -->
+						<div class="fans">152</div><!-- ■粉丝数量 -->
+					</div>
+					<div class="textbox">
+						<div class="text">有人控音响，有人控游戏，有人控汽车，还有人控芭比娃娃……但这些“控”比起下面的控简直是“微”不足道。因为他控的是火车，还有和铁路相关的一切。苏阳对中国所有的铁路线了如指掌，并能举一反三，给你配出最佳路线，堪称“活的铁路GPRS定位系统”。</div><!-- ■滑出页文字 -->
+					</div>
+				</div>
+			</div>
+			<div class="toolbox">
+				<a class="share" href="javascript:void(0);">分享到微博</a><!-- ■滑出页 按钮1 -->
+				<a href="http://jiangsu.sina.com.cn/z/jstrip_fxh2/index.shtml" target="_blank">进入阅读</a><!-- ■滑出页 按钮2 -->
+			</div>
+		</div>
+<!-- ######################    end 卡片    ###########################   -->
+
+
+		
+		
+		
+		
+		<!-- 下面4个是撑着的，别删呐～ -->
+		<div class="card left_fix">&nbsp;</div>
+		<div class="card left_fix">&nbsp;</div>
+		<div class="card left_fix">&nbsp;</div>
+		<div class="card left_fix">&nbsp;</div>
+	
+	</div>
+</div>
+<script type="text/javascript">
+/* 卡片照片详情 */
+$(function() {
+	/* .part_01 .card .box1:HOVER .photobox .moreinfo{ display: block; */
+
+	/* 土鳖览器动画 */
+	var isIE=!!window.ActiveXObject;
+	var isIE6=isIE&&!window.XMLHttpRequest;
+	var isIE8=isIE&&!!document.documentMode;
+	var isIE7=isIE&&!isIE6&&!isIE8;
+	if (isIE){
+		if (isIE6 | isIE7 |isIE8){
+			$(".part_01 .cardbox .card .toolbox").css("bottom","-72px");
+			$(".part_01 .card").hover(
+			function () {
+				$(this).find(".moreinfoBox").stop(true,false).animate({top: "0"},500);
+				$(this).find(".toolbox").stop(true,false).animate({bottom: "0"},500);
+			},
+			function () {
+				$(this).find(".moreinfoBox").stop(true,false).animate({top: "-338px"},500);
+				$(this).find(".toolbox").stop(true,false).animate({bottom: "-72px"},500);
+			});
+		}
+	}
+	
+	
+});
+
+/* 分享到微博js */
+$(".part_01 .cardbox .card .toolbox .share").live("click",function(){
+	var self = $(this);
+	var txt = self.parent().parent().find('.text').text(); //内容文字
+	var picsrc = self.parent().parent().find('.photobox img').attr('src'); //图片
+	var url = window.location.href; //链接
+	window.open('http://v.t.sina.com.cn/share/share.php?title=' + txt + '&url=' + url + '' + '&pic=' + picsrc,'微博分享','width=700, height=580, top=320, left=180, toolbar=no, menubar=no, scrollbars=no, location=yes, resizable=no, status=no');
+});
+
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,823 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="GB2312">
+<meta http-equiv="cache-control" content="no-cache"/>
+<meta name="format-detection" content="telephone=no"/>
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">
+<title>全民泡温泉  赢免费温泉泡</title>
+<meta name="keywords" content="小游戏,泡温泉,新浪江苏" />
+<meta name="description" content="畅游江苏，温暖冬日 全民泡温泉小游戏" />
+<meta name="author" content="NorthWind" />
+<link rel="stylesheet" href="http://jiangsu.sinaimg.cn/zt/s/css/reset.css">
+<script src="http://ria.city.sina.com.cn/s/g=base.js" type="text/javascript"></script>
+<script src="http://jiangsu.sinaimg.cn/js/jquery.transit.min.js"></script>
+<!-- 
+<script src="http://jiangsu.sinaimg.cn/js/jquery1.11.1.min.js"></script>
+ -->
+<!-- 自适应缩放css -->
+<style type="text/css">
+/* 跨域卧槽 */
+@font-face {
+ font-family: "DFPHAIBAOW12-GB";
+ src:url('http://jiangsu.sinaimg.cn/zt/s/fonts/DFPHAIBAOW12GBnumonly.ttf') format('truetype');
+}
+
+.wrap,.btn,img{-moz-user-select: none; -webkit-user-select: none; -ms-user-select: none; user-select: none;-webkit-tap-highlight-color: transparent; tap-highlight-color: transparent; }
+
+body{ overflow: hidden; }
+.swiper-container{ width: 640px; height:1008px; position:fixed; -webkit-transform-origin: top left; transform-origin: top left; background-image: url("http://jiangsu.sinaimg.cn/zt/s/2014hsgame/images/bg.jpg"); }
+.wrap{ position: absolute; width: 100%; height: 100%; left: 0; top: 0; -webkit-transform: translateZ(0);-moz-transform: translateZ(0);-ms-transform: translateZ(0);transform: translateZ(0);}
+.cp{ cursor: pointer; }
+.page{ position: absolute; top: 0; left: 0; width: 100%; height: 100%;}
+.btn { display: inline-block; width: 213px; height: 65px; line-height: 65px; border-radius: 10px; background-color: #f75953; color: #FFF; font-size: 24px; text-align: center; }
+
+</style>
+<style type="text/css">
+.titileimg{ display: block; margin: 48px auto 0; }
+.helpBtn{ display: block; margin: 24px auto 0; }
+.startBtn{ display: block; margin: 148px auto 0; }
+.popup1{ position: absolute; width: 456px; height: 216px; top: 0; right: 0; bottom: 0; left: 0; margin: auto; background-image: url("http://jiangsu.sinaimg.cn/zt/s/2014hsgame/images/e1_4.png"); }
+.popup2{ position: absolute; width: 476px; height: 436px; top: 0; right: 0; bottom: 0; left: 0; margin: auto; background-image: url("http://jiangsu.sinaimg.cn/zt/s/2014hsgame/images/e3_1.png"); }
+.popup3{ position: absolute; width: 412px; height: 216px; top: 0; right: 0; bottom: 0; left: 0; margin: auto; background-color: RGBA(0,0,0,0.8); font-size: 59px; color: #FFF; text-align: center; line-height: 3em; border-radius: 27px; }
+.text{ width:362px; margin: 46px auto 0; color: #471b01; font-family: "微软雅黑"; font-size: 24px;}
+
+/* #p2 */
+.imgArrow{ position: absolute; left: 400px; top: 328px; }
+.imgArrowText{ position: absolute; left: 520px; top: 232px; }
+.characterBox{ text-align: center; width: 470px; margin: 88px auto 0;}
+.springBox{ position: absolute; top: 366px; left: 50px; width: 477px; height: 242px; /* background-color: RGBA(255,0,0,0.5); */ }
+.time{ position: absolute; top: 32px; right: 41px; font-size: 26px; color: #000; }
+.time:BEFORE{ content: "剩余时间: "; }
+.time:AFTER{ content: "秒"; }
+#p2,#wrap_1,#wrap_2,#wrap_3{ display: none; }
+
+
+.dotting {
+    display: inline-block; min-width: 5px; min-height: 5px;
+    box-shadow: 5px 0 currentColor, 18px 0 currentColor, 32px 0 currentColor; 
+    -webkit-animation: dot 2s infinite step-start both;
+    animation: dot 2s infinite step-start both; 
+    *zoom: expression(this.innerHTML = '...'); /* IE7 */
+}
+:root .dotting { margin-right: 20px; } /* IE9+,FF,CH,OP,SF */
+
+@-webkit-keyframes dot {
+    25% { box-shadow: none; }
+    50% { box-shadow: 5px 0 currentColor; }
+    75% { box-shadow: 5px 0 currentColor, 18px 0 currentColor; }
+}
+@keyframes dot {
+    25% { box-shadow: none; }
+    50% { box-shadow: 5px 0 currentColor; }
+    75% { box-shadow: 5px 0 currentColor, 18px 0 currentColor; }
+}
+
+.fog{
+  position: absolute; top: 439px; left: 15px; 
+ /*  animation: fog_flow ease 3s;
+  animation-iteration-count: infinite;
+  transform-origin: 50% 50%;
+  -webkit-animation: fog_flow ease 3s;
+  -webkit-animation-iteration-count: infinite;
+  -webkit-transform-origin: 50% 50%;
+ */
+}
+
+@keyframes fog_flow{
+  0% {
+    opacity:0;
+    transform:  translate(0px,0px)  ;
+  }
+  23% {
+    opacity:0.1;
+  }
+  40% {
+    opacity:0.27;
+  }
+  63% {
+    opacity:0.1;
+  }
+  100% {
+    opacity:0.2;
+    transform:  translate(0px,-100px)  ;
+  }
+}
+
+@-webkit-keyframes fog_flow {
+  0% {
+    opacity:0;
+    -webkit-transform:  translate(0px,0px)  ;
+  }
+  23% {
+    opacity:0.1;
+  }
+  40% {
+    opacity:0.27;
+  }
+  63% {
+    opacity:0.1;
+  }
+  100% {
+    opacity:0.2;
+    -webkit-transform: translate(0px,-100px)  ;
+  }
+}
+
+
+
+.man{
+  animation: man_into_water cubic-bezier(.36,.75,.44,1.49) 0.3s;
+  animation-iteration-count: 1;
+  transform-origin: 50% 50%;
+  -webkit-animation: man_into_water cubic-bezier(.36,.75,.44,1.49) 0.3s;
+  -webkit-animation-iteration-count: 1;
+  -webkit-transform-origin: 50% 50%;
+}
+
+@keyframes man_into_water{
+  0% {
+    opacity:0;
+    transform:  translate(0px,-22px)  ;
+  }
+  21% {
+    opacity:1;
+  }
+  100% {
+    opacity:1;
+    transform:  translate(0px,0px)  ;
+  }
+}
+
+@-webkit-keyframes man_into_water {
+  0% {
+    opacity:0;
+    -webkit-transform:  translate(0px,-22px)  ;
+  }
+  21% {
+    opacity:1;
+  }
+  100% {
+    opacity:1;
+    -webkit-transform:  translate(0px,0px)  ;
+  }
+}
+
+
+</style>
+</head>
+<body ontouchmove="event.preventDefault()"> <!-- 阻止ios浏览器整页上下滑动 -->
+
+<!-- BGM DOM -->
+<audio id="bgm" src="http://jiangsu.sinaimg.cn/zt/s/music/woaixizao_24000Hz_48kbps.mp3" autoplay="autoplay" loop style="display: none; width: 0; height: 0;"></audio>
+<!-- Touch to play BGM. JS -->
+<script type="text/javascript">
+/* @20141215  Add first-touch check. */
+var firstTouch = true;
+$('body').bind("touchstart",function(e){
+	if ( firstTouch ) {
+		firstTouch = false;
+		document.getElementById('bgm').play();
+	}else{
+		return;
+	}
+});
+</script>
+	<!-- 
+	* 说明：
+	* 单长页面
+	* 页面 640 按宽度缩放
+	*
+	 -->
+	<div class="swiper-container" >
+		<div class="page" id="p1">
+			<img class="titileimg" src="http://jiangsu.sinaimg.cn/zt/s/2014hsgame/images/e1_1.png">
+			<img class="helpBtn cp" src="http://jiangsu.sinaimg.cn/zt/s/2014hsgame/images/e1_2.png" onclick="$('#wrap_1').fadeIn(200);">
+			<img class="startBtn cp" src="http://jiangsu.sinaimg.cn/zt/s/2014hsgame/images/e1_3.png" >
+		</div>
+		
+		<div class="page" id="p2">
+			<img class="imgArrow" src="http://jiangsu.sinaimg.cn/zt/s/2014hsgame/images/e2_1.png">
+			<img class="imgArrowText" src="http://jiangsu.sinaimg.cn/zt/s/2014hsgame/images/e2_2.png">
+			<div class="characterBox">
+				<!-- 动态在此插入 -->
+				<img class="ico cp" sid="1" src="http://jiangsu.sinaimg.cn/zt/s/2014hsgame/images/1/img_1.png">
+				<img class="ico cp" sid="2" src="http://jiangsu.sinaimg.cn/zt/s/2014hsgame/images/1/img_2.png">
+				<img class="ico cp" sid="3" src="http://jiangsu.sinaimg.cn/zt/s/2014hsgame/images/1/img_3.png">
+				<img class="ico cp" sid="4" src="http://jiangsu.sinaimg.cn/zt/s/2014hsgame/images/1/img_4.png">
+				<img class="ico cp" sid="5" src="http://jiangsu.sinaimg.cn/zt/s/2014hsgame/images/1/img_5.png">
+				<img class="ico cp" sid="6" src="http://jiangsu.sinaimg.cn/zt/s/2014hsgame/images/1/img_6.png">
+				<img class="ico cp" sid="7" src="http://jiangsu.sinaimg.cn/zt/s/2014hsgame/images/1/img_7.png">
+			</div>
+			<div class="springBox">
+			
+				<!-- 汤池 -->
+			
+			</div>
+			<!-- <img class="fog" src="http://jiangsu.sinaimg.cn/zt/s/2014hsgame/images/e2_3.png"> -->
+			<div class="time"></div>
+		</div>
+		
+		<div class="wrap cp" id="wrap_1" onclick="$('#wrap_1').fadeOut(200);">
+			<div class="popup1">
+				<div class="text">
+					冬天就要放肆泡一回，今天我请大家泡温泉！<br/>
+					15秒之内，谁请的人最多就和小伙伴去免费泡一次温泉！
+				</div>
+			</div>
+		</div>
+		
+		
+		<style>
+		.score{ position: absolute; display:block; text-align: center; width:150px; left: 127px; top: 85px; color: #f75a53; font-size: 60px; }
+		.onceAgainBtn{ position: absolute; width: 180px; height: 80px; left: 39px; top: 343px; }
+		.submitBtn{ position: absolute; width: 180px; height: 80px; left: 245px; top: 343px; }
+		.telLabel{ position: absolute; text-align: center; width: 100%; top: 168px; padding-top: 100px; }
+		.tel{ border: none; background: none; border-bottom: 1px solid #FFF; border-radius: 0px; font-size: 38px; color: #FFF; background-color: RGBA(255,255,255,0.2); width: 286px;  text-align: center; }
+		</style>
+		<div class="wrap" id="wrap_2" >
+			<div class="popup2">
+				<div class="score">99999</div>
+				<label class="telLabel"><input type="text" class="tel" value="" maxlength="11"/></label>
+				<div class="onceAgainBtn cp" onclick="onceAgain()"></div>
+				<div class="submitBtn cp"></div>
+				
+				
+				<!-- 遮盖电话输入框和提交按钮  -->
+				<style>
+				.cover{ display: none; }
+				.cover1{position: absolute; width: 439px; height: 102px; left: 20px; top: 234px; background-color: #ea9a25;}
+				.cover2{position: absolute; width: 180px; height: 80px; left: 245px; top: 343px; background-color: #ea9a25; }
+				</style>
+				<div class="cover1 cover"></div>
+				<div class="cover2 cover"></div>
+				
+			</div>
+			
+			<style>
+			.popup2_2{ position: absolute; width: 493px; height: 323px; top: 0; right: 0; bottom: 0; left: 0; margin: auto; background-image: url("http://s3img.city.sina.com.cn/activity/common/large/edfa6609101eec7f76f2a41dfa63641e.png"); }
+			.popup2_2 .score{ position: absolute; display:block; text-align: center; width: 150px; left: 138px; top: 86px; color: #f75a53; font-size: 60px; }
+			.popup2_2 .onceAgainBtn{ position: absolute; width: 180px; height: 80px; left: 56px; top: 216px; }
+			.popup2_2 .seeWrap_3{ position: absolute; width: 180px; height: 80px; left: 261px; top: 217px; }
+			</style>
+			<div class="popup2_2">
+				<div class="score">99999</div>
+				<div class="onceAgainBtn cp" onclick="onceAgain()"></div>
+				<div class="seeWrap_3 cp" onclick="getTop10Over()"></div>
+			</div>
+		</div>
+		
+		<!-- 正在提交界面 -->
+		<div class="wrap" id="wrap_3" >
+			<div class="popup3">
+				正在提交<span class="dotting"></span>
+			</div>
+		</div>
+		
+				
+<!-- 弹出页 -->
+<style>
+.weixinCover{   display: none;     position: absolute; top: 0; left: 0; width: 100%; height: 100%; color:#FFF; background-color: RGBA(0,0,0,0.9); -webkit-transform: translateZ(0); -moz-transform: translateZ(0); -ms-transform: translateZ(0); transform: translateZ(0); }
+.weixinCover .arrow{ position: absolute; top: 4px; right: 30px; }
+.weixinCover .continer{ position: absolute;top: 0;right: 0;bottom: 0;left: 0;margin: auto;width: 540px;height: 620px; }
+.weixinCover .continer .text{ font-size: 24px;text-align: center; color: #FFF; font-weight: bold; margin: 46px auto 30px; }
+/* .weixinCover .continer .btn{ font-size: 37px;text-align: center;display: block;width: 186px;margin: 60px auto 0;padding: 10px 30px;background-color: #FC2121;box-shadow: 0px 8px 0 #A00B0B;border-radius: 10px;color: #FFF; } */
+.top10List li { line-height: 1.6em;}
+.no { margin: 0 10px; width:34px; text-align:right; display: inline-block;}
+.u_phone{ width: 200px; display: inline-block; }
+.u_score{ width: 100px; display: inline-block; text-align: right; }
+</style>
+<div class="weixinCover">
+	<img class="arrow" src="http://jiangsu.sinaimg.cn/zt/s/2014hsgame/images/e3_3.png">
+	<div class="continer">
+		<div class="text">
+			<img src="http://jiangsu.sinaimg.cn/zt/s/2014hsgame/images/e3_2.png" style="margin: 0 auto; display: block;" >
+				<ol class="top10List">
+					<li>哦，抱歉！信号不太好</li>
+				</ol>
+		</div>
+		<div style="text-align: center;">
+			<div class="btn cp" id="subscribeweixiBtn" style="margin-right: 20px;">关注我们</div>
+			<div class="btn cp" id="gotoReport">温泉景区评测报告</div>
+		</div>
+	</div>
+</div>
+		
+		
+		
+	</div>
+</body>
+<!-- page Auto scale -->
+<script type="text/javascript">
+	$(function() {
+		pageAutoScale();
+	});
+	$(window).resize(function() {
+		pageAutoScale();
+	});
+	
+	function pageAutoScale(){
+		var r = document.body.offsetWidth / 640;
+		$(".swiper-container").css({"-webkit-transform":"scale(" + r + ")" , "transform":"scale(" + r + ")" });
+		$("body").height( window.innerHeight ); //修正整数页面高度
+		$(".wrap").height( window.innerHeight / r ); //修正整数页面高度
+	}
+</script>
+
+<!-- 图片预加载 -->
+<script type="text/javascript">
+var loadImage = function(url, callback) {
+	var img = new Image();
+	img.src = url;
+	if (img.complete) {
+		callback.call(img);
+		return;
+	};
+	img.onload = function() {
+		callback.call(img);
+	};
+};
+var imgLoad = function(srcs, callback) {
+	var srcs = srcs || [];
+	var len = srcs.length;
+	if (len < 1)
+		return;
+	// 记录加载长度
+	var loadNum = 0;
+	var loading_p = 0;
+	var loading = function() {
+		if (loadNum < len) {
+			loading_p = Math.ceil(100 * loadNum / len);
+			var _src = srcs[loadNum];
+			loadImage(_src, function(img) {
+				loadNum++;
+				callback && callback(loading_p);
+				loading();
+			});
+		} else {
+			loading_p = '100';
+			callback && callback(loading_p);
+		};
+	}
+	loading();
+};
+var initPage = function() {
+	var _img = $('.swiper-container img');
+	var arr = [];
+	_img.each(function(i, v) {
+		var _src = $(v).attr('src');
+		if (_src) {
+			arr.push(_src);
+		};
+	});
+
+	var obj = {
+		num : 0,
+		timer : null
+	};
+
+	imgLoad(arr, function(num) {
+		obj.timer && clearTimeout(obj.timer);
+		if (num >= 100) {
+			num = 100;
+			// obj.timer = setTimeout(initSwiper,500);
+		};
+		if (num == 100) {
+		}
+	});
+};
+initPage();
+</script>
+
+
+
+<script type="text/javascript">
+var springBox = $(".springBox");
+var springBoxWidth = springBox.width();
+var springBoxHeight = springBox.height();
+var icoTimeout_min = 700;         // 泡温泉最小时间
+var icoTimeout_threshold = 800;   // 泡温泉阈值
+var manid = 0;
+var score = 0;
+//var gameTime = 3000;
+var gameTime = 16000;
+var time = 15;
+var data_Top10 = [];
+var icoArray = [
+                "http://jiangsu.sinaimg.cn/zt/s/2014hsgame/images/1/img_1.png",
+                "http://jiangsu.sinaimg.cn/zt/s/2014hsgame/images/1/img_2.png",
+                "http://jiangsu.sinaimg.cn/zt/s/2014hsgame/images/1/img_3.png",
+                "http://jiangsu.sinaimg.cn/zt/s/2014hsgame/images/1/img_4.png",
+                "http://jiangsu.sinaimg.cn/zt/s/2014hsgame/images/1/img_5.png",
+                "http://jiangsu.sinaimg.cn/zt/s/2014hsgame/images/1/img_6.png",
+                "http://jiangsu.sinaimg.cn/zt/s/2014hsgame/images/1/img_7.png",
+                ];
+var icoLArray = [
+                 "http://jiangsu.sinaimg.cn/zt/s/2014hsgame/images/2/img_l_1.png",
+                 "http://jiangsu.sinaimg.cn/zt/s/2014hsgame/images/2/img_l_2.png",
+                 "http://jiangsu.sinaimg.cn/zt/s/2014hsgame/images/2/img_l_3.png",
+                 "http://jiangsu.sinaimg.cn/zt/s/2014hsgame/images/2/img_l_4.png",
+                 "http://jiangsu.sinaimg.cn/zt/s/2014hsgame/images/2/img_l_5.png",
+                 "http://jiangsu.sinaimg.cn/zt/s/2014hsgame/images/2/img_l_6.png",
+                 "http://jiangsu.sinaimg.cn/zt/s/2014hsgame/images/2/img_l_7.png",                 
+                 ];
+
+function icoAct() {
+	$(".ico").bind("touchstart mousedown",function (){event.preventDefault(); icoEventHandle($(this))});
+}
+
+
+function icoEventHandle(dom){
+	dom.unbind();;
+	score++;
+	var sid = parseInt(dom.attr("sid"));
+	var randomTime = icoTimeout_min + Math.random() * icoTimeout_threshold;
+	console.log(sid + " t:" + randomTime);
+	springAddHandle(sid, randomTime);
+	dom.css({opacity: 1, scale: 1}).transition({opacity: 0,scale: 0.8},60);
+	setTimeout(function() {
+		dom.css({opacity: 0, scale: 1}).transition({opacity: 1},120);
+		dom.bind("touchstart mousedown",function (){icoEventHandle(dom)});
+	}, randomTime)
+}
+
+
+function springAddHandle(sid, randomTime) {
+	var random_x = Math.random() * springBoxWidth;
+	var random_y = Math.random() * springBoxHeight;
+	random_y = ( sid === 6 ) ? random_y - 50 : random_y ;
+	var thisid = manid;
+	console.log(thisid);
+	
+	var html = "";
+	html+= '<img src="' + icoLArray[sid-1] + '"class="man man_' + thisid + '"  style="position:absolute; left:' + random_x + 'px; top:' + random_y + 'px; z-index:' + random_y.toFixed(0) +";";
+	if (Math.random()>0.5) {
+		var scaleX = "-webkit-transform:scaleX(-1); transform:scaleX(-1);";
+		html+= scaleX;
+	}
+	html+= '"/>';
+	springBox.append(html);
+	
+	/* Do not remove man in spring */
+	/* 
+	var dom = $(".man_" + thisid);
+	setTimeout(function() {
+			dom.css({opacity: 1}).transition({opacity: 0},400,function(){
+				dom.remove(); //$(".man").remove(dom);
+				console.log(thisid + "removed");
+		});
+	}, randomTime);
+	 */
+	manid++;
+}
+
+
+
+
+
+function reset(){
+	manid = 0;
+	score = 0;
+	time = 16;
+	$(".ico").unbind();
+	$(".man").remove();
+}
+
+function gamestart(){
+	reset();
+	$(".startBtn").unbind();
+	$("#p1").css({x: '0px'}).transition({x: '-640px'},800,"cubic-bezier(.83,-0.26,.28,1.28)",function(){
+		$("#p2").fadeIn();
+	});
+	
+	//start
+	icoAct();
+	
+	//gametime
+	setTimeout(function () {
+		gameover();
+	}, gameTime);
+	
+	startTimer();
+}
+
+function startTimer() {
+	var timeDom = $(".time");
+	t = setInterval(function() {
+		time -= 0.1;
+		if(time <= 0){
+			timeDom.text("0");
+			clearInterval(t);
+			return;
+		}
+		timeDom.text(time.toFixed(0));
+	}, 100);
+}
+
+function gameover() {
+	
+	$(".score").text(score);
+	changeWeixin_ShareToTimeline("2015谁是最土豪的人！一口气请" + score + "位小伙伴泡温泉，我也是蛮拼的！");
+	changeWeixin_ShareToFriend("【全民泡温泉】", "2015谁是最土豪的人！一口气请" + score + "位小伙伴泡温泉，我也是蛮拼的！");
+	
+	if (data_Top10 == "") {
+		/* 没有进入前10 */
+		$(".popup2").hide();
+		$(".popup2_2").show();
+		$(".cover").show();
+		/* $(".weixinCover").fadeIn(200,function(){
+			$(".weixinCover").click(function(){
+				 $(this).unbind("click").fadeOut();
+			});
+		}); */
+	}else if (score < data_Top10[9][1]) {
+		/* 没有进入前10 */
+		$(".popup2").hide();
+		$(".popup2_2").show();
+		$(".cover").show();
+		/* $(".weixinCover").fadeIn(200,function(){
+			$(".weixinCover").click(function(){
+				 $(this).unbind("click").fadeOut();
+			});
+		}); */
+	} else{
+		/* 进入前10 */
+		$(".popup2").show();
+		$(".popup2_2").hide();
+		$(".cover").hide();
+	}
+	
+	
+	
+	$("#p2").fadeOut();
+	$("#wrap_2").fadeIn();
+	$(".startBtn").unbind().bind("click",function(){
+		gamestart();
+	});
+	
+	
+}
+
+function onceAgain() {
+	$('#wrap_2').fadeOut(200);
+	$("#p2").fadeOut(200);
+	$("#p1").css({x: '-640px'}).transition({x: '0px'},800,"cubic-bezier(.83,-0.26,.28,1.28)",function(){
+		$(".cover").hide();
+	});
+}
+
+
+
+function getTop10( callback ) {
+	var top10List = $(".top10List");
+	var html = "";
+	
+	$.JSONP('http://act.city.sina.com.cn/interface/activity/json_get_user_works.php',{act_id:9833,pcount:9999},function(json){
+		for(var i=0; i<json.count; i++){
+			var phone = json.data[i].form_data.custom_1.value;
+			phone = phone.substr(0,3) + "****" + phone.substr(7,4);
+			var score = parseInt(json.data[i].form_data.custom_2.value);
+			data_Top10[i] = [phone, score];
+		}
+		
+		
+	    var len = data_Top10.length; 
+	    var tmp = [];
+	    for(var i = 0; i<len; i++){
+	        for(var j=len-1; j>i; j--){
+	            if(data_Top10[j][1] > data_Top10[j-1][1]){
+	                tmp = data_Top10[j-1];
+	                data_Top10[j-1] = data_Top10[j];
+	                data_Top10[j] = tmp;
+	            }
+	        }
+	    }
+	    
+	    for (var i = 0; i < 10; i++) {
+	    	if (data_Top10[i]==null | data_Top10[i] == undefined) {
+				continue;
+			}
+	    	var no = i + 1;
+	    	no = (no<=9) ? ("0" + no) : no;
+			html += '<li><span class="no">'+ no +'</span><span class="u_phone">'+ data_Top10[i][0] +'</span><span class="u_score">'+ data_Top10[i][1] +'分</span></li>';
+		}
+		
+		top10List.html(html);
+		if(typeof(callback) == 'function'){
+			callback.call();
+		}
+	});
+	
+}
+
+$(".startBtn").bind("click", function () {
+	gamestart();
+})
+getTop10();
+</script>
+
+<script type="text/javascript">
+$("#subscribeweixiBtn").click(function(e){
+	window.open('http://mp.weixin.qq.com/s?__biz=MjM5MDI4MTUwMA==&mid=202383220&idx=1&sn=cc0130f26e992e3c1feb31eedbea9f85#rd');
+	e.stopPropagation();  //阻止冒泡
+});
+$("#gotoReport").click(function(e){
+	window.open('http://jiangsu.sina.com.cn/zt/s/js2014hssur.html');
+	e.stopPropagation();  //阻止冒泡
+});
+
+$(".submitBtn").unbind().bind("click",function(){
+	/* 检查电话号码 */
+	var tel = $(".tel").val();
+	/* 是否填写了电话号码 */
+	if (tel == "" | tel == undefined ) {
+		var isDirectGetTop10 = confirm("留空的话没法参加排名了，确定不写么？");
+		if(!isDirectGetTop10){
+			return;
+		}
+		getTop10Over();
+	}
+	/* 检测手机号合法 */
+	if(!isDirectGetTop10){
+		var partten = /^1[3,4,5,8]\d{9}$/;
+	    if(!partten.test(tel)){alert("请填写正确的手机号！"); return false;}
+	    /* 上传并得到排名 */
+	    $("#wrap_3").show();//正在提交...
+	    
+	    //提交
+	    try {
+	   	    $.JSONP('http://act.city.sina.com.cn/interface/activity/json_add_signup.php',{
+			    act_id:9833,
+			    name:name,
+			    custom_1:tel,
+			    custom_2:score
+			},function(bm){
+		        if(bm.error==0){
+		        	/* 获取前10名 */
+		    		getTop10(function() {
+		    			getTop10Over();
+		    		});
+		        }else{
+		            alert(bm.errmsg);
+		        }
+		    }); 
+		} catch (e) {
+			alert("网络太不好?再试一次吧");
+			$("#wrap_3").hide();
+		}
+
+	    
+		
+	}
+	
+	
+});
+function getTop10Over() {
+	$("#wrap_3").hide();//正在提交...
+	$(".cover").show();
+	$(".weixinCover").fadeIn(200,function(){
+		$(".weixinCover").click(function(){
+			 $(this).unbind("click").fadeOut();
+		});
+	});
+}
+</script>
+
+
+<!-- 微信分享JS -->
+<script src="http://jiangsu.sinaimg.cn/js/WeixinApi.js"></script><!-- https://github.com/zxlie/WeixinApi -->
+<script type="text/javascript">
+
+//开发阶段，开启WeixinApi的调试模式
+WeixinApi.enableDebugMode();
+
+
+// 微信分享的数据
+var wxData = {
+    "appId": "", // 服务号可以填写appId
+    "imgUrl" : 'http://s3img.city.sina.com.cn/activity/common/large/6ddab487e468bca7d9f85232cd86c45f.jpg', // 图片
+    "link" : window.location.href,
+    "desc" : document.title,
+    "title" : document.title
+};
+
+//初始化WeixinApi，等待分享
+WeixinApi.ready(function(Api) {
+
+    // 分享的回调
+    var wxCallbacks = {
+        // 收藏操作不执行回调，默认是开启(true)的
+        favorite : false,
+
+        // 分享操作开始之前
+        ready : function() {
+            // 你可以在这里对分享的数据进行重组
+            // alert("准备分享");
+        },
+        // 分享被用户自动取消
+        cancel : function(resp) {
+            // 你可以在你的页面上给用户一个小Tip，为什么要取消呢？
+            // alert("分享被取消，msg=" + resp.err_msg);
+        },
+        // 分享失败了
+        fail : function(resp) {
+            // 分享失败了，是不是可以告诉用户：不要紧，可能是网络问题，一会儿再试试？
+            // alert("分享失败，msg=" + resp.err_msg);
+        },
+        // 分享成功
+        confirm : function(resp) {
+            // 分享成功了，我们是不是可以做一些分享统计呢？
+            // alert("分享成功，msg=" + resp.err_msg);
+        },
+        // 整个分享过程结束
+        all : function(resp,shareTo) {
+            // 如果你做的是一个鼓励用户进行分享的产品，在这里是不是可以给用户一些反馈了？
+            // alert("分享" + (shareTo ? "到" + shareTo : "") + "结束，msg=" + resp.err_msg);
+        }
+    };
+
+    // 用户点开右上角popup菜单后，点击分享给好友，会执行下面这个代码
+    Api.shareToFriend(wxData, wxCallbacks);
+
+    // 点击分享到朋友圈，会执行下面这个代码
+    Api.shareToTimeline(wxData, wxCallbacks);
+
+    // 点击分享到腾讯微博，会执行下面这个代码
+    Api.shareToWeibo(wxData, wxCallbacks);
+
+    // iOS上，可以直接调用这个API进行分享，一句话搞定
+    Api.generalShare(wxData,wxCallbacks);
+});
+
+
+/////////// Example ///////////////
+
+/* 
+ * 例子1：
+ * 更改朋友圈分享文字
+ */
+function changeWeixin_ShareToTimeline( text ) {
+	wxData.desc = text;
+	if (typeof(WeixinJSBridge) == "undefined") {
+		return;
+	}
+	WeixinApi.shareToTimeline(wxData);
+}
+
+/* 
+ * 例子2：
+ * 更改分享给朋友文字
+ */
+function changeWeixin_ShareToFriend( title, text ) {
+	wxData.title = title;
+	wxData.desc = text;
+	if (typeof(WeixinJSBridge) == "undefined") {
+		return;
+	}
+	WeixinApi.shareToFriend(wxData);
+}
+
+
+
+
+var onBridgeReady = function() {
+	
+	//发送给朋友、群组
+	WeixinJSBridge.on('menu:share:appmessage', function(argv) {
+		WeixinJSBridge.invoke('sendAppMessage', {
+			"appid" : wxData.appId,
+			"img_url" : wxData.imgUrl, // 图片
+			"title" : wxData.title,   // 标题
+			"desc" : wxData.desc,     // 分享内容
+			"link" : wxDatawxData.url,
+		},function(){
+			//alert("发送给朋友回调()");
+			//location.href = "http://3g.sina.com";
+		});
+	});
+	
+	//分享到朋友圈
+	WeixinJSBridge.on('menu:share:timeline', function(argv) {
+		WeixinJSBridge.invoke('shareTimeline', {
+			"appid" : wxData.appId,
+			"img_url" : wxData.imgUrl, // 图片
+			"title" : wxData.title,   // 标题
+			"desc" : wxData.desc,     // 分享内容
+			"link" : wxDatawxData.url,
+		}, function (){
+			//alert("分享到朋友圈回调()");
+		});
+	});
+
+};
+
+if (document.addEventListener) {
+	document.addEventListener('WeixinJSBridgeReady', onBridgeReady, false);
+} else if (document.attachEvent) {
+	document.attachEvent('WeixinJSBridgeReady', onBridgeReady);
+	document.attachEvent('onWeixinJSBridgeReady', onBridgeReady);
+}
+/////////// end Example ///////////////
+</script>
+</html>

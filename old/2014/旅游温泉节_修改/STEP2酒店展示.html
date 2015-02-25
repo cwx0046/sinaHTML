@@ -1,0 +1,136 @@
+<style>
+.con2{ font-family:"microsoft yahei"; background: url("http://s3img.city.sina.com.cn/activity/common/large/67f30a75381c01602022a31a9642f45d.jpg") no-repeat center top; margin: 0 auto; position: relative; padding-bottom: 10px; width: 950px; height: 670px;}
+/* .navTeb{ position:absolute; top:70px; left:390px; cursor:pointer;} */
+
+.messBox{ width:202px; background-color:rgba(76, 24, 34, 0.8); filter: progid:DXImageTransform.Microsoft.Gradient(startColorStr=#CC4C1822,endColorStr=#CC4C1822); position:absolute; top:148px;}
+.messBox .uico{ position: absolute;top: -84px;}
+.messBox h4{ text-align:center; color:#eeddba;font: bold 19px/30px "Microsoft YaHei","SimHei";padding:58px 0 0px}
+.messBox p{font: normal 12px/24px "Microsoft YaHei","SimHei"; color:#FFF; padding:0 15px;}
+.messBox p a{ color:#eeddba;}
+/* .qpBtn{ display:inline-block;text-align:center; width:100%; margin-top:10px;} */
+.con2 .messBox .btn{ display:block; width: 163px;box-shadow: 3px 4px 5px rgba(4,0,0,.45);color: #dbd7b7;border-radius: 11px;border: 1px solid #dbd7b7;line-height: 38px;font-size: 20px;text-align: center;font-weight: bold;margin: 16px auto; text-decoration: blink; }
+.con2 .totalNum{    display:none;     position:absolute; top:10px; right:20px; padding:6px 20px;  box-shadow: 3px 4px 5px rgba(4,0,0,.45);border: 1px solid #dbd7b7; color: #dbd7b7;border-radius: 8px; font-size:16px; font-family: 'microsoft yahei';}
+.con2 .totalNum:BEFORE{ content: "已有";}
+.con2 .totalNum:AFTER{ content: "人抢票！";}
+
+.con2 .hotelBox{ position: relative;left: 9px;top: 141px;width: 933px;height: 530px;overflow: hidden;}
+.con2 .hotelBox .hotel{ position: absolute; left: 0; top: 0; } 
+.con2 .hotelBox .hotel{ display: none; } 
+.con2 .hotelBox .hotel.first{ display: block; } 
+
+
+.con2 .navBox { text-align: justify;  font-size: 16px; position: absolute;top: 74px;left: 9px; width: 933px;}
+.con2 .navBox .navitem{ width: 128px; height: 46px; padding-top: 3px; background-color: #a3857f; color: #eeddba; text-align: center; display: inline-block; cursor: pointer; -webkit-transition: background-color 0.3s;}
+.con2 .navBox .navitem:HOVER{ background-color: #4c1822; }
+.con2 .navBox .navitem.disable:HOVER{ background-color: #a3857f; cursor: default;}
+.con2 .navBox .navitem.curr { background-color: #4c1822; padding-top: 12px; }
+.con2 .navBox .navitem.curr .name:AFTER{ content: url("http://s3img.city.sina.com.cn/activity/common/large/892ddfdd7a62ae7b03595d3fd48dd524.png");  cursor: default; vertical-align: middle; margin-left: 4px;}
+.justify_fix{display:inline-block; width:100%; height:0; overflow:hidden;}
+-->
+</style>
+<div class="con2">
+	<div class="totalNum">Loading...</div>
+	
+	<div class="navBox">
+		<div class="navitem curr"><span class="name">连云港福如东海<br/>温泉大酒店</span></div>
+		<div class="navitem "><span class="name">天目湖<br/>御水温泉</span></div>
+		<div class="navitem "><span class="name">扬州瘦西湖<br/>温泉度假区</span></div>
+		<div class="navitem "><span class="name">洪泽湖<br/>温泉度假区</span></div>
+		<div class="navitem disable"><span class="name">天目湖<br/>御水温泉</span></div>
+		<div class="navitem disable"><span class="name">洪泽湖<br/>温泉度假区</span></div>
+		<div class="navitem disable"><span class="name">洪泽湖<br/>温泉度假区</span></div>
+		<span class="justify_fix"></span>
+	</div>
+	
+	<div class="hotelBox">
+		
+
+		<!-- 酒店1 -->
+		<div class="hotel first">
+			<div class="conPic"><img src="http://jiangsu.sinaimg.cn/2014/1223/U8755P1194DT20141223103059.jpg" /></div><!-- ■背景大图 -->			
+			<div class="messBox">
+				<img class="uico" src="http://s3img.city.sina.com.cn/activity/common/large/4b1dcb95856981c7ea5be5f44c4994d2.png"><!-- ■用户头像 -->
+		    	<h4>华东第一温泉</h4><!-- ■标题 -->
+		        <p>在饱览连云港海光山色、名胜古迹之后，驱车前往，洗尘肴濯足，是一件惬意美事。水质可与西安华清池、南京汤山温泉相媲美。浴后再喝上一杯略带咸味的温泉水，不仅增进食欲，而且可以治疗肠胃疾病。<a href="http://travel.sina.com.cn/china/2014-12-22/1513290658.shtml" target="_blank"><详细></a></p><!-- ■内容文字 -->
+				<a class="btn" href="http://travel.sina.com.cn/china/2014-12-22/1513290658.shtml" target="_blank">点 击 抢 票</a>	<!-- ■按钮 -->
+		    </div>
+		</div>
+		<!-- end 酒店1 -->
+		
+		<!-- 酒店2 -->
+		<div class="hotel">
+			<div class="conPic"><img src="http://jiangsu.sinaimg.cn/2014/1223/U8755P1194DT20141223103059.jpg" /></div><!-- ■背景大图 -->			
+			<div class="messBox">
+				<img class="uico" src="http://s3img.city.sina.com.cn/activity/common/large/4b1dcb95856981c7ea5be5f44c4994d2.png"><!-- ■用户头像 -->
+		    	<h4>2华东第一温泉</h4><!-- ■标题 -->
+		        <p>在饱览连云港海光山色、名胜古迹之后，驱车前往，洗尘肴濯足，是一件惬意美事。水质可与西安华清池、南京汤山温泉相媲美。浴后再喝上一杯略带咸味的温泉水，不仅增进食欲，而且可以治疗肠胃疾病。<a href="http://travel.sina.com.cn/china/2014-12-22/1513290658.shtml" target="_blank"><详细></a></p><!-- ■内容文字 -->
+				<div class="btn">敬 请 期 待</div><!-- ■按钮 -->
+		    </div>
+		</div>
+		<!-- end 酒店2 -->
+
+		<!-- 酒店3 -->
+		<div class="hotel">
+			<div class="conPic"><img src="http://jiangsu.sinaimg.cn/2014/1223/U8755P1194DT20141223103059.jpg" /></div><!-- ■背景大图 -->			
+			<div class="messBox">
+				<img class="uico" src="http://s3img.city.sina.com.cn/activity/common/large/4b1dcb95856981c7ea5be5f44c4994d2.png"><!-- ■用户头像 -->
+		    	<h4>33华东第一温泉</h4><!-- ■标题 -->
+		        <p>在饱览连云港海光山色、名胜古迹之后，驱车前往，洗尘肴濯足，是一件惬意美事。水质可与西安华清池、南京汤山温泉相媲美。浴后再喝上一杯略带咸味的温泉水，不仅增进食欲，而且可以治疗肠胃疾病。<a href="http://travel.sina.com.cn/china/2014-12-22/1513290658.shtml" target="_blank"><详细></a></p><!-- ■内容文字 -->
+				<div class="btn">敬 请 期 待</div><!-- ■按钮 -->
+		    </div>
+		</div>
+		<!-- end 酒店3 -->
+
+		<!-- 酒店4 -->
+		<div class="hotel">
+			<div class="conPic"><img src="http://jiangsu.sinaimg.cn/2014/1223/U8755P1194DT20141223103059.jpg" /></div><!-- ■背景大图 -->			
+			<div class="messBox">
+				<img class="uico" src="http://s3img.city.sina.com.cn/activity/common/large/4b1dcb95856981c7ea5be5f44c4994d2.png"><!-- ■用户头像 -->
+		    	<h4>44华东第一温泉</h4><!-- ■标题 -->
+		        <p>在饱览连云港海光山色、名胜古迹之后，驱车前往，洗尘肴濯足，是一件惬意美事。水质可与西安华清池、南京汤山温泉相媲美。浴后再喝上一杯略带咸味的温泉水，不仅增进食欲，而且可以治疗肠胃疾病。<a href="http://travel.sina.com.cn/china/2014-12-22/1513290658.shtml" target="_blank"><详细></a></p><!-- ■内容文字 -->
+				<div class="btn">敬 请 期 待</div><!-- ■按钮 -->
+		    </div>
+		</div>
+		<!-- end 酒店4 -->
+		
+		
+		
+	
+	</div>
+</div>
+<script type="text/javascript">
+$(".navBox .navitem").bind("click mouseover", function() {
+	var index = $(this).index();
+	if( index > $(".hotelBox .hotel").length - 1){return;}
+	
+	$(".navBox .navitem.curr").removeClass("curr");
+	$(this).addClass("curr");
+	$(".hotelBox .hotel").css({"z-index": 1, "display" : "none"});
+	$(".hotelBox .hotel").eq(index).css({"z-index": 2, "display" : "block"});
+	
+});
+
+</script>
+
+<script type="text/javascript">
+(function() {
+	$.JSONP('http://mblogv2.city.sina.com.cn/interface/tcommonv2/no_auth/mblog/json_get_mblog_counts_by_mids.php?t=jsonp&mids=xEgeBajZe,xDOvz1OVP&app_id=276',{}, function(bm) { //返回结果
+		//console.log(bm);
+		if (bm.error == 0) {
+			var result = bm.data.result;
+			var totalReposts = 0;
+			
+			for ( var index	in result) {
+				var reports =  parseInt(result[index].reposts);
+				totalReposts += reports;
+			}
+			$(".totalNum").text(totalReposts);
+			
+		} else {
+			//获取失败
+			console.log("获取失败");
+		}
+	});
+})();
+
+</script>

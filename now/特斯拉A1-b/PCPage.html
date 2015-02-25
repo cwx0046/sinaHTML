@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="GB2312">
+<meta http-equiv="X-UA-Compatible" content="IE=edge"><!-- 避免IE使用兼容模式 -->
+<meta name="renderer" content="webkit"><!-- 启用360浏览器的极速模式(webkit) -->
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>为爱触电金喜不停</title>
+<meta name="keywords" content="为爱触电金喜不停" />
+<meta name="description" content="为爱触电金喜不停" />
+<meta name="author" content="NorthWind" />
+<link rel="stylesheet" type="text/css" href="http://jiangsu.sinaimg.cn/zt/s/css/reset.css">                         <!-- reset -->
+<script type="text/javascript" src="http://jiangsu.sinaimg.cn/js/jquery_1.11.2.min_jsonp.js"></script>              <!-- jquery1.11.1 + JSONP封装 -->
+
+<!-- 
+<script src="http://ria.city.sina.com.cn/s/g=base.js" type="text/javascript"></script>
+ -->
+<style type="text/css">
+body{ background-color: #e07270; }
+.headimg{ min-width: 980px; height: 744px; background: url("http://s3img.city.sina.com.cn/activity/common/large/d934151c6b39d9a921328cd7c72f507a.jpg") no-repeat center top; }
+.content{ width: 980px; margin: 0 auto; position: relative;} 
+#p1,#p2,#p2_2,#p3{ min-width: 980px;}
+#p1{ margin-top:-190px; background: url("http://s3img.city.sina.com.cn/activity/common/large/a2813496e60bfc5e8bf239b053b9149d.jpg") no-repeat center; height: 438px; }
+#p2{ background: url("http://s3img.city.sina.com.cn/activity/common/large/1bfddda70677195f6311eb0649b3d9e6.jpg") no-repeat center; height: 270px; }
+#p2_2{ background: url("http://s3img.city.sina.com.cn/activity/common/large/ba27bc4f5becb1a66df1cc459c0b2f58.jpg") no-repeat center; height: 631px; }
+#p3{ background: url("http://s3img.city.sina.com.cn/activity/common/large/192ebc6d24fe385f629b6878c54682e5.jpg") no-repeat center; height: 499px; margin-bottom: 200px; }
+</style>
+</head>
+<body>
+	<div class="headimg"></div>
+	<div id="p1">
+		<div class="content">
+			
+			
+			<style>
+			.slotMachineBox{ width: 466px; height: 181px;  position: absolute; top: 225px; left: 77px; }
+			.slotMachine { width: 105px;  height: 134px; float:left; text-align:center;  border: 2px solid #b72333; border-radius: 10px; background-color: #fff; box-shadow: inset 0 1px 5px rgba(14,5,10,.35); margin-right: 17px; }
+			.noBorder { border: none !important; background: transparent !important; font: 14px arial;}
+			.slotMachine .slot { width: 105px; height: 134px; background-position: center; background-repeat: no-repeat;}
+			.slot1 { background-image: url("http://s3img.city.sina.com.cn/activity/common/large/9ab72d1814e48b1ed57e5cb02806b2af.jpg"); }
+			.slot2 { background-image: url("http://s3img.city.sina.com.cn/activity/common/large/4ff2ea9954f8cb53e8abafb41119233f.jpg"); }
+			.slot3 { background-image: url("http://s3img.city.sina.com.cn/activity/common/large/25dfbcc8879321f566efa6019b0b00c3.jpg"); }
+			</style>
+			<div class="slotMachineBox">
+				<div id="machine1" class="slotMachine">
+					<div class="slot slot1"></div>
+					<div class="slot slot2"></div>
+					<div class="slot slot3"></div>
+				</div>
+				<div id="machine2" class="slotMachine">
+					<div class="slot slot1"></div>
+					<div class="slot slot2"></div>
+					<div class="slot slot3"></div>
+				</div>
+				<div id="machine3" class="slotMachine">
+					<div class="slot slot1"></div>
+					<div class="slot slot2"></div>
+					<div class="slot slot3"></div>
+				</div>
+			</div>
+			<script src="http://jiangsu.sinaimg.cn/js/jquery.slotmachine.js"></script>
+<script type="text/javascript" src="http://jiangsu.sinaimg.cn/js/test/jquery_ui.min.js"></script>                   <!-- jquery_ui -->
+<script type="text/javascript" src="http://jiangsu.sinaimg.cn/js/dial_sso_login_mann.js" charset="UTF-8"></script>  <!-- g=dialog_login_v1.1-sp1.js & ssologin.js & sinaSSOManager.js  _修正-->
+<link rel="stylesheet" type="text/css" href="http://jiangsu.sinaimg.cn/js/dialog_login.css" media="all" />          <!-- DFZ 登录窗口 g=dialog_login_v1.1-sp1.css  _修正 -->
+			
+<script>
+
+//open the login dialog
+function openLoginDialog(callback){DFZ.APP.DialogLogin.open(callback);$("#ui-dialog-title-1").html("新浪微博登录");}
+
+/*
+ *  1 下方  PIC_NUM 设置单格图片数量
+ *  2  result_yes() 使中奖
+ *  3  result_no()  不中奖
+ */
+
+
+var hit = false; // 是否中奖
+var priceName = "";
+var PIC_NUM = 3;
+var isWin = false;
+var machine1,
+	machine2,
+	machine3;
+var winHit = 0;
+$(document).ready(function(){
+	machine1 = $("#machine1").slotMachine({
+		active  : 0,
+		delay   :500
+	});
+	
+	machine2 = $("#machine2").slotMachine({
+		active	: 1,
+		delay	: 500
+	});
+	
+	machine3 = $("#machine3").slotMachine({
+		active	: 2,
+		delay	: 500
+	});
+	
+	function onComplete(result){
+		//console.log(result);
+	}
+	
+	var clickable = true;
+	$("#slotMachineButton1").click(function(){
+		if (!clickable) {
+			return false;
+		}
+		clickable = false;
+		if(machine1.isRunning){
+			return false;
+		}
+		
+		var uinfo = sinaSSOManager.getSinaCookie();
+	  	if (!uinfo) {
+	  		clickable = true;
+	  		openLoginDialog();
+			return false;
+		} else {
+			
+		}
+		
+		
+		//  向服务器请求抽奖结果
+		var data = {};
+		data.act_id = 10212;
+		$.JSONP('http://act.city.sina.com.cn/interface/activity/json_add_signup.php',data,function(bm){
+	        if(bm.error==0){
+	        	if (bm.draw.is_win == 0) {
+	        		hit = false;
+	        		result_no();
+				}else{
+					hit = true;
+					result_yes(bm.draw.hit_prize.id);
+					priceName = bm.draw.hit_prize.name;
+				}
+	        	
+	        	machine1.shuffle(4, onComplete);
+	    		setTimeout(function(){
+	    			machine2.shuffle(4, onComplete);
+	    		}, 500);
+	    		setTimeout(function(){
+	    			machine3.shuffle(4, machineComplete);
+	    		}, 1000);
+	        }else{
+	            alert(bm.errmsg);
+	        }
+    		clickable = true;
+		});
+		
+	});
+	
+	   
+});
+
+
+
+function machineComplete(){
+	if(hit){
+		$(".result_yes"+winHit).show();
+		alert("恭喜您获得"+priceName+"，请留意您的微博私信。");
+	}else{
+		alert("很遗憾，没有中奖。");
+		$(".result_no").show();
+	}
+	
+	//console.log("抽奖结束" + isWin);
+	
+}
+
+
+/**
+ * 中奖 
+ */
+function result_yes(id){
+	isWin = true;
+	
+	var random = 1;
+	switch (id) {
+	case "4852":
+		random = 0;
+		winHit = 1;
+		break;
+	case "4853":
+		random = 1;
+		winHit = 2;
+		break;
+	case "4854":
+		random = 2;
+		winHit = 3;
+		break;
+
+	default:
+		break;
+	}
+	
+	machine1.setRandomize(function(){
+		return random;
+	});
+	machine2.setRandomize(function(){
+		return random;
+	});
+	machine3.setRandomize(function(){
+		return random;
+	});
+}
+
+/**
+ * 未中奖
+ */
+function result_no(){
+	isWin = false;
+	var random = getNumb();
+	machine1.setRandomize(function(){
+		return random[0];
+	});
+	machine2.setRandomize(function(){
+		return random[1];
+	});
+	machine3.setRandomize(function(){
+		return random[2];
+	});
+}
+
+
+function getNumb(){
+    var num = new Array();
+    for(var i = 0; i < 3; i++){
+        var val =  Math.ceil(Math.random() * PIC_NUM);
+        var isEqu = false;
+        for(var idx in num){
+            if(num[idx] == val){isEqu = true; break;}
+        }
+        if(isEqu)
+            i--;
+        else
+            num[num.length] = val;
+    }
+    return num;
+}
+</script>
+
+
+
+
+		<style>
+		.choujiang_btn{ position: absolute; top: 311px; left: 539px; width: 200px; height: 60px; cursor: pointer; background-image: url("http://jiangsu.sinaimg.cn/zt/s/blank.gif"); }
+		</style>
+		<div class="choujiang_btn" id="slotMachineButton1"></div>
+
+
+		<style>
+		.result_yes1{ display:none;   position: relative; top: 94px; left: 531px; width: 416px; height: 287px; background-image: url("http://s3img.city.sina.com.cn/activity/common/large/4b64d914a3075696091894a03d54b29d.jpg"); }
+		.result_yes2{ display:none;   position: relative; top: 94px; left: 531px; width: 416px; height: 287px; background-image: url("http://s3img.city.sina.com.cn/activity/common/large/55c04f2d3198d19a2972186dcc0234e2.jpg"); }
+		.result_yes3{ display:none;   position: relative; top: 94px; left: 531px; width: 416px; height: 287px; background-image: url("http://s3img.city.sina.com.cn/activity/common/large/cc8cef4d7ef493fe55cd0aaab9183117.jpg"); }
+		.result_no{ display:none;   position: relative; top: 94px; left: 531px; width: 416px; height: 287px; background-image: url("http://s3img.city.sina.com.cn/activity/common/large/75ab9c665cdd213695a760b7ba8ed5b0.jpg"); }
+		.u_custom1,.u_custom2,.u_custom3{  position: absolute; background: none; border: none; font-size:16px; padding: 4px; }
+		.u_custom1{ top: 166px; left: 80px; width: 92px; }
+		.u_custom2{ top: 166px; left: 240px; width: 136px; }
+		.u_custom3{ top: 203px; left: 80px; width: 92px; }
+		.submitBtn{ position: absolute; top: 239px; left: 150px; width: 118px; height: 38px; cursor: pointer; background-image: url("http://jiangsu.sinaimg.cn/zt/s/blank.gif"); }
+		</style>
+		<div class="result_yes1">
+			<img style="position: absolute; right: 0; top: 0; cursor: pointer;" onclick="$('.result_yes1').fadeOut();" src="http://i1.sinaimg.cn/ty/main/index2012/focus_close.png">
+		</div>
+		<div class="result_yes2">
+			<img style="position: absolute; right: 0; top: 0; cursor: pointer;" onclick="$('.result_yes2').fadeOut();" src="http://i1.sinaimg.cn/ty/main/index2012/focus_close.png">
+		</div>
+		<div class="result_yes3">
+			<img style="position: absolute; right: 0; top: 0; cursor: pointer;" onclick="$('.result_yes3').fadeOut();" src="http://i1.sinaimg.cn/ty/main/index2012/focus_close.png">
+		</div>
+		<div class="result_no">
+			<img style="position: absolute; right: 0; top: 0; cursor: pointer;" onclick="$('.result_no').fadeOut();" src="http://i1.sinaimg.cn/ty/main/index2012/focus_close.png">
+			<input class="u_custom1">
+			<input class="u_custom2">
+			<input class="u_custom3">
+			<div class="submitBtn" onclick="submitForm()"></div>
+		</div>
+		<script type="text/javascript">
+		
+		function submitForm() {
+			var data = {};
+			data.act_id = 10213;
+			data.custom_1 = $(".u_custom1").val(); 
+			data.custom_2 = $(".u_custom2").val(); 
+			data.custom_3 = $(".u_custom3").val(); 
+			if (data.custom_1 == "") {
+				alert("请填写姓名");
+				$(".u_custom1").focus();
+				return false;
+			}
+			if (data.custom_2 == "") {
+				alert("请填写电话");
+				$(".u_custom2").focus();
+				return false;
+			}
+			if (data.custom_3 == "") {
+				alert("请填写婚期");
+				$(".u_custom3").focus();
+				return false;
+			}
+
+			var uinfo = sinaSSOManager.getSinaCookie();
+		  	if (!uinfo) {
+		  		openLoginDialog(function () {
+		  			submitForm();
+				});
+		  		//window.location='http://service.weibo.com/reg/loginindex.php?regbackurl=http%3A%2F%2Fweibo.com&backurl='+encodeURI(window.location.href)+'&vsrc=app_livestream&appsrc=3qBgy6&showlogo=0';
+				return false;
+			} else {
+				
+			}
+
+			$.JSONP('http://act.city.sina.com.cn/interface/activity/json_add_signup.php',data,function(bm){
+		        if(bm.error==0){
+		        	alert("提交成功！");
+		        	$('.result_no').fadeOut();
+		        }else{
+		            alert(bm.errmsg);
+		        }
+		    }); 
+		}
+		</script>
+		
+		
+		
+
+
+		</div>
+	</div>
+	<div id="p2">
+		<div class="content"></div>
+	</div>
+	<div id="p2_2">
+		<div class="content"></div>
+	</div>
+	<div id="p3">
+		<div class="content"></div>
+	</div>
+
+</body>
+</html>

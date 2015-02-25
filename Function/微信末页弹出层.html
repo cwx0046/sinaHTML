@@ -1,0 +1,36 @@
+		
+<!-- 弹出页 -->
+<style>
+.weixinCover{   display: none;     position: absolute; top: 0; left: 0; width: 100%; height: 100%; color:#FFF; background-color: RGBA(0,0,0,0.9); -webkit-transform: translateZ(0); -moz-transform: translateZ(0); -ms-transform: translateZ(0); transform: translateZ(0); }
+.weixinCover .arrow{ position: absolute; top: 0px; right: 30px; }
+.weixinCover .continer{ position: absolute;top: 0;right: 0;bottom: 0;left: 0;margin: auto;width: 540px;height: 420px; }
+.weixinCover .continer .text{ font-size: 60px;text-align: center; }
+.weixinCover .continer .btn{ font-size: 37px;text-align: center;display: block;width: 186px;margin: 60px auto 0;padding: 10px 30px;background-color: #FC2121;box-shadow: 0px 8px 0 #A00B0B;border-radius: 10px;color: #FFF; }
+</style>
+<div class="weixinCover">
+	<img class="arrow" src="http://s3img.city.sina.com.cn/activity/common/large/f318e2446f2cb322be5f06c7388bb52b.png">
+	<div class="continer">
+		<div class="text">
+			分享此邀请函至朋友圈<br/>
+			2333333333
+		</div>
+		<div class="btn" id="subscribeweixiBtn">关注我们</div>
+	</div>
+</div>
+		
+<script type="text/javascript">
+$("#subscribeweixiBtn").click(function(e){
+	window.open('http://mp.weixin.qq.com/s?__biz=MjM5MDI4MTUwMA==&mid=202383220&idx=1&sn=cc0130f26e992e3c1feb31eedbea9f85#rd');
+	e.stopPropagation();  //阻止冒泡
+});
+
+/* 例：点击显示弹出层 */
+$("#s5").bind("click",function(){
+	$(".weixinCover").fadeIn(600,function(){
+		$(".weixinCover").click(function(){
+			 $(this).unbind("click").fadeOut();
+		});
+	});
+});
+</script>
+

@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="Cache-Control" content="no-cache"/>
+<meta name="format-detection" content="telephone=no"/>
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">
+<title>砳在其中 找砳砳</title>
+<meta name="keywords" content="找砳砳,游戏,青奥" />
+<meta name="description" content="找砳砳小游戏,听说我最近很火，这是真的吗？啊哈哈~来找我啊！" />
+<script src="http://i2.sinaimg.cn/cj/dfz/js/base.js" type="text/javascript"></script>
+<script src="http://jiangsu.sinaimg.cn/js/jquery.transit.min.js"></script>
+<!-- <script type="text/javascript" src="http://jiangsu.sinaimg.cn/zt/s/gamezhaolele/game.js" charset="UTF-8"></script> -->
+
+<style type="text/css">
+body, ul, ol, li, p, h1, h2, h3, h4, h5, h6, table, td, th, form, fieldset, img, dl, dt, dd { margin: 0; padding: 0; }
+textarea, input, select, body { font-size: 12px; }
+select, input { vertical-align: middle; }
+fieldset, img { border: 0; }
+ul, ol { list-style: none; }
+img { border: 0; }
+a { text-decoration: none; color: #000; }
+a:hover { color: #ffa10d; }
+.fl { float: left; display: inline; }
+.fr { float: right; display: inline; }
+.cb { clear: both; display: block; height: 0px; overflow: hidden; width: 100%; }
+.clearfix:after { clear: both; content: ""; display: block; height: 0; }
+</style>
+<style type="text/css">
+.none { display: none; }
+body { font-family: "microsoft yahei"; background-color: #81269d; }
+#screen { width: 100%; height: 100%; position: relative; background-image: url("http://jiangsu.sinaimg.cn/zt/s/gamezhaolele/e/bg.jpg"); background-repeat: no-repeat; background-size: 100% auto; }
+.page { width: 320px; position: relative; margin: 0 auto; }
+#page1 { }
+#page2, #page3 { display: none; }
+.center { text-align: center; }
+.btn { border: 1px solid #FFF; color: #FFF; border-radius: 6px; font-size: 14px; line-height: 23px; width: 79px; cursor: pointer; margin: 0 auto; }
+.gameInfoBanner { width: 100%; padding-top: 34px; padding-bottom: 12px; }
+.gameinfobox { width: 82px; height: 24px; line-height: 24px; font-size: 14px; border: 1px solid #FFF; border-radius: 6px; color: #FFF; display: inline-block; position: relative; }
+.gameinfobox div { display: inline; }
+.gameinfobox span { margin-left: 10px; }
+#infoboxLele { width: 96px;margin-left: 20px; }
+#infoboxLele img { width: 30px; position: absolute; right: -9px; bottom: -1px; }
+#infoboxTimer { margin-left: 19px; }
+#infoboxTimer img { width: 22px; position: absolute; right: 3px; bottom: 1px; }
+.pauseBtn { width: 26px; height: 26px;  cursor: pointer; margin-left: 44px;
+	background-image: url("http://s3img.city.sina.com.cn/activity/common/large/37e64c5b6d22c3992eb134d80dfcc60c.png");
+	background-position: 0px 0px;
+	background-size: 100%; 
+	border: none;
+	margin-bottom: -7px;
+ }
+.pauseBtnPause{background-position: 0px 26px; }
+#gameIcoBlock { width: 294px; margin: 0 auto; }
+#gameIcoBlock img { width: 40px; height: 40px; float: left; margin: 1px; border-radius: 4px; cursor: pointer; background: #FFF; }
+#p3cloud { position: relative; padding-top: 150px; }
+#p3cloud span { left: 0; margin: 0 auto; width: 100%; color: #320962; font-size: 16px; font-weight: bold; margin-top: 54px; line-height: 31px; }
+#p3cloud #level { width: auto; position: static; color: #e4007f; margin: 0 8px; }
+</style>
+<script type="text/javascript">
+
+function page(num) {
+	$("#page"+num).show();
+	$(".page:not(#page"+num+")").hide();
+	
+	if(num == 2){
+		gamestart();
+	}
+}
+
+/* 游戏元素 */
+
+var imgsrc = ["2.jpg", "3.jpg", "4.jpg", "5.jpg", "6.jpg", "7.jpg",
+		"8.jpg", "9.jpg", "10.jpg", "11.jpg", "12.jpg", "13.jpg", "14.jpg",
+		"15.jpg", "16.jpg", "17.jpg", "18.jpg", "19.jpg", "20.jpg", "21.jpg",
+		"22.jpg", "23.jpg", "24.jpg", "25.jpg", "26.jpg", "27.jpg", "28.jpg",
+		"29.jpg", "30.jpg", "31.jpg", "32.jpg", "33.jpg", "34.jpg", "35.jpg"];		
+
+var obj1 = { isdog : true,  imgsrc : "http://jiangsu.sinaimg.cn/zt/s/gamezhaolele/images/1.png"};
+
+var objList = [];
+var bigLevelList = []; 
+var icoList = [];
+var difficult = 6; //每6关增加难度
+var level = 1;
+var score = 0;
+/* 
+ *  点击ico
+ *	@param 
+ *		index 索引
+ *	@return 
+ *		true  是
+ *		false 不是
+ */
+$(function()
+{
+	var imgHtml='';
+	for( var i in imgsrc)
+	{
+		imgHtml += '<img src="http://jiangsu.sinaimg.cn/zt/s/gamezhaolele/images/'+imgsrc[i]+'" />'
+	}
+	$("#icoArr").append(imgHtml)	 
+})
+ 
+function icoClick(index){
+	return icoList[index].isdog;
+} 
+
+/*
+ *  第一个元素和随机元素交换位置
+ *  @param
+ *  	objs[]
+ *  @return
+ *  	objs[] 打乱后的数组
+ */
+function random(objs) {
+	
+	//此方法抛弃，两两交换效果不好。
+	/*return objs.sort( function(){ return 0.5 - Math.random()} );*/
+
+	var randomIndex = parseInt(Math.random()*objs.length);
+	var temp = objs[0];
+	objs[0] = objs[randomIndex];
+	objs[randomIndex] = temp;
+	return objs;
+}
+
+/*
+ * 	 关卡初始化
+ * 	@param
+ * 		difficult 难度--展示几种图标 至少2种
+ * 		gamesize 游戏区域ico数量
+ *  @return
+ *  	icoList 游戏区域ico对象数组
+ */
+/*function loadRound( difficult, gamesize) {
+	//可点击图标
+	icoList[0] = objList[0];
+	//剩下干扰图标
+	if (difficult > objList.length) {	difficult = objList.length;	}
+	for (var i = 1; i < gamesize; i++) {
+		 对象加载方式，随机 不考虑均匀分布 
+		 除了正确的那个，额外加载几种不同的ico 
+		icoList[i] = objList[Math.ceil( Math.random()*( difficult - 1 ) )];
+	}
+	
+	return icoList;
+}*/
+
+//游戏关卡
+function gameRound(level) {
+	//difficult = level / difficult + 1;
+	//putIntoHTML(random(loadRound(difficult,56)));
+	putIntoHTML(random(getSmallLevel(level,56)));
+	//setCurrentLevel(level);
+}
+
+function getBigLevel(level){
+	bigLevelList = [];
+	//从总图标选取大关所需图标
+	imgsrc.sort(function(){ return 0.5 - Math.random(); }); //打乱大数组
+	var bigLevel = Math.floor((( level - 1 ) / difficult ) + 1 ); //得到大关
+	if (bigLevel>4) {bigLevel = 4;} //限定最高大关4
+	for (var i = 0; i < bigLevel*difficult; i++) {
+		bigLevelList.push({isdog : false, imgsrc : "http://jiangsu.sinaimg.cn/zt/s/gamezhaolele/images/" + imgsrc[i]});
+	}
+	return bigLevelList;
+}
+
+function getSmallLevel(level, gamesize){
+	if (level == 1 | level%difficult==1) {
+		getBigLevel(level);
+	}
+	
+	icoList = [];
+	//从大关截取小关数据
+	var bigLevel = Math.floor((( level - 1 ) / difficult ) + 1 ); //得到大关
+	if (bigLevel>4) {bigLevel = 4;} //限定最高大关4
+	var smallLevel = level % difficult;
+	smallLevel = (smallLevel == 0) ? difficult : smallLevel; //保证小关为1,2,3...difficult
+	//console.log("关卡:"+ level +" "+bigLevel +"大关"+smallLevel+"小关");
+	//关卡内容设置
+	icoList[0] = obj1; //乐乐
+	for (var i = 1; i < gamesize; i++) {
+		var fanweimin = bigLevel*(smallLevel-1)
+		var fanweimax = bigLevel*smallLevel-1;
+		icoList.push(bigLevelList[ Math.round(fanweimin +  Math.random()*(fanweimax - fanweimin))]);
+	}
+	//console.log(bigLevelList+" "+fanweimax+" "+fanweimin);
+	//console.log(icoList);
+	//别忘了返回值要random
+	return icoList;
+}
+
+function putIntoHTML(icoList){
+	var html = '';
+	for ( var i in icoList) {
+		//html +=	'<img src="' + icoList[i].imgsrc +'" />';
+		document.getElementById("gameIcoBlock").appendChild = icoList[i].obj;
+	}
+	//$("#gameIcoBlock").html(html);
+	
+}
+
+/* 显示关卡 */
+function setCurrentLevel(level){
+	document.getElementById("currentLevel").innerHTML = level - 1;
+	document.getElementById("level").innerHTML = level - 1;
+}
+
+var t;
+var pause = false; //暂停 boolean
+/* 计时器 */
+function timer() {
+	var time = 30;
+	document.getElementById("timer").innerHTML = time;
+	
+	t = setInterval(function() {
+		if (pause) {
+			return;
+		}
+		time -= 0.1;
+		if(time <= 0){
+			//切换到第三页
+			page(3);
+			//alert("厉害～您闯过了"+level+"关！");
+			document.getElementById("timer").innerHTML = "0.0";
+			dataForWeixin.TLTitle = '我找到了'+ (level-1) +'个砳砳，最近这货火爆了，快来调戏他！';
+			dataForWeixin.desc = '我找到了'+ (level-1) +'个砳砳，最近这货火爆了，快来调戏他！';
+			$.JSONP('http://act.city.sina.com.cn/interface/activity/json_add_signup.php',{act_id:6886,custom_1:(level-1)},function(bm){});
+			clearInterval(t);
+			return;
+		}
+		document.getElementById("timer").innerHTML = time.toFixed(1);
+	}, 100);
+	
+	/*function checkTime(time){
+		if (time <= 0) {
+			clearInterval(t);
+			alert("厉害～您闯过了"+level+"关！");
+			return true;
+		}
+	}*/
+}
+
+//暂停游戏
+function gamepause() {
+	pause = !pause;
+	$(".pauseBtn").toggleClass("pauseBtnPause");
+	//图片隐藏
+	$("#gameIcoBlock").toggleClass("none");
+}
+
+//点击 开始游戏～
+function gamestart(){
+	gameRound(1);
+	timer();//开始计时！
+	
+	$("#gameIcoBlock img").live("click", function() {
+		if (icoClick($(this).index())) {
+			level++;
+			gameRound(level);
+		}
+	});
+}
+
+function resetGame(){
+	objList = [];
+	bigLevelList = []; 
+
+	icoList = [];
+	level = 1;
+	score = 0;
+	clearInterval(t);
+	page(1);
+	
+	dataForWeixin.desc = "听说我最近很火，这是真的吗？啊哈哈~来找我啊！";
+	dataForWeixin.TLTitle = "听说我最近很火，这是真的吗？啊哈哈~来找我啊！";
+}
+
+</script>
+
+<!-- 微信分享js -->
+<script type="text/javascript">
+var dataForWeixin = {
+		appId : "",
+		title : "砳在其中 找砳砳",
+		TLImg : "http://jiangsu.sinaimg.cn/zt/s/gamezhaolele/e/e1.png",
+		desc : "听说我最近很火，这是真的吗？啊哈哈~来找我啊！",
+		url : "http://jiangsu.sina.com.cn/zt/s/gameFindLele_H5.html", //请填写分享出去的URL
+		TLTitle: "听说我最近很火，这是真的吗？啊哈哈~来找我啊！" //朋友圈文字
+
+	};
+
+	var onBridgeReady = function() {
+		
+		//发送给朋友、群组
+		WeixinJSBridge.on('menu:share:appmessage', function(argv) {
+			WeixinJSBridge.invoke('sendAppMessage', {
+				"appid" : dataForWeixin.appId,
+				"img_url" : dataForWeixin.TLImg, //图片
+				"title" : dataForWeixin.title, //标题
+				"desc" : dataForWeixin.desc, //分享内容
+				"link" : dataForWeixin.url,
+			},function(){
+				//alert("发送给朋友回调()");
+				//location.href = "http://www.baidu.com";
+			});
+		});
+		
+		//分享到朋友圈
+		WeixinJSBridge.on('menu:share:timeline', function(argv) {
+			WeixinJSBridge.invoke('shareTimeline', {
+				"appid" : dataForWeixin.appId,
+				"title" : dataForWeixin.TLTitle, //描述文字
+				"img_url" : dataForWeixin.TLImg, //图片
+				"link" : dataForWeixin.url,
+				"desc" : dataForWeixin.desc, //无用！必须存在！分享内容
+			}, function (){
+				//alert("分享到朋友圈回调()");
+				
+			});
+		});
+
+	};
+
+	if (document.addEventListener) {
+		document.addEventListener('WeixinJSBridgeReady', onBridgeReady, false);
+	} else if (document.attachEvent) {
+		document.attachEvent('WeixinJSBridgeReady', onBridgeReady);
+		document.attachEvent('onWeixinJSBridgeReady', onBridgeReady);
+	}
+</script>
+</head>
+<body>
+<div id="icoArr" style="position:absolute; top:-200px; left:-200px; width:10px; height:10px; overflow:hidden;">
+</div>
+<div id="screen">
+  <div class="page" id="page1">
+    <div class="center"> <img alt="" src="http://jiangsu.sinaimg.cn/zt/s/gamezhaolele/e/e1.png" width="270" style="margin-top: 32px;"> <img onclick="page(2);" alt="" src="http://jiangsu.sinaimg.cn/zt/s/gamezhaolele/e/e2.png" width="124" style="margin-top: 2px;">
+      <div class="btn" onclick="page(2);">点我开始</div>
+      <img alt="" src="http://jiangsu.sinaimg.cn/zt/s/gamezhaolele/e/e4.png" width="79" style="margin-top: 43px;"> </div>
+  </div>
+  <div class="page" id="page2">
+    <div class="gameInfoBanner">
+      <div class="gameinfobox" id="infoboxLele"><span>找到
+        <div id="currentLevel">20</div>
+        个</span><img alt="" src="http://jiangsu.sinaimg.cn/zt/s/gamezhaolele/e/e5.png"></div>
+      <div class="gameinfobox" id="infoboxTimer"><span>
+        <div id="timer">62</div>
+        秒</span><img alt="" src="http://jiangsu.sinaimg.cn/zt/s/gamezhaolele/e/e6.png"></div>
+      <div class="pauseBtn gameinfobox" onclick="gamepause()"></div>
+    </div>
+    
+    <!-- 游戏区域 -->
+    <div style="height: 336px;">
+      <div id="gameIcoBlock" class="clearfix"> </div>
+    </div>
+    <div style="width: 100%; margin: 12px 0 36px 0;text-align: center; color: #c3a3cf;font-size: 15px;">愚蠢的人类，你找不到我的~~</div>
+  </div>
+  <div class="page" id="page3">
+    <div class="center"> <img alt="" src="http://jiangsu.sinaimg.cn/zt/s/gamezhaolele/e/e2.png" width="124" style="position:absolute;z-index: 2;top: 43px;left: 102px;">
+      <div id="p3cloud"><img alt="" src="http://jiangsu.sinaimg.cn/zt/s/gamezhaolele/e/e7.png" width="270"><span style="position: absolute;">你找到了<span id="level">20</span>个丑萌的砳砳<br/>
+        么么哒~</span></div>
+      <div class="btn" onclick="resetGame();" style="margin-top: 29px;width: 96px;margin-bottom: 75px;">再来一次</div>
+    </div>
+  </div>
+</div>
+</body>
+<script type="text/javascript">
+
+(function (){
+	//浏览器高度设置
+	$("body").height($(window).height());
+	$(".page").height($(window).height());
+})();
+</script>
+</html>

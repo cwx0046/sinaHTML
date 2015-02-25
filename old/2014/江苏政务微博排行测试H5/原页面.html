@@ -1,0 +1,281 @@
+	
+		<style>
+		.custom_container{width:320px;position:relative;}
+		.top_nav{position:fixed;height:90px;width:320px;left:50%;margin-left:-160px;top:0px;z-index:10;background:#f9f9f9}
+		.type_nav{width:320px;height:50px;position:relative;background:url(http://zj.sinaimg.cn/zj_2014/wb_rank/rank_bg.jpg) no-repeat;background-size:320px 50px;}
+		.type_nav li{width:80px;height:50px;cursor:pointer;float:left}
+		.type_nav .type1.select{background:url(http://zj.sinaimg.cn/zj_2014/wb_rank/rank_select.jpg) no-repeat;background-size:320px 50px;background-position:0px 0px;}
+		.type_nav .type2.select{background:url(http://zj.sinaimg.cn/zj_2014/wb_rank/rank_select.jpg) no-repeat;background-size:320px 50px;background-position:-80px 0px;}
+		.type_nav .type3.select{background:url(http://zj.sinaimg.cn/zj_2014/wb_rank/rank_select.jpg) no-repeat;background-size:320px 50px;background-position:-160px 0px;}
+		.type_nav .type4.select{background:url(http://zj.sinaimg.cn/zj_2014/wb_rank/rank_select.jpg) no-repeat;background-size:320px 50px;background-position:-240px 0px;}
+		.data_nav{height:40px;width:320px;border-bottom:1px solid #a1b1c2}
+		.data_nav li{float:left;line-height:38px;width:20px;height:40px;text-align:center}
+		.data_nav li.sp_li{width:150px;height:40px;position:relative;}
+		.data_nav .date_text{line-height:38px;width:150px;height:38px;font-size:14px;text-align:center;color:#a1b1c2}
+		.data_nav .date_text.text_select{height:39px;color:#00b7ee;border-bottom:2px solid #00b7ee;}
+		.day_select select,.month_select select{width:150px;height:38px;position:absolute;left:0px;top:0px;opacity:0;}
+		.rank_list{position:relative;top:90px;left:0px;margin-bottom:100px;float:left}
+		.rank_list li{width:320px;height:50px;border-bottom:1px solid #ccd4da;float:left}
+		.rank_list .rank_index{line-height:50px;height:50px;width:40px;text-align:center;float:left}
+		.rank_list .weibo_profile_img{line-height:50px;height:50px;width:45px;text-align:center;float:left;position:relative}
+		.rank_list .weibo_profile_img img{position:absolute;left:0px;top:8px}
+		.rank_list .weibo_screen_name{line-height:50px;height:50px;width:135px;float:left}
+		.rank_list .weibo_data{line-height:50px;height:50px;width:50px;text-align:right;float:left}
+		.rank_list .data_tend{line-height:50px;height:50px;width:50px;text-align:center;float:left}
+		.rank_list .data_tend i{width:8px;height:12px;display:inline-block;background:url(http://zj.sinaimg.cn/zj_2014/wb_rank/tendence_type.png) no-repeat;background-size:33px 12px}
+		.rank_list .data_tend i.icon_1{background-position:-2px 0px;}
+		.rank_list .data_tend i.icon_2{background-position:-12px 0px;}
+		.rank_list .data_tend i.icon_3{background-position:-23px 0px;}
+		#loading{background:#aaa;opacity:0.6;width:320px;height:510px;position:fixed;top:0px;left:50%;margin-left:-160px;display:none;z-index:11}
+		#loading img{position:absolute;left:135px;top:100px}
+		</style>
+		<div class="custom_container">
+			<div class="top_nav">
+				<div class="type_nav">
+					<ul>
+						<li class="type1 select"></li>
+						<li class="type2"></li>
+						<li class="type3"></li>
+						<li class="type4"></li>
+					</ul>
+				</div>
+				<div class="data_nav">
+					<ul>
+						<li class="sp_li">
+							<div class="date_text text_select" rank="1">日榜</div>
+							<div class="day_select">
+								<select></select>
+							</div>
+						</li>
+						<li>|</li>
+						<li class="sp_li">
+							<div class="date_text" rank="2">2014-09月榜</div>
+							<div class="month_select">
+								<select><option value=0>请选择月份</option><option value="2014-09">2014-09</option></select>
+							</div>
+						</li>
+					</ul>
+				</div>
+			</div>
+			<div class="rank_list">
+				<ul>
+					<li>正在加载，请稍候!</li>
+				</ul>
+			</div>
+			<div id="loading">
+				<img src="http://zj.sinaimg.cn/zj_2013_v1/fashion2013/loading_circle.gif" height="54" width="50" />
+			</div>
+		</div>
+		<script>
+			/*JSONP function*/
+			(function($,undefined){$.extend({JSONP:function(url,data,callback,charset){var script=document.createElement("script"),head=document.getElementsByTagName("head")[0]||document.documentElement,jsc=$.now(),randnum=Math.round(Math.random()*1000),jsonp=("jsonp"+randnum+jsc++);if(!callback){callback=data;data={};}
+			if($.isFunction(callback)){window[jsonp]=callback;callback=jsonp;}
+			if(typeof data==="object"){data=$.param(data);}
+			script.src=url+(url.indexOf("?")!==-1?"&":"?")+"callback="+callback+"&"+data;if(charset){script.charset=charset;}
+			var done=false;if(!done){script.onload=script.onreadystatechange=function(){if(!done&&(!this.readyState||this.readyState==="loaded"||this.readyState==="complete")){done=true;script.onload=script.onreadystatechange=null;head.removeChild(script);window[jsonp]=undefined;try{delete window[jsonp];}catch(jsonpError){}}};}
+			head.insertBefore(script,head.firstChild);return callback;},error:function(msg){if(!$.debug){if(!location.href.split("?")[1]||location.href.split("?")[1].indexOf("jsDebug")===-1){return;}else{$.debug=true;}}
+			if(!$.debugPanel){var jsc=$.now();$.debugPanel=$("<div></div>").appendTo(document.body).attr("id","debug-panel-"+jsc).addClass("jquery-debug-panel").css({position:"fixed",left:0,top:0,width:500,height:600,opacity:0.8,fontFamily:"Trebuchet MS, Tahoma, Verdana, Arial, sans-serif",fontSize:"10px",color:"#fff",background:"#000"});$.debugPanel.titlebar=$("<div></div>").appendTo($.debugPanel).addClass("jquery-debug-panel-titlebar").css({position:"relative",width:"100%",height:30,cursor:"move",background:"#ff0"});$.debugPanel.closeButton=$("<div></div>").appendTo($.debugPanel.titlebar).addClass("jquery-debug-panel-close-button").css({position:"absolute",width:45,height:25,right:5,top:2,cursor:"pointer"}).text("关闭").bind("click",function(){$.debugPanel.hide();});$.debugPanel.content=$("<div></div>").appendTo($.debugPanel).addClass("jquery-debug-panel-content").css({position:"relative",overflowY:"auto"});}
+			$("<span>"+msg+"</span></br>").appendTo($.debugPanel.content);$.debugPanel.show();},ns:function(){var a=arguments[0],o;if(!a){return;}
+			var b=a.split(".");var c=b[0];eval('if (typeof '+c+' == "undefined"){'+c+' = {};} o = '+c+';');for(var i=1;i<b.length;i++){o[b[i]]=o[b[i]]||{};o=o[b[i]];}}});})(jQuery);;
+		</script>
+		<script>
+			$(function(){
+				//计算格式化时间
+				function addDate(days,n,date){
+					if (date){
+						var my_date_ago=new Date(new Date(date) - days * 24 * 60 * 60 * 1000 * -1);
+					}else{
+						var my_date_ago=new Date(new Date() - days * 24 * 60 * 60 * 1000 * -1);
+					}
+					
+					switch (n){
+						case 1:
+							return(my_date_ago.getFullYear()); 
+							break; 
+						case 2: 
+							var myMonth = my_date_ago.getMonth()+1;
+							if (myMonth < 10){
+								myMonth = "0" + myMonth;
+							}
+							return myMonth;
+							break; 
+						case 3: 
+							var myDate = my_date_ago.getDate();
+							if (myDate < 10){
+								myDate = "0" + myDate;
+							}
+							return myDate;
+							break; 
+						default : 
+							var myDate = my_date_ago.getDate();
+							if (myDate < 10){
+								myDate = "0" + myDate;
+							}
+							var myMonth = my_date_ago.getMonth()+1;
+							if (myMonth < 10){
+								myMonth = "0" + myMonth;
+							}
+							return(my_date_ago.getFullYear() + "-" + myMonth + "-" + myDate); 
+							break; 
+					}
+				}
+				
+				var select_date;
+				var select_type = "i";
+				var select_month;
+				
+				intiDataOption();
+				function intiDataOption(){
+					//初始化遮罩高度
+					$('#loading').height($(window).height());
+				
+					var day_limit = 30;
+					var day_option = '<option value=0>请选择日期</option>';
+var start_i = 1;
+					var cDate = new Date();
+					if (cDate.getHours() < 17){
+						start_i = 2;
+					}
+					for (var i=start_i;i<day_limit;i++){
+						var day = addDate(-i);
+						day_option += '<option value="'+day+'">'+day+'</option>';
+					}
+					var current_date = addDate(0).split('-');
+					var month_option = '<option value=0>请选择月份</option><option value="'+current_date[0]+'-'+current_date[1]+'">'+current_date[0]+'-'+current_date[1]+'</option>';
+					if (parseInt(current_date[1]) - 1 == 0){
+						month_option += '<option value="'+parseInt(current_date[0])-1+'-12">'+parseInt(current_date[0])-1+'-12</option>';
+					}else{
+						var mouth_num = parseInt(current_date[1])-1;
+						if (mouth_num < 10){
+							mouth_num = "0" + mouth_num;
+						}
+						month_option += '<option value="'+current_date[0]+'-'+mouth_num+'">'+current_date[0]+'-'+mouth_num+'</option>';
+					}
+					select_date = addDate(-start_i);
+					select_month = current_date[0]+'-'+current_date[1];
+					getUserRank(select_date,select_date,select_type);
+					$('.date_text').eq(0).html(select_date+' 日榜');
+					//$('.date_text').eq(1).html(select_month+' 月榜');
+					$('.day_select').find('select').empty().append(day_option);
+					//$('.month_select').find('select').empty().append(month_option);
+				}
+				
+				$('.day_select').find('select').change(function(){
+					select_date = $(this).val();
+if(select_date == 0) return;
+					$('.date_text').removeClass('text_select').eq(0).addClass('text_select').html(select_date+' 日榜');
+					getUserRank(select_date,select_date,select_type);
+					$(this).val(0);
+				})
+				$('.month_select').find('select').change(function(){
+					select_month = $(this).val();
+if(select_month == 0) return;
+					$('.date_text').removeClass('text_select').eq(1).addClass('text_select').html(select_month+' 月榜');
+					parseMonth();
+					$(this).val(0);
+				})
+				
+				function parseMonth(){
+					var start_date = select_month+'-01';
+					var data_arr = select_month.split('-');
+					var temp_end = '';
+					if (parseInt(data_arr[1]) == 12){
+						temp_end = parseInt(data_arr[0])+1+'-01-01';
+					}else{
+						var temp_month = parseInt(data_arr[1])+1;
+						if(temp_month<10){temp_month = '0'+temp_month;}
+						temp_end = data_arr[0]+'-'+temp_month+'-01';
+					}
+					var end_date = addDate(-1,0,temp_end);
+					getUserRank(start_date,end_date,select_type);
+				}
+				
+				var type_arr = ["i","l","p","c"];
+				$('.type_nav li').click(function(){
+					var index = $(this).index();
+					$('.type_nav li').removeClass('select').eq(index).addClass('select');
+					select_type = type_arr[index];
+					if ($('.text_select').attr('rank') == 1){
+						getUserRank(select_date,select_date,select_type);
+					}else{
+						parseMonth();
+					}
+				})
+				
+				//获取排行榜
+				function getUserRank(start_time,end_time,order){
+					$(window).scrollTop(0);
+					$('#loading').fadeIn();
+					
+					$.JSONP('http://common.zj.sina.com.cn/interface/userdata/json_get_data_rank.php',{
+						start_time:start_time,
+						end_time:end_time,
+						order_type:order
+					},function(json){
+						if (json.error == 0){
+							var data = json.data;
+							var compare_data = json.data_compare;
+							var wb_info = json.wb_info;
+							var rank_html = '';
+							if (data.length == 0){
+								rank_html = '<li>数据未更新</li>';
+							}
+							for(var i=0;i<data.length;i++){
+								var rank_index = 0;
+								if (i<9){
+									rank_index = '0'+(parseInt(i)+1);
+								}else{
+									rank_index = parseInt(i)+1;
+								}
+								var profile_img = '';
+								var screen_name = '';
+								var weibo_id = '';
+								if (wb_info.data.errno == 1){
+									if (typeof wb_info.data.result[data[i].wb_uid] != 'undefined'){
+										profile_img = wb_info.data.result[data[i].wb_uid].portrait;
+										screen_name = wb_info.data.result[data[i].wb_uid].nick;
+										weibo_id = wb_info.data.result[data[i].wb_uid].uid;
+									}
+								}
+								var num = 0;
+								if (typeof data[i][order] != 'undefined'){
+									num = parseFloat(data[i][order]).toFixed(2);
+								}
+								var default_icon = 'icon_3';
+								for (var j=0;j<compare_data.length;j++){
+									if (data[i].wb_uid == compare_data[j].wb_uid){
+										if (i != j) default_icon = i>j?'icon_2':'icon_1';
+										break;
+									}
+								}
+								rank_html += '<li><div class="rank_index"><em>'+rank_index+'</em></div><a href="http://weibo.com/u/'+weibo_id+'" target="_blank"><div class="weibo_profile_img"><img src="'+profile_img+'" height="34" width="34"></div><div class="weibo_screen_name"><span>'+screen_name+'</span></div></a><div class="weibo_data"><span>'+num+'</span></div><div class="data_tend"><i class="'+default_icon+'"></i></div></li>';
+							}
+							
+							$('.rank_list ul').empty().append(rank_html);
+							$('#loading').fadeOut(500);
+							
+						}else{
+							alert(json.errmsg)
+						}
+					})
+				}
+			
+			})
+		</script>
+<style>
+.wrap{ margin: 0; -webkit-transform-origin: top left!important;}
+</style>
+		<!-- page Auto scale -->
+<script type="text/javascript">
+	$(function() {
+		var r = document.body.offsetWidth / 320;
+		$(".wrap").css("-webkit-transform", "scale(" + r + ")");
+		$("body").height( $(".wrap").height() * r );
+	});
+	$(window).resize(function() {
+		var r = document.body.offsetWidth / 320;
+		$(".wrap").css("-webkit-transform", "scale(" + r + ")");
+		$("body").height( $(".wrap").height() * r );
+		
+	});
+</script>

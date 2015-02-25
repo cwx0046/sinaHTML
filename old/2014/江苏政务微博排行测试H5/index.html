@@ -1,0 +1,181 @@
+		
+	<script src="http://i2.sinaimg.cn/cj/dfz/js/base.js" type="text/javascript"></script>
+	<style type="text/css">
+body, ul, ol, li, p, h1, h2, h3, h4, h5, h6, table, td, th, form, fieldset, img, dl, dt, dd { margin:0; padding:0; }
+textarea, input, select, body { font-size:12px; }
+select, input { vertical-align:middle; }
+fieldset, img { border:0; }
+ul, ol { list-style:none; }
+img { border:0; }
+.fl { float:left; display:inline; }
+.fr { float:right; display:inline; }
+.cb { clear:both; display:block; height:0px; overflow:hidden; width:100%; }
+.clearfix:after { clear:both; content:""; display:block; height:0; }
+</style>
+		<style>
+		.custom_container{width:320px;position:relative;}
+		.top_nav{width:320px;background:#f9f9f9}
+		.top_nav ul{ list-style: none; font-size: 14px; padding:0;} 
+		.top_nav li{height:24px; line-height:24px; cursor:pointer; background-color: #866e6e; color: #FFF; padding: 4px; text-shadow: 0 1px 0px #666;}
+		.top_nav li:before{content: url("http://s3img.city.sina.com.cn/activity/common/large/89c770487ce16b02f0bd2590c7f780c3.png");display: inline-block;vertical-align: bottom;margin: 2px 3px 2px;float: left;}
+		.top_nav li.current{ background-color: #82a5b8;}
+		.rank_list{margin-bottom:40px;}
+		.rank_list ul{padding: 0;}
+		.rank_list li{width:320px;height:50px;border-bottom:1px solid #ccd4da;float:left}
+		.rank_list .rank_index{line-height:50px;height:50px;width:40px;text-align:center;float:left}
+		.rank_list .weibo_profile_img{line-height:50px;height:50px;width:45px;text-align:center;float:left;position:relative}
+		.rank_list .weibo_profile_img img{position:absolute;left:0px;top:8px}
+		.rank_list .weibo_screen_name{line-height:50px;height:50px;width:135px;float:left; overflow: hidden;}
+		.rank_list .weibo_data{line-height:50px;height:50px;width:50px;text-align:right;float:left}
+		.rank_list .data_tend{line-height:50px;height:50px;width:50px;text-align:center;float:left}
+		.rank_list .data_tend i{width:8px;height:12px;display:inline-block;background:url(http://zj.sinaimg.cn/zj_2014/wb_rank/tendence_type.png) no-repeat;background-size:33px 12px}
+		.rank_list .data_tend i.icon_1{background-position:-2px 0px;}
+		.rank_list .data_tend i.icon_2{background-position:-12px 0px;}
+		.rank_list .data_tend i.icon_3{background-position:-23px 0px;}
+		#loading{background:#aaa;opacity:0.6;width:320px;height:510px;position:fixed;top:0px;left:50%;margin-left:-160px;display:none;z-index:11}
+		#loading img{position:absolute;left:135px;top:100px}
+		</style>
+		<div class="custom_container">
+			<div class="top_nav">
+			<div>
+				<ul>
+					<li onclick="changeData('1')">省外宣系统政务微博影响力</li>
+					<li onclick="changeData('2')">省机关系统政务微博影响力</li>
+					<li onclick="changeData('3')">省公安系统政务微博影响力</li>
+					<li onclick="changeData('4')">省公职人员系统政务微博影响力</li>
+					<li onclick="changeData('5')">省旅游局系统政务微博影响力</li>
+					<li onclick="changeData('6')">省景区系统政务微博影响力</li>
+				</ul>
+			</div>
+			</div>
+			<div class="rank_list">
+				<ul>
+					<li>正在加载，请稍候!</li>
+				</ul>
+			</div>
+			<div id="loading">
+				<img src="http://zj.sinaimg.cn/zj_2013_v1/fashion2013/loading_circle.gif" height="54" width="50" />
+			</div>
+		</div>
+		<script>
+			$(function(){
+
+				intiDataOption();
+				function intiDataOption(){
+					//初始化遮罩高度
+					$('#loading').height($(window).height());
+				}
+				
+				$(".top_nav li").eq(parseInt($(".top_nav li").size()*Math.random())).click();
+			});
+			
+			var data = [
+			            [
+			             [2097024354, "南京发布",649.89],
+			             [2696049583, "无锡发布",556.01],
+			             [2860954042, "鼓楼微讯",531.98],
+			             [2282670150, "宿迁之声",528.66],
+			             [2696123751, "幸福大丰",496.21],
+			             [2723391942, "海安发布",494.79],
+			             [3195619433, "太仓发布",464.94],
+			             [2784361770, "微博江苏",456.68],
+			             [2998045524, "苏州发布",454.21],
+			             [3300916952, "如皋发布",424.21],
+			            ],
+			            [
+			             [2784361770, "微博江苏",456.68],
+			             [1935167034, "平安江苏",388.10],
+			             [2233270392, "江苏气象",370.72],
+			             [2729070152, "江苏环保",342.21],
+			             [3659940762, "江苏司法行政在线",329.52],
+			             [3674007143, "江苏教育发布",328.24],
+			             [3814496761, "江苏省高级人民法院",293.56],
+			             [2710077380, "江苏共青团",284.67],
+			             [3900019299, "江苏检察在线",264.49],
+			             [3733965085, "江苏微旅游",252.93],
+			            ],
+			            [
+			             [1113218211, "江宁公安在线",820.23],
+			             [2244046892, "徐州铁路公安",492.21],
+			             [1796308821, "平安常州",476.10],
+			             [1824298652, "平望警方",464.21],
+			             [2573119002, "南京交警",438.96],
+			             [1828183230, "平安吴江",414.59],
+			             [1805087952, "南通公安",405.85],
+			             [1935167034, "平安江苏",388.10],
+			             [1975531243, "姑苏公安",386.66],
+			             [2010075304, "海安县公安局",380.39],
+			            ],
+			            [
+			             [2799621212, "寻人总动员鸣警",566.36],
+			             [2207221543, "何春银微想",468.93],
+			             [2392286134, "新华七村社区民警",336.65],
+			             [2103300190, "盐城交巡小警_蓝胖纸",300.87],
+			             [3145566644, "龙川警花戴华",290.55],
+			             [1906933201, "交警王宏琪",260.53],
+			             [2206395840, "创新e警",249.30],
+			             [2001070163, "指挥长在线",241.70],
+			             [2618654954, "前前之友",236.80],
+			             [1025517991, "海那边75",231.99],
+			            ],
+			            [
+			             [2146717162, "南京市旅游委员会",381.88],
+			             [2571243254, "苏州市旅游局",369.77],
+			             [1980124632, "无锡市旅游局",361.58],
+			             [2043380211, "扬州旅游局",301.06],
+			             [1852451387, "吴中旅游",269.37],
+			             [3519023462, "六合旅游",258.25],
+			             [3733965085, "江苏微旅游",252.93],
+			             [2475984044, "常熟旅游",242.55],
+			             [2118696790, "徐州市旅游局",233.84],
+			             [3170746110, "玩转昆山",232.41],
+			            ],
+			            [
+			             [2055415625, "南京钟山风景名胜区",189.79],
+			             [2052859091, "江苏扬州瘦西湖",183.76],
+			             [2472190490, "阳羡生态旅游度假区",170.20],
+			             [2024901692, "南京鸡鸣寺",169.43],
+			             [2097803404, "苏州穹窿山",167.87],
+			             [1736882147, "周庄",167.66],
+			             [2647991937, "中国兴化品蟹赏菊旅游季",162.45],
+			             [2653803001, "茅山景区",160.3 ],
+			             [2683923461, "南京市莫愁湖公园",153.21],
+			             [1808504644, "苏州摩天轮乐园",150.36],
+			            ]
+			];
+			
+			function changeData( num ){
+				
+				$(".top_nav li").removeClass("current");
+				$(".top_nav li").eq(num-1).addClass("current");
+				
+				var rank_html = "";
+				var rank_index = 1;
+				
+				for (var i = 0; i < data[num-1].length; i++) {
+					rank_html += '<li><div class="rank_index"><em>'+rank_index+'</em></div><a href="http://weibo.com/u/'+data[num-1][i][0]+'" target="_blank"><div class="weibo_profile_img"><img src="http://tp1.sinaimg.cn/'+data[num-1][i][0]+'/50/0" height="34" width="34"></div><div class="weibo_screen_name"><span>'+data[num-1][i][1]+'</span></div></a><div class="weibo_data"><span>'+data[num-1][i][2]+'</span></div></li>';
+					rank_index++;
+				}
+				
+				
+				$('.rank_list ul').empty().append(rank_html);
+				
+			}
+		</script>
+<style>
+.wrap{ margin: 0; -webkit-transform-origin: top left!important;}
+</style>
+		<!-- page Auto scale -->
+<script type="text/javascript">
+	$(function() {
+		var r = document.body.offsetWidth / 320;
+		$(".wrap").css("-webkit-transform", "scale(" + r + ")");
+		$("body").height( $(".wrap").height() * r );
+	});
+	$(window).resize(function() {
+		var r = document.body.offsetWidth / 320;
+		$(".wrap").css("-webkit-transform", "scale(" + r + ")");
+		$("body").height( $(".wrap").height() * r );
+		
+	});
+</script>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="GB2312">
+<meta http-equiv="X-UA-Compatible" content="IE=8" />
+<title>活动后台数据迁移</title>
+<script src="http://i2.sinaimg.cn/cj/dfz/js/base.js" type="text/javascript"></script>
+<script src="http://jiangsu.sinaimg.cn/z/js/weiboApi.js" type="text/javascript"></script> 
+<script src="http://act.city.sina.com.cn/js/uploadButton.js" type="text/javascript"></script> 
+<script src="http://jiangsu.sinaimg.cn/js/popBox.js" type="text/javascript"></script> 
+<style type="text/css">
+.red{color: #F00;}
+</style>
+</head>
+<body>
+<h2>FROM: data</h2>
+<hr>
+<h2>　TO: 8989	旅游纪念品创意设计大赛_票数增加</h2>
+
+<input type="button" id="btn1" value="获取数据！"><br/>
+<textarea class="data_orgin"></textarea><br/>
+<input type="button" id="btn2" value="写入数据" disabled="disabled"><br/>
+<div id="info"></div>
+
+</body>
+
+<script type="text/javascript">
+var data=["沙黾农","南京头条","南京那些事","南艺黄瓜园艺讯","无锡百草园书店","鞠健夫的私媒体","邵明波","鞭具蛋挞耀一","头条常州","孟祥远","亲子派","南京吃喝玩乐","连云港微生活","南京生活","乐在南通","糗事大百科","幸福苏州","大嘴韶南京","南京肉球妈","熊猫小姐爱美食","国网江苏省电力公司","苏州移动","孟非","主持人彭宇","成杰思","晓敏_Jasmine","李好","经典975DJ邓煌","阿束","程鸣","梁爽博博","袁一博","扬子晚报","现代快报","南京零距离","江苏卫视","金陵晚报","直播南京官方版","江苏新闻","苏州日报","新华日报","1048苏州交通广播","张嘉佳"];
+
+
+$("#btn1").click(function(){
+		$(this).attr("disabled","disabled");
+		getData();
+});
+
+/* 获取数据 */
+function getData() {
+	
+		
+		$(".data_orgin").text(data.toString());
+		$("#btn2").removeAttr("disabled");
+	
+}
+
+
+
+
+/* 写入数据 */
+var hang = 0;
+
+$("#btn2").click(function(){
+	if ($(this).attr("disabled") == "disabled") {
+		return;
+	}
+	function clickVote(){
+			
+		$.JSONP('http://act.city.sina.com.cn/interface/activity/json_add_signup.php',
+			{act_id:10171,custom_1:data[hang]},
+			function(bm){
+				if (bm.error == 0) {
+	    			$("#info").html( $("#info").html() + "<br/>信息添加成功！" + hang +" : "+data[hang][0] +data[hang][1]);
+	    			//console.log("信息添加成功！" + hang +" : "+data[hang][0] +data[hang][1]+data[hang][2]+data[hang][3]+data[hang][4]+data[hang][6]);
+	    			hang++;
+	    			if(hang==data.length){
+		    			$("#info").html( $("#info").html() + '<br/><span class="red">工作完成！ 总数：'+hang+'</span>');
+		    			return;
+	    			}
+	    			clickVote();
+	    		} else {
+	    		}
+			}
+		);
+	}
+	
+	clickVote();
+	
+});
+</script>
+
+</html>

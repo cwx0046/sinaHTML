@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=8" />
+<title>请在此插入网页标题</title>
+<!-- 
+<script src="http://i2.sinaimg.cn/cj/dfz/js/base.js" type="text/javascript"></script>
+ -->
+<script src="./jquery-1.11.1.js" type="text/javascript"></script>
+<style type="text/css">
+body, ul, ol, li, p, h1, h2, h3, h4, h5, h6, table, td, th, form, fieldset, img, dl, dt, dd { margin:0; padding:0; }
+textarea, input, select, body { font-size:12px; }
+select, input { vertical-align:middle; }
+fieldset, img { border:0; }
+ul, ol { list-style:none; }
+img { border:0; }
+a { text-decoration:none; color:#000; }
+a:hover { color:#ffa10d; }
+.fl { float:left; display:inline; }
+.fr { float:right; display:inline; }
+.cb { clear:both; display:block; height:0px; overflow:hidden; width:100%; }
+.clearfix:after { clear:both; content:""; display:block; height:0; }
+</style>
+<script type="text/javascript">
+/* jQuery插件 By NorthWind 20140723pm */
+
+	/* 自定义方法 */
+	$.fn.myfun1 = function(options) {
+		/* 遍历每个元素 */
+		$(this).each(function() {
+			/* 元素自身属性 */
+			var element = $.extend({}, $.fn.myfun1.defaults, {
+				Event : $(this).Event,
+				name : $(this).attr("value"),
+				sid : $(this).attr("sid")
+			});
+			/* 如有参数则使用参数 */
+			var obj = $.extend({}, element, options);
+			
+			/* 每个对象绑定事件 */
+			$(this).on(obj.Event, function(e) {
+				console.log($(this));
+				alert(obj.name + "  按钮的值是： " + obj.sid);
+			});
+		});
+	};
+	
+	/* 默认参数 */
+	$.fn.myfun1.defaults = {
+		Event : "click",
+		name : "默认名字",
+		sid : "默认值"
+	};
+
+	/* 方法调用 */
+	$(function() {
+		$("input").myfun1();
+	});
+</script>
+</head>
+<body>
+	<h1>jQuery插件测试</h1>
+	<hr>
+	<span>按钮1～4均有值，按钮5没有value属性，按钮6没有value、sid属性。</span>
+	<hr>
+	<input class="btn2" type="button" sid="19730" value="按钮1"/>
+	<input class="btn2" type="button" sid="14552" value="按钮2"/>
+	<input type="button" sid="14722" value="按钮3"/>
+	<input type="button" sid="10790" value="按钮4"/>
+	<input type="button" sid="73944" />
+	<input type="button" />
+</body>
+</html>

@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="GB2312">
+<meta http-equiv="X-UA-Compatible" content="IE=8" />
+<title>提示框测试★</title>
+<meta name="keywords" content="请在此插入关键词" />
+<meta name="description" content="请在此写入一段页面描述" />
+<link rel="stylesheet" href="http://jiangsu.sinaimg.cn/zt/s/css/reset.css">
+<script type="text/javascript" src="http://ria.city.sina.com.cn/s/g=base.js"></script>
+<link type="text/css" href="http://jiangsu.sinaimg.cn/js/tip/tip_frame_v1.0.css" rel="stylesheet" />
+<script type="text/javascript" src="http://jiangsu.sinaimg.cn/js/tip/tip.js" charset="UTF-8"></script>
+<!-- 
+<script src="http://ria.city.sina.com.cn/s/g=base.js" type="text/javascript"></script>
+ -->
+<style type="text/css">
+.headimg{ min-width: 1000px; height: 400px; background: url("http://hubei.sinaimg.cn/2014/0721/S122974T1405906828814.jpg") no-repeat center top; }
+.content{ width: 1000px; margin: 0 auto; position: relative;} 
+#p1 input{ display: block;}
+</style>
+</head>
+<body>
+	<div class="headimg"></div>
+	<div id="p1">
+		<div class="content">
+			<input id="demo3" type="button" value="提示信息 背景 回调函数">
+			<input id="demo5" type="button" value="提示信息,3秒消失">
+			<input id="demo7" type="button" value="alert">
+			<input id="demo8" type="button" value="alert-背景">
+			<input id="demo9" type="button" value="警告图标提示框 回调">
+			<input id="demo10" type="button" value="成功图标提示框 回调">
+			<input id="demo11" type="button" value="错误图标提示框 回调">
+			<input id="demo12" type="button" value="疑问图标提示框 回调">
+			<input id="demo13" type="button" value="demo 确认 取消 回调">
+		</div>
+	</div>
+	<div id="p2">
+		<div class="content"></div>
+	</div>
+	<div id="p3">
+		<div class="content"></div>
+	</div>
+
+</body>
+<script type="text/javascript">
+$(function() {
+	
+	$("#demo3").click(function(){
+		new DFZ.APP.Dialog.BasicDiaglog({
+			noDrag : true,
+			isTitle : false,
+			width : 400,
+			height : 150,
+			isBg : true,
+			content : "<h1 style='padding:15px;'>说明：我不能拖动，按esc我能关闭，我无标题，我有背景</h1>",
+			onClose : function(){
+				alert("我是一个callback");
+			}
+		}).show();		
+	});
+
+	$("#demo5").click(function(){
+		var a = new DFZ.APP.Dialog.BasicDiaglog({
+			noDrag : true,
+			isTitle : false,
+			width : 400,
+			height : 150,
+			isClose : false,
+			isBg : false,
+			content : "<h1 style='padding:15px;'>说明：我不能拖动，按esc我能关闭，我无标题，我没有背景,3秒后我消失</h1>"
+		});
+		a.show();
+		setTimeout(function(){
+			a.close();
+		}, 3000);
+				
+	});
+
+	$("#demo7").click(function(){
+		DFZ.APP.alert("你好啊",{
+			type : "warn",
+			isBg : false
+		});		
+				
+	});
+
+	$("#demo8").click(function(){
+		DFZ.APP.alert("你好啊",{
+			type : "success",
+			ok_label : "我是确定",
+			isBg : true
+		});		
+				
+	});
+
+	$("#demo9").click(function(){
+		DFZ.APP.warn("我是警告提示框", function(){
+			alert("我是回调参数");
+		});		
+				
+	});
+
+	$("#demo10").click(function(){
+		DFZ.APP.success("成功啦", function(){
+			alert("我是回调参数");
+		});		
+				
+	});
+
+
+	$("#demo11").click(function(){
+		DFZ.APP.error("错误啦", function(){
+			alert("我是回调参数");
+		});		
+				
+	});
+
+	$("#demo12").click(function(){
+		DFZ.APP.question("疑问啦", function(){
+			alert("我是回调参数");
+		});		
+				
+	});
+
+	$("#demo13").click(function(){
+		DFZ.APP.confirm("我是谁？？我是谁？？？我是谁？？？我是谁？？？我是谁？？？我是谁？？？？<input id='i11'>",{
+			ok_label : "我是确认",
+			ok_callback : function(){
+				alert("我是确认的回调函数 所填写的内容为" + $("#i11").val());
+			},
+			cancel_label : "我是取消",
+			cancel_callback : function(){
+				alert("我是取消的回调函数");
+			}			
+		});	
+				
+	});
+
+	
+});
+</script>
+</html>

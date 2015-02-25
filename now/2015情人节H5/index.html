@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="GB2312">
+<meta http-equiv="cache-control" content="no-cache"/>
+<meta name="format-detection" content="telephone=no"/>
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0"> 
+<title>没有对象的情人节不是好春节</title>
+<meta name="keywords" content="情人节,新浪江苏" />
+<meta name="description" content="没有对象的情人节不是好春节" />
+<meta name="author" content="NorthWind" />
+<link rel="stylesheet" type="text/css" href="http://jiangsu.sinaimg.cn/zt/s/css/reset.css">                         <!-- reset -->
+<script src="http://jiangsu.sinaimg.cn/js/jquery1.11.1.min.js"></script>
+<script src="http://jiangsu.sinaimg.cn/js/jquery.transit.min.js"></script>
+<link rel="stylesheet" href="http://jiangsu.sinaimg.cn/js/idangerous.swiper.css">
+<script src="http://jiangsu.sinaimg.cn/js/idangerous.swiper.min.js"></script>
+<!-- 自适应缩放css -->
+<style type="text/css">
+body{ overflow-x: hidden; background-color: #FFADC4; max-width: 640px; margin: 0 auto; font-family: "Microsoft Yahei"; }
+.swiper-container{ width: 640px; height: 1080px; -webkit-transform-origin: top left; margin: 0; background:url("http://jiangsu.sinaimg.cn/zt/s/2015valentine/images/bg.png") no-repeat 0 230px #ffadc4;
+-webkit-transition: background-color 1.2s;
+}
+.swiper-wrapper *{ -webkit-backface-visibility: hidden;} /* 避免ip4Safari闪动 */
+.page-provider{ position:absolute;top:0; text-align: center; width: 100%; font-size: 12px;line-height: 80px; color: #e5d2d4; }
+.page-provider#page-provider-bottom{ top:auto; bottom: 0; }
+.swiper-slide{ width: 640px; height: 1080px; position: relative; overflow: hidden; }
+</style>
+<style type="text/css">
+.swiper-slide{ background-size:100%; }
+#s11{background:url("http://jiangsu.sinaimg.cn/zt/s/2015valentine/images/11_5.jpg") no-repeat center top;}
+.flash{ -webkit-animation: flash 2.9s linear 0s infinite normal; }
+.e11_1{ -webkit-animation: zip 2.9s linear 0s infinite normal; }
+.e11_2{ -webkit-animation: zip 2.9s linear 0.6s infinite normal; }
+
+.abso{ position:absolute;}
+
+/* Bottom Arrow */
+.btnBottom{ position:absolute; font-size:24px; bottom: 1%; text-align:center; width: 100%;color: #FFF;text-shadow: 0 1px 0px #000;-webkit-animation-name:btnBottom;-webkit-animation-duration:1.8s;-webkit-animation-timing-function:linear;-webkit-animation-delay:0s;-webkit-animation-iteration-count:infinite;-webkit-animation-direction:normal;-webkit-animation-play-state:running;}
+@-webkit-keyframes btnBottom /* Safari and Chrome */
+{
+0% {-webkit-transform:translateY(0px); opacity: 0;}
+90% { opacity: 1;}
+100% {-webkit-transform:translateY(-15px); opacity: 0;}
+}
+
+@-webkit-keyframes myscale /*Safari and Chrome*/
+{
+0% { -webkit-transform:scale(1);opacity: 0.2;}
+25% { opacity: 0.3;}	
+50% { -webkit-transform:scale(1.1);opacity: 0.6;}
+75% { -webkit-transform:scale(1.03);opacity: 0.4;}
+100% { -webkit-transform:scale(1);opacity: 0.2;}
+}
+
+@-webkit-keyframes flash {
+  0% {    opacity:1;  }
+  3% {    opacity:0;  }
+  6% {   opacity:1;  }
+  9% {   opacity:0;  }
+  13% {    opacity: 0;  }
+  16% {    opacity:1;  }
+  100% {    opacity:1;  }
+}
+@-webkit-keyframes zip {
+  0% {    opacity:1;    -webkit-transform:  scaleX(1.00) scaleY(1.00) ;  }
+  5% {    -webkit-transform:  scaleX(1.04) scaleY(0.83) ;  }
+  10% {    -webkit-transform:  scaleX(1.00) scaleY(1.15) ;  }
+  15% {    -webkit-transform:  scaleY(0.93) ;  }
+  20% {    -webkit-transform:  scaleY(1.06) ;  }
+  25% {    opacity:1;    -webkit-transform:  scaleX(1.00) scaleY(1.00) ;  }
+  100% {    opacity:1;    -webkit-transform:  scaleX(1.00) scaleY(1.00) ;  }
+}
+
+.swinglr{
+	transform: translate(0px, 0px);
+	-webkit-transform-origin: bottom center;
+	-webkit-animation: swinglr 0.9s ease-in-out 0.6s infinite alternate;
+}
+
+@-webkit-keyframes swinglr {
+  0% { -webkit-transform: rotate(-2deg); }
+  10% { -webkit-transform: rotate(-2deg); }
+  90% { -webkit-transform: rotate(2deg); }
+  100% { -webkit-transform: rotate(2deg); }
+}
+
+@-webkit-keyframes flyr2l {
+  0% { -webkit-transform: translateX(640px);}
+  100% { -webkit-transform: translateX(-640px); }
+}
+@-webkit-keyframes show {
+  0% { opacity:0; }
+  100% { opacity:1; } 
+}
+.l_danmu{ font-size: 15px; font-weight: bold; color:#FFF; text-shadow: 0 0 1px #000,0 0 1px #000,0 0 1px #000,0 0 1px #000,0 0 1px #000,0 0 1px #000,0 0 1px #000,0 0 1px #000,0 0 1px #000,0 0 1px #000;  text-align: center;width: auto; line-height: 1.2em;}
+.danmu{ font-size: 30px; font-weight: bold; color:#FFF; text-shadow: 0 0 3px #000,0 0 3px #000,0 0 3px #000,0 0 3px #000,0 0 3px #000,0 0 3px #000,0 0 3px #000,0 0 3px #000,0 0 3px #000,0 0 3px #000;  text-align: center;width: auto; line-height: 1.2em;}
+.dm1{ position: absolute; width: 100%;  }
+.dm2{ position: absolute; width: 100%; top: 1.2em; color: #0068b7; }
+.dm3{ position: absolute; width: 100%; top: 2.4em; color: #F00; }
+.dm4{ position: absolute; top: 1.1em; }
+.dm5{ position: absolute; top: 0.9em; } 
+.dm6{ position: absolute; top: 6em; color: #F00; }
+.dm7{ position: absolute; top: 7.2em;}
+.dm8{ position: absolute; top: 10.8em;}
+
+.dm1.ani{ -webkit-animation:show 0.1s steps(1, end) 0s 1 normal; }
+.dm2.ani{ -webkit-animation:show 0.3s steps(1, end) 0s 1 normal; }
+.dm3.ani{ -webkit-animation:show 1.4s steps(1, end) 0s 1 normal; }
+.dm4.ani{ -webkit-animation:flyr2l 8s linear 0s infinite normal; }
+.dm5.ani{ -webkit-animation:flyr2l 6.3s linear 0s infinite normal; }
+.dm6.ani{ -webkit-animation:flyr2l 7.3s linear 0s infinite normal; }
+.dm7.ani{ -webkit-animation:flyr2l 5s linear 0s infinite normal; }
+.dm8.ani{ -webkit-animation:flyr2l 7s linear 0s infinite normal; }
+
+.loadingPage{ width: 100%;height: 100%; top: 0; left: 0;z-index: 100; background-color: #FFADC4; position: absolute; }
+.loadico{ position: absolute; top: 40%; left:0; right:0; margin: auto; }
+.loadtext{ position: absolute; top: 70%; left:0; right:0; margin: auto; color: #FFF; font-size: 26px;text-align: center;}
+
+.l_dm1{ -webkit-animation:show 0.01s steps(1, end) 0s 1 normal; color: #F00;}
+.l_dm2{ -webkit-animation:show 0.4s steps(1, end) 0s 1 normal; }
+.l_dm3{ -webkit-animation:flyr2l 8s linear 0s infinite normal; width: auto;  color:#00bbea;}
+.l_dm4{ -webkit-animation:flyr2l 13.9s linear 0s infinite normal; width: auto; }
+.l_dm5{ -webkit-animation:flyr2l 16s linear 0s infinite normal; width: auto; }
+.l_dm6{ -webkit-animation:flyr2l 18.3s linear 0s infinite normal; width: auto; }
+</style>
+</head>
+<body ontouchmove="event.preventDefault()"> <!-- 阻止ios浏览器整页上下滑动 -->
+<img alt="ico" src="http://s3img.city.sina.com.cn/activity/common/large/375a12bb1591efe429f0c8574b0fe57c.png" style="position:absolute; top: -500px;">
+	<!-- 
+	* 说明：
+	* 多页面滑动模板，适用于 类ppt 页面
+	* 页面 320x1080 按宽度缩放 
+	* 使用 idangerous.swiper 插件切换页面 ，参数请在下方 【Initialize swiper】中自行更改
+	*
+	 -->
+<div class="loadingPage">
+<svg class="loadico" width="166pt" height="109pt" viewBox="0 0 166 109" version="1.1" xmlns="http://www.w3.org/2000/svg">
+<g id="#ffadc4ff">
+</g>
+<g id="#e5004fff">
+<path fill="#e5004f" opacity="1.00" d=" M 84.68 34.20 C 95.99 13.89 125.33 7.97 144.35 20.68 C 149.27 23.90 153.01 28.66 155.52 33.94 C 151.69 34.36 147.88 35.03 144.04 35.33 C 144.02 34.36 143.97 32.42 143.95 31.45 C 141.44 31.21 140.59 33.12 140.01 35.16 C 136.98 35.19 133.94 35.35 130.91 35.08 C 128.93 35.28 129.15 32.81 128.54 31.61 C 127.90 31.63 126.61 31.68 125.97 31.70 C 125.79 32.45 125.42 33.95 125.24 34.71 C 120.51 34.60 115.95 31.78 111.23 33.22 C 111.23 35.04 111.27 36.86 111.38 38.68 C 116.29 38.32 121.26 37.32 126.10 38.71 C 126.22 39.57 126.45 41.28 126.56 42.14 C 124.72 42.25 122.88 42.45 121.09 42.89 C 121.36 44.24 121.63 45.58 121.92 46.92 C 124.75 46.89 127.59 47.04 130.35 47.72 C 129.98 53.70 129.06 59.69 129.25 65.67 C 130.68 65.97 132.14 65.94 133.60 65.98 C 134.71 60.03 134.58 54.01 133.96 48.01 C 136.15 47.69 138.34 47.33 140.52 46.94 C 140.12 49.21 141.07 52.29 139.00 53.89 C 137.53 54.22 136.03 54.30 134.55 54.48 C 135.67 58.58 141.34 57.83 144.39 56.56 C 145.35 52.49 145.94 48.25 145.69 44.06 C 145.70 42.14 143.25 42.54 142.00 42.17 C 142.35 41.02 142.70 39.87 143.05 38.72 C 147.56 38.05 152.14 37.85 156.63 36.98 C 158.77 44.51 158.80 53.28 153.72 59.68 C 146.43 69.04 135.06 73.64 124.70 78.69 C 113.68 83.74 103.21 90.12 94.10 98.16 C 91.29 100.59 88.74 103.33 86.66 106.42 C 80.55 98.74 72.42 92.98 63.98 88.13 C 50.02 80.09 33.68 76.37 21.06 65.99 C 21.64 65.77 22.80 65.34 23.38 65.12 C 24.37 58.27 23.99 51.30 23.86 44.40 C 27.19 47.14 31.32 44.82 35.05 44.64 C 39.53 44.55 44.02 44.87 48.43 45.61 C 44.20 45.84 39.99 45.23 35.78 44.88 C 35.92 48.26 36.11 51.73 34.90 54.96 C 33.89 59.08 30.78 62.32 29.98 66.51 C 31.15 66.54 32.33 66.56 33.50 66.58 C 34.96 63.90 36.40 61.20 37.93 58.56 C 40.71 58.59 43.49 58.59 46.27 58.59 C 46.38 60.14 46.36 61.70 46.66 63.23 C 47.84 64.30 49.70 63.80 51.15 64.18 C 51.16 57.75 49.80 51.29 51.00 44.89 C 53.47 44.68 55.95 44.45 58.42 44.19 C 58.05 43.52 57.30 42.18 56.93 41.51 C 52.84 40.99 48.69 42.58 44.64 41.45 C 47.97 40.08 52.78 42.13 55.03 38.90 C 52.37 36.30 47.93 38.21 44.55 37.34 C 48.95 36.30 53.52 36.61 57.99 36.07 C 57.90 35.41 57.71 34.08 57.62 33.41 C 53.71 33.40 49.79 33.52 45.88 33.65 C 45.51 31.07 44.93 28.07 41.63 28.16 C 41.51 29.98 41.41 31.81 41.33 33.63 C 37.59 33.38 33.92 32.34 30.16 32.41 C 29.25 33.54 29.11 34.80 29.74 36.20 C 33.88 36.29 38.09 36.03 42.13 37.19 C 39.03 38.88 35.45 37.06 32.14 37.31 C 32.30 38.00 32.63 39.39 32.79 40.09 C 35.74 40.83 38.78 41.13 41.75 41.77 C 37.49 41.42 33.24 40.88 28.95 40.97 C 28.72 41.46 28.24 42.45 28.00 42.94 C 26.59 42.05 25.18 41.15 23.77 40.25 C 23.70 38.17 23.62 36.09 23.56 34.00 C 22.51 34.00 21.46 34.00 20.41 34.00 C 20.75 44.07 19.95 54.11 19.53 64.14 C 15.90 61.32 13.65 57.00 12.55 52.60 C 10.31 41.36 14.79 28.98 24.08 22.15 C 39.09 10.89 61.60 12.32 75.84 24.21 C 79.34 27.00 82.12 30.55 84.68 34.20 M 84.34 35.52 C 82.63 37.83 81.89 40.81 79.69 42.79 C 76.59 45.68 73.62 48.72 70.31 51.37 C 70.26 52.01 70.16 53.29 70.11 53.92 C 71.34 53.95 72.57 53.96 73.80 53.98 C 76.48 51.43 79.17 48.88 82.13 46.65 C 85.32 49.16 87.63 52.68 91.17 54.76 C 95.48 57.42 100.24 59.44 103.96 62.97 C 105.56 62.95 107.16 62.91 108.76 62.86 C 108.63 61.56 109.59 59.58 108.16 58.77 C 105.10 56.88 101.92 55.18 98.99 53.09 C 94.53 49.80 89.19 47.99 84.82 44.55 C 86.14 42.52 87.68 40.64 89.57 39.11 C 89.84 36.00 87.03 34.57 84.34 35.52 M 15.16 37.33 C 15.79 42.88 14.44 48.38 14.61 53.93 C 15.44 53.95 17.10 54.00 17.92 54.03 C 19.11 48.53 18.54 42.95 17.61 37.46 C 17.00 37.43 15.78 37.36 15.16 37.33 Z" />
+<path fill="#e5004f" opacity="1.00" d=" M 130.76 38.80 C 133.65 38.85 136.54 38.81 139.42 38.61 C 139.04 40.20 138.66 41.79 138.27 43.37 C 135.29 43.44 132.31 43.41 129.34 43.36 C 130.26 42.00 130.67 40.43 130.76 38.80 Z" />
+<path fill="#e5004f" opacity="1.00" d=" M 38.84 50.05 C 40.62 47.42 44.30 48.99 46.93 48.56 C 46.86 49.01 46.70 49.90 46.63 50.35 C 44.03 50.54 41.38 50.77 38.84 50.05 Z" />
+<path fill="#e5004f" opacity="1.00" d=" M 39.95 53.78 C 42.09 53.79 44.22 53.71 46.36 53.58 C 46.38 54.02 46.42 54.91 46.44 55.35 C 43.98 55.46 41.52 55.58 39.06 55.64 C 39.28 55.17 39.73 54.24 39.95 53.78 Z" />
+</g>
+<g id="#ffffffff">
+<path fill="#ffffff" opacity="1.00" d=" M 41.33 33.63 C 41.41 31.81 41.51 29.98 41.63 28.16 C 44.93 28.07 45.51 31.07 45.88 33.65 C 49.79 33.52 53.71 33.40 57.62 33.41 C 57.71 34.08 57.90 35.41 57.99 36.07 C 53.52 36.61 48.95 36.30 44.55 37.34 C 47.93 38.21 52.37 36.30 55.03 38.90 C 52.78 42.13 47.97 40.08 44.64 41.45 C 48.69 42.58 52.84 40.99 56.93 41.51 C 57.30 42.18 58.05 43.52 58.42 44.19 C 55.95 44.45 53.47 44.68 51.00 44.89 C 49.80 51.29 51.16 57.75 51.15 64.18 C 49.70 63.80 47.84 64.30 46.66 63.23 C 46.36 61.70 46.38 60.14 46.27 58.59 C 43.49 58.59 40.71 58.59 37.93 58.56 C 36.40 61.20 34.96 63.90 33.50 66.58 C 32.33 66.56 31.15 66.54 29.98 66.51 C 30.78 62.32 33.89 59.08 34.90 54.96 C 36.11 51.73 35.92 48.26 35.78 44.88 C 39.99 45.23 44.20 45.84 48.43 45.61 C 44.02 44.87 39.53 44.55 35.05 44.64 C 31.32 44.82 27.19 47.14 23.86 44.40 C 23.99 51.30 24.37 58.27 23.38 65.12 C 22.43 65.09 20.53 65.02 19.59 64.98 L 19.53 64.14 C 19.95 54.11 20.75 44.07 20.41 34.00 C 21.46 34.00 22.51 34.00 23.56 34.00 C 23.62 36.09 23.70 38.17 23.77 40.25 C 25.18 41.15 26.59 42.05 28.00 42.94 C 28.24 42.45 28.72 41.46 28.95 40.97 C 33.24 40.88 37.49 41.42 41.75 41.77 C 38.78 41.13 35.74 40.83 32.79 40.09 C 32.63 39.39 32.30 38.00 32.14 37.31 C 35.45 37.06 39.03 38.88 42.13 37.19 C 38.09 36.03 33.88 36.29 29.74 36.20 C 29.11 34.80 29.25 33.54 30.16 32.41 C 33.92 32.34 37.59 33.38 41.33 33.63 M 38.84 50.05 C 41.38 50.77 44.03 50.54 46.63 50.35 C 46.70 49.90 46.86 49.01 46.93 48.56 C 44.30 48.99 40.62 47.42 38.84 50.05 M 39.95 53.78 C 39.73 54.24 39.28 55.17 39.06 55.64 C 41.52 55.58 43.98 55.46 46.44 55.35 C 46.42 54.91 46.38 54.02 46.36 53.58 C 44.22 53.71 42.09 53.79 39.95 53.78 Z" />
+<path fill="#ffffff" opacity="1.00" d=" M 125.97 31.70 C 126.61 31.68 127.90 31.63 128.54 31.61 C 129.15 32.81 128.93 35.28 130.91 35.08 C 133.94 35.35 136.98 35.19 140.01 35.16 C 140.59 33.12 141.44 31.21 143.95 31.45 C 143.97 32.42 144.02 34.36 144.04 35.33 C 147.88 35.03 151.69 34.36 155.52 33.94 C 157.68 33.56 158.12 35.73 156.63 36.98 C 152.14 37.85 147.56 38.05 143.05 38.72 C 142.70 39.87 142.35 41.02 142.00 42.17 C 143.25 42.54 145.70 42.14 145.69 44.06 C 145.94 48.25 145.35 52.49 144.39 56.56 C 141.34 57.83 135.67 58.58 134.55 54.48 C 136.03 54.30 137.53 54.22 139.00 53.89 C 141.07 52.29 140.12 49.21 140.52 46.94 C 138.34 47.33 136.15 47.69 133.96 48.01 C 134.58 54.01 134.71 60.03 133.60 65.98 C 132.14 65.94 130.68 65.97 129.25 65.67 C 129.06 59.69 129.98 53.70 130.35 47.72 C 127.59 47.04 124.75 46.89 121.92 46.92 C 121.63 45.58 121.36 44.24 121.09 42.89 C 122.88 42.45 124.72 42.25 126.56 42.14 C 126.45 41.28 126.22 39.57 126.10 38.71 C 121.26 37.32 116.29 38.32 111.38 38.68 C 111.27 36.86 111.23 35.04 111.23 33.22 C 115.95 31.78 120.51 34.60 125.24 34.71 C 125.42 33.95 125.79 32.45 125.97 31.70 M 130.76 38.80 C 130.67 40.43 130.26 42.00 129.34 43.36 C 132.31 43.41 135.29 43.44 138.27 43.37 C 138.66 41.79 139.04 40.20 139.42 38.61 C 136.54 38.81 133.65 38.85 130.76 38.80 Z" />
+<path fill="#ffffff" opacity="1.00" d=" M 84.34 35.52 C 87.03 34.57 89.84 36.00 89.57 39.11 C 87.68 40.64 86.14 42.52 84.82 44.55 C 89.19 47.99 94.53 49.80 98.99 53.09 C 101.92 55.18 105.10 56.88 108.16 58.77 C 109.59 59.58 108.63 61.56 108.76 62.86 C 107.16 62.91 105.56 62.95 103.96 62.97 C 100.24 59.44 95.48 57.42 91.17 54.76 C 87.63 52.68 85.32 49.16 82.13 46.65 C 79.17 48.88 76.48 51.43 73.80 53.98 C 72.57 53.96 71.34 53.95 70.11 53.92 C 70.16 53.29 70.26 52.01 70.31 51.37 C 73.62 48.72 76.59 45.68 79.69 42.79 C 81.89 40.81 82.63 37.83 84.34 35.52 Z" />
+<path fill="#ffffff" opacity="1.00" d=" M 15.16 37.33 C 15.78 37.36 17.00 37.43 17.61 37.46 C 18.54 42.95 19.11 48.53 17.92 54.03 C 17.10 54.00 15.44 53.95 14.61 53.93 C 14.44 48.38 15.79 42.88 15.16 37.33 Z" />
+</g>
+</svg>
+<div class="loadtext">　Loading...</div>
+
+<div class="l_danmu l_dm1">4G秒开</div>
+<div class="l_danmu l_dm2">好慢</div>
+<div class="l_danmu l_dm3">慢慢慢死了</div>
+<div class="l_danmu l_dm4">卡卡卡卡卡</div>
+<div class="l_danmu l_dm5">6分钟诅咒</div>
+</div>
+	 
+	<div class="swiper-container">
+		<div class="swiper-wrapper">
+			<div class="swiper-slide" id="s1">
+            	<img class="abso" style="top:30px; left:50px;" src="http://jiangsu.sinaimg.cn/zt/s/2015valentine/images/1_1.png" />
+                <img class="abso flash" style="top:-50px; right:20px;" src="http://jiangsu.sinaimg.cn/zt/s/2015valentine/images/1_2.png" />
+                <img class="abso b2t" style="bottom: 10%;left: 0;right: 0;margin: auto;" src="http://jiangsu.sinaimg.cn/zt/s/2015valentine/images/1_3.png" />
+                
+            
+            <div class="btnBottom">
+            	<img src="http://jiangsu.sinaimg.cn/zt/s/jsxwzl/nanjing/images/up.png"><br/>向上滑动</div>
+            </div>
+			<div class="swiper-slide" id="s2">
+            	<img class="abso" style="top:40px; left:50px;" src="http://jiangsu.sinaimg.cn/zt/s/2015valentine/images/2_1.png" />
+                <img class="abso b2t swinglr" style="top:380px; left:30px;" src="http://jiangsu.sinaimg.cn/zt/s/2015valentine/images/2_2.png" />
+            
+            	<div class="btnBottom"><img src="http://jiangsu.sinaimg.cn/zt/s/jsxwzl/nanjing/images/up.png"><br/>向上滑动</div>
+            </div>
+            
+			<div class="swiper-slide" id="s3">
+            	<img class="abso" style="top:40px; left:40px;" src="http://jiangsu.sinaimg.cn/zt/s/2015valentine/images/3_1.png" />
+                <img class="abso b2t" style="left:0px; bottom:0px;" src="http://jiangsu.sinaimg.cn/zt/s/2015valentine/images/3_2.png" />
+            
+            	<div class="btnBottom"><img src="http://jiangsu.sinaimg.cn/zt/s/jsxwzl/nanjing/images/up.png"><br/>向上滑动</div>
+            </div>
+			
+			<div class="swiper-slide" id="s4">
+            	<img class="abso" style="top:90px; left:60px;" src="http://jiangsu.sinaimg.cn/zt/s/2015valentine/images/4_1.png" />
+                <img class="abso b2t" style="top:300px; right:0;" src="http://jiangsu.sinaimg.cn/zt/s/2015valentine/images/4_3.png" />
+                
+                <div class="danmu dm1">有房</div>
+                <div class="danmu dm2">有存款</div>
+                <div class="danmu dm3">有车</div>
+                <div class="danmu dm4">UP主看我看我→_→</div>
+                <div class="danmu dm5">颜值高</div>
+                <div class="danmu dm6">2333</div>
+                <div class="danmu dm7">放着我来！</div>
+                <div class="danmu dm8">年薪十万 </div>
+                
+            
+            	<div class="btnBottom"><img src="http://jiangsu.sinaimg.cn/zt/s/jsxwzl/nanjing/images/up.png"><br/>向上滑动</div>
+            </div>
+			<div class="swiper-slide" id="s5">
+            	<img class="abso" style="top:40px; left:70px;" src="http://jiangsu.sinaimg.cn/zt/s/2015valentine/images/5_1.png" />
+                <img class="abso b2t" style="top:250px; left:100px;" src="http://jiangsu.sinaimg.cn/zt/s/2015valentine/images/5_2.png" />
+            
+            <div class="btnBottom"><img src="http://jiangsu.sinaimg.cn/zt/s/jsxwzl/nanjing/images/up.png"><br/>向上滑动</div>
+            </div>
+			<div class="swiper-slide" id="s6">
+            	<img class="abso" style="top:40px; left:130px;" src="http://jiangsu.sinaimg.cn/zt/s/2015valentine/images/6_1.png" />
+                <img class="abso b2t" style="top:290px; left:260px;" src="http://jiangsu.sinaimg.cn/zt/s/2015valentine/images/6_2.png" />
+                
+            <div class="btnBottom"><img src="http://jiangsu.sinaimg.cn/zt/s/jsxwzl/nanjing/images/up.png"><br/>向上滑动</div>
+            </div>
+			<div class="swiper-slide" id="s7">
+            	<img class="abso" style="top:40px; left:145px;" src="http://jiangsu.sinaimg.cn/zt/s/2015valentine/images/7_1.png" />
+                <img class="abso b2t" style="top:290px; right:0px;" src="http://jiangsu.sinaimg.cn/zt/s/2015valentine/images/7_2.png" />
+            
+            <div class="btnBottom"><img src="http://jiangsu.sinaimg.cn/zt/s/jsxwzl/nanjing/images/up.png"><br/>向上滑动</div>
+            </div>
+			<div class="swiper-slide" id="s8">
+            	<img class="abso" style="top:40px; left:80px;" src="http://jiangsu.sinaimg.cn/zt/s/2015valentine/images/8_1.png" />
+                <img class="abso b2t" style="top:270px; left:240px;" src="http://jiangsu.sinaimg.cn/zt/s/2015valentine/images/8_2.png" />
+            
+            <div class="btnBottom"><img src="http://jiangsu.sinaimg.cn/zt/s/jsxwzl/nanjing/images/up.png"><br/>向上滑动</div>
+            </div>
+			<div class="swiper-slide" id="s9">
+                <img class="abso b2t" style="bottom:0; left:220px;" src="http://jiangsu.sinaimg.cn/zt/s/2015valentine/images/9_2.png" />
+            	<img class="abso" style="top:40px; left:70px;" src="http://jiangsu.sinaimg.cn/zt/s/2015valentine/images/9_1.png" />
+            
+            	<div class="btnBottom"><img src="http://jiangsu.sinaimg.cn/zt/s/jsxwzl/nanjing/images/up.png"><br/>向上滑动</div>
+            </div>
+            <div class="swiper-slide" id="s10">
+            	<img class="abso" style="top:40px; left:40px;" src="http://jiangsu.sinaimg.cn/zt/s/2015valentine/images/10_1.png" />
+                <img class="abso b2t" style="top:320px; right:0;" src="http://jiangsu.sinaimg.cn/zt/s/2015valentine/images/10_2.png" />
+            
+            	<div class="btnBottom"><img src="http://jiangsu.sinaimg.cn/zt/s/jsxwzl/nanjing/images/up.png"><br/>向上滑动</div>
+            </div>
+			<div class="swiper-slide" id="s11">
+                <!-- <img class="abso" style="top:250px; left:160px;" src="http://jiangsu.sinaimg.cn/zt/s/2015valentine/images/11_2.png" /> -->
+                <img class="abso e11_1" style="top:810px; left:100px;cursor: pointer;" onclick="window.open('http://mp.weixin.qq.com/s?__biz=MjM5Nzg4MzU2MA==&mid=205227440&idx=1&sn=349e9feece78fff621491de294eb718b#rd')" src="http://jiangsu.sinaimg.cn/zt/s/2015valentine/images/11_3.png" />
+                <img class="abso e11_2" style="top:810px; left:340px;cursor: pointer;" onclick="window.open('http://mp.weixin.qq.com/s?__biz=MjM5Nzg4MzU2MA==&mid=204338170&idx=1&sn=e0ded5f9ad731fbe1cad6086e7038cf0#rd')" src="http://jiangsu.sinaimg.cn/zt/s/2015valentine/images/11_4.png" />
+                
+                <!-- <div onclick="window.open('http://weibo.com/seiei48');" style="cursor: pointer;position: absolute;bottom: 0;padding: 0.4em;color: #1a1717;font-size: 1.4em;width: 100%;text-align: center;text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.74);">Author　	@Seiei与憋气狗子的修罗场</div> -->
+            	<img class="abso" style="top:110px; right:7%; width:20%;-webkit-animation: myscale 1s linear 0s infinite normal;" src="http://s3img.city.sina.com.cn/activity/common/large/3085b880619d8345daa07f1262159774.png">
+            	<img class="abso" style="top:1%; right:5%; width:15%;opacity: 0.4;" src="http://jiangsu.sinaimg.cn/2015/0207/U11392P1194DT20150207175104.png">
+            </div>
+		</div>
+        
+        <audio id="bgm" src="http://jiangsu.sinaimg.cn/zt/s/music/ztxsyqldsssdndxm_cut.mp3" autoplay="autoplay" loop style="display: none; width: 0; height: 0;"></audio>
+<!-- BGM play/mut Btn -->
+<style>
+.bgm-btn{ position:absolute; top: 10px; left: 10px; width: 60px; height: 60px; background-size: 100%; background-image: url("http://s3img.city.sina.com.cn/activity/common/large/b87f2ad147433f347d7578c1676137b6.png"); z-index: 1;-webkit-animation: myrotate 5s linear 0s infinite normal;}
+.bgm-btn.mut{ background-position: 0px -60px; -webkit-animation: none;}
+
+@-webkit-keyframes myrotate /*Safari and Chrome*/
+{
+0% { -webkit-transform:rotate(1deg);}
+25% { -webkit-transform:rotate(-90deg);}	
+50% { -webkit-transform:rotate(-180deg);}
+75% { -webkit-transform:rotate(-270deg);}
+100% { -webkit-transform:rotate(-360deg);}
+}
+</style>
+<div class="bgm-btn"></div>
+<!-- Touch to play BGM. JS -->
+<script type="text/javascript">
+/* @20141215  Add first-touch check. */
+
+var firstTouch = true;
+$('body').on("touchstart",function(e){
+	if ( firstTouch ) {
+		firstTouch = false;
+		document.getElementById('bgm').play();
+	}else{
+		return;
+	}
+});
+
+$(".bgm-btn").on("touchstart",function(e){  
+	//e.preventDefault();
+	//e.stopPropagation();
+	var dom = document.getElementById('bgm');
+	if( dom.paused ){
+		dom.play();
+		$(".bgm-btn").removeClass("mut");
+	}else{
+		dom.pause();
+		$(".bgm-btn").addClass("mut");
+	}
+});
+</script>
+ 
+
+	</div>
+</body>
+
+
+<!-- Initialize swiper -->
+<script type="text/javascript">
+resetAni();
+var mySwiper;
+window.onload = function() {
+	mySwiper = new Swiper('.swiper-container',{
+		mode:'vertical', //vertical //horizontal
+		mousewheelControl: true, //鼠标滚轮控制
+		keyboardControl: true,   // 键盘控制
+		speed:600,
+		onSlideChangeEnd : Swipercallback
+	});  
+}
+	
+	/* SlideChangeEndCallback */
+	function Swipercallback(p){
+	    var act = p.activeIndex; //slideEndIndex
+	    // todo sth...
+	    resetAni();
+	    
+	    $(".swiper-slide").eq(act).find(".b2t").stop(true,true).css({opacity: 0, y: "30px"}).transition({opacity:1, y: 0},1800);
+
+	    if (act==0) {
+			$(".swiper-container").css("background-color", "#ffadc4");
+		} else if (act==1) {
+			$(".swiper-container").css("background-color", "#b6d464");
+		} else if (act==2) {
+			$(".swiper-container").css("background-color", "#89d7fd");
+		} else if (act==3) {
+			$(".danmu").addClass("ani").css("opacity",1);
+			$(".swiper-container").css("background-color", "#ae6fda");
+		} else if (act==4) {
+			$(".swiper-container").css("background-color", "#ffe19b");
+		} else if (act==5) {
+			$(".swiper-container").css("background-color", "#ffadc4");
+		} else if (act==6) {
+			$(".swiper-container").css("background-color", "#b6d464");
+		} else if (act==7) {
+			$(".swiper-container").css("background-color", "#89d7fd");
+		} else if (act==8) {
+			$(".swiper-container").css("background-color", "#2f2c5b");
+		} else if (act==9) {
+			$(".swiper-container").css("background-color", "#2f2c5b");
+		} else if (act==10) {
+			$(".swiper-container").css("background-color", "#fdaec4");
+			
+		}
+	}
+	
+	function resetAni() {
+		$(".b2t").css({opacity:0});
+		$(".danmu").css("opacity",0).removeClass("ani").stop(true,true);
+	}
+</script>
+
+<!-- page Auto scale -->
+<script type="text/javascript">
+	$(function() {
+		pageAutoScale();
+	});
+	$(window).resize(function() {
+		pageAutoScale();
+	});
+	
+	function pageAutoScale(){
+		var r = document.body.offsetWidth / 640;
+		$(".swiper-container").css("-webkit-transform", "scale(" + r + ")");
+		$("body").height( window.innerHeight ); //修正整数页面高度
+		
+		$(".swiper-slider").css("height",parseInt(window.innerHeight / r) );  //调整页面高度
+		$(".swiper-container").css("height",parseInt(window.innerHeight / r) );  //调整页面高度
+		if (window.innerHeight<=1080*r) {  //当用户显示区域小于1080高度时，调整每页高度。
+			// $(".btnBottom").css("top",(window.innerHeight / r - parseInt($(".btnBottom").css("bottom")) ) );  //下滑动提示箭头位置始终距底
+		}
+	}
+	document.onreadystatechange = function subSomething(){
+		if(document.readyState == "complete"){ 
+			setTimeout(function(){
+				$(".loadingPage").transition({y: -window.innerHeight},800,function(){
+				    var p = {};
+				    p.activeIndex = 0; 
+					Swipercallback(p);
+				});
+	        },300);
+		}
+	}
+</script>
+
+
+</html>

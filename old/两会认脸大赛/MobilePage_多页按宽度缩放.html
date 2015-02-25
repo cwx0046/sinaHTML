@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="GB2312">
+<meta http-equiv="cache-control" content="no-cache"/>
+<meta name="format-detection" content="telephone=no"/>
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0"> 
+<title>请在此插入网页标题</title>
+<meta name="keywords" content="请在此插入关键词" />
+<meta name="description" content="请在此写入一段页面描述" />
+<meta name="author" content="NorthWind" />
+<!-- The man you want to build this page , DOES YOUR EGGS PAIN? shenmegui -->
+<link rel="stylesheet" href="http://jiangsu.sinaimg.cn/zt/s/css/reset.css">
+<script src="http://ria.city.sina.com.cn/s/g=base.js" type="text/javascript"></script>
+<!-- 
+<script src="http://jiangsu.sinaimg.cn/js/jquery1.11.1.min.js"></script>
+<script src="http://jiangsu.sinaimg.cn/js/jquery.transit.min.js"></script>
+ -->
+<link rel="stylesheet" href="http://jiangsu.sinaimg.cn/js/idangerous.swiper.css">
+<script src="http://jiangsu.sinaimg.cn/js/idangerous.swiper.min.js"></script>
+<!-- 自适应缩放css -->
+<style type="text/css">
+body{ overflow-x: hidden; background-color: #000; }
+.swiper-container{ width: 640px; height: 1008px; -webkit-transform-origin: top left; margin: 0; background-color: #fefcef; }
+.swiper-wrapper *{ -webkit-backface-visibility: hidden; } /* 避免ip4Safari闪动 */
+.page-provider{ position:absolute;top:0; text-align: center; width: 100%; font-size: 24px;line-height: 80px; color: #e5d2d4; }
+.page-provider#page-provider-bottom{ top:auto; bottom: 0; }
+.swiper-slide{ width: 640px; height: 1008px; position: relative; overflow: hidden; }
+</style>
+<style type="text/css">
+
+#s1{ background:url("1.jpg") no-repeat center top; position:relative;}
+#s2{ background:url("bg.jpg") repeat 0 0; position:relative;}
+#s3{ background:url("bg.jpg") repeat 0 0; position:relative; }
+ 
+ 
+.abso{ position:absolute;}
+.t-btn{ background-color:#0069b3; display:inline-block; position:relative; height:76px; font: normal 30px/76px "Microsoft YaHei","SimHei"; border-radius:36px; color:#fff;padding: 0 40px; margin:0 10px;}
+.setA{ }
+.setB{}
+
+#s3 .conbox{ width:574px; height:562px; margin:160px auto 0;background:url("3-1.gif") no-repeat center top; position:relative;#s3 }
+#s3 .ansNum{font: normal 60px/26px "Microsoft YaHei","SimHei"; color:#e60012; top:35px; left:349px;}
+
+#s3 .g-btn{ margin:0 10px;}
+#s3 .g-btn img{border-radius:45px;}
+</style>
+</head>
+<body ontouchmove="event.preventDefault()"> <!-- 阻止ios浏览器整页上下滑动 -->
+	<!-- 
+	* 说明：
+	* 多页面滑动模板，适用于 类ppt 页面
+	* 页面 640x1008 按宽度缩放
+	* 使用 idangerous.swiper 插件切换页面 ，参数请在下方 【Initialize swiper】中自行更改
+	*
+	 -->
+	<div class="swiper-container">
+		<!-- 版权声明 -->
+		<div class="page-provider" id="page-provider-top">新浪江苏 SINA 2015</div>
+		<div class="page-provider" id="page-provider-bottom">新浪江苏 SINA 2015</div>
+		<div class="swiper-wrapper">
+		    <!--First Slide-->
+            <div class="swiper-slide swiper-no-swiping" id="s1" onclick="gameStart()">
+				
+			</div>		
+			
+            
+            <div class="swiper-slide swiper-no-swiping" id="s2">
+				<img style="top:200px; left:0px;" class="abso" src="2-1.gif" />
+                <div style="text-align:center; padding-top:160px; position:relative;"><img class="question" src="2-peo.jpg" /></div>
+                <div style=" text-align:center; margin-top:100px;" class="select"><span class="t-btn setA">A、陈绍泽</span>
+                <span class="t-btn setB">B、缪瑞林</span></div>
+                
+			</div>
+			
+			
+			<!--Second Slide-->
+			
+			<div class="swiper-slide swiper-no-swiping" id="s3">
+            	<img class="abso" style="top:10px; right:30px;" src="3-j.png" />
+                <img class="abso" style="top:80px; right:130px;" src="3-j2.png" />
+				<div class="conbox">
+                	<span class="abso ansNum">0</span>
+                    <img class="abso grade" style="top:200px; left:40px;" src="3-s1.gif" />
+                </div>
+                <div style=" text-align:center; margin-top:60px;">
+                    <span class="g-btn"><img src="3-b1.gif" onclick="reset()"/></span>
+                    <span class="g-btn"><img src="3-b2.gif" /></span>
+                </div>
+			</div>
+
+			<!--Etc..-->
+			
+		</div>
+	</div>
+</body>
+
+
+<!-- Initialize swiper -->
+<script type="text/javascript">
+var mySwiper;
+	window.onload = function() {
+		mySwiper = new Swiper('.swiper-container',{
+			// options
+			mode:'vertical', //vertical //horizontal
+			mousewheelControl: true, //鼠标滚轮控制
+			keyboardControl: true,   // 键盘控制
+			noSwiping: true,
+			onSlideChangeEnd : Swipercallback
+		});  
+	}
+	
+	/* SlideChangeEndCallback */
+	function Swipercallback(p){
+	    var act = p.activeIndex; //slideEndIndex
+	    // todo sth...
+	}
+</script>
+
+<!-- page Auto scale -->
+<script type="text/javascript">
+	$(function() {
+		pageAutoScale();
+	});
+	$(window).resize(function() {
+		pageAutoScale();
+	});
+	
+	function pageAutoScale(){
+		var r = document.body.offsetWidth / 640;
+		$(".swiper-container").css("-webkit-transform", "scale(" + r + ")");
+		$("body").height( window.innerHeight ); //修正整数页面高度
+		
+		$(".swiper-slider").css("height",parseInt(window.innerHeight / r) );  //调整页面高度
+		$(".swiper-container").css("height",parseInt(window.innerHeight / r) );  //调整页面高度
+		if (window.innerHeight<=1008*r) {  //当用户显示区域小于1008高度时，调整每页高度。
+			// $(".btnBottom").css("top",(window.innerHeight / r - parseInt($(".btnBottom").css("bottom")) ) );  //下滑动提示箭头位置始终距底
+		}
+	}
+</script>
+<script type="text/javascript">
+var questionOrginalDB = {
+		"name" : "题库",
+		"data" : [  {	question : "./images/ok/1.jpg",
+						answer : "A",
+						options : [ "A、陈绍泽", "B、缪瑞林"]
+					},
+					{	question : "./images/ok/2.jpg",
+						answer : "A",
+						options : [ "A、黄莉新", "B、王燕文"]
+					},
+					{	question : "./images/ok/3.jpg",
+						answer : "B",
+						options : [ "A、缪瑞林", "B、罗志军"]
+					},
+					{	question : "./images/ok/4.jpg",
+						answer : "B",
+						options : [ "A、陈绍泽", "B、缪瑞林"]
+					},
+					{	question : "./images/ok/5.jpg",
+						answer : "A",
+						options : [ "A、王燕文", "B、黄莉新"]
+					},
+					{	question : "./images/ok/6.jpg",
+						answer : "B",
+						options : [ "A、曹新平", "B、曹卫星"]
+					},
+					{	question : "./images/ok/7.jpg",
+						answer : "A",
+						options : [ "A、曹新平", "B、丁大卫"]
+					},
+					{	question : "./images/ok/8.jpg",
+						answer : "B",
+						options : [ "A、董启彬", "B、丁大卫"]
+					},
+					{	question : "./images/ok/9.jpg",
+						answer : "B",
+						options : [ "A、曹新平", "B、董启彬"]
+					},
+					{	question : "./images/ok/10.jpg",
+						answer : "A",
+						options : [ "A、杜国玲", "B、宏强"]
+					},
+					{	question : "./images/ok/11.jpg",
+						answer : "B",
+						options : [ "A、傅自应", "B、费高云"]
+					},
+					{	question : "./images/ok/12.jpg",
+						answer : "B",
+						options : [ "A、公丕祥", "B、傅自应"]
+					},
+					{	question : "./images/ok/13.jpg",
+						answer : "B",
+						options : [ "A、蒋定之", "B、公丕祥"]
+					},
+					{	question : "./images/ok/14.jpg",
+						answer : "A",
+						options : [ "A、宏强", "B、王燕文"]
+					},
+					{	question : "./images/ok/15.jpg",
+						answer : "A",
+						options : [ "A、蒋定之", "B、曲福田"]
+					},
+					{	question : "./images/ok/16.jpg",
+						answer : "B",
+						options : [ "A、蒋定之", "B、蒋宏坤"]
+					},
+					{	question : "./images/ok/17.jpg",
+						answer : "A",
+						options : [ "A、蓝绍敏", "B、李小敏"]
+					},
+					{	question : "./images/ok/18.jpg",
+						answer : "A",
+						options : [ "A、李小敏", "B、李云峰"]
+					},
+					{	question : "./images/ok/19.jpg",
+						answer : "A",
+						options : [ "A、李学勇", "B、傅自应"]
+					},
+					{	question : "./images/ok/20.jpg",
+						answer : "B",
+						options : [ "A、李小敏", "B、李云峰"]
+					},
+					{	question : "./images/ok/21.jpg",
+						answer : "A",
+						options : [ "A、梁保华", "B、李云峰"]
+					},
+					{	question : "./images/ok/22.jpg",
+						answer : "A",
+						options : [ "A、刘忠达", "B、陆志鹏"]
+					},
+					{	question : "./images/ok/23.jpg",
+						answer : "A",
+						options : [ "A、柳玉祥", "B、曲福田"]
+					},
+					{	question : "./images/ok/24.jpg",
+						answer : "B",
+						options : [ "A、刘忠达", "B、陆志鹏"]
+					},
+					{	question : "./images/ok/25.jpg",
+						answer : "B",
+						options : [ "A、王荣平", "B、曲福田"]
+					},
+					{	question : "./images/ok/26.jpg",
+						answer : "A",
+						options : [ "A、史和平", "B、汪泉"]
+					},
+					{	question : "./images/ok/27.jpg",
+						answer : "B",
+						options : [ "A、梁保华", "B、汪泉"]
+					},
+					{	question : "./images/ok/28.jpg",
+						answer : "B",
+						options : [ "A、王立科", "B、王炯"]
+					},
+					{	question : "./images/ok/29.jpg",
+						answer : "B",
+						options : [ "A、王荣平", "B、王立科"]
+					},
+					{	question : "./images/ok/30.jpg",
+						answer : "B",
+						options : [ "A、王炯", "B、王荣平"]
+					},
+					{	question : "./images/ok/31.jpg",
+						answer : "B",
+						options : [ "A、魏国强", "B、王天琦"]
+					},
+					{	question : "./images/ok/32.jpg",
+						answer : "B",
+						options : [ "A、谢正义", "B、魏国强"]
+					},
+					{	question : "./images/ok/33.jpg",
+						answer : "A",
+						options : [ "A、谢正义", "B、朱民"]
+					},
+					{	question : "./images/ok/34.jpg",
+						answer : "B",
+						options : [ "A、徐鸣", "B、徐安"]
+					},
+					{	question : "./images/ok/35.jpg",
+						answer : "A",
+						options : [ "A、徐鸣", "B、徐安"]
+					},
+					{	question : "./images/ok/36.jpg",
+						answer : "A",
+						options : [ "A、徐南平", "B、谢正义"]
+					},
+					{	question : "./images/ok/37.jpg",
+						answer : "B",
+						options : [ "A、许津荣", "B、许洪祥"]
+					},
+					{	question : "./images/ok/38.jpg",
+						answer : "A",
+						options : [ "A、许津荣", "B、王燕文"]
+					},
+					{	question : "./images/ok/39.jpg",
+						answer : "A",
+						options : [ "A、许仲琳", "B、阎立"]
+					},
+					{	question : "./images/ok/40.jpg",
+						answer : "B",
+						options : [ "A、朱民", "B、阎立"]
+					},
+					{	question : "./images/ok/41.jpg",
+						answer : "A",
+						options : [ "A、杨省世", "B、杨新力"]
+					},
+					{	question : "./images/ok/42.jpg",
+						answer : "A",
+						options : [ "A、杨新力", "B、姚建华"]
+					},
+					{	question : "./images/ok/43.jpg",
+						answer : "B",
+						options : [ "A、姚晓东", "B、姚建华"]
+					},
+					{	question : "./images/ok/44.jpg",
+						answer : "B",
+						options : [ "A、朱民阳", "B、姚晓东"]
+					},
+					{	question : "./images/ok/45.jpg",
+						answer : "A",
+						options : [ "A、张国华", "B、张卫国"]
+					},
+					{	question : "./images/ok/46.jpg",
+						answer : "B",
+						options : [ "A、张国华", "B、张敬华"]
+					},
+					{	question : "./images/ok/47.jpg",
+						answer : "A",
+						options : [ "A、张雷", "B、徐鸣"]
+					},
+					{	question : "./images/ok/48.jpg",
+						answer : "A",
+						options : [ "A、张连珍", "B、王燕文"]
+					},
+					{	question : "./images/ok/49.jpg",
+						answer : "B",
+						options : [ "A、朱克江", "B、张卫国"]
+					},
+					{	question : "./images/ok/50.jpg",
+						answer : "A",
+						options : [ "A、张艳", "B、朱晓明"]
+					},
+					{	question : "./images/ok/51.jpg",
+						answer : "B",
+						options : [ "A、赵晓江", "B、章建华"]
+					},
+					{	question : "./images/ok/52.jpg",
+						answer : "B",
+						options : [ "A、张卫国", "B、赵晓江"]
+					},
+					{	question : "./images/ok/53.jpg",
+						answer : "A",
+						options : [ "A、周乃翔", "B、姚晓东"]
+					},
+					{	question : "./images/ok/54.jpg",
+						answer : "A",
+						options : [ "A、朱克江", "B、张卫国"]
+					},
+					{	question : "./images/ok/55.jpg",
+						answer : "A",
+						options : [ "A、朱民", "B、朱民阳"]
+					},
+					{	question : "./images/ok/56.jpg",
+						answer : "B",
+						options : [ "A、章建华", "B、朱民阳"]
+					},
+					{	question : "./images/ok/57.jpg",
+						answer : "A",
+						options : [ "A、朱晓明", "B、张连珍"]
+					},
+					{	question : "./images/ok/58.jpg",
+						answer : "A",
+						options : [ "A、樊金龙", "B、朱民阳"]
+					}
+				 ]
+	};
+	
+var questionDB = {
+		"name" : "打乱后题库",
+		"data" : []
+};
+
+var grade = ["./3-s1.gif","./3-s2.gif","./3-s3.gif"];
+
+
+var user_pressOption = function(dom) {
+	var text = dom.text();
+	$(".t-btn").die();
+	dom.css("backgroundColor","#ed7c2d");
+	
+	//check answer
+	checkAnswer(text);
+
+	setTimeout(function() {
+		//setQuestion
+		setQuestion();
+	}, 400);
+
+};
+
+var currentQuestionIndex = 0;
+var score = 0;
+function checkAnswer(text) {
+	console.log("用户作答" + text + "正确答案："
+			+ questionDB.data[currentQuestionIndex].answer);
+	if (text.substr(0, 1) === questionDB.data[currentQuestionIndex].answer) {
+		score += 1;
+		currentQuestionIndex++;
+	}else{
+		//游戏结束
+		calcTotalScore();
+	}
+}
+
+function setQuestion() {
+	console.log(currentQuestionIndex + "  " + questionDB.data.length)
+	if (currentQuestionIndex >= questionDB.data.length) {
+		//alert("全部回答完毕"+ currentQuestionIndex);
+		calcTotalScore();
+		return false;
+	}
+	var i = currentQuestionIndex;
+	console.log("加载题目" + (i + 1))
+	$(".question").attr("src",questionDB.data[i].question);
+	var options = questionDB.data[i].options;
+	var html = '';
+	for ( var i in options) {
+		html += '<div class="t-btn">' + options[i] + '</div>\r\n';
+	}
+	$(".select").html(html);
+
+	$(".t-btn").each(function() {
+		var optionDom = $(this);
+		var index = optionDom.index();
+		setTimeout(function() {
+			optionDom.addClass("option-show");
+		},  index*110);
+	});
+	
+	$(".t-btn").die().live("click", function() {
+		user_pressOption($(this));
+	});
+}
+
+function calcTotalScore() {
+	mySwiper.swipeTo(2);
+	
+	var scoreDom = $(".ansNum");
+	var gradeDom = $(".grade");
+	
+	scoreDom.html(score);      //设置题目数量
+	if (score >= 31) {
+		gradeDom.attr("src",grade[2]);  
+		//31-57题正确：哇！你真是江苏通！2015年的江苏两会代表你认识X个！--分享到朋友圈 
+	} else if ( score >= 4) {
+		gradeDom.attr("src",grade[1]);
+		//4-30题正确：真不错！2015年江苏的两会代表委员你认识X个！--分享到朋友圈
+	} else {
+		gradeDom.attr("src",grade[0]); 
+		//0-3题正确 ：哎呀，你手滑选错了吧！还不重新来过！--到重头开始选项
+	}
+	
+	
+	return;
+    $.JSONP('http://act.city.sina.com.cn/interface/activity/json_add_signup.php',{
+		act_id : aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa	, //活动id
+		custom_1 : "1"  //参数
+	}, function(bm) { //返回结果
+   		if (bm.error == 0) {
+   			//alert("报名成功");
+   		} else {
+   			//alert(bm.errmsg);
+   		}
+	});
+	
+}
+
+function randomALL(){
+	questionDB.data = [];
+	var orginalData = questionOrginalDB.data;
+	var orginalLength = orginalData.length;
+	var indexArray = [];
+	for (var i = 0; i < orginalLength; i++) {
+		indexArray.push(i);
+	}
+	indexArray.sort(function(){ return 0.5 - Math.random() })
+	
+	for (var i = 0; i < indexArray.length; i++) {
+		var temp = {};
+		//cloneAll(orginalData[indexArray[i]], temp);
+		temp = clone(orginalData[indexArray[i]]);
+		questionDB.data.push(temp);
+	}
+	
+}
+
+function reset() {
+	currentQuestionIndex = 0;
+	score = 0;
+	questionDB.data = [];
+	randomALL();
+	mySwiper.swipeTo(0);
+}
+
+
+function gameStart() {
+	reset();
+	randomALL();
+	setQuestion();
+	mySwiper.swipeTo(1);
+}
+
+function clone(obj){  
+    function Clone(){}  
+    Clone.prototype = obj;  
+    var o = new Clone();  
+    for(var a in o){  
+        if(typeof o[a] == "object") {  
+            o[a] = clone(o[a]);  
+        }  
+    }  
+    return o;  
+} 
+</script>
+
+</html>

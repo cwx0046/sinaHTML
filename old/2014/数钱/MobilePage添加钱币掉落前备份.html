@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="Cache-Control" content="no-cache"/>
+<meta name="format-detection" content="telephone=no"/>
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0"> 
+<title>数钱 对象版</title>
+<meta name="keywords" content="请在此插入关键词" />
+<meta name="description" content="请在此写入一段页面描述" />
+<script src="http://i2.sinaimg.cn/cj/dfz/js/base.js" type="text/javascript"></script>
+<script src="http://jiangsu.sinaimg.cn/js/jquery.transit.min.js"></script>
+
+<style type="text/css">
+body, ul, ol, li, p, h1, h2, h3, h4, h5, h6, table, td, th, form, fieldset, img, dl, dt, dd { margin:0; padding:0; }
+textarea, input, select, body { font-size:12px; }
+select, input { vertical-align:middle; }
+fieldset, img { border:0; }
+ul, ol { list-style:none; }
+img { border:0; }
+a { text-decoration:none; color:#000; }
+a:hover { color:#ffa10d; }
+.fl { float:left; display:inline; }
+.fr { float:right; display:inline; }
+.cb { clear:both; display:block; height:0px; overflow:hidden; width:100%; }
+.clearfix:after { clear:both; content:""; display:block; height:0; }
+</style>
+<style type="text/css">
+.page{
+	width: 320px;
+	height: 480px;
+	position: relative;
+	overflow: hidden;
+	margin: 0 auto;
+}
+
+#page1 {
+	background-color: RGBA(0, 0, 255, 0.5);
+}
+#page2{
+	background-color: RGBA(0, 255, 0, 0.5);
+}
+
+.money {
+	background-image: url("./images/mb0.png");
+	background-size: 100%;
+	width: 190px;
+	height: 386px;
+	position: absolute;
+	/* top: 228px; */
+	bottom: -135px;
+	left: 67px;
+	-webkit-transform: translateZ(0);
+	-moz-transform: translateZ(0);
+	-ms-transform: translateZ(0);
+	transform: translateZ(0);
+}
+
+#totalmoney {
+	width: 100%;
+	text-align: center;
+	color: #FFF;
+	font-size: 48px;
+	margin-top: 100px;
+	text-shadow: 0 1px 0 #cccccc, 0 2px 0 #c9c9c9, 0 6px 1px rgba(0, 0, 0, 0.1), 0 0 5px
+		rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.3), 0 3px 5px
+		rgba(0, 0, 0, 0.2), 0 5px 10px rgba(0, 0, 0, 0.25), 0 20px 20px
+		rgba(0, 0, 0, 0.15);
+	-webkit-user-select: none;
+	user-select: none;
+}
+
+.warp{
+	width: 100%;
+	position: relative;
+	top: 0px;
+}
+.btn{
+	width: 100px;
+	height: 40px;
+	border-radius: 6px;
+	font-size: 24px;
+	line-height: 40px;
+	color: #FFF;
+	text-align: center;
+	background-color: #e64646;
+	box-shadow: 0px 4px 0px #c91b1b,0 4px 6px #555;
+	margin: 0 auto;
+}
+#startbtn{
+	margin-top: 228px;
+}
+.h1{
+	text-align: center;
+	color: #FFF;
+	font-size: 36px;
+	margin-top: 80px;
+}
+#page2,#page3{
+	display: none;
+}
+</style>
+<script type="text/javascript">
+$(document).ready(function() {
+
+});
+</script>
+
+</head>
+<body ontouchstart='return false'>
+	
+	<div id="page1" class="page">
+	<div class="warp">
+		<div class="h1">数钱数到手抽筋</div>
+	</div>
+	<div class="warp">
+		<div class="btn" id="startbtn" onclick="page(2)">开始</div>
+	</div>
+	</div>
+	
+	<div id="page2" class="page">
+		<div style="position: absolute;top: 0;left: 0;z-index: 999; width: 100%;">
+			<div id="totalmoney">￥<span id="moneynum">0</span></div>
+		</div>
+		<div style="position: absolute;top: 0;left: 0;z-index: 999; width: 100%;">
+			<div id="timerblock">剩余时间：<span id="timer">20</span>秒</div>
+		</div>
+		<div class="money" id="m5"></div>
+		<div class="money" id="m4"></div> 
+		<div class="money" id="m3"></div>
+		<div class="money" id="m2"></div>
+		<div class="money" id="m1"></div>
+	</div>
+</body>
+ <script src="./hammer.js"></script> 
+ 
+
+<script type="text/javascript">
+    $(".money").live("touchstart", function() {
+    	$(this).css( 'background-image','url("./images/m0.png")');
+	});
+    
+  	 $(".money").each(function() {
+		var obj = $(this);
+		var container = $(this).get(0),
+        shouts = {}
+		
+        shouts['hold'] = '长按';
+        shouts['tap'] = '点击';
+        shouts['doubletap'] = '双击';
+        shouts['transformstart'] = '转换开始';
+        shouts['transform'] = '转换中';
+        shouts['transformend'] = '转换结束';
+        shouts['dragstart'] = '拖动开始';
+        shouts['drag'] = '拖动中';
+        shouts['dragend'] = '拖动结束';
+        shouts['swipe'] = '快速拖动';
+
+        container.onselectstart = function() { return false; }; // IE fix for doubletap
+        
+        var hammer = new Hammer(container, {
+            tap_max_interval: 700 // seems to bee needed for IE8
+        });
+		
+        
+        var orginalY = obj.position().top;
+        function shout(e){
+            if(e.type == "dragend"){
+            	//console.log("拖动结束");
+            	if(e.distance >= 100 && e.direction == "up"){ //向上拖动了至少100px
+            		//钱币向上飞出
+            		obj.transition({ y: -(obj.position().top+386+228)}, 100, function() {
+            			obj.css("transform","");
+            			obj.css("bottom","-135px");
+            			obj.css("background-image",'url("./images/mb0.png")');
+					});
+            		
+            		moneyPlus();
+            	
+            	}else{
+            		obj.transition({ y: 0 }, 80, function() {
+            			obj.css("transform","");
+            			obj.css("bottom","-135px");
+            			obj.css("background-image",'url("./images/mb0.png")');
+					});
+            	}
+            }
+            if(e.type == "dragstart"){
+            	//console.log("拖动开始");
+            	document.getElementById("m1").style.backgroundImage = 'url("./images/m0.png")';
+            	
+
+            }
+            if(e.type == "drag"){
+            	//console.log("拖动ing");
+            	obj.transition({ y: e.distanceY },0);
+            }
+            if(e.type == "transformstart"){
+            	alert("双指");
+            	
+            }
+            if(e.type == "swipe"){
+            	if(e.distance >= 100 && e.direction == "up"){ //向上拖动了至少100px
+            		//钱币向上飞出
+            		obj.transition({ y: -(obj.position().top+386+228)}, 100, function() {
+            			obj.css("transform","");
+            			obj.css("bottom","-135px");
+            			obj.css("background-image",'url("./images/mb0.png")');
+					});
+            	
+            		moneyPlus();
+            		
+            	}else{
+            		obj.transition({ y: 0 }, 80, function() {
+            			obj.css("transform","");
+            			obj.css("bottom","-135px");
+            			obj.css("background-image",'url("./images/mb0.png")');
+					});
+            	}
+            }
+            if(e.type == "tap"){
+            	obj.css("background-image",'url("./images/mb0.png")');
+            }
+            if(e.type == "doubletap"){
+            	obj.css("background-image",'url("./images/mb0.png")');
+            }
+            
+        }
+
+        var type;
+        for(type in shouts) {
+            hammer['on'+ type] = shout;
+        }
+	});
+  	 
+	var moneynum = 0;
+	function moneyPlus() {
+		moneynum +=100;
+  		document.getElementById("moneynum").innerHTML = moneynum;
+	}
+	
+	function getMoneyNum() {
+		return parseInt(document.getElementById("moneynum").innerHTML);
+	}
+  	
+  	 
+    </script>
+    <script type="text/javascript">
+    var t;
+    var pause = false; //暂停 boolean
+    
+    /* 计时器 */
+    function timer() {
+    	var time = 20;
+    	document.getElementById("timer").innerHTML = time.toFixed(1);
+    	
+    	t = setInterval(function() {
+    		if (pause) {
+    			return;
+    		}
+    		time -= 0.1;
+    		if(time <= 0){
+    			document.getElementById("timer").innerHTML = "0.0";
+    			gamefinish(); //游戏结束
+    			
+    			return;
+    		}
+    		document.getElementById("timer").innerHTML = time.toFixed(1);
+    	}, 100);
+    	
+    }
+    
+       
+    /* 页面切换 */
+    function page(num) {
+    	$("#page"+num).show();
+    	$(".page:not(#page"+num+")").hide();
+    	
+    	if(num == 2){
+    		gamestart();	
+    	}
+	}
+	
+	/* 游戏开始 */
+    function gamestart() {
+    	timer();//计时器
+	}
+    
+	/* 游戏结束 */
+    function gamefinish(){
+    	clearInterval(t);
+    	alert("游戏结束!\n获得￥"+getMoneyNum());
+    	
+    	
+    	//TODO
+    	//游戏重置
+    	
+    	
+    	
+    	/* 
+		//切换到第三页
+		page(3);
+		//alert("厉害～您闯过了"+level+"关！");
+		
+		document.getElementById("timer").innerHTML = "0.0";
+		dataForWeixin.TLTitle = '我找到了'+ (level-1) +'个砳砳，最近这货火爆了，快来调戏他！';
+		dataForWeixin.desc = '我找到了'+ (level-1) +'个砳砳，最近这货火爆了，快来调戏他！';
+		$.JSONP('http://act.city.sina.com.cn/interface/activity/json_add_signup.php',{act_id:6886,custom_1:(level-1)},function(bm){});
+		 */
+    }
+    </script>
+    
+    
+    <script type="text/javascript">
+	$("body").height($(window).height());
+	$(".page").height($(window).height());
+    </script>
+    <script type="text/javascript">
+    (function() {
+		$("#startbtn").live("touchstart",function(){
+			page(2);
+			
+		});
+	})();
+    </script>
+</html>

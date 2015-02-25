@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="GB2312">
+<meta http-equiv="Cache-Control" content="no-cache" />
+<meta name="format-detection" content="telephone=no" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="viewport"
+	content="width=device-width, user-scalable=no, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">
+<title>土豪来数钱</title>
+<meta name="keywords" content="土豪来数钱,游戏,数钱,钞票" />
+<meta name="description" content="土豪来数钱小游戏" />
+<script src="http://i2.sinaimg.cn/cj/dfz/js/base.js"
+	type="text/javascript"></script>
+<script src="http://jiangsu.sinaimg.cn/js/jquery.transit.min.js"></script>
+<style type="text/css">
+body, ul, ol, li, p, h1, h2, h3, h4, h5, h6, table, td, th, form, fieldset, img, dl, dt, dd { margin:0; padding:0; }
+textarea, input, select, body { font-size:12px; }
+select, input { vertical-align:middle; }
+fieldset, img { border:0; }
+ul, ol { list-style:none; }
+img { border:0; }
+a { text-decoration:none; color:#000; }
+a:hover { color:#ffa10d; }
+.fl { float:left; display:inline; }
+.fr { float:right; display:inline; }
+.cb { clear:both; display:block; height:0px; overflow:hidden; width:100%; }
+.clearfix:after { clear:both; content:""; display:block; height:0; }
+</style>
+<style type="text/css">
+body{ margin: 0;padding: 0;}
+canvas{
+margin: 0 auto;
+display: block;
+border: 1px solid #999;
+}
+#infobox{
+	height: 14px;
+}
+#fps{
+	position: absolute;top: 0;right: 0;
+}
+</style>
+
+</head>
+<body ontouchstart='return false'>
+	<div id="infobox"><span id="info"></span><span id="fps"></span></div>
+	<canvas id="myCanvas" width="640" height="960" ></canvas>
+</body>
+
+<script type="text/javascript">
+var FPS = 60;
+var myCanvas = document.getElementById("myCanvas");
+var canvas = myCanvas.getContext("2d");
+var CANVAS_WIDTH = canvas.clientWidth;
+var CANVAS_HEIGHT = canvas.clientHeight;
+
+//fps
+var time1 = new Date();
+var time2;
+
+setInterval(function() {
+  update();
+  draw();
+}, 1000/FPS);
+
+var textX = 50;
+var textY = 50;
+
+function update() {
+	text.x += 1;
+	text.y += 1;
+}
+
+function draw() {
+	canvas.clearRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
+	money.draw();
+	
+	text.draw();
+	
+	//计算fps
+	setfps();
+}
+
+var text = {
+	text: "文字绘制",
+	x: 50,
+	y: 50,
+	draw: function() {
+		canvas.fillText( this.text, this.x, this.y);
+	}
+}
+
+var money = {
+	src: "./images/money.png",
+	x: 152,
+	y: 560,
+	width: 336,
+	height: 677,
+	draw: function() {
+		var img = new Image();
+		img.src = this.src;
+		canvas.drawImage(img, this.x, this.y, this.width, this.height);
+	}
+};
+
+function setfps() {
+	time2 = new Date();
+	var _time =time2 - time1;
+	var _fps = 1000/_time;
+	document.getElementById('fps').innerHTML = _fps.toFix(2);
+	time1 = time2;
+}
+
+</script>
+
+<script type="text/javascript">
+
+$(window).resize(resizeCanvas);  
+
+function resizeCanvas() {  
+	//console.log(window.innerWidth+","+window.innerHeight);
+	//canvas.style.width = window.innerWidth+"px";  
+	myCanvas.style.height = window.innerHeight+"px";  
+};  
+
+document.onload = resizeCanvas();
+</script>
+
+
+<script type="text/javascript">
+	var gameon = false;
+	$("canvas").each(
+			function(index) {
+				var obj = $(this);
+
+				obj.add
+				
+				obj.bind("touchstart", function(e) {
+					/* 当按下鼠标时，鼠标相对于DOM的位置固定不变 如下： */
+					/* var mtop = e.originalEvent.changedTouches[0].clientY
+							- obj.offset().top; */
+					
+					obj.bind({
+						"touchmove" : function(e) {
+							/* var top = e.originalEvent.changedTouches[0].clientY
+									- mtop; */
+							var touches = e.originalEvent.changedTouches;
+							var x = touches[0].clientX;
+							var y = touches[0].clientY;
+							console.log(x+','+y);
+							var position = getPointOnCanvas(myCanvas, x, y);
+							info((position.x >> 0) + ',' + (position.y >> 0));
+									
+							//console.log(e.originalEvent.changedTouches);
+							//clientY = e.originalEvent.changedTouches[0].clientY;
+						},
+						"touchend" : function() {
+							obj.unbind('touchmove').unbind('touchend');
+						}
+					}
+
+					);
+
+				});
+
+			});
+	
+	function getPointOnCanvas(canvas, x, y) {
+	    var bbox = canvas.getBoundingClientRect(); //获取canvas位置
+	    console.log("canvas pos:" +bbox.left+','+bbox.top);
+	    return { x: x - bbox.left/*  * (canvas.width  / bbox.width ) */,
+	             y: y - bbox.top/*   * (canvas.height / bbox.height) */
+	           };
+	}
+	
+	function info(string){
+		document.getElementById('info').innerHTML = string;
+	}
+</script>
+<script type="text/javascript">
+	//$("body").height($(window).height());
+	//$(".page").height($(window).height());
+	//$(".content").height($(window).height());
+</script>
+
+</html>

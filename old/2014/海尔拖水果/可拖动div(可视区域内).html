@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=8" />
+<title>请在此插入网页标题</title>
+<script src="http://i2.sinaimg.cn/cj/dfz/js/base.js" type="text/javascript"></script>
+
+<style type="text/css">
+body, ul, ol, li, p, h1, h2, h3, h4, h5, h6, table, td, th, form, fieldset, img, dl, dt, dd { margin:0; padding:0; }
+textarea, input, select, body { font-size:12px; }
+select, input { vertical-align:middle; }
+fieldset, img { border:0; }
+ul, ol { list-style:none; }
+img { border:0; }
+a { text-decoration:none; color:#000; }
+a:hover { color:#ffa10d; }
+.fl { float:left; display:inline; }
+.fr { float:right; display:inline; }
+.cb { clear:both; display:block; height:0px; overflow:hidden; width:100%; }
+.clearfix:after { clear:both; content:""; display:block; height:0; }
+</style>
+<style type="text/css">
+body{
+	background-color: #20A5F0
+}
+.dragBox{
+	position: absolute;
+	width: 300px;
+	height: 230px; 
+	left: 200px;
+	top: 200px;
+	background-color: #ddd;
+	cursor: move;
+}
+.titlebar{
+	background-color: #c2c2c2;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	cursor: default; 
+}
+.closebtn{
+	float: right;
+	display: inline-block;
+	background-color: #c75050;
+	color: #FFF;
+}
+.closebtn:hover{
+	background-color: #e03636;
+}
+
+
+
+</style>
+</head>
+<body>
+	<div id="log"></div>
+	<div class="dragBox">
+		<div class="titlebar">
+			<div class="titletext">
+				Title
+				<div class="closebtn" onclick="closeWindow()">×</div>
+			</div>
+		</div>
+		<div class="boxbody">
+			<textarea rows="" cols=""  style="width: 246px; height: 118px; margin: 0 auto; display: block; resize:none;"></textarea>
+			<input type="button" value="确定" style="margin: 0 auto; display: block;">
+		</div>
+	</div>
+
+
+
+</body>
+<script type="text/javascript">
+		var dom = $(".dragBox");
+		dom.live("mousedown" , function(e) {
+				var item = $(this);
+				/* 当按下鼠标时，鼠标相对于DOM的位置固定不变 如下： */
+				var mtop = e.clientY - item.offset().top;
+				var mleft = e.clientX - item.offset().left;
+					
+				$(document).bind({mousemove : function(e1){
+					var ctop = e1.clientY;
+					var cleft = e1.clientX;
+					var top = e1.clientY - mtop;   
+					var left = e1.clientX - mtop;
+					
+					/* 允许溢出 */
+					/*
+					top = item.css("top", e1.clientY - mtop);
+					left = item.css("left", e1.clientX - mleft); // page相对于html页面，client相对于当前显示区域
+					 */
+					 
+					/* 不允许溢出 */
+					top = ((e1.clientY - mtop) > 0) ? e1.clientY - mtop : 0; // top
+					left = ((e1.clientX - mleft) > 0) ? e1.clientX - mleft : 0; // left
+					top = ((top + item.height()) <  $(document).height()) ? top :  $(document).height() - item.height(); //bottom
+					left = ((left + item.width()) <  $(document).width()) ? left :  $(document).width() - item.width(); //right
+					
+					
+					item.css("top",top);
+					item.css("left",left);
+					
+					log("鼠标在DOM内坐标：x:" + mleft + ",y:" + mtop +
+						"<br>DOM相对窗口坐标：x:" + left + ",y:" + top +
+						"<br>鼠标相对窗口坐标：x:" + cleft + ",y:" + ctop);
+				}, mouseup : function(){
+					$(document).unbind('mousemove').unbind('mouseup');
+				}});
+				
+		})
+	
+		
+	function log(str) {
+		document.getElementById('log').innerHTML = str;
+	}
+</script>
+<script type="text/javascript">
+function closeWindow() {
+	$(".dragBox").animate({"height":"-20px","opacity":"0"},400,function(){$(this).hide();});
+}
+
+</script>
+</html>
+
+

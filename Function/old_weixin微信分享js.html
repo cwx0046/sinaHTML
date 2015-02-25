@@ -1,0 +1,54 @@
+<!-- 微信分享js -->
+<script type="text/javascript">
+/*
+ * 发送给朋友   包含 1.标题 2.图片 3.描述文字
+ * 分享到朋友圈 包含 1.文字 2.图片
+ */
+
+var dataForWeixin = {
+	appId : "",            // 应用内部id  例：来自瞎米音乐
+	title : "标题",        // 发送给朋友标题
+	TLImg : "http://jiangsu.sinaimg.cn/2014/0806/U11392P1194DT20140806174931.jpg",   // 图标
+	desc  : "分享内容",    // 发送给朋友文字 seems max 40
+	url   : document.location.href,
+	TLTitle: "朋友圈文字"  // 朋友圈文字 iPhone max 30
+};
+
+var onBridgeReady = function() {
+	
+	//发送给朋友、群组
+	WeixinJSBridge.on('menu:share:appmessage', function(argv) {
+		WeixinJSBridge.invoke('sendAppMessage', {
+			"appid" : dataForWeixin.appId,
+			"img_url" : dataForWeixin.TLImg, // 图片
+			"title" : dataForWeixin.title,   // 标题
+			"desc" : dataForWeixin.desc,     // 分享内容
+			"link" : dataForWeixin.url,
+		},function(){
+			//alert("发送给朋友回调()");
+			//location.href = "http://3g.sina.com";
+		});
+	});
+	
+	//分享到朋友圈
+	WeixinJSBridge.on('menu:share:timeline', function(argv) {
+		WeixinJSBridge.invoke('shareTimeline', {
+			"appid" : dataForWeixin.appId,
+			"title" : dataForWeixin.TLTitle, // 描述文字
+			"img_url" : dataForWeixin.TLImg, // 图片
+			"link" : dataForWeixin.url,
+			"desc" : dataForWeixin.desc,     // 无用！必须存在！分享内容
+		}, function (){
+			//alert("分享到朋友圈回调()");
+		});
+	});
+
+};
+
+if (document.addEventListener) {
+	document.addEventListener('WeixinJSBridgeReady', onBridgeReady, false);
+} else if (document.attachEvent) {
+	document.attachEvent('WeixinJSBridgeReady', onBridgeReady);
+	document.attachEvent('onWeixinJSBridgeReady', onBridgeReady);
+}
+</script>

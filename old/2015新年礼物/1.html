@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="GB2312">
+<meta http-equiv="cache-control" content="no-cache"/>
+<meta name="format-detection" content="telephone=no"/>
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0"> 
+<title>新年礼物大派送，摇一摇，就是这么任性！</title>
+<meta name="keywords" content="请在此插入关键词" />
+<meta name="description" content="请在此写入一段页面描述" />
+<script src="http://ria.city.sina.com.cn/s/g=base.js" type="text/javascript"></script>
+<!-- 
+<script src="http://ria.city.sina.com.cn/s/g=base.js" type="text/javascript"></script>
+<script src="http://jiangsu.sinaimg.cn/js/jquery.transit.min.js"></script>
+ -->
+<script src="http://jiangsu.sinaimg.cn/js/jquery.transit.min.js"></script>
+<style type="text/css">
+body, ul, ol, li, p, h1, h2, h3, h4, h5, h6, table, td, th, form, fieldset, img, dl, dt, dd { margin:0; padding:0; }
+textarea, input, select, body { font-size:12px; }
+select, input { vertical-align:middle; }
+fieldset, img { border:0; }
+ul, ol { list-style:none; }
+img { border:0; }
+a { text-decoration:none; color:#000; }
+a:hover { color:#ffa10d; }
+.fl { float:left; display:inline; }
+.fr { float:right; display:inline; }
+.cb { clear:both; display:block; height:0px; overflow:hidden; width:100%; }
+.clearfix:after { clear:both; content:""; display:block; height:0; }
+</style>
+<!-- 自适应缩放css -->
+<style type="text/css">
+body{ overflow-x: hidden; background-color: #000; }
+.swiper-container{ width: 640px; height: 1008px; -webkit-transform-origin: top left; margin: 0; background-color: #fefcef; }
+.swiper-wrapper *{ -webkit-backface-visibility: hidden; } /* 避免ip4Safari闪动 */
+.page-provider{ position:absolute;top:0; text-align: center; width: 100%; font-size: 24px;line-height: 80px; color: #e5d2d4; }
+.page-provider#page-provider-bottom{ top:auto; bottom: 0; }
+.swiper-slide{ width: 640px; height: 1008px; position: relative; overflow: hidden; }
+</style>
+<style type="text/css">
+.content{ position:relative; height:100%;}
+
+.set{ position:absolute; top:0; width:100%;height:100%;}
+#s1{ background:url("http://jiangsu.sinaimg.cn/2015/0109/U11392P1194DT20150109150539.jpg") no-repeat center top;}
+#s2{ background:url("http://jiangsu.sinaimg.cn/2015/0109/U11392P1194DT20150109150540.jpg") no-repeat center top; display:none;}
+#s3{ background:url("http://jiangsu.sinaimg.cn/2015/0109/U11392P1194DT20150109150541.jpg") no-repeat center top; display:none;}
+#s4{ background:url("http://jiangsu.sinaimg.cn/2015/0109/U11392P1194DT20150109150541_1.jpg") no-repeat center top; display:none; }
+
+#s1 .txt-pro{ position:absolute; top:690px; left:148px; color:#fff; font: normal 34px/26px "Microsoft YaHei","SimHei";}
+#s1 .pic-pro{ position:absolute; top:672px; left:380px;-webkit-animation: myscale 0.2s linear 0s infinite normal;}
+#s2 .pic-win,#s2 .pic-win2{ position:absolute; top:472px; left:170px; display:none;}
+#s2 .pic-win{-webkit-animation: myscale2 1.5s linear 0s infinite normal;}
+
+#s3 .txt-mess{ position:absolute; top:250px; left:222px; color:#fff; font: normal 26px/30px "Microsoft YaHei","SimHei"; text-align:center;}
+#s3 .txt-mess2{ position:absolute; top:612px; left:90px; color:#fff; font: normal 26px/36px "Microsoft YaHei","SimHei";}
+.btn-wrap{ color:#fff; font: normal 26px/42px "Microsoft YaHei","SimHei"; text-align:center; display:inline-block; width:162px; height:42px; border:1px solid #ccc; border-radius:5px;position:absolute; }
+#s3 .btn-know{ top:780px; left:90px;}
+#s3 .btn-again{ top:780px; left:290px;}
+#s4 .btn-know{ top:634px; left:110px;}
+#s4 .btn-again{ top:634px; left:320px;}
+
+.sharePic{position:absolute; top:10px; left:486px; }
+.shareTxt{position:absolute; top:140px; left:416px; -webkit-animation: myscale3 0.5s linear 0s infinite normal;color:#fff; font: normal 28px/26px "Microsoft YaHei","SimHei";}
+
+
+@-webkit-keyframes myscale /*Safari and Chrome*/
+{
+0% { -webkit-transform:rotate(0)}
+25% { }
+50% { -webkit-transform:rotate(10deg)}
+75% { -webkit-transform:rotate(-10deg)}
+100% { -webkit-transform:rotate(0)}
+}
+
+@-webkit-keyframes myscale2 /*Safari and Chrome*/
+{
+0% { -webkit-transform:rotate(0)}
+5% { -webkit-transform:rotate(10deg)}
+10% { -webkit-transform:rotate(-10deg)}
+15% { -webkit-transform:rotate(0deg)}
+75% { -webkit-transform:rotate(0deg)}
+100% { -webkit-transform:rotate(0deg)}
+}
+
+@-webkit-keyframes myscale3 /*Safari and Chrome*/
+{
+0% { -webkit-transform:scale(1)}
+25% {}
+50% { -webkit-transform:scale(1.1)}
+75% {}
+100% { -webkit-transform:scale(1)}
+}
+</style>
+</head>
+<body ontouchmove="event.preventDefault()"> <!-- 阻止ios浏览器整页上下滑动 -->
+	<!-- 
+	* 说明：
+	* 多页面滑动模板，适用于 类ppt 页面
+	* 页面 640x1008 按宽度缩放
+	* 使用 idangerous.swiper 插件切换页面 ，参数请在下方 【Initialize swiper】中自行更改
+	*
+	 -->
+     <img src="http://jiangsu.sinaimg.cn/2015/0109/U11392P1194DT20150109153608.jpg" style="position:absolute;top:-400px;" />
+	<div class="swiper-container">
+		<!-- 版权声明 -->
+		<div class="page-provider" id="page-provider-top">新浪江苏 SINA 2014</div>
+		<div class="page-provider" id="page-provider-bottom">新浪江苏 SINA 2014</div>
+		<div class="content">
+        	<div id="s1" class="set">
+            	<span class="txt-pro">拼手气 摇一摇</span><img class="pic-pro" src="http://jiangsu.sinaimg.cn/2015/0109/U11392P1194DT20150109150543.png" />
+            </div>
+            <div id="s2" class="set">
+            	<img class="pic-win" src="http://jiangsu.sinaimg.cn/2015/0109/U11392P1194DT20150109150543_1.png" />
+                <img class="pic-win2" src="http://jiangsu.sinaimg.cn/2015/0109/U11392P1194DT20150109150543_1.png" />
+            </div>
+            <div id="s3" class="set">
+            	<div class="txt-mess">大众书局目醇<br>
+西餐厅60元<br>
+消费券归我啦</div>
+			<div class="txt-mess2">领取方式：</div>
+
+<div class="winPhone" style=" position:absolute; top:660px; left:90px;"><label style='color:#FFF; font: normal 26px/30px "Microsoft YaHei","SimHei";'>姓&nbsp;&nbsp;&nbsp;&nbsp;名：</label><input id="t_name" name="" type="text" style="width:250px; height:32px; font-size:22px; border:none;"></div>
+<div class="winPhone" style=" position:absolute; top:710px; left:90px;"><label style='color:#FFF; font: normal 26px/30px "Microsoft YaHei","SimHei";'>手机号：</label><input id="t_phone" name="" type="text" style="width:250px;  height:32px; font-size:22px; border:none;"></div>
+    
+    <a href="javascript:;" id="getDataBtn" class="btn-wrap btn-know">提交信息</a>
+    
+    <a href="javascript:;" class="btn-wrap btn-again">再摇一次</a>
+    
+    <img class="sharePic" src="http://jiangsu.sinaimg.cn/2015/0109/U11392P1194DT20150109150542.png" />
+    <span class="shareTxt">分享到朋友圈</span>
+
+            </div>
+            <div id="s4" class="set">
+    <a href="http://mp.weixin.qq.com/s?__biz=MjM5Nzg4MzU2MA==&mid=204195597&idx=1&sn=94a4c084cdd311f60252cc10d513d4f3#rd" class="btn-wrap btn-know" target="_blank">放弃礼物</a>
+    <a href="javascript:;" class="btn-wrap btn-again">再摇一次</a>
+	
+    <img class="sharePic" src="http://jiangsu.sinaimg.cn/2015/0109/U11392P1194DT20150109150542.png" />
+    <span class="shareTxt">分享到朋友圈</span>
+            </div>
+        </div>
+        
+        
+        
+	</div>
+    <audio id="bgm" src="http://jiangsu.sinaimg.cn/zt/s/music/yaoyiyao.mp3" style="display: none; width: 0; height: 0;"></audio>
+    
+</body>
+<!-- page Auto scale -->
+<script type="text/javascript">
+        
+
+	$(function() {
+		pageAutoScale();
+		init();
+		var SHAKE_THRESHOLD = 3000;
+        var last_update = 0;
+        var x = y = z = last_x = last_y = last_z = 0;
+        function init() {
+            if (window.DeviceMotionEvent) {
+                window.addEventListener('devicemotion', deviceMotionHandler, false);
+				//alert(111)
+            } else {
+                alert('not support mobile event');
+            }
+        }
+        function deviceMotionHandler(eventData) {
+            var acceleration = eventData.accelerationIncludingGravity;
+            var curTime = new Date().getTime();
+            if ((curTime - last_update) > 10) {
+                var diffTime = curTime - last_update;
+                last_update = curTime;
+                x = acceleration.x;
+                y = acceleration.y;
+                z = acceleration.z;
+                var speed = Math.abs(x + y + z - last_x - last_y - last_z) / diffTime * 10000;
+
+                if (speed > SHAKE_THRESHOLD) {
+                    yaoyiyao();
+                    //media.setAttribute("src", "http://211.148.5.228:8002/Pages/test/Kalimba.mp3");
+                   // media.load();
+                   //media.play();  
+                }
+                last_x = x;
+                last_y = y;
+                last_z = z;
+            }
+        } 
+		function yaoyiyao()
+		{
+			$("#s1").hide();
+			$("#s2").show();	
+			$(".pic-win2").css({scale: 1.5,opacity:0}).show().transition({scale: 1,opacity:1,delay: 400},500 ,"ease-out",function()
+			{
+				$(this).hide();
+				$(".pic-win").show();
+			});	
+			document.getElementById('bgm').play();
+			window.removeEventListener('devicemotion', deviceMotionHandler, false);
+		}		
+		
+		
+		$(".pic-win").click(function()
+		{
+			$.post("http://jiangsusina.com/2015lifaquan/award.php",function(data)
+			{
+				console.log(data);
+				if(data.err==1)
+				{
+					alert("请明天再来吧！");
+				}else if(data.err==2)
+				{
+					alert("网络错误");
+				}else
+				{
+					$("#s2").hide();
+					if(data.award_id==0)
+					{
+						$("#s4").show();
+					}else if(data.award_id==1)
+					{
+						$("#s3").show();
+						$(".txt-mess").html("大众书局目醇<br/>西餐厅60元<br/>消费券归我啦");
+						document.title = "我摇到大众书局目醇西餐厅60元消费券，你也来拼拼手气吧"
+						//alert("恭喜您获得：大众书局目醇西餐厅60元消费券");
+					}else if(data.award_id==2)
+					{
+						$("#s3").show();
+						$(".txt-mess").html("价值100元<br/>SOPEN<br/>理发券归我啦");
+						document.title = "我摇到了价值100元SOPEN理发券，你也来拼拼手气吧！"
+						//alert("恭喜您获得：价值100元SOPEN理发券");	
+					}else if(data.award_id==3)
+					{
+						$("#s3").show();
+						$(".txt-mess").html("价值380元<br/>SOPEN<br/>护理券归我啦");
+						document.title = "我摇到了价值380元SOPEN护理券，你也来拼拼手气吧！"
+						//alert("恭喜您获得：价值380元SOPEN护理券");	
+					}else if(data.award_id==4)
+					{
+						$("#s3").show();
+						$(".txt-mess").html("价值1660元<br/>LG时尚产业<br/>烫发券归我啦");
+						document.title = "我摇到了价值1660元LG时尚产业烫发券，你也来拼拼手气吧！"
+						//alert("恭喜您获得：价值1660元LG时尚产业烫发券");	
+					}
+				}
+			})
+			if(errMess==1)
+			{
+				$("#s3").show();
+			}else
+			{
+				$("#s4").show();	
+			}
+		})
+		$("#s1").click(function()
+		{
+			document.getElementById('bgm').play();
+			window.removeEventListener('devicemotion', deviceMotionHandler, false);
+		})
+		$(".btn-again").click(function()
+		{
+			location.reload();
+		})
+		$("#getDataBtn").click(function()
+		{
+			var t_name = $('#t_name').val();
+			var t_phone = $('#t_phone').val();
+			
+			if(t_name==""){alert("请填写姓名！"); return false;}
+			var partten = /^1[3,5,7,8]\d{9}$/;
+			if(!partten.test(t_phone)){alert("请填写正确的手机号！"); return false;}	
+			
+			$.JSONP('http://act.city.sina.com.cn/interface/activity/json_add_signup.php',{act_id:9799,custom_1:t_name,custom_2:t_phone},function(bm){
+				if(bm.error==0){
+					alert("提交成功");
+					window.location.href='http://mp.weixin.qq.com/s?__biz=MjM5Nzg4MzU2MA==&mid=204195597&idx=1&sn=94a4c084cdd311f60252cc10d513d4f3#rd'
+				}else{
+					alert(bm.errmsg)
+				}
+			});
+		})
+		
+		
+	});
+	$(window).resize(function() {
+		pageAutoScale();
+	});
+	
+	function pageAutoScale(){
+		var r = document.body.offsetWidth / 640;
+		$(".swiper-container").css("-webkit-transform", "scale(" + r + ")");
+		$("body").height( window.innerHeight ); //修正整数页面高度
+		$(".swiper-container").css("height",parseInt(window.innerHeight / r) );  //调整页面高度
+		if (window.innerHeight<=1008*r) {  //当用户显示区域小于1008高度时，调整每页高度。
+			// $(".btnBottom").css("top",(window.innerHeight / r - parseInt($(".btnBottom").css("bottom")) ) );  //下滑动提示箭头位置始终距底
+		}
+	}
+</script>
+
+
+</html>

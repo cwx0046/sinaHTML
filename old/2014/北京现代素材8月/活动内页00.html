@@ -1,0 +1,724 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="GB2312">
+<meta http-equiv="X-UA-Compatible" content="IE=8" />
+<title>请在此插入网页标题</title>
+<meta name="keywords" content="请在此插入关键词" />
+<meta name="description" content="请在此写入一段页面描述" />
+
+<script src="http://i2.sinaimg.cn/cj/dfz/js/base.js" type="text/javascript"></script>
+
+<style type="text/css">
+body, ul, ol, li, p, h1, h2, h3, h4, h5, h6, table, td, th, form, fieldset, img, dl, dt, dd { margin:0; padding:0; }
+textarea, input, select, body { font-size:12px; }
+select, input { vertical-align:middle; }
+fieldset, img { border:0; }
+ul, ol { list-style:none; }
+img { border:0; }
+a { text-decoration:none; color:#000; }
+a:hover { color:#ffa10d; }
+.fl { float:left; display:inline; }
+.fr { float:right; display:inline; }
+.cb { clear:both; display:block; height:0px; overflow:hidden; width:100%; }
+.clearfix:after { clear:both; content:""; display:block; height:0; }
+</style>
+<!-- document stylesheet -->
+<style type="text/css">
+body{ font-family: "microsoft yahei";}
+.mainbody{ min-width: 832px; height: 3214px; background: url("http://jiangsu.sinaimg.cn/2014/0815/U9263P1194DT20140815095741.jpg") no-repeat center top; }
+.content{ width: 832px; margin: 0 auto; position: relative;} 
+#topwarp{height: 816px;}
+#p1{ height: 647px; /* background-color: RGBA(255,0,0,.5); */}
+#p2{ height: 633px; /* background-color: RGBA(255,255,0,.5); */}
+#p3{ height: 588px; /* background-color: RGBA(255,0,255,.5); */}
+#p4{ height: 460px; /* background-color: RGBA(0,0,255,.5); */}
+
+#register{
+	width: 316px; height: 244px;
+	/* background-color: RGBA(255,255,0,.31); */
+	position: absolute;
+	top: 0;
+	right: 0;
+}
+.r_label{ width: 72px; text-align: right; }
+#register input,#register select,#register option{ 
+width: 224px;
+height: 18px;
+display: block;
+/* font-size: 21px; */
+border: 1px solid #adadad;
+}
+#register select,#register option{
+width: 226px;
+height: 20px;
+}
+
+#register tr{ height: 27px;}
+#r_submit{ width: 136px; height: 40px; background-image: url("http://jiangsu.sinaimg.cn/2014/0815/U9263P1194DT20140815095738.png"); cursor: pointer; font-size: 24px; line-height: 36px; text-align: center;color: #FFF;margin: 24px 0 0 114px;}
+#r_submit:HOVER { background-position: 0 -40px;}
+#r_submit:ACTIVE { background-position: 0 -80px;}
+
+#p2v_bg{ background-color: #00479d; height: 365px; padding-top: 1px;}
+#p2v_content{margin: 9px;}
+#p2v_video{ width: 620px; height: 348px;}
+#p2v_videolist {width: 190px; margin-left: 4px;}
+#p2v_videolist li{ width: 193px; height: 110px;  margin-bottom: 10px; position: relative; cursor: pointer;}
+#p2v_videolist li img{ width: 193px; height: 108px;}
+#p2v_videolist li:hover .smallvideoplaybtn {background-position: 0 -26px;}
+#p2v_videolist li:ACTIVE .smallvideoplaybtn {background-position: 0 -52px;}
+.smallvideoplaybtn {
+width: 39px;
+height: 26px;
+top: 46px;
+left: 80px;
+background-image: url("http://hubei.sinaimg.cn/2014/0722/S122974T1406008277877.png");
+position: absolute;
+}
+</style>
+<!-- stylesheet for jQuery Orbit Plugin 1.2.3 -->
+<style>
+div.orbit-wrapper { position: relative; overflow: visible; width: 900px;height: 442px;  }
+div.orbit { position: relative; overflow: hidden;}
+div.orbit span { display:none;}
+div.orbit a img{ position: absolute; display:block;width: 140px;}
+div.orbit-wrapper h4{ display: none; }
+div.timer {display: none;}
+div.slider-nav { display: block; }
+div.slider-nav span { width: 40px; height: 120px;  color: #fff; text-align: center; position: absolute; z-index: 100; top: 108px; cursor: pointer; text-indent:-9999px;}
+div.slider-nav span.right { right: 15px; background:url('http://jiangsu.sinaimg.cn/2014/0616/U9263P1194DT20140616163759_1.png'); }
+div.slider-nav span.left { left:-50px;background:url('http://jiangsu.sinaimg.cn/2014/0616/U9263P1194DT20140616163759.png'); }
+div.slider-nav span.right:hover {background:url('http://jiangsu.sinaimg.cn/2014/0616/U9263P1194DT20140616163759_1.png') bottom; }
+div.slider-nav span.left:hover {background:url('http://jiangsu.sinaimg.cn/2014/0616/U9263P1194DT20140616163759.png') bottom; }
+</style>
+<!--  视频切换js  -->
+<script type="text/javascript">
+(function(){
+	$("#p2v_videolist li").live("click",function(){
+		/* 每个视频按钮绑定事件，来切换视频 */
+	$("#p2v_videolist li").removeClass("currentvideo");
+	$(this).toggleClass("currentvideo");
+		var videoid=$(this).attr("videoid");
+		changevideo(videoid);
+	});
+})();
+
+/* 新浪视频切换 */
+function changevideo(videoid){
+	var flashPlayer_cont = {
+			container : "sina-video-cont1", //Div容器的id
+			playerWidth : 620, //宽
+			playerHeight : 348, //高
+			width : 0,
+			height : 0,
+			autoLoad : 0, //自动加载
+			autoPlay : 1, //自动播放
+			pid : "1/334".split("/")[0],
+			as : 0, //广告
+			tjAD : 0, //显示擎天柱广告
+			tj : 0, //片尾推荐
+			casualPlay : 1, //任意拖动视频
+			head : 0, //播放片头动画
+			share : 0,
+			singleRss : "http://rss.sina.com.cn/paihang/bn/top/day/new_news.xml.data_utf8",
+			thumbUrl : "http://www.sinaimg.cn/dy/stencil/temp/sina.jpg", //请更改这里的缩略图
+			logo : 0, //显示logo
+			vid : 135156497
+		//视频内部ID号
+		};
+	flashPlayer_cont.vid = videoid;
+	var player_cont_19 = sinaVideoPlayer(flashPlayer_cont);
+	player_cont_19.init();
+}
+</script>
+<!-- jQuery Orbit Plugin 1.2.3 -->
+<script type="text/javascript">
+/* jQuery Orbit Plugin 1.2.3 * www.ZURB.com/playground * Copyright 2010, ZURB
+ * Free to use under the MIT license. */
+(function($) {
+    $.fn.orbit = function(options) {
+      //Defaults to extend options
+      var defaults = {  
+      animation: 'horizontal-push',         // fade, horizontal-slide, vertical-slide, horizontal-push
+      animationSpeed: 600,              // how fast animtions are
+      timer: true,                      // true or false to have the timer
+      advanceSpeed: 4000,               // if timer is enabled, time between transitions 
+      pauseOnHover: false,              // if you hover pauses the slider
+      startClockOnMouseOut: false,      // if clock should start on MouseOut
+      startClockOnMouseOutAfter: 1000,  // how long after MouseOut should the timer start again
+      directionalNav: true,                 // manual advancing directional navs
+      captions: true,                   // do you want captions?
+      captionAnimation: 'fade',             // fade, slideOpen, none
+      captionAnimationSpeed: 600,       // if so how quickly should they animate in
+      frontendWidth: 150,       //frontend Img Width
+      frontendHeight: 200,
+      frontendBorder: '1px solid #d9d9d9',
+      frontendLeft: 75,  //front left
+      backendWidth: 120, //backend Img Width 1
+      backendTop: 20,   //backend Img  1 Position
+      backendLeft: 30, //backend Img  1 left
+      backendLeft3: 150, //backend Img  1 rgiht
+      backendBorder: '1px solid #d9d9d9',    
+      backendWidth2: 90, //backend Img Width 2
+      backendTop2: 40,  // backend Img Position 2      
+      backendLeft4: 210,// backend Img Position right 
+      backendLeft2: 0, //backend Img Position left
+      backendBorder2: '1px solid #d9d9d9',
+      sceneWidth: 300,
+      sceneHeight: 240,
+      afterSlideChange: function(){}        // empty function 
+        };  
+      //Extend those options
+      var options = $.extend(defaults, options); 
+      return this.each(function() {
+      //Global Variables
+      var activeSlide = 2,
+        numberSlides = 0,
+        locked;
+      
+      //Initialize
+      var orbit = $(this).addClass('orbit'),         
+      orbitWrapper = orbit.wrap('<div class="orbit-wrapper" />').parent();
+      //Collect all slides and set slider size of largest image
+      var slides = orbit.find("img");
+      orbit.add(orbitWrapper).width(options.sceneWidth);
+      orbit.height(options.frontendHeight+parseInt(options.frontendBorder)*2);
+      orbitWrapper.height(options.sceneHeight);
+      numberSlides = slides.length;
+      orbitWidth = options.frontendWidth;
+      //Animation locking functions
+      function unlock() {
+          locked = false;
+      }
+      function lock() { 
+          locked = true;
+      }
+    
+
+      if(slides.length == 1) {
+        options.directionalNav = false;
+        options.timer = false;
+      }
+
+
+      //Set initial front photo z-index and fades it in
+      slides.eq(activeSlide)
+        .css({"z-index" : numberSlides , left:options.frontendLeft , "width": options.frontendWidth+"px", top: 0,"border":"none"/* options.frontendBorder */})
+        .fadeIn(function() {
+            slides.eq(activeSlide).siblings().css({"width": options.backendWidth+"px",top:options.backendTop});
+            
+        });
+        slides.eq((activeSlide-2)%numberSlides).css({"left":options.backendLeft2,"z-index" : numberSlides-2,"top":options.backendTop2,"width": options.backendWidth2+"px","border":options.backendBorder2});
+        slides.eq((activeSlide-1)%numberSlides).css({"left":options.backendLeft,"z-index" : numberSlides-1,"top":options.backendTop,"width": options.backendWidth+"px","border":options.backendBorder});
+        slides.eq((activeSlide)%numberSlides).css({"left":options.frontendLeft,"z-index" : numberSlides, "width": options.frontendWidth+"px", top: 0});
+        slides.eq((activeSlide+1)%numberSlides).css({"left":options.backendLeft3,"z-index" : numberSlides-1,"top":options.backendTop,"width": options.backendWidth+"px","border":options.backendBorder});
+        slides.eq((activeSlide+2)%numberSlides).css({"left":options.backendLeft4,"z-index" : numberSlides-2,"top":options.backendTop2,"width": options.backendWidth2+"px","border":options.backendBorder2});
+        
+        for(act=activeSlide+3;act<numberSlides;act++){
+            slides.eq(act%numberSlides).css({"z-index" : numberSlides-3,"top":options.backendTop2});
+        }
+      
+     /* for(act = 1;act<numberSlides;act++){
+        if(act==1) {
+            slides.eq((activeSlide+act-1)%numberSlides).css({"left":0,"z-index" : numberSlides-2,"top":options.backendTop2});
+            slides.eq((activeSlide+act)%numberSlides).css({"left":options.backendLeft2,"z-index" : numberSlides-1,"top":options.backendTop});
+            slides.eq((activeSlide+act+1)%numberSlides).css({"left":options.backendLeft,"z-index" : numberSlides});
+            slides.eq((activeSlide+act+2)%numberSlides).css({"left":options.backendLeft4,"z-index" : numberSlides-1,"top":options.backendTop});
+            slides.eq((activeSlide+act+3)%numberSlides).css({"left":options.backendLeft3,"z-index" : numberSlides-2,"top":options.backendTop2});
+            
+        }
+        /*else {
+            slides.eq((activeSlide+act)%numberSlides).css({"z-index" : act});
+        }*/
+     // }
+      //Timer Execution
+      function startClock() {
+        if(!options.timer  || options.timer == 'false') { 
+            return false;
+        } else if(timer.is(':hidden')) {
+              clock = setInterval(function(e){
+                        shift("next");  
+              }, options.advanceSpeed);             
+        } else {
+              timerRunning = true;
+              pause.removeClass('active')
+              clock = setInterval(function(e){
+                  degrees += 2;
+                  if(degrees > 360) {
+                      rotator.removeClass('move');
+                      mask.removeClass('move');
+                      degrees = 0;
+                      shift("next");
+                  }
+              }, options.advanceSpeed/180);
+                }
+        }
+         function stopClock() {
+           if(!options.timer || options.timer == 'false') { return false; } else {
+              timerRunning = false;
+              clearInterval(clock);
+              pause.addClass('active');
+                 }
+         }  
+      //Timer Setup
+      if(options.timer) {           
+          var timerHTML = '<div class="timer"><span class="mask"><span class="rotator"></span></span><span class="pause"></span></div>'
+          orbitWrapper.append(timerHTML);
+          var timer = orbitWrapper.children('div.timer'),
+            timerRunning;
+          if(timer.length != 0) {
+              var rotator = $('div.timer span.rotator'),
+                mask = $('div.timer span.mask'),
+                pause = $('div.timer span.pause'),
+                degrees = 0,
+                clock; 
+              startClock();
+              timer.click(function() {
+            if(!timerRunning) {
+                startClock();
+            } else { 
+                stopClock();
+            }
+              });
+              if(options.startClockOnMouseOut){
+            var outTimer;
+            orbitWrapper.mouseleave(function() {
+                outTimer = setTimeout(function() {
+                    if(!timerRunning){
+                  startClock();
+                    }
+                }, options.startClockOnMouseOutAfter)
+            })
+            orbitWrapper.mouseenter(function() {
+                clearTimeout(outTimer);
+            })
+              }
+          }
+      }  
+            
+            //Pause Timer on hover
+            if(options.pauseOnHover) {
+                orbitWrapper.mouseenter(function() {
+                    stopClock(); 
+                });
+            }
+      
+      //Caption Setup
+      if(options.captions) {
+          var captionHTML = '<h4></h4><p class="orbit-caption"></p>';
+          orbitWrapper.append(captionHTML);
+          var caption0 = orbitWrapper.children('h4');
+          var caption = orbitWrapper.children('.orbit-caption');
+        setCaption();
+      }
+            
+            //Caption Execution
+      function setCaption() {
+        if(!options.captions || options.captions =="false") {
+            return false; 
+        } else {
+            var _captionTITLE = '<a href="'+slides.eq(activeSlide).parent('a').attr('href')+'" target="_blank">'+slides.eq(activeSlide).parent('a').attr('title')+'</a>'; //get ID from rel tag on image
+                _captionHTML = slides.eq(activeSlide).parent('a').next('span').html(); //get HTML from the matching HTML entity 
+                
+            //Set HTML for the caption if it exists
+            if(_captionTITLE || _captionHTML) {
+                caption0.html(_captionTITLE); // Change HTML in Caption 
+                caption.html(_captionHTML); 
+                  //Animations for Caption entrances
+                if(options.captionAnimation == 'none') {
+                    caption.show();
+                }
+                if(options.captionAnimation == 'fade') {
+                    caption.fadeIn(options.captionAnimationSpeed);
+                }
+                if(options.captionAnimation == 'slideOpen') {
+                    caption.slideDown(options.captionAnimationSpeed);
+                }
+            } else {
+                //Animations for Caption exits
+                if(options.captionAnimation == 'none') {
+                    caption.hide();
+                }
+                if(options.captionAnimation == 'fade') {
+                    caption.fadeOut(options.captionAnimationSpeed);
+                }
+                if(options.captionAnimation == 'slideOpen') {
+                    caption.slideUp(options.captionAnimationSpeed);
+                }
+            }
+                }
+      }
+      
+// ==================
+// ! DIRECTIONAL NAV   
+// ==================
+
+      //DirectionalNav { rightButton --> shift("next"), leftButton --> shift("prev");
+      if(options.directionalNav) {
+        if(options.directionalNav == "false") { return false; }
+          var directionalNavHTML = '<div class="slider-nav"><span class="right">></span><span class="left"><</span></div>';
+          orbitWrapper.append(directionalNavHTML);
+          var leftBtn = orbitWrapper.children('div.slider-nav').children('span.left'),
+            rightBtn = orbitWrapper.children('div.slider-nav').children('span.right');
+          leftBtn.click(function() { 
+              stopClock();
+              shift("prev");
+          });
+          rightBtn.click(function() {
+              stopClock();
+              shift("next")
+          });
+      }
+      
+      
+
+      
+      
+      
+// ====================
+// ! SHIFT ANIMATIONS   
+// ====================
+      
+      //Animating the shift!
+      function shift(direction) {
+                //remember previous activeSlide
+          var prevActiveSlide = activeSlide,
+              nextActiveSlide = activeSlide,
+              prevActiveSlide1 = activeSlide,
+              nextActiveSlide1 = activeSlide,
+            slideDirection = direction;
+          //exit function if bullet clicked is same as the current image
+          if(prevActiveSlide == slideDirection) { return false; }
+          //reset Z & Unlock
+          function resetAndUnlock() {
+              unlock();
+              options.afterSlideChange.call(this);
+          }
+          if(slides.length == "1") { return false; }
+          if(!locked) {
+              lock();
+                     //deduce the proper activeImage
+              if(direction == "next") {
+                activeSlide++
+            prevActiveSlide = (activeSlide-1+numberSlides)%numberSlides;
+            prevActiveSlide1 = (activeSlide-2+numberSlides)%numberSlides;
+                if(activeSlide == numberSlides) {
+                    activeSlide = 0;
+                }
+            nextActiveSlide = (activeSlide+1)%numberSlides;
+            nextActiveSlide1 = (activeSlide+2)%numberSlides;
+            
+              } else if(direction == "prev") {
+             activeSlide--
+             prevActiveSlide = (activeSlide+1)%numberSlides;
+             prevActiveSlide1 = (activeSlide+2)%numberSlides;
+            if(activeSlide < 0) {
+                activeSlide = numberSlides-1;
+            }
+            nextActiveSlide = (activeSlide-1+numberSlides)%numberSlides;
+            nextActiveSlide1 = (activeSlide-2+numberSlides)%numberSlides;
+            
+              } else {
+            activeSlide = direction;
+            if (prevActiveSlide1 < activeSlide) { 
+                slideDirection = "next";
+            } else if (prevActiveSlide1 > activeSlide) { 
+                slideDirection = "prev"
+            }
+              }
+   /* for(act = 1;act<numberSlides;act++){
+        if(act>2 && direction == "prev")
+        slides.eq((activeSlide+act)%numberSlides).css({"left":0});
+        if(act==1 && direction == "prev")
+        slides.eq((activeSlide+act)%numberSlides).css({"z-index" : numberSlides-1});
+        else slides.eq((activeSlide+act)%numberSlides).css({"z-index" : act});
+      }*/
+      
+
+              //fade
+              if(options.animation == "fade") {
+            slides
+                .eq(activeSlide)
+                .css({"opacity" : 0, "z-index" : numberSlides})
+                .animate({"opacity" : 1}, options.animationSpeed, resetAndUnlock);
+              }
+              //push-over
+              if(options.animation == "horizontal-push") {
+
+            
+            if(slideDirection == "next") {
+                slides
+                    .eq(activeSlide)
+                    .css({ "z-index" : numberSlides , "border": options.frontendBorder})
+                  .animate({"left" : options.frontendLeft+"px" , "width": options.frontendWidth+"px" , "top": "0px"}, options.animationSpeed, resetAndUnlock);
+                 slides
+                    .eq(prevActiveSlide).css({"z-index" : numberSlides-1 ,"border": options.backendBorder})
+                    .animate({"left" : options.backendLeft, "width": options.backendWidth+"px",top:options.backendTop+"px"}, options.animationSpeed);
+                slides
+                    .eq(prevActiveSlide1).css({"z-index" : numberSlides-2 ,"border": options.backendBorder2})
+                    .animate({"left" : "0px", "width": options.backendWidth2+"px",top:options.backendTop2+"px"}, options.animationSpeed);
+                slides
+                    .eq(nextActiveSlide).css({"z-index" : numberSlides-1 ,"border": options.backendBorder})
+                    .animate({"left" : options.backendLeft3+"px", "width": options.backendWidth+"px",top:options.backendTop+"px"}, options.animationSpeed);
+                 slides
+                    .eq(nextActiveSlide1).css({"z-index" : numberSlides-2 ,"border": options.backendBorder2})
+                    .animate({"left" : options.backendLeft4+"px", "width": options.backendWidth2+"px",top:options.backendTop2+"px"}, options.animationSpeed);
+                /*slides
+                    .eq((nextActiveSlide+1)%numberSlides).css({ "left" : options.backendLeft+"px" });*/
+                  if(numberSlides>5){
+                     for(j=numberSlides-5;j>=1;j--){
+                        slides.eq((prevActiveSlide1-j+numberSlides)%numberSlides).css({"z-index" : numberSlides-2-j});
+                    }
+                }     
+            }
+            if(slideDirection == "prev") {
+                slides
+                    .eq(activeSlide)
+                    .css({ "z-index" : numberSlides ,"border": options.frontendBorder})
+                    .animate({"left" : options.frontendLeft+"px" , "width": options.frontendWidth+"px", top: "0px"}, options.animationSpeed, resetAndUnlock);
+                slides
+                    .eq(prevActiveSlide).css({"z-index" : numberSlides-1 ,"border": options.backendBorder})
+                    .animate({"left" : options.backendLeft3+"px" , "width": options.backendWidth+"px",top: options.backendTop+"px"}, options.animationSpeed);
+                slides
+                    .eq(prevActiveSlide1).css({"z-index" : numberSlides-2 ,"border": options.backendBorder2})
+                    .animate({"left" : options.backendLeft4+"px" , "width": options.backendWidth2+"px",top: options.backendTop2+"px"}, options.animationSpeed);
+                 slides
+                    .eq(nextActiveSlide1).css({"z-index" : numberSlides-2 ,"border": options.backendBorder2})
+                    .animate({"left" : "0px", "width": options.backendWidth2+"px",top:options.backendTop2+"px"}, options.animationSpeed);
+                 slides
+                    .eq(nextActiveSlide).css({"z-index" : numberSlides-1 ,"border": options.backendBorder})
+                    .animate({"left" : options.backendLeft, "width": options.backendWidth+"px",top:options.backendTop+"px"}, options.animationSpeed);
+                if(numberSlides>5){
+                  slides.eq((prevActiveSlide1+1+numberSlides)%numberSlides).css({"z-index" : numberSlides-4});
+                }
+            }
+          }
+              setCaption();
+          } //lock
+      }//orbit function
+        });//each call
+    }//orbit plugin call
+})(jQuery);
+</script>
+
+<!-- js 根据城市切换经销商 -->
+<script type="text/javascript">
+function changesubselect(){
+	var city = document.getElementById("r_city").value;
+	var shop = document.getElementById("r_saler");
+	var saler = [["淮安润东时代汽车销售服务有限公司","淮安和盛汽车销售服务有限公司","淮安市雨田鸿运汽车销售服务有限公司"],
+	             ["徐州润东洲际汽车销售服务有限公司","徐州润东苏企汽车销售服务有限公司","徐州达骏洲运汽车销售服务有限公司","邳州润东开隆汽车销售有限公司"],
+	             ["宿迁弘翔汽车销售服务有限公司","江苏苏驰汽车销售服务有限公司","泗阳恒辰汽车销售服务有限公司","泗洪苏驰恒祥汽车销售服务有限公司"],
+	             ["连云港华驰汽车销售服务有限公司","连云港现宇汽车销售服务有限公司"]
+	            ];
+	
+	shop.length=0;
+	switch(city)
+	{
+		case "淮安":  
+			for (var i = 0; i < saler[0].length; i++) {
+			   shop.add(new Option(saler[0][i],saler[0][i]));
+			}
+			break;
+		case "徐州":   
+			for (var i = 0; i < saler[1].length; i++) {
+				   shop.add(new Option(saler[1][i],saler[1][i]));
+				}
+				break;
+		case "宿迁":
+			for (var i = 0; i < saler[2].length; i++) {
+				   shop.add(new Option(saler[2][i],saler[2][i]));
+				}
+				break;
+		case "连云港":
+			for (var i = 0; i < saler[3].length; i++) {
+				   shop.add(new Option(saler[3][i],saler[3][i]));
+				}
+				break;
+		default : break;
+	}
+}
+</script>
+<!-- 报名 -->
+<script type="text/javascript">
+function r_submit() {
+	var r_name = $("#r_name").val();
+		if(r_name==""|r_name == null|r_name == undefined)	{alert("请填写您的姓名"); $("#r_name").focus(); return; 	}
+	var r_sex = $("#r_sex").val();
+	var r_phone = $("#r_phone").val(); var partten = /^1[3,5,8]\d{9}$/;
+	 if(!partten.test(r_phone)){alert("请填写正确的手机号！");$("#r_phone").focus();  return;}
+	var r_city = $("#r_city").val();
+	var r_cartype = $("#r_cartype").val();
+	var r_saler = $("#r_saler").val();
+	
+	$.JSONP('http://act.city.sina.com.cn/interface/activity/json_add_signup.php',{
+	    act_id:6768,
+	    name:r_name,
+	    gender:r_sex,
+	    cellphone:r_phone,
+	    custom_1:r_city,
+	    custom_2:r_cartype,
+	    custom_3:r_saler
+	},function(bm){
+        if(bm.error==0){
+            alert("报名成功");
+            }else{
+            alert(bm.errmsg);
+        }
+    }); 
+}
+	
+</script>
+</head>
+<body>
+	<div class="mainbody">
+		<div id="topwarp"></div>
+		
+		<!-- 我要报名register -->
+		<div id="p1">
+			<div class="content">
+				<div id="register">
+					<table>
+						<tr><td class="r_label">姓名：</td><td><input id="r_name" type="text"></td></tr>
+						<tr><td class="r_label">性别：</td><td><select id="r_sex">
+																	<option value="1">男</option>
+																	<option value="2">女</option>
+																</select></td></tr>
+						<tr><td class="r_label">手机：</td><td><input id="r_phone" type="text" maxlength="11"></td></tr>
+						<tr><td class="r_label">城市：</td><td><select id="r_city" onchange="changesubselect()">
+																	<option value="淮安">淮安</option>
+																	<option value="徐州">徐州</option>
+																	<option value="宿迁">宿迁</option>
+																	<option value="连云港">连云港</option>
+																</select></td></tr>
+						<tr><td class="r_label">意向车型：</td><td><select id="r_cartype">
+																	<option value="名图">名图</option>
+																	<option value="全新胜达">全新胜达</option>
+																	<option value="第八代索纳塔">第八代索纳塔	</option>
+																	<option value="ix35">ix35</option>
+																	<option value="途胜">途胜</option>
+																	<option value="悦动">悦动</option>
+																	<option value="朗动">朗动</option>
+																	<option value="新瑞纳/瑞奕">新瑞纳/瑞奕</option>
+																</select></td></tr>
+						<tr><td class="r_label">经销商选择：</td><td><select id="r_saler">
+																	<option value="淮安润东时代汽车销售服务有限公司">淮安润东时代汽车销售服务有限公司</option>
+																	<option value="淮安和盛汽车销售服务有限公司">淮安和盛汽车销售服务有限公司</option>
+																	<option value="淮安市雨田鸿运汽车销售服务有限公司">淮安市雨田鸿运汽车销售服务有限公司</option>
+																</select></td></tr>
+					</table>
+					<div id="r_submit" onclick="r_submit()">提交</div>
+				</div>
+			</div>
+		</div>
+		
+		<!-- 视频欣赏 -->
+		<div id="p2">
+			<div class="content">
+				<div id="p2v_bg">
+					<div id="p2v_content">
+						<div id="p2v_video" class="fl">
+							<script src="http://video.sina.com.cn/js/sinaFlashLoad.js" type="text/javascript"></script>
+							
+							<div>  
+								<div id="sina-video-cont1" class="c_s_01"></div>
+								<script type="text/javascript" >
+									var flashPlayer_cont_19 = {
+											container: "sina-video-cont1",    //Div容器的id
+											playerWidth: 620,        				  //宽
+											playerHeight: 348,                //高
+											width :  0,  
+											height  : 0, 
+											autoLoad: 0,                      //自动加载
+											autoPlay: 1,                      //自动播放
+											pid: "1/334".split("/")[0],
+											as: 0,                            //广告
+											tjAD: 0,                          //显示擎天柱广告
+											tj: 0,                            //片尾推荐
+											casualPlay: 1,                 		//任意拖动视频
+											head: 0,                          //播放片头动画
+											share : 0,
+											singleRss : "http://rss.sina.com.cn/paihang/bn/top/day/new_news.xml.data_utf8",
+											thumbUrl : "http://s3img.city.sina.com.cn/activity/common/large/7ebef364f408fe5143329fff10f189b6.jpg",  //请更改这里的缩略图
+											logo: 0,                          //显示logo
+											vid: 135359250                     //视频内部ID号
+										  	};
+								</script>
+								<script>
+									var player_cont_19 = sinaVideoPlayer(flashPlayer_cont_19);	
+									player_cont_19.init();
+								</script>
+							</div>
+						</div>
+						
+						<!-- 右侧列表 -->
+						<div id="p2v_videolist" class="fl">
+							<!-- 说明：每个li标签是一个视频 ，它的videoid是视频的id编号。编辑请更改其中缩略图的地址 -->
+							<ul>
+								<li videoid="135359268" class="vli"><img alt="" src="http://s3img.city.sina.com.cn/activity/common/large/9b8d871b6008cc1b0f52efa8cdb5e9f0.jpg">
+									<div class="smallvideoplaybtn"></div></li>
+								<li videoid="135357489" class="vli"><img alt="" src="http://s3img.city.sina.com.cn/activity/common/large/230980a03e54b20f1bf742b0b2e52cb0.jpg">
+									<div class="smallvideoplaybtn"></div></li>
+								<li videoid="135359250" class="vli"><img alt="" src="http://s3img.city.sina.com.cn/activity/common/large/7ebef364f408fe5143329fff10f189b6.jpg">
+									<div class="smallvideoplaybtn"></div></li>
+							</ul>
+						</div>
+						
+						
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<!-- 车型图片欣赏 -->
+		<div id="p3">
+			<div class="content">
+				<div>
+					<div class="orbit-wrapper">
+						<div id="featured" class="orbit">
+							<a><img src="http://jiangsu.sinaimg.cn/2014/0815/U9263P1194DT20140815095816.png"></a>
+							<a><img src="http://jiangsu.sinaimg.cn/2014/0815/U9263P1194DT20140815095818.png"></a>
+							<a><img src="http://jiangsu.sinaimg.cn/2014/0815/U9263P1194DT20140815095819.png"></a>
+							<a><img src="http://jiangsu.sinaimg.cn/2014/0815/U9263P1194DT20140815095820.png"></a>
+							<a><img src="http://jiangsu.sinaimg.cn/2014/0815/U9263P1194DT20140815095818.png"></a>
+						</div>
+					</div>
+				</div>
+			
+			</div>
+		</div>
+		
+		<!-- 经销商信息 -->
+		<div id="p4">
+			<div class="content">
+			<img alt="" src="http://jiangsu.sinaimg.cn/2014/0815/U9263P1194DT20140815095739.gif"></div>
+		</div>
+	</div>
+
+</body>
+<script type="text/javascript">
+$('#featured').orbit({
+	frontendWidth: 536,     //frontend Img Width
+	frontendHeight: 371,
+	frontendBorder: '0px solid #d9d9d9',
+	frontendLeft: 184,  //front left
+	
+	backendWidth: 300, //backend Img Width 1
+	backendTop: 70, //backend Img  1 Position
+	backendLeft: 80, //backend Img  1 left
+	backendLeft3: 540, //backend Img  1 rgiht
+	backendBorder: 'none',  
+	
+	backendWidth2: 140, //backend Img Width 2
+	backendTop2: 120,    // backend Img Position 2      
+	backendLeft2: 0, //backend Img Position left
+	backendLeft4: 756,// backend Img Position right 
+	backendBorder2: 'none',
+	
+	sceneWidth: 964,
+	sceneHeight: 600,
+	}); 
+
+</script>
+
+</html>

@@ -1,0 +1,939 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="UTF-8"/>
+<meta http-equiv="Cache-Control" content="no-cache"/>
+<meta content="telephone=no" name="format-detection" />
+<meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=3.0"/>
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="format-detection" content="telephone=no"/>
+<title>红牛时间到_朝焕新能量_能量地图写字楼</title>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<style type="text/css">
+body, ul, ol, li, p, h1, h2, h3, h4, h5, h6, table, td, th, form, fieldset, img, dl, dt, dd { margin:0; padding:0; }
+textarea, input, select, body { font-size:12px; }
+select, input { vertical-align:middle; }
+fieldset, img { border:0; }
+ul, ol { list-style:none; }
+img { border:0; }
+a { text-decoration:none; color:#000; }
+a:hover { color:#ffa10d; }
+.fl { float:left; display:inline; }
+.fr { float:right; display:inline; }
+.red{ color:#a40000;}
+.cb { clear:both; display:block; height:0px; overflow:hidden; width:100%; }
+.clearfix:after { clear: both; content: " "; display: block; height: 0; }
+
+body{ background-color:#003175; color:#fff}
+header{}
+#main{ position:relative;}
+.con1{ margin:0 auto; width:293px;}
+.p1{ line-height:22px;}
+.vote{ position:relative;background:url("http://jiangsu.sinaimg.cn/zt/s/hnsjd/h5/hn_02.gif") no-repeat center 0; background-size:292px auto; height:325px;}
+.vote dl{ position:absolute; text-align:center;}
+.vote dl dt{ font-size:7px;}
+.vote dl dd{border:1px solid #ccc; border-radius:3px; padding:2px; font-size:8px; margin-top:8px;}
+
+.vote dl.v1{ top:32px; left:154px;}
+.vote dl.v1 dd{ margin-top:1px;}
+.vote dl.v2{ top:48px; left:236px;}
+.vote dl.v3{ top:114px; left:252px;}
+.vote dl.v3 dd{ margin-top:1px;}
+.vote dl.v4{ top:183px; left:245px;}
+.vote dl.v5{ top:234px; left:198px;}
+.vote dl.v5 dd{ margin-top:1px;}
+.vote dl.v6{ top:293px; left:143px;}
+.vote dl.v7{ top:247px; left:13px;}
+.vote dl.v7 dd{ margin-top:1px;}
+.vote dl.v8{ top:176px; left:32px;}
+.vote dl.v8 dd{ margin-top:1px;}
+.vote dl.v9{ top:102px; left:26px;}
+.vote dl.v9 dd{ margin-top:1px;}
+.vote dl.v10{ top:52px; left:74px;}
+.vote dl.v2 dd{ margin-top:2px;}
+
+#popbg{ display:none; z-index:998;}
+#popcon{background:url("http://jiangsu.sinaimg.cn/2014/0728/U11392P1194DT20140728001847.jpg") no-repeat center 0; background-size:300px auto; width:300px; height:188px; overflow:hidden; position:relative; display:none; z-index:999;}
+#popcon .poptxt{color:#a40000;font: normal 12px/18px "Microsoft YaHei","SimHei"; padding:74px 20px 0;}
+#popcon .popbtn{ position:absolute; right:30px; bottom:0; cursor:pointer;}
+#popcon .popclosebtn{ position:absolute; right:0px; top:0; cursor:pointer; background: #c75050; color: #FFF; font-size: 18px; line-height: 24px; padding:0 2px; padding-top: 2px\9; text-align: center; font-weight: bold;}
+#popcon .popclosebtn:HOVER{background-color: #e73030;}
+#popcon .popclosebtn:ACTIVE{background-color: #981212;}
+#popcon .popinp{ position:absolute; left:30px; bottom:5px;width:140px; height:20px; display:none;}
+
+.focus{ margin:10px 0 20px;}
+</style>
+<script src="http://i2.sinaimg.cn/cj/dfz/js/base.js" type="text/javascript"></script> 
+<script src="http://jiangsu.sinaimg.cn/z/js/weiboApi.js"></script>
+<script src="http://jiangsu.sinaimg.cn/js/popBox.js" type="text/javascript"></script> 
+<script>
+<!--
+function openLoginDialog(){DFZ.APP.DialogLogin.open();$("#ui-dialog-title-1").html("新浪微博登录");}
+$(function()
+{
+	$.JSONP('http://act.city.sina.com.cn/interface/activity/json_get_user_works.php',{act_id:6311,pcount:9999},function(json)
+	{
+		var jData = json.data;
+		console.log(jData);
+		$(".vote dl dt").each(function(i)
+		{
+			$(this).html(jData[i].vote_count);
+			$(this).attr("sid",jData[i].id);
+		})
+	});
+	
+	$(".popclosebtn").bind('touchend',function(){
+			$.hidePop("popcon","popbg");
+		})
+		
+	$(".vote>dl>dd").bind('touchend',function(){
+	var uinfo = sinaSSOManager.getSinaCookie();
+	  if (!uinfo) {
+			openLoginDialog();
+			return false;
+		} else {
+			var vote_button = $(this).siblings("dt");
+			$.ajax({
+			url: 'http://act.city.sina.com.cn/interface/activity/json_add_vote.php',
+			dataType: 'jsonp',
+			data: {
+				id: vote_button.attr("sid"),
+			},
+			success: function(json) {
+	
+					if(json.error==1){
+						alert(json.errmsg);	
+					}else{
+						vote_button.html((parseInt(vote_button.html())+1));
+						var myArr = ["~","~~","~~~","~~~~","~~~~~","~~~~~~"]
+						var r=parseInt(Math.random()*6);
+						var content = '#红牛时间到#我为南京【'+vote_button.attr("address")+'】点亮了红牛能量，差点就抽中红牛大礼包啦！你在距离哪座写字楼最近呢？赶快招呼身边的小伙伴一起来点亮红牛地图吧，好礼多多等你领~红牛将为点亮能量最多的写字楼，开启史无前例的能量畅饮，并在现场派发中奖奖品哦：'+myArr[r]+'专题链接:http://t.cn/RPtZt0h';
+						addWeiboByCookie ( content ,'http://jiangsu.sinaimg.cn/2014/0727/U11392P1194DT20140727235025.jpg');
+						if(json.draw.is_win==0)
+						{
+							//alert("真可惜，没有中奖，再玩一次，大奖在等你。");
+							$.popBox({popid:'popcon',bgid:'popbg',ishtml:false,width:300,height:188});
+							$(".poptxt").html("您已成功为【"+vote_button.attr("address")+"】点亮红牛能量！\n 差点就抢到红牛大礼包了，再接再厉！\n 7月28日7:30-15:00将在其大堂开展史无前例的免费赠饮活动，叫上你的小伙伴，一起来参加吧！");
+							//窗口关闭事件
+							$(".popbtn").live('touchend',function(){
+								$.hidePop("popcon","popbg");
+							}); 
+						}else
+						{
+							//alert("恭喜你中奖啦，请填写个人资料，以便我们给您发放奖品");
+							$.popBox({popid:'popcon',bgid:'popbg',ishtml:false,width:300,height:188});
+							$(".poptxt").html('您已成功为【'+vote_button.attr("address")+'】点亮红牛能量！\n 恭喜您获得"红牛大礼包一份"！\n 凭手机号码在开展活动的大堂领取。\n 7月28日7:30-15:00将在其大堂开展史无前例的\n 免费赠饮活动，叫上你的小伙伴，一起来参加吧！');
+							$(".popinp").show();
+							
+							//中奖了，【ok】按钮的作用变成提交报名
+							$(".popbtn").unbind();
+							$(".popbtn").live('touchend',function() {
+							    //报名
+							    $.JSONP('http://act.city.sina.com.cn/interface/activity/json_add_signup.php',{
+							    		act_id : 6651, //活动id
+							    		cellphone : parseInt($("#phonenum").val().trim()), //参数 手机号
+							    		custom_1 : vote_button.attr("sid")  //参数 给哪个id投票了?
+							    	}, function(bm) { //返回结果
+							    		if (bm.error == 0) {
+							    			alert("提交成功");
+							    			//窗口关闭事件
+											$.hidePop("popcon","popbg");
+							    		} else {
+							    			alert("您输入的手机号有误，请检查");
+							    		}
+								});
+							});
+						}
+						
+					}
+				}
+			});			
+		}
+	})
+})
+-->
+</script>
+</head>
+<body>
+<div id="popbg"></div>
+<div id="popcon">
+<p class="poptxt">您已成功为【紫峰大厦】点亮红牛能量！
+差点就抢到红牛大礼包了，再接再厉！
+7月28日7:30-15:00将在其大堂开展史无前例的免费赠饮活动，叫上你的小伙伴，一起来参加吧！</p>
+<input class="popinp" id="phonenum" name="" type="text" placeholder="输入手机号">
+<a class="popbtn" href="javascript:void(0);"><img src="http://jiangsu.sinaimg.cn/2014/0728/U11392P1194DT20140728002349.png" width="70" /></a>
+<div class="popclosebtn">×</div>
+</div>
+<div class="clearfix"><img src="http://jiangsu.sinaimg.cn/2014/0730/U11392P1194DT20140730163234.jpg" width="100%" /></div>
+<div class="con1">
+<img src="http://jiangsu.sinaimg.cn/2014/0727/U11392P1194DT20140727200719.jpg" width="293" />
+<p class="p1">齐心协力点亮你所在（附近）的写字楼，红牛能量将为点亮数最多的写字楼开启持续8小时的能量畅饮<br>
+（7月28日-8月1日、8月4日-8月8日期间，每天7:30-15:00）<br><br>
+
+参与点亮红牛地图活动，还有机会获得红牛大礼包，每天抽出5位网友，赠送红牛大礼包一份<br>
+（7月28日-8月1日、8月4日-8月8日期间，在图中指定时间、地点领取）
+</p>
+<div class="vote">
+	<dl class="v1">
+    	<dt address="金山大厦">0</dt>
+        <dd>点击点亮</dd>
+    </dl>
+    <dl class="v2">
+    	<dt address="易发信息大厦">0</dt>
+        <dd>点击点亮</dd>
+    </dl>
+    <dl class="v3">
+    	<dt address="长安国际">0</dt>
+        <dd>点击点亮</dd>
+    </dl>
+    <dl class="v4">
+    	<dt address="长发中心A">0</dt>
+        <dd>点击点亮</dd>
+    </dl>
+    <dl class="v5">
+    	<dt address="苏豪大厦">0</dt>
+        <dd>点击点亮</dd>
+    </dl>
+    <dl class="v6">
+    	<dt address="文化大厦">0</dt>
+        <dd>点击点亮</dd>
+    </dl>
+    <dl class="v7">
+    	<dt address="中泰国际广场">0</dt>
+        <dd>点击点亮</dd>
+    </dl>
+    <dl class="v8">
+    	<dt address="东宇大厦">0</dt>
+        <dd>点击点亮</dd>
+    </dl>
+    <dl class="v9">
+    	<dt address="南京国际贸易">0</dt>
+        <dd>点击点亮</dd>
+    </dl>
+    <dl class="v10">
+    	<dt address="新世界A座">0</dt>
+        <dd>点击点亮</dd>
+    </dl>
+</div>
+<div class="join">
+	<div class="joinTie"><img src="http://jiangsu.sinaimg.cn/2014/0728/U9263P1194DT20140728111902.gif" /></div>
+    <p class="p1">每天当你步入写字楼，发现"红牛时间到"，别犹豫！
+写字楼大堂指定活动区域，只要在PAD上动动手指唤醒TA，即可换取红牛赠饮，唤醒一天新能量！</p>
+<div class=""><img src="http://jiangsu.sinaimg.cn/zt/s/hnsjd/h5/hn4.jpg" width="293" /></div>
+<div class="focus clearfix">
+<div>
+  		<style>
+.mask{width:100%;position:absolute;bottom:0px;}
+.mask-bg{background-color:#000;opacity:.618;filter:alpha(opacity=61.8);position:absolute;width:100%;height:100%;left:0;z-index:2;}
+.mask-c{position:absolute;height:100%;width:100%;z-index:10; padding-left:20px;color:#fff;}
+.mask-c a, .mask-c a:hover,.video a:hover{color:#fff;text-decoration:none;}
+.scroll-pic-w{width:300px;display:inline;float:left;position:relative;overflow:hidden;}
+.scroll-pic{height:200px;overflow:hidden;position:relative;}
+.scroll-pic-i{display:inline;float:left;width:300px;height:200px;position:relative;overflow:hidden;}
+.scroll-pic-i img{display:block;width:300px;height:200px;}
+.scroll-pic-i .mask{height:33px;line-height:33px;font-size:14px;}
+.scroll-nav{position:absolute;width:38px;height:38px;top:75px;}
+.scroll-nav a{display:block;height:100%;text-indent:-9999em;overflow:hidden;opacity:.61;filter:alpha(opacity=61);background:url(http://i1.sinaimg.cn/dy/deco/2013/1030/20131030_lqf_icons.png) no-repeat;}
+.scroll-nav a:hover{opacity:0.81;filter:alpha(opacity=81);}
+.scroll-nav-prev{left:0px;}
+.scroll-nav-prev a{background-position:0px -16px;}
+.scroll-nav-next{right:0px;}
+.scroll-nav-next a{background-position:0px -56px;}
+.scroll-page{  bottom: 0; height: 15px; line-height: 10px; margin-right: 10px; margin-bottom:30px; padding-top: 5px;  position: absolute; right: 0; text-align: right; z-index: 999;}
+.scroll-page span{display:inline-block;overflow:hidden;width:10px;height:10px;background:url(http://s3img.city.sina.com.cn/activity/common/large/fd99e9851afdc2c6cf23bd9639d6b75d.png) no-repeat;cursor:pointer;margin-left:5px;}
+.scroll-page .dotItemOn{background-position:-20px 0px;}
+.new_focus{width:282px;}
+.new_focus .scroll-pic{height:250px;overflow:hidden;position:relative;}
+.new_focus .scroll-pic-i{display:inline;float:left;width:282px;height:250px;position:relative;overflow:hidden;}
+.new_focus .scroll-pic-i img{display:block;width:282px;height:250px;}
+.new_focus .scroll-nav{position:absolute;width:38px;height:38px;top:100px;}
+</style>
+
+<script type="text/javascript" id="cont_102107_34">
+	//ScrollPic
+function ScrollPic(e, t, n, r, i) {
+    this.scrollContId = e,
+    this.arrLeftId = t,
+    this.arrRightId = n,
+    this.dotListId = r,
+    this.listType = i,
+    this.dotClassName = "dotItem",
+    this.dotOnClassName = "dotItemOn",
+    this.dotObjArr = [],
+    this.listEvent = "onclick",
+    this.circularly = !0,
+    this.pageWidth = 0,
+    this.frameWidth = 0,
+    this.speed = 10,
+    this.space = 10,
+    this.upright = !1,
+    this.pageIndex = 0,
+    this.autoPlay = !0,
+    this.autoPlayTime = 5,
+    this._autoTimeObj,
+    this._scrollTimeObj,
+    this._state = "ready",
+    this.stripDiv = document.createElement("DIV"),
+    this.lDiv01 = document.createElement("DIV"),
+    this.lDiv02 = document.createElement("DIV")
+}
+ScrollPic.prototype = {
+    version: "1.44",
+    author: "mengjia",
+    pageLength: 0,
+    touch: !0,
+    scrollLeft: 0,
+    eof: !1,
+    bof: !0,
+    initialize: function() {
+        var e = this;
+        if (!this.scrollContId) throw new Error("±&#216;D&#235;&#214;&#184;&#182;¨scrollContId.");
+        this.scDiv = this.dbj(this.scrollContId);
+        if (!this.scDiv) throw new Error('scrollContId2&#187;ê&#199;&#213;yè·μ&#196;&#182;&#212;&#207;ó.(scrollContId = "' + this.scrollContId + '")');
+        this.scDiv.style[this.upright ? "height": "width"] = this.frameWidth + "px",
+        this.scDiv.style.overflow = "hidden",
+        this.lDiv01.innerHTML = this.scDiv.innerHTML,
+        this.scDiv.innerHTML = "",
+        this.scDiv.appendChild(this.stripDiv),
+        this.stripDiv.appendChild(this.lDiv01),
+        this.circularly && (this.stripDiv.appendChild(this.lDiv02), this.lDiv02.innerHTML = this.lDiv01.innerHTML, this.bof = !1, this.eof = !1),
+        this.stripDiv.style.overflow = "hidden",
+        this.stripDiv.style.zoom = "1",
+        this.stripDiv.style[this.upright ? "height": "width"] = "32766px",
+        this.lDiv01.style.overflow = "hidden",
+        this.lDiv01.style.zoom = "1",
+        this.lDiv02.style.overflow = "hidden",
+        this.lDiv02.style.zoom = "1",
+        this.upright || (this.lDiv01.style.cssFloat = "left", this.lDiv01.style.styleFloat = "left"),
+        this.lDiv01.style.zoom = "1",
+        this.circularly && !this.upright && (this.lDiv02.style.cssFloat = "left", this.lDiv02.style.styleFloat = "left"),
+        this.lDiv02.style.zoom = "1",
+        this.addEvent(this.scDiv, "mouseover",
+        function() {
+            e.stop()
+        }),
+        this.addEvent(this.scDiv, "mouseout",
+        function() {
+            e.play()
+        }),
+        this.arrLeftId && (this.alObj = this.dbj(this.arrLeftId), this.alObj && (this.addEvent(this.alObj, "mousedown",
+        function(t) {
+            e.rightMouseDown(),
+            t = t || event,
+            e.preventDefault(t)
+        }), this.addEvent(this.alObj, "mouseup",
+        function() {
+            e.rightEnd()
+        }), this.addEvent(this.alObj, "mouseout",
+        function() {
+            e.rightEnd()
+        }))),
+        this.arrRightId && (this.arObj = this.dbj(this.arrRightId), this.arObj && (this.addEvent(this.arObj, "mousedown",
+        function(t) {
+            e.leftMouseDown(),
+            t = t || event,
+            e.preventDefault(t)
+        }), this.addEvent(this.arObj, "mouseup",
+        function() {
+            e.leftEnd()
+        }), this.addEvent(this.arObj, "mouseout",
+        function() {
+            e.leftEnd()
+        })));
+        var t = Math.ceil(this.lDiv01[this.upright ? "offsetHeight": "offsetWidth"] / this.frameWidth),
+        n,
+        r;
+        this.pageLength = t;
+        if (this.dotListId) {
+            this.dotListObj = this.dbj(this.dotListId),
+            this.dotListObj.innerHTML = "";
+            if (this.dotListObj) for (n = 0; n < t; n++) r = document.createElement("span"),
+            this.dotListObj.appendChild(r),
+            this.dotObjArr.push(r),
+            n == this.pageIndex ? r.className = this.dotOnClassName: r.className = this.dotClassName,
+            this.listType == "number" ? r.innerHTML = n + 1 : typeof this.listType == "string" ? r.innerHTML = this.listType: r.innerHTML = "",
+            r.title = "第" + (n + 1) + "页",
+            r.num = n,
+            r[this.listEvent] = function() {
+                e.pageTo(this.num)
+            }
+        }
+        this.scDiv[this.upright ? "scrollTop": "scrollLeft"] = 0,
+        this.autoPlay && this.play(),
+        this._scroll = this.upright ? "scrollTop": "scrollLeft",
+        this._sWidth = this.upright ? "scrollHeight": "scrollWidth",
+        typeof this.onpagechange == "function" && this.onpagechange(),
+        this.iPad()
+    },
+    leftMouseDown: function() {
+        if (this._state != "ready") return;
+        var e = this;
+        this._state = "floating",
+        clearInterval(this._scrollTimeObj),
+        this._scrollTimeObj = setInterval(function() {
+            e.moveLeft()
+        },
+        this.speed),
+        this.moveLeft()
+    },
+    rightMouseDown: function() {
+        if (this._state != "ready") return;
+        var e = this;
+        this._state = "floating",
+        clearInterval(this._scrollTimeObj),
+        this._scrollTimeObj = setInterval(function() {
+            e.moveRight()
+        },
+        this.speed),
+        this.moveRight()
+    },
+    moveLeft: function() {
+        if (this._state != "floating") return;
+        this.circularly ? this.scDiv[this._scroll] + this.space >= this.lDiv01[this._sWidth] ? this.scDiv[this._scroll] = this.scDiv[this._scroll] + this.space - this.lDiv01[this._sWidth] : this.scDiv[this._scroll] += this.space: this.scDiv[this._scroll] + this.space >= this.lDiv01[this._sWidth] - this.frameWidth ? (this.scDiv[this._scroll] = this.lDiv01[this._sWidth] - this.frameWidth, this.leftEnd()) : this.scDiv[this._scroll] += this.space,
+        this.accountPageIndex()
+    },
+    moveRight: function() {
+        if (this._state != "floating") return;
+        this.circularly ? this.scDiv[this._scroll] - this.space <= 0 ? this.scDiv[this._scroll] = this.lDiv01[this._sWidth] + this.scDiv[this._scroll] - this.space: this.scDiv[this._scroll] -= this.space: this.scDiv[this._scroll] - this.space <= 0 ? (this.scDiv[this._scroll] = 0, this.rightEnd()) : this.scDiv[this._scroll] -= this.space,
+        this.accountPageIndex()
+    },
+    leftEnd: function() {
+        if (this._state != "floating" && this._state != "touch") return;
+        this._state = "stoping",
+        clearInterval(this._scrollTimeObj);
+        var e = this.pageWidth - this.scDiv[this._scroll] % this.pageWidth;
+        this.move(e)
+    },
+    rightEnd: function() {
+        if (this._state != "floating" && this._state != "touch") return;
+        this._state = "stoping",
+        clearInterval(this._scrollTimeObj);
+        var e = -this.scDiv[this._scroll] % this.pageWidth;
+        this.move(e)
+    },
+    move: function(e, t) {
+        var n = this,
+        r = e / 5,
+        i = !1;
+        t || (r > this.space && (r = this.space), r < -this.space && (r = -this.space)),
+        Math.abs(r) < 1 && r != 0 ? r = r >= 0 ? 1 : -1 : r = Math.round(r);
+        var s = this.scDiv[this._scroll] + r;
+        r > 0 ? this.circularly ? this.scDiv[this._scroll] + r >= this.lDiv01[this._sWidth] ? this.scDiv[this._scroll] = this.scDiv[this._scroll] + r - this.lDiv01[this._sWidth] : this.scDiv[this._scroll] += r: this.scDiv[this._scroll] + r >= this.lDiv01[this._sWidth] - this.frameWidth ? (this.scDiv[this._scroll] = this.lDiv01[this._sWidth] - this.frameWidth, this._state = "ready", i = !0) : this.scDiv[this._scroll] += r: this.circularly ? this.scDiv[this._scroll] + r < 0 ? this.scDiv[this._scroll] = this.lDiv01[this._sWidth] + this.scDiv[this._scroll] + r: this.scDiv[this._scroll] += r: this.scDiv[this._scroll] + r <= 0 ? (this.scDiv[this._scroll] = 0, this._state = "ready", i = !0) : this.scDiv[this._scroll] += r;
+        if (i) {
+            this.accountPageIndex();
+            return
+        }
+        e -= r;
+        if (Math.abs(e) == 0) {
+            this._state = "ready",
+            this.autoPlay && this.play(),
+            this.accountPageIndex();
+            return
+        }
+        clearTimeout(this._scrollTimeObj),
+        this._scrollTimeObj = setTimeout(function() {
+            n.move(e, t)
+        },
+        this.speed)
+    },
+    pre: function() {
+        if (this._state != "ready") return;
+        this._state = "stoping",
+        this.move( - this.pageWidth)
+    },
+    next: function(e) {
+        if (this._state != "ready") return;
+        this._state = "stoping",
+        this.circularly ? this.move(this.pageWidth) : this.scDiv[this._scroll] >= this.lDiv01[this._sWidth] - this.frameWidth ? (this._state = "ready", e && this.pageTo(0)) : this.move(this.pageWidth)
+    },
+    play: function() {
+        var e = this;
+        if (!this.autoPlay) return;
+        clearInterval(this._autoTimeObj),
+        this._autoTimeObj = setInterval(function() {
+            e.next(!0)
+        },
+        this.autoPlayTime * 1e3)
+    },
+    stop: function() {
+        clearInterval(this._autoTimeObj)
+    },
+    pageTo: function(e) {
+        if (this.pageIndex == e) return;
+        e < 0 && (e = this.pageLength - 1),
+        clearTimeout(this._scrollTimeObj),
+        clearInterval(this._scrollTimeObj),
+        this._state = "stoping";
+        var t = e * this.frameWidth - this.scDiv[this._scroll];
+        this.move(t, !0)
+    },
+    accountPageIndex: function() {
+        var e = Math.round(this.scDiv[this._scroll] / this.frameWidth);
+        e >= this.pageLength && (e = 0),
+        this.scrollLeft = this.scDiv[this._scroll];
+        var t = this.lDiv01[this._sWidth] - this.frameWidth;
+        this.circularly || (this.eof = this.scrollLeft >= t, this.bof = this.scrollLeft <= 0),
+        typeof this.onmove == "function" && this.onmove();
+
+        if (e == this.pageIndex) return;
+        this.pageIndex = e,
+        this.pageIndex > Math.floor(this.lDiv01[this.upright ? "offsetHeight": "offsetWidth"] / this.frameWidth) && (this.pageIndex = 0);
+        var n;
+        for (n = 0; n < this.dotObjArr.length; n++) n == this.pageIndex ? this.dotObjArr[n].className = this.dotOnClassName: this.dotObjArr[n].className = this.dotClassName;
+        typeof this.onpagechange == "function" && this.onpagechange()
+    },
+    iPadX: 0,
+    iPadLastX: 0,
+    iPadStatus: "ok",
+    iPad: function() {
+        if (typeof window.ontouchstart == "undefined") return;
+        if (!this.touch) return;
+        var e = this;
+        this.addEvent(this.scDiv, "touchstart",
+        function(t) {
+            e._touchstart(t)
+        }),
+        this.addEvent(this.scDiv, "touchmove",
+        function(t) {
+            e._touchmove(t)
+        }),
+        this.addEvent(this.scDiv, "touchend",
+        function(t) {
+            e._touchend(t)
+        })
+    },
+    _touchstart: function(e) {
+        this.stop(),
+        this.iPadX = e.touches[0].pageX,
+        this.iPadScrollX = window.pageXOffset,
+        this.iPadScrollY = window.pageYOffset,
+        this.scDivScrollLeft = this.scDiv[this._scroll]
+    },
+    _touchmove: function(e) {
+        e.touches.length > 1 && this._touchend(),
+        this.iPadLastX = e.touches[0].pageX;
+        var t = this.iPadX - this.iPadLastX;
+        if (this.iPadStatus == "ok") {
+            if (! (this.iPadScrollY == window.pageYOffset && this.iPadScrollX == window.pageXOffset && Math.abs(t) > 20)) return;
+            this.iPadStatus = "touch"
+        }
+        this._state = "touch";
+        var n = this.scDivScrollLeft + t;
+        if (n >= this.lDiv01[this._sWidth]) {
+            if (!this.circularly) return;
+            n -= this.lDiv01[this._sWidth]
+        }
+        if (n < 0) {
+            if (!this.circularly) return;
+            n += this.lDiv01[this._sWidth]
+        }
+        this.scDiv[this._scroll] = n,
+        e.preventDefault()
+    },
+    _touchend: function(e) {
+        if (this.iPadStatus != "touch") return;
+        this.iPadStatus = "ok";
+        var t = this.iPadX - this.iPadLastX;
+        t < 0 ? this.rightEnd() : this.leftEnd(),
+        this.play()
+    },
+    _overTouch: function() {
+        this.iPadStatus = "ok"
+    },
+    dbj: function(objName) {
+        return document.getElementById ? eval('document.getElementById("' + objName + '")') : eval("document.all." + objName)
+    },
+    isIE: navigator.appVersion.indexOf("MSIE") != -1 ? !0 : !1,
+    addEvent: function(e, t, n) {
+        e.attachEvent ? e.attachEvent("on" + t, n) : e.addEventListener(t, n, !1)
+    },
+    delEvent: function(e, t, n) {
+        e.detachEvent ? e.detachEvent("on" + t, n) : e.removeEventListener(t, n, !1)
+    },
+    preventDefault: function(e) {
+        e.preventDefault ? e.preventDefault() : e.returnValue = !1
+    }
+}
+</script>
+<div class="scroll-pic-w new_focus">
+			<div class="scroll-pic" id="scrollPic_cont_34">
+
+<!--焦点图列表-->
+
+				<div class="scroll-pic-i">
+					<div class="img"><img src="http://jiangsu.sinaimg.cn/2014/0731/U11392P1194DT20140731093213.jpg"></div>
+					<div class="mask">
+						<div class="mask-bg"></div>
+						<div class="mask-c">精彩图集</div>
+					</div>
+				</div>
+
+				<div class="scroll-pic-i">
+					<div class="img"><img src="http://jiangsu.sinaimg.cn/2014/0731/U11392P1194DT20140731093214.jpg"></div>
+					<div class="mask">
+						<div class="mask-bg"></div>
+						<div class="mask-c">精彩图集</div>
+					</div>
+				</div>
+                
+                <div class="scroll-pic-i">
+					<div class="img"><img src="http://jiangsu.sinaimg.cn/2014/0731/U11392P1194DT20140731093215.jpg"></div>
+					<div class="mask">
+						<div class="mask-bg"></div>
+						<div class="mask-c">精彩图集</div>
+					</div>
+				</div>
+                
+                <div class="scroll-pic-i">
+					<div class="img"><img src="http://jiangsu.sinaimg.cn/2014/0731/U11392P1194DT20140731093216.jpg"></div>
+					<div class="mask">
+						<div class="mask-bg"></div>
+						<div class="mask-c">精彩图集</div>
+					</div>
+				</div>
+                
+                <div class="scroll-pic-i">
+					<div class="img"><img src="http://jiangsu.sinaimg.cn/2014/0731/U11392P1194DT20140731093216_1.jpg"></div>
+					<div class="mask">
+						<div class="mask-bg"></div>
+						<div class="mask-c">精彩图集</div>
+					</div>
+				</div>
+                
+                <div class="scroll-pic-i">
+					<div class="img"><img src="http://jiangsu.sinaimg.cn/2014/0731/U11392P1194DT20140731093217.jpg"></div>
+					<div class="mask">
+						<div class="mask-bg"></div>
+						<div class="mask-c">精彩图集</div>
+					</div>
+				</div>
+                
+                <div class="scroll-pic-i">
+					<div class="img"><img src="http://jiangsu.sinaimg.cn/2014/0731/U11392P1194DT20140731093218.jpg"></div>
+					<div class="mask">
+						<div class="mask-bg"></div>
+						<div class="mask-c">精彩图集</div>
+					</div>
+				</div>
+                
+                <div class="scroll-pic-i">
+					<div class="img"><img src="http://jiangsu.sinaimg.cn/2014/0731/U11392P1194DT20140731093219.jpg"></div>
+					<div class="mask">
+						<div class="mask-bg"></div>
+						<div class="mask-c">精彩图集</div>
+					</div>
+				</div>
+                
+                <div class="scroll-pic-i">
+					<div class="img"><img src="http://jiangsu.sinaimg.cn/2014/0731/U11392P1194DT20140731093220.jpg"></div>
+					<div class="mask">
+						<div class="mask-bg"></div>
+						<div class="mask-c">精彩图集</div>
+					</div>
+				</div>
+                
+                <div class="scroll-pic-i">
+					<div class="img"><img src="http://jiangsu.sinaimg.cn/2014/0731/U11392P1194DT20140731093220_1.jpg"></div>
+					<div class="mask">
+						<div class="mask-bg"></div>
+						<div class="mask-c">精彩图集</div>
+					</div>
+				</div>
+                
+                <div class="scroll-pic-i">
+					<div class="img"><img src="http://jiangsu.sinaimg.cn/2014/0731/U11392P1194DT20140731093221.jpg"></div>
+					<div class="mask">
+						<div class="mask-bg"></div>
+						<div class="mask-c">精彩图集</div>
+					</div>
+				</div>
+                
+                <div class="scroll-pic-i">
+					<div class="img"><img src="http://jiangsu.sinaimg.cn/2014/0731/U11392P1194DT20140731093222.jpg"></div>
+					<div class="mask">
+						<div class="mask-bg"></div>
+						<div class="mask-c">精彩图集</div>
+					</div>
+				</div>
+                
+                 <div class="scroll-pic-i">
+					<div class="img"><img src="http://jiangsu.sinaimg.cn/2014/0731/U11392P1194DT20140731093223.jpg"></div>
+					<div class="mask">
+						<div class="mask-bg"></div>
+						<div class="mask-c">精彩图集</div>
+					</div>
+				</div>
+                
+                 <div class="scroll-pic-i">
+					<div class="img"><img src="http://jiangsu.sinaimg.cn/2014/0731/U11392P1194DT20140731093224.jpg"></div>
+					<div class="mask">
+						<div class="mask-bg"></div>
+						<div class="mask-c">精彩图集</div>
+					</div>
+				</div>
+                
+                 <div class="scroll-pic-i">
+					<div class="img"><img src="http://jiangsu.sinaimg.cn/2014/0731/U11392P1194DT20140731093225.jpg"></div>
+					<div class="mask">
+						<div class="mask-bg"></div>
+						<div class="mask-c">精彩图集</div>
+					</div>
+				</div>
+                
+                 <div class="scroll-pic-i">
+					<div class="img"><img src="http://jiangsu.sinaimg.cn/2014/0731/U11392P1194DT20140731093225_1.jpg"></div>
+					<div class="mask">
+						<div class="mask-bg"></div>
+						<div class="mask-c">精彩图集</div>
+					</div>
+				</div>
+                
+                 <div class="scroll-pic-i">
+					<div class="img"><img src="http://jiangsu.sinaimg.cn/2014/0731/U11392P1194DT20140731093226.jpg"></div>
+					<div class="mask">
+						<div class="mask-bg"></div>
+						<div class="mask-c">精彩图集</div>
+					</div>
+				</div>
+
+<!--焦点图列表结束-->
+			</div>
+			<div class="scroll-nav scroll-nav-prev"><a href="javascript:;" id="scrollPicPrev_cont_34">Prev</a></div>
+			<div class="scroll-nav scroll-nav-next"><a href="javascript:;" id="scrollPicNext_cont_34">Next</a></div>
+			<div class="scroll-page" id="scrollPicPage_cont_34"></div>
+</div>
+<script type="text/javascript">
+(function(){
+	var scrollPic = new ScrollPic();
+	scrollPic.scrollContId = 'scrollPic_cont_34';
+	scrollPic.arrLeftId = 'scrollPicPrev_cont_34';
+	scrollPic.arrRightId = 'scrollPicNext_cont_34';
+	scrollPic.dotListId = 'scrollPicPage_cont_34';
+	scrollPic.pageWidth = 282;
+	scrollPic.frameWidth = 282;
+	scrollPic.upright = false;
+	scrollPic.circularly = true;
+	scrollPic.autoPlay = true;
+	scrollPic.speed = 5;
+	scrollPic.initialize();
+})();
+</script>
+
+  </div>
+</div>
+</div>
+</div>
+<!--please don't change the order of these scripts-->
+<script type="text/javascript" src="http://www.sinaimg.cn/cj/dfz/dialog_login_v1.1-sp1/js/dialog_login.js" charset="utf-8"></script>
+<script type="text/javascript" src="http://i.sso.sina.com.cn/js/ssologin.js" charset="utf-8"></script>
+<script type="text/javascript" src="http://i.sso.sina.com.cn/js/sinaSSOManager.js" charset="utf-8"></script>
+<style>
+/* jQuery UI Autocomplete @VERSION
+ *
+ * Copyright 2010, AUTHORS.txt (http://jqueryui.com/about)
+ * Dual licensed under the MIT or GPL Version 2 licenses.
+ * http://jquery.org/license
+ *
+ * http://docs.jquery.com/UI/Autocomplete#theming
+ */
+.ui-autocomplete { position: absolute; cursor: default; }	
+
+/* workarounds */
+* html .ui-autocomplete { width:1px; } /* without this, the menu expands to 100% in IE6 */
+
+/*
+ * jQuery UI Menu @VERSION
+ *
+ * Copyright 2010, AUTHORS.txt (http://jqueryui.com/about)
+ * Dual licensed under the MIT or GPL Version 2 licenses.
+ * http://jquery.org/license
+ *
+ * http://docs.jquery.com/UI/Menu#theming
+ */
+.ui-menu {
+	list-style:none;
+	padding: 2px;
+	margin: 0;
+	display:block;
+	float: left;
+}
+.ui-menu .ui-menu {
+	margin-top: -3px;
+}
+.ui-menu .ui-menu-item {
+	margin:0;
+	padding: 0;
+	zoom: 1;
+	float: left;
+	clear: left;
+	width: 100%;
+}
+.ui-menu .ui-menu-item a {
+	text-decoration:none;
+	display:block;
+	padding:.2em .4em;
+	line-height:1.5;
+	zoom:1;
+}
+.ui-menu .ui-menu-item a.ui-state-hover,
+.ui-menu .ui-menu-item a.ui-state-active {
+	font-weight: normal;
+	margin: -1px;
+}
+
+/**
+ * DFZ APP CSS for Dialog Add Friend & Dialog Send Message & Dialog Login 
+ * @author	liushuai@staff.sina.com.cn
+ * @date	2010-11-29
+ */
+
+
+/**
+ * 插件基本样式
+ */
+.ui-widget-overlay{background:#000; opacity:0.4; filter:alpha(opacity=40); position:absolute; left:0; top:0; width:100%; height:100%;}
+.ui-dialog{position:absolute; overflow:hidden;}
+.ui-dialog-content{overflow:hidden;}
+.ui-dialog-titlebar{cursor:move;}
+/**
+ * 公共样式
+ */ 
+.dfz-app-dialog{width:292px!important; padding:5px; font-size:12px; font: font-family:"宋体", Tahoma, Geneva, sans-serif; color:#000;}
+.dfz-app-dialog textarea{border:1px solid #cecece; font-size:12px; font-family:"宋体", Tahoma, Geneva, sans-serif;}
+.dfz-app-dialog ul,
+.dfz-app-dialog li,
+.dfz-app-dialog p,
+.dfz-app-dialog h3,
+.dfz-app-dialog fieldset{padding:0; margin:0; border:none;}
+.dfz-app-dialog h3{font-size:14px; font-family:"黑体";}
+.dfz-app-dialog input{border:1px solid #cecece; height:18px; padding:0; margin:0; font-family:Tahoma, Geneva, sans-serif;}
+
+/*按钮及头部背景设置
+*/	
+.dfz-app-dialog .ui-button,
+.dfz-app-dialog .ui-dialog-titlebar-close,
+.dfz-app-dialog .ui-dialog-titlebar,
+.dfz-app-dialog .ui-dialog-titlebar .ui-dialog-title{background:url(http://ria.city.sina.com.cn/widget/trunk/images/dfz-app-dialog/bg-dfz-app-dialog.png) no-repeat;}
+	
+/*按钮背景
+*/
+.dfz-app-dialog .ui-button{width:74px; height:21px; border:none; cursor:pointer;}
+.dfz-app-dialog .dfz-app-dialog-button-submit{background-position:0 -35px;}
+.dfz-app-dialog .dfz-app-dialog-button-cancel{background-position:0 -60px;}
+.dfz-app-dialog .ui-dialog-titlebar-close{width:15px; height:14px; position:absolute; top:6px; right:6px; background-position:0 -90px; cursor:pointer;}
+.dfz-app-dialog .ui-dialog-titlebar .ui-dialog-title{padding-left:38px; margin-left:5px; font-weight:bold; font-size:14px; line-height:28px; height:28px; padding-top:2px; display:block;}
+.dfz-app-dialog .error-info{height:25px; line-height:25px; color:#f00;}
+
+
+/*头部、内容主体、按钮栏、背景块定位、Loading层定位
+*/
+.dfz-app-dialog .ui-dialog-titlebar{position:absolute; width:289px !important; height:30px; border-width: 1px 1px 0px; border-style:solid; border-color:#a0a0a0; z-index:1; left:5px; top:5px;}
+.dfz-app-dialog .ui-dialog-content{position:absolute; width:341px !important; padding:0 10px; left:5px; top:36px; background:#fff; border-width:0px 1px 1px; border-style:solid; border-color:#a0a0a0; z-index:1;}
+.dfz-app-dialog .ui-dialog-buttonpane{position:absolute; width:361px !important; height:21px; z-index:2; left:6px;}
+.dfz-app-dialog .dfz-app-dialog-bg{position:absolute; left:0; top:0; width:373px; background:#b90006; opacity: 0.2; filter:alpha(opacity=20); -moz-border-radius:3px; z-index:0;}
+.dfz-app-dialog .dfz-app-dialog-loading{position:absolute; background:#eee url(http://ria.city.sina.com.cn/widget/trunk/images/loading.gif) center center no-repeat; opacity:0.8; filter:alpha(opacity=80); z-index:9;}
+
+
+.dfz-app-dialog .dfz-app-dialog-message{position:absolute; background:url(http://user.henan.sina.com.cn/images/user/widget/bg-tip.gif) no-repeat scroll 0 0 transparent; height:52px; margin-right:10px; overflow:visible; width:auto; z-index:11; display:none;}
+.dfz-app-dialog .dfz-app-dialog-message .content{font-family:Arial; font-size:14px; font-weight:bold; height:32px; line-height:32px; padding:10px 10px 10px 20px;}
+.dfz-app-dialog .dfz-app-dialog-message .right{background:url(http://user.henan.sina.com.cn/images/user/widget/bg-tip.gif) no-repeat scroll right -52px transparent; height:52px; position:absolute; right:-10px; top:0; width:10px;}
+.dfz-app-dialog .dfz-app-dialog-message.error{color:#f00 !important;}
+.dfz-app-dialog .dfz-app-dialog-message.success{color:#090 !important;}
+.dfz-app-dialog .dfz-app-dialog-message .text{float:left; color:#000; padding:0px 0px 0px 15px; margin:0; white-space:nowrap; background:none; border:none; height:auto; width:auto;}
+.dfz-app-dialog .dfz-app-dialog-message .icon{float:left;}
+.dfz-app-dialog .dfz-app-dialog-message.error .icon{width:32px; height:32px; background:url(http://user.henan.sina.com.cn/images/user/widget/icon-failed.gif) no-repeat 0 0 scroll;}
+.dfz-app-dialog .dfz-app-dialog-message.success .icon{width:32px; height:32px; background:url(http://user.henan.sina.com.cn/images/user/widget/icon-success.gif) no-repeat 0 0 scroll;}
+
+/*系统性样式
+*/
+.dfz-app-dialog .ui-dialog-titlebar{cursor:move;}
+
+/**
+ * Dialog Add Friend 样式
+ */
+.dfz-app-dialog-add-friend{height:218px !important;}
+.dfz-app-dialog-add-friend .dfz-app-dialog-bg{height:228px !important;}
+.dfz-app-dialog-add-friend .ui-dialog-content{height:187px !important;}
+.dfz-app-dialog-add-friend .ui-dialog-buttonpane{bottom:21px;}
+.dfz-app-dialog-add-friend .dfz-app-dialog-button-submit{margin:0 42px 0px 161px;}
+.dfz-app-dialog-add-friend .ui-dialog-titlebar .ui-dialog-title{background-position:-332px -30px;}
+.dfz-app-dialog-add-friend textarea{width:339px; height:91px; border:1px solid #cecece;}
+.dfz-app-dialog-add-friend .tip-info{height:32px; line-height:32px;}
+.dfz-app-dialog-add-friend .tip-info .req-user{color:#f00; padding:0 5px;}
+.dfz-app-dialog-add-friend .dfz-app-dialog-loading{width:363px; height:218px; left:5px; top:5px; }
+
+
+/**
+ * Dialog Send Message 样式
+ */
+.dfz-app-dialog-send-message{height:238px !important;}
+.dfz-app-dialog-send-message .dfz-app-dialog-bg{height:248px !important;}
+.dfz-app-dialog-send-message .ui-dialog-content{height:191px !important; padding-top:15px;}
+.dfz-app-dialog-send-message .ui-dialog-buttonpane{bottom:17px;}
+.dfz-app-dialog-send-message .dfz-app-dialog-button-submit{margin:0 42px 0px 161px;}
+.dfz-app-dialog-send-message .ui-dialog-titlebar .ui-dialog-title{background-position:-330px -60px; padding-left:39px;}
+.dfz-app-dialog-send-message .dfz-app-dialog-loading{width:363px; height:238px; left:5px; top:5px; }
+
+.dfz-app-dialog-send-message input,
+.dfz-app-dialog-send-message textarea{width:259px;}
+.dfz-app-dialog-send-message input{height:20px; line-height:20px;}
+.dfz-app-dialog-send-message textarea{height:82px;}
+.dfz-app-dialog-send-message p{position:relative; width:259px; padding-left:56px; margin-bottom:17px;}
+.dfz-app-dialog-send-message p.error-info{margin-top:-21px;}
+.dfz-app-dialog-send-message p label{position:absolute; width:48px; padding-right:8px; height:20px; line-height:20px; left:0; top:0; text-align:right;}
+
+
+
+/**
+ * Dialog Login 样式
+ */
+.dfz-app-dialog-login{height:218px !important;}
+.dfz-app-dialog-login .dfz-app-dialog-bg{height:228px !important;}
+.dfz-app-dialog-login .ui-dialog-content{height:165px !important; width:246px !important; padding:22px 21px 0px 22px;}
+.dfz-app-dialog-login .ui-dialog-buttonpane{bottom:39px;}
+.dfz-app-dialog-login .dfz-app-dialog-button-submit{margin:0 42px 0px 70px;}
+.dfz-app-dialog-login .ui-dialog-titlebar .ui-dialog-title{background-position:-331px -90px;}
+.dfz-app-dialog-login .dfz-app-dialog-loading{width:363px; height:218px; left:5px; top:5px; }
+
+.dfz-app-dialog-login p{height:20px; line-height:20px; padding:8px 0px 7px; overflow:hidden; zoom:1;}
+.dfz-app-dialog-login p.extra-info{padding-top:4px;}
+.dfz-app-dialog-login p label,
+.dfz-app-dialog-login p input,
+.dfz-app-dialog-login p span,
+.dfz-app-dialog-login p a{float:left;}
+.dfz-app-dialog-login p label{width:56px; font-size:14px; text-align:right;}
+.dfz-app-dialog-login p input{width:168px; font-size:16px;}
+.dfz-app-dialog-login p input.check-login-state{width:13px; height:13px; margin:3px 5px 0px 56px; border:0;}
+.dfz-app-dialog-login p .text-login-state{margin-right:28px; white-space:nowrap;}
+.dfz-app-dialog-login p a{color:#369; white-space:nowrap; text-decoration:underline;}
+	
+	
+/**
+ * Dialog Confirm 样式
+ */
+.dfz-app-dialog-confirm{height:158px !important;}
+.dfz-app-dialog-confirm .dfz-app-dialog-bg{height:168px !important;}
+.dfz-app-dialog-confirm .ui-dialog-content{height:123px !important; padding-top:3px; line-height:35px; text-align:center;}
+.dfz-app-dialog-confirm .ui-dialog-buttonpane{bottom:31px;}
+.dfz-app-dialog-confirm .dfz-app-dialog-button-submit{margin:0 42px 0px 91px;}
+.dfz-app-dialog-confirm .ui-dialog-titlebar .ui-dialog-title{background-position:-334px -119px; padding-left:27px;}
+.dfz-app-dialog-confirm .dfz-app-dialog-loading{width:363px; height:218px; left:5px; top:5px; }
+
+/**
+ * Dialog Mblog 样式
+ */
+.dfz-app-dialog-add-mblog{height:218px !important;}
+.dfz-app-dialog-add-mblog .dfz-app-dialog-bg{height:228px !important;}
+.dfz-app-dialog-add-mblog .ui-dialog-content{height:187px !important;}
+.dfz-app-dialog-add-mblog .ui-dialog-buttonpane{bottom:21px;}
+.dfz-app-dialog-add-mblog .dfz-app-dialog-button-submit{margin:0 42px 0px 161px;}
+.dfz-app-dialog-add-mblog .ui-dialog-titlebar .ui-dialog-title{background-position:-332px -30px;}
+.dfz-app-dialog-add-mblog textarea{width:339px; height:91px; border:1px solid #cecece;}
+.dfz-app-dialog-add-mblog .tip-info{height:32px; line-height:32px;}
+.dfz-app-dialog-add-mblog .tip-info .req-user{color:#f00; padding:0 5px;}
+.dfz-app-dialog-add-mblog .dfz-app-dialog-loading{width:363px; height:218px; left:5px; top:5px; }
+
+
+</style>
+</body>
+</html>
