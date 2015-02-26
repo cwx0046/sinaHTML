@@ -44,7 +44,7 @@ body { font-family: "microsoft yahei"; background-color: #131021; max-width: 557
 .ico2{ background-position: 0 -40px; }
 
 #p3cloud { position: relative; margin: 3em 0 5em; }
-#p3cloud span { margin: 0 auto; color: #FFF;font-size: 15px; font-weight: bold; line-height: 2em; }
+#p3cloud span { margin: 0 auto; color: #FFF;font-size: 18px; font-weight: bold; line-height: 2em; }
 #p3cloud #level { width: auto; position: static; color: #FFF; margin: 0 8px; }
 </style>
 <script type="text/javascript">
@@ -268,6 +268,7 @@ function resetGame(){
 
 </head>
 <body ontouchmove="event.preventDefault()"> <!-- 阻止ios浏览器整页上下滑动 -->
+<img alt="ico" src="http://s3img.city.sina.com.cn/activity/common/large/965847bbe8cf2299aec13cbebe31986e.jpg" style="position:absolute; top: -500px;">
 <div id="screen">
   <div class="page" id="page1">
     <div class="center">
@@ -290,7 +291,7 @@ function resetGame(){
 	
     <img onclick="page(2);" src="http://s3img.city.sina.com.cn/activity/common/large/493a13a130c13504f7ce8e2300100166.png" style="margin-bottom: 10px; width: 161px;">
       <div class="btn" onclick="page(2);">点击开始</div>
-      <svg version="1.1" style="width: 46%; margin-top: 14px;" viewBox="0 0 1273.14 473.5" 
+      <svg version="1.1" style="width: 32%; margin-top: 14px;" viewBox="0 0 1273.14 473.5" 
 	 xml:space="preserve">
 <g>
 	<path fill="#FFFFFF" d="M320.544,131.574c0,35.805-42.572,64.781-95.11,64.781c-52.503,0-95.076-28.976-95.076-64.781
@@ -414,10 +415,10 @@ function resetGame(){
     	<div id="gameIcoBlock" class="clearfix">
 		</div>
     </div>
-    <div style="width: 100%; margin: 12px 0 36px 0;text-align: center; color: #c3a3cf;font-size: 15px;">遵守交通法规 争做合格公民</div>
+    <div style="width: 100%; margin: 12px 0 36px 0;text-align: center; color: #c3a3cf;font-size: 15px;">红灯笼和红灯 傻傻分不清~</div>
   </div>
   <div class="page" id="page3">
-    <div class="center"> <img alt="" src="http://s3img.city.sina.com.cn/activity/common/large/3608c146854e1a5051667edecfc18b27.png" width="110" style="margin: 2em 0 0;">
+    <div class="center"> <img alt="" src="http://s3img.city.sina.com.cn/activity/common/large/3608c146854e1a5051667edecfc18b27.png" width="110" style="margin: 5em 0 0;">
       <div id="p3cloud"><span>你在30秒内找到了<span id="level">0</span>个红灯<br/>
         棒棒哒！</span></div>
       <div class="btn" onclick="resetGame();" style="padding: 0.3em 1em; font-size: 16px;">再找一次</div>
@@ -430,7 +431,7 @@ function resetGame(){
 <style>
 	.fenxiang { z-index:99999; text-align: center; padding-top: 25px; width:100%; background:RGBA(0,0,0,0.5) url("http://jiangsu.sinaimg.cn/2015/0207/U11392P1194DT20150207175104.png") no-repeat 94% 0; background-size: 68px auto; color: #FFF; font-size: 20px; height: 50px; top: 0; display: none; }
 </style>
-<div class="fenxiang">让小伙伴来挑战</div>
+<div class="fenxiang"><img width="150" src="http://s3img.city.sina.com.cn/activity/common/large/6379f30d65153a7130cc5fb435ff4d83.png"></div>
 <script type="text/javascript">
 	$(".fenxiang").unbind().bind("touchstart mousedown", function() { $(this).fadeOut(300); });
 </script>
