@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="GB2312">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="renderer" content="webkit">
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+<title>2015全国两会 请委员代表帮我捎句话_新浪江苏</title>
+<meta name="keywords" content="两会,委员,讨论,捎句话" />
+<meta name="description" content="2015全国两会 请委员代表帮我捎句话_新浪江苏" />
+<meta name="author" content="NorthWind" />
+<link rel="stylesheet" href="http://jiangsu.sinaimg.cn/zt/s/css/reset.css">
+<script type="text/javascript" src="http://jiangsu.sinaimg.cn/js/jquery_1.11.2.min_jsonp.js"></script>
+
+<style type="text/css">
+body { max-width: 640px; margin: 0 auto; font-family: "microsoft yahei"; font-size: 16px; 
+background: -webkit-linear-gradient(left, #ebebeb 1px, transparent 1px);
+background: -moz-linear-gradient(left, #ebebeb 1px, transparent 1px);
+background: -o-linear-gradient(left, #ebebeb 1px, transparent 1px);
+background: -ms-linear-gradient(left, #ebebeb 1px, transparent 1px);
+background-size: 4px;
+}
+.headimg{ max-width: 100%; }
+.contentwrap{ padding: 0 4%; margin-top: -16%; }
+.must{ display: inline; margin-right: 4px; }
+.must:AFTER{ content: "*"; color: #F00; }
+label { display: inline-block; width: 82px; height: 28px; line-height: 28px; font-size: 14px; text-align: center; cursor: pointer; margin-bottom: 3px;-webkit-tap-highlight-color:transparent; }
+label input[type=radio]{ display: none; }
+/* label input[type=radio]:AFTER{ content: ""; position: absolute; width: 82px; height: 24px; border-radius: 4px; z-index: -1; background-color: #a40000; }
+label input[type=radio]:checked:AFTER{ background-color: #FFEF00; box-shadow: inset 2px 1px 5px RGBA(0,0,0,0.4); }
+ */
+label input[type=radio]+span{ color: #FFF; background-color: #a40000; display: block; border-radius: 3px; }
+label input[type=radio]+span:HOVER{ background-color: #FFEF00; color: #19192C; }
+label input[type=radio]:checked+span{ color: #19192C; background-color: #FFEF00; box-shadow: inset 2px 1px 5px RGBA(0,0,0,0.5); text-shadow: 1px 1px 2px rgba(11, 35, 113, 0.45); }
+.submitBtn{ cursor: pointer; display: inline-block; float: right; 
+color: #FFF; background-color: #a40000; display: block; border-radius: 3px; padding: 0.4em 1.4em;
+margin: 0.6em 0;
+}
+
+h2{ text-align: center; display: inline-block; color: #FFF; font-size: 1.2em; font-weight: bold; padding: 6px 20px; 
+background: -webkit-linear-gradient(top, #e60012 25%, #FFEF00 96%);
+background: -moz-linear-gradient(top, #e60012 25%, #FFEF00 96%);
+background: -o-linear-gradient(top, #e60012 25%, #FFEF00 96%);
+background: -ms-linear-gradient(top, #e60012 25%, #FFEF00 96%);
+border-radius:14px;
+-webkit-box-reflect: below 0 -webkit-gradient(linear,0 52%,0 141%,from(transparent),color-stop(0, transparent),to(#000));
+margin-bottom: 16px;
+}
+h3{ font-weight: bold; color: #000; font-size: 1em; margin: 8px 0; }
+.msgshowbox{ width: 100%; border: 1px solid #b1b1b1;} 
+.card{ width: 90%; margin: 0 auto; border-bottom: 1px dotted; padding: 4px 0; }
+.name{ color: #a40000; font-size: 0.88em; } 
+.text{ text-indent: 2em; font-size: 0.8em; } 
+.time{ color: #888; text-align: right; font-size: 0.8em; }
+.loadMore{ cursor: pointer; color: #FFF; background-color: #a40000; display: inline-block; border-radius: 3px; padding: 0.4em 1.4em; margin: 0.6em 0; width: auto; } 
+.loadMore.disabled{ background-color: #DDD; color: #888; cursor: wait; } 
+</style>
+</head>
+<body>
+	<div class="wrap">
+		<img class="headimg" src="http://s3img.city.sina.com.cn/activity/common/large/2ea0da7997645edc8ab9a635fda2897e.jpg">
+	</div>
+	<div class="contentwrap">
+		<div class="wrap">
+			<div class="wrap" style="margin-bottom: 2em;">
+				<p>　　全国两会召开在即，教育、养老、医疗、环保……大家最希望今年的“两会”上解决哪些问题？最期盼哪些民生话题能得到代表委员们的关注？从今天起，江苏省政府办公厅政务公开办、电子政务办、江苏人大网、江苏省政府网联手扬子晚报、新浪江苏，推出“代表委员，全国两会请您帮我捎句话”专题活动，一起来说说，2015年，“我”最关心什么？</p>
+			</div>
+		</div>
+		<div class="wrap formBox clearfix">
+			<h2>捎句话</h2>
+			<h3><div class="must"></div>选择分类</h3>
+				<div class="clearfix" style="text-align: center;">
+					<label><input name="pid" type="radio" value="简政放权"   onclick="javascript:getRadioValue(this.value)"/><span>简政放权 </span></label>
+					<label><input name="pid" type="radio" value="宏观调控"   onclick="javascript:getRadioValue(this.value)"/><span>宏观调控</span></label> 
+					<label><input name="pid" type="radio" value="财税金融"   onclick="javascript:getRadioValue(this.value)"/><span>财税金融</span></label>
+					<label><input name="pid" type="radio" value="新型城镇化" onclick="javascript:getRadioValue(this.value)"/><span>新型城镇化</span></label>
+					<label><input name="pid" type="radio" value="就业创业"   onclick="javascript:getRadioValue(this.value)"/><span>就业创业</span></label>
+					<label><input name="pid" type="radio" value="收入分配"   onclick="javascript:getRadioValue(this.value)"/><span>收入分配</span></label>
+					<label><input name="pid" type="radio" value="科技创新"   onclick="javascript:getRadioValue(this.value)"/><span>科技创新</span></label>
+					<label><input name="pid" type="radio" value="医疗改革"   onclick="javascript:getRadioValue(this.value)"/><span>医疗改革</span></label>
+					<label><input name="pid" type="radio" value="住房保障"   onclick="javascript:getRadioValue(this.value)"/><span>住房保障</span></label> 
+					<label><input name="pid" type="radio" value="环境保护"   onclick="javascript:getRadioValue(this.value)"/><span>环境保护</span></label>
+					<label><input name="pid" type="radio" value="依法行政"   onclick="javascript:getRadioValue(this.value)"/><span>依法行政</span></label>
+					<label><input name="pid" type="radio" value="反腐倡廉"   onclick="javascript:getRadioValue(this.value)"/><span>反腐倡廉</span></label>
+					<label><input name="pid" type="radio" value="结构调整"   onclick="javascript:getRadioValue(this.value)"/><span>结构调整</span></label>
+					<label><input name="pid" type="radio" value='"三农"'     onclick="javascript:getRadioValue(this.value)"/><span>"三农"</span></label>
+					<label><input name="pid" type="radio" value="教育公平"   onclick="javascript:getRadioValue(this.value)"/><span>教育公平</span></label>
+					<label><input name="pid" type="radio" value="社会保障"   onclick="javascript:getRadioValue(this.value)"/><span>社会保障</span></label>
+					<label><input name="pid" type="radio" value="节能减排"   onclick="javascript:getRadioValue(this.value)"/><span>节能减排</span></label>
+					<label><input name="pid" type="radio" value="其他"       onclick="javascript:getRadioValue(this.value)"/><span>其他</span></label>  
+				</div>
+			<h3><div class="must"></div>建言内容</h3>
+					<textarea name="content" style="padding:0.5em; height:7em; font-size: 1em; width: 90%; margin: 0 auto; display: block; resize:vertical; background-color:RGBA(255,255,255,0.6); border: 1px solid #F0660A; border-radius: 2px; -webkit-box-shadow: inset 1px 2px 9px rgba(35,24,21,.3); box-shadow: inset 1px 2px 9px rgba(35,24,21,.3);" placeholder="请在此填写建言内容"></textarea>
+			<div class="submitBtn">提交</div>
+		</div>
+		<div class="wrap" style="margin-bottom: 2em;">
+			<h2>建言选登</h2>
+			<div class="wrap msgshowbox">
+				<div class="msgListsBox">
+					<div class="card">
+						<div class="name">加载中...</div>
+					</div>
+				</div>
+				<div style="text-align: center;">
+					<div class="loadMore">加载更多</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+<script type="text/javascript" src="http://jiangsu.sinaimg.cn/js/dial_sso_login_mann.js" charset="UTF-8"></script>  <!-- g=dialog_login_v1.1-sp1.js & ssologin.js & sinaSSOManager.js  _修正-->
+<script src="http://jiangsu.sinaimg.cn/z/js/weiboApi.js"></script>
+<script type="text/javascript">
+var data = {};
+data.act_id = 10295;
+data.custom_1 = "[微博昵称]";
+data.custom_2 = "[微博id]";
+data.custom_3 = "[标题]";
+data.custom_4 = "[类型]";
+data.custom_5 = "[内容]";
+
+
+function getRadioValue(pid) {
+	data.custom_2 = pid;
+}
+
+var canclick = true;
+var lmcanclick = false; // load more can lick
+var listNum = 0;
+var currentPage = 1;
+$(".submitBtn").unbind().bind("click",function(){
+	if(!canclick){
+		return;
+	}
+	canclick = false;
+	
+	if (checkForm() === false) {
+		canclick = true;
+		return;
+	}
+	
+	//记录微博信息
+	var uinfo = sinaSSOManager.getSinaCookie();
+	if (!uinfo) { //判断登陆
+		data.custom_1 = "[用户未登录]";
+		data.custom_2 = "[用户未登录]";
+	} else {
+		data.custom_1 = uinfo.nick;
+		data.custom_2 = uinfo.uid;
+		var contentWeibo = "#我请代表委员捎句话#";
+		if (data.custom_4 != "其他") {
+			contentWeibo += "#"+data.custom_4+"#";
+		}
+		contentWeibo += data.custom_5;
+		addWeiboByCookie(contentWeibo,"","");
+	}	
+	
+	//DO SUBMIT
+	$(".submitBtn").text("提交中...");
+	$.JSONP('http://act.city.sina.com.cn/interface/activity/json_add_signup.php',data,function(bm){
+		if(bm.error==0){
+			alert("提交成功！")
+		}else{
+			alert(bm.errmsg);
+		}
+		$(".submitBtn").text("提交");
+		canclick = true;
+	});
+
+});
+
+function checkForm() {
+	data.custom_3 = "[条目被移除]";
+	/* 
+	data.custom_3 = $("input[name=title]").val().trim();
+	if (data.custom_3 === "") {
+		$("input[name=title]").focus();
+		alert("您还没有填写 献策标题");
+		return false;
+	}
+	 */
+	 
+	data.custom_4 = $("input[name=pid]:radio:checked").val();
+	if (data.custom_4 === undefined ) {
+		$("input[name=pid]").focus();
+		alert("请选择一个建言分类");
+		return false;
+	}
+	
+	data.custom_5 = $("textarea[name=content]").val().trim();
+	if (data.custom_5 === "") {
+		$("input[name=content]").focus();
+		alert("请填写 建言内容");
+		return false;
+	}
+	
+	return true;
+}
+
+$(function() {
+	//填充用户留言
+	$.JSONP('http://act.city.sina.com.cn/interface/activity/json_get_user_works.php',{act_id:data.act_id,pcount:10,p:currentPage},function(json){
+		listNum = json.count;
+		var html = "";
+		for(var i=0; i<json.data.length; i++){
+			var uname = json.data[i].form_data.custom_1.value;
+			var uid = json.data[i].form_data.custom_2.value;
+			var type = json.data[i].form_data.custom_4.value;
+			var text = json.data[i].form_data.custom_5.value;
+			var time = json.data[i].create_time;
+			var time_format = time.substr(0,4)+"年"+time.substr(5,2)+"月"+time.substr(8,2)+"日"+" "+time.substr(11);
+			
+			if (uname == "[用户未登录]") {
+				var ip10 = parseInt(json.data[i].create_ip);
+				var ip16 = ip10.toString(16);
+				var ipStr = parseInt(ip16.substr(0,2),16)+"."+"*"+"."+parseInt(ip16.substr(4,2),16)+"."+parseInt(ip16.substr(6,2),16);
+				//var ipStr = parseInt(ip16.substr(0,2),16)+"."+parseInt(ip16.substr(2,2),16)+"."+parseInt(ip16.substr(4,2),16)+"."+parseInt(ip16.substr(6,2),16);
+				uname = ipStr;
+			}
+			
+			html += '<div class="card">';
+			html += '<div class="name">新浪网友：【'+uname+'】 ['+type+']</div>';
+			html += '<div class="text">'+text+'</div>';
+			html += '<div class="time">'+time_format+'</div>';
+			html += '</div>';
+		}
+		$(".msgListsBox").html(html);
+		currentPage++;
+		lmcanclick = true;
+	});
+});
+
+$(function() {
+	$(".loadMore").unbind().bind("click",function(){
+		if(!lmcanclick){
+			return;
+		}
+		lmcanclick = false;
+		loadMoreBtn(false);
+		$(".loadMore").text("请稍候...");
+		$.JSONP('http://act.city.sina.com.cn/interface/activity/json_get_user_works.php',{act_id:data.act_id,pcount:10,p:currentPage},function(json){
+			var html = "";
+			for(var i=0; i<json.data.length; i++){
+				var uname = json.data[i].form_data.custom_1.value;
+				var uid = json.data[i].form_data.custom_2.value;
+				var type = json.data[i].form_data.custom_4.value;
+				var text = json.data[i].form_data.custom_5.value;
+				var time = json.data[i].create_time;
+				var time_format = time.substr(0,4)+"年"+time.substr(5,2)+"月"+time.substr(8,2)+"日"+" "+time.substr(11);
+				
+				if (uname == "[用户未登录]") {
+					var ip10 = parseInt(json.data[i].create_ip);
+					var ip16 = ip10.toString(16);
+					var ipStr = parseInt(ip16.substr(0,2),16)+"."+"*"+"."+parseInt(ip16.substr(4,2),16)+"."+parseInt(ip16.substr(6,2),16);
+					//var ipStr = parseInt(ip16.substr(0,2),16)+"."+parseInt(ip16.substr(2,2),16)+"."+parseInt(ip16.substr(4,2),16)+"."+parseInt(ip16.substr(6,2),16);
+					uname = ipStr;
+				}
+				
+				html += '<div class="card">';
+				html += '<div class="name">新浪网友：【'+uname+'】 ['+type+']</div>';
+				html += '<div class="text">'+text+'</div>';
+				html += '<div class="time">'+time_format+'</div>';
+				html += '</div>';
+			}
+			$(".msgListsBox").append(html);
+			
+			//是否还有内容加载
+			if (currentPage*10<listNum) {
+				lmcanclick = true;
+				$(".loadMore").text("加载更多");
+				loadMoreBtn(true);
+			}else {
+				$(".loadMore").text("没有更多了");
+			}
+			
+			currentPage++;
+		});
+		
+		
+	});
+});
+
+
+function loadMoreBtn(bollean) {
+	var dom = $(".loadMore");
+	if (bollean) {
+		dom.removeClass("disabled");
+	}else{
+		dom.addClass("disabled");
+	}
+}
+
+</script>
+</html>

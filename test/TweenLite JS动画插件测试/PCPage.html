@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="GB2312">
+<link rel="stylesheet" href="http://jiangsu.sinaimg.cn/zt/s/css/reset.css">
+<script type="text/javascript" src="./CSSPlugin.js"></script>
+<script type="text/javascript" src="./TweenLite.js"></script>
+<style type="text/css">
+</style>
+</head>
+<body>
+
+<img id="img" src="http://forum.home.news.cn/static/zfjy_wap/img/top.jpg"><br/>
+<input id="btn" type="button" value="Ani Back">
+</body>
+<script type="text/javascript">
+
+	var img = document.getElementById("img");
+	img.addEventListener("touchstart", function() {
+		TweenLite.to(img, 1, {x:"632px", opacity: 0});
+	});
+	document.getElementById("btn").addEventListener("click", function() {
+		TweenLite.to(img, 1, {x:"0px", opacity: 1});
+	});
+
+
+
+</script>
+</html>
