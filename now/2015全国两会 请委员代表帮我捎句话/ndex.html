@@ -70,7 +70,25 @@ h3{ font-weight: bold; color: #000; font-size: 1em; margin: 8px 0; }
 			<h2>捎句话</h2>
 			<h3><div class="must"></div>选择分类</h3>
 				<div class="clearfix" style="text-align: center;">
-					<label><input name="pid" type="radio" value="简政放权"   onclick="javascript:getRadioValue(this.value)"/><span>简政放权 </span></label>
+					<label onclick="javascript:getRadioValue('简政放权')"><input name="pid" type="radio" value="简政放权"   /><span>简政放权 </span></label>
+					<label onclick="javascript:getRadioValue('宏观调控')"><input name="pid" type="radio" value="宏观调控"   /><span>宏观调控</span></label> 
+					<label onclick="javascript:getRadioValue('财税金融')"><input name="pid" type="radio" value="财税金融"   /><span>财税金融</span></label>
+					<label onclick="javascript:getRadioValue('新型城镇')"><input name="pid" type="radio" value="新型城镇化" /><span>新型城镇化</span></label>
+					<label onclick="javascript:getRadioValue('就业创业')"><input name="pid" type="radio" value="就业创业"   /><span>就业创业</span></label>
+					<label onclick="javascript:getRadioValue('收入分配')"><input name="pid" type="radio" value="收入分配"   /><span>收入分配</span></label>
+					<label onclick="javascript:getRadioValue('科技创新')"><input name="pid" type="radio" value="科技创新"   /><span>科技创新</span></label>
+					<label onclick="javascript:getRadioValue('医疗改革')"><input name="pid" type="radio" value="医疗改革"   /><span>医疗改革</span></label>
+					<label onclick="javascript:getRadioValue('住房保障')"><input name="pid" type="radio" value="住房保障"   /><span>住房保障</span></label> 
+					<label onclick="javascript:getRadioValue('环境保护')"><input name="pid" type="radio" value="环境保护"   /><span>环境保护</span></label>
+					<label onclick="javascript:getRadioValue('依法行政')"><input name="pid" type="radio" value="依法行政"   /><span>依法行政</span></label>
+					<label onclick="javascript:getRadioValue('反腐倡廉')"><input name="pid" type="radio" value="反腐倡廉"   /><span>反腐倡廉</span></label>
+					<label onclick="javascript:getRadioValue('结构调整')"><input name="pid" type="radio" value="结构调整"   /><span>结构调整</span></label>
+					<label onclick='javascript:getRadioValue("三农")'    ><input name="pid" type="radio" value='"三农"'     /><span>"三农"</span></label>
+					<label onclick="javascript:getRadioValue('教育公平')"><input name="pid" type="radio" value="教育公平"   /><span>教育公平</span></label>
+					<label onclick="javascript:getRadioValue('社会保障')"><input name="pid" type="radio" value="社会保障"   /><span>社会保障</span></label>
+					<label onclick="javascript:getRadioValue('节能减排')"><input name="pid" type="radio" value="节能减排"   /><span>节能减排</span></label>
+					<label onclick="javascript:getRadioValue('其他')"    ><input name="pid" type="radio" value="其他"       /><span>其他</span></label>
+					<!-- <label><input name="pid" type="radio" value="简政放权"   onclick="javascript:getRadioValue(this.value)"/><span>简政放权 </span></label>
 					<label><input name="pid" type="radio" value="宏观调控"   onclick="javascript:getRadioValue(this.value)"/><span>宏观调控</span></label> 
 					<label><input name="pid" type="radio" value="财税金融"   onclick="javascript:getRadioValue(this.value)"/><span>财税金融</span></label>
 					<label><input name="pid" type="radio" value="新型城镇化" onclick="javascript:getRadioValue(this.value)"/><span>新型城镇化</span></label>
@@ -87,10 +105,10 @@ h3{ font-weight: bold; color: #000; font-size: 1em; margin: 8px 0; }
 					<label><input name="pid" type="radio" value="教育公平"   onclick="javascript:getRadioValue(this.value)"/><span>教育公平</span></label>
 					<label><input name="pid" type="radio" value="社会保障"   onclick="javascript:getRadioValue(this.value)"/><span>社会保障</span></label>
 					<label><input name="pid" type="radio" value="节能减排"   onclick="javascript:getRadioValue(this.value)"/><span>节能减排</span></label>
-					<label><input name="pid" type="radio" value="其他"       onclick="javascript:getRadioValue(this.value)"/><span>其他</span></label>  
+					<label><input name="pid" type="radio" value="其他"       onclick="javascript:getRadioValue(this.value)"/><span>其他</span></label>  --> 
 				</div>
 			<h3><div class="must"></div>建言内容</h3>
-					<textarea name="content" style="padding:0.5em; height:7em; font-size: 1em; width: 90%; margin: 0 auto; display: block; resize:vertical; background-color:RGBA(255,255,255,0.6); border: 1px solid #F0660A; border-radius: 2px; -webkit-box-shadow: inset 1px 2px 9px rgba(35,24,21,.3); box-shadow: inset 1px 2px 9px rgba(35,24,21,.3);" placeholder="请在此填写建言内容"></textarea>
+					<textarea name="content" id="formContent" style="padding:0.5em; height:7em; font-size: 1em; width: 90%; margin: 0 auto; display: block; resize:vertical; background-color:RGBA(255,255,255,0.6); border: 1px solid #F0660A; border-radius: 2px; -webkit-box-shadow: inset 1px 2px 9px rgba(35,24,21,.3); box-shadow: inset 1px 2px 9px rgba(35,24,21,.3);" placeholder="请在此填写建言内容"></textarea>
 			<div class="submitBtn">提交</div>
 		</div>
 		<div class="wrap" style="margin-bottom: 2em;">
@@ -121,7 +139,7 @@ data.custom_5 = "[内容]";
 
 
 function getRadioValue(pid) {
-	data.custom_2 = pid;
+	data.custom_4 = pid;
 }
 
 var canclick = true;
@@ -180,14 +198,15 @@ function checkForm() {
 	}
 	 */
 	 
-	data.custom_4 = $("input[name=pid]:radio:checked").val();
-	if (data.custom_4 === undefined ) {
+	//data.custom_4 = $("input[name=pid]:radio:checked").val();
+	if (data.custom_4 == "" |data.custom_4 == "[类型]" ) {
 		$("input[name=pid]").focus();
 		alert("请选择一个建言分类");
 		return false;
 	}
 	
-	data.custom_5 = $("textarea[name=content]").val().trim();
+	data.custom_5 = $("textarea[name=content]").val();
+	//data.custom_5 = $("#formContent").val();
 	if (data.custom_5 === "") {
 		$("input[name=content]").focus();
 		alert("请填写 建言内容");
