@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="GB2312">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="renderer" content="webkit">
+<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0"> 
+<title>江苏新媒体联盟</title>
+<meta name="keywords" content="江苏新媒体联盟,新浪网" />
+<meta name="description" content="江苏新媒体联盟_新浪江苏，融合传统媒体、新兴自媒体在内，服务于江苏人民各个领域" />
+<meta name="author" content="NorthWind" />
+<link rel="stylesheet" type="text/css" href="http://jiangsu.sinaimg.cn/zt/s/css/reset.css">
+<link rel="stylesheet" type="text/css" href="http://jiangsu.sinaimg.cn/js/poshytip/tip-yellow/tip_yellow.css"/>                          <!-- reset -->
+
+<style type="text/css">
+body{ max-width: 640px; margin: 0 auto; font-size: 15px; font-family: "Microsoft Yahei"; }
+h2{ border-bottom:2px solid #B00; display: inline-block; padding: 0.3em 0.8em 0em 0; margin-bottom: 0.2em; }
+.wrap{ padding: 0 1em; }
+p{ line-height: 1.6em; } 
+
+.toggle_p2_btn{
+  background-color: #B00;
+  color: #FFF;
+  padding: 0.4em 0;
+  margin: 0.6em auto;
+  width: 50%;
+  text-align: center;
+  border-radius: 5px;
+  box-shadow: 0 1px 0 #F97878 inset;
+}
+
+.btn{
+  cursor: pointer;
+  -webkit-tap-highlight-color: RGBA(0,0,0,0);
+}
+
+.tip-yellow{-webkit-transform: translateZ(0);-moz-transform: translateZ(0);-ms-transform: translateZ(0);transform: translateZ(0);}
+
+.footer{ text-align: center; margin: 1.4em 0 4em; font-size: 12px; color: #333; }
+</style>
+<style>
+  .join-view .btn-view { width: 17%; margin: 0 1.5%; float: left; text-align: center; }
+  .join-view .btn-view img { max-width: 100%; margin: 0 auto;}
+  .join-view .btn-view span { cursor:pointer; display: block; font-size: 15px; /* color: #ffffff; */ background-color:#DDD; line-height: 28px; border-radius: 2px; margin-top: 14px; font-family: '微软雅黑'}
+ /*  .join-view .btn-view.item-1 span { background: #C11414;}
+  .join-view .btn-view.item-2 span { background: #F2C63C;}
+  .join-view .btn-view.item-3 span { background: #3FBA53;}
+  .join-view .btn-view.item-4 span { background: #3477DF;}
+  .join-view .btn-view.item-5 span { background: #7B24C0;} */
+  .formBox {  font-size: 14px; font-family: "microsoft yahei"; width: 86%;margin: 0 auto; }
+  .formBox span {  display: block; line-height: 1.3em; }
+  .formBox input { font-size: 14px; font-family: "microsoft yahei"; width: 94%; border: none; border-radius: 3px; -webkit-box-shadow: inset 1px 1px 3px #666; box-shadow: inset 1px 1px 3px #666; padding:4px 6px; -webkit-appearance: none;}
+  .submitBtn {  margin-top: 6px; cursor : pointer; text-align: center; line-height: 2em; background-color: #B00; color: #FFF; border-radius: 2px; border-bottom: 2px solid #800; cursor: pointer;}
+  .form2 {  display: none; }
+  .switchForm {  cursor: pointer; }
+  .join-view .btn-view span.switchFormHeightLight {  background-color: #B00; color: #FFF; }
+</style>
+</head>
+<body>
+  <img alt="江苏新媒体联盟" width="100%" src="http://jiangsu.sinaimg.cn/2015/0317/U9263P1194DT20150317161729.jpg" />
+  <div class="wrap">
+  
+    <h2>江苏新媒体联盟 简介</h2>
+    <div class="content">
+      <p>　　“江苏新媒体联盟”由微博、新华报业传媒集团、江苏省广播电视总台集团、南京报业传媒集团、南京广播电视集团、新浪江苏共同发起建立，希望能够联合更多主流媒体、独立自媒体，挖掘内容原创动力，拓展内容分发渠道，激发高效合作潜力，以用户为核心创造更多社会价值。目前已全面覆盖江苏十三个地市，融合传统媒体、新兴自媒体在内，服务于江苏人民各个领域的媒体组织。目前，组织成员已经超过200个账号，覆盖的人数超过2000万人。</p>
+    </div>
+    
+    <h2>江苏新媒体联盟约定</h2>
+    <div class="content">
+      <p>新浪江苏作为江苏新媒体联盟发起方之一，我们承诺：</p>
+      <div class="toggle_p2_btn btn" onclick="toggle_p2_btn()">展开</div>
+      <div id="toggle_p2" style="display: none;">
+        <p>1、凭借着新浪、微博的品牌影响力，在江苏落地四年的积累，新浪江苏与非常多的优质广告客户都有着良好的合作关系，有着专业的行业销售管理体系，新浪江苏对所有联盟成员愿意敞开自有销售渠道，联盟成员自有收入100%归己方所有；</p>
+        <p>2、无排他性，联盟成员可以免费使用新浪江苏原创授权内容，同时，联盟成员自己的好的原创内容都可以每日推送给新浪江苏，新浪江苏也将在重要位置进行报道，突出联盟成员的名称，并鼓励用户关注联盟成员的各类新媒体账号；</p>
+        <p>3、新浪江苏将单独设立江苏新媒体联盟频道，永久性展示加盟的联盟成员的新媒体账号与内容推广；</p>
+        <p>4、新浪江苏将对联盟成员的微博账号的优质内容进行粉丝头条、热门话题等微博推广，并设立专门的技术团队，辅助对联盟成员的各类新媒体活动制作推广H5页面、手机游戏等移动端推广。</p>
+        <p>5、新浪江苏将为独立自媒体提供资本对接机会，江苏省高科技产业投资集团旗下邦盛基金、南京紫金科技创业投资集团旗下金光紫金基金，将对联盟成员提供风险投资资金和专业投融资辅导。</p>
+        <p>6、从所有联盟号里面首期选出20位积极的参与者，加入江苏新媒体联盟的理事会，由联盟成员共同商议如何更好地发展。</p>
+        <p>备注：联盟成员可根据自身实际情况确定合作承诺。</p>
+      </div>
+    </div>
+    
+    
+    <div class="" >
+      <h2>联盟成员资料登记</h2>
+      <div>（提示：请按格式要求如实填写，否则将会被驳回）</div>
+      <div class="join-view clearfix">
+        <div class="btn-view item-1">
+          <span class="switchForm switchFormHeightLight btn">个人</span>
+        </div>
+        <div class="btn-view item-2">
+          <span class="switchForm btn">媒体</span>
+        </div>
+        <div class="btn-view item-3">
+          <span class="switchForm btn">机构</span>
+        </div>
+        <div class="btn-view item-4">
+          <span class="switchForm btn">企业</span>
+        </div>
+        <div class="btn-view item-5">
+          <span class="switchForm btn">政府</span>
+        </div>
+      </div>
+      <div class="container formBox">
+        <div class="form1">
+          <span>姓名：</span><input class="u_custom1"/>
+          <span>地区：</span><input class="u_custom2"/>
+          <span>职业：</span><input class="u_custom3"/>
+          <span>电话：</span><input class="u_custom4"/>
+          <span>QQ：</span><input class="u_custom5"/>
+          <span>个人微信号：</span><input class="u_custom6"  title="含好友数 例：昵称：xx   ID：xxx   好友数：500"/>
+          <span>微信公众号：</span><input class="u_custom7"  title="含粉丝数、平均阅读数　例：昵称：新浪江苏  ID：xinlangjiangsu 粉丝数：4万 平均阅读数：5000"/>
+          <span>微博号：</span><input class="u_custom8"  title="含粉丝数、平均转评　例：昵称：@xx  粉丝数：xxx  平均转评数：50"/>
+          <span>擅长领域：</span><input class="u_custom9"  title="(事件炒作、美食、旅游、体育、时尚、娱乐、政务、公益、IT、互联网、综合等)可以是上述分类以外的其他领域，最多选三项"/>
+          <span>刊例价：</span><input class="u_custom10"  title="请注明微博还是微信、转发价格、直发价格　　例： 微博（直发）：2000/条 微博（转发）：1000/条 微信（头条）：2000/条 微信（其他）：1000/条"/>
+          <span>优秀案例：</span><input class="u_custom11"  title="比如某条原创微博转评超高、主持的话题上至热门话题榜、某条原创微信阅读量超高等，100字以内，请列出相关数据和相关地址链接"/>
+          <div class="submitBtn btn" onclick="submitForm()">提交</div>
+        </div>
+        <div class="form2">
+          <span>单位：</span><input class="u_custom1"/>
+          <span>所属类别：</span><input class="u_custom2"/>
+          <span>联系人姓名：</span><input class="u_custom3"/>
+          <span>地区：</span><input class="u_custom4"/>
+          <span>职业：</span><input class="u_custom5"/>
+          <span>电话：</span><input class="u_custom6"/>
+          <span>QQ：</span><input class="u_custom7"/>
+          <span>个人微信号：</span><input class="u_custom8"  title="含好友数　　(例： 昵称：xx ID：xxx 好友数：500)"/>
+          <span>微博号：</span><input class="u_custom9"  title="含粉丝数、平均阅读数　　(例： 昵称：新浪江苏 ID：xinlangjiangsu 粉丝数：4万 平均阅读数：5000)"/>
+          <span>微信公众号：</span><input class="u_custom10"  title="含粉丝数、平均转评　　(例：昵称：@xx 粉丝数：xxx 平均转评数：50)"/>
+          <span>擅长领域：</span><input class="u_custom11"  title="(事件炒作、美食、旅游、体育、时尚、娱乐、政务、公益、IT、互联网、综合等)可以是上述分类以外的其他领域，最多选三项"/>
+          <span>刊例价：</span><input class="u_custom12"  title="请注明微博还是微信、转发价格、直发价格　　例： 微博（直发）：2000/条 微博（转发）：1000/条 微信（头条）：2000/条 微信（其他）：1000/条"/>
+          <span>优秀案例：</span><input class="u_custom13" title="比如某条原创微博转评超高、主持的话题上至热门话题榜、某条原创微信阅读量超高等，100字以内，请列出相关数据和相关地址链接"/>
+          <div class="submitBtn btn" onclick="submitForm()">提交</div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="footer">2015 SINA</div>
+    
+  </div>
+  
+  <script type="text/javascript" src="http://jiangsu.sinaimg.cn/js/jquery_1.11.2.min_jsonp.js"></script>              <!-- jquery1.11.1 + JSONP封装 -->
+  <script type="text/javascript" src="http://jiangsu.sinaimg.cn/js/poshytip/jquery.poshytip.min.js"></script>
+  <script type="text/javascript">
+  var switcher = false;
+  function toggle_p2_btn(){
+    $('#toggle_p2').slideToggle(500);
+    if (switcher) {
+      $(".toggle_p2_btn").text("展开");  
+    }else{
+      $(".toggle_p2_btn").text("收起");              
+    }
+    switcher = !switcher;
+  }
+  </script>
+  
+  <script type="text/javascript">
+$(".u_custom6, .u_custom7, .u_custom8, .u_custom9,.u_custom10,.u_custom11,.u_custom12,.u_custom13").poshytip({showOn: 'focus',alignTo: 'target',offsetX: 10,alignX: 'center', showTimeout: 0});
+
+
+  var formIndex = 0;
+
+  $(".switchForm").each(
+    function(index) {
+      $(this).bind("click",function() {
+        formIndex = index;
+        $(".switchForm").removeClass("switchFormHeightLight").eq(index).addClass("switchFormHeightLight");
+        $(".form1, .form2").hide();
+        if(index == 0){
+          $(".form1").show();
+          formIndex = 0;
+        } else {
+          $(".form2").show();
+          formIndex = 1;
+        }
+      });
+    });
+
+  var act_ids = [ 10480, 10481 ];
+
+  
+  var flag_submiting = false;
+  function submitForm() {
+    if (flag_submiting) {
+      return;
+    }
+    
+    var data = {};
+    data.act_id = act_ids[formIndex];
+    if (formIndex === 0) {
+      data.custom_1 = $(".form1 .u_custom1").val();
+      data.custom_2 = $(".form1 .u_custom2").val();
+      data.custom_3 = $(".form1 .u_custom3").val();
+      data.custom_4 = $(".form1 .u_custom4").val();
+      data.custom_5 = $(".form1 .u_custom5").val();
+      data.custom_6 = $(".form1 .u_custom6").val();
+      data.custom_7 = $(".form1 .u_custom7").val();
+      data.custom_8 = $(".form1 .u_custom8").val();
+      data.custom_9 = $(".form1 .u_custom9").val();
+      data.custom_10 = $(".form1 .u_custom10").val();
+      data.custom_11 = $(".form1 .u_custom11").val();
+      
+      if (data.custom_1 == "") { alert("请填写姓名"); $(".form1 .u_custom1").focus(); return; }
+      if (data.custom_2 == "") { alert("请填写地区"); $(".form1 .u_custom2").focus(); return; }
+      if (data.custom_3 == "") { alert("请填写职业"); $(".form1 .u_custom3").focus(); return; }
+      if (data.custom_4 == "") { alert("请填写电话"); $(".form1 .u_custom4").focus(); return; }
+      if (data.custom_5 == "") { alert("请填写QQ"); $(".form1 .u_custom5").focus(); return; }
+      if (data.custom_6 == "") { alert("请填写个人微信号"); $(".form1 .u_custom6").focus(); return; }
+      if (data.custom_7 == "") { alert("请填写微博号"); $(".form1 .u_custom7").focus(); return; }
+      if (data.custom_8 == "") { alert("请填写微信公众号"); $(".form1 .u_custom8").focus(); return; }
+      if (data.custom_9 == "") { alert("请填擅长领域"); $(".form1 .u_custom9").focus(); return; }
+      if (data.custom_10 == "") { alert("请填写刊例价"); $(".form1 .u_custom10").focus(); return; }
+      if (data.custom_11 == "") { alert("请填写优秀案例"); $(".form1 .u_custom11").focus(); return; }
+    } else if (formIndex === 1) {
+      data.custom_1 = $(".form2 .u_custom1").val();
+      data.custom_2 = $(".form2 .u_custom2").val();
+      data.custom_3 = $(".form2 .u_custom3").val();
+      data.custom_4 = $(".form2 .u_custom4").val();
+      data.custom_5 = $(".form2 .u_custom5").val();
+      data.custom_6 = $(".form2 .u_custom6").val();
+      data.custom_7 = $(".form2 .u_custom7").val();
+      data.custom_8 = $(".form2 .u_custom8").val();
+      data.custom_9 = $(".form2 .u_custom9").val();
+      data.custom_10 = $(".form2 .u_custom10").val();
+      data.custom_11 = $(".form2 .u_custom11").val();
+      data.custom_12 = $(".form2 .u_custom12").val();
+      data.custom_13 = $(".form2 .u_custom12").val();
+      
+      if (data.custom_1 == "") { alert("请填写单位"); $(".form2 .u_custom1").focus(); return; }
+      if (data.custom_2 == "") { alert("请填写所属类别"); $(".form2 .u_custom2").focus(); return; }
+      if (data.custom_3 == "") { alert("请填写联系人姓名"); $(".form2 .u_custom3").focus(); return; }
+      if (data.custom_4 == "") { alert("请填写地区"); $(".form2 .u_custom4").focus(); return; }
+      if (data.custom_5 == "") { alert("请填写职业"); $(".form2 .u_custom5").focus(); return; }
+      if (data.custom_6 == "") { alert("请填写电话"); $(".form2 .u_custom6").focus(); return; }
+      if (data.custom_7 == "") { alert("请填写QQ"); $(".form2 .u_custom7").focus(); return; }
+      if (data.custom_8 == "") { alert("请填写个人微信号"); $(".form2 .u_custom8").focus(); return; }
+      if (data.custom_9 == "") { alert("请填写微博号"); $(".form2 .u_custom9").focus(); return; }
+      if (data.custom_10 == "") { alert("请填写擅长领域"); $(".form2 .u_custom10").focus(); return; }
+      if (data.custom_11 == "") { alert("请填写刊例价"); $(".form2 .u_custom11").focus(); return; }
+      if (data.custom_12 == "") { alert("请填写优秀案例"); $(".form2 .u_custom12").focus(); return; }
+    }
+
+    $(".submitBtn").text("正在提交...");
+    flag_submiting = true;
+    
+    $.JSONP('http://act.city.sina.com.cn/interface/activity/json_add_signup.php',data, function(bm) {
+      if (bm.error == 0) {
+        alert("提交成功！");
+        $(".form1, .form2").hide();
+      } else {
+        alert(bm.errmsg);
+      }
+      flag_submiting = false;
+      $(".submitBtn").text("提交");
+    });
+
+  }
+
+  </script>
+
+</body>
+</html>
