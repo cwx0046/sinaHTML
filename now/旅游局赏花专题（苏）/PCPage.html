@@ -1,0 +1,642 @@
+<!DOCTYPE htityml>
+<html>
+<head>
+<meta charset="GB2312">
+<meta http-equiv="X-UA-Compatible" content="IE=edge"><!-- 避免IE使用兼容模式 -->
+<meta name="renderer" content="webkit"><!-- 启用360浏览器的极速模式(webkit) -->
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>请在此插入网页标题</title>
+<meta name="keywords" content="请在此插入关键词" />
+<meta name="description" content="请在此写入一段页面描述" />
+<meta name="author" content="NorthWind" />
+<link rel="stylesheet" href="http://jiangsu.sinaimg.cn/zt/s/css/reset.css">
+<link rel="stylesheet" type="text/css" href="http://jiangsu.sinaimg.cn/zt/s/css/reset.css">                         <!-- reset -->
+<script type="text/javascript" src="http://jiangsu.sinaimg.cn/js/jquery_1.11.2.min_jsonp.js"></script>              <!-- jquery1.11.1 + JSONP封装 -->
+
+<!-- 微博登录  -->
+<script type="text/javascript" src="http://jiangsu.sinaimg.cn/js/test/jquery_ui.min.js"></script>                   <!-- jquery_ui -->
+<script type="text/javascript" src="http://jiangsu.sinaimg.cn/js/dial_sso_login_mann.js" charset="UTF-8"></script>  <!-- g=dialog_login_v1.1-sp1.js & ssologin.js & sinaSSOManager.js  _修正-->
+<link rel="stylesheet" type="text/css" href="http://jiangsu.sinaimg.cn/js/dialog_login.css" media="all" />          <!-- DFZ 登录窗口 g=dialog_login_v1.1-sp1.css  _修正 -->
+<style type="text/css">
+.page{ min-width: 950px; }
+.content{ width: 950px; margin: 0 auto; position: relative; } 
+
+</style>
+</head>
+<body>
+	<div id="p1">
+		<div class="content">
+			Building...
+		</div>
+	</div>
+	
+	<!--  ------------------------------------  -->
+	<style>
+	#p2{ background: url("http://s3img.city.sina.com.cn/activity/common/large/e2a148d7eb86ee0310528237600cb456.jpg") no-repeat center center; height: 656px; }
+	.userheadBox, .imgselectBox, .inputBox, .submitBtn{ position: absolute; }
+	.userheadBox {
+  top: 228px;
+  left: 192px;
+  width: 127px;
+  height: 127px;
+  border-radius: 63px;
+  background-clip: padding-box;
+  background-color: #fff;
+  z-index: 1;
+  border: 3px solid RGBA(255,255,255,0.6);
+  overflow: hidden;
+}
+	.imgselectBox{ 
+	 top:342px; left:129px;
+	width: 264px;
+height: 170px;
+border-radius: 4px / 4px 4px 4px 4px;
+background-clip: padding-box;
+background-color: #c70137;
+overflow: hidden;
+	 }
+	.inputBox{  }
+	.inputBox>textarea { position: absolute;
+  word-break: break-all;
+  left: 512px;
+  top: 334px;
+  word-wrap: break-word;
+  background: transparent;
+  line-height: 43px;
+  font-size: 18px;
+  width: 374px;
+  height: 161px;
+  font-family: "微软雅黑";
+  border: none;
+  outline: none;
+  resize: none;}
+	.submitBtn{
+	left: 772px; top: 522px;
+	 cursor: pointer;text-align: center; font-weight: bold; width: 116px;
+height: 44px;
+	 }
+	 
+	 .img-switcher-last, .img-switcher-next{ background-image: url("http://i1.sinaimg.cn/dy/deco/2013/1030/20131030_lqf_icons.png"); width: 38px; height: 38px; position:absolute; cursor: pointer; opacity: .31; filter: alpha(opacity=31); top: 68px; left: 0; }
+	 .img-switcher-last:HOVER, .img-switcher-next:HOVER{ opacity: 0.81;  filter: alpha(opacity=81); }
+	 .img-switcher-last{ background-position: 0px -16px; }
+	 .img-switcher-next{ background-position: 0px -56px; left: 226px; }
+	</style>
+	<div id="p2" class="page">
+		<div class="content">
+			<div class="userheadBox"><img alt="用户头像" id="userhead" width="127" src="http://tp1.sinaimg.cn/2489839700/180/5719811922/0" /></div>
+			<div class="imgselectBox">
+				<img alt="明信片配图" id="imgselect" src="http://s3img.city.sina.com.cn/activity/common/large/9f1bb95d97dfa8008236526290eb1036.jpg" />
+				<div class="img-switcher-last"></div>
+				<div class="img-switcher-next"></div>
+			</div>
+			<div class="inputBox">
+				<textarea placeholder="输入文字" maxlength="100" style="height:180px; overflow:hidden;" class="textarea-input"></textarea>
+			</div>
+			<div class="submitBtn"></div>
+		</div>
+	</div>
+	<script type="text/javascript">
+		var imgarr = [
+		              "http://s3img.city.sina.com.cn/activity/common/large/9f1bb95d97dfa8008236526290eb1036.jpg",
+		              "http://s3img.city.sina.com.cn/activity/common/large/a1c1e501f375d85d8a7155c6dd92a0a2.jpg",
+		              "http://s3img.city.sina.com.cn/activity/common/large/205faca1d7aceb104cb8466c43e21aab.jpg",
+		              "http://s3img.city.sina.com.cn/activity/common/large/f9716240ed99c063df84f9c7c85a7dc9.jpg",
+		              "http://s3img.city.sina.com.cn/activity/common/large/a490f174f0be0e9e285fe9c674835ffe.jpg"
+		              ];
+		var current_img_index = 0;
+		
+		$(".img-switcher-last").bind("click",function(){
+			current_img_index--;			
+			current_img_index = (current_img_index < 0) ? imgarr.length-1 : current_img_index; 
+			$("#imgselect").attr("src", imgarr[current_img_index]);
+		});
+		
+		$(".img-switcher-next").bind("click",function(){
+			current_img_index++;			
+			current_img_index = (current_img_index > imgarr.length-1 ) ? 0 : current_img_index; 
+			$("#imgselect").attr("src", imgarr[current_img_index]);
+		});
+		
+		$(".textarea-input").bind('keydown keyup', function(e) {
+			if (e.keyCode === 13) {
+				e.preventDefault();
+				return;
+			}
+		});
+		
+		function openLoginDialog(){DFZ.APP.DialogLogin.open();$("#ui-dialog-title-1").html("新浪微博登录");}
+		
+		$(function() {
+			var uinfo = sinaSSOManager.getSinaCookie();
+			if (uinfo) {
+				var uid = uinfo.uid;
+				$("#userhead").attr("src",'http://tp1.sinaimg.cn/' + uid + '/180/0');
+			}
+		});
+		
+		/* 提交明信片类型作品 */
+		var isSubmiting = false;
+		$(".submitBtn").click(
+				function submitCard() {
+						if(isSubmiting){
+							return;
+						}
+						isSubmiting = true;
+					  var uinfo = sinaSSOManager.getSinaCookie();
+					  if (!uinfo) {
+							openLoginDialog();
+							isSubmiting = false;
+							return false;
+						}
+						else
+						{
+			       	var uid = uinfo.uid;
+				      $("#headeruser").attr("src",'http://tp1.sinaimg.cn/'+uid+'/50/0');
+						}
+
+						if($(".inputBox>textarea").val() == ""){
+						alert("请给明信片写上内容吧～");
+						return;
+						}
+			/* 
+						//@符号检测
+						var text = $("#postcard .textarea-input").val();
+						r = text.match(/[@]{1,}/);
+				
+						if(r == null){
+							alert("写上@ 你的好友吧～");
+							return;
+						}
+			 */
+					      $.JSONP('http://act.city.sina.com.cn/interface/activity/json_insert_film_stars.php',{
+						    			act_id:10457,
+					            image: imgarr[current_img_index],
+					            content: $(".inputBox>textarea").val(),
+					            to_weibo: 1
+								},function(bm){
+					        if(bm.error==0){
+			            	alert("提交成功");	
+			            	//$('.popuplayer').fadeOut();
+			            	
+			            }else{
+			            	alert(bm.errmsg);
+					        }
+					        isSubmiting = false;
+					    }); 
+						
+					}				
+		);
+		
+	</script>
+	
+	<!--  ------------------------------------  -->
+	<style>
+	#p3{ background: url("http://s3img.city.sina.com.cn/activity/common/large/46b5cf13f3157375392925cef6558fd9.jpg") no-repeat center center; height: 668px; }
+	#p3 .content-container{ position: relative; top: 174px; }
+	#p3 .content-container>img{ -webkit-filter: drop-shadow(5px 5px 4px RGBA(30,30,30,0.3)); filter: drop-shadow(5px 5px 4px RGBA(30,30,30,0.3)); }
+	.city_flower_box{ position:absolute; top:42px; left:485px; width: 466px; height: 380px; }
+	.city_flower_box .card{ display:block; text-align: center; font-size: 17px;  display: inline-block; width: 33%; }
+	.city_flower_box .card>img{  width: 110px; height: 110px; border-radius: 60px; background-clip: padding-box;
+ background-color: #fff; border: 6px solid RGBA(255,255,255,0.6); overflow: hidden; }
+	.city_flower_box .card>span{ display:block; line-height: 50px; }
+	</style>
+	<div id="p3" class="page">
+		<div class="content">
+			<div class="content-container">
+				<img src="http://s3img.city.sina.com.cn/activity/common/large/9d2c2227df85c22911c66584b911bdce.png" alt="map_js" usemap="#Map">
+                <map name="Map">
+                  <area shape="circle" coords="243,51,49"  href="javascript:citySwitch(0)"  onmouseover="citySwitch(0)">
+                  <area shape="circle" coords="98,76,59"   href="javascript:citySwitch(1)"  onmouseover="citySwitch(1)">
+                  <area shape="circle" coords="178,127,35" href="javascript:citySwitch(2)"  onmouseover="citySwitch(2)">
+                  <area shape="circle" coords="240,160,28" href="javascript:citySwitch(3)"  onmouseover="citySwitch(3)">
+                  <area shape="circle" coords="342,150,58" href="javascript:citySwitch(4)"  onmouseover="citySwitch(4)">
+                  <area shape="circle" coords="258,243,40" href="javascript:citySwitch(5)"  onmouseover="citySwitch(5)">
+                  <area shape="circle" coords="319,279,27" href="javascript:citySwitch(6)"  onmouseover="citySwitch(6)">
+                  <area shape="circle" coords="413,298,43" href="javascript:citySwitch(7)"  onmouseover="citySwitch(7)">
+                  <area shape="circle" coords="272,313,28" href="javascript:citySwitch(8)"  onmouseover="citySwitch(8)">
+                  <area shape="circle" coords="204,322,35" href="javascript:citySwitch(9)"  onmouseover="citySwitch(9)">
+                  <area shape="circle" coords="303,355,23" href="javascript:citySwitch(10)" onmouseover="citySwitch(10)">
+                  <area shape="circle" coords="346,348,23" href="javascript:citySwitch(11)" onmouseover="citySwitch(11)">
+                  <area shape="circle" coords="402,391,41" href="javascript:citySwitch(12)" onmouseover="citySwitch(12)">
+                </map>
+      	<div class="city_flower_box">
+     			
+      	</div>
+			</div>
+		</div>
+	</div>
+	<script>
+	var data_city_flower = [
+	                        { cityname: "连云港",
+	                        	photo:[
+	                        	      "http://s3img.city.sina.com.cn/activity/common/large/ec7fa02f55c38ad84c524db809cd7738.jpg",
+	                                "http://s3img.city.sina.com.cn/activity/common/large/ec7fa02f55c38ad84c524db809cd7738.jpg",
+	                                "http://s3img.city.sina.com.cn/activity/common/large/ec7fa02f55c38ad84c524db809cd7738.jpg",
+	                                "http://s3img.city.sina.com.cn/activity/common/large/ec7fa02f55c38ad84c524db809cd7738.jpg",
+	                                "http://s3img.city.sina.com.cn/activity/common/large/ec7fa02f55c38ad84c524db809cd7738.jpg",
+	                                "http://s3img.city.sina.com.cn/activity/common/large/ec7fa02f55c38ad84c524db809cd7738.jpg"
+	                                ],
+	                        	text:[
+	                        	      "连云港梅花",
+	                        	      "樱花",
+	                        	      "油菜花",
+	                        	      "桃花",
+	                        	      "郁金香",
+	                        	      "牡丹花"
+	                        	      ],
+	                        	href:[
+																	"http://www.sina.com.cn",
+																	"http://www.sina.com.cn",
+																	"http://www.sina.com.cn",
+																	"http://www.sina.com.cn",
+																	"http://www.sina.com.cn",
+																	"http://www.sina.com.cn"
+	                        	      ]
+	                        },
+	                        { cityname: "徐州",
+	                        	photo:[
+	                        	      "http://s3img.city.sina.com.cn/activity/common/large/ec7fa02f55c38ad84c524db809cd7738.jpg",
+	                                "http://s3img.city.sina.com.cn/activity/common/large/ec7fa02f55c38ad84c524db809cd7738.jpg",
+	                                "http://s3img.city.sina.com.cn/activity/common/large/ec7fa02f55c38ad84c524db809cd7738.jpg",
+	                                "http://s3img.city.sina.com.cn/activity/common/large/ec7fa02f55c38ad84c524db809cd7738.jpg",
+	                                "http://s3img.city.sina.com.cn/activity/common/large/ec7fa02f55c38ad84c524db809cd7738.jpg",
+	                                "http://s3img.city.sina.com.cn/activity/common/large/ec7fa02f55c38ad84c524db809cd7738.jpg"
+	                                ],
+	                        	text:[
+	                        	      "梅花",
+	                        	      "樱花",
+	                        	      "油菜花",
+	                        	      "桃花",
+	                        	      "郁金香",
+	                        	      "牡丹花"
+	                        	      ],
+ 	                        	href:[
+																	"http://www.sina.com.cn",
+																	"http://www.sina.com.cn",
+																	"http://www.sina.com.cn",
+																	"http://www.sina.com.cn",
+																	"http://www.sina.com.cn",
+																	"http://www.sina.com.cn"
+						  	     						 ]
+	                        },
+	                        { cityname: "宿迁",
+	                        	photo:[
+	                        	      "http://s3img.city.sina.com.cn/activity/common/large/ec7fa02f55c38ad84c524db809cd7738.jpg",
+	                                "http://s3img.city.sina.com.cn/activity/common/large/ec7fa02f55c38ad84c524db809cd7738.jpg",
+	                                "http://s3img.city.sina.com.cn/activity/common/large/ec7fa02f55c38ad84c524db809cd7738.jpg",
+	                                "http://s3img.city.sina.com.cn/activity/common/large/ec7fa02f55c38ad84c524db809cd7738.jpg",
+	                                "http://s3img.city.sina.com.cn/activity/common/large/ec7fa02f55c38ad84c524db809cd7738.jpg",
+	                                "http://s3img.city.sina.com.cn/activity/common/large/ec7fa02f55c38ad84c524db809cd7738.jpg"
+	                                ],
+	                        	text:[
+	                        	      "宿迁梅花",
+	                        	      "樱花",
+	                        	      "油菜花",
+	                        	      "桃花",
+	                        	      "郁金香",
+	                        	      "牡丹花"
+	                        	      ],
+ 	                        	href:[
+																	"http://www.sina.com.cn",
+																	"http://www.sina.com.cn",
+																	"http://www.sina.com.cn",
+																	"http://www.sina.com.cn",
+																	"http://www.sina.com.cn",
+																	"http://www.sina.com.cn"
+							     						 		]
+	                        },
+	                        { cityname: "淮安",
+	                        	photo:[
+	                        	      "http://s3img.city.sina.com.cn/activity/common/large/ec7fa02f55c38ad84c524db809cd7738.jpg",
+	                                "http://s3img.city.sina.com.cn/activity/common/large/ec7fa02f55c38ad84c524db809cd7738.jpg",
+	                                "http://s3img.city.sina.com.cn/activity/common/large/ec7fa02f55c38ad84c524db809cd7738.jpg",
+	                                "http://s3img.city.sina.com.cn/activity/common/large/ec7fa02f55c38ad84c524db809cd7738.jpg",
+	                                "http://s3img.city.sina.com.cn/activity/common/large/ec7fa02f55c38ad84c524db809cd7738.jpg",
+	                                "http://s3img.city.sina.com.cn/activity/common/large/ec7fa02f55c38ad84c524db809cd7738.jpg"
+	                                ],
+	                        	text:[
+	                        	      "梅花",
+	                        	      "樱花",
+	                        	      "油菜花",
+	                        	      "桃花",
+	                        	      "郁金香",
+	                        	      "牡丹花"
+	                        	      ],
+	                        	href:[
+																"http://www.sina.com.cn",
+																"http://www.sina.com.cn",
+																"http://www.sina.com.cn",
+																"http://www.sina.com.cn",
+																"http://www.sina.com.cn",
+																"http://www.sina.com.cn"
+						     						 		]
+	                        },
+	                        { cityname: "盐城",
+	                        	photo:[
+	                        	      "http://s3img.city.sina.com.cn/activity/common/large/ec7fa02f55c38ad84c524db809cd7738.jpg",
+	                                "http://s3img.city.sina.com.cn/activity/common/large/ec7fa02f55c38ad84c524db809cd7738.jpg",
+	                                "http://s3img.city.sina.com.cn/activity/common/large/ec7fa02f55c38ad84c524db809cd7738.jpg",
+	                                "http://s3img.city.sina.com.cn/activity/common/large/ec7fa02f55c38ad84c524db809cd7738.jpg",
+	                                "http://s3img.city.sina.com.cn/activity/common/large/ec7fa02f55c38ad84c524db809cd7738.jpg",
+	                                "http://s3img.city.sina.com.cn/activity/common/large/ec7fa02f55c38ad84c524db809cd7738.jpg"
+	                                ],
+	                        	text:[
+	                        	      "盐城梅花",
+	                        	      "樱花",
+	                        	      "油菜花",
+	                        	      "桃花",
+	                        	      "郁金香",
+	                        	      "牡丹花"
+	                        	      ],
+
+ 	                        	href:[
+																	"http://www.sina.com.cn",
+																	"http://www.sina.com.cn",
+																	"http://www.sina.com.cn",
+																	"http://www.sina.com.cn",
+																	"http://www.sina.com.cn",
+																	"http://www.sina.com.cn"
+							     						 		]
+	                        },
+	                        { cityname: "扬州",
+	                        	photo:[
+	                        	      "http://s3img.city.sina.com.cn/activity/common/large/ec7fa02f55c38ad84c524db809cd7738.jpg",
+	                                "http://s3img.city.sina.com.cn/activity/common/large/ec7fa02f55c38ad84c524db809cd7738.jpg",
+	                                "http://s3img.city.sina.com.cn/activity/common/large/ec7fa02f55c38ad84c524db809cd7738.jpg",
+	                                "http://s3img.city.sina.com.cn/activity/common/large/ec7fa02f55c38ad84c524db809cd7738.jpg",
+	                                "http://s3img.city.sina.com.cn/activity/common/large/ec7fa02f55c38ad84c524db809cd7738.jpg",
+	                                "http://s3img.city.sina.com.cn/activity/common/large/ec7fa02f55c38ad84c524db809cd7738.jpg"
+	                                ],
+	                        	text:[
+	                        	      "梅花",
+	                        	      "樱花",
+	                        	      "油菜花",
+	                        	      "桃花",
+	                        	      "郁金香",
+	                        	      "牡丹花"
+	                        	      ],
+ 	                        	href:[
+																	"http://www.sina.com.cn",
+																	"http://www.sina.com.cn",
+																	"http://www.sina.com.cn",
+																	"http://www.sina.com.cn",
+																	"http://www.sina.com.cn",
+																	"http://www.sina.com.cn"
+							     						 		]
+	                        },
+	                        { cityname: "泰州",
+	                        	photo:[
+	                        	      "http://s3img.city.sina.com.cn/activity/common/large/ec7fa02f55c38ad84c524db809cd7738.jpg",
+	                                "http://s3img.city.sina.com.cn/activity/common/large/ec7fa02f55c38ad84c524db809cd7738.jpg",
+	                                "http://s3img.city.sina.com.cn/activity/common/large/ec7fa02f55c38ad84c524db809cd7738.jpg",
+	                                "http://s3img.city.sina.com.cn/activity/common/large/ec7fa02f55c38ad84c524db809cd7738.jpg",
+	                                "http://s3img.city.sina.com.cn/activity/common/large/ec7fa02f55c38ad84c524db809cd7738.jpg",
+	                                "http://s3img.city.sina.com.cn/activity/common/large/ec7fa02f55c38ad84c524db809cd7738.jpg"
+	                                ],
+	                        	text:[
+	                        	      "梅花",
+	                        	      "樱花",
+	                        	      "油菜花",
+	                        	      "桃花",
+	                        	      "郁金香",
+	                        	      "牡丹花"
+	                        	      ],
+ 	                        	href:[
+																	"http://www.sina.com.cn",
+																	"http://www.sina.com.cn",
+																	"http://www.sina.com.cn",
+																	"http://www.sina.com.cn",
+																	"http://www.sina.com.cn",
+																	"http://www.sina.com.cn"
+							     						 		]
+	                        },
+	                        { cityname: "南通",
+	                        	photo:[
+	                        	      "http://s3img.city.sina.com.cn/activity/common/large/ec7fa02f55c38ad84c524db809cd7738.jpg",
+	                                "http://s3img.city.sina.com.cn/activity/common/large/ec7fa02f55c38ad84c524db809cd7738.jpg",
+	                                "http://s3img.city.sina.com.cn/activity/common/large/ec7fa02f55c38ad84c524db809cd7738.jpg",
+	                                "http://s3img.city.sina.com.cn/activity/common/large/ec7fa02f55c38ad84c524db809cd7738.jpg",
+	                                "http://s3img.city.sina.com.cn/activity/common/large/ec7fa02f55c38ad84c524db809cd7738.jpg",
+	                                "http://s3img.city.sina.com.cn/activity/common/large/ec7fa02f55c38ad84c524db809cd7738.jpg"
+	                                ],
+	                        	text:[
+	                        	      "梅花",
+	                        	      "樱花",
+	                        	      "油菜花",
+	                        	      "桃花",
+	                        	      "郁金香",
+	                        	      "牡丹花"
+	                        	      ],
+	                        	href:[
+																"http://www.sina.com.cn",
+																"http://www.sina.com.cn",
+																"http://www.sina.com.cn",
+																"http://www.sina.com.cn",
+																"http://www.sina.com.cn",
+																"http://www.sina.com.cn"
+						     						 		]
+	                        },
+	                        { cityname: "镇江",
+	                        	photo:[
+	                        	      "http://s3img.city.sina.com.cn/activity/common/large/ec7fa02f55c38ad84c524db809cd7738.jpg",
+	                                "http://s3img.city.sina.com.cn/activity/common/large/ec7fa02f55c38ad84c524db809cd7738.jpg",
+	                                "http://s3img.city.sina.com.cn/activity/common/large/ec7fa02f55c38ad84c524db809cd7738.jpg",
+	                                "http://s3img.city.sina.com.cn/activity/common/large/ec7fa02f55c38ad84c524db809cd7738.jpg",
+	                                "http://s3img.city.sina.com.cn/activity/common/large/ec7fa02f55c38ad84c524db809cd7738.jpg",
+	                                "http://s3img.city.sina.com.cn/activity/common/large/ec7fa02f55c38ad84c524db809cd7738.jpg"
+	                                ],
+	                        	text:[
+	                        	      "梅花",
+	                        	      "樱花",
+	                        	      "油菜花",
+	                        	      "桃花",
+	                        	      "郁金香",
+	                        	      "牡丹花"
+	                        	      ],
+ 	                        	href:[
+																	"http://www.sina.com.cn",
+																	"http://www.sina.com.cn",
+																	"http://www.sina.com.cn",
+																	"http://www.sina.com.cn",
+																	"http://www.sina.com.cn",
+																	"http://www.sina.com.cn"
+							     						 		]
+	                        },
+	                        { cityname: "南京",
+	                        	photo:[
+	                        	      "http://s3img.city.sina.com.cn/activity/common/large/ec7fa02f55c38ad84c524db809cd7738.jpg",
+	                                "http://s3img.city.sina.com.cn/activity/common/large/ec7fa02f55c38ad84c524db809cd7738.jpg",
+	                                "http://s3img.city.sina.com.cn/activity/common/large/ec7fa02f55c38ad84c524db809cd7738.jpg",
+	                                "http://s3img.city.sina.com.cn/activity/common/large/ec7fa02f55c38ad84c524db809cd7738.jpg",
+	                                "http://s3img.city.sina.com.cn/activity/common/large/ec7fa02f55c38ad84c524db809cd7738.jpg",
+	                                "http://s3img.city.sina.com.cn/activity/common/large/ec7fa02f55c38ad84c524db809cd7738.jpg"
+	                                ],
+	                        	text:[
+	                        	      "梅花",
+	                        	      "樱花",
+	                        	      "油菜花",
+	                        	      "桃花",
+	                        	      "郁金香",
+	                        	      "牡丹花"
+	                        	      ],
+	                        	href:[
+																	"http://www.sina.com.cn",
+																	"http://www.sina.com.cn",
+																	"http://www.sina.com.cn",
+																	"http://www.sina.com.cn",
+																	"http://www.sina.com.cn",
+																	"http://www.sina.com.cn"
+							     						 		]
+	                        },
+	                        { cityname: "常州",
+	                        	photo:[
+	                        	      "http://s3img.city.sina.com.cn/activity/common/large/ec7fa02f55c38ad84c524db809cd7738.jpg",
+	                                "http://s3img.city.sina.com.cn/activity/common/large/ec7fa02f55c38ad84c524db809cd7738.jpg",
+	                                "http://s3img.city.sina.com.cn/activity/common/large/ec7fa02f55c38ad84c524db809cd7738.jpg",
+	                                "http://s3img.city.sina.com.cn/activity/common/large/ec7fa02f55c38ad84c524db809cd7738.jpg",
+	                                "http://s3img.city.sina.com.cn/activity/common/large/ec7fa02f55c38ad84c524db809cd7738.jpg",
+	                                "http://s3img.city.sina.com.cn/activity/common/large/ec7fa02f55c38ad84c524db809cd7738.jpg"
+	                                ],
+	                        	text:[
+	                        	      "梅花",
+	                        	      "樱花",
+	                        	      "油菜花",
+	                        	      "桃花",
+	                        	      "郁金香",
+	                        	      "牡丹花"
+	                        	      ],
+ 	                        	href:[
+																	"http://www.sina.com.cn",
+																	"http://www.sina.com.cn",
+																	"http://www.sina.com.cn",
+																	"http://www.sina.com.cn",
+																	"http://www.sina.com.cn",
+																	"http://www.sina.com.cn"
+							     						 		]
+	                        },
+	                        { cityname: "无锡",
+	                        	photo:[
+	                        	      "http://s3img.city.sina.com.cn/activity/common/large/ec7fa02f55c38ad84c524db809cd7738.jpg",
+	                                "http://s3img.city.sina.com.cn/activity/common/large/ec7fa02f55c38ad84c524db809cd7738.jpg",
+	                                "http://s3img.city.sina.com.cn/activity/common/large/ec7fa02f55c38ad84c524db809cd7738.jpg",
+	                                "http://s3img.city.sina.com.cn/activity/common/large/ec7fa02f55c38ad84c524db809cd7738.jpg",
+	                                "http://s3img.city.sina.com.cn/activity/common/large/ec7fa02f55c38ad84c524db809cd7738.jpg",
+	                                "http://s3img.city.sina.com.cn/activity/common/large/ec7fa02f55c38ad84c524db809cd7738.jpg"
+	                                ],
+	                        	text:[
+	                        	      "梅花",
+	                        	      "樱花",
+	                        	      "油菜花",
+	                        	      "桃花",
+	                        	      "郁金香",
+	                        	      "牡丹花"
+	                        	      ],
+	                        	href:[
+																	"http://www.sina.com.cn",
+																	"http://www.sina.com.cn",
+																	"http://www.sina.com.cn",
+																	"http://www.sina.com.cn",
+																	"http://www.sina.com.cn",
+																	"http://www.sina.com.cn"
+							     						 		]
+	                        },
+	                        { cityname: "苏州",
+	                        	photo:[
+	                        	      "http://s3img.city.sina.com.cn/activity/common/large/ec7fa02f55c38ad84c524db809cd7738.jpg",
+	                                "http://s3img.city.sina.com.cn/activity/common/large/ec7fa02f55c38ad84c524db809cd7738.jpg",
+	                                "http://s3img.city.sina.com.cn/activity/common/large/ec7fa02f55c38ad84c524db809cd7738.jpg",
+	                                "http://s3img.city.sina.com.cn/activity/common/large/ec7fa02f55c38ad84c524db809cd7738.jpg",
+	                                "http://s3img.city.sina.com.cn/activity/common/large/ec7fa02f55c38ad84c524db809cd7738.jpg",
+	                                "http://s3img.city.sina.com.cn/activity/common/large/ec7fa02f55c38ad84c524db809cd7738.jpg"
+	                                ],
+	                        	text:[
+	                        	      "苏州梅花",
+	                        	      "樱花",
+	                        	      "油菜花",
+	                        	      "桃花",
+	                        	      "郁金香",
+	                        	      "牡丹花"
+	                        	      ],
+	                        	href:[
+																	"http://www.sina.com.cn",
+																	"http://www.sina.com.cn",
+																	"http://www.sina.com.cn",
+																	"http://www.sina.com.cn",
+																	"http://www.sina.com.cn",
+																	"http://www.sina.com.cn"
+							     						 		]
+	                        }
+
+	                        ];
+	
+	function citySwitch(index) {
+		var dom = $(".city_flower_box");
+		dom.stop(true,true).fadeOut(function () {
+			var data = data_city_flower[index];
+			var html = "";
+			for (var i = 0; i < data.photo.length; i++) {
+				html += '<a class="card" href="'+ data.href[i] +'">';
+				html += '<img src="'+ data.photo[i] +'"/>';
+				html += "<span>"+data.text[i]+"</span>";
+				html += '</a>';
+				
+			}
+			dom.html(html);
+			dom.stop(true,true).fadeIn();
+		});
+	}
+	
+	
+	citySwitch(0);
+	
+	</script>
+	
+	<!--  ------------------------------------  -->
+	<style>
+	#p4{ background: url("http://s3img.city.sina.com.cn/activity/common/large/a9df17ce8b719e76d2858a9ecb3ff111.jpg") no-repeat center center; height: 740px; }
+	.photo-container{ position: relative; top: 174px; }
+	.photo-box{ position: absolute; 
+			border: 3px solid #df2d43;
+			border-radius:4px;
+			background-color: #ffe1f5;
+			overflow: hidden;
+	 }
+	 .photo-box>img{ display: block; }
+	 .photo-box1{ left: 4px; top: 4px; }
+	 .photo-box2{ left: 358px; top: 4px; z-index: 1; }
+	 .photo-box3{ left: 358px; top: 157px; }
+	 .photo-box4{ left: 594px; top: 4px; }
+	 .photo-desc{ width: 100%; position: absolute; bottom: 0; left: 0; text-align: center;color: #FFF;background-color: RGBA(0,0,0,0.5);
+filter: progid:DXImageTransform.Microsoft.Gradient(startColorStr=#7F000000,endColorStr=#7F000000); font-size: 14px; line-height: 22px; height: 22px; 
+-webkit-transition: all 0.3s;
+        transition: all 0.3s;
+ }
+   .photo-box:HOVER .photo-desc{  height: auto; }
+   .photo-desc-more{ text-align: left; text-indent: 2em; padding: 0.32em 0.8em; font-size: 0.8em; }
+	</style>
+	<div id="p4" class="page">
+		<div class="content">
+			<div class="photo-container">
+				<div class="photo-box photo-box1">
+					<img alt="" src="http://s3img.city.sina.com.cn/activity/common/large/e023f9cec2c7551a7e7b25ac2b1323df.jpg">
+					<div class="photo-desc">描述标题<div class="photo-desc-more">更多文字字字字字字字字字字字字字字字字字字字字字</div></div>
+				</div>
+				<div class="photo-box photo-box2">
+					<img alt="" src="http://s3img.city.sina.com.cn/activity/common/large/3478a7102ddf69563e08b69175c1b9cb.jpg">
+					<div class="photo-desc">描述标题2<div class="photo-desc-more">更多文文文文文文文文文文文文文文文文文文文文文文文文文文文文文文文文文文</div></div>
+				</div>
+				<div class="photo-box photo-box3">
+					<img alt="" src="http://s3img.city.sina.com.cn/activity/common/large/5421a07480999f16c24750ebd4bd4370.jpg">
+					<div class="photo-desc">描述标题3<div class="photo-desc-more">更多多多多多多多多多多多多多多多多多多多多多多多多多多多多多多多多多多多多多多多多多多多多多多多多多多多多多多多多多多多</div></div>
+				</div>
+				<div class="photo-box photo-box4">
+					<img alt="" src="http://s3img.city.sina.com.cn/activity/common/large/524805f28561a17c472183bdfade6e95.jpg">
+					<div class="photo-desc">描述标题4<div class="photo-desc-more">更更更更更更更更更更更更更更更更更更更更更更更更更更更更更更更更更更更更更更更更更更更更更更更更更更更更更更更更更更更更更更更更更更更更更更更更更更更更更更更更更更更更</div></div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!--  ------------------------------------  -->
+
+</body>
+</html>
