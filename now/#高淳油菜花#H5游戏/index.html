@@ -1,0 +1,347 @@
+<html><head>
+<meta charset="GB2312">
+<meta http-equiv="Cache-Control" content="no-cache">
+<meta name="format-detection" content="telephone=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">
+<title>高淳最美油菜花去哪儿了</title>
+<meta name="keywords" content="油菜花,游戏">
+<meta name="description" content="高淳最美油菜花去哪儿了">
+<link rel="stylesheet" href="http://jiangsu.sinaimg.cn/zt/s/css/reset.css">
+<script type="text/javascript" src="http://jiangsu.sinaimg.cn/js/jquery_1.11.2.min_jsonp.js"></script>   
+<!-- <script type="text/javascript" src="http://jiangsu.sinaimg.cn/zt/s/gamezhaolele/game.js" charset="UTF-8"></script> -->
+
+<style type="text/css">
+.none { display: none; }
+body { font-family: "microsoft yahei";  max-width: 500px; margin: 0 auto; }
+#screen { width: 100%; height: 100%; position: relative; background-image: url("http://jiangsu.sinaimg.cn/zt/s/gcych/images/bg.jpg"); background-repeat: no-repeat; background-size: 100% auto; }
+.page { width: 320px; height: 410px; position: absolute; top:0; right:0; bottom:0; left:0; margin: auto; }
+#page1 {   background: url("http://jiangsu.sinaimg.cn/zt/s/gcych/images/p1.jpg") no-repeat top center;   background-size: 100%;  width: 100%;  height: 100%; }
+#page2, #page3 { display: none; }
+.center { text-align: center; }
+.btn { border: 1px solid #FFF; color: #FFF; border-radius: 6px; font-size: 15px; padding: 0.2em 1em; width: 79px; cursor: pointer; margin: 0 auto; }
+.gameInfoBanner { width: 100%;  padding-bottom: 12px; }
+.gameinfobox { width: 82px; height: 24px; line-height: 24px; font-size: 14px; border: 1px solid #FFF; border-radius: 6px; color: #FFF; display: inline-block; position: relative; }
+.gameinfobox div { display: inline; }
+.gameinfobox span { margin-left: 10px; }
+#infoboxLele { width: 96px;margin-left: 20px; }
+#infoboxLele img {   position: absolute;  right: -19px;  bottom: -11px; }
+#infoboxTimer { margin-left: 19px; }
+#infoboxTimer img { width: 22px; position: absolute; right: 3px; bottom: 1px; }
+.pauseBtn { width: 26px; height: 26px;  cursor: pointer; margin-left: 44px;
+  background-image: url("http://s3img.city.sina.com.cn/activity/common/large/37e64c5b6d22c3992eb134d80dfcc60c.png");
+  background-position: 0px 0px;
+  background-size: 100%; 
+  border: none;
+  margin-bottom: -7px;
+ }
+.pauseBtnPause{background-position: 0px 26px; }
+#gameIcoBlock { width: 294px; margin: 0 auto; }
+#gameIcoBlock .ico { width: 40px; height: 40px; float: left; margin: 1px; border-radius: 4px; cursor: pointer; background-color: inherit;  background-size:100%;  -webkit-tap-highlight-color:transparent; }
+.ico1{ background-position: 0 0; }
+.ico2{ background-position: 0 -40px; }
+
+/* 
+#p3cloud { position: relative; margin: 3em 0 5em; }
+#p3cloud span { margin: 0 auto; color: #FFF;font-size: 18px; font-weight: bold; line-height: 2em; }
+ */
+#page3{   background: url("http://jiangsu.sinaimg.cn/zt/s/gcych/images/p3.jpg");  background-size: 205px;  background-repeat: no-repeat;  background-position: center; }
+.startbtn{ color: #F00;}
+</style>
+<script type="text/javascript">
+
+function page(num) {
+  $("#page"+num).show();
+  $(".page:not(#page"+num+")").hide();
+  
+  if(num == 2){
+    gamestart();
+  }
+  
+  if (num == 3) {
+    //$(".fenxiang").fadeIn();
+  }
+}
+
+/* 游戏元素 */
+
+var imgsrc = ["11.jpg", "12.jpg", "13.jpg", "14.jpg",
+    "15.jpg", "16.jpg", "17.jpg", "18.jpg", "19.jpg", "20.jpg", "21.jpg",
+    "22.jpg", "23.jpg", "24.jpg", "25.jpg", "26.jpg", "27.jpg"];     
+
+var obj1 = { isdog : true,  imgsrc : "04.jpg"};
+
+var objList = [];
+var bigLevelList = []; 
+var icoList = [];
+var difficult = 6; //每6关增加难度
+var level = 1;
+var score = 0;
+/* 
+ *  点击ico
+ *  @param 
+ *    index 索引
+ *  @return 
+ *    true  是
+ *    false 不是
+ */
+function icoClick(index){
+  return icoList[index].isdog;
+} 
+
+/*
+ *  第一个元素和随机元素交换位置
+ *  @param
+ *    objs[]
+ *  @return
+ *    objs[] 打乱后的数组
+ */
+function random(objs) {
+  
+  //此方法抛弃，两两交换效果不好。
+  /*return objs.sort( function(){ return 0.5 - Math.random()} );*/
+
+  var randomIndex = parseInt(Math.random()*objs.length);
+  var temp = objs[0];
+  objs[0] = objs[randomIndex];
+  objs[randomIndex] = temp;
+  return objs;
+}
+
+/*
+ *   关卡初始化
+ *  @param
+ *    difficult 难度--展示几种图标 至少2种
+ *    gamesize 游戏区域ico数量
+ *  @return
+ *    icoList 游戏区域ico对象数组
+ */
+/*function loadRound( difficult, gamesize) {
+  //可点击图标
+  icoList[0] = objList[0];
+  //剩下干扰图标
+  if (difficult > objList.length) { difficult = objList.length; }
+  for (var i = 1; i < gamesize; i++) {
+     对象加载方式，随机 不考虑均匀分布 
+     除了正确的那个，额外加载几种不同的ico 
+    icoList[i] = objList[Math.ceil( Math.random()*( difficult - 1 ) )];
+  }
+  
+  return icoList;
+}*/
+
+//游戏关卡
+function gameRound(level) {
+  //difficult = level / difficult + 1;
+  //putIntoHTML(random(loadRound(difficult,56)));
+  putIntoHTML(random(getSmallLevel(level,56)));
+  setCurrentLevel(level);
+}
+
+function getBigLevel(level){
+  bigLevelList = [];
+  //从总图标选取大关所需图标
+  imgsrc.sort(function(){ return 0.5 - Math.random(); }); //打乱大数组
+  var bigLevel = Math.floor((( level - 1 ) / difficult ) + 1 ); //得到大关
+  if (bigLevel>4) {bigLevel = 4;} //限定最高大关4
+  for (var i = 0; i < bigLevel*difficult; i++) {
+	  if( i >= imgsrc.length){
+		  continue;		  
+	  }
+    bigLevelList.push({isdog : false, imgsrc : imgsrc[i]});
+  }
+  return bigLevelList;
+}
+
+function getSmallLevel(level, gamesize){
+  if (level == 1 | level%difficult==1) {
+    getBigLevel(level);
+  }
+  
+  icoList = [];
+  //从大关截取小关数据
+  var bigLevel = Math.floor((( level - 1 ) / difficult ) + 1 ); //得到大关
+  if (bigLevel>4) {bigLevel = 4;} //限定最高大关4
+  var smallLevel = level % difficult;
+  smallLevel = (smallLevel == 0) ? difficult : smallLevel; //保证小关为1,2,3...difficult
+  //console.log("关卡:"+ level +" "+bigLevel +"大关"+smallLevel+"小关");
+  //关卡内容设置
+  icoList[0] = obj1; //乐乐
+  for (var i = 1; i < gamesize; i++) {
+    var fanweimin = bigLevel*(smallLevel-1)
+    var fanweimax = bigLevel*smallLevel-1;
+    if( fanweimin > (imgsrc.length-1)){
+    	fanweimin = imgsrc.length-1;
+   	}
+    if( fanweimax > (imgsrc.length-1)){
+    	fanweimax = imgsrc.length-1;
+   	}
+    
+    icoList.push(bigLevelList[ Math.round(fanweimin + Math.random()*(fanweimax - fanweimin))]);
+  }
+  //console.log(bigLevelList+" "+fanweimax+" "+fanweimin);
+  //console.log(icoList);
+  //别忘了返回值要random
+  return icoList;
+}
+
+function putIntoHTML(icoList){
+  var html = '';
+  for ( var i in icoList) {
+    html += '<img class="ico" src="http://jiangsu.sinaimg.cn/zt/s/gcych/images/other/' + icoList[i].imgsrc +'" />';
+    //html += '<div class="ico ' + icoList[i].imgsrc + '"></div>';
+  }
+  //$("#gameIcoBlock").html(html);
+  document.getElementById("gameIcoBlock").innerHTML = html;
+  
+  $("#gameIcoBlock .ico").unbind().bind("touchstart click", function() {
+    if (icoClick($(this).index())) {
+      level++;
+      gameRound(level);
+    }
+  });
+}
+
+/* 显示关卡 */
+function setCurrentLevel(level){
+  document.getElementById("currentLevel").innerHTML = level - 1;
+  document.getElementById("level").innerHTML = level - 1;
+}
+
+var t;
+var pause = false; //暂停 boolean
+/* 计时器 */
+function timer() {
+  var time = 20;
+  document.getElementById("timer").innerHTML = time;
+  
+  t = setInterval(function() {
+    if (pause) {
+      return;
+    }
+    time -= 0.1;
+    if(time <= 0){
+      //切换到第三页
+      page(3);
+    
+      //alert("厉害～您闯过了"+level+"关！");
+      document.getElementById("timer").innerHTML = "0.0";
+      //dataForWeixin.TLTitle = '我找到了'+ (level-1) +'个灯灯，最近这货火爆了，快来调戏他！';
+      //dataForWeixin.desc = '我找到了'+ (level-1) +'个灯灯，最近这货火爆了，快来调戏他！';
+      document.title = "我在20秒内找到了"+ (level-1) +"个油菜花，快来高淳赏花吧～";
+      
+      //$.JSONP('http://act.city.sina.com.cn/interface/activity/json_add_signup.php',{act_id:6886,custom_1:(level-1)},function(bm){});
+      clearInterval(t);
+      return;
+    }
+    document.getElementById("timer").innerHTML = time.toFixed(1);
+  }, 100);
+  
+  /*function checkTime(time){
+    if (time <= 0) {
+      clearInterval(t);
+      alert("厉害～您闯过了"+level+"关！");
+      return true;
+    }
+  }*/
+}
+
+//暂停游戏
+function gamepause() {
+  pause = !pause;
+  $(".pauseBtn").toggleClass("pauseBtnPause");
+  //图片隐藏
+  $("#gameIcoBlock").toggleClass("none");
+}
+
+//点击 开始游戏～
+function gamestart(){
+  gameRound(1);
+  timer();//开始计时！
+  
+}
+
+function resetGame(){
+  objList = [];
+  bigLevelList = []; 
+
+  icoList = [];
+  level = 1;
+  score = 0;
+  clearInterval(t);
+  page(1);
+  
+}
+
+</script>
+
+</head>
+<body ontouchmove="event.preventDefault()"> <!-- 阻止ios浏览器整页上下滑动 -->
+<img alt="ico" src="" style="position:absolute; top: -500px;">
+<div id="screen">
+  <div class="page" id="page1">
+    <div class="center">
+  
+  
+  
+      <img onclick="page(2);" style="margin-top: 109%; cursor: pointer;" width="111" alt="点我开始" src="http://jiangsu.sinaimg.cn/zt/s/gcych/images/startbtn.png" />
+  </div>
+  </div>
+  <div class="page" id="page2">
+    <div class="gameInfoBanner">
+      <div class="gameinfobox" id="infoboxLele"><span>找到
+        <div id="currentLevel">0</div>
+        个</span><img alt="" src="http://jiangsu.sinaimg.cn/zt/s/gcych/images/flowerIco.png" width="47"></div>
+      <div class="gameinfobox" id="infoboxTimer"><span>
+        <div id="timer">0</div>
+        秒</span><img alt="" src="http://jiangsu.sinaimg.cn/zt/s/gamezhaolele/e/e6.png"></div>
+      <div class="pauseBtn gameinfobox" onclick="gamepause()"></div>
+    </div>
+    
+    <!-- 游戏区域 -->
+    <div style="height: 336px;">
+      <div id="gameIcoBlock" class="clearfix">
+    </div>
+    </div>
+    <div style="width: 100%; margin: 12px 0 36px 0;text-align: center; color: #FFF;font-size: 15px;">~~~</div>
+  </div>
+  <div class="page" id="page3">
+    <div class="center"> 
+      <div id="level" style="  margin: 153px 0 0 -31px;  font-size: 22px;  color: #FFF;">0</div>
+      <div onclick="resetGame();" style="height: 45px; margin-top: 44px;"></div>
+    </div>
+    
+
+  </div>
+  
+<!-- 分享到朋友圈 -->
+<style>
+  .fenxiang { z-index:99999; text-align: center; padding-top: 25px; width:100%; background:RGBA(0,0,0,0.5) url("http://jiangsu.sinaimg.cn/2015/0207/U11392P1194DT20150207175104.png") no-repeat 94% 0; background-size: 68px auto; color: #FFF; font-size: 20px; height: 50px; top: 0; display: none; }
+</style>
+<div class="fenxiang"><img width="150" src="http://s3img.city.sina.com.cn/activity/common/large/6379f30d65153a7130cc5fb435ff4d83.png"></div>
+<script type="text/javascript">
+  $(".fenxiang").unbind().bind("touchstart mousedown", function() { $(this).fadeOut(300); });
+</script>
+<!-- end 分享到朋友圈 -->
+
+</div>
+
+<script type="text/javascript">
+
+(function (){
+  //浏览器高度设置
+  $("body").height($(window).height());
+  //$(".page").height($(window).height());
+})();
+
+//PV
+/* 
+$.JSONP('http://act.city.sina.com.cn/interface/activity/json_add_vote.php',{
+    id : 2726347
+  }, function(bm) {
+    if (bm.error == 0) {
+    } else {
+    }
+}); */
+</script>
+</body></html>
