@@ -9,7 +9,8 @@ var badminton = function(B) {
 		rotate: 0,  //旋转角度
 		v: 0,       //速度
 		a: 9.8,     //加速度
-		xxSpeed: 0,  //横向移动速度
+		xSpeed: 0,  //横向移动速度
+		distance: 0,//击飞距离
 		dom: null,  //DOM 
 		isFlying: false, //是否在飞行
 	};
@@ -51,6 +52,11 @@ var badminton = function(B) {
 		if (this.isFlying) {
 			this.rotate = (this.v + 800) * (9/80);
 			bgControl(-this.xSpeed);
+			shooterControl(-this.xSpeed);
+			
+			//路程统计
+			this.distance += this.xSpeed;
+			
 		}else{
 			if (this.v <= 0) {
 				this.rotate = 0;
@@ -61,8 +67,18 @@ var badminton = function(B) {
 	};
 	
 	B.draw = function drawB() {
+		//垂直高度
 		this.dom.style.top = this.y+"px";
-		this.dom.style.webkitTransform =  "rotateZ(" + this.rotate + "deg)";
+		//旋转角度
+		//this.dom.style.webkitTransform =  "rotateZ(" + this.rotate + "deg)";
+		//插件实现旋转
+		$(this.dom).rotate({angle:this.rotate});
+
+		
+		//击飞距离
+		document.getElementById("distance").innerHTML = (this.distance / 210).toFixed(2);
+		
+		
 	};
 	
 	B.destory = function destoryB() {
@@ -86,11 +102,20 @@ function resetB() {
 
 function bgControl(offset) {
 	var bgDom = document.getElementById("gameBG");
-	var bgLeft = parseInt(bgDom.style.left) || 0;
+	//var bgLeft = parseInt(bgDom.style.left) || 0;
+	//bgDom.style.left = bgLeft + offset + "px";
 	
-	bgDom.style.left = bgLeft + offset + "px";
+	var bgLeft = parseInt(bgDom.style.backgroundPosition.split(" ")[0]) || 0;
+	bgDom.style.backgroundPosition = bgLeft + offset + "px 0px"; 
+}
+function shooterControl(offset) {
+	var shooterDom = document.getElementById("shooter");
+	var shooterLeft = parseInt(shooterDom.offsetLeft) || 0;
+	shooterDom.style.left = shooterLeft + offset + "px";
 	
 }
+
+
 
 
 
@@ -119,8 +144,23 @@ document.body.addEventListener("mousedown", function() {
 		B.xSpeed = -B.v/50;
 		
 		B.isFlying = true;
-		shooterDom.style.height = shooterDom.offsetHeight * 0.65 + "px";	 
+		
+		//缩小击球区域增加难度
+		//shooterDom.style.height = shooterDom.offsetHeight * 0.65 + "px";	
+		
+		
+		
+		
 	}
+	//人物动作
+	var actmanDom = document.getElementById("shooterImg");
+	actmanDom.style.backgroundPosition = "0 -220px";
+	setTimeout(function() {
+		actmanDom.style.backgroundPosition = "0 -446px";
+	},120);
+	setTimeout(function() {
+		actmanDom.style.backgroundPosition = "0 0";
+	},900);
 	
 	
 });
