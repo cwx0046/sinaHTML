@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="GB2312">
+<meta http-equiv="cache-control" content="no-cache"/>
+<meta name="format-detection" content="telephone=no"/>
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0"> 
+<title>寻找捕鱼大亨！玩游戏！赢壕礼！</title>
+<meta name="author" content="NorthWind" />
+<link rel="stylesheet" href="http://jiangsu.sinaimg.cn/zt/s/css/reset.css">
+<script type="text/javascript" src="http://jiangsu.sinaimg.cn/js/jquery_1.11.2.min_jsonp.js"></script>
+<link rel="stylesheet" href="http://jiangsu.sinaimg.cn/js/idangerous.swiper.css">
+<script src="http://jiangsu.sinaimg.cn/js/idangerous.swiper.min.js"></script>
+<script src="http://jiangsu.sinaimg.cn/js/jquery.transit.min.js"></script>
+<!-- 自适应缩放css -->
+<style type="text/css">
+body{ overflow-x: hidden; background-color: #000; max-width: 550px; margin: 0 auto }
+.swiper-container{ width: 640px; height: 1080px; -webkit-transform-origin: top left; margin: 0; background-color: #fefcef; }
+.swiper-wrapper *{ -webkit-backface-visibility: hidden; } /* 避免ip4Safari闪动 */
+.page-provider{ position:absolute;top:0; text-align: center; width: 100%; font-size: 2em;line-height: 4em; color: #e5d2d4; }
+.page-provider#page-provider-bottom{ top:auto; bottom: 0; }
+.swiper-slide{ width: 640px; height: 1080px; position: relative; overflow: hidden; }
+.startBtn,.page2Btn,.wrap,.btn,img{-moz-user-select: none; -webkit-user-select: none; -ms-user-select: none; user-select: none;-webkit-tap-highlight-color: transparent; tap-highlight-color: transparent; }
+</style>
+<style type="text/css">
+#s1{  background-image: url("http://s3img.city.sina.com.cn/activity/common/large/159e22877896598e28b20d6f57ef8b3a.jpg"); }
+#s2{  background-image: url("http://s3img.city.sina.com.cn/activity/common/large/c597c8327e0e82d2f19ebe8ad01e0329.jpg"); }
+#s3{  }
+#p1btn1,#p1btn2,#gameDescBtn{ position: absolute; width: 200px; height: 72px; /* background-color: RGBA(255,0,0,0.5); */ top: 585px;  cursor: pointer; z-index: 1; }
+#p1btn1{ left: 104px;  }
+#p1btn2{ left: 329px;  }
+
+#timeNum{   left: 86px;  top: 59px;  position: absolute;  font-size: 32px;  line-height: 66px;  color: #7B3701; }
+#gameDescBtn{ left: 186px;  top: 59px;  width: 151px;  height: 61px; }
+#boat{ width: 405px; height: 524px; position: absolute; top: 84px; left: 170px; background-image: url("http://s3img.city.sina.com.cn/activity/common/large/eaf9139cd0e6a328dc742b35355a251a.png"); }
+#boat.ref{ -webkit-transform: scaleX(-1); -webkit-transform-origin: left; }
+
+#pool{ position: relative; top: 507px; width: 640px; height: 372px; /* background-color: RGBA(255,255,0,0.5); */ }
+#poolEventLayer{position: absolute; top: 507px; width: 640px; height: 372px;}
+.fish{ position: absolute; top: 20px; width: 120px;height: 60px; /* background-color: RGBA(255,0,0,0.5); */ }
+.fish1{ background:url("http://s3img.city.sina.com.cn/activity/common/large/28205eee42843c3504e2683616862c59.png"); }
+.fish2{ background:url("http://s3img.city.sina.com.cn/activity/common/large/8994d67e25dfb1db4f540c814ef3ad8b.png"); }
+.fish3{ background:url("http://s3img.city.sina.com.cn/activity/common/large/7d7fe2961387f0fc8dffe51b2b838f91.png"); }
+.scoreBubble{position: absolute; font-size: 38px; font-weight:bold; color:#EC530F; width: 120px; text-align: center;}
+
+.popup{   display: none;    position: absolute; z-index:2; width: 100%; height: 100%; left: 0; top: 0; -webkit-transform: translateZ(0);-moz-transform: translateZ(0);-ms-transform: translateZ(0);transform: translateZ(0); font-size: 32px;}
+.popContent{ position: absolute; top: 0; right: 0; bottom: 0; left: 0; margin: auto; }
+#pop1 .popContent{ width: 490px; height: 696px; background-image:url("http://s3img.city.sina.com.cn/activity/common/large/071fd23c239317bc3761e63ab5678108.png"); cursor: pointer; }
+#pop2 .popContent{ width: 541px; height: 747px; background-image:url("http://s3img.city.sina.com.cn/activity/common/large/7fbcc83c934ac335df2bca2e9818d0fc.png"); }
+#pop3 .popContent{ width: 100%; height: 100%; color: #FFF; background-color: RGBA(0,0,0,0.8); }
+
+#wrap_3{  width: 100%;  height: 100%;  position: absolute;  top: 0;  z-index: 2;}
+.popup3{ position: absolute; width: 412px; height: 216px; top: 0; right: 0; bottom: 0; left: 0; margin: auto; background-color: RGBA(0,0,0,0.8); font-size: 59px; color: #FFF; text-align: center; line-height: 3em; border-radius: 27px; }
+.dotting {
+    display: inline-block; min-width: 5px; min-height: 5px;
+    box-shadow: 5px 0 currentColor, 18px 0 currentColor, 32px 0 currentColor; 
+    -webkit-animation: dot 2s infinite step-start both;
+    animation: dot 2s infinite step-start both; 
+    *zoom: expression(this.innerHTML = '...'); /* IE7 */
+}
+:root .dotting { margin-right: 20px; } /* IE9+,FF,CH,OP,SF */
+
+@-webkit-keyframes dot {
+    25% { box-shadow: none; }
+    50% { box-shadow: 5px 0 currentColor; }
+    75% { box-shadow: 5px 0 currentColor, 18px 0 currentColor; }
+}
+@keyframes dot {
+    25% { box-shadow: none; }
+    50% { box-shadow: 5px 0 currentColor; }
+    75% { box-shadow: 5px 0 currentColor, 18px 0 currentColor; }
+}
+
+@keyframes fog_flow{
+  0% {
+    opacity:0;
+    transform:  translate(0px,0px)  ;
+  }
+  23% {
+    opacity:0.1;
+  }
+  40% {
+    opacity:0.27;
+  }
+  63% {
+    opacity:0.1;
+  }
+  100% {
+    opacity:0.2;
+    transform:  translate(0px,-100px)  ;
+  }
+}
+
+@-webkit-keyframes fog_flow {
+  0% {
+    opacity:0;
+    -webkit-transform:  translate(0px,0px)  ;
+  }
+  23% {
+    opacity:0.1;
+  }
+  40% {
+    opacity:0.27;
+  }
+  63% {
+    opacity:0.1;
+  }
+  100% {
+    opacity:0.2;
+    -webkit-transform: translate(0px,-100px)  ;
+  }
+}
+
+
+
+</style>
+<script type="text/javascript">
+var mySwiper;
+</script>
+</head>
+<body ontouchmove="event.preventDefault()"> <!-- 阻止ios浏览器整页上下滑动 -->
+	<!-- 
+	* 说明：
+	* 多页面滑动模板，适用于 类ppt 页面
+	* 页面 640x1080 按宽度缩放
+	* 使用 idangerous.swiper 插件切换页面 ，参数请在下方 【Initialize swiper】中自行更改
+	*
+	 -->
+	<div class="swiper-container">
+		<div class="swiper-wrapper">
+		    <!--First Slide-->
+			<div class="swiper-slide swiper-no-swiping" id="s1">
+				<div id="p1btn1" onclick="gamestart()"></div>
+				<div id="p1btn2" onclick="mySwiper.swipeTo(2)"></div>
+			</div>
+			
+			<!--Second Slide-->
+			<div class="swiper-slide swiper-no-swiping" id="s2">
+				<div id="timeNum">20秒</div>
+				<div id="gameDescBtn" ></div>
+				<div id="boat"></div>
+				<div id="pool"><!-- 鱼池 -->
+				
+				</div>
+				
+				<!-- pop1 游戏说明 -->
+				<div class="popup" id="pop1" onclick='$("#pop1").toggle();' style="display: block">
+					<div class="popContent"></div>
+				</div>
+					
+				<!-- pop2 游戏结束 -->
+				<div class="popup" id="pop2">
+					<div class="popContent">
+						<style>
+						#user_tel{ font-size: 26px;  background: none;  border: none;  position: absolute;  -webkit-appearance: none;  top: 564px;  left: 145px;  width: 247px;}
+						.again_btn,.submit_btn{ position: absolute; top: 600px; /* background-color: RGBA(255,0,0,.5); */ width: 200px; height: 70px; top: 620px; }
+						.again_btn{ left: 60px; }
+						.submit_btn{ left: 286px; }
+						#score1,#score2,#score3{   position: absolute;  right: 210px;  top: 218px;  color: #FFF; }
+						#score2{ top: 320px; }
+						#score3{ top: 421px; }
+						</style>
+						<div id="score1"></div>
+						<div id="score2"></div>
+						<div id="score3"></div>
+						<input id="user_tel" type="tel" placeholder="轻击此处输入">
+						<div class="again_btn" onclick="onceAgain()"></div>
+						<div class="submit_btn"></div>
+					</div>
+				</div>
+				
+				<!-- pop3 分享 -->
+				<div class="popup" id="pop3">
+					<div class="popContent">
+						<style>
+						.topRight{ position: absolute; top: 20px; right: 20px;}
+						.centerContiner{ height:600px; position: absolute; top: 0; right: 0; bottom: 0; left: 0; margin: auto; }
+                          .top10Title{ text-align: center; font-size: 48px; font-weight: bold; color: #FFF; }
+                          .top10Title .t3{ color: #e60012; }
+                          .top10List li{ line-height: 46px; }
+						.no {   margin: 0 80px; width:68px; text-align:right; display: inline-block;}
+						.u_phone{   width: 218px; display: inline-block; }
+						.u_score{ width: 100px; display: inline-block; text-align: right; }
+						.btn {   display: inline-block;  width: 213px;  height: 65px;  line-height: 65px;  border-radius: 10px;  background-color: #FF1209;  color: #FFF;  font-size: 30px;  text-align: center; }
+						</style>
+						<div class="topRight">分享给朋友们<img src="http://s3img.city.sina.com.cn/activity/common/large/e9b4602b9eb4e671ef7b98e9929d5ecd.png"></div>
+						<div class="centerContiner">
+							<div class="top10Title">
+								<p class="t3">TOP10</p>
+							</div>
+							<div class="text" ontouchmove="event.stopPropagation()">
+									<ol class="top10List">
+									  <li>Loading...</li>
+									</ol>
+							</div>
+							<div style="text-align: center;">
+								<div class="btn" id="subscribeweixiBtn">关注我们</div>
+								<script type="text/javascript">
+									$("#subscribeweixiBtn").click(function(e){
+										window.open('http://mp.weixin.qq.com/s?__biz=MjM5Nzg4MzU2MA==&mid=204415784&idx=1&sn=affdafdc566d79092ca4d8865d3d984a#rd');
+										e.stopPropagation();  //阻止冒泡
+									});
+								</script>
+							</div>
+						</div>
+					</div>
+				</div>
+				
+				<!-- 正在提交界面 -->
+				<div class="wrap" id="wrap_3"  style="display: none;">
+					<div class="popup3">
+						正在提交<span class="dotting"></span>
+					</div>
+				</div>
+					
+			</div>
+			
+			<!--Third Slide-->
+			<div class="swiper-slide swiper-no-swiping" id="s3">
+				<div style="height: 100%; width: 100%; overflow-y: scroll;">
+					<img style="display: block;" src="http://s3img.city.sina.com.cn/activity/common/large/ed6c9a4fb7a136be4f4dbb35aa2b6f10.jpg" onclick="mySwiper.swipeTo(0)" ontouchmove="event.stopPropagation()">
+				</div>
+			</div>
+			
+			
+		</div>
+	</div>
+</body>
+
+
+<!-- Initialize swiper -->
+<script type="text/javascript">
+	window.onload = function() {
+		mySwiper = new Swiper('.swiper-container',{
+			// options
+			mode:'vertical', //vertical //horizontal
+			mousewheelControl: true, //鼠标滚轮控制
+			keyboardControl: true,   // 键盘控制
+			onSlideChangeEnd : Swipercallback,
+			noSwiping: true
+		});  
+	}
+	
+	/* SlideChangeEndCallback */
+	function Swipercallback(p){
+	    var act = p.activeIndex; //slideEndIndex
+	    // todo sth...
+	}
+</script>
+
+<!-- page Auto scale -->
+<script type="text/javascript">
+	$(function() {
+		pageAutoScale();
+	});
+	$(window).resize(function() {
+		pageAutoScale();
+	});
+	var r;
+	function pageAutoScale(){
+		 r = document.body.offsetWidth / 640;
+		$(".swiper-container").css("-webkit-transform", "scale(" + r + ")");
+		$("body").height( window.innerHeight ); //修正整数页面高度
+		
+		$(".swiper-slider").css("height",parseInt(window.innerHeight / r) );  //调整页面高度
+		$(".swiper-container").css("height",parseInt(window.innerHeight / r) );  //调整页面高度
+		if (window.innerHeight<=1080*r) {  //当用户显示区域小于1080高度时，调整每页高度。
+			// $(".btnBottom").css("top",(window.innerHeight / r - parseInt($(".btnBottom").css("bottom")) ) );  //下滑动提示箭头位置始终距底
+		}
+	}
+</script>
+<script type="text/javascript">
+var boatDom = $("#boat");
+//小船移动
+$("#pool").bind("touchstart",function(e){
+	if( e.type === "mousedown"){
+		var x = e.offsetX / r;
+		var y = e.offsetY / r;
+	}else{
+		var touch = event.targetTouches[0];  
+		var x = (touch.pageX - $("body").offset().left) / r;
+		var y = (touch.pageY - $("body").offset().top) / r;
+	}
+	
+	if( x > 400){
+		boatDom.addClass("ref");
+	}else {
+		boatDom.removeClass("ref");
+	}
+	
+	boatDom.transition({left: x + "px"}, 300, "ease");
+	
+	
+});
+
+
+var autoAddInterval;
+function autoAddFish(){
+	autoAddInterval = setInterval(function(){
+		var type = parseInt(Math.random()*3);
+		var speed = Math.random()*6000 + 3000;  
+		if(Math.random()>0.5){
+			speed = -speed;
+		}
+		
+		addFish(type,speed);
+	}, 800);
+	
+	
+}
+
+
+
+var fishType = ["fish1","fish2","fish3"];
+var score = [0,0,0];
+var poolDom = $("#pool");
+var isSubmited = false;
+
+
+function addFish(type,speed){
+	var fish = $("<div>").attr("class","fish "+fishType[type]).appendTo(poolDom);
+	
+	//鱼游动
+	if (speed < 0) {
+		//自右向左
+		fish.css({"left":640, "top":Math.random()*350}).transition({left: "-120px"}, -speed, "linear",function(){
+			this.remove();
+		});
+	}else{
+		fish.transition({scaleX:-1},0).css({"left":-120, "top":Math.random()*350}).transition({left: "640px"}, speed, "linear",function(){
+			this.remove();
+		});
+	}
+	
+	//钓到鱼
+	
+	fish.bind("touchstart",function(e){
+		//得分
+		//鱼消失
+		$("<div>",{
+	        "class": "scoreBubble",
+	        text: "+1",
+	        css:{
+	            "left": fish.position().left / r,
+	            "top":  fish.position().top / r - 30
+	        }
+	    }).appendTo(poolDom).animate({y:"-40px",opacity:0},400,function(){$(this).remove()});
+		fish.hide();
+				
+		score[type] += 1;
+	});
+	
+}
+
+/* 计时器 */
+function timer() {
+  var time = 20;
+  document.getElementById("timeNum").innerHTML = time+"秒";
+  
+  t = setInterval(function() {
+    time -= 0.1;
+    if(time <= 0){
+		clearInterval(t);
+		/* 游戏结束 */
+		//alert("GAME OVER");
+		gameover(); 
+		return;
+    }
+    document.getElementById("timeNum").innerHTML = time.toFixed(0)+"秒";
+  }, 100);
+  
+}
+
+
+function resetGame() {
+	isSubmited = false;
+	score = [0,0,0];
+	clearInterval(autoAddInterval);
+	$(".fish").remove();
+}
+
+/**
+ * 游戏结束
+ */
+function gameover(){
+	//显示得分画面 提交手机号
+	
+	$("#score1").text(score[0]);
+	$("#score2").text(score[1]);
+	$("#score3").text(score[2]);
+	$("#pop2").fadeIn();
+}
+
+/**
+ * 跳转到第二页
+ * 开始游戏
+ */
+function gamestart() {
+	resetGame();
+	mySwiper.swipeTo(1);
+	autoAddFish();
+	timer();
+}
+
+
+</script>
+<script type="text/javascript">
+function showPop3() {
+	$("#wrap_3").hide();//隐藏 正在提交...
+	$("#pop3").fadeIn(200,function(){
+		$("#pop3").click(function(){
+			 $(this).unbind("click").fadeOut();
+		});
+	});
+}
+
+
+$("#gameDescBtn").click(function(){
+	 $("#pop1").toggle();
+});
+function onceAgain() {
+	$("#pop2").fadeOut(200);
+	mySwiper.swipeTo(0);
+}
+
+
+$(".submit_btn").unbind().bind("click",function(){
+	if (isSubmited) {
+		alert("您已经提交");
+		return;
+	}
+	
+	/* 检查电话号码 */
+	var tel = $("#user_tel").val();
+	/* 是否填写了电话号码 */
+	if (tel == "" | tel == undefined ) {
+		var isDirectgetTop10 = confirm("留空的话没法参加排名了，确定不写么？");
+		if(!isDirectgetTop10){
+			return;
+		}
+	}
+	/* 检测手机号合法 */
+	var partten = /^1[3,4,5,8]\d{9}$/;
+    if(!partten.test(tel)){alert("请填写正确的手机号！"); return false;}
+    /* 上传并得到排名 */
+    $("#wrap_3").show();//正在提交...
+    isSubmited = true;
+    
+    var totalScore = 0;
+    for (var i = 0; i < score.length; i++) {
+		totalScore += score[i];
+	}
+    
+    //提交
+    try {
+   	    $.JSONP('http://act.city.sina.com.cn/interface/activity/json_add_signup.php',{
+			    act_id:10712,
+			    custom_1:tel,
+			    custom_2:totalScore
+		    },function(bm){
+	        if(bm.error==0){
+	        	/* 获取前10名 */
+	        	getTop10(
+        			function() {
+	        			showPop3();
+					}
+	        	);
+	        }else{
+	            alert(bm.errmsg);
+	        }
+	    }); 
+	} catch (e) {
+		alert("网络太不好?再试一次吧");
+	} 
+});
+
+
+function getTop10( callback ) {
+	var Top10List = $(".top10List");
+	var html = "";
+	var data_Top10 = [];
+	$.JSONP('http://act.city.sina.com.cn/interface/activity/json_get_user_works.php',{act_id:10712,pcount:9999},function(json){
+		for(var i=0; i<json.count; i++){
+			var phone = json.data[i].form_data.custom_1.value;
+			phone = phone.substr(0,3) + "****" + phone.substr(7,4);
+			var score = parseInt(json.data[i].form_data.custom_2.value);
+			data_Top10[i] = [phone, score];
+		}
+		
+		
+	    var len = data_Top10.length; 
+	    var tmp = [];
+	    for(var i = 0; i<len; i++){
+	        for(var j=len-1; j>i; j--){
+	            if(data_Top10[j][1] > data_Top10[j-1][1]){
+	                tmp = data_Top10[j-1];
+	                data_Top10[j-1] = data_Top10[j];
+	                data_Top10[j] = tmp;
+	            }
+	        }
+	    }
+	    
+	    for (var i = 0; i < 10; i++) {
+	    	if (data_Top10[i]==null | data_Top10[i] == undefined) {
+				continue;
+			}
+	    	var no = i + 1;
+	    	no = (no<=9) ? ("0" + no) : no;
+			html += '<li><span class="no">'+ no +'</span><span class="u_phone">'+ data_Top10[i][0] +'</span><span class="u_score">'+ data_Top10[i][1] +'分</span></li>';
+		}
+		
+		Top10List.html(html);
+		if(typeof(callback) == 'function'){
+			callback.call();
+		}
+	});
+	
+}
+</script>
+
+</html>
