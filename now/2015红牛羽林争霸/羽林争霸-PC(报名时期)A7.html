@@ -1,0 +1,819 @@
+<!DOCTYPE html>
+<html xmlns:wb=“http://open.weibo.com/wb”>
+<head>
+<meta charset="GB2312">
+<meta http-equiv="X-UA-Compatible" content="IE=edge"><!-- 避免IE使用兼容模式 -->
+<meta name="renderer" content="webkit"><!-- 启用360浏览器的极速模式(webkit) -->
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>红牛羽林争霸</title>
+<meta name="keywords" content="红牛羽林争霸" />
+<meta name="description" content="红牛羽林争霸" />
+<meta name="author" content="NorthWind" />
+<script src="http://jiangsu.sinaimg.cn/zt/s/xflcygs/uaredirect.js" type="text/javascript"></script>
+<script type="text/javascript">uaredirect("http://jiangsu.sina.com.cn/1/2015-03-31/472.html");</script>
+<link rel="stylesheet" href="http://jiangsu.sinaimg.cn/zt/s/css/reset.css">
+<script src="http://video.sina.com.cn/js/sinaFlashLoad.js" type="text/javascript"></script>
+<script type="text/javascript" src="http://jiangsu.sinaimg.cn/js/jquery_1.11.2.min_jsonp.js"></script>  
+<script src="http://jiangsu.sinaimg.cn/js/masonry.pkgd.min.js" type="text/javascript"></script>
+<script src="http://jiangsu.sinaimg.cn/js/jquery.rotate.min.js"></script>
+<link rel="stylesheet" href="http://jiangsu.sinaimg.cn/js/lightbox/css/lightbox.css">
+<script src="http://jiangsu.sinaimg.cn/js/lightbox/lightbox.js"></script>
+<script src="http://jiangsu.sinaimg.cn/js/jquery.mousewheel.js"></script>
+<script src="http://jiangsu.sinaimg.cn/js/mwheelIntent.js"></script>
+<link rel="stylesheet" href="http://jiangsu.sinaimg.cn/js/jscrollpane/jquery.jscrollpane.css">
+<script src="http://jiangsu.sinaimg.cn/js/jscrollpane/jquery.jscrollpane.min.js"></script>
+
+<!-- 微博登录  -->
+<script type="text/javascript" src="http://jiangsu.sinaimg.cn/js/test/jquery_ui.min.js"></script>                   <!-- jquery_ui -->
+<script type="text/javascript" src="http://jiangsu.sinaimg.cn/js/dial_sso_login_mann.js" charset="UTF-8"></script>  <!-- g=dialog_login_v1.1-sp1.js & ssologin.js & sinaSSOManager.js  _修正-->
+<link rel="stylesheet" type="text/css" href="http://jiangsu.sinaimg.cn/js/dialog_login.css" media="all" />          <!-- DFZ 登录窗口 g=dialog_login_v1.1-sp1.css  _修正 -->
+<script src="http://jiangsu.sinaimg.cn/z/js/weiboApi.js"></script>   
+
+<style type="text/css">
+body{ min-width:950px; background: url("http://jiangsu.sinaimg.cn/2015/0401/U11392P1194DT20150401002158.jpg") no-repeat center top;  font-family: "Microsoft Yahei","微软雅黑";}
+.headimg{ min-width: 950px; height: 442px; /* background-color: RGBA(0,0,0,0.8); */  }
+.content{ width: 950px; margin: 0 auto; position: relative;} 
+
+#p1{ height: 420px; /* background-color: RGBA(0,210,0,0.6); */}
+#p2{ height: 880px; /* background-color: RGBA(0,160,100,0.6); */ }
+#p3{ height: 880px; 
+/* background: url("http://s3img.city.sina.com.cn/activity/common/large/faf5aa797d0a3b98e6ebb500eb65b0af.jpg") no-repeat center top; */
+background: url("http://s3img.city.sina.com.cn/activity/common/large/2b20cef7d04be9781244ed07c4685e51.jpg") no-repeat center top;
+}
+
+
+.p1VideoBox{width: 396px;height: 319px; float: left; /* background-color: RGBA(200,0,0,0.8); */  }
+.p1NewsBox{ float:left; width: 554px;height: 319px; /* background-color: RGBA(160,0,0,0.8); */ background: url("http://s3img.city.sina.com.cn/activity/common/large/1870ebd693b8f107ef8b7683a77c0ab9.png") no-repeat center 21px; background: RGBA(0,0,0,0.2) url("http://s3img.city.sina.com.cn/activity/common/large/1870ebd693b8f107ef8b7683a77c0ab9.png") no-repeat center 21px; }
+.p1NewsWrap{ padding: 96px 24px 0; /* background-color: RGBA(160,0,0,0.8); */}
+.newsBox{ margin-bottom: 28px;  position: relative; }
+.p1NewsWrap{}
+.活动介绍文字{ font-size: 14px; line-height:24px; }
+.newsIco{ width: 84px; height: 84px; /* background-color: RGBA(255,255,255,0.8); */ display: block; position: absolute; }
+.p1NewsBox h3{ font-size: 16px; line-height:22px; font-weight: bold;  border-bottom: 1px solid #d3d1d4;}
+.p1NewsBox p{ text-indent: 2em; font-size: 14px; line-height:20px; color: #6a6a6a; margin-top: 3px; }
+.p1NewsBox .textWrap{  margin-left: 100px; }
+
+.gameBlock{ width: 924px; height: 684px; position: absolute; top: 130px; left: 16px; background-image: url("http://s3img.city.sina.com.cn/activity/common/large/e7fa5b65ddb4977c24c5364572b7c6c3.png"); }
+.gameBlockWrap{ padding: 27px 21px 19px; /* background-color: RGBA(255,0,0,0.5); */ position: relative; }
+#gameBox{   position: absolute; top: 198px;  left: 20px; width: 574px; height: 468px;  background: RGBA(0,0,0,0.2); overflow: hidden;  cursor: pointer; }
+#gameBG{ position: absolute; top: -62px; left: 0; 
+ width:4000px; height:640px;
+ background: url("http://jiangsu.sinaimg.cn/2015/0401/U11392P1194DT20150401005652.jpg") repeat-x 0px 0px;
+}
+#Badminton{ width: 36px; height: 50px; /* background-color: RGBA(255,100,30,0.5); */ background-image: url("http://jiangsu.sinaimg.cn/2015/0401/U12547P1194DT20150401095230.png"); background-repeat: no-repeat;}
+
+#shooter{ position: absolute; width: 10px; height: 60px; left: 248px; bottom: 80px; /* background-color: RGBA(0,0,240,0.5); */ }
+#shooterImg{ width: 249px; height: 223px; background-image: url("http://jiangsu.sinaimg.cn/2015/0401/U12547P1194DT20150401094559.png"); position: absolute;   left: -190px;  top: -72px;  }
+
+#powerNum{ position: absolute; top: 20px; left: 20px; font-size: 22px; color: #e3da77; border: 2px solid; padding: 2px 10px 2px 6px; border-radius: 10px; font-style: italic; }
+#powerNum:BEFORE{ content: "距离： "; font-size: 18px; }
+#powerNum:AFTER{ content: "米" }
+
+.gameRightBox{ font-size: 14px; line-height: 34px; margin-left: 596px; }
+.gameRightBox strong{ font-size: 16px;  }
+.gameRule{padding-bottom: 8px; border-bottom: 1px solid;}
+.Top25Box{ text-align: center; }
+.Top25List{ font-weight: bold;}
+#Top25Data{    height: 543px;  /* background: RGBA(255,0,0,0.5); */  margin-top: 93px;  margin-left: 10px;  width: 270px;}
+.c1,.c2,.c3{ display: inline-block;}
+.c1{   width: 20%;  font-size: 20px;  line-height: 34px;  font-weight: bold;  font-style: italic; }
+.c2{   width: 50%;  height: 34px;  overflow: hidden;  vertical-align: bottom; }
+.c3{ width: 30%; }
+
+.gamePopupBox{ width: 300px; height: 280px; background-color: #E00404; padding: 20px 28px;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  margin: auto;
+  position: absolute;
+  text-align: center;
+  font-size: 28px;
+  color: #FFC23F;
+  border-radius: 22px 0;
+    box-shadow: 0 0 12px #EDD8A4 inset;
+  }
+  
+#score{
+  font-size: 72px;
+  line-height: 130px;
+  font-weight: bold;
+}
+
+#MsgBox{
+  font-size: 16px;
+  padding: 0 0 28px;
+  color: #FFF8E9;
+}
+
+.wrap{
+  display:none; 
+  width: 575px;
+  height: 468px;
+  top: 198px;
+  left: 20px;
+position: absolute;  background-color: RGBA(0,0,0,0.2);  -webkit-transform: translateZ(0);-moz-transform: translateZ(0);-ms-transform: translateZ(0);transform: translateZ(0);}
+.popupContent{ position: absolute;
+  width: 263px;
+  height: 152px;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  margin: auto;
+  background-color: RGBA(0,0,0,0.8);
+  font-size: 28px;
+  color: #FFF;
+  text-align: center;
+  line-height: 3em;
+  border-radius: 12px; 
+}
+
+.dotting {
+    display: inline-block; min-width: 5px; min-height: 5px;
+    box-shadow: 5px 0 currentColor, 18px 0 currentColor, 32px 0 currentColor; 
+    -webkit-animation: dot 2s infinite step-start both;
+    animation: dot 2s infinite step-start both; 
+    *zoom: expression(this.innerHTML = '...'); /* IE7 */
+}
+:root .dotting { margin-right: 20px; } /* IE9+,FF,CH,OP,SF */
+
+@-webkit-keyframes dot {
+    25% { box-shadow: none; }
+    50% { box-shadow: 5px 0 currentColor; }
+    75% { box-shadow: 5px 0 currentColor, 18px 0 currentColor; }
+}
+@keyframes dot {
+    25% { box-shadow: none; }
+    50% { box-shadow: 5px 0 currentColor; }
+    75% { box-shadow: 5px 0 currentColor, 18px 0 currentColor; }
+}
+
+
+.startBtn, .onceagainBtn { width: 200px; height: 65px; /* background: RGBA(255,0,0,0.5); */ position: absolute; cursor: pointer; top: 210px; left: 187px; border-radius: 32px;}
+.onceagainBtn{  top: 312px;}
+.score{ position: absolute; top: 192px; left: 320px; font-size: 35px; color: #e3da77; font-weight: bold; text-decoration: underline;}
+
+.gameCover{ position: absolute;  top: 198px;  left: 20px; width: 574px; height: 468px; display: none; }
+#gameCover_1{ background-image: url("http://jiangsu.sinaimg.cn/2015/0401/U12547P1194DT20150401093316.png");  }
+#gameCover_2_1{ background-image: url("http://jiangsu.sinaimg.cn/2015/0401/U12547P1194DT20150401093351.png");  }
+#gameCover_2_2{ background-image: url("http://jiangsu.sinaimg.cn/2015/0401/U12547P1194DT20150401093352.png");  }
+#gameCover_3_1{ background-image: url("http://jiangsu.sinaimg.cn/2015/0401/U12547P1194DT20150401093353.png");  }
+#gameCover_3_2{ background-image: url("http://jiangsu.sinaimg.cn/2015/0401/U12547P1194DT20150401093354.png");  }
+
+</style>
+<style type="text/css">
+.jspTrack{ background: #FFFAC8; }
+.jspDrag{ background: #FFED71; }
+</style>
+</head>
+<body>
+	<div class="headimg"></div>
+	<div id="p1">
+		<div class="content">
+			<div class="p1VideoBox">
+				<div id="dplayer_cont_19" class="c_s_01"></div>
+  				<script type="text/javascript" >
+		        var flashPlayer_cont_19 = {
+		  				container: "dplayer_cont_19",  //Div容器的id
+		  				playerWidth: 396,         //宽
+		  				playerHeight: 319,         //高
+						width :  268,  
+						height  : 180, 
+		  				autoLoad: 1,                         //自动加载
+		  				autoPlay: 1,                         //自动播放
+		  				pid: "1/334".split("/")[0],
+		  				as: 0,                                                 //广告
+		  				tjAD: 0,                                         //显示擎天柱广告
+		  				tj: 0,                                                 //片尾推荐
+		  				casualPlay: 1,                 //任意拖动视频
+		  				head: 0,                                 //播放片头动画
+						share : 0,
+						singleRss : "",
+						thumbUrl : "",
+		  				logo: 0,                                         //显示logo
+		                vid: 137612099
+					  };
+		      </script>
+		      <script>
+		        var player_cont_19 = sinaVideoPlayer(flashPlayer_cont_19);
+		        player_cont_19.init();
+		      </script>
+			</div>
+			<div class="p1NewsBox">
+				<div class="p1NewsWrap">
+					<div class="活动介绍文字">
+					　　“羽林争霸”红牛城市羽毛球赛创办于2010年，是由世界羽联（BWF）和中国羽毛球协会认证、红牛维他命饮料有限公司主办的全国性业余体育赛事。覆盖全国30个省区市、115座城市。<br/>
+       				　　2015年“羽林争霸”即将开战！<span style="color:#F00;">获得总冠军的队伍除获得万元现金大奖外，还将赴印尼为2015羽毛球世锦赛开球，快来报名吧！</span><br/>
+					具体详见：<a href="http://ylzb.redbullsports.cn" target="_blank" style="text-decoration: underline;">http://ylzb.redbullsports.cn</a>
+					</div>
+					<a href="http://ylzb.redbullsports.cn" target="_blank"><img alt="报名按钮" style="  margin: 13px 0 13px 49px;  display: inline-block;" src="http://s3img.city.sina.com.cn/activity/common/large/fd47d71441c148a47628dfff638d3bdb.png"></a>
+					<img alt="江苏赛区信息按钮" style="margin: 13px 0 13px 0px;  display: inline-block; cursor: pointer;" src="http://jiangsu.sinaimg.cn/2015/0402/U12547P1194DT20150402105731.png" onclick="$('#jiangsuForm').fadeIn();">				
+					<img alt="江苏赛区信息表" id="jiangsuForm" style="display: none; cursor: pointer; position: absolute; top: -14px; left: 0;" src="http://jiangsu.sinaimg.cn/2015/0402/U12547P1194DT20150402110151.png" onclick="$(this).fadeOut();">
+					<!-- 
+					<div class="newsBox">
+						<img class="newsIco" alt="新闻图标" src="">
+						<div class="text	">
+							<h3>红牛城市羽毛球赛大区赛落幕</h3>
+							<p>“羽林争霸”红牛城市羽毛球赛创办于2010年，是由世界羽联（BWF）和中国羽毛球协会认证、红牛维他命饮料有限公司主办的全国性业余体育赛事。覆盖全国30个省区市、115座城市。</p>
+						</div>
+					</div>
+					<div class="newsBox">
+						<img class="newsIco" alt="新闻图标2" src="">
+						<div class="textWrap">
+							<h3>红牛城市羽毛球赛大区赛落幕2</h3>
+							<p>2“羽林争霸”红牛城市羽毛球赛创办于2010年，是由世界羽联（BWF）和中国羽毛球协会认证、红牛维他命饮料有限公司主办的全国性业余体育赛事。覆盖全国30个省区市、115座城市。</p>
+						</div>
+					</div>
+					 -->
+				</div>
+			</div>
+		</div>
+	</div>
+	<div id="p2">
+		<div class="content">
+			<!-- 游戏区块 -->
+			<div class="gameBlock">
+				<div class="gameBlockWrap">
+					<div class="gameBox" id="gameBox">
+						<div id="gameBG"></div>
+					  
+					  	<div id="shooter">
+					  		<div id="shooterImg"></div>
+					  	</div>
+					  	<div id="powerNum">0</div>
+					</div>
+					
+					
+					<div id="gameCover_1"   class="gameCover" style="display: block;">
+						<div class="startBtn" onclick="gamestart()"></div>
+					</div>
+					<div id="gameCover_2_1" class="gameCover">
+						<div class="score">0</div>
+						<div class="onceagainBtn"></div>
+					</div>
+					<div id="gameCover_2_2" class="gameCover">
+						<div class="score">0</div>
+						<div class="onceagainBtn"></div>
+					</div>
+					<div id="gameCover_3_1" class="gameCover">
+						<div class="score">0</div>
+					</div>
+					<div id="gameCover_3_2" class="gameCover">
+						<div class="score">0</div>
+					</div>
+					
+					
+					<!-- 游戏结束弹出层 -->
+					<!-- <div class="gamePopupLayer wrap">
+						<div class="gamePopupBox">
+							您的能量值
+							<div id="score">0</div>
+							<div id="MsgBox"></div>
+							<img id="gameRestart_btn" style="cursor: pointer;" alt="再来一次" src="http://s3img.city.sina.com.cn/activity/common/large/02e0ad8187ee635b495f0aae40d0a3f6.png">
+						</div>
+					</div> -->
+					<!-- end游戏结束弹出层 -->
+					
+					
+					
+					<!-- 正在提交界面 -->
+					<div class="wrap" id="wrap_3"  style="display: none;">
+					  <div class="popupContent">
+					    正在提交<span class="dotting"></span>
+					  </div>
+					</div>
+					
+					<div class="gameRightBox">
+						<div class="Top25Box">
+								<div id="Top25Data" class="horizontal-only">
+									<div>加载中...</div>
+									<!-- <div><span class="c1">15</span><span class="c2">12300001111</span><span class="c3">1642</span></div> -->
+								</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div id="p3">
+		<div class="content">
+			<style>
+			#container{ top: 106px; }
+			.item{ width: 230px;  margin-bottom: 10px; border: 1px solid; background-color: #FFF; }
+			.item img{ width: 100%; height:153px;  display: block; }
+			.item div{ padding: 20px; font-size: 13px; }
+			</style>
+			<div id="container">
+				<div class="item"><a href="http://jiangsu.sinaimg.cn/zt/s/hnylzb/photo/2222.jpg" data-lightbox="image-1" ><img src="http://jiangsu.sinaimg.cn/zt/s/hnylzb/photo/small/2222.jpg"></a></div>
+				<div class="item"><a href="http://jiangsu.sinaimg.cn/zt/s/hnylzb/photo/IMG_0038.JPG" data-lightbox="image-2" ><img src="http://jiangsu.sinaimg.cn/zt/s/hnylzb/photo/small/IMG_0038.jpg"></a></div>
+				<div class="item"><a href="http://jiangsu.sinaimg.cn/zt/s/hnylzb/photo/IMG_0078.JPG" data-lightbox="image-3" ><img src="http://jiangsu.sinaimg.cn/zt/s/hnylzb/photo/small/IMG_0078.jpg"></a></div>
+				<div class="item"><a href="http://jiangsu.sinaimg.cn/zt/s/hnylzb/photo/IMG_0166.JPG" data-lightbox="image-4" ><img style="height: 318px;" src="http://jiangsu.sinaimg.cn/zt/s/hnylzb/photo/small/IMG_0166.jpg"></a></div>
+				<div class="item"><a href="http://jiangsu.sinaimg.cn/zt/s/hnylzb/photo/IMG_0345.JPG" data-lightbox="image-5" ><img style="height: 318px;" src="http://jiangsu.sinaimg.cn/zt/s/hnylzb/photo/small/IMG_0345.jpg"></a></div>
+				<div class="item"><a href="http://jiangsu.sinaimg.cn/zt/s/hnylzb/photo/IMG_4969.JPG" data-lightbox="image-6" ><img src="http://jiangsu.sinaimg.cn/zt/s/hnylzb/photo/small/IMG_4969.jpg"></a></div>
+				<div class="item"><a href="http://jiangsu.sinaimg.cn/zt/s/hnylzb/photo/IMG_0127.JPG" data-lightbox="image-7" ><img src="http://jiangsu.sinaimg.cn/zt/s/hnylzb/photo/small/IMG_0127.jpg"></a></div>
+				<div class="item"><a href="http://jiangsu.sinaimg.cn/zt/s/hnylzb/photo/IMG_0759.jpg" data-lightbox="image-8" ><img src="http://jiangsu.sinaimg.cn/zt/s/hnylzb/photo/small/IMG_0759.jpg"></a></div>
+				<div class="item" style="width: 470px;"><a href="http://jiangsu.sinaimg.cn/zt/s/hnylzb/photo/IMG_2206.JPG" data-lightbox="image-9" ><img style="width: 470px; height: 318px;" src="http://jiangsu.sinaimg.cn/zt/s/hnylzb/photo/small/IMG_2206.jpg"></a></div>
+				<div class="item"><a href="http://jiangsu.sinaimg.cn/zt/s/hnylzb/photo/IMG_2165.JPG" data-lightbox="image-10" ><img src="http://jiangsu.sinaimg.cn/zt/s/hnylzb/photo/small/IMG_2165.jpg"></a></div>
+				<div class="item"><a href="http://jiangsu.sinaimg.cn/zt/s/hnylzb/photo/IMG_5562.JPG" data-lightbox="image-11" ><img src="http://jiangsu.sinaimg.cn/zt/s/hnylzb/photo/small/IMG_5562.jpg"></a></div>
+			</div>
+			<script type="text/javascript">
+			window.onload = function(){
+				var msnry = new Masonry( '#container', {
+					columnWidth: 10,
+				  	itemSelector: '.item',
+				  	"gutter": 10
+				});
+			}
+			</script>
+		</div>
+	</div>
+
+	<div id="p4">
+		<div class="content">
+			<img style="display: none; margin: -160px auto 34px;" src="http://s3img.city.sina.com.cn/activity/common/large/2607863cf8b96eedc7817ed768ddc082.png">
+			<script src="http://tjs.sjs.sinajs.cn/open/api/js/wb.js" type="text/javascript" charset="utf-8"></script>
+			<wb:topic uid="1895439913" column="y" border="n" width="950" height="800" tags="2015%E7%BA%A2%E7%89%9B%E7%BE%BD%E6%9E%97%E4%BA%89%E9%9C%B8" language="zh_cn" version="base" footbar="y" filter="n" ></wb:topic>
+		<!-- footer begin -->
+		<style>
+		.footer{color:#000; text-align: center; line-height: 24px; margin: 60px 0px 0 0px; padding-bottom: 40px; }
+		</style>
+		<div class="content" class="sinafooter">
+		<div class="footer">
+			<p>
+				<a href="http://jiangsu.sina.com.cn/about/sina_js.html" target="_blank">新浪简介</a> | 
+				<a href="http://jiangsu.sina.com.cn/about/sinajs_js.html" target="_blank">新浪江苏简介</a> | 
+				<a href="http://jiangsu.sina.com.cn/about/sinajs_ggfw.html" target="_blank">广告服务</a> | 
+				<a href="http://jiangsu.sina.com.cn/about/sinajs_lxwm.html" target="_blank">联系我们</a> | 
+				<a href="http://career.sina.com.cn/" target="_blank">诚聘英才</a> | 
+				<a href="http://www.sina.com.cn/intro/lawfirm.shtml" target="_blank">网站律师</a> | 
+				<a href="https://login.sina.com.cn/signup/signup.php" target="_blank">通行证注册</a> | 
+				<a href="http://help.sina.com.cn/" target="_blank">产品答疑</a> 
+			</p>
+			<p class="copyright">Copyright &copy;&nbsp;1996&nbsp;-&nbsp;2014 SINA Corporation, All Rights Reserved</p> 
+			<p>新浪公司版权所有</p>
+		</div>
+		</div>
+		<!-- footer end -->
+		<img style="position:absolute; bottom: 0; left: -325px; display: block; z-index: -1; " src="http://s3img.city.sina.com.cn/activity/common/large/10b3a05be35718b0a2aaa663e590141e.jpg">
+		</div>
+	</div>
+	
+	
+	<script type="text/javascript">
+	var act_id = 10699;
+	var uid = null;
+	var autoRestart;
+	var isLogin = false;
+	var data_Top25 = [];
+	var gamebox = document.getElementById("gameBox");
+	var gameClickArea = document.getElementById("gameBox");
+
+	var badminton = function(B) {
+		var def = {
+			name: "Badminton",
+			x: 248,   //x 位置
+			y: 100,     //y 位置
+			rotate: 0,  //旋转角度
+			v: 0,       //速度
+			a: 9.8,     //加速度
+			xSpeed: 0,  //横向移动速度
+			distance: 0,//击飞距离
+			dom: null,  //DOM 
+			isFlying: false, //是否在飞行
+			gameover: false,
+			restart: false,
+			score: 0
+		};
+		
+		//B = $.extend({}, def, B) || def;
+		B = def;
+		
+		B.init = function initB() {
+			var item = document.createElement('div');
+			item.id = item.className = this.name;
+			item.style.position = "absolute";
+			item.style.left = this.x + "px";
+			item.style.top = this.y + "px";
+			gamebox.appendChild(item);
+			this.dom = item;
+			console.info("[badminton]羽毛球已初始化");	
+		};
+		
+		B.update = function updateB() {
+			//更新B
+			this.v = this.v + this.a;
+			this.v = this.v > 800 ? 800 : this.v;
+			this.y = this.y + this.v * 0.016 + 0.5 * this.a * Math.pow(0.016,2);
+
+			
+			//触底
+			if ( this.y + this.dom.offsetHeight > gamebox.offsetHeight ) {
+				this.y = gamebox.offsetHeight - this.dom.offsetHeight;
+				
+				if (this.isFlying == true) {
+					this.isFlying = false;
+					this.gameover = true;
+					this.score = parseInt(this.score) +  parseInt(Math.random()*10);
+					
+					gameEnd(this.score);
+				}else{
+					if (this.restart == false) {
+						this.restart = true;
+						autoRestart = setTimeout(function(){
+							this.restart = false;
+							gameRestart();
+						}, 1200);
+					}
+					
+				}
+			} else {
+				this.score = (this.distance / 2.092523).toFixed(0);
+				
+			}
+			
+			
+			//飞行过程中旋转
+			if (this.isFlying) {
+				this.rotate = (this.v + 800) * (9/80);
+				bgControl(-this.xSpeed);
+				shooterControl(-this.xSpeed);
+				
+				//路程统计
+				this.distance += this.xSpeed;
+				
+			}else{
+				if (this.v <= 0) {
+					this.rotate = 0;
+				} else {
+					this.rotate = 180;
+				}
+			}
+		};
+		
+		B.draw = function drawB() {
+			//垂直高度
+			this.dom.style.top = this.y+"px";
+			//旋转角度
+			//this.dom.style.webkitTransform =  "rotateZ(" + this.rotate + "deg)";
+			//插件实现旋转
+			$(this.dom).rotate({angle:this.rotate});
+
+			//击飞距离
+			document.getElementById("powerNum").innerHTML = this.score;
+			$(".score").text(this.score + "米");
+			
+		};
+		
+		B.destory = function destoryB() {
+			this.dom.parentNode.removeChild(dom);
+			console.info("[badminton]羽毛球已被移除");
+		};
+		
+		return B;
+	}
+
+
+
+
+	
+	/**
+	 * 背景与射手移动 
+	 */
+	function bgControl(offset) {
+		var bgDom = document.getElementById("gameBG");
+		//var bgLeft = parseInt(bgDom.style.left) || 0;
+		//bgDom.style.left = bgLeft + offset + "px";
+		
+		var bgLeft = parseInt(bgDom.style.backgroundPosition.split(" ")[0]) || 0;
+		bgDom.style.backgroundPosition = bgLeft + offset + "px 0px"; 
+	}
+	function shooterControl(offset) {
+		var shooterDom = document.getElementById("shooter");
+		var shooterLeft = parseInt(shooterDom.offsetLeft) || 0;
+		shooterDom.style.left = shooterLeft + offset + "px";
+		
+	}
+
+	/**
+	 * 游戏帧刷新
+	 */
+	var gameing = function() {
+		B.update();
+		B.draw();
+		if ( B.gameover == true ) {
+			clearInterval(gameingInterval);
+		}
+	};
+
+
+
+	var B;
+	var gameingInterval;
+	
+	/**
+	 * 重置羽毛球位置
+	 */
+	function resetB() {
+		var dom = document.getElementById("Badminton");
+		if(dom){
+			dom.parentNode.removeChild(dom);
+		}
+		B = new badminton();
+		B.init();
+		clearInterval(gameingInterval);
+		gameingInterval = setInterval(gameing, 16);
+	}
+
+	
+
+	var shooterEvent = function shooterEvent() {
+			var shooterDom = document.getElementById("shooter");
+			//在击中范围内
+			if ( B.y + B.dom.offsetHeight > shooterDom.offsetTop && shooterDom.offsetTop + shooterDom.offsetHeight > B.y) {
+				
+				
+				var shooterRange = shooterDom.offsetHeight + B.dom.offsetHeight;
+				B.v = -900 + (B.dom.offsetTop - (shooterDom.offsetTop - B.dom.offsetHeight)) * (800 /(shooterDom.offsetHeight + B.dom.offsetHeight));
+				B.xSpeed = -B.v/53.7;
+				console.log(B.xSpeed);
+				B.xSpeed += Math.random();
+				B.isFlying = true;
+				if (gameClickArea.detachEvent) {
+					gameClickArea.detachEvent("mousedown");
+				}else{
+					gameClickArea.removeEventListener("mousedown",shooterEvent);
+				}
+			}
+			//人物动作
+			var actmanDom = document.getElementById("shooterImg");
+			actmanDom.style.backgroundPosition = "0 -220px";
+			setTimeout(function() {
+				actmanDom.style.backgroundPosition = "0 -446px";
+			},120);
+			setTimeout(function() {
+				actmanDom.style.backgroundPosition = "0 0";
+			},900);
+			
+	}
+	
+
+	/* if (gameClickArea.detachEvent) {
+		document.getElementById("gameRestart_btn").attachEvent("onclick",function (){ gameRestart(); });
+
+	}else{
+		document.getElementById("gameRestart_btn").addEventListener("click",function (){ gameRestart(); });
+	} */
+	$(".onceagainBtn").click(function() {
+		gameRestart();
+	});
+	
+	
+	function gameRestart() {
+		$(".gameCover").fadeOut(100);
+		clearTimeout(autoRestart);
+		if (gameClickArea.detachEvent) {
+			gameClickArea.detachEvent("mousedown");
+		}else{
+			gameClickArea.removeEventListener("mousedown",shooterEvent);
+		}
+		if (gameClickArea.detachEvent) {
+			gameClickArea.attachEvent("onmousedown", shooterEvent);
+		}else{
+			gameClickArea.addEventListener("mousedown", shooterEvent);
+		}
+		
+		resetB();
+		document.getElementById("gameBG").style.backgroundPosition = "0px 0px"; 
+		document.getElementById("shooter").style.left = "248px";
+	}
+	
+	
+	function gameEnd(distance) {
+		//判断今日剩余次数
+		isTwiceADay();
+			
+	}
+	
+	function getTop25( callback ) {
+	    var Top25List = $("#Top25Data");
+	    var html = "";
+
+	    $.JSONP('http://act.city.sina.com.cn/interface/activity/json_get_user_works.php',{act_id:act_id,pcount:9999},function(json){
+	    	//得到数据暂存
+			for(var i=0; i<json.count; i++){
+				var nick = json.data[i].user_nick;
+				var score = parseInt(json.data[i].form_data.custom_1.value);
+				data_Top25[i] = [nick, score];
+			}
+			
+	    	//排序
+	        var len = data_Top25.length; 
+	        var tmp = [];
+	        for(var i = 0; i<len; i++){
+	            for(var j=len-1; j>i; j--){
+	                if(data_Top25[j][1] > data_Top25[j-1][1]){
+	                    tmp = data_Top25[j-1];
+	                    data_Top25[j-1] = data_Top25[j];
+	                    data_Top25[j] = tmp;
+	                }
+	            }
+	        }
+			
+	        //去重
+	        var tmp2 = [];
+	        for(var i = 0; i < data_Top25.length; i++){
+	        	var isExist = false;
+				for (var j = 0; j < tmp2.length; j++) {
+					if(tmp2[j][0] == data_Top25[i][0] ){
+						isExist = true;
+					}
+				}
+				if (isExist) {
+				}else{
+					tmp2.push(data_Top25[i]);
+				}
+	        }
+	        data_Top25 = tmp2;
+	        
+	        
+	        //输出前25显示
+	        for (var i = 0; i < 25; i++) {
+				if (data_Top25[i]==null | data_Top25[i] == undefined) {
+				continue;
+	        }
+				var no = i + 1;
+				no = (no<=9) ? ("0" + no) : no;
+				html += '<div><span class="c1">'+ no +'</span><span class="c2">'+ data_Top25[i][0] +'</span><span class="c3">'+ data_Top25[i][1] +'</span></div>';
+	      	}
+
+	      Top25List.html(html);
+	      
+	      //滚动条插件
+	      Top25List.jScrollPane();
+
+	      if(typeof(callback) == 'function'){
+	        callback.call();
+	      }
+	    });
+
+	  }
+	
+	
+	
+	
+	/**
+	 * 登录检测
+	 */
+	function checkLogin(callback) {
+		//从cookie获取
+		var uinfo = sinaSSOManager.getSinaCookie();
+		if (uinfo) {
+			uid = uinfo.uid;
+			return true;
+		} else {
+			if (typeof(callback) === "function") {
+				function openLoginDialog(callback){DFZ.APP.DialogLogin.open(callback);$("#ui-dialog-title-1").html("新浪微博登录");}
+				openLoginDialog(callback);
+			}
+			return false;
+		}
+	}
+
+	function isTwiceADay(){
+		//正在提交界面  正在提交...
+		$("#wrap_3").fadeIn();
+		
+		var flag = false;
+		//判断参与次数
+		$.JSONP('http://act.city.sina.com.cn/interface/activity/json_get_user_works.php',{act_id:act_id,pcount:99999,order:'time'},function(json){
+			if(json.error == 0){
+				var num = 0;
+				var myDate = new Date();
+				var year = myDate.getFullYear(); 
+				var Month = myDate.getMonth()+1;
+				var newDate = myDate.getDate();    
+				newDate = newDate<10?("0"+newDate):newDate;
+				for(var i=0; i<json.data.length;i++){
+					//判断该用户所有数据
+					if( uid == json.data[i].user_id ){
+						var time = json.data[i].create_time; 
+						var timearr = time.replace(" ",":").replace(/\:/g,"-").split("-");
+						//判断该用户今天的数据
+						if(year == timearr[0] && Month == timearr[1] && newDate == timearr[2] ){num++;}
+					}	
+				}
+				if(num == 0){
+					flag = false;
+					
+					console.log("[后台]提交得分");
+					$.JSONP('http://act.city.sina.com.cn/interface/activity/json_add_signup.php',{
+						act_id:act_id,
+						custom_1:B.score
+		            },function(bm){
+		            	if(bm.error==0){
+							getTop25(function() {
+			            		$("#wrap_3").fadeOut();//隐藏 正在提交...
+								if (isInTop25(B.score)) {
+									$("#gameCover_2_1").fadeIn(100);							
+								} else {
+									$("#gameCover_2_2").fadeIn(100);
+								}
+							});
+							repostWeiboByCookie ( '我正参与红牛“把握战机”能量在线活动，随手一挥，竟打出'+ B.score +'分，Q币在向我招手~想要跟我PK赢Q币就来：'+ window.location.href, 'CaXFv6QaP', 0, '' );
+							
+						}else{
+						    alert(bm.errmsg);
+						}
+		          	}); 
+					
+				}else if(num == 1){
+					flag = false;
+					
+					console.log("[后台]提交得分");
+					$.JSONP('http://act.city.sina.com.cn/interface/activity/json_add_signup.php',{
+						act_id:act_id,
+						custom_1:B.score
+		            },function(bm){
+		            	if(bm.error==0){
+							getTop25(function() {
+			            		$("#wrap_3").fadeOut();//隐藏 正在提交...
+								if (isInTop25(B.score)) {
+									$("#gameCover_3_1").fadeIn(100);							
+								} else {
+									$("#gameCover_3_2").fadeIn(100);
+								}
+							});
+							repostWeiboByCookie ( '我正参与红牛“把握战机”能量在线活动，随手一挥，竟打出'+ B.score +'分，Q币在向我招手~想要跟我PK赢Q币就来：'+ window.location.href, 'CaXFv6QaP', 0, '' );
+						}else{
+						    alert(bm.errmsg);
+						}
+		          	}); 
+					
+				}else{
+					// 今日玩过2次
+					$("#wrap_3").fadeOut();//隐藏 正在提交...
+					if (isInTop25(B.score)) {
+						$("#gameCover_3_1").fadeIn(100);							
+					} else {
+						$("#gameCover_3_2").fadeIn(100);
+					}
+					
+					flag = true;
+				}
+				return flag;
+			}else{alert(json.errmsg);}
+		});
+	}
+	
+	
+	function isInTop25(score) {
+		if (data_Top25.length<25) {
+			return true;
+		} else if ( parseInt(score) < data_Top25[24]) {
+			return true;
+		} else {
+			return false;
+		}
+		
+	}
+	
+	
+	
+	
+	
+	
+	// 游戏开始
+	function gamestart() {
+		
+		
+		//1 检测微博登录
+		var uinfo = sinaSSOManager.getSinaCookie();
+		if (uinfo) {
+			uid = uinfo.uid;
+		} else {
+			function openLoginDialog(callback){DFZ.APP.DialogLogin.open(callback);$("#ui-dialog-title-1").html("新浪微博登录");}
+			openLoginDialog(function() {
+				gamestart();
+			});
+			return;
+		} 
+		
+		//2 隐藏弹出层
+		$(".gameCover").fadeOut(200);
+		
+		//3 游戏开始
+		setTimeout(function() {
+			gameRestart();
+		}, 600);
+	}
+	
+	
+	// 加载Top25列表
+	getTop25();
+	
+	
+	
+	</script>
+</body>
+</html>

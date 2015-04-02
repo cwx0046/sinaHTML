@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="GB2312">
+<meta http-equiv="cache-control" content="no-cache"/>
+<meta name="format-detection" content="telephone=no"/>
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0"> 
+<title>请在此插入网页标题</title>
+<meta name="keywords" content="请在此插入关键词" />
+<meta name="description" content="请在此写入一段页面描述" />
+<meta name="author" content="NorthWind" />
+<link rel="stylesheet" href="http://jiangsu.sinaimg.cn/zt/s/css/reset.css">
+<script src="http://jiangsu.sinaimg.cn/js/jquery1.11.1.min.js"></script>
+<!-- 
+<script src="http://ria.city.sina.com.cn/s/g=base.js" type="text/javascript"></script>
+<script src="http://jiangsu.sinaimg.cn/js/jquery.transit.min.js"></script>
+ -->
+<link rel="stylesheet" href="http://jiangsu.sinaimg.cn/js/idangerous.swiper.css">
+<script src="http://jiangsu.sinaimg.cn/js/idangerous.swiper.min.js"></script>
+<!-- 自适应缩放css -->
+<style type="text/css">
+body{ overflow-x: hidden; background-color: #000; }
+.swiper-container{ width: 640px; height: 1008px; -webkit-transform-origin: top left; margin: 0; background-color: #fefcef; }
+.swiper-wrapper *{ -webkit-backface-visibility: hidden; } /* 避免ip4Safari闪动 */
+.page-provider{ position:absolute;top:0; text-align: center; width: 100%; font-size: 2em;line-height: 4em; color: #e5d2d4; }
+.page-provider#page-provider-bottom{ top:auto; bottom: 0; }
+.swiper-slide{ width: 640px; height: 1008px; position: relative; overflow: hidden; }
+</style>
+<style type="text/css">
+#s1{  background-color: #F00; }
+#s2{  background-color: #FF0; }
+#s3{  background-color: #0F0; }
+#s4{  background-color: #0FF; }
+#s5{  background-color: #00F; }
+</style>
+<script type="text/javascript">
+var mySwiper;
+</script>
+</head>
+<body ontouchmove="event.preventDefault()"> <!-- 阻止ios浏览器整页上下滑动 -->
+	<!-- 
+	* 说明：
+	* 多页面滑动模板，适用于 类ppt 页面
+	* 页面 640x1008 按宽度缩放
+	* 使用 idangerous.swiper 插件切换页面 ，参数请在下方 【Initialize swiper】中自行更改
+	*
+	 -->
+	<div class="swiper-container">
+		<!-- 版权声明 -->
+		<div class="page-provider" id="page-provider-top">新浪江苏 SINA 2015</div>
+		<div class="page-provider" id="page-provider-bottom">新浪江苏 SINA 2015</div>
+		<div class="swiper-wrapper">
+		    <!--First Slide-->
+			<div class="swiper-slide" id="s1">
+				1
+			</div>
+			
+			<!--Second Slide-->
+			<div class="swiper-slide" id="s2">
+				2
+			</div>
+			
+			<!--Third Slide-->
+			<div class="swiper-slide" id="s3">
+				3
+			</div>
+			
+			<!--4 Slide-->
+			<div class="swiper-slide" id="s4">
+				4
+			</div>
+			
+			<!--5 Slide-->
+			<div class="swiper-slide" id="s5">
+				5
+			</div>
+			<!--Etc..-->
+			
+		</div>
+	</div>
+</body>
+
+
+<!-- Initialize swiper -->
+<script type="text/javascript">
+	window.onload = function() {
+		mySwiper = new Swiper('.swiper-container',{
+			// options
+			mode:'vertical', //vertical //horizontal
+			mousewheelControl: true, //鼠标滚轮控制
+			keyboardControl: true,   // 键盘控制
+			onSlideChangeEnd : Swipercallback,
+			onSlideChangeStart : slideChangeCallback
+		});  
+	}
+	
+	/* SlideChangeEndCallback */
+	function Swipercallback(p){
+	    var act = p.activeIndex; //slideEndIndex
+	    // todo sth...
+	}
+	
+	function slideChangeCallback(p) {
+		if(p.previousIndex == 2 && p.activeIndex == 1){
+			mySwiper.swipeTo(0);
+		}
+	}
+</script>
+
+<!-- page Auto scale -->
+<script type="text/javascript">
+	$(function() {
+		pageAutoScale();
+	});
+	$(window).resize(function() {
+		pageAutoScale();
+	});
+	
+	function pageAutoScale(){
+		var r = document.body.offsetWidth / 640;
+		$(".swiper-container").css("-webkit-transform", "scale(" + r + ")");
+		$("body").height( window.innerHeight ); //修正整数页面高度
+		
+		$(".swiper-slider").css("height",parseInt(window.innerHeight / r) );  //调整页面高度
+		$(".swiper-container").css("height",parseInt(window.innerHeight / r) );  //调整页面高度
+		if (window.innerHeight<=1008*r) {  //当用户显示区域小于1008高度时，调整每页高度。
+			// $(".btnBottom").css("top",(window.innerHeight / r - parseInt($(".btnBottom").css("bottom")) ) );  //下滑动提示箭头位置始终距底
+		}
+	}
+</script>
+
+
+</html>

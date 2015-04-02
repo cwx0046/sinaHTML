@@ -6,7 +6,7 @@
 <meta name="format-detection" content="telephone=no"/>
 <meta name="apple-mobile-web-app-capable" content="yes" />
 <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0"> 
-<title>寻找捕鱼大亨！玩游戏！赢壕礼！</title>
+<title>我伙呆！千元壕礼免费送，速来挑战捕鱼王！</title>
 <meta name="author" content="NorthWind" />
 <link rel="stylesheet" href="http://jiangsu.sinaimg.cn/zt/s/css/reset.css">
 <script type="text/javascript" src="http://jiangsu.sinaimg.cn/js/jquery_1.11.2.min_jsonp.js"></script>
@@ -24,12 +24,12 @@ body{ overflow-x: hidden; background-color: #000; max-width: 550px; margin: 0 au
 .startBtn,.page2Btn,.wrap,.btn,img{-moz-user-select: none; -webkit-user-select: none; -ms-user-select: none; user-select: none;-webkit-tap-highlight-color: transparent; tap-highlight-color: transparent; }
 </style>
 <style type="text/css">
-#s1{  background-image: url("http://s3img.city.sina.com.cn/activity/common/large/159e22877896598e28b20d6f57ef8b3a.jpg"); }
+#s1{  background-image: url("http://s3img.city.sina.com.cn/activity/common/large/18e22699d83f550966fafa1b052be67a.jpg"); }
 #s2{  background-image: url("http://s3img.city.sina.com.cn/activity/common/large/c597c8327e0e82d2f19ebe8ad01e0329.jpg"); }
 #s3{  }
-#p1btn1,#p1btn2,#gameDescBtn{ position: absolute; width: 200px; height: 72px; /* background-color: RGBA(255,0,0,0.5); */ top: 585px;  cursor: pointer; z-index: 1; }
-#p1btn1{ left: 104px;  }
-#p1btn2{ left: 329px;  }
+#p1btn1,#p1btn2,#gameDescBtn{ position: absolute;  width: 267px;  height: 80px;  /* background-color: RGBA(255,0,0,0.5); */  top: 599px;  left: 188px;  cursor: pointer;  z-index: 1; }
+#p1btn1{   }
+#p1btn2{ top: 699px;  }
 
 #timeNum{   left: 86px;  top: 59px;  position: absolute;  font-size: 32px;  line-height: 66px;  color: #7B3701; }
 #gameDescBtn{ left: 186px;  top: 59px;  width: 151px;  height: 61px; }
@@ -120,6 +120,7 @@ var mySwiper;
 </script>
 </head>
 <body ontouchmove="event.preventDefault()"> <!-- 阻止ios浏览器整页上下滑动 -->
+<img alt="ico" style="position:absolute; top: -400px;" src="http://s3img.city.sina.com.cn/activity/common/large/8c08980d8005108153ce4aecc7a408d2.jpg">
 	<!-- 
 	* 说明：
 	* 多页面滑动模板，适用于 类ppt 页面
@@ -153,8 +154,8 @@ var mySwiper;
 				<div class="popup" id="pop2">
 					<div class="popContent">
 						<style>
-						#user_tel{ font-size: 26px;  background: none;  border: none;  position: absolute;  -webkit-appearance: none;  top: 564px;  left: 145px;  width: 247px;}
-						.again_btn,.submit_btn{ position: absolute; top: 600px; /* background-color: RGBA(255,0,0,.5); */ width: 200px; height: 70px; top: 620px; }
+						#user_tel{ font-size: 26px;  background: none;  border: none;  position: absolute;  -webkit-appearance: none;  top: 564px;  left: 145px;  width: 247px; }
+						.again_btn,.submit_btn{ position: absolute; top: 600px; /* background-color: RGBA(255,0,0,.5); */ width: 200px; height: 70px; top: 620px; cursor: pointer; }
 						.again_btn{ left: 60px; }
 						.submit_btn{ left: 286px; }
 						#score1,#score2,#score3{   position: absolute;  right: 210px;  top: 218px;  color: #FFF; }
@@ -189,7 +190,7 @@ var mySwiper;
 							<div class="top10Title">
 								<p class="t3">TOP10</p>
 							</div>
-							<div class="text" ontouchmove="event.stopPropagation()">
+							<div class="text" style="height: 460px; overflow-y: scroll;" ontouchmove="event.stopPropagation()">
 									<ol class="top10List">
 									  <li>Loading...</li>
 									</ol>
@@ -198,7 +199,7 @@ var mySwiper;
 								<div class="btn" id="subscribeweixiBtn">关注我们</div>
 								<script type="text/javascript">
 									$("#subscribeweixiBtn").click(function(e){
-										window.open('http://mp.weixin.qq.com/s?__biz=MjM5Nzg4MzU2MA==&mid=204415784&idx=1&sn=affdafdc566d79092ca4d8865d3d984a#rd');
+										window.open('http://mp.weixin.qq.com/s?__biz=MjM5MDI4MTUwMA==&mid=205391956&idx=1&sn=56b6f12848edccb141483638f9910a7e#rd');
 										e.stopPropagation();  //阻止冒泡
 									});
 								</script>
@@ -218,13 +219,45 @@ var mySwiper;
 			
 			<!--Third Slide-->
 			<div class="swiper-slide swiper-no-swiping" id="s3">
-				<div style="height: 100%; width: 100%; overflow-y: scroll;">
-					<img style="display: block;" src="http://s3img.city.sina.com.cn/activity/common/large/ed6c9a4fb7a136be4f4dbb35aa2b6f10.jpg" onclick="mySwiper.swipeTo(0)" ontouchmove="event.stopPropagation()">
+				<div style="height: 100%; width: 100%; overflow-y: scroll;" ontouchmove="event.stopPropagation()">
+					<img style="display: block;" src="http://s3img.city.sina.com.cn/activity/common/large/0fca8900bd48d14bb62bab4569f7f586.jpg" onclick="mySwiper.swipeTo(0)" >
 				</div>
 			</div>
 			
 			
 		</div>
+		
+		<audio id="bgm" src="http://jiangsu.sinaimg.cn/zt/s/music/seaheart48bkps.mp3" loop style="display: none; width: 0; height: 0;"></audio>
+<!-- BGM play/mut Btn -->
+<style>
+.bgm-btn{ position:absolute; top: 10px; left: 10px; width: 60px; height: 60px; background-size: 100%; background-image: url("http://s3img.city.sina.com.cn/activity/common/large/9f9acca088ab3e67f12eb612bdd12c07.png"); z-index: 1;-webkit-animation: myrotate 5s linear 0s infinite normal;}
+.bgm-btn.mut{ background-position: 0px -60px; -webkit-animation: none;}
+
+@-webkit-keyframes myrotate /*Safari and Chrome*/
+{
+0% { -webkit-transform:rotate(1deg);}
+25% { -webkit-transform:rotate(-90deg);}	
+50% { -webkit-transform:rotate(-180deg);}
+75% { -webkit-transform:rotate(-270deg);}
+100% { -webkit-transform:rotate(-360deg);}
+}
+</style>
+<div class="bgm-btn"></div>
+<!-- Touch to play BGM. JS -->
+<script type="text/javascript">
+$(".bgm-btn").on("touchstart",function(e){
+	var dom = document.getElementById('bgm');
+	if( dom.paused ){
+		dom.play();
+		$(".bgm-btn").removeClass("mut");
+	}else{
+		dom.pause();
+		$(".bgm-btn").addClass("mut");
+	}
+});
+</script>
+		
+		
 	</div>
 </body>
 
@@ -245,7 +278,13 @@ var mySwiper;
 	/* SlideChangeEndCallback */
 	function Swipercallback(p){
 	    var act = p.activeIndex; //slideEndIndex
-	    // todo sth...
+		if(act == 1){
+			document.getElementById('bgm').play();
+			$(".bgm-btn").removeClass("mut");
+		}else{
+			document.getElementById('bgm').pause();
+			$(".bgm-btn").addClass("mut");
+		}
 	}
 </script>
 
@@ -272,6 +311,8 @@ var mySwiper;
 </script>
 <script type="text/javascript">
 var boatDom = $("#boat");
+var gamerunning = false;
+
 //小船移动
 $("#pool").bind("touchstart",function(e){
 	if( e.type === "mousedown"){
@@ -305,7 +346,26 @@ function autoAddFish(){
 		}
 		
 		addFish(type,speed);
-	}, 800);
+	}, 300);
+	
+	
+	
+	//random add 1~10
+	var t = parseInt(Math.random()*15);
+	var m = 0;
+		
+	var randomAddInterval = setInterval(function(){
+		m++;
+		if(m>t){
+			clearInterval(randomAddInterval);
+		}
+		var type = parseInt(Math.random()*3);
+		var speed = Math.random()*6000 + 3000;  
+		if(Math.random()>0.5){
+			speed = -speed;
+		}
+		addFish(type,speed);
+	}, 1000);
 	
 	
 }
@@ -361,6 +421,7 @@ function timer() {
   t = setInterval(function() {
     time -= 0.1;
     if(time <= 0){
+    	gamerunning = false;
 		clearInterval(t);
 		/* 游戏结束 */
 		//alert("GAME OVER");
@@ -396,7 +457,13 @@ function gameover(){
  * 跳转到第二页
  * 开始游戏
  */
+
 function gamestart() {
+	if (gamerunning) {
+		return;
+	}
+	gamerunning = true;
+	
 	resetGame();
 	mySwiper.swipeTo(1);
 	autoAddFish();
@@ -437,15 +504,26 @@ $(".submit_btn").unbind().bind("click",function(){
 	if (tel == "" | tel == undefined ) {
 		var isDirectgetTop10 = confirm("留空的话没法参加排名了，确定不写么？");
 		if(!isDirectgetTop10){
+			//返回，填写号码
+			return;
+		}else{
+			//直接显示得分页
+			getTop10(
+       			function() {
+        			showPop3();
+				}
+        	);
 			return;
 		}
+	}else{
+		/* 检测手机号合法 */
+		var partten = /^1[3,4,5,8]\d{9}$/;
+	    if(!partten.test(tel)){alert("请填写正确的手机号！"); return false;}
+	    $("#wrap_3").show();//正在提交...
+	    isSubmited = true;
 	}
-	/* 检测手机号合法 */
-	var partten = /^1[3,4,5,8]\d{9}$/;
-    if(!partten.test(tel)){alert("请填写正确的手机号！"); return false;}
     /* 上传并得到排名 */
-    $("#wrap_3").show();//正在提交...
-    isSubmited = true;
+   
     
     var totalScore = 0;
     for (var i = 0; i < score.length; i++) {
@@ -500,6 +578,27 @@ function getTop10( callback ) {
 	            }
 	        }
 	    }
+	    
+	    
+	  //去重
+        var tmp2 = [];
+        for(var i = 0; i < data_Top10.length; i++){
+        	var isExist = false;
+			for (var j = 0; j < tmp2.length; j++) {
+				if(tmp2[j][0] == data_Top10[i][0] ){
+					isExist = true;
+				}
+			}
+			if (isExist) {
+			}else{
+				tmp2.push(data_Top10[i]);
+			}
+        }
+        data_Top10 = tmp2;
+	    
+	    
+	    
+	    
 	    
 	    for (var i = 0; i < 10; i++) {
 	    	if (data_Top10[i]==null | data_Top10[i] == undefined) {
