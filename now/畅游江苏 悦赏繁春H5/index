@@ -1,0 +1,714 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="gb2312">
+<meta http-equiv="cache-control" content="no-cache"/>
+<meta name="format-detection" content="telephone=no"/>
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0"> 
+<title>1新浪江苏</title>
+<meta name="keywords" content="新浪江苏" />
+<meta name="description" content="新浪江苏" />
+<script type="text/javascript" src="http://jiangsu.sinaimg.cn/js/jquery_1.11.2.min_jsonp.js"></script>
+<style type="text/css">
+body, ul, ol, li, p, h1, h2, h3, h4, h5, h6, table, td, th, form, fieldset, img, dl, dt, dd { margin:0; padding:0; }
+textarea, input, select, body { font-size:12px; }
+select, input { vertical-align:middle; }
+fieldset, img { border:0; }
+ul, ol { list-style:none; }
+img { border:0; }
+a { text-decoration:none; color:#000; }
+a:hover { color:#ffa10d; }
+.fl { float:left; display:inline; }
+.fr { float:right; display:inline; }
+.cb { clear:both; display:block; height:0px; overflow:hidden; width:100%; }
+.clearfix:after { clear:both; content:""; display:block; height:0; }
+
+body{ max-width:640px; min-width:320px; background:url("http://jiangsu.sinaimg.cn/zt/s/cyjsssp/images/2.gif") repeat 0 0; background-size: 4px 3px; font:normal 10px/22px "Microsoft YaHei","SimHei"; margin:0 auto 60px;}
+.msg{ padding: 10px 20px;}
+.msg p{ text-indent: 2em;}
+
+.search{ background-color:#f13345; width: 100%; text-align: center;;}
+.s-search{ width: 90%; margin: 10px auto; display: inline-block; position: relative; background-color: #fff; text-align: left;}
+.s-search input{ width: 85%; border: none; padding: 10px 10px; background-color: none;}
+.s-search-btn{  width: 20px; height: 100%; display: inline-block; position: absolute; right: 5px; background: url("http://jiangsu.sinaimg.cn/zt/s/cyjsssp/images/3.jpg") no-repeat center center #fff; background-size: 15px 15px;}
+.s-stat{ padding: 10px 20px; border:1px solid #ccc; color: #666;}
+.s-methods{ padding: 10px 20px; }
+.s-btnLink{ display: inline-block; width: 100%; background-color: #f13345; font-size: 16px; line-height: 38px; text-align: center;color: #fff; margin-top: 10px;}
+.m-actbox{ text-align: center; background-color: #fff; margin-top: 10px;}
+.m-actbox a{ width: 40%; margin: 10px 10px 20px;}
+.m-worksact { text-align: center; }
+.m-worksact a{line-height: 22px;width: 40%; margin: 10px 10px 20px; padding: 10px 0;}
+</style>
+
+</head>
+<body>
+<img src="http://jiangsu.sinaimg.cn/zt/s/cyjsssp/images/1.jpg" width="100%">
+
+<!-- 首页列表 -->
+
+<div id="index">
+<div class="msg">
+	<p>春天花会开，鸟儿自由自在……”<br/>
+	每到春季，江苏各地百花齐放，争奇斗艳，何处风景曾经让你心动？何处风景最值得我们流连？</p>
+	<p>“江苏春花烂漫，随手拍摄影赛”面向全国摄影爱好者征集捕捉最美江苏花海的摄影作品。</p>
+	<p>上传作品参赛，秀出你的风采，有机会赢iwatch苹果手表、拍立得相机和手机充值卡等超多礼品~</p>
+</div>
+<div class="search">
+	<div class="s-search"><input type="text" value="" placeholder="请输入摄影作品编号或摄影师姓名" /><span class="s-search-btn"></span></div>
+</div>
+<div class="s-stat clearfix" style="display: none;"><span class="fl">已报名人数：2232324</span><span class="fr">浏览量：234345345</span></div>
+<div class="s-methods">
+	<h2>投票方法</h2>
+	<p>1. 搜索微信公众号“南京同城会”（ID：njtongchenghui）并点击关注<br />
+	2. 在聊天对话框中输入摄影作品编号，即投票成功
+	</p>
+	<a href="http://mp.weixin.qq.com/s?__biz=MjM5Nzg4MzU2MA==&mid=206921144&idx=1&sn=e5e442fe6b094fcd7ad505adbdb7ad02#rd" class="s-btnLink">我要投票</a>
+</div>
+<style type="text/css">
+.works-show{ background-color: #f13345; padding-top: 5px;}
+.works-list {margin: 5px 10px;}
+.works-list li{ width:48%; float: left; margin-bottom: 10px; position: relative; background-color: #fff;}
+.works-list li.fr{ float: right;}
+.works-title{ margin: 5px 10px 10px; color: #f13345;background-color: #fff; font-size: 16px; line-height: 38px; text-align: center; display:block;}
+.w-mes{margin: 5px 12px; height: 22px;}
+.w-mes .fl:AFTER{ content: "号"; }
+.w-mes .fr:AFTER{ content: "票"; }
+.w-name{ margin: 5px 10px;background-color: #f13345; font-size: 16px; line-height: 38px; text-align: center;color: #fff; height: 38px; overflow: hidden;}
+.load-more{ color: #fff; width: 100%; text-align:center; display: inline-block; margin: 10px 0;}
+.w-ranke{ position: absolute; right: 5px; top: 5px; background-color: rgba(241,50,70,0.6); color: #fff;padding:0 5px;}
+.w-ranke:BEFORE{ content: "排名："; }
+</style>
+<div class="works-show">
+	<h3 class="works-title">摄影作品展示</h3>
+	<ul class="works-list clearfix">
+		<!--li>
+			<img src="http://jiangsu.sinaimg.cn/zt/s/cyjsssp/images/1.jpg" width="100%" />
+			<p class="w-mes clearfix"><span class="fl">0124号</span><span class="fr">12456票</span></p>
+			<div href="javascript:;" class="w-name">摄影师姓名</div>
+			<span class="w-ranke">排名：1</span>
+		</li-->
+	</ul>
+	<a class="load-more" href="javascript:get_more_lists();">加载更多</a>
+
+</div>
+<div style="margin: 10px 10px;"><img src="http://jiangsu.sinaimg.cn/zt/s/cyjsssp/images/4.png" width="100%"></div>
+</div>
+
+<!-- 首页列表 END -->
+
+
+<!-- 作品详情 -->
+
+<div id="details" style="display:none;">
+
+<div class="s-stat clearfix"><span class="fl">已报名人数：2147</span><span class="fr">浏览量：23268</span></div>
+<div class="m-worksact">
+		<a href="javascript:;" class="s-btnLink"><span class="vote-num">0</span>票<br/><span style="font-size: 12px;">当前票数</span></a>
+		<a href="javascript:;" class="s-btnLink">排名：<span class="ranke-num">0</span><br/><span style="font-size: 12px;">每10分钟统计更新一次</span></a>
+</div>
+<div style=" font-size: 18px; color: #f13345; padding:2px 20px; font-weight:bold;">作品编号：<span class="work-num">0</span></div>
+<div style=" font-size: 18px; color: #f13345; padding:2px 20px; font-weight:bold;">作者：<span class="work-name"></span></div>
+<div class="s-methods" style="color:#666;">
+	<h2>投票方法</h2>
+	<p>1. 搜索微信公众号“南京同城会”（ID：njtongchenghui）并点击关注<br />
+	2. 在聊天对话框中输入摄影作品编号，即投票成功
+	</p>
+	<div class="m-actbox">
+		<img class="work-pic" src="http://jiangsu.sinaimg.cn/zt/s/cyjsssp/images/1.jpg" width="100%">
+		<a href="http://mp.weixin.qq.com/s?__biz=MjM5Nzg4MzU2MA==&mid=206921144&idx=1&sn=e5e442fe6b094fcd7ad505adbdb7ad02#rd" class="s-btnLink">为我投票</a>
+		<a href="javascript:show_index();" class="s-btnLink">查看排名</a>
+	</div>
+	
+</div>
+<div style="margin: 10px 10px;"><img src="http://jiangsu.sinaimg.cn/zt/s/cyjsssp/images/4.png" width="100%"></div>
+</div>
+
+<!-- 作品详情 END -->
+
+
+<!-- 报名区块  -->
+
+<style>
+.signup { padding: 10px 20px; }
+.signup input{ display:block; width:100%; -webkit-appearance: none; background: none; border: none; border-bottom: 1px solid #7f7f7f; line-height: 26px; margin-bottom: 10px; }
+.sign-btnSubmit{ display: inline-block; width: 100%; background-color: #f13345; font-size: 16px; line-height: 38px; text-align: center; color: #fff; margin-top: 10px; }
+input.u_photosrc{ background-image: url("http://jiangsu.sinaimg.cn/zt/s/cyjsssp/images/ico_photo.png"); background-repeat: no-repeat; background-size: 25px; background-position: right center; text-align: left; padding: 0; color: #A9A9A9; }
+</style>
+<div id="signup" class="signup">
+	<input class="u_name" type="text" placeholder="您的姓名"/>
+	<input class="u_phone" type="tel" placeholder="手机号码（填写正确的手机号码，便于通知领奖）"/>
+	<input class="u_workname" type="text" placeholder="摄影作品名称"/>
+	<!-- <input class="u_photosrc" type="text" placeholder="上传摄影作品"/> -->
+	<input class="u_photosrc" type="button" value="上传摄影作品" placeholder="上传摄影作品"
+			plugin-name="pic_file"
+			plugin-type="file"
+			plugin-action="http://act.city.sina.com.cn/interface/common/pic_upload.php? callback_func=pic_upload_callback&pic_id=mission_image&thumbnail_size=600&charset=gbk"
+			plugin-onsubmit=""
+			plugin-disabled=""/>
+	<input class="u_text" type="text" placeholder="参赛宣言"/>
+	<a href="javascript:;" class="sign-btnSubmit" id="sign-Submit">提交报名</a>
+</div>
+<script>
+var oldhref="";
+var oldhref_thumbnail="";
+function pic_upload_callback(json){
+	var real_pic_name = json.real_pic_name;
+	var pic_url = json.pic_large;
+	$(".u_photosrc").val("上传成功："+real_pic_name);
+
+	oldhref = pic_url;
+	oldhref_thumbnail = json.pic_thumbnail;
+}
+$(function(){
+	$("#sign-Submit").click(function(){
+		var data = {};
+	    data.act_id = 10761;//活动id
+		
+		data.custom_1 = $('.u_name').val();
+		data.custom_2 = $('.u_phone').val();
+		data.custom_3 = $('.u_workname').val();
+		data.custom_4 = $('.u_text').val();
+		data.custom_5 = oldhref;
+		data.custom_6 = oldhref_thumbnail;
+		
+		if (data.custom_1 == "") { alert("请填您的姓名"); $('.u_name').focus(); return; }
+		if (data.custom_2 == "") { alert("请填您的手机号码"); $('.u_phone').focus(); return; }
+		if (data.custom_3 == "") { alert("请填摄影作品名称"); $('.u_workname').focus(); return; }
+		if (data.custom_4 == "") { alert("请填您的参赛宣言"); $('.u_text').focus(); return; }
+		if (data.custom_5 == "") { alert("请上传作品");  return; }
+
+		$.JSONP('http://act.city.sina.com.cn/interface/activity/json_add_signup.php',data,function(bm){
+				if(bm.error==0){
+					alert("提交成功！");
+				}else{
+					alert(bm.errmsg)
+				}
+		});
+	});
+});
+</script>
+<!-- 报名区块END  -->
+<!-- 页脚区块 -->
+<style>
+.footer-nav{ background-color: #f13345; position: fixed; bottom: 0; left: 0; width: 100%; }
+.footer-nav-item{ color: #FFF; float: left; width: 25%; text-align: center; -webkit-tap-highlight-color: transparent; }
+.footer-nav-item:HOVER{ color: #FFF; }
+.footer-nav-item:BEFORE{ content: ""; margin:6px;  display:block; width: 25px; height: 25px; background-image: url("http://jiangsu.sinaimg.cn/zt/s/cyjsssp/images/footer_nav_icos.png"); background-size: 100px; margin: 6px auto;  }
+.footer-nav-item1:BEFORE{ background-position:     0 0;}
+.footer-nav-item2:BEFORE{ background-position: -25px 0;}
+.footer-nav-item3:BEFORE{ background-position: -50px 0;}
+.footer-nav-item4:BEFORE{ background-position: -75px 0;}
+.footer-nav-item.curr, .footer-nav-item:HOVER{ background-color: #F51228; }
+</style>
+<div class="footer-nav clearfix">
+	<a class="footer-nav-item footer-nav-item1" href="javascript:show_index();">查看排名</a>
+	<a class="footer-nav-item footer-nav-item2" href="http://mp.weixin.qq.com/s?__biz=MjM5Nzg4MzU2MA==&mid=206898191&idx=1&sn=9b8787ddbd14c092a43fe1af06a2c5d6#rd" target="_black">活动详情</a>
+	<a class="footer-nav-item footer-nav-item3" href="javascript:show_signup();">我要参赛</a>
+	<a class="footer-nav-item footer-nav-item4" href="http://mp.weixin.qq.com/s?__biz=MjM5Nzg4MzU2MA==&mid=206898181&idx=1&sn=35614935a1d6fdc76e3b487dbe54e03b#rd" target="_black">拉票攻略</a>
+</div>
+
+<!-- end页脚区块 -->
+
+
+
+<script type="text/javascript">
+	document.domain = "sina.com.cn";
+</script> 
+<script type="text/javascript">
+/* 图片上传插件 */
+/* @fix init方法移出，以适应无法获得输入元素位置bug */
+/* 改造闭包。。。以实现动态生成图片上传按钮效果  edit by xinwei 2013.4.9 */
+	var tools = {};
+	// 提交的iframe的id
+	tools.iframeId = 0;
+
+	// 是否是ie6
+	tools.isIE6 = navigator.userAgent.toLowerCase().indexOf('msie 6')>-1;
+
+	// 存储所有实例
+	tools.instances = [];
+
+	// 创建工具函数
+	tools.create = function(tag){
+		return document.createElement(tag);
+	};
+
+	// 获取按钮的绝对位置
+	tools.getAbsolutePostion = function(obj){
+		var pos = {};
+		pos.x = obj.offsetLeft;
+		pos.y = obj.offsetTop;
+		while(obj = obj.offsetParent){
+			pos.x += obj.offsetLeft;
+			pos.y += obj.offsetTop;
+		}
+		return pos;
+	};
+
+	// 插件的主要实现
+	tools.achieve = function(button){
+		// 若没有使用new方式创建，则自己调用new
+		if(this === window || this === tools){
+			return new tools.achieve(button);
+		}
+
+		// 若传进来的是id，则获取dom元素
+		if(typeof button === 'string'){
+			button = document.getElementById(button);
+		}
+
+		var that = this;
+
+		// 提交的iframe的id
+		var id = this.iframeId = 'upload-beautify-plugin-' + (++tools.iframeId);
+
+		// 创建文档随便
+		var docFragment = document.createDocumentFragment();
+
+		// 要实现的上传按钮
+		var button = this.button = button;
+
+		// 是否开启debug
+		var debug = button.getAttribute('plugin-debug');
+
+		// 盖住按钮用的div
+		var cover = this.cover = tools.create('div');
+		cover.onmouseover = function(){
+			button.className += ' plugin-upload-hover';
+		}
+		cover.onmouseout = function(){
+			button.className = button.className.replace('plugin-upload-hover','');
+		}
+		var coverStyle = cover.style;
+		coverStyle.position = 'absolute';
+		coverStyle.overflow = 'hidden';
+		coverStyle.zIndex = '10001';
+		if('opacity' in coverStyle){
+			coverStyle.opacity = '0';
+		}else{
+			coverStyle.filter = "alpha(opacity=0)";
+		}
+		this.adjustCover();
+		
+		docFragment.appendChild(cover);
+
+		// 创建form表单
+		var form = this.form = tools.create('form');
+		form.target = id;
+		form.enctype = "multipart/form-data";
+		form.encoding = "multipart/form-data";
+		form.method = 'post';
+		form.action = button.getAttribute('plugin-action');
+		cover.appendChild(form);
+
+		// 创建文件域
+		var fileControl = this.fileControl = tools.create('input');
+		fileControl.name = button.getAttribute('plugin-name');
+		fileControl.type = 'file';
+		var ifileControl = {};
+		fileControl.onclick  = function(e){
+			if(button.getAttribute('plugin-disabled') === 'disabled'){
+				e = e || window.event;
+				e.preventDefault && e.preventDefault();
+				return false;
+			}
+		} 
+		var fileStyle = fileControl.style;
+		fileStyle.position = 'absolute';
+		fileStyle.right = '0';
+		fileStyle.fontSize = '1000px';
+		fileStyle.backgroundColor = 'red';
+		fileStyle.cursor = 'pointer';
+		if(!debug){
+			if('opacity' in fileStyle){
+				fileStyle.opacity = '0';
+				}else{
+				fileStyle.filter = "alpha(opacity=0)";
+			}
+		}else{
+			if('opacity' in fileStyle){
+				fileStyle.opacity = '0.2';
+			}else{
+				fileStyle.filter = "alpha(opacity=20)";
+			}
+		}
+		fileControl.setAttribute('hideFocus', 'true');
+		form.appendChild(fileControl);
+		fileControl.onchange = function(e){
+			e = e||window.event;
+			var func = new Function('event', button.getAttribute('plugin-onsubmit'));
+			if(func.call(that, e) !== false){
+				var form = this.parentNode||this.parentElement;
+				form.submit();
+			};
+		};
+		
+		// 提交用的iframe
+		var iframe = this.iframe = tools.create('iframe');
+		iframe.id = id;
+		iframe.name = id;
+		iframe.src = 'about:blank';
+		iframe.style.display = 'none';
+		docFragment.appendChild(iframe);  
+
+		// 添加文档碎片
+		document.body.appendChild(docFragment);
+		iframe.contentWindow && (iframe.contentWindow.name = id);
+
+		// 添加到数组中
+		tools.instances.push(this);
+	};
+
+	// 调整cover的位置
+	tools.achieve.prototype.adjustCover = function(){
+		var button = this.button;
+		var coverStyle = this.cover.style;
+		var pos = tools.getAbsolutePostion(button);
+		coverStyle.left = pos.x + 'px';
+		coverStyle.top = pos.y + 'px';
+		coverStyle.width = button.offsetWidth + 'px';
+		coverStyle.height = button.offsetHeight + 'px'; 
+	}
+
+	//  获取上传按钮美化组件实例
+	tools.achieve.getInstance = function(dom){
+		if(typeof dom === 'string'){
+			dom = document.getElementById(dom);
+		}
+
+		var instances = tools.instances;
+		for(var i=0,len=instances.length; i<len; i++){
+			if(instances[i].button === dom){
+				return instances[i];
+			}
+		}
+		return false;
+	};
+
+	// 上传按钮美化组件执行完成后的回调
+	tools.achieve.onload = function(){}
+
+	// 页面载入完成后自动寻找plugin-type="file"的元素
+	tools.BindFileBeautify = function(){
+		tools.UnbindFileBeautify();
+		var doms = document.getElementsByTagName('*');
+		for(var i= 0,len=doms.length; i<len; i++){
+			if(doms[i].getAttribute('plugin-type') === 'file'){
+				tools.achieve(doms[i]); 
+			}
+		}
+		tools.achieve.onload();
+	};
+
+	//解绑
+	tools.UnbindFileBeautify = function(){
+		var instances = tools.instances;
+		for(var i=0,len=instances.length; i<len; i++){
+			var iframe = instances[i].iframe;
+			var coverStyle = instances[i].cover;
+			if(iframe.parentNode)
+			{
+				iframe.parentNode.removeChild(iframe);
+			}
+			if(coverStyle.parentNode)
+			{
+				coverStyle.parentNode.removeChild(coverStyle);
+			}
+		}
+		tools.instances = [];
+	}
+
+	// 页面resize的时候调整位置
+	tools.AdjustCovers = function(){
+		var instances = tools.instances;
+		for(var i=0,len=instances.length; i<len; i++){
+			instances[i].adjustCover();
+		}
+	}
+
+	// 添加onload事件
+	//tools.BindFileBeautify();  //请在输入框显示出来并处于正确位置后，执行此方法	
+	/* if(window.addEventListener){
+		window.document.addEventListener('DOMContentLoaded', tools.BindFileBeautify, false);
+	}else{
+		window.attachEvent('onload', tools.BindFileBeautify);
+	} */
+
+	// 添加resize事件
+	if(window.addEventListener){
+		window.addEventListener('resize', tools.AdjustCovers, false);
+	}else{
+		window.attachEvent('onload', tools.AdjustCovers);
+	}
+
+	//添加到命名空间下
+	if(window.$){
+		window.$.tools = tools;
+	}else{
+		window.$ = {tools:tools};
+	}
+</script>
+
+<script>
+/* 获取参赛作品 */
+
+/**
+ * 服务器获取作品投票json
+ */
+var lists_by_vote = [];
+/**
+ * 当前页要显示的作品 数组
+ */
+var lists_page_by_vote = []; 
+/**
+ * 当前页码
+ */
+var page_num = 1;
+/**
+ * 每页6张作品
+ */
+var item_per_page = 6; 
+
+
+/**
+ * 获得json[["2825523","12"],["2825591","8"],["2825593","6"],["2825603","5"],["2825533","4"],["2825589","2"],["2825604","1"]]
+ * @param callback
+ */
+function get_top_lists(page,callback) {
+	
+	if (lists_by_vote != "") { //已经获得所有作品排序
+		cut_data_by_page_and_set_btn();
+		return;
+	}
+	
+	$.post("http://jiangsusina.com/2015wxh/getall.php",function(json){
+		lists_by_vote = json;
+		
+		cut_data_by_page_and_set_btn();
+	});
+	
+	
+	function cut_data_by_page_and_set_btn() {
+		lists_page_by_vote = [];
+		
+		var this_page_max = page_num*item_per_page;
+		this_page_max = this_page_max > lists_by_vote.length ? lists_by_vote.length : this_page_max;
+		
+		for (var i = (page_num - 1)*item_per_page; i < this_page_max; i++) {
+			lists_page_by_vote.push(lists_by_vote[i]);
+		}
+		page_num++;
+		
+		if ((page_num - 1)*item_per_page >= lists_by_vote.length) {
+			//按钮：没有更多了
+			//alert("没有更多了，继续执行get_top_lists将会报错");
+			$(".load-more").html("没有更多了").attr("href","javascript:;");
+		}else{
+			//按钮：加载更多
+			//alert("您可以执行get_top_lists来获取下一页");
+		}
+		
+		if (typeof(callback) == "function") {
+			callback();
+		}
+	}
+	
+}
+
+
+/**
+ * 
+ * @param data
+ */
+function get_usework_by_ids(data) {
+	
+	var i = -1;
+	var idLength = data.length;
+	
+	function check_next_id() {
+		i++;
+		if (i >= idLength) {
+			return;
+		}else{
+			get_one_work_by_id(data[i], check_next_id);
+		}
+	}
+	
+	check_next_id();
+}
+
+/**
+ * 
+ * @param data
+ * @param callback
+ */
+var ranke_num = 0;
+function get_one_work_by_id(data,callback) {
+	var id = data[0];       //作品编号
+	ranke_num++;
+	var vote_num = data[1]; //作品票数
+	
+	$.JSONP('http://act.city.sina.com.cn/interface/activity/json_get_one_user_work.php',{work_id:id},function(json){
+		if(json.error == 0){
+			var data = json.data;
+			var t_fr ="";
+			if(ranke_num%2==0){ t_fr = "fr";}
+			var html = "";		
+			
+			html += '<li class="'+t_fr+'" onClick="go_details($(this))">';
+			html += '<img src="'+ data.form_data.custom_6.value +'" width="100%" />';
+			html += '<p class="w-mes clearfix"><span class="fl">'+ (Number(id)-2800000) +'</span><span class="fr">'+ vote_num +'</span></p>';
+			html += '<div href="javascript:;" class="w-name">'+ data.form_data.custom_1.value +'</div>';
+			html += '<span class="w-ranke">'+ ranke_num +'</span>';
+			html += '</li>';
+			
+			//输出
+			$(".works-list").append(html);
+			
+        }else{
+            alert(json.errmsg);
+        }
+		
+		if (typeof(callback) == "function") {
+			callback();
+		}
+	});
+}
+
+function get_more_lists()
+{
+	get_top_lists( page_num, function(){get_usework_by_ids(lists_page_by_vote)});	
+}
+
+/*
+ * 
+ * 本js调试语句
+ * get_top_lists( page_num, function(){get_usework_by_ids(lists_page_by_vote)});
+ * 
+ */
+</script>
+
+<script type="text/javascript">
+/* 页面功能切换 */
+function show_index(){
+	$("#details,#signup").hide();
+	$("#index").show();
+}
+function show_details(){
+	$("#index,#signup").hide();
+	$("#details").show();
+}
+function show_signup(){
+	$("#details,#index").hide();
+	$("#signup").show();
+	tools.BindFileBeautify();
+}
+function go_details(_this)
+{
+	var self = _this;
+	show_details();
+	$(".vote-num").html(Number(self.find("span.fr").html()));//得票
+	$(".ranke-num").html(Number(self.find("span.w-ranke").html()));//排名
+	$(".work-num").html(Number(self.find("span.fl").html()));//作品编号
+	$(".work-name").html(self.find(".w-name").html());	//作者 
+	$(".work-pic").attr("src",self.find("img").attr("src")); //作品图片
+}
+
+$(function(){
+	get_top_lists( page_num, function(){get_usework_by_ids(lists_page_by_vote)});
+});
+
+$(function search_btn_event() {
+	$(".s-search-btn").click(function() {
+		var text = $(".s-search input").val().trim();
+		if (text == "") {
+			return;
+		}
+		
+		if (text.length>=14) {
+			alert("关键词过长");
+			return;
+		}
+		
+		// 作品编号
+		if (/^[0-9]+$/.test(text)) {
+			var index = -1;
+			text = parseInt(text) + 2800000;
+			for ( var i in lists_by_vote) {
+				if (text == lists_by_vote[i][0]) {
+					index = i+1;
+				}
+			}
+			if (index == -1) {
+				alert("抱歉没有找到这个编号的作品");
+				return;
+			}else{
+				// 当前排名 index
+				
+				$.JSONP('http://act.city.sina.com.cn/interface/activity/json_get_one_user_work.php',{work_id:text},function(json){
+					if(json.error == 0){
+						var data = json.data;
+						
+						var id = json.data.id;
+						
+						var vote_num = -1;
+						var index = -1;
+						for ( var i in lists_by_vote) {
+							if (id == lists_by_vote[i][0]) {
+								vote_num = lists_by_vote[i][1];
+								index = parseInt(i)+1;
+							}
+						}
+						
+						$(".vote-num").html(vote_num);//得票
+						$(".ranke-num").html(index);//排名
+						$(".work-num").html(parseInt(id)-2800000);//作品编号
+						$(".work-name").html(data.form_data.custom_1.value);	//作者 
+						$(".work-pic").attr("src",data.form_data.custom_6.value); //作品图片
+						show_details();
+						
+			        }else{
+			            alert(json.errmsg);
+			        }
+				});
+			}
+		} else {
+			// 用户名
+			$.JSONP('http://act.city.sina.com.cn/interface/activity/json_get_field_data.php',{act_id:10761, custom_1:text},function(json){
+				if(json.error == 0){
+					if (json.count == 0) {
+						alert("抱歉没有找到这个用户的作品");
+						return;
+					}
+					
+					var data = json.data;
+					var id = data[0].id;
+					var vote_num = -1;
+					var index = -1;
+					for ( var i in lists_by_vote) {
+						if (id == lists_by_vote[i][0]) {
+							vote_num = lists_by_vote[i][1];
+							index = parseInt(i)+1;
+						}
+					}
+					
+					$(".vote-num").html(vote_num);//得票
+					$(".ranke-num").html(index);//排名
+					$(".work-num").html(parseInt(id)-2800000);//作品编号
+					$(".work-name").html(data[0].form_data.custom_1.value);	//作者 
+					$(".work-pic").attr("src",data[0].form_data.custom_6.value); //作品图片
+					show_details();
+					
+		        }else{
+		            alert(json.errmsg);
+		        }
+				
+			});
+		}
+		
+	});
+});
+</script>
+</body> 
+</html>

@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="gb2312">
+<meta http-equiv="cache-control" content="no-cache"/>
+<meta name="format-detection" content="telephone=no"/>
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0"> 
+<title>新浪江苏</title>
+<meta name="keywords" content="新浪江苏" />
+<meta name="description" content="新浪江苏" />
+<script src="http://i2.sinaimg.cn/cj/dfz/js/base.js" type="text/javascript"></script>
+
+<style type="text/css">
+body, ul, ol, li, p, h1, h2, h3, h4, h5, h6, table, td, th, form, fieldset, img, dl, dt, dd { margin:0; padding:0; }
+textarea, input, select, body { font-size:12px; }
+select, input { vertical-align:middle; }
+fieldset, img { border:0; }
+ul, ol { list-style:none; }
+img { border:0; }
+a { text-decoration:none; color:#000; }
+a:hover { color:#ffa10d; }
+.fl { float:left; display:inline; }
+.fr { float:right; display:inline; }
+.cb { clear:both; display:block; height:0px; overflow:hidden; width:100%; }
+.clearfix:after { clear:both; content:""; display:block; height:0; }
+
+body{ max-width:640px; min-width:320px; background:url("http://jiangsu.sinaimg.cn/zt/s/cyjsssp/images/2.gif") repeat 0 0; background-size: 4px 3px; font:normal 10px/22px "Microsoft YaHei","SimHei"; margin:0 auto 60px;}
+.msg{ padding: 10px 20px;}
+.msg p{ text-indent: 2em;}
+
+.search{ background-color:#f13345; width: 100%; text-align: center;;}
+.s-search{ width: 90%; margin: 10px auto; display: inline-block; position: relative; background-color: #fff; text-align: left;}
+.s-search input{ width: 85%; border: none; padding: 10px 10px; background-color: none;}
+.s-search-btn{  width: 20px; height: 100%; display: inline-block; position: absolute; right: 5px; background: url("http://jiangsu.sinaimg.cn/zt/s/cyjsssp/images/3.jpg") no-repeat center center #fff; background-size: 15px 15px;}
+.s-stat{ padding: 10px 20px; border:1px solid #ccc; color: #666;}
+.s-methods{ padding: 10px 20px; }
+.s-btnLink{ display: inline-block; width: 100%; background-color: #f13345; font-size: 16px; line-height: 38px; text-align: center;color: #fff; margin-top: 10px;}
+.m-actbox{ text-align: center; background-color: #fff; margin-top: 10px;}
+.m-actbox a{ width: 40%; margin: 10px 10px 20px;}
+.m-worksact { }
+.m-worksact a{line-height: 22px;width: 40%; margin: 10px 10px 20px; padding: 10px 0;}
+</style>
+<script type="text/javascript" src="http://jiangsu.sinaimg.cn/js/jquery_1.11.2.min_jsonp.js"></script>
+<script type="text/javascript">
+	$(function()
+	{
+		$(".works-list li").each(function(){
+			if($(this).index()%2==1){
+				$(this).addClass("fr");
+			}
+		})
+	})
+</script>
+</head>
+<body>
+<img src="http://jiangsu.sinaimg.cn/zt/s/cyjsssp/images/1.jpg" width="100%">
+
+<!-- 首页列表 -->
+
+<div id="index">
+<div class="msg">
+	<p>春天花会开，鸟儿自由自在……”<br/>
+	每到春季，江苏各地百花齐放，争奇斗艳，何处风景曾经让你心动？何处风景最值得我们流连？</p>
+	<p>“江苏春花烂漫，随手拍摄影赛”面向全国摄影爱好者征集捕捉最美江苏花海的摄影作品。</p>
+	<p>上传作品参赛，秀出你的风采，有机会赢iwatch苹果手表、拍立得相机和手机充值卡等超多礼品~</p>
+</div>
+<div class="search">
+	<div class="s-search"><input type="text" value="" placeholder="请输入摄影作品编号或摄影师姓名" /><span class="s-search-btn"></span></div>
+</div>
+<div class="s-stat clearfix"><span class="fl">已报名人数：2232324</span><span class="fr">浏览量：234345345</span></div>
+<div class="s-methods">
+	<h2>投票方法</h2>
+	<p>1. 搜索微信公众号“南京同城会”（ID：njtongchenghui）并点击关注<br />
+	2. 在聊天对话框中输入摄影作品编号，即投票成功
+	</p>
+	<a href="javascript:;" class="s-btnLink">我要投票</a>
+</div>
+<style type="text/css">
+.works-show{ background-color: #f13345; padding-top: 5px;}
+.works-list {margin: 5px 10px;}
+.works-list li{ width:48%; float: left; margin-bottom: 10px; position: relative; background-color: #fff;}
+.works-list li.fr{ float: right;}
+.works-title{ margin: 5px 10px 10px; color: #f13345;background-color: #fff; font-size: 16px; line-height: 38px; text-align: center; display:block;}
+.w-mes{margin: 5px 12px; height: 22px;}
+.w-name{ margin: 5px 10px;background-color: #f13345; font-size: 16px; line-height: 38px; text-align: center;color: #fff; }
+.load-more{ color: #fff; width: 100%; text-align:center; display: inline-block; margin: 10px 0;}
+.w-ranke{ position: absolute; right: 5px; top: 5px; background-color: rgba(241,50,70,0.6); color: #fff;padding:0 5px;}
+</style>
+<div class="works-show">
+	<h3 class="works-title">摄影作品展示</h3>
+	<ul class="works-list clearfix">
+		<li>
+			<img src="http://jiangsu.sinaimg.cn/zt/s/cyjsssp/images/1.jpg" width="100%" />
+			<p class="w-mes clearfix"><span class="fl">0124号</span><span class="fr">12456票</span></p>
+			<div href="javascript:;" class="w-name">摄影师姓名</div>
+			<span class="w-ranke">排名：1</span>
+		</li>
+		<li>
+			<img src="http://jiangsu.sinaimg.cn/zt/s/cyjsssp/images/1.jpg" width="100%" />
+			<p class="w-mes clearfix"><span class="fl">0124号</span><span class="fr">12456票</span></p>
+			<div href="javascript:;" class="w-name">摄影师姓名</div>
+			<span class="w-ranke">排名：1</span>
+		</li>
+		<li>
+			<img src="http://jiangsu.sinaimg.cn/zt/s/cyjsssp/images/1.jpg" width="100%" />
+			<p class="w-mes clearfix"><span class="fl">0124号</span><span class="fr">12456票</span></p>
+			<div href="javascript:;" class="w-name">摄影师姓名</div>
+			<span class="w-ranke">排名：1</span>
+		</li>
+		<li>
+			<img src="http://jiangsu.sinaimg.cn/zt/s/cyjsssp/images/1.jpg" width="100%" />
+			<p class="w-mes clearfix"><span class="fl">0124号</span><span class="fr">12456票</span></p>
+			<div href="javascript:;" class="w-name">摄影师姓名</div>
+			<span class="w-ranke">排名：1</span>
+		</li>
+		<li>
+			<img src="http://jiangsu.sinaimg.cn/zt/s/cyjsssp/images/1.jpg" width="100%" />
+			<p class="w-mes clearfix"><span class="fl">0124号</span><span class="fr">12456票</span></p>
+			<div href="javascript:;" class="w-name">摄影师姓名</div>
+			<span class="w-ranke">排名：1</span>
+		</li>
+		<li>
+			<img src="http://jiangsu.sinaimg.cn/zt/s/cyjsssp/images/1.jpg" width="100%" />
+			<p class="w-mes clearfix"><span class="fl">0124号</span><span class="fr">12456票</span></p>
+			<div href="javascript:;" class="w-name">摄影师姓名</div>
+			<span class="w-ranke">排名：1</span>
+		</li>
+	</ul>
+	<a class="load-more" href="">加载更多</a>
+
+</div>
+<div style="margin: 10px 10px;"><img src="http://jiangsu.sinaimg.cn/zt/s/cyjsssp/images/4.png" width="100%"></div>
+</div>
+
+<!-- 首页列表 END -->
+
+
+<!-- 作品详情 -->
+
+<div id="index">
+
+<div class="s-stat clearfix"><span class="fl">已报名人数：2232324</span><span class="fr">浏览量：234345345</span></div>
+<div class="m-worksact">
+		<a href="javascript:;" class="s-btnLink">2547票<br/><span style="font-size: 12px;">当前票数</span></a>
+		<a href="javascript:;" class="s-btnLink">排名：1<br/><span style="font-size: 12px;">每10分钟统计更新一次</span></a>
+</div>
+<div style=" font-size: 18px; color: #f13345; padding:2px 20px; font-weight:bold;">作品编号：0124</div>
+<div style=" font-size: 18px; color: #f13345; padding:2px 20px; font-weight:bold;">作者：xxxxx</div>
+<div class="s-methods" style="color:#666;">
+	<h2>投票方法</h2>
+	<p>1. 搜索微信公众号“南京同城会”（ID：njtongchenghui）并点击关注<br />
+	2. 在聊天对话框中输入摄影作品编号，即投票成功
+	</p>
+	<div class="m-actbox">
+		<img src="http://jiangsu.sinaimg.cn/zt/s/cyjsssp/images/1.jpg" width="100%">
+		<a href="javascript:;" class="s-btnLink">为我投票</a>
+		<a href="javascript:;" class="s-btnLink">查看排名</a>
+	</div>
+	
+</div>
+
+</div>
+<div style="margin: 10px 10px;"><img src="http://jiangsu.sinaimg.cn/zt/s/cyjsssp/images/4.png" width="100%"></div>
+</div>
+
+<!-- 作品详情 END -->
+
+
+<!-- 报名区块  -->
+<script type="text/javascript">
+	document.domain = "sina.com.cn";
+</script> 
+<script src="http://act.city.sina.com.cn/js/uploadButton.js" type="text/javascript"></script> 
+<style>
+.signup { padding: 10px 20px; }
+.signup input{ display:block; width:100%; -webkit-appearance: none; background: none; border: none; border-bottom: 1px solid #7f7f7f; line-height: 26px; margin-bottom: 10px; }
+.sign-btnSubmit{ display: inline-block; width: 100%; background-color: #f13345; font-size: 16px; line-height: 38px; text-align: center; color: #fff; margin-top: 10px; }
+input.u_photosrc{ background-image: url("http://jiangsu.sinaimg.cn/zt/s/cyjsssp/images/ico_photo.png"); background-repeat: no-repeat; background-size: 25px; background-position: right center; text-align: left; padding: 0; color: #A9A9A9; }
+</style>
+<div class="signup">
+	<input class="u_name" type="text" placeholder="您的姓名"/>
+	<input class="u_phone" type="tel" placeholder="手机号码（填写正确的手机号码，便于通知领奖）"/>
+	<input class="u_workname" type="text" placeholder="摄影作品名称"/>
+	<!-- <input class="u_photosrc" type="text" placeholder="上传摄影作品"/> -->
+	<input class="u_photosrc" type="button" value="上传摄影作品" placeholder="上传摄影作品"
+			plugin-name="pic_file"
+			plugin-type="file"
+			plugin-action="http://act.city.sina.com.cn/interface/common/pic_upload.php? callback_func=pic_upload_callback&pic_id=mission_image&thumbnail_size=125&charset=gbk"
+			plugin-onsubmit=""
+			plugin-disabled=""/>
+	<input class="u_text" type="text" placeholder="参赛宣言"/>
+	<a href="javascript:;" class="sign-btnSubmit" id="sign-Submit">提交报名</a>
+</div>
+<script>
+var oldhref="";
+var oldhref_thumbnail="";
+function pic_upload_callback(json){
+	var real_pic_name = json.real_pic_name;
+	var pic_url = json.pic_large;
+	$(".u_photosrc").val(("上传成功："+real_pic_name);
+	oldhref = pic_url;
+	oldhref_thumbnail = json.pic_thumbnail;
+}
+$(function(){
+	$("#sign-Submit").click(function(){
+		var data = {};
+	    data.act_id = 111111111111111111;//活动id
+		
+		data.custom_1 = $('.u_name').val();
+		data.custom_2 = $('.u_phone').val();
+		data.custom_3 = $('.u_workname').val();
+		data.custom_4 = oldhref_thumbnail;
+		data.custom_5 = $('.u_text').val();
+		
+		if (data.custom_1 == "") { alert("请填您的姓名"); $('.u_name').focus(); return; }
+		if (data.custom_2 == "") { alert("请填您的手机号码"); $('.u_phone').focus(); return; }
+		if (data.custom_3 == "") { alert("请填摄影作品名称"); $('.u_workname').focus(); return; }
+		if (data.custom_4 == "") { alert("请上传作品");  return; }
+		if (data.custom_5 == "") { alert("请填您的参赛宣言"); $('.u_text').focus(); return; }
+
+		$.JSONP('http://act.city.sina.com.cn/interface/activity/json_add_signup.php',data,function(bm){
+				if(bm.error==0){
+					alert("提交成功！");
+				}else{
+					alert(bm.errmsg)
+				}
+		});
+	});
+});
+</script>
+<!-- 报名区块END  -->
+<!-- 页脚区块 -->
+<style>
+.footer-nav{ background-color: #f13345; position: fixed; bottom: 0; left: 0; width: 100%; }
+.footer-nav-item{ color: #FFF; float: left; width: 25%; text-align: center; -webkit-tap-highlight-color: transparent; }
+.footer-nav-item:HOVER{ color: #FFF; }
+.footer-nav-item:BEFORE{ content: ""; margin:6px;  display:block; width: 25px; height: 25px; background-image: url("http://jiangsu.sinaimg.cn/zt/s/cyjsssp/images/footer_nav_icos.png"); background-size: 100px; margin: 6px auto;  }
+.footer-nav-item1:BEFORE{ background-position:     0 0;}
+.footer-nav-item2:BEFORE{ background-position: -25px 0;}
+.footer-nav-item3:BEFORE{ background-position: -50px 0;}
+.footer-nav-item4:BEFORE{ background-position: -75px 0;}
+.footer-nav-item.curr, .footer-nav-item:HOVER{ background-color: #F51228; }
+</style>
+<div class="footer-nav clearfix">
+	<a class="footer-nav-item footer-nav-item1" href="weixin://qr/GHUuIcDEiv71h9FCnyA8">查看排名</a>
+	<a class="footer-nav-item footer-nav-item2" href="javascript:;">活动详情</a>
+	<a class="footer-nav-item footer-nav-item3" href="javascript:;">我要参赛</a>
+	<a class="footer-nav-item footer-nav-item4" href="javascript:;">拉票攻略</a>
+</div>
+
+<!-- end页脚区块 -->
+</body> 
+</html>
+
+
