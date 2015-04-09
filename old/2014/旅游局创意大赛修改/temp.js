@@ -433,7 +433,7 @@ function page(p) {
 	p = (p < 1) ? 1 : p; 
 	p = (p > 20) ? 20 : p; 
 	
-	// TODO 翻页
+	//  翻页
 	$(".workCards").scrollTop(678*(p-1));
 	
 	// 修改翻页页码
@@ -636,8 +636,7 @@ var uinfo = sinaSSOManager.getSinaCookie();
 
 	$(".baoxiang_open").fadeOut();
 } 
- 
-</script>
+
 
 
 

@@ -1,7 +1,8 @@
+<!-- Create at 2015年4月9日 下午2:13:13 -->
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="GB2312">
+<meta charset="GB18030">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="renderer" content="webkit">
 <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -15,21 +16,51 @@
 <script type="text/javascript" src="http://jiangsu.sinaimg.cn/js/jquery_1.11.2.min_jsonp.js"></script>
  -->
 <style type="text/css">
-.headimg{ min-width: 1000px; height: 400px; background: url("http://hubei.sinaimg.cn/2014/0721/S122974T1405906828814.jpg") no-repeat center top; }
-.content{ width: 1000px; margin: 0 auto; position: relative;} 
+.content {
+ width: 1000px; margin: 0 auto; position: relative;
+}
 </style>
 </head>
 <body>
 	<div class="headimg"></div>
 	<div id="p1">
-		<div class="content"></div>
+		<div class="content">
+			<input type="button" value="Push State" onclick="foo1()">
+			<a href="#p2">跳到第二段</a>
+		</div>
 	</div>
 	<div id="p2">
-		<div class="content"></div>
+		<div class="content">
+		<a href="#p1">跳到第一段</a>
+		</div>
 	</div>
 	<div id="p3">
 		<div class="content"></div>
 	</div>
 
 </body>
+<script type="text/javascript">
+
+function foo1() {
+	window.history.pushState({},"状态1",window.location.href);
+}
+
+document.body.onhashchange = function(){
+	//hash值
+	var hash = window.location.hash;
+	switch (hash) {
+	case "#p1":
+		
+		break;
+	case "#p2":
+		
+		break;
+	default:
+		break;
+	}
+}
+
+</script>
+
+
 </html>
