@@ -37,13 +37,13 @@ body{ min-width:950px; background: url("http://jiangsu.sinaimg.cn/2015/0402/U113
 #p1{ height: 420px; /* background-color: RGBA(0,210,0,0.6); */}
 #p2{ height: 880px; /* background-color: RGBA(0,160,100,0.6); */ }
 #p3{ height: 880px; 
-/* background: url("http://s3img.city.sina.com.cn/activity/common/large/faf5aa797d0a3b98e6ebb500eb65b0af.jpg") no-repeat center top; */
-background: url("http://s3img.city.sina.com.cn/activity/common/large/2b20cef7d04be9781244ed07c4685e51.jpg") no-repeat center top;
+background: url("http://s3img.city.sina.com.cn/activity/common/large/faf5aa797d0a3b98e6ebb500eb65b0af.jpg") no-repeat center top;
+/* background: url("http://s3img.city.sina.com.cn/activity/common/large/2b20cef7d04be9781244ed07c4685e51.jpg") no-repeat center top; */
 }
 
 
 .p1VideoBox{width: 396px;height: 319px; float: left; /* background-color: RGBA(200,0,0,0.8); */  }
-.p1NewsBox{ float:left; width: 554px;height: 319px; /* background-color: RGBA(160,0,0,0.8); */ background: url("http://s3img.city.sina.com.cn/activity/common/large/1870ebd693b8f107ef8b7683a77c0ab9.png") no-repeat center 21px; background: RGBA(0,0,0,0.2) url("http://s3img.city.sina.com.cn/activity/common/large/1870ebd693b8f107ef8b7683a77c0ab9.png") no-repeat center 21px; }
+.p1NewsBox{ float:left; width: 554px;height: 319px; /* background-color: RGBA(160,0,0,0.8); */ background:RGBA(0,0,0,0.2) url("http://jiangsu.sinaimg.cn/2015/0424/U12547P1194DT20150424144520.png") no-repeat center 21px; /* background: RGBA(0,0,0,0.2) url("http://s3img.city.sina.com.cn/activity/common/large/1870ebd693b8f107ef8b7683a77c0ab9.png") no-repeat center 21px; */ }
 .p1NewsWrap{ padding: 96px 24px 0; /* background-color: RGBA(160,0,0,0.8); */}
 .newsBox{ margin-bottom: 28px;  position: relative; }
 .p1NewsWrap{}
@@ -202,6 +202,7 @@ position: absolute;  background-color: RGBA(0,0,0,0.2);  -webkit-transform: tran
 			</div>
 			<div class="p1NewsBox">
 				<div class="p1NewsWrap">
+					<!-- 
 					<div class="活动介绍文字">
 					　　“羽林争霸”红牛城市羽毛球赛创办于2010年，是由世界羽联（BWF）和中国羽毛球协会认证、红牛维他命饮料有限公司主办的全国性业余体育赛事。覆盖全国30个省区市、115座城市。<br/>
        				　　2015年“羽林争霸”即将开战！<span style="color:#F00;">获得总冠军的队伍除获得万元现金大奖外，还将赴印尼为2015羽毛球世锦赛开球，快来报名吧！</span><br/>
@@ -210,10 +211,10 @@ position: absolute;  background-color: RGBA(0,0,0,0.2);  -webkit-transform: tran
 					<a href="http://ylzb.redbullsports.cn" target="_blank"><img alt="报名按钮" style="  margin: 13px 0 13px 49px;  display: inline-block;" src="http://s3img.city.sina.com.cn/activity/common/large/fd47d71441c148a47628dfff638d3bdb.png"></a>
 					<img alt="江苏赛区信息按钮" style="margin: 13px 0 13px 0px;  display: inline-block; cursor: pointer;" src="http://jiangsu.sinaimg.cn/2015/0402/U12547P1194DT20150402105731.png" onclick="$('#jiangsuForm').fadeIn();">				
 					<img alt="江苏赛区信息表" id="jiangsuForm" style="display: none; cursor: pointer; position: absolute; top: -14px; left: 0;" src="http://jiangsu.sinaimg.cn/2015/0402/U12547P1194DT20150402110151.png" onclick="$(this).fadeOut();">
-					<!-- 
+					 -->
 					<div class="newsBox">
 						<img class="newsIco" alt="新闻图标" src="">
-						<div class="text	">
+						<div class="textWrap">
 							<h3>红牛城市羽毛球赛大区赛落幕</h3>
 							<p>“羽林争霸”红牛城市羽毛球赛创办于2010年，是由世界羽联（BWF）和中国羽毛球协会认证、红牛维他命饮料有限公司主办的全国性业余体育赛事。覆盖全国30个省区市、115座城市。</p>
 						</div>
@@ -225,7 +226,6 @@ position: absolute;  background-color: RGBA(0,0,0,0.2);  -webkit-transform: tran
 							<p>2“羽林争霸”红牛城市羽毛球赛创办于2010年，是由世界羽联（BWF）和中国羽毛球协会认证、红牛维他命饮料有限公司主办的全国性业余体育赛事。覆盖全国30个省区市、115座城市。</p>
 						</div>
 					</div>
-					 -->
 				</div>
 			</div>
 		</div>
@@ -331,7 +331,7 @@ position: absolute;  background-color: RGBA(0,0,0,0.2);  -webkit-transform: tran
 
 	<div id="p4">
 		<div class="content">
-			<img style="display: none; margin: -160px auto 34px;" src="http://s3img.city.sina.com.cn/activity/common/large/2607863cf8b96eedc7817ed768ddc082.png">
+			<img style="/* display: none; */ display: block; margin: -70px auto 34px;" src="http://s3img.city.sina.com.cn/activity/common/large/2607863cf8b96eedc7817ed768ddc082.png">
 			<script src="http://tjs.sjs.sinajs.cn/open/api/js/wb.js" type="text/javascript" charset="utf-8"></script>
 			<wb:topic uid="1895439913" column="y" border="n" width="950" height="800" tags="2015%E7%BA%A2%E7%89%9B%E7%BE%BD%E6%9E%97%E4%BA%89%E9%9C%B8" language="zh_cn" version="base" footbar="y" filter="n" ></wb:topic>
 		<!-- footer begin -->
