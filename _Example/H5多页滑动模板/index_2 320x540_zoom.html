@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="GB18030">
+<meta http-equiv="cache-control" content="no-cache"/>
+<meta name="format-detection" content="telephone=no"/>
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="viewport" content="width=device-width, user-scalable=no">
+<title>请在此插入网页标题</title>
+<meta name="keywords" content="请在此插入关键词" />
+<meta name="description" content="请在此写入一段页面描述" />
+<meta name="author" content="NorthWind" />
+<link rel="stylesheet" href="http://jiangsu.sinaimg.cn/zt/s/css/reset.css">
+<script src="http://jiangsu.sinaimg.cn/js/jquery1.11.1.min.js"></script>
+<!-- 
+<script type="text/javascript" src="http://jiangsu.sinaimg.cn/js/jquery_1.11.2.min_jsonp.js"></script>
+<script src="http://jiangsu.sinaimg.cn/js/jquery.transit.min.js"></script>
+ -->
+<link rel="stylesheet" href="http://jiangsu.sinaimg.cn/js/idangerous.swiper.css">
+<script src="http://jiangsu.sinaimg.cn/js/idangerous.swiper.min.js"></script>
+<!-- 自适应缩放css -->
+<style type="text/css">
+body{ overflow-x: hidden; background-color: #000; margin: 0 auto; }
+.swiper-container{  width: 320px; height: 540px;  -webkit-transform-origin: top left; -ms-transform-origin: top left; transform-origin: top left; margin: 0; background-color: #fefcef;    }
+.swiper-wrapper *{ -webkit-backface-visibility: hidden; } /* 避免ip4Safari闪动 */
+.page-provider{ position:absolute; top:0; text-align: center; width: 100%; font-size: 1.2em;line-height: 3em; color: #e5d2d4; }
+.page-provider#page-provider-bottom{ top:auto; bottom: 0; }
+.swiper-slide{  position: relative; overflow: hidden;  }
+.slide-top{ position: absolute; top: 0; width: inherit; background-color: RGBA(255,100,100,0.5); }
+.slide-center{ width: inherit; height: 410px; position: absolute; top: 0; right: 0; bottom: 0; left: 0; margin: auto; background-color: RGBA(0,100,255,0.5); }
+.slide-bottom{ position: absolute; bottom: 0; width: inherit; background-color: RGBA(100,255,100,0.5); }
+</style>
+</head>
+<body ontouchmove="event.preventDefault()">
+	<!-- 
+	* 说明：
+	* 多页面滑动模板，适用于 类ppt 页面
+	* 页面 320*540 按宽度缩放
+	* 使用 idangerous.swiper 插件切换页面 ，参数请在下方 【Initialize swiper】中自行更改
+	* 页 swiper-slide
+	*   页眉 slide-top
+	*   正文 slide-center
+	*   页脚 slide-bottom
+	 -->
+	<div class="swiper-container">
+		<!-- 版权声明 -->
+		<div class="page-provider" id="page-provider-top">SINA 2015</div>
+		<div class="page-provider" id="page-provider-bottom">SINA 2015</div>
+		<div class="swiper-wrapper">
+		    <!--First Slide-->
+			<div class="swiper-slide" id="s1">
+				<div class="slide-top">顶部框架</div>
+				<div class="slide-center">对于“插入”选项卡上的库，在设计时都充分考虑了其中的项与文档整体外观的协调性。 您可以使用这些库来插入表格、页眉、页脚、列表、封面以及其他文档构建基块。 您创建的图片、图表或关系图也将与当前的文档外观协调一致。
+				在“主页”选项卡上，通过从快速样式库中为所选文本选择一种外观，您可以方便地更改文档中所选文本的格式。 您还可以使用“主页”选项卡上的其他控件来直接设置文本格式。大多数控件都允许您选择是使用当前主题外观，还是使用某种直接指定的格式。
+				若要更改文档的整体外观，请在“页面布局”选项卡上选择新的“主题”元素。若要更改快速样式库中的可用外观，请使用“更改当前快速样式集”命令。主题库和快速样式库都提供了重置命令，因而您总是能够将文档外观还原为当前模板所包含的原始外观。
+				</div>
+				<div class="slide-bottom">底部框架</div>
+			</div>
+			
+			<!--Second Slide-->
+			<div class="swiper-slide" id="s2">
+				2
+			</div>
+			
+			<!--Third Slide-->
+			<div class="swiper-slide" id="s3">
+				3
+			</div>
+			
+			<!--4 Slide-->
+			<div class="swiper-slide" id="s4">
+				4
+			</div>
+			
+			<!--5 Slide-->
+			<div class="swiper-slide" id="s5">
+				5
+			</div>
+			
+		</div>
+	</div>
+</body>
+<script type="text/javascript">
+window.onload = function() {
+	
+	/* zoom swiper-container */
+	fixPageHeight();
+	window.onresize = fixPageHeight;
+	function fixPageHeight() {
+		var r = document.body.offsetWidth / 320;
+		$(".swiper-container").css({"-webkit-transform":"scale(" + r + ")", "-ms-transform":"scale(" + r + ")","transform":"scale(" + r + ")" });
+		$("body, .swiper-container").height( window.innerHeight / r );	
+		return "page has been scaled!";
+	}
+	
+	/* Initialize swiper */
+	var mySwiper = new Swiper('.swiper-container',{
+		// options
+		mode:'vertical', //vertical //horizontal
+		mousewheelControl: true, //鼠标滚轮控制
+		keyboardControl: true,   // 键盘控制
+		onSlideChangeEnd : Swipercallback
+	});  
+}
+
+/* SlideChangeEndCallback */
+function Swipercallback(p){
+    var act = p.activeIndex; //slideEndIndex
+    // todo sth...
+}
+</script>
+
+</html>

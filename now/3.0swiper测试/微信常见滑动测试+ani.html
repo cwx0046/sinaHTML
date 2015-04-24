@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="GB18030">
+<meta http-equiv="cache-control" content="no-cache"/>
+<meta name="format-detection" content="telephone=no"/>
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="viewport" content="width=device-width, user-scalable=no">
+<title>请在此插入网页标题</title>
+<meta name="keywords" content="请在此插入关键词" />
+<meta name="description" content="请在此写入一段页面描述" />
+<meta name="author" content="NorthWind" />
+<link rel="stylesheet" href="http://jiangsu.sinaimg.cn/zt/s/css/reset.css">
+<link rel="stylesheet" href="http://jiangsu.sinaimg.cn/js/swiper.min.css">
+<link rel="stylesheet" href="http://jiangsu.sinaimg.cn/js/animate.min.css">
+
+<!-- 自适应缩放css -->
+<style type="text/css">
+body{ overflow-x: hidden; background-color: #000; /* max-width: 550px; */ margin: 0 auto; }
+.swiper-container{  margin: 0; background-color: #fefcef;    }
+.swiper-wrapper *{ -webkit-backface-visibility: hidden; } /* 避免ip4Safari闪动 */
+.page-provider{ position:absolute; top:0; text-align: center; width: 100%; font-size: 1.2em;line-height: 3em; color: #e5d2d4; }
+.page-provider#page-provider-bottom{ top:auto; bottom: 0; }
+.swiper-slide{  position: relative; overflow: hidden;  }
+.slide-top{ position: absolute; top: 0; width: inherit; background-color: RGBA(255,100,100,0.5); }
+.slide-center{ background-color: RGBA(0,100,255,0.5); }
+.slide-bottom{ position: absolute; bottom: 0; width: inherit; background-color: RGBA(100,255,100,0.5); }
+</style>
+<style type="text/css">
+#s1{ background-color: #F00; }
+#s2{ background-color: #0F0; }
+#s3{ background-color: #00F; }
+</style>
+</head>
+<body ontouchmove="event.preventDefault()">
+<!-- 
+* 说明：
+* 多页面滑动模板，适用于 类ppt 页面
+* 页面 640x1008 按宽度缩放
+* 使用 idangerous.swiper 插件切换页面 ，参数请在下方 【Initialize swiper】中自行更改
+*
+ -->	
+<!-- Slider main container -->
+<div class="swiper-container">
+    <!-- Additional required wrapper -->
+    <div class="swiper-wrapper">
+        <!-- Slides -->
+        <div class="swiper-slide" id="s1">
+   			<div class="slide-top ani" flipInY>顶部框架</div>
+			<div class="slide-center ani" swiper-animate-effect="fadeInRight" swiper-animate-duration="0.6s" swiper-animate-delay="0.2s">对于“插入”选项卡上的库，在设计时都充分考虑了其中的项与文档整体外观的协调性。 您可以使用这些库来插入表格、页眉、页脚、列表、封面以及其他文档构建基块。 您创建的图片、图表或关系图也将与当前的文档外观协调一致。
+			在“主页”选项卡上，通过从快速样式库中为所选文本选择一种外观，您可以方便地更改文档中所选文本的格式。 您还可以使用“主页”选项卡上的其他控件来直接设置文本格式。大多数控件都允许您选择是使用当前主题外观，还是使用某种直接指定的格式。
+			若要更改文档的整体外观，请在“页面布局”选项卡上选择新的“主题”元素。若要更改快速样式库中的可用外观，请使用“更改当前快速样式集”命令。主题库和快速样式库都提供了重置命令，因而您总是能够将文档外观还原为当前模板所包含的原始外观。
+			</div>
+			<div class="slide-bottom ani" swiper-animate-effect="fadeInRight" swiper-animate-duration="0.6s" swiper-animate-delay="0.4s">底部框架</div>
+        </div>
+        <div class="swiper-slide" id="s2">
+			<ul>
+    		<li class="ani" swiper-animate-effect="flipInY" swiper-animate-duration="0.6s" swiper-animate-delay="0.1s"><h2>动画测试</h2></li>    		
+    		<li class="ani" swiper-animate-effect="bounceInRight" swiper-animate-duration="1.2s" swiper-animate-delay="0.5s">Library Agnostic
+Swiper doesn't require any JavaScript libraries like jQuery, it makes Swiper much more smaller and faster. So it can be safety to use it with such libraries as jQuery, Zepto, jQuery Mobile, etc.
+</li>    		
+    		<li class="ani" swiper-animate-effect="bounceInRight" swiper-animate-duration="1.2s" swiper-animate-delay="0.8s">
+1:1 Touch movement
+By defaut Swiper provides 1:1 touch movement interraction, but this ration could be configured through Swiper settings
+</li>    		
+    		<li class="ani" swiper-animate-effect="bounceInRight" swiper-animate-duration="1.2s" swiper-animate-delay="1.1s">
+Mutation Observer
+Swiper has option to enable Mutation Observer, with this feature Swiper will be automatically reinitilized and recalculate all required parameters if you make dynamic changes in DOM, or in Swiper styles itself
+</li>    		
+    		<li class="ani" swiper-animate-effect="bounceInRight" swiper-animate-duration="1.2s" swiper-animate-delay="1.4s">
+Reach API
+Swiper comes with very rich API. It allows to create your own pagination, navigation buttons, create parallax effects and many more
+</li>    		
+    		<li class="ani" swiper-animate-effect="bounceInRight" swiper-animate-duration="1.2s" swiper-animate-delay="1.7s">
+Full True RTL Support
+Swiper is the only slider that provides 100% RTL support with correct layout
+</li>    		
+    		<li class="ani" swiper-animate-effect="bounceInRight" swiper-animate-duration="1.2s" swiper-animate-delay="2.0s">
+Multi Row Slides Layout
+Swiper allows to have multiple row slides layout, with few slides per column
+</li>    		
+    		<li class="ani" swiper-animate-effect="bounceInRight" swiper-animate-duration="1.2s" swiper-animate-delay="2.3s">
+Transition Effects
+There are 3 new transition effects in addition to ususal Slide: Fade, 3D Cube and 3D Coverflow
+</li>    		
+    		<li class="ani" swiper-animate-effect="bounceInRight" swiper-animate-duration="1.2s" swiper-animate-delay="2.6s">
+Two-way Control
+Now Swiper may be used as controller for any number of other Swipers, and even be controlled at the same time
+</li>    		
+    		<li class="ani" swiper-animate-effect="bounceInRight" swiper-animate-duration="1.2s" swiper-animate-delay="2.9s">
+Full Navigation Control
+Swiper comes with all required built-in navigation elements, such are Pagination, Navigation arrows and Scrollbar    		
+    		</li>    		
+    	</ul>
+		</div>
+        <div class="swiper-slide" id="s3">Slide 3</div>
+        
+    </div>
+    <!-- If we need pagination -->
+    <div class="swiper-pagination"></div>
+    
+    <!-- If we need navigation buttons -->
+    <div class="swiper-button-prev"></div>
+    <div class="swiper-button-next"></div>
+    
+    <!-- If we need scrollbar -->
+    <div class="swiper-scrollbar"></div>
+</div>
+	 
+	 
+<script src="http://jiangsu.sinaimg.cn/js/jquery1.11.1.min.js"></script>
+<!-- 
+<script type="text/javascript" src="http://jiangsu.sinaimg.cn/js/jquery_1.11.2.min_jsonp.js"></script>
+<script src="http://jiangsu.sinaimg.cn/js/jquery.transit.min.js"></script>
+ -->
+<script src="http://jiangsu.sinaimg.cn/js/swiper.jquery.min.3.0.6.js"></script>
+<script src="http://jiangsu.sinaimg.cn/js/swiper.animate1.0.2.min.js"></script>
+<script type="text/javascript">
+window.onload = function() {
+	
+	/* zoom swiper-container */
+	fixPageHeight();
+	window.onresize = fixPageHeight;
+	function fixPageHeight() {
+		$("body, .swiper-container").height( window.innerHeight ); //修正整数页面高度	
+		return "page has been resized!";
+	}
+	
+	
+	var mySwiper = new Swiper ('.swiper-container', {
+		direction: 'vertical', //vertical //horizontal
+		loop: false,             //循环
+		mousewheelControl: true, //鼠标滚轮
+		keyboardControl: true,   //键盘
+		pagination: '.swiper-pagination',//分页圆点
+        paginationClickable: true,
+        scrollbar: '.swiper-scrollbar',//滚动条
+        scrollbarHide: true,
+        nextButton: '.swiper-button-next',//翻页按钮
+        prevButton: '.swiper-button-prev',
+        grabCursor: true,        //cursor
+        
+        // BUG HERE. set "true", swipe href release and onSlideChangeEnd() not run;
+		watchSlidesProgress: true,
+        onSlideChangeEnd: function(swiper){ 
+			//The code move to onTransitionEnd() to temply fix above.
+        },
+
+		onInit: function(swiper) {
+			swiper.myactive = 0;
+		    swiperAnimateCache(swiper); 
+		    swiperAnimate(swiper); 
+		},
+		onProgress: function(swiper) {
+			for (var i = 0; i < swiper.slides.length; i++) {
+				var slide = swiper.slides[i];
+				var progress = slide.progress;
+				var translate, boxShadow;
+				translate = progress * swiper.height * 0.8;
+				scale = 1 - Math.min(Math.abs(progress * 0.2), 1);
+				boxShadowOpacity = 0;
+				slide.style.boxShadow = '0px 0px 10px rgba(0,0,0,' + boxShadowOpacity + ')';
+				if (i == swiper.myactive) {
+					es = slide.style;
+					es.webkitTransform = es.MsTransform = es.msTransform = es.MozTransform = es.OTransform = es.transform = 'translate3d(0,' + (translate) + 'px,0) scale(' + scale + ')';
+					es.zIndex=0;
+				}else{
+					es = slide.style;
+					es.webkitTransform = es.MsTransform = es.msTransform = es.MozTransform = es.OTransform = es.transform ='';
+					es.zIndex=1;
+				}
+			}
+		},
+		onTransitionEnd: function(swiper, speed) {
+			swiper.myactive = swiper.activeIndex;
+            swiperAnimate(swiper);
+        	var act = swiper.activeIndex; //slideEndIndex
+		},
+		onSetTransition: function(swiper, speed) {
+			for (var i = 0; i < swiper.slides.length; i++) {
+				es = swiper.slides[i].style;
+				es.webkitTransitionDuration = es.MsTransitionDuration = es.msTransitionDuration = es.MozTransitionDuration = es.OTransitionDuration = es.transitionDuration = speed + 'ms';
+			}
+		}
+    });  
+	
+}
+
+</script>
+
+</body>
+</html>

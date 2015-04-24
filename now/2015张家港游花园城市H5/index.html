@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="GB18030">
+<meta http-equiv="cache-control" content="no-cache"/>
+<meta name="format-detection" content="telephone=no"/>
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0"> 
+<title>游花园城市 品江鲜美味</title>
+<meta name="keywords" content="张家港,旅游,城市" />
+<meta name="description" content="游花园城市品江鲜美味,张家港旅游,新浪江苏,新浪网" />
+<meta name="author" content="NorthWind" />
+<link rel="stylesheet" href="http://jiangsu.sinaimg.cn/zt/s/css/reset.css">
+<script src="http://jiangsu.sinaimg.cn/js/jquery1.11.1.min.js"></script>
+<link rel="stylesheet" href="http://jiangsu.sinaimg.cn/js/idangerous.swiper.css">
+<script src="http://jiangsu.sinaimg.cn/js/idangerous.swiper.min.js"></script>
+<!-- 自适应缩放css -->
+<style type="text/css">
+body{ overflow-x: hidden; background-color: #000; }
+.swiper-container{ width: 640px; height: 1008px; -webkit-transform-origin: top left; margin: 0; background-color: #fefcef; }
+.swiper-wrapper *{ -webkit-backface-visibility: hidden; } /* 避免ip4Safari闪动 */
+.page-provider{ position:absolute;top:0; text-align: center; width: 100%; font-size: 2em;line-height: 4em; color: #e5d2d4; }
+.page-provider#page-provider-bottom{ top:auto; bottom: 0; }
+.swiper-slide{ width: 640px; height: 1008px; position: relative; overflow: hidden; }
+</style>
+<style type="text/css">
+.showHoverLayer{ cursor:pointer; position:absolute; left: 330px; top: 667px; width: 160px; height: 50px; }
+.hoverLayer{ display:none;   top:0; right:0; bottom:0; left:0; margin: auto; position: absolute; width: 540px; height: 770px; background:rgba(39, 37, 48, 0.95) url("http://jiangsu.sinaimg.cn/zt/s/2015zjgly/images/closeBtn.png") no-repeat 501px 8px; overflow: hidden; }
+.hoverLayerContent{ margin: 40px; height: 690px; overflow-y: scroll; -webkit-overflow-scrolling : touch;   color: #FFF; font-size: 18px; line-height: 1.66em; }
+.hoverLayerContent h2{ font-size: 30px; font-weight: bold; margin-bottom: 1em; text-align: center; }
+.hoverLayerContent p{  }
+.hoverLayerContent h3{ font-size: 24px; line-height: 2em; font-weight: bold; margin-top: 1em;  }
+</style>
+<script type="text/javascript">
+var mySwiper;
+</script>
+</head>
+<body ontouchmove="event.preventDefault()"> <!-- 阻止ios浏览器整页上下滑动 -->
+	<img alt="ico" style="position:absolute; top: -400px;" src="http://jiangsu.sinaimg.cn/zt/s/2015zjgly/images/ico.jpg">
+	<!-- 
+	* 说明：
+	* 多页面滑动模板，适用于 类ppt 页面
+	* 页面 640x1008 按宽度缩放
+	* 使用 idangerous.swiper 插件切换页面 ，参数请在下方 【Initialize swiper】中自行更改
+	*
+	 -->
+	<div class="swiper-container">
+		<!-- 版权声明 -->
+		<div class="page-provider" id="page-provider-top">SINA 2015</div>
+		<div class="page-provider" id="page-provider-bottom">SINA 2015</div>
+		<div class="swiper-wrapper">
+		    <!--First Slide-->
+			<div class="swiper-slide" id="s1">
+				<img class="pageimg" alt="" src="http://jiangsu.sinaimg.cn/zt/s/2015zjgly/images/1.jpg">
+			</div>
+			
+			<!--Second Slide-->
+			<div class="swiper-slide" id="s2">
+				<img class="pageimg" alt="" src="http://jiangsu.sinaimg.cn/zt/s/2015zjgly/images/2.jpg">
+			</div>
+			
+			<!--Third Slide-->
+			<div class="swiper-slide" id="s3">
+				<img class="pageimg" src="http://jiangsu.sinaimg.cn/zt/s/2015zjgly/images/3.jpg"/>
+				<div class="showHoverLayer" onclick="showHoverLayer(1)"></div>
+				<div class="hoverLayer hoverLayer1">
+					<div class="hoverLayerContent">
+						<h2>凤凰山景区</h2>
+						<p>凤凰山景区座落在国家级历史文化名镇、中国吴歌之乡、江苏省山歌之乡——凤凰镇，为国家AAAA级景区。赏凤凰桃花、泡苏南第一温泉、品台湾风情美食、唱古韵河阳山歌、听永庆古刹钟声、游恬庄千年老街……游凤凰山享受世外桃源的美好体验。</p>
+						<h3>旅游贴士</h3>
+						<p>地址：张家港市南部凤凰镇境内<br/>
+						电话：0512-58429926<br/>
+						门票：恬庄古街30/人、河阳山歌馆30/人、永庆寺15元/人<br/>
+						开放时间：8:30——16:30</p>
+						<h3>自驾线路</h3>
+						<p>沪宁高速(G42)/苏嘉杭高速(G15W)→沿江高速(S38)→凤凰出口下→凤凰山景区</p>
+						<h3>公交线路</h3>
+						<p>张家港市区乘212、213、226路公交车到达</p>
+					</div>
+				</div>
+			</div>
+			
+			<!--4 Slide-->
+			<div class="swiper-slide" id="s4">
+				<img class="pageimg" alt="" src="http://jiangsu.sinaimg.cn/zt/s/2015zjgly/images/4.jpg">
+				<div class="showHoverLayer" onclick="showHoverLayer(2)"></div>
+				<div class="hoverLayer hoverLayer2">
+					<div class="hoverLayerContent">
+						<h2>永联小镇旅游景区</h2>
+						<p>“乡村旅游到永联，永联归来不看村。”永联小镇旅游景区为国家AAAA级旅游景区，现已发展成为集旅游观光、休闲度假、美食购物、会议商务等功能为一体的乡村休闲度假旅游景区，并以她独特的乡村魅力吸引着八方游客。永联村以钢起家，曾被费孝通誉为“华夏第一钢村”。以钢致富的永联村，近年探索转型升级，大力发展旅游第三产，现在已建设成为乡村度假休闲的综合性旅游区，在这里可以体验农耕文化，品尝江鲜美食，感受极具江南风情的永联小镇风情，感受现代农民的幸福生活。</p>
+						<h3>旅游贴士</h3>
+						<p>地址：张家港市东部南丰镇永联村<br/>
+						电话：0512-58906111<br/>
+						价格： 40元/人(农耕园)、80元/人(农耕园+游乐园)、120元/人（农耕园+永联水上乐园）<br/>
+						开放时间：8:00——17:00（春、秋、冬）  8:00——21:00（夏季）</p>
+						<h3>自驾线路</h3>
+						<p>沿江高速(S38)→凤凰出口→204国道向北→S338省道→妙丰公路→永联村</p>
+						<h3>公交线路</h3>
+						<p>张家港市区乘202、220路到达</p>
+					</div>
+				</div>
+			</div>
+			
+			<!--5 Slide-->
+			<div class="swiper-slide" id="s5">
+				<img class="pageimg" alt="" src="http://jiangsu.sinaimg.cn/zt/s/2015zjgly/images/5.jpg">
+				<div class="showHoverLayer" onclick="showHoverLayer(3)"></div>
+				<div class="hoverLayer hoverLayer3">
+					<div class="hoverLayerContent">
+						<h2>香山景区</h2>
+						<p>香山景区为国家AAAA级旅游景区。全山占地面积4.37平方公里，海拔136.6米，为全市之冠。香山自古风光旖旎，古迹众多，粗犷而不失秀丽，雄伟而不乏典雅，素有江南名山之誉。清康熙《江阴县志》中赞：“香山突出平壤，高峻磅礴，甲于他山。”</p>
+						<p>迄今，无数名人在香山留下许多足迹，不仅有西施采香留下的采香径，苏东坡亲笔自古题额的梅花堂，徐霞客赞叹不已的桃花涧等古景……，也有湖面开阔、水质如镜的香山湖，“雪海波千顷”的万株梅花以及主入口公园内七千株樱花等新景，构成一幅湖光山色的画卷。40余个景点像一颗颗珍珠贯穿起来，让人有移步数景，目接不暇的感觉。在香山，不仅能感受山水自然风光之美，更能领悟到香山历史文化的古老神韵和锦绣江南的灿烂文化。</p>
+						<h3>旅游贴士</h3>
+						<p>地址：张家港市西部金港镇境内<br/>
+						电话：0512-58379500<br/>
+						门票：40元/人（含香山寺门票10元/人） <br/>
+						开放时间：8:00——18:00
+						</p>
+						<h3>自驾线路</h3>
+						<p>沪宁高速(G42) / 沿江高速(S38)→张家港出口→港城大道→S338省道→香山景区</p>
+						<h3>公交线路</h3>
+						<p>张家港市区乘228、312路公交车到达</p>
+					</div>
+				</div>
+			</div>
+			
+			<!--6 Slide-->
+			<div class="swiper-slide" id="s6">
+				<img class="pageimg" alt="" src="http://jiangsu.sinaimg.cn/zt/s/2015zjgly/images/6.jpg">
+				<div class="showHoverLayer" onclick="showHoverLayer(4)"></div>
+				<div class="hoverLayer hoverLayer4">
+					<div class="hoverLayerContent">
+						<h2>暨阳湖生态园</h2>
+						<p>暨阳湖生态园湖泊连绵，鸥鹤常栖；鱼虾满塘，草绿树苍。是一个鸟语花香的“人间天堂”，更是骚人墨客吟诗作画的自然胜境。现代的暨阳湖又是个城市湖泊，它的生态理念与城市建筑和绿化融为一体，可谓一城秀色半城湖，湖以城秀，城以湖美。暨阳湖生态园水清景秀，可谓一城秀色半城湖，湖以城秀，城以湖美。暨阳湖生态园分7块区域，分别为：欢乐世界、假日公园、假日广场、濒水休闲公园、螺洲岛、镜湖生态公园、暨阳湖湿地。</p>
+						<h3>旅游贴士</h3>
+						<p>地址：张家港市南城区<br/>
+						电话：0512-35023000 4008500388<br/>
+						门票：欢乐世界 80/人      景区免费开放<br/>
+						景区开放时间：08:00-21:00<br/>
+						欢乐世界开放时间：8:30-17:00
+						</p>
+						<h3>自驾线路</h3>
+						<p>沿江高速/锡张高速 → 张家港出口 → 金港大道北驶 → 暨阳湖生态园</p>
+						<h3>公交线路</h3>
+						<p>张家港市区2、9、21、212路公交车到达</p>
+					</div>
+				</div>
+			</div>
+			
+			<!--7 Slide-->
+			<div class="swiper-slide" id="s7">
+				<img class="pageimg" alt="" src="http://jiangsu.sinaimg.cn/zt/s/2015zjgly/images/7.jpg">
+				<div class="showHoverLayer" onclick="showHoverLayer(5)"></div>
+				<div class="hoverLayer hoverLayer5">
+					<div class="hoverLayerContent">
+						<h2>常阴沙生态农业旅游区</h2>
+						<p>常阴沙生态农业旅游区是江南地区鲜有的大型乡村休闲度假胜地。这里有一马平川、满眼青葱的田园果林；有浩浩荡荡、横无际涯的长江滩涂；有粉墙黛瓦、小桥流水的现代农庄；有陶冶童心、开启智慧的拓展基地；有青春热血激情燃烧的知青文化；有集科研培训、成果展示于一体的农业科技中心。“优质稻米、果蔬园艺、特色水产、休闲旅游”是这里的四大产业，“滨江风光、乡村风情、生态农业、知青文化”是这里的旅游四大旅游品牌。</p>
+						<h3>旅游贴士</h3>
+						<p>地址：张家港市常阴沙现代农业示范园区<br/>
+						电话：0512-58633835<br/>
+						门票：暂时免费<br/>
+						开放时间：8:00——17:00
+						</p>
+						<h3>自驾线路</h3>
+						<p>沿江高速(S38) →张家港出口 → 金港大道→ 南二环路 → 东二环路 → S338省道 → 妙丰公路 → 港丰公路 → 红旗路 →沿江公路→通江路→ 常阴沙生态农业旅游区</p>
+						<h3>公交线路</h3>
+						<p>张家港市区乘201、221到常阴沙公交首末站，转305到通江路下</p>
+					</div>
+				</div>
+			</div>
+			
+			<!--8 Slide-->
+			<div class="swiper-slide" id="s8">
+			<style>
+			#s8 a{ position: absolute; top: 300px; left: 50px; width: 150px; height: 50px; }
+			</style>
+				<img class="pageimg" alt="" src="http://jiangsu.sinaimg.cn/zt/s/2015zjgly/images/8.jpg">
+				<a style="" href="javascript:mySwiper.swipeTo(0)"></a>
+				<a style="left: 218px;" href="http://mp.weixin.qq.com/s?__biz=MjM5NTc5NjQzMQ==&mid=204294253&idx=1&sn=3806be5061fcc3da67aa33e7db66915b#rd" target="_blank"></a>
+			</div>
+		</div>
+		
+		
+<!-- BGM DOM -->
+<audio id="bgm" src="http://jiangsu.sinaimg.cn/zt/s/2015zjgly/zjg_cut_zip.mp3" autoplay="autoplay" loop style="display: none; width: 0; height: 0;"></audio>
+<!-- BGM play/mut Btn -->
+<style>
+.bgm-btn{ position:absolute; top: 16px; right:16px; width: 60px; height: 60px; background-size: 100%; background-image: url("http://s3img.city.sina.com.cn/activity/common/large/9f9acca088ab3e67f12eb612bdd12c07.png"); z-index: 1; -webkit-animation: myrotate 5s linear 0s infinite normal;}
+.bgm-btn.mut{ background-position: 0px -60px; -webkit-animation: none;}
+
+@-webkit-keyframes myrotate /*Safari and Chrome*/
+{
+0% { -webkit-transform:rotate(1deg);}
+25% { -webkit-transform:rotate(-90deg);}	
+50% { -webkit-transform:rotate(-180deg);}
+75% { -webkit-transform:rotate(-270deg);}
+100% { -webkit-transform:rotate(-360deg);}
+}
+
+</style>
+<div class="bgm-btn"></div>
+
+<!-- Touch to play BGM. JS -->
+<script type="text/javascript">
+/* @20141215  Add first-touch check. */
+
+var firstTouch = true;
+$('body').bind("touchstart",function(e){
+	if ( firstTouch ) {
+		firstTouch = false;
+		document.getElementById('bgm').play();
+	}else{
+		return;
+	}
+});
+
+$(".bgm-btn").bind("touchstart",function(e){  
+	//e.preventDefault();
+	//e.stopPropagation();
+	var dom = document.getElementById('bgm');
+	if( dom.paused ){
+		dom.play();
+		$(".bgm-btn").removeClass("mut");
+	}else{
+		dom.pause();
+		$(".bgm-btn").addClass("mut");
+	}
+});
+</script>
+		
+		
+		
+	</div>
+</body>
+
+
+<!-- Initialize swiper -->
+<script type="text/javascript">
+	window.onload = function() {
+		mySwiper = new Swiper('.swiper-container',{
+			// options
+			mode:'vertical', //vertical //horizontal
+			mousewheelControl: true, //鼠标滚轮控制
+			keyboardControl: true,   // 键盘控制
+			onSlideChangeEnd : Swipercallback
+		});  
+	}
+	
+	/* SlideChangeEndCallback */
+	function Swipercallback(p){
+	    var act = p.activeIndex; //slideEndIndex
+	    // todo sth...
+	}
+</script>
+
+<!-- page Auto scale -->
+<script type="text/javascript">
+	$(function() {
+		pageAutoScale();
+	});
+	$(window).resize(function() {
+		pageAutoScale();
+	});
+	
+	function pageAutoScale(){
+		var r = document.body.offsetWidth / 640;
+		$(".swiper-container").css("-webkit-transform", "scale(" + r + ")");
+		$("body").height( window.innerHeight ); //修正整数页面高度
+		
+		$(".swiper-slider").css("height",parseInt(window.innerHeight / r) );  //调整页面高度
+		$(".swiper-container").css("height",parseInt(window.innerHeight / r) );  //调整页面高度
+		if (window.innerHeight<=1008*r) {  //当用户显示区域小于1008高度时，调整每页高度。
+			// $(".btnBottom").css("top",(window.innerHeight / r - parseInt($(".btnBottom").css("bottom")) ) );  //下滑动提示箭头位置始终距底
+		}
+	}
+</script>
+<script type="text/javascript">
+function showHoverLayer(i) {
+	$(".hoverLayer" + i).fadeIn();
+}
+$(".hoverLayer").click(function() {
+	$(this).fadeOut();
+});
+
+$(".hoverLayer").bind("touchmove",function(e){
+	e.stopPropagation();
+});
+
+</script>
+
+</html>

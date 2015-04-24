@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="renderer" content="webkit">
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>请在此插入网页标题</title>
+<meta name="keywords" content="请在此插入关键词" />
+<meta name="description" content="请在此写入一段页面描述" />
+<meta name="author" content="NorthWind" />
+<link rel="stylesheet" href="http://jiangsu.sinaimg.cn/zt/s/css/reset.css">
+<script type="text/javascript" src="http://jiangsu.sinaimg.cn/js/artTemplate.js"></script>
+<script type="text/javascript" src="http://jiangsu.sinaimg.cn/js/jquery1.11.1.min.js"></script>
+<!-- 
+<script type="text/javascript" src="http://jiangsu.sinaimg.cn/js/jquery_1.11.2.min_jsonp.js"></script>
+ -->
+<style type="text/css">
+.headimg{ min-width: 1000px; height: 680px; background: url("./head.jpg") no-repeat center top; }
+.content{ width: 1000px; margin: 0 auto; position: relative; } 
+</style>
+<style>
+.tableTitle{
+	width: 950px;
+	height: 41px;
+	top: -32px;
+	background: url("http://hubei.sinaimg.cn/2014/0729/S123290T1406601762908.png") no-repeat center top;
+	position: absolute;
+	z-index: 1;
+}
+#t1{
+	background-position: center 0px;
+}
+#t2{
+	background-position: center -41px;
+}
+#t3{
+	background-position: center -82px;
+}
+#t4{
+	background-position: center -123px;
+}
+#t5{
+	background-position: center -164px;
+}
+#t6{
+	background-position: center -205px;
+}
+
+.tablediv{
+	position: relative;
+}
+.weiboTable{
+	margin-top: 32px;
+	margin-bottom: 64px;
+	width: 950px;
+	border-collapse: collapse;
+}
+.weiboTable tr{
+	height: 34px;
+	background-color: #f2f2f2;
+}
+.weiboTable th, .weiboTable td{
+	border: 1px solid #FFF;
+}
+.weiboTable th{
+	background-color: #0066cc;
+	color: #FFF;
+}
+.weiboTable td{
+	color: #055aaa;
+	line-height: 33px;
+}
+.weiboTable tr:even{
+	background-color: #99ccff;
+}
+.weiboTable tr:odd{
+	background-color: #f2f2f2;
+}
+.weiboTable img{
+	width: 26px;
+	height: 26px;
+	margin: 0 8px;
+	display: inline-block;
+	vertical-align: middle;
+}
+.center{
+	text-align: center;
+}
+.c1{
+	padding-left: 10px;
+}
+.c2{
+	padding-left: 8px;
+} 
+
+#p1{ margin-top: -100px;}
+</style>
+
+</head>
+<body>
+	<div class="headimg"></div>
+	<div id="p1">
+		<div class="content">
+			<div id="govWeiboListBlock">
+<script type="text/html" id="formDataTemplate1">
+{{each table as t_data t_index}}
+	<div id="{{t_data.title}}" class="tablediv">
+		<div class="tableTitle" id="t{{t_index+1}}"></div>
+		<table class="weiboTable">
+			<tr><th width="170">昵称</th><th width="448">认证说明</th><th width="64">粉丝数</th><th width="62">发博数</th><th width="62">转发数</th><th width="62">评论数</th><th width="62">影响力</th></tr>
+			{{each t_data.list as l_data l_index}}
+				<tr><td class="c1"><img alt="" src="{{l_data[0]}}">{{l_data[1]}}</td><td class="c2">{{l_data[2]}}</td><td class="center">{{l_data[3]}}</td><td class="center">{{l_data[4]}}</td><td class="center">{{l_data[5]}}</td><td class="center">{{l_data[6]}}</td><td class="center">{{l_data[7]}}</td></tr>
+			{{/each}}
+		</table>
+	</div>
+{{/each}}
+</script>
+			</div>
+
+
+			
+
+
+<script type="text/javascript">
+var formData1 = {
+	table:[
+	       {
+			title:"江苏省政务微博综合排行",
+			list:[
+["njjnga", "http://tp4.sinaimg.cn/1113218211/50/40073225645/1", "江宁公安在线", "100", "100", "59.49", "89.72"],
+["njfb", "http://tp3.sinaimg.cn/2097024354/50/40073266064/0", "南京发布", "84", "92.02", "87.84", "87.42"],
+["wuxifabu", "http://tp4.sinaimg.cn/2696049583/50/40073223187/1", "无锡发布", "79.23", "87.19", "88.12", "84.5"],
+["u/2638276292", "http://tp1.sinaimg.cn/2638276292/50/5713532418/1", "南京地铁", "71.14", "83.25", "94.12", "81.71"],
+["suzhouio", "http://tp1.sinaimg.cn/2998045524/50/5713481815/1", "苏州发布", "72.03", "85.77", "89.83", "77.99"],
+["insuqian", "http://tp3.sinaimg.cn/2282670150/50/40021646309/1", "宿迁之声", "66.81", "78.84", "97.04", "75.6"],
+["jsqx", "http://tp1.sinaimg.cn/2233270392/50/5713486561/1", "江苏气象", "64.13", "80.43", "92", "74.93"],
+["njjtgl", "http://tp3.sinaimg.cn/2573119002/50/5713491538/1", "南京交警", "63.38", "84.5", "76.11", "74.47"],
+["xingfudafeng", "http://tp4.sinaimg.cn/2696123751/50/40073188904/1", "幸福大丰", "48.84", "71.87", "92.68", "68.29"],
+["xzfabu", "http://tp2.sinaimg.cn/3514316985/50/40025192037/1", "徐州发布", "58.51", "77.77", "89.56", "66.93"],
+["huaianfabu", "http://tp3.sinaimg.cn/3582010354/50/40073263448/1", "淮安发布", "59.6", "74.16", "91.87", "66.6"],
+["pkpublicity", "http://tp3.sinaimg.cn/2608703882/50/40073313802/0", "浦口发布", "57.7", "73.77", "78.45", "66.59"],
+["ywy20020413", "http://tp3.sinaimg.cn/1935167034/50/40073226376/1", "平安江苏", "59.72", "82.07", "66.22", "66.48"],
+["njxgwx", "http://tp3.sinaimg.cn/2860954042/50/5713475056/1", "鼓楼微讯", "62.87", "74.98", "81.21", "66.08"],
+["czga", "http://tp2.sinaimg.cn/1796308821/50/40021732018/1", "平安常州", "52.54", "77.24", "85.11", "65.71"],
+["njsqxj", "http://tp1.sinaimg.cn/2214800980/50/5713772124/1", "南京气象", "51.73", "80.32", "86.85", "65.17"],
+["njyouth", "http://tp1.sinaimg.cn/2800992940/50/5713491462/0", "青春南京", "61", "74.82", "83.15", "64.77"],
+["nanjingtour", "http://tp3.sinaimg.cn/2146717162/50/40073197449/0", "南京市旅游委员会", "57.08", "77.45", "84.52", "64.7"],
+["njlkzbj", "http://tp3.sinaimg.cn/1938364634/50/40009547134/1", "南京路况直播间", "54.79", "83.32", "80.77", "63.88"],
+["zhongguoyixingfabu", "http://tp2.sinaimg.cn/3923522861/50/40073183057/0", "宜兴发布", "52.82", "72.44", "84.78", "63.75"],
+["u/1570308924", "http://tp1.sinaimg.cn/1570308924/50/40074023132/0", "南京人大", "42.11", "73.8", "67.92", "63.7"],
+["u/2096558565", "http://tp2.sinaimg.cn/2096558565/50/5716197145/1", "秦淮发布", "52.9", "74.55", "82.02", "63.46"],
+["suzhoujingfang", "http://tp3.sinaimg.cn/1806686502/50/40074280050/1", "苏州公安", "47.7", "72.53", "67.17", "63.06"],
+["weibojiangsu", "http://tp3.sinaimg.cn/2784361770/50/5713453956/1", "微博江苏", "55.44", "78.06", "75.88", "62.14"],
+["wxslyj", "http://tp1.sinaimg.cn/1980124632/50/40021813879/0", "无锡市旅游局", "49.06", "72.87", "88.84", "62.1"],
+["u/1805087952", "http://tp1.sinaimg.cn/1805087952/50/1290672650/1", "南通公安", "52.54", "77.72", "80.94", "61.68"],
+["u/3659940762", "http://tp3.sinaimg.cn/3659940762/50/40060998076/1", "江苏司法行政在线", "54.75", "69.84", "59.63", "61.65"],
+["cswsga", "http://tp1.sinaimg.cn/2711488952/50/40073226945/1", "常熟公安", "48.92", "71.95", "84.21", "61.1"],
+["u/2942982592", "http://tp1.sinaimg.cn/2942982592/50/40073233524/0", "钟山清风", "53.87", "75.46", "66.66", "60.42"],
+["gaochunfabu", "http://tp3.sinaimg.cn/2977491702/50/5713571882/0", "高淳发布", "47.31", "70.5", "90.1", "59.97"],
+["njga", "http://tp2.sinaimg.cn/1972917825/50/40073231240/1", "平安南京", "48.44", "76.23", "58.34", "59.68"],
+["u/2977495972", "http://tp1.sinaimg.cn/2977495972/50/40011365979/0", "启东市12345公共服务热线", "34.7", "67.64", "84.82", "59.09"],
+["u/3674007143", "http://tp4.sinaimg.cn/3674007143/50/40073311980/1", "江苏教育发布", "52.61", "74.48", "66.79", "58.56"],
+["u/2363024904", "http://tp1.sinaimg.cn/2363024904/50/5662195041/1", "南京市公安局地铁分局", "46.76", "71.85", "54.65", "58.44"],
+["yzfabu", "http://tp1.sinaimg.cn/2571494540/50/5620608574/0", "扬州发布", "49.95", "74.04", "77.78", "57.77"],
+["weiweichangzhou", "http://tp4.sinaimg.cn/2616693703/50/40073310027/1", "微常州", "45.77", "70.54", "85.26", "57.59"],
+["u/3879244551", "http://tp4.sinaimg.cn/3879244551/50/5713482087/0", "南京文化发布", "50.49", "73.42", "64.97", "57.36"],
+["taicangfabu", "http://tp2.sinaimg.cn/3195619433/50/40073191762/1", "太仓发布", "41.22", "69.1", "87.37", "57.17"],
+["u/3195538854", "http://tp3.sinaimg.cn/3195538854/50/40018023725/1", "泰州发布", "47.8", "72.22", "82.18", "56.53"],
+["jiangyinfabu", "http://tp2.sinaimg.cn/2278476553/50/40050419581/1", "江阴发布", "43.21", "66.84", "90.37", "55.89"],
+["531012988", "http://tp2.sinaimg.cn/1525813177/50/5713455183/1", "幸福东台", "41.02", "67", "86.82", "55.8"],
+["suzhoulvyouju", "http://tp3.sinaimg.cn/2571243254/50/5618273775/1", "苏州市旅游局", "48.26", "67.86", "62.75", "55.67"],
+["u/1913359465", "http://tp2.sinaimg.cn/1913359465/50/40022615524/1", "扬州网官方微博", "46.06", "72.98", "77.52", "55.63"],
+["u/2710077380", "http://tp1.sinaimg.cn/2710077380/50/40073180027/1", "江苏共青团", "53.86", "68.61", "67.33", "55.46"],
+["u/2880478330", "http://tp3.sinaimg.cn/2880478330/50/5713574390/0", "六合发布", "41.03", "66.11", "82.16", "55.44"],
+["u/2010075304", "http://tp1.sinaimg.cn/2010075304/50/5597197995/1", "海安县公安局", "39.66", "67.4", "81.63", "55.34"],
+["nantongfabu", "http://tp3.sinaimg.cn/3106250394/50/40073224675/1", "南通发布", "50.68", "71.89", "59.74", "55.04"],
+["rugaofabu", "http://tp1.sinaimg.cn/3300916952/50/5713448824/1", "如皋发布", "50.95", "66.66", "72.9", "54.98"],
+["u/1958223627", "http://tp4.sinaimg.cn/1958223627/50/5713662876/1", "南京价格监测", "44.85", "76.74", "60.14", "54.75"],
+["jiangningfabu", "http://tp2.sinaimg.cn/1910380137/50/40073312438/1", "江宁发布", "45.81", "69.01", "78.33", "54.5"]
+
+			      ]
+	       }
+	       
+	       ]
+};
+
+var html = template('formDataTemplate1', formData1);
+document.getElementById('govWeiboListBlock').innerHTML = html;
+
+$(".weiboTable tr:odd").css("background-color","#f2f2f2");
+$(".weiboTable tr:even").css("background-color","#99ccff");
+
+</script>
+		
+		</div>
+	</div>
+
+</body>
+</html>
