@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="GB2312">
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0"> 
+<title>星瀚 星教练</title>
+<meta name="keywords" content="星瀚,健身,教练" />
+<meta name="description" content="星瀚健身教练展示" />
+<link rel="stylesheet" href="./animate.css">
+<style type="text/css">
+body{ background-color: #333; }
+.box_wrap{ width: 33%; box-sizing:border-box; padding: 4px;  float: left; }
+.box_content { padding: 3px; background-color: #FFF; }
+.box_content img{ width: 100%; display: block; }
+</style>
+</head>
+<body>
+
+
+	<div class="photoWall" id="photoWall">
+	</div>
+<script type="text/html" id="fromData_1">
+{{each list as item index }}
+	<div class="box_wrap wow zoomIn" data-wow-duration="0.6s" data-wow-delay="0s">
+		<div class="box_content">
+			<img src="{{item}}">
+		</div>
+	</div>
+{{/each}}
+</script>	
+	
+
+	
+<script src="./jquery1.11.1.min.js"></script>
+<script src="./wow.min.js"></script>
+<script src="./artTemplate.js"></script>
+<script type="text/javascript">
+/* 初始化照片墙 */
+var data = {
+	title: "教练列表",
+	list: [
+	       "./images/photo/1.jpg",
+	       "./images/photo/1.jpg",
+	       "./images/photo/1.jpg",
+	       "./images/photo/1.jpg",
+	       "./images/photo/1.jpg",
+	       "./images/photo/1.jpg",
+	       "./images/photo/1.jpg",
+	       "./images/photo/1.jpg",
+	       "./images/photo/1.jpg",
+	       "./images/photo/1.jpg",
+	       "./images/photo/1.jpg",
+	       "./images/photo/1.jpg",
+	       "./images/photo/1.jpg",
+	       "./images/photo/1.jpg",
+	       "./images/photo/1.jpg",
+	       "./images/photo/1.jpg",
+	       "./images/photo/1.jpg",
+	       "./images/photo/1.jpg",
+	       "./images/photo/1.jpg",
+	       "./images/photo/1.jpg",
+	       "./images/photo/1.jpg",
+	       "./images/photo/1.jpg",
+	       "./images/photo/1.jpg",
+	       "./images/photo/1.jpg",
+	       "./images/photo/1.jpg"
+	       ]
+		
+};
+/* var data = {
+	title: "教练列表",
+	list: [
+	       "./images/photo/1.jpg",
+	       "./images/photo/2.jpg",
+	       "./images/photo/3.jpg",
+	       "./images/photo/4.jpg",
+	       "./images/photo/5.jpg",
+	       "./images/photo/6.jpg",
+	       "./images/photo/7.jpg",
+	       "./images/photo/8.jpg",
+	       "./images/photo/9.jpg",
+	       "./images/photo/10.jpg",
+	       "./images/photo/11.jpg",
+	       "./images/photo/12.jpg",
+	       "./images/photo/13.jpg",
+	       "./images/photo/14.jpg",
+	       "./images/photo/15.jpg",
+	       "./images/photo/16.jpg",
+	       "./images/photo/17.jpg",
+	       "./images/photo/18.jpg",
+	       "./images/photo/19.jpg",
+	       "./images/photo/20.jpg"
+	       ]
+		
+}; */
+var html = template('fromData_1', data);
+document.getElementById('photoWall').innerHTML = html;
+
+
+
+/* 照片墙出现效果 */
+var wow = new WOW({offset: 100});
+wow.init();
+
+
+/* 图片预加载js */
+// TODO 
+
+
+/* 照片墙点击放大 */
+ 
+</script>
+</body>
+</html>

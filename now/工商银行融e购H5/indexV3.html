@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="GB18030">
+<meta http-equiv="cache-control" content="no-cache"/>
+<meta name="format-detection" content="telephone=no"/>
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="viewport" content="width=device-width, user-scalable=no">
+<title>猜猜『谁更贵』 赢50元电子券</title>
+<meta name="keywords" content="工商银行,融e购" />
+<meta name="description" content="猜猜『谁更贵』 赢50元电子券" />
+<meta name="author" content="NorthWind" />
+<link rel="stylesheet" href="http://jiangsu.sinaimg.cn/zt/s/css/reset.css">
+<link rel="stylesheet" href="http://jiangsu.sinaimg.cn/js/swiper.min.css">
+
+<!-- 
+<script src="http://jiangsu.sinaimg.cn/js/jquery1.11.1.min.js"></script>
+<script src="http://jiangsu.sinaimg.cn/js/jquery.transit.min.js"></script>
+ -->
+<!-- 自适应缩放css -->
+<style type="text/css">
+body{ overflow-x: hidden; background-color: #000;
+ background-image: url("http://jiangsu.sinaimg.cn/zt/s/gsyhjregh5/images/bg.png");
+ background-size: cover;
+ max-width: 640px;  margin: 0 auto;
+ font-family: "Microsoft Yahei";
+ font-size: 14px;
+ color: #FFF;
+}
+.center{ text-align: center; }
+.red{ color: #f72530; }
+.underline{ text-decoration: underline; }
+.fs14{ font-size: 14px; }
+.fs16{ font-size: 16px; }
+.bold{ font-weight: bold; }
+.page{ padding: 1em; }
+
+input[type="button"]{ outline:none; -webkit-appearance:none; border: none; cursor: pointer; border-radius: 3px; font-size: 12px; font-weight: bold; padding: 6px 0; font-family: "Microsoft Yahei"; }
+.btn{ display: block; margin: 0 auto; width: 100px; color: #f72530; background-color: #FFF; }
+
+.swiper-slide{ text-align: justify; width: 100%; }
+.card{ background-color:#FFF;border-radius: 3px;  text-align: center; background-clip: padding-box; height: 190px; width: 48%; display: inline-block;   vertical-align: top;  position: relative; box-shadow: 0 4px 9px -2px rgba(0, 0, 0, 0.49);} 
+.card_wrap{ padding: 0.8em; }
+.justify_fix{display:inline-block; width:100%; height:0; overflow:hidden;}
+.c_photo{ height: 90px; }
+.c_text{ color: #d63b3f; font-size: 12px; padding: 12px 0; }
+.c_btn{ color: #FFF; background-color: #f72530; width: 100%; }
+.c_orgPriceWrap{  text-decoration: line-through; color: #f7252f; }
+.c_orgPrice{ font-size: 12px; color: #9f9f9f; }
+.c_orgPrice:BEFORE{ content: "原价：¥ " }
+.c_curPrice{ font-size: 13px; color: #f72530; font-weight: bold; }
+.c_curPrice:BEFORE{ content: "现价：¥ " }
+
+.swiper-container{ height: 200px; margin-bottom: 0.4em; }
+
+#target2 .card.true:AFTER, #target2 .card.false:AFTER{ content: ""; display: block; border-radius: 3px;  height: inherit;  width: 100%;  position: absolute;  top: 0;  left: 0; background: RGBA(0,0,0,0.6) url("http://jiangsu.sinaimg.cn/zt/s/gsyhjregh5/images/right.png") no-repeat center;}
+#target2 .card.true:AFTER{ }
+#target2 .card.false:AFTER{ background-image: url("http://jiangsu.sinaimg.cn/zt/s/gsyhjregh5/images/wrong.png"); }
+
+#p2 .title{ text-align: center;  font-size: 1.2em;  padding: 1.6em 0;  font-weight: bold; }
+#target2 .swiper-slide{ height: 210px; }
+
+/* layer.mobile */
+.layermcont{ font-size: 12px; }
+</style>
+</head>
+<body>
+<img alt="ico" style="position:absolute; top: -400px;" src="http://jiangsu.sinaimg.cn/zt/s/gsyhjregh5/images/ico.png">
+<div id="p1" class="page">
+	<div>
+		<img alt="" src="http://jiangsu.sinaimg.cn/zt/s/gsyhjregh5/images/logo.png" width="87">
+	</div>
+	<div>
+		<img alt="" src="http://jiangsu.sinaimg.cn/zt/s/gsyhjregh5/images/e1.png" style="width: 100%; display: block; margin-bottom: 1em;">
+	</div>
+	<div>
+		<!-- swiper -->
+		<div class="swiper-container">
+		    <div class="swiper-wrapper" id="target1">
+		    </div>
+<script type="text/html" id="targetTemplate1">
+{{each items as item index}}
+	{{if index % 2 == 0}}
+		<div class="swiper-slide swiper-no-swiping">
+		        	<div class="card">
+		        		<div class="card_wrap">
+			        		<img class="c_photo" src="{{item.imgsrc}}">
+			        		<div class="c_text">{{item.name}}</div>
+			        		<input type="button" class="c_btn btn" value="它更贵" onclick="clickItem({{index}})">
+		        		</div>
+		        	</div>
+	{{else}}
+					<div class="card">
+		        		<div class="card_wrap">
+			        		<img class="c_photo" src="{{item.imgsrc}}">
+			        		<div class="c_text">{{item.name}}</div>
+			        		<input type="button" class="c_btn btn" value="它更贵" onclick="clickItem({{index}})">
+		        		</div>
+		        	</div>
+		        	<span class="justify_fix"></span>
+		        </div>
+	{{/if}}
+{{/each}}
+</script>
+		</div>
+		<!-- end swiper -->
+	</div>
+	<div>
+		<input type="button" value="换一组" onclick="clickItem()" class="btn">
+	</div>
+</div>
+<div id="p2" class="page">
+	<div>
+		<img alt="" src="http://jiangsu.sinaimg.cn/zt/s/gsyhjregh5/images/logo.png" width="87">
+	</div>
+	<div>
+		<div class="title">您一共猜了<span id="num_total"></span>组，猜错<span id="num_wrong"></span>组</div>
+	</div>
+	<div id="target2">
+	</div>
+<script type="text/html" id="targetTemplate2">
+{{each items as item index}}
+	{{if index % 2 == 0}}
+		<div class="swiper-slide">
+		        	<div class="card">
+		        		<div class="card_wrap">
+			        		<img class="c_photo" src="{{item.imgsrc}}">
+			        		<div class="c_text">{{item.name}}</div>
+							<div class="c_orgPriceWrap"><div class="c_orgPrice">{{item.orgPrice.toFixed(2)}}</div></div>
+							<div class="c_curPrice">{{item.curPrice.toFixed(2)}}</div>
+		        		</div>
+		        	</div>
+	{{else}}
+					<div class="card">
+		        		<div class="card_wrap">
+			        		<img class="c_photo" src="{{item.imgsrc}}">
+			        		<div class="c_text">{{item.name}}</div>
+							<div class="c_orgPriceWrap"><div class="c_orgPrice">{{item.orgPrice.toFixed(2)}}</div></div>
+							<div class="c_curPrice">{{item.curPrice.toFixed(2)}}</div>
+		        		</div>
+		        	</div>
+		        	<span class="justify_fix"></span>
+		        </div>
+	{{/if}}
+{{/each}}
+</script>
+	<div>
+		<input type="button" value="确定" class="btn" id="showWeixin" onclick="showResult()"/>
+	</div>
+</div>
+
+<script type="text/javascript" src="http://jiangsu.sinaimg.cn/js/jquery_1.11.2.min_jsonp.js"></script>
+<script src="http://jiangsu.sinaimg.cn/js/swiper.jquery.min.3.0.6.js"></script>
+<script type="text/javascript" src="http://jiangsu.sinaimg.cn/js/artTemplate.js"></script>
+<script src="http://jiangsu.sinaimg.cn/js/layer.mobile-v1.5/layer.m/layer.m.js"></script>
+
+
+<script type="text/javascript">
+var org_data = {
+		desc: "产品数据库",
+		items: [
+		        {
+		        	imgsrc: "http://jiangsu.sinaimg.cn/zt/s/gsyhjregh5/images/photo/1.jpg",
+		        	name: "德龙胶囊咖啡机",
+		        	orgPrice: 2090,
+		        	curPrice: 2090,
+		        },{
+		        	imgsrc: "http://jiangsu.sinaimg.cn/zt/s/gsyhjregh5/images/photo/0.jpg",
+		        	name: "华为P7智能手机",
+		        	orgPrice: 2880,
+		        	curPrice: 1880,
+		        },{
+		        	imgsrc: "http://jiangsu.sinaimg.cn/zt/s/gsyhjregh5/images/photo/3.jpg",
+		        	name: "真空保温杯SK-3000",
+		        	orgPrice: 298,
+		        	curPrice: 297,
+		        },{
+		        	imgsrc: "http://jiangsu.sinaimg.cn/zt/s/gsyhjregh5/images/photo/2.jpg",
+		        	name: "澳柯玛40T6电风扇",
+		        	orgPrice: 270,
+		        	curPrice: 99,
+		        },{
+		        	imgsrc: "http://jiangsu.sinaimg.cn/zt/s/gsyhjregh5/images/photo/4.jpg",
+		        	name: "华为MATE7手机套",
+		        	orgPrice: 158,
+		        	curPrice: 88,
+		        },{
+		        	imgsrc: "http://jiangsu.sinaimg.cn/zt/s/gsyhjregh5/images/photo/5.jpg",
+		        	name: "壳动艺术手机壳",
+		        	orgPrice: 128,
+		        	curPrice: 100,
+		        },{
+		        	imgsrc: "http://jiangsu.sinaimg.cn/zt/s/gsyhjregh5/images/photo/7.jpg",
+		        	name: "科思洛酸枝木手柄",
+		        	orgPrice: 280,
+		        	curPrice: 259,
+		        },{
+		        	imgsrc: "http://jiangsu.sinaimg.cn/zt/s/gsyhjregh5/images/photo/6.jpg",
+		        	name: "山水丝绸蚕丝枕",
+		        	orgPrice: 918,
+		        	curPrice: 199,
+		        },{
+		        	imgsrc: "http://jiangsu.sinaimg.cn/zt/s/gsyhjregh5/images/photo/8.jpg",
+		        	name: "玛瑙手串珠8mm",
+		        	orgPrice: 136,
+		        	curPrice: 1,
+		        },{
+		        	imgsrc: "http://jiangsu.sinaimg.cn/zt/s/gsyhjregh5/images/photo/9.jpg",
+		        	name: "OTS时尚电子表",
+		        	orgPrice: 218,
+		        	curPrice: 138,
+		        },{
+		        	imgsrc: "http://jiangsu.sinaimg.cn/zt/s/gsyhjregh5/images/photo/14.jpg",
+		        	name: "家韵音响KTV-200",
+		        	orgPrice: 2999,
+		        	curPrice: 1699,
+		        },{
+		        	imgsrc: "http://jiangsu.sinaimg.cn/zt/s/gsyhjregh5/images/photo/15.jpg",
+		        	name: "松下IH智能电饭煲",
+		        	orgPrice: 2380,
+		        	curPrice: 1799,
+		        },{			
+		        	imgsrc: "http://jiangsu.sinaimg.cn/zt/s/gsyhjregh5/images/photo/18.jpg",
+		        	name: "美讯E86蓝牙耳机",		
+		        	orgPrice: 108,		
+		        	curPrice: 39,		
+		        },{			
+		        	imgsrc: "http://jiangsu.sinaimg.cn/zt/s/gsyhjregh5/images/photo/19.jpg",
+		        	name: "飞利浦电源DLP2020",		
+		        	orgPrice: 149,		
+		        	curPrice: 105,		
+		        },{			
+		        	imgsrc: "http://jiangsu.sinaimg.cn/zt/s/gsyhjregh5/images/photo/20.jpg",
+		        	name: "背夹电池2750毫安",		
+		        	orgPrice: 898,		
+		        	curPrice: 788,		
+		        },{			
+		        	imgsrc: "http://jiangsu.sinaimg.cn/zt/s/gsyhjregh5/images/photo/21.jpg",
+		        	name: "迷你蒸汽眼罩",		
+		        	orgPrice: 999,		
+		        	curPrice: 299,		
+		        },{			
+		        	imgsrc: "http://jiangsu.sinaimg.cn/zt/s/gsyhjregh5/images/photo/22.jpg",
+		        	name: "祁门红茶48g",		
+		        	orgPrice: 88,		
+		        	curPrice: 19.9,		
+		        },{			
+		        	imgsrc: "http://jiangsu.sinaimg.cn/zt/s/gsyhjregh5/images/photo/23.jpg",
+		        	name: "珍珠手链",		
+		        	orgPrice: 95,		
+		        	curPrice: 39,		
+		        },{			
+		        	imgsrc: "http://jiangsu.sinaimg.cn/zt/s/gsyhjregh5/images/photo/24.jpg",
+		        	name: "福玛特扫地机器人",		
+		        	orgPrice: 4999,		
+		        	curPrice: 899,		
+		        },{			
+		        	imgsrc: "http://jiangsu.sinaimg.cn/zt/s/gsyhjregh5/images/photo/25.jpg",
+		        	name: "儿童汽车安全座椅",		
+		        	orgPrice: 2099,		
+		        	curPrice: 1199,		
+		        },{			
+		        	imgsrc: "http://jiangsu.sinaimg.cn/zt/s/gsyhjregh5/images/photo/26.jpg",
+		        	name: "法国进口葡萄酒",		
+		        	orgPrice: 1398,		
+		        	curPrice: 398,		
+		        },{			
+		        	imgsrc: "http://jiangsu.sinaimg.cn/zt/s/gsyhjregh5/images/photo/27.jpg",
+		        	name: "幼儿配方奶粉900g",		
+		        	orgPrice: 208,		
+		        	curPrice: 198,	
+		        },{			
+		        	imgsrc: "http://jiangsu.sinaimg.cn/zt/s/gsyhjregh5/images/photo/28.jpg",
+		        	name: "金浩纯茶籽油1000ml",		
+		        	orgPrice: 168,		
+		        	curPrice: 52.9,		
+		        },{			
+		        	imgsrc: "http://jiangsu.sinaimg.cn/zt/s/gsyhjregh5/images/photo/29.jpg",
+		        	name: "日本洋愧蜂蜜1000g",		
+		        	orgPrice: 249,		
+		        	curPrice: 159,		
+		        },{			
+		        	imgsrc: "http://jiangsu.sinaimg.cn/zt/s/gsyhjregh5/images/photo/30.jpg",
+		        	name: "苏泊尔电热水壶1.7L",		
+		        	orgPrice: 199,		
+		        	curPrice: 109,		
+		        },{			
+		        	imgsrc: "http://jiangsu.sinaimg.cn/zt/s/gsyhjregh5/images/photo/31.jpg",
+		        	name: "东芝EXCERIA闪存卡",		
+		        	orgPrice: 129,		
+		        	curPrice: 99,		
+		        },{			
+		        	imgsrc: "http://jiangsu.sinaimg.cn/zt/s/gsyhjregh5/images/photo/32.jpg",
+		        	name: "天章龙复印纸80g/5",		
+		        	orgPrice: 280,		
+		        	curPrice: 249,		
+		        },{			
+		        	imgsrc: "http://jiangsu.sinaimg.cn/zt/s/gsyhjregh5/images/photo/33.jpg",
+		        	name: "法国女士淡香水",		
+		        	orgPrice: 198,		
+		        	curPrice: 98,		
+		        },{			
+		        	imgsrc: "http://jiangsu.sinaimg.cn/zt/s/gsyhjregh5/images/photo/34.jpg",
+		        	name: "膳食粗粮2500g",		
+		        	orgPrice: 202,		
+		        	curPrice: 88,		
+		        },{			
+		        	imgsrc: "http://jiangsu.sinaimg.cn/zt/s/gsyhjregh5/images/photo/35.jpg",
+		        	name: "恒嘉电机6只装",		
+		        	orgPrice: 120,		
+		        	curPrice: 99,		
+		        },{			
+		        	imgsrc: "http://jiangsu.sinaimg.cn/zt/s/gsyhjregh5/images/photo/36.jpg",
+		        	name: "Benews保温饭盒",		
+		        	orgPrice: 238,		
+		        	curPrice: 98,		
+		        },{			
+		        	imgsrc: "http://jiangsu.sinaimg.cn/zt/s/gsyhjregh5/images/photo/37.jpg",
+		        	name: "宁夏红枸杞600g",		
+		        	orgPrice: 99,		
+		        	curPrice: 65.9,		
+		        },{			
+		        	imgsrc: "http://jiangsu.sinaimg.cn/zt/s/gsyhjregh5/images/photo/38.jpg",
+		        	name: "福建特产桂圆干500g",		
+		        	orgPrice: 118,		
+		        	curPrice: 72,		
+		        },{			
+		        	imgsrc: "http://jiangsu.sinaimg.cn/zt/s/gsyhjregh5/images/photo/39.jpg",
+		        	name: "Fujiyama DHQ 58mm",		
+		        	orgPrice: 136,		
+		        	curPrice: 55,		
+		        },{			
+		        	imgsrc: "http://jiangsu.sinaimg.cn/zt/s/gsyhjregh5/images/photo/40.jpg",
+		        	name: "BONECO超声波加湿器",		
+		        	orgPrice: 1599,		
+		        	curPrice: 599,		
+		        },{			
+		        	imgsrc: "http://jiangsu.sinaimg.cn/zt/s/gsyhjregh5/images/photo/41.jpg",
+		        	name: "TIGER真空电热水壶",		
+		        	orgPrice: 1298,		
+		        	curPrice: 1298,		
+		        },{			
+		        	imgsrc: "http://jiangsu.sinaimg.cn/zt/s/gsyhjregh5/images/photo/42.jpg",
+		        	name: "纯天然茶籽粉300g",		
+		        	orgPrice: 199,		
+		        	curPrice: 1,		
+		        },{			
+		        	imgsrc: "http://jiangsu.sinaimg.cn/zt/s/gsyhjregh5/images/photo/43.jpg",
+		        	name: "石台特产脱水蔬菜",		
+		        	orgPrice: 19,		
+		        	curPrice: 8.9,		
+		        },{			
+		        	imgsrc: "http://jiangsu.sinaimg.cn/zt/s/gsyhjregh5/images/photo/44.jpg",
+		        	name: "法斯柏短床袜6双",		
+		        	orgPrice: 112,		
+		        	curPrice: 25.9,		
+		        },{			
+		        	imgsrc: "http://jiangsu.sinaimg.cn/zt/s/gsyhjregh5/images/photo/45.jpg",
+		        	name: "雅丽黑银色笔夹钢笔",		
+		        	orgPrice: 237,		
+		        	curPrice: 88.8,		
+		        }
+		        ]
+	};
+	
+var data = org_data;
+
+
+/**
+ * 生成小题库
+ */
+function setNewData(size) {
+	size *= 2;
+	data = {};
+	data.desc = "答题数据库",
+	data.items = [];
+	
+	var indexUsed = [];
+	
+	console.log("======= 抽取题库  ======");
+	while (data.items.length < size) {
+		//不断随机以填满数据
+		var org_dataQuesGroupNum = org_data.items.length / 2;
+		var randomQuestionIndex = parseInt(Math.random() * org_dataQuesGroupNum);
+		var isUsed = false;
+		console.log( indexUsed );
+		console.log( randomQuestionIndex );
+		for (var i = 0; i < indexUsed.length; i++) {
+			if (randomQuestionIndex == indexUsed[i]) {
+				isUsed = true;
+				break;
+			}
+		}
+		if (isUsed) {
+			continue;
+		} else {
+			indexUsed.push(randomQuestionIndex);
+			//存入答题库吧
+			data.items.push(clone(org_data.items[randomQuestionIndex * 2]));
+			data.items.push(clone(org_data.items[randomQuestionIndex * 2 + 1]));
+		}
+	}
+	console.log("======= end 抽取题库  ======");
+}
+
+/** clone obj */
+function clone(obj){  
+    function Clone(){}  
+    Clone.prototype = obj;  
+    var o = new Clone();  
+    for(var a in o){  
+        if(typeof o[a] == "object") {  
+            o[a] = clone(o[a]);  
+        }  
+    }  
+    return o;  
+}  
+
+/**
+ * 绘制题目到页面
+ */
+function drawNewData() {
+	var html = template('targetTemplate1', data);
+	document.getElementById('target1').innerHTML = html;
+	var html = template('targetTemplate2', data);
+	document.getElementById('target2').innerHTML = html;
+}
+
+
+setNewData(3);
+drawNewData();
+</script>
+
+<script type="text/javascript">
+var mySwiper;
+function initializeSwiper(){
+	/* Initialize swiper */
+	if (mySwiper) {
+		mySwiper.destroy(true, true);
+	}
+	mySwiper = new Swiper('.swiper-container',{
+		direction:'vertical', //vertical //horizontal
+		noSwiping: true
+	});  
+}
+window.onload = function () {
+	initializeSwiper();
+}
+</script>
+
+
+<script type="text/javascript">
+var userAnswer = [];
+
+
+function showResult() {
+	if(getNum_right() < 3){
+		layer.open({
+		    content: '<div class="center fs14 bold">您答对了' + getNum_right() + '题</div><div class="fs14 bold">答对全部3道题目可获得 <span class="red underline">融e购商城</span> 购物电子券 <span class="red fs16">20元</span>！赶快挑战吧！</div><input type="button" class="c_btn" onclick="reset()" value="再来一次" style="margin: 10px 0;"><div>1.有优惠要分享<img width="26" src="http://s3img.city.sina.com.cn/activity/common/large/343d3b09032ab4bef13567ccd41927cc.png">，邀您的好友一同来猜<br/>2.用券方式-关注订阅号：中国工商银行江苏省分行</div><div class="center"><div><img width="72" src="http://jiangsu.sinaimg.cn/2015/0429/U12547P1194DT20150429152637.png"></div>扫一扫二维码即可订阅<br/>“中国工商银行江苏省分行”微信公众号</div>',
+		    style: 'background-color:rgba(0, 0, 0, 0.84); color:#fff; border:none;',
+		});
+	} else {
+		layer.open({
+		    content: '<div class="center fs14 bold">您答对了全部' + getNum_right() + '题！</div><div class="fs14 bold">恭喜获得 <span class="red underline">融e购商城</span> 购物电子券 <span class="red fs16">20元</span>快戳下方按钮领取吧！</div><input type="button" class="c_btn" onclick="window.open(\'http://mp.weixin.qq.com/s?__biz=MzAwNTEyMjc4NQ==&mid=205645989&idx=1&sn=6fdb9179f01d9916f4d8dc8848154722&scene=5#rd\')" value="去领券" style="margin: 10px 0 0;"><input type="button" class="c_btn" onclick="reset()" value="再来一次" style="margin: 10px 0;"><div>1.有优惠要分享<img src="http://s3img.city.sina.com.cn/activity/common/large/343d3b09032ab4bef13567ccd41927cc.png" style="width: 26px;">，邀您的好友一同来猜<br>2.用券方式-关注订阅号：中国工商银行江苏省分行</div><div class="center"><div><img src="http://jiangsu.sinaimg.cn/2015/0429/U12547P1194DT20150429152637.png" style="width: 86px;"></div>扫一扫二维码即可订阅<br>“中国工商银行江苏省分行”微信公众号</div>',
+		    style: 'background-color:rgba(0, 0, 0, 0.84); color:#fff; border:none;',
+		});		
+	}
+}
+
+function reset() {
+	
+	//生成题库
+	setNewData(3);
+	//填充题目
+	drawNewData();
+	userAnswer = [];
+	initializeSwiper();
+	mySwiper.activeIndex = 0;
+	$(".card").removeClass("true").removeClass("false");
+	pageSwitch(0);
+	layer.closeAll();
+}
+
+function pageSwitch(num) {
+	$('body').stop(true,true).animate({scrollTop:0},600);
+	$(".page:not(#p"+(num+1)+")").hide();
+	$("#p"+(num+1)).show();
+}
+
+function clickItem(index){
+	//答案计算
+	if (index != undefined) {
+		userAnswer.push(checkItem(index));
+	}else{
+		
+	}
+	
+	//滑倒下一页
+	if (mySwiper.isEnd) {
+			console.log("答题完毕，回滚顶部");
+		mySwiper.slideTo(0,0);
+		showAnswer();
+		pageSwitch(1);
+	}else{
+		mySwiper.slideNext();
+	}
+}
+
+//将结果渲染到页面
+function showAnswer(){
+	for (var i = 0; i < userAnswer.length; i++) {
+		var item  = userAnswer[i];
+		var index = item[0];
+		var isRight = item[1];
+		
+		//页面上找到第index个卡片，为其打上isRightWrap遮罩
+		$("#target2 .card").eq(index).addClass(isRight.toString());
+	}
+	
+	$("#num_total").text(getNum_total());
+	$("#num_wrong").text(getNum_wrong());
+	
+}
+
+
+/**
+ * 
+ * @ return index 点击目标
+ *          isRight √ / ×
+ */
+function checkItem(index){
+	//首先获取要比较的俩个值
+	var itemClick = data.items[index];
+	var itemCompare = {};
+	if (index % 2 == 0) {
+		itemCompare = data.items[index+1];
+	}else{
+		itemCompare = data.items[index-1];
+	}
+	
+	//比较俩个价格
+	if (itemClick.curPrice > itemCompare.curPrice) {
+		console.log("作答 " + index + "," + "正确");
+		return [index, true];
+	} else {
+		console.log("作答 " + index+"," + "错误");
+		return [index, false];
+	}
+}
+
+function getCompareList(index) {
+	var list = [];
+	if (index % 2 == 0) {
+		var i1 = data.items[index];
+		var i2 = data.items[index+1];
+		list.push(i1, i2);
+	}else{
+		var i1 = data.items[index-1];
+		var i2 = data.items[index];
+		list.push(i1, i2);
+	}
+	return list;
+}
+
+
+function getNum_total(){
+	return userAnswer.length;
+}
+
+function getNum_wrong() {
+	var count = 0;
+	for (var i = 0; i < userAnswer.length; i++) {
+		if (userAnswer[i][1]) {
+			
+		}else{
+			count++;
+		}
+	}
+	return count;
+}
+
+function getNum_right() {
+	var count = 0;
+	for (var i = 0; i < userAnswer.length; i++) {
+		if (userAnswer[i][1]) {
+			count++;
+		}else{
+			
+		}
+	}
+	return count;
+}
+
+
+</script>
+<script type="text/javascript">
+pageSwitch(0);
+</script>
+</body>
+</html>

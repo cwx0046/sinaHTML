@@ -1,0 +1,49 @@
+<script type="text/javascript" src="http://jiangsu.sinaimg.cn/js/artTemplate.js"></script>
+
+
+<div id="govWeiboListBlock">
+</div>
+<script type="text/html" id="formDataTemplate1">
+{{each table as t_data t_index}}
+	<div id="{{t_data.title}}" class="tablediv">
+		<div class="tableTitle" id="t{{t_index+1}}"></div>
+		<table class="weiboTable">
+			<tr><th width="170">昵称</th><th width="448">认证说明</th><th width="64">粉丝数</th><th width="62">发博数</th><th width="62">转发数</th><th width="62">评论数</th><th width="62">影响力</th></tr>
+			{{each t_data.list as l_data l_index}}
+				<tr><td class="c1"><img alt="" src="{{l_data[0]}}">{{l_data[1]}}</td><td class="c2">{{l_data[2]}}</td><td class="center">{{l_data[3]}}</td><td class="center">{{l_data[4]}}</td><td class="center">{{l_data[5]}}</td><td class="center">{{l_data[6]}}</td><td class="center">{{l_data[7]}}</td></tr>
+			{{/each}}
+		</table>
+	</div>
+{{/each}}
+</script>
+
+
+
+<script type="text/javascript">
+var formData1 = {
+	table:[
+	       {
+			title:"江苏省政务微博综合排行",
+			list:[
+["njjnga", "http://tp4.sinaimg.cn/1113218211/50/40073225645/1", "江宁公安在线", "100", "100", "59.49", "89.72"],
+["njfb", "http://tp3.sinaimg.cn/2097024354/50/40073266064/0", "南京发布", "84", "92.02", "87.84", "87.42"],
+["wuxifabu", "http://tp4.sinaimg.cn/2696049583/50/40073223187/1", "无锡发布", "79.23", "87.19", "88.12", "84.5"],
+["u/2638276292", "http://tp1.sinaimg.cn/2638276292/50/5713532418/1", "南京地铁", "71.14", "83.25", "94.12", "81.71"],
+["suzhouio", "http://tp1.sinaimg.cn/2998045524/50/5713481815/1", "苏州发布", "72.03", "85.77", "89.83", "77.99"],
+["insuqian", "http://tp3.sinaimg.cn/2282670150/50/40021646309/1", "宿迁之声", "66.81", "78.84", "97.04", "75.6"],
+["jsqx", "http://tp1.sinaimg.cn/2233270392/50/5713486561/1", "江苏气象", "64.13", "80.43", "92", "74.93"],
+["njjtgl", "http://tp3.sinaimg.cn/2573119002/50/5713491538/1", "南京交警", "63.38", "84.5", "76.11", "74.47"],
+["xingfudafeng", "http://tp4.sinaimg.cn/2696123751/50/40073188904/1", "幸福大丰", "48.84", "71.87", "92.68", "68.29"],
+["xzfabu", "http://tp2.sinaimg.cn/3514316985/50/40025192037/1", "徐州发布", "58.51", "77.77", "89.56", "66.93"],
+["huaianfabu", "http://tp3.sinaimg.cn/3582010354/50/40073263448/1", "淮安发布", "59.6", "74.16", "91.87", "66.6"],
+["pkpublicity", "http://tp3.sinaimg.cn/2608703882/50/40073313802/0", "浦口发布", "57.7", "73.77", "78.45", "66.59"]
+			      ]
+	       }
+	]
+};
+
+var html = template('formDataTemplate1', formData1);
+document.getElementById('govWeiboListBlock').innerHTML = html;
+
+
+</script>
