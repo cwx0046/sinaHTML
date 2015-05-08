@@ -1,0 +1,937 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="GB2312">
+<meta http-equiv="cache-control" content="no-cache"/>
+<meta name="format-detection" content="telephone=no"/>
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0"> 
+<title>首届“南京最美大学”摄影大赛</title>
+<meta name="keywords" content="首届“南京最美大学”摄影大赛" />
+<meta name="description" content="首届“南京最美大学”摄影大赛" />
+<script type="text/javascript" src="http://jiangsu.sinaimg.cn/js/jquery_1.11.2.min_jsonp.js"></script>
+<script type="text/javascript" src="http://jiangsu.sinaimg.cn/js/Framework7-master/js/framework7.min.js"></script>
+<link rel="stylesheet" type="text/css" href="http://jiangsu.sinaimg.cn/zt/s/css/reset.css">
+<link rel="stylesheet" type="text/css" href="http://jiangsu.sinaimg.cn/js/Framework7-master/css/framework7.min.css">
+<script type="text/javascript" src="http://jiangsu.sinaimg.cn/js/jquery.SuperSlide.2.1.1.js"></script>
+<style>
+body, html {
+  position: relative;
+  height: auto!important;
+  width: auto!important;
+  overflow-x: hidden;
+}
+.modal-button{
+ color: #818A2D;
+}
+.modal.modal-in{
+position: fixed;
+}
+</style>
+<style type="text/css">
+body{ max-width:640px; min-width:320px; background:url("http://jiangsu.sinaimg.cn/zt/s/cyjsssp/images/2.gif") repeat 0 0; background-size: 4px 3px; font:normal 14px/22px "Microsoft YaHei","SimHei"; margin:0 auto; padding: 0 0 60px 0;}
+.msg{ padding: 10px 20px;}
+.msg p{ text-indent: 2em;}
+
+.tempWrap{ -webkit-transition: all 0.3s; }
+
+.search{ background-color:#818a2d; width: 100%; text-align: center;;}
+.s-search{ width: 90%; margin: 10px auto; display: inline-block; position: relative; background-color: #fff; text-align: left;}
+.s-search input{ width: 85%; border: none; padding: 10px 10px; background-color: none;}
+.s-search-btn{  width: 20px; height: 100%; display: inline-block; position: absolute; right: 5px; background: url("http://jiangsu.sinaimg.cn/zt/s/cyjsssp/images/3.jpg") no-repeat center center #fff; background-size: 15px 15px;}
+.s-stat{ padding: 10px 20px; border:1px solid #ccc; color: #666;}
+.s-methods{ padding: 10px 20px; }
+.s-btnLink{ display: inline-block; width: 100%; background-color: #818a2d; font-size: 16px; line-height: 38px; text-align: center;color: #fff; margin-top: 10px;}
+.m-actbox{ text-align: center; background-color: #fff; margin-top: 10px;}
+.m-actbox a{ width: 40%; margin: 10px 10px 20px;}
+.m-worksact { text-align: center; }
+.m-worksact a{line-height: 22px;width: 40%; margin: 10px 10px 20px; padding: 10px 0;}
+</style>
+<script type="text/javascript">
+var photoApp = new Framework7({
+	modalTitle: "「南京最美大学」摄影大赛",
+	modalButtonOk: '确定',
+	modalButtonCancel: '取消'
+});
+</script>
+</head>
+<body>
+<img alt="ico" style="position:absolute; top: -400px;" src="http://jiangsu.sinaimg.cn/2015/0504/U11392P1194DT20150504162344.jpg">
+<img src="http://jiangsu.sinaimg.cn/2015/0504/U11392P1194DT20150504175828.jpg" width="100%"><br />
+
+<!-- 首页列表 -->
+
+<div id="index">
+<div class="search">
+	<div class="s-search"><input type="text" value="" placeholder="请输入摄影作品编号或学校名称" /><span class="s-search-btn"></span></div>
+</div>
+<!-- <div class="s-stat clearfix" style="display: none;"><span class="fl">已报名人数：2232324</span><span class="fr">浏览量：234345345</span></div> -->
+<div class="s-methods">
+	<h2>投票方法</h2>
+	<p>1. 搜索微信公众号<span style="color:#818a2d;">“南京同城会”（ID：njtongchenghui）</span>并点击关注<br />
+	2. 在聊天对话框中输入摄影作品编号，即投票成功
+	</p>
+	<a href="http://mp.weixin.qq.com/s?__biz=MjM5Nzg4MzU2MA==&mid=208589425&idx=1&sn=53c4b0588f70ffe7f553a7b68d88e4dc#rd" class="s-btnLink">我要投票</a>
+</div>
+<style type="text/css">
+.works-show{ background-color: #818a2d; padding-top: 5px;}
+.works-list-school {margin: 5px 10px;}
+.works-list-school li{ width:48%; float: left; margin-bottom: 10px; position: relative; background-color: #fff;}
+.works-list-school li.fr{ float: right;}
+.works-list-school li img{  margin: 32px 0 0;  box-shadow: 0px 1px 4px 1px rgba(89, 89, 89, 0.38); }
+.works-list {margin: 5px 10px;}
+.works-list li{ width:48%; float: left; margin-bottom: 10px; position: relative; background-color: #fff;}
+.works-list li.fr{ float: right;}
+.works-title{ margin: 5px 10px 10px; color: #818a2d;background-color: #fff; font-size: 16px; line-height: 38px; text-align: center; display:block;}
+.w-mes{margin: 5px 12px; height: 22px;}
+.w-mes .fl:AFTER{ content: "号"; }
+.w-mes .fr:AFTER{ content: "票"; }
+.w-name{ margin: 5px 10px;background-color: #818a2d; font-size: 16px; line-height: 38px; text-align: center;color: #fff; height: 38px; overflow: hidden;}
+.load-more{ color: #fff; width: 100%; text-align:center; display: inline-block; margin: 10px 0;}
+.load-more-school{ color: #fff; width: 100%; text-align:center; display: inline-block; margin: 10px 0;}
+.w-ranke{ position: absolute; right: 5px; top: 5px; background-color: rgba(241,50,70,0.6); color: #fff;padding:0 5px;}
+.w-ranke:BEFORE{ content: "排名："; }
+
+#nav{ margin: 5px 10px 10px; }
+#nav li{ width: 50%; float: left; text-align: center; }
+#nav li span{ color: #505a0d; background-color: #c1d968; display: inline-block; padding: 5px 22px; font-weight: bold; cursor: pointer; }
+#nav li.on span{  color: #e1f81d; background-color: #464e04; box-shadow: 0 1px 8px RGBA(0,0,0,0.46); }
+
+</style>
+<div class="works-show">
+
+	<!-- 选择 -->
+	<div class="slideTxtBox">
+		<ul id="nav" class="clearfix">
+			<li><span>为你心目中的<br/>最美大学投票</span></li>
+			<li><span>南京最美大学<br/>摄影作品展示</span></li>
+		</ul>
+	 	<div id="container" class="clearfix" >
+			<div id="container1" class="container">
+				<h3 class="works-title">最美大学</h3>
+				<ul class="works-list-school clearfix">
+					<!--li>
+						<img src="http://jiangsu.sinaimg.cn/zt/s/cyjsssp/images/1.jpg" width="100%" />
+						<p class="w-mes clearfix"><span class="fl">0124号</span><span class="fr">12456票</span></p>
+						<div href="javascript:;" class="w-name">摄影师姓名</div>
+						<span class="w-ranke">排名：1</span>
+					</li-->
+				</ul>
+				<a class="load-more-school" href="javascript:;" onclick="get_more_lists_school()">加载更多</a>
+			</div>
+			<div id="container2" class="container">
+				<h3 class="works-title">摄影作品展示</h3>
+				<ul class="works-list clearfix">
+					<!--li>
+						<img src="http://jiangsu.sinaimg.cn/zt/s/cyjsssp/images/1.jpg" width="100%" />
+						<p class="w-mes clearfix"><span class="fl">0124号</span><span class="fr">12456票</span></p>
+						<div href="javascript:;" class="w-name">摄影师姓名</div>
+						<span class="w-ranke">排名：1</span>
+					</li-->
+				</ul>
+				<a class="load-more" href="javascript:;" onclick="get_more_lists()">加载更多</a>
+			</div>
+		</div>
+	</div>
+	
+	
+	<script type="text/javascript">
+	/* 地区切换 */
+	jQuery(".slideTxtBox").slide({
+		trigger: "click",
+		effect:"left",
+		delayTime:300,
+		titCell: "#nav li",
+		mainCell: "#container",
+		startFun: function(i, c) {
+
+		},
+		endFun: function(i){ //高度自适应
+			//var bd = document.getElementById("container");
+			//bd.parentNode.style.height = bd.children[i].offsetHeight+"px";
+			//if(i>0)bd.parentNode.style.transition ="400ms";//添加动画效果
+		}
+	});
+
+	</script>
+	
+
+
+	
+
+</div>
+<!--div style="margin: 10px 10px;"><img src="http://s3img.city.sina.com.cn/activity/common/large/13a59cc59f252405734e9c2c5241a94f.png" width="100%"></div-->
+</div>
+
+<!-- 首页列表 END -->
+
+
+<!-- 作品详情 -->
+<div id="details" style="display:none;">
+
+<!-- <div class="s-stat clearfix"><span class="fl">已报名人数：2147</span><span class="fr">浏览量：23268</span></div> -->
+<div class="m-worksact">
+		<a href="javascript:;" class="s-btnLink"><span class="vote-num">0</span>票<br/><span style="font-size: 12px;">当前票数</span></a>
+		<a href="javascript:;" class="s-btnLink">排名：<span class="ranke-num">0</span><br/><span style="font-size: 12px;">每10分钟统计更新一次</span></a>
+</div>
+<div style=" font-size: 18px; color: #818a2d; padding:2px 20px; font-weight:bold;">作品编号：<span class="work-num">0</span></div>
+<div style=" font-size: 18px; color: #818a2d; padding:2px 20px; font-weight:bold;">摄影师姓名：<span class="work-name"></span></div>
+<div style=" font-size: 18px; color: #818a2d; padding:2px 20px; font-weight:bold;">拍摄地点：<span class="work-address"></span></div>
+<div class="s-methods" style="color:#666;">
+	<h2>投票方法</h2>
+	<p>1. 搜索微信公众号<span style="color:#818a2d;">“南京同城会”（ID：njtongchenghui）</span>并点击关注<br />
+	2. 在聊天对话框中输入摄影作品编号，即投票成功
+	</p>
+	<div class="m-actbox">
+		<img class="work-pic" src="http://jiangsu.sinaimg.cn/zt/s/cyjsssp/images/1.jpg" width="100%">
+		<a href="http://mp.weixin.qq.com/s?__biz=MjM5Nzg4MzU2MA==&mid=208589425&idx=1&sn=53c4b0588f70ffe7f553a7b68d88e4dc#rd" class="s-btnLink">为我投票</a>
+		<a href="javascript:show_index();" class="s-btnLink">查看排名</a>
+	</div>
+	
+</div>
+<!--div style="margin: 10px 10px;"><img src="http://s3img.city.sina.com.cn/activity/common/large/13a59cc59f252405734e9c2c5241a94f.png" width="100%"></div-->
+</div>
+<!-- 作品详情 END -->
+
+
+<!-- 报名区块  -->
+<style>
+.signup { padding: 10px 20px; }
+.signup input{ display:block; width:100%; -webkit-appearance: none; background: none; border: none; border-bottom: 1px solid #7f7f7f; line-height: 26px; margin-bottom: 10px; }
+.sign-btnSubmit{ display: inline-block; width: 100%; background-color: #818a2d; font-size: 16px; line-height: 38px; text-align: center; color: #fff; margin-top: 10px; }
+input.u_photosrc{ background-image: url("http://jiangsu.sinaimg.cn/zt/s/cyjsssp/images/ico_photo.png"); background-repeat: no-repeat; background-size: 25px; background-position: right center; text-align: left; padding: 0; color: #A9A9A9; }
+</style>
+<div id="signup" class="signup" style="display:none;">
+	<input class="u_name" type="text" placeholder="摄影师姓名"/>
+	<!-- <input class="u_phone" type="tel" placeholder="手机号码（填写正确的手机号码，便于通知领奖）"/>-->
+	<input class="u_workname" type="text" placeholder="拍摄地点"/>
+	<!-- <input class="u_photosrc" type="text" placeholder="上传摄影作品"/> -->
+	<input class="u_photosrc" type="button" value="上传摄影作品" placeholder="上传摄影作品"
+			plugin-name="pic_file"
+			plugin-type="file"
+			plugin-action="http://act.city.sina.com.cn/interface/common/pic_upload.php? callback_func=pic_upload_callback&pic_id=mission_image&thumbnail_size=600&charset=gbk"
+			plugin-onsubmit=""
+			plugin-disabled=""/>
+	<a href="javascript:;" class="sign-btnSubmit" id="sign-Submit">提交报名</a>
+</div>
+<script>
+var oldhref="";
+var oldhref_thumbnail="";
+function pic_upload_callback(json){
+	var real_pic_name = json.real_pic_name;
+	var pic_url = json.pic_large;
+	$(".u_photosrc").val("上传成功："+real_pic_name);
+
+	oldhref = pic_url;
+	oldhref_thumbnail = json.pic_thumbnail;
+}
+
+
+$(function(){
+	$("#sign-Submit").click(function(){
+		var data = {};
+	    data.act_id = 11148;//活动id
+		
+		data.custom_1 = $('.u_name').val();
+		//data.custom_2 = $('.u_phone').val();
+		data.custom_3 = $('.u_workname').val();
+		data.custom_4 = oldhref;
+		data.custom_5 = oldhref_thumbnail;
+		
+		if (data.custom_1 == "") { photoApp.alert("请填您的姓名"); $('.u_name').focus(); return; }
+		//if (data.custom_2 == "") { photoApp.alert("请填您的手机号码"); $('.u_phone').focus(); return; }
+		if (data.custom_3 == "") { photoApp.alert("请填摄影作品名称"); $('.u_workname').focus(); return; }
+		if (data.custom_4 == "") { photoApp.alert("请上传作品");  return; }
+
+		$.JSONP('http://act.city.sina.com.cn/interface/activity/json_add_signup.php',data,function(bm){
+			if(bm.error==0){
+				var id = parseInt(bm.work_id) - 3360000;
+				//得到作品id
+				$(".work_id").text(id);
+				
+				$.post("http://jiangsusina.com/2015wxh/add.php?voteid=" + bm.work_id, function(json){
+					console.log(json);
+				},"json");
+				
+				photoApp.alert("提交成功！");
+				//显示微信分享界面
+				$(".weixinCover").fadeIn(600,function(){
+					$(".weixinCover").click(function(){
+						 $(this).unbind("click").fadeOut();
+					});
+				});
+			}else{
+				photoApp.alert(bm.errmsg);
+			}
+		});
+	});
+});
+</script>
+<!-- 报名区块END  -->
+
+
+		
+<!-- 微信弹出页 -->
+<style>
+.weixinCover{   display: none;      position: fixed; top: 0; left: 0; width: 100%; height: 100%; color:#FFF; background-color: RGBA(0,0,0,0.9); -webkit-transform: translateZ(0); -moz-transform: translateZ(0); -ms-transform: translateZ(0); transform: translateZ(0); }
+.weixinCover .arrow{   position: absolute;  top: 21px;  right: 50px;  font-size: 12px;  line-height: 16px; }
+.weixinCover .continer{ position: absolute;top: 0;right: 0;bottom: 0;left: 0;margin: auto;width: 320px;height: 294px; font-weight: bold; text-align: center;}
+.weixinCover .continer .text{ font-size: 24px;text-align: center; }
+.weixinCover .continer .btn{ font-size: 12px;text-align: center;display: block; font-weight:bold; width: 80px;margin: 30px auto 0;padding: 10px 30px;background-color: #818a2d;color: #FFF; cursor: pointer; }
+</style>
+<div class="weixinCover">
+	<div class="arrow">请你的朋友来投票吧!<br/>就有机会赢得苹果手表喔~<img style="position: absolute; top: -7px;" alt="微信箭头" width="35" src="http://jiangsu.sinaimg.cn/zt/s/cyjsssp/images/wx_arrow.png"></div>
+	<div class="continer">
+		<div class="text">
+			您的作品编号：<span class="work_id"></span>
+		</div>
+		<div class="btn" id="subscribeweixiBtn">关注我们</div>
+		<img style="display: block; margin: 0 auto;width: 120px; padding: 20px 0;" alt="RQ" src="http://jiangsu.sinaimg.cn/zt/s/cyjsssp/images/QR.png">
+		<div>长按识别二维码，关注南京同城会</div>
+	</div>
+</div>
+		
+<script type="text/javascript">
+$("#subscribeweixiBtn").click(function(e){
+	window.open('http://mp.weixin.qq.com/s?__biz=MjM5Nzg4MzU2MA==&mid=208589425&idx=1&sn=53c4b0588f70ffe7f553a7b68d88e4dc#rd');
+	e.stopPropagation();  //阻止冒泡
+});
+</script>
+<!-- end 微信弹出页 -->
+
+
+
+
+
+
+<!-- 页脚区块 -->
+<style>
+.footer-nav{ background-color: #818a2d; position: fixed; bottom: 0; left: 0; width: 100%; }
+.footer-nav-item{ color: #FFF; float: left; width: 25%; text-align: center; -webkit-tap-highlight-color: transparent; }
+.footer-nav-item:HOVER{ color: #FFF; }
+.footer-nav-item:BEFORE{ content: ""; margin:6px;  display:block; width: 25px; height: 25px; background-image: url("http://jiangsu.sinaimg.cn/zt/s/cyjsssp/images/footer_nav_icos.png"); background-size: 100px; margin: 6px auto;  }
+.footer-nav-item1:BEFORE{ background-position:     0 0;}
+.footer-nav-item2:BEFORE{ background-position: -25px 0;}
+.footer-nav-item3:BEFORE{ background-position: -50px 0;}
+.footer-nav-item4:BEFORE{ background-position: -75px 0;}
+
+.footer-nav-item.curr, .footer-nav-item:HOVER{ background-color: #555e04; }
+</style>
+<div class="footer-nav clearfix">
+	<a class="footer-nav-item footer-nav-item1" href="javascript:;" onclick="show_index()">首页</a>
+	<a class="footer-nav-item footer-nav-item2" href="javascript:;" onclick="window.open()">活动详情</a>
+	<a class="footer-nav-item footer-nav-item3" href="javascript:;" onclick='show_index();$("body,html").animate({scrollTop:$(".works-show").offset().top},1000);'>查看排名</a>
+	<a class="footer-nav-item footer-nav-item4" href="javascript:;" onclick="window.open()">拉票攻略</a>
+</div>
+
+<!-- end页脚区块 -->
+
+
+
+<script type="text/javascript">
+	document.domain = "sina.com.cn";
+</script> 
+<script type="text/javascript">
+/* 图片上传插件 */
+/* @fix init方法移出，以适应无法获得输入元素位置bug */
+/* 改造闭包。。。以实现动态生成图片上传按钮效果  edit by xinwei 2013.4.9 */
+	var tools = {};
+	// 提交的iframe的id
+	tools.iframeId = 0;
+
+	// 是否是ie6
+	tools.isIE6 = navigator.userAgent.toLowerCase().indexOf('msie 6')>-1;
+
+	// 存储所有实例
+	tools.instances = [];
+
+	// 创建工具函数
+	tools.create = function(tag){
+		return document.createElement(tag);
+	};
+
+	// 获取按钮的绝对位置
+	tools.getAbsolutePostion = function(obj){
+		var pos = {};
+		pos.x = obj.offsetLeft;
+		pos.y = obj.offsetTop;
+		while(obj = obj.offsetParent){
+			pos.x += obj.offsetLeft;
+			pos.y += obj.offsetTop;
+		}
+		return pos;
+	};
+
+	// 插件的主要实现
+	tools.achieve = function(button){
+		// 若没有使用new方式创建，则自己调用new
+		if(this === window || this === tools){
+			return new tools.achieve(button);
+		}
+
+		// 若传进来的是id，则获取dom元素
+		if(typeof button === 'string'){
+			button = document.getElementById(button);
+		}
+
+		var that = this;
+
+		// 提交的iframe的id
+		var id = this.iframeId = 'upload-beautify-plugin-' + (++tools.iframeId);
+
+		// 创建文档随便
+		var docFragment = document.createDocumentFragment();
+
+		// 要实现的上传按钮
+		var button = this.button = button;
+
+		// 是否开启debug
+		var debug = button.getAttribute('plugin-debug');
+
+		// 盖住按钮用的div
+		var cover = this.cover = tools.create('div');
+		cover.onmouseover = function(){
+			button.className += ' plugin-upload-hover';
+		}
+		cover.onmouseout = function(){
+			button.className = button.className.replace('plugin-upload-hover','');
+		}
+		var coverStyle = cover.style;
+		coverStyle.position = 'absolute';
+		coverStyle.overflow = 'hidden';
+		coverStyle.zIndex = '10001';
+		if('opacity' in coverStyle){
+			coverStyle.opacity = '0';
+		}else{
+			coverStyle.filter = "alpha(opacity=0)";
+		}
+		this.adjustCover();
+		
+		docFragment.appendChild(cover);
+
+		// 创建form表单
+		var form = this.form = tools.create('form');
+		form.target = id;
+		form.enctype = "multipart/form-data";
+		form.encoding = "multipart/form-data";
+		form.method = 'post';
+		form.action = button.getAttribute('plugin-action');
+		cover.appendChild(form);
+
+		// 创建文件域
+		var fileControl = this.fileControl = tools.create('input');
+		fileControl.name = button.getAttribute('plugin-name');
+		fileControl.type = 'file';
+		var ifileControl = {};
+		fileControl.onclick  = function(e){
+			if(button.getAttribute('plugin-disabled') === 'disabled'){
+				e = e || window.event;
+				e.preventDefault && e.preventDefault();
+				return false;
+			}
+		} 
+		var fileStyle = fileControl.style;
+		fileStyle.position = 'absolute';
+		fileStyle.right = '0';
+		fileStyle.fontSize = '1000px';
+		fileStyle.backgroundColor = 'red';
+		fileStyle.cursor = 'pointer';
+		if(!debug){
+			if('opacity' in fileStyle){
+				fileStyle.opacity = '0';
+				}else{
+				fileStyle.filter = "alpha(opacity=0)";
+			}
+		}else{
+			if('opacity' in fileStyle){
+				fileStyle.opacity = '0.2';
+			}else{
+				fileStyle.filter = "alpha(opacity=20)";
+			}
+		}
+		fileControl.setAttribute('hideFocus', 'true');
+		form.appendChild(fileControl);
+		fileControl.onchange = function(e){
+			e = e||window.event;
+			var func = new Function('event', button.getAttribute('plugin-onsubmit'));
+			if(func.call(that, e) !== false){
+				var form = this.parentNode||this.parentElement;
+				form.submit();
+			};
+		};
+		
+		// 提交用的iframe
+		var iframe = this.iframe = tools.create('iframe');
+		iframe.id = id;
+		iframe.name = id;
+		iframe.src = 'about:blank';
+		iframe.style.display = 'none';
+		docFragment.appendChild(iframe);  
+
+		// 添加文档碎片
+		document.body.appendChild(docFragment);
+		iframe.contentWindow && (iframe.contentWindow.name = id);
+
+		// 添加到数组中
+		tools.instances.push(this);
+	};
+
+
+	// 调整cover的位置
+	tools.achieve.prototype.adjustCover = function(){
+		var button = this.button;
+		var coverStyle = this.cover.style;
+		var pos = tools.getAbsolutePostion(button);
+		coverStyle.left = pos.x + 'px';
+		coverStyle.top = pos.y + 'px';
+		coverStyle.width = button.offsetWidth + 'px';
+		coverStyle.height = button.offsetHeight + 'px'; 
+	}
+
+	//  获取上传按钮美化组件实例
+	tools.achieve.getInstance = function(dom){
+		if(typeof dom === 'string'){
+			dom = document.getElementById(dom);
+		}
+
+		var instances = tools.instances;
+		for(var i=0,len=instances.length; i<len; i++){
+			if(instances[i].button === dom){
+				return instances[i];
+			}
+		}
+		return false;
+	};
+
+	// 上传按钮美化组件执行完成后的回调
+	tools.achieve.onload = function(){}
+
+	// 页面载入完成后自动寻找plugin-type="file"的元素
+	tools.BindFileBeautify = function(){
+		tools.UnbindFileBeautify();
+		var doms = document.getElementsByTagName('*');
+		for(var i= 0,len=doms.length; i<len; i++){
+			if(doms[i].getAttribute('plugin-type') === 'file'){
+				tools.achieve(doms[i]); 
+			}
+		}
+		tools.achieve.onload();
+	};
+
+	//解绑
+	tools.UnbindFileBeautify = function(){
+		var instances = tools.instances;
+		for(var i=0,len=instances.length; i<len; i++){
+			var iframe = instances[i].iframe;
+			var coverStyle = instances[i].cover;
+			if(iframe.parentNode)
+			{
+				iframe.parentNode.removeChild(iframe);
+			}
+			if(coverStyle.parentNode)
+			{
+				coverStyle.parentNode.removeChild(coverStyle);
+			}
+		}
+		tools.instances = [];
+	}
+
+	// 页面resize的时候调整位置
+	tools.AdjustCovers = function(){
+		var instances = tools.instances;
+		for(var i=0,len=instances.length; i<len; i++){
+			instances[i].adjustCover();
+		}
+	}
+
+	// 添加onload事件
+	//tools.BindFileBeautify();  //请在输入框显示出来并处于正确位置后，执行此方法	
+	/* if(window.addEventListener){
+		window.document.addEventListener('DOMContentLoaded', tools.BindFileBeautify, false);
+	}else{
+		window.attachEvent('onload', tools.BindFileBeautify);
+	} */
+
+	// 添加resize事件
+	if(window.addEventListener){
+		window.addEventListener('resize', tools.AdjustCovers, false);
+	}else{
+		window.attachEvent('onload', tools.AdjustCovers);
+	}
+
+	//添加到命名空间下
+	if(window.$){
+		window.$.tools = tools;
+	}else{
+		window.$ = {tools:tools};
+	}
+</script>
+
+<script>
+/* 获取参赛作品 */
+
+/**
+ * 服务器获取作品投票json
+ */
+var lists_by_vote = [];
+var lists_by_vote_school = [];
+/**
+ * 当前页要显示的作品 数组
+ */
+var lists_page_by_vote = [];
+var lists_page_by_vote_school = []; 
+/**
+ * 当前页码
+ */
+var page_num = 1;
+var page_num_school = 1;
+
+/**
+ * 每页6张作品
+ */
+var item_per_page = 8;
+var item_per_page_school = 26;
+
+
+
+/**
+ * 获得json[["2825523","12"],["2825591","8"],["2825593","6"],["2825603","5"],["2825533","4"],["2825589","2"],["2825604","1"]]
+ * @param callback
+ */
+ function get_top_lists(page,callback) {
+	
+	if (lists_by_vote != "") { //已经获得所有作品排序
+		cut_data_by_page_and_set_btn();
+		return;
+	}
+	
+	//获取微信所有作品
+	$.post("http://jiangsusina.com/2015wxh/getallnj.php",function(wxJson){
+		//获取活动平台所有作品。
+		$.JSONP('http://act.city.sina.com.cn/interface/activity/json_get_user_works.php',{act_id: 11148, order: "vote", pcount: 99999, p: 1},function(json){
+			if(json.error == 0){
+				var data = json.data;
+				for (var j = 0; j < wxJson.length; j++) {
+					var voteNum = -1;
+					for (var i = 0; i < data.length; i++) {
+						if(data[i].id == wxJson[j][0]){
+							voteNum = wxJson[j][1];
+							var work = [data[i].id, voteNum, data[i].form_data.custom_1.value, data[i].form_data.custom_3.value, data[i].form_data.custom_5.value];
+							lists_by_vote.push(work);
+						}
+					}
+				}
+				cut_data_by_page_and_set_btn();
+	        }else{
+	            photoApp.alert(json.errmsg);
+	        }
+		});
+	});
+	
+	
+	function cut_data_by_page_and_set_btn() {
+		lists_page_by_vote = [];
+		
+		var this_page_max = page_num*item_per_page;
+		this_page_max = this_page_max > lists_by_vote.length ? lists_by_vote.length : this_page_max;
+		
+		for (var i = (page_num - 1)*item_per_page; i < this_page_max; i++) {
+			lists_page_by_vote.push(lists_by_vote[i]);
+		}
+		page_num++;
+		
+		if ((page_num - 1)*item_per_page >= lists_by_vote.length) {
+			//按钮：没有更多了
+			//photoApp.alert("没有更多了，继续执行get_top_lists将会报错");
+			$(".load-more").html("没有更多了").attr("href","javascript:;");
+
+		}else{
+			//按钮：加载更多
+			//photoApp.alert("您可以执行get_top_lists来获取下一页");
+		}
+		
+		if (typeof(callback) == "function") {
+			callback();
+		}
+	}
+	
+}
+function get_top_lists_school(page,callback) {
+	
+	if (lists_by_vote_school != "") { //已经获得所有作品排序
+		cut_data_by_page_and_set_btn_school();
+		return;
+	}
+	
+	//获取微信所有作品
+	$.post("http://jiangsusina.com/2015wxh/getallnj.php",function(wxJson){
+		//获取活动平台所有作品。
+		$.JSONP('http://act.city.sina.com.cn/interface/activity/json_get_user_works.php',{act_id: 11167, order: "vote", pcount: 99999, p: 1},function(json){
+			if(json.error == 0){
+				var data = json.data;
+				for (var j = 0; j < wxJson.length; j++) {
+					var voteNum = -1;
+					for (var i = 0; i < data.length; i++) {
+						if(data[i].id == wxJson[j][0]){
+							voteNum = wxJson[j][1];
+							var work = [data[i].id, voteNum, data[i].form_data.custom_1.value, data[i].form_data.custom_3.value, data[i].form_data.custom_5.value];
+							lists_by_vote_school.push(work);
+						}
+					}
+				}
+				cut_data_by_page_and_set_btn_school();
+	        }else{
+	            photoApp.alert(json.errmsg);
+	        }
+		});
+	});
+	
+	
+	function cut_data_by_page_and_set_btn_school() {
+		lists_page_by_vote_school = [];
+		
+		var this_page_max = page_num_school*item_per_page_school;
+		this_page_max = this_page_max > lists_by_vote_school.length ? lists_by_vote_school.length : this_page_max;
+		
+		for (var i = (page_num_school - 1)*item_per_page_school; i < this_page_max; i++) {
+			lists_page_by_vote_school.push(lists_by_vote_school[i]);
+		}
+		page_num_school++;
+		
+		if ((page_num_school - 1)*item_per_page_school >= lists_by_vote_school.length) {
+			//按钮：没有更多了
+			//photoApp.alert("没有更多了，继续执行get_top_lists将会报错");
+			$(".load-more-school").html("没有更多了").attr("href","javascript:;");
+
+		}else{
+			//按钮：加载更多
+			//photoApp.alert("您可以执行get_top_lists来获取下一页");
+		}
+		
+		if (typeof(callback) == "function") {
+			callback();
+		}
+	}
+	
+}
+
+
+/**
+ * 
+ * @param data
+ */
+function get_usework_by_ids(data, $target) {
+	
+	var i = -1;
+	var idLength = data.length;
+	
+	function check_next_id() {
+		i++;
+		if (i >= idLength) {
+			return;
+		}else{
+			get_one_work_by_id(data[i], check_next_id, $target);
+		}
+	}
+	
+	check_next_id();
+}
+
+/**
+ * 
+ * @param data
+ * @param callback
+ */
+var ranke_num = 0;
+var ranke_num_school = 0;
+
+function get_one_work_by_id(data,callback,$target) {
+	var id = data[0];       //作品编号
+	var vote_num = data[1]; //作品票数
+	var work_name = data[2];//摄影师姓名
+	var work_address = data[3];//拍摄地点
+	var work_img = data[4]; //作品图片
+	
+	var temp_ranke_num = -1; 
+	if ($target.attr("class") == "works-list clearfix") {
+		ranke_num++;
+		temp_ranke_num = ranke_num;
+	}
+	
+	if ($target.attr("class") == "works-list-school clearfix") {
+		ranke_num_school++;
+		temp_ranke_num = ranke_num_school;
+	}
+	
+	var t_fr = "";
+	if(temp_ranke_num%2==0){ t_fr = "fr";}
+	var html = "";		
+	
+	html += '<li class="'+t_fr+'" onClick="go_details($(this))">';
+	html += '<img src="'+ work_img +'" width="100%" />';
+	html += '<p class="w-mes clearfix"><span class="fl">'+ (Number(id)-3360000) +'</span><span class="fr">'+ vote_num +'</span></p>';
+	html += '<div href="javascript:;" class="w-name" wName="'+ work_name +'" wAddress="'+ work_address +'">'+ work_address +'</div>';
+	html += '<span class="w-ranke">'+ temp_ranke_num +'</span>';
+	html += '</li>';
+	
+	//输出
+	//$(".works-list").append(html);
+	$target.append(html);
+	if (typeof(callback) == "function") {
+		callback();
+	}
+	
+}
+
+function get_more_lists(){
+	get_top_lists( page_num, function(){get_usework_by_ids(lists_page_by_vote, $(".works-list"));});
+}
+function get_more_lists_school(){
+	get_top_lists_school( page_num_school, function(){get_usework_by_ids(lists_page_by_vote_school, $(".works-list-school"));});
+}
+
+/*
+ * 
+ * 本js调试语句
+ * get_top_lists( page_num, function(){get_usework_by_ids(lists_page_by_vote)});
+ * 
+ */
+</script>
+
+<script type="text/javascript">
+/* 页面功能切换 */
+function show_index(){
+	tools.UnbindFileBeautify();
+	page_num = 1;
+	lists_page_by_vote = [];
+	lists_by_vote = [];
+	ranke_num = 0;
+	$("#details,#signup").hide();
+	//$(".works-list").html("");
+	//get_top_lists( page_num, function(){get_usework_by_ids(lists_page_by_vote)});
+	$("#index").show();
+}
+function show_details(){
+	$("#index,#signup").hide();
+	$("#details").show();
+	window.scrollTo(0,$(".m-worksact").position().top);
+}
+function show_signup(){
+	$("#details,#index").hide();
+	$("#signup").show();
+	tools.BindFileBeautify();
+}
+function go_details(_this)
+{
+	var self = _this;
+	show_details();
+	$(".vote-num").html(Number(self.find("span.fr").html()));//得票
+	$(".ranke-num").html(Number(self.find("span.w-ranke").html()));//排名
+	$(".work-num").html(Number(self.find("span.fl").html()));//作品编号
+	$(".work-name").html(self.find(".w-name").attr("wName"));	//作者 
+	$(".work-address").html(self.find(".w-name").attr("wAddress"));	//作者 
+	$(".work-pic").attr("src",self.find("img").attr("src")); //作品图片
+}
+
+$(function(){
+	get_top_lists( page_num, function(){get_usework_by_ids(lists_page_by_vote, $(".works-list"))});
+	get_top_lists_school( page_num_school, function(){get_usework_by_ids(lists_page_by_vote_school, $(".works-list-school"))});
+	show_index();
+});
+
+$(function search_btn_event() {
+	$(".s-search-btn").click(function() {
+		var text = $(".s-search input").val().trim();
+		if (text == "") {
+			photoApp.alert("请输入作品编号或作者姓名");
+			return;
+		}
+		
+		if (text.length>=14) {
+			photoApp.alert("关键词过长");
+			return;
+		}
+		
+		// 作品编号
+		if (/^[0-9]+$/.test(text)) {
+			var index = -1;
+			text = parseInt(text) + 3360000;
+			for ( var i in lists_by_vote) {
+				if (text == lists_by_vote[i][0]) {
+					index = i+1;
+				}
+			}
+			if (index == -1) {
+				photoApp.alert("抱歉没有找到这个编号的作品");
+				return;
+			}else{
+				// 当前排名 index
+				
+				$.JSONP('http://act.city.sina.com.cn/interface/activity/json_get_one_user_work.php',{work_id:text},function(json){
+					if(json.error == 0){
+						var data = json.data;
+						
+						var id = json.data.id;
+						
+						var vote_num = -1;
+						var index = -1;
+						for ( var i in lists_by_vote) {
+							if (id == lists_by_vote[i][0]) {
+								vote_num = lists_by_vote[i][1];
+								index = parseInt(i)+1;
+							}
+						}
+						
+						$(".vote-num").html(vote_num);//得票
+						$(".ranke-num").html(index);//排名
+						$(".work-num").html(parseInt(id)-3360000);//作品编号
+						$(".work-name").html(data.form_data.custom_1.value);	//作者 
+						$(".work-address").html(data.form_data.custom_3.value);	//学校 
+						$(".work-pic").attr("src",data.form_data.custom_5.value); //作品图片
+						show_details();
+						
+			        }else{
+			            photoApp.alert(json.errmsg);
+			        }
+				});
+			}
+		} else {
+			// 用户名
+			$.JSONP('http://act.city.sina.com.cn/interface/activity/json_get_field_data.php',{act_id:11148, custom_1:text},function(json){
+				if(json.error == 0){
+					if (json.count == 0) {
+						photoApp.alert("抱歉没有找到这个用户的作品");
+						return;
+					}
+					
+					var data = json.data;
+					var id = data[0].id;
+					var vote_num = -1;
+					var index = -1;
+					for ( var i in lists_by_vote) {
+						if (id == lists_by_vote[i][0]) {
+							vote_num = lists_by_vote[i][1];
+							index = parseInt(i)+1;
+						}
+					}
+					
+					$(".vote-num").html(vote_num);//得票
+					$(".ranke-num").html(index);//排名
+					$(".work-num").html(parseInt(id)-3360000);//作品编号
+					$(".work-name").html(data[0].form_data.custom_1.value);	//作者 
+					$(".work-address").html(data[0].form_data.custom_3.value);	//学校
+					$(".work-pic").attr("src",data[0].form_data.custom_5.value); //作品图片
+					show_details();
+					
+		        }else{
+		            photoApp.alert(json.errmsg);
+		        }
+				
+			});
+		}
+		
+	});
+});
+</script>
+</body> 
+</html>

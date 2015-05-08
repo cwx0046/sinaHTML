@@ -71,7 +71,8 @@ input[type="button"]{ outline:none; -webkit-appearance:none; border: none; curso
 		<img alt="" src="http://jiangsu.sinaimg.cn/zt/s/gsyhjregh5/images/logo.png" width="87">
 	</div>
 	<div>
-		<img alt="" src="http://jiangsu.sinaimg.cn/zt/s/gsyhjregh5/images/e1.png" style="width: 100%; display: block; margin-bottom: 1em;">
+		<img alt="" src="http://jiangsu.sinaimg.cn/2015/0506/U12547P1194DT20150506093425.png" style="width: 100%; display: block; margin-bottom: 1em;">
+		<p style="text-align: center; font-size: 16px; margin-bottom: 10px;">下面一组商品，猜一猜哪个价格更贵，猜对3组有惊喜哦~</p>
 	</div>
 	<div>
 		<!-- swiper -->
@@ -148,6 +149,16 @@ input[type="button"]{ outline:none; -webkit-appearance:none; border: none; curso
 		<input type="button" value="确定" class="btn" id="showWeixin" onclick="showResult()"/>
 	</div>
 </div>
+
+
+
+<!-- 分享到朋友圈 -->
+<style>
+	.fenxiang { display: none;  z-index:99999999; text-align: center; padding-top: 25px; width:100%; background:RGBA(0,0,0,0.5) url("http://jiangsu.sinaimg.cn/zt/s/2014qixi/qixi/7.png") no-repeat 94% 0; background-size: 40px auto; color: #FFF; font-size: 16px; height: 50px; position: fixed; top: 0;}
+</style>
+<div class="fenxiang">分享到朋友圈</div>
+<!-- end 分享到朋友圈 -->
+
 
 <script type="text/javascript" src="http://jiangsu.sinaimg.cn/js/jquery_1.11.2.min_jsonp.js"></script>
 <script src="http://jiangsu.sinaimg.cn/js/swiper.jquery.min.3.0.6.js"></script>
@@ -429,6 +440,11 @@ function drawNewData() {
 
 setNewData(3);
 drawNewData();
+
+
+
+/* 朋友圈分享层 */
+$(".fenxiang").bind("touchstart mousedown", function() { $(this).fadeOut(300); });
 </script>
 
 <script type="text/javascript">
@@ -454,14 +470,19 @@ var userAnswer = [];
 
 
 function showResult() {
+	
+	setTimeout(function() {
+		$(".fenxiang").fadeIn(200);
+	}, 700);
+	
 	if(getNum_right() < 3){
 		layer.open({
-		    content: '<div class="center fs14 bold">您答对了' + getNum_right() + '题</div><div class="fs14 bold">答对全部3道题目可获得 <span class="red underline">融e购商城</span> 购物电子券 <span class="red fs16">20元</span>！赶快挑战吧！</div><input type="button" class="c_btn" onclick="reset()" value="再来一次" style="margin: 10px 0;"><div>1.有优惠要分享<img width="26" src="http://s3img.city.sina.com.cn/activity/common/large/343d3b09032ab4bef13567ccd41927cc.png">，邀您的好友一同来猜<br/>2.用券方式-关注订阅号：中国工商银行江苏省分行</div><div class="center"><div><img width="72" src="http://jiangsu.sinaimg.cn/2015/0429/U12547P1194DT20150429152637.png"></div>扫一扫二维码即可订阅<br/>“中国工商银行江苏省分行”微信公众号</div>',
+		    content: '<div class="center fs14 bold">您只猜中了' + getNum_right() + '道题，</div><div>再接再厉，离<span class="red fs16">20元</span>购物电子券只差' + "三二一"[getNum_right()] + '道题咯！全部猜中还将有机会参与……的抽奖</div><input type="button" class="c_btn" onclick="reset()" value="再来一次" style="margin: 10px 0;"><div>赶紧分享朋友圈邀请朋友一起来猜！</div>',
 		    style: 'background-color:rgba(0, 0, 0, 0.84); color:#fff; border:none;',
 		});
 	} else {
 		layer.open({
-		    content: '<div class="center fs14 bold">您答对了全部' + getNum_right() + '题！</div><div class="fs14 bold">恭喜获得 <span class="red underline">融e购商城</span> 购物电子券 <span class="red fs16">20元</span>快戳下方按钮领取吧！</div><input type="button" class="c_btn" onclick="window.open(\'http://mp.weixin.qq.com/s?__biz=MzAwNTEyMjc4NQ==&mid=205645989&idx=1&sn=6fdb9179f01d9916f4d8dc8848154722&scene=5#rd\')" value="去领券" style="margin: 10px 0 0;"><input type="button" class="c_btn" onclick="reset()" value="再来一次" style="margin: 10px 0;"><div>1.有优惠要分享<img src="http://s3img.city.sina.com.cn/activity/common/large/343d3b09032ab4bef13567ccd41927cc.png" style="width: 26px;">，邀您的好友一同来猜<br>2.<span onclick="window.open(\'http://mp.weixin.qq.com/s?__biz=MzAwNTEyMjc4NQ==&mid=205645989&idx=1&sn=6fdb9179f01d9916f4d8dc8848154722&scene=5#rd\')">查看用券方式</span></div>',
+		    content: '<div class="center fs14 bold">Duang~~~恭喜您' + getNum_right() + '道题全部猜中！</div><div class="fs14 bold">您已获得工行融e购商城购物电子券<span class="red fs16">20元</span>，点击下方链接领取！另外，您还将有机会参与……的抽奖</div><input type="button" class="c_btn" onclick="window.open(\'http://mp.weixin.qq.com/s?__biz=MzAwNTEyMjc4NQ==&mid=205645989&idx=1&sn=6fdb9179f01d9916f4d8dc8848154722&scene=5#rd\')" value="去领券" style="margin: 10px 0 0;"><div>赶紧分享朋友圈炫耀一下！</div>',
 		    style: 'background-color:rgba(0, 0, 0, 0.84); color:#fff; border:none;',
 		});		
 	}

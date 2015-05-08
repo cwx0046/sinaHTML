@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html xmlns:wb=“http://open.weibo.com/wb”>
+<head>
+<meta charset="GB2312">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="renderer" content="webkit">
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>阅享栖霞微书评大赛</title>
+<meta name="keywords" content="阅享栖霞微书评大赛" />
+<meta name="description" content="阅享栖霞微书评大赛" />
+<meta name="author" content="NorthWind" />
+<link rel="stylesheet" href="http://jiangsu.sinaimg.cn/zt/s/css/reset.css">
+<script type="text/javascript" src="http://jiangsu.sinaimg.cn/js/jquery_1.11.2.min_jsonp.js"></script>
+<script type="text/javascript" src="http://jiangsu.sinaimg.cn/js/artTemplate.js"></script>
+<script src="http://tjs.sjs.sinajs.cn/open/api/js/wb.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript" src="http://jiangsu.sinaimg.cn/js/dial_sso_login_mann.js" charset="UTF-8"></script>
+<script src="http://jiangsu.sinaimg.cn/z/js/weiboApi.js"></script>
+<script type="text/javascript" src="http://jiangsu.sinaimg.cn/js/mCustomScrollbar/jquery.mCustomScrollbar.concat.min.js"></script>
+<link rel="stylesheet" href="http://jiangsu.sinaimg.cn/js/mCustomScrollbar/jquery.mCustomScrollbar.min.css"> 
+<script type="text/javascript" src="http://jiangsu.sinaimg.cn/js/layer_v1.9.0/layer/layer.js"></script>
+<script type="text/javascript" src="http://act.city.sina.com.cn/js/voteCaptcha.js" charset="utf-8"></script>
+<link rel="stylesheet" type="text/css" href="http://act.city.sina.com.cn/style/captcha.css" />
+<!-- 
+<script type="text/javascript" src="http://jiangsu.sinaimg.cn/js/jquery1.11.1.min.js"></script>
+ -->
+<style type="text/css">
+.headimg{ min-width: 1000px; height: 600px; background: url("http://jiangsu.sinaimg.cn/2015/0422/U12547P1194DT20150422153829.jpg") no-repeat center top; }
+.page{ min-width: 1000px; margin: 0 auto; }
+.content{ width: 1000px; margin: 0 auto; position: relative;} 
+#p1{ height: 1078px; background: url("http://jiangsu.sinaimg.cn/2015/0422/U12547P1194DT20150422172649.png") no-repeat center; }
+#p2, #p3{ background-color: #ff4200; }
+
+.titleBox{ padding: 20px 0; text-align: center; }
+</style>
+</head>
+<body>
+	<div class="headimg"></div>
+	<div id="p1" class="page">
+		<div class="content"></div>
+	</div>
+	<div id="p2" class="page">
+		<div class="content">
+			<div class="titleBox">
+				<img alt="" src="http://jiangsu.sinaimg.cn/2015/0422/U12547P1194DT20150422161904.png">
+			</div>
+			
+<!-- 卡片式列表 -->
+<style>
+#cardBox1 .作品展示盒{ width: 100%; }
+#cardBox1 .card-item {  width: 16%;  margin: 0 6px 10px 6px; float:left; vertical-align: top; font-size: 14px; padding: 14px; background-color: #FFF; box-shadow: 1px 2px 2px rgba(36, 26, 62, .3); -ms-filter:"progid:DXImageTransform.Microsoft.Shadow(color=#BEBEBE,direction=135,strength=2)"; }
+#cardBox1 .work-imgBox{ overflow: hidden;  height: 176px;background-color: #fff; overflow: hidden;  }
+#cardBox1   .work-img{ display: block; height: 100%; margin: 0 auto; }
+#cardBox1 .work-desc{   text-align: center;  font-size: 12px;  padding: 12px 0 0; }
+#cardBox1 .work-voteBtn{ width: 100%; padding: 12px 0; outline:none; -webkit-appearance:none; border: none; background-color: #ff4400; color: #FFF; cursor: pointer; font-size: 18px; font-weight: bold; -webkit-transition: all 0.3s; }
+#cardBox1 .work-voteBtn:HOVER{ box-shadow: 1px 1px 4px rgba(174, 49, 52, 0.7); }
+#cardBox1 .work-voteBtn:ACTIVE{ background-color: #ff4400; }
+#cardBox1 .work-voteBtnBox:BEFORE{   content: ""; display: block; margin: 0 auto; width: 0; height: 0; border-style: solid; border-width: 0 3px 6px 3px; border-color: transparent transparent #ff4400 transparent; }
+</style>
+<div class="作品展示盒 clearfix" id="cardBox1">
+	<!-- 
+	<div class="card-item">
+		<div class="work-imgBox"><img class="work-img" alt="作品名称" src="xxxxxx"></div>
+		<div class="work-voteBtnBox"><input class="work-voteBtn" type="button" value="发表评书" onclick="发表评书('图书名称')"></div>
+		<div class="work-desc">（发表自己喜爱的书籍）</div>
+	</div>
+	 -->
+	
+</div>
+<script type="text/html" id="formDataTemplate1">
+{{each list as item i}}
+	<div class="card-item">
+		<div class="work-imgBox"><img class="work-img" src="{{item.imgurl}}"></div>
+		<div class="work-voteBtnBox"><input class="work-voteBtn" type="button" value="发表评书" onclick="
+		发表评书('{{if item.bookname == "（发表自己喜爱的书籍）"}}{{else}}{{item.bookname}}{{/if}}')"></div>
+		<div class="work-desc">{{item.bookname}}</div>
+	</div>
+{{/each}}
+</script>
+<!-- end 卡片式列表 -->
+
+			
+<!-- 弹出填写框 -->
+<style>
+.popupBG{
+display: none;
+ width: 100%;
+ height: 100%;
+ background-color: RGBA(0,0,0,0.3);
+ position: absolute;
+ left: 0;
+ top: 0;
+}
+.popupWrap{
+ background-color: #FFF;
+ padding: 20px;
+ width:260px;
+ position: absolute;
+ left: 500px;
+ top: 200px;
+ box-sizing: border-box;
+ 
+}
+.popupBox input,.popupBox textarea{   display: block; width: 100%; border-radius: 3px; border: 1px solid #AAA; padding: 0; margin:10px 0; line-height: 1.8em; }
+.popupBox .submitBtn{ background-color: #ff4200; border-radius: 4px; color: #FFF; font-weight: bold; font-size: 18px; cursor: pointer; }
+</style>
+<div class="popupBG" onclick="$(this).fadeOut()">
+	<div class="popupWrap" onclick="event.stopPropagation();">
+		<div class="popupBox">
+		
+			书名
+			<input id="f_bookName">
+			<textarea id="f_bookdesc" placeholder="140字以内微书评" maxlength="140" rows="6"></textarea>
+			姓名
+			<input id="f_name">
+			电话
+			<input id="f_phone">
+			
+			<input type="button" class="submitBtn" value="确认" onclick="提交书评()"/> 
+		</div>
+	</div>
+</div>
+<script type="text/javascript">
+
+var isSubmitting = false;
+function 提交书评() {
+	if (isSubmitting) {
+		return false;
+	}
+	
+	var data = {};
+	data.act_id = 11042;
+	data.custom_1 = $("#f_bookName").val();
+	data.custom_2 = $("#f_bookdesc").val();
+	data.custom_3 = $("#f_name").val();
+	data.custom_4 = $("#f_phone").val();
+	
+	if(data.custom_1==""){alert("请输入书名！"); return false;}
+	if(data.custom_2==""){alert("请输入书评！"); return false;}
+	if(data.custom_3==""){alert("请输入姓名！"); return false;}
+	
+	var partten = /^1[3,4,5,7,8]\d{9}$/;
+    if(!partten.test(data.custom_4)){alert("请填写正确的手机号！"); return false;}
+	
+    isSubmitting = true;
+    $.JSONP('http://act.city.sina.com.cn/interface/activity/json_add_signup.php',data,function(bm){
+        if(bm.error==0){
+        	alert("提交成功！");
+        	加载评论(1);
+        	isSubmitting = false;
+        	$(".popupBG").fadeOut();
+        	
+			//发出微博        	
+        	var uinfo = sinaSSOManager.getSinaCookie();
+    		if (!uinfo) { //判断登陆
+    		} else {
+    			var contentWeibo = "#阅享栖霞微书评# 《" + data.custom_1 + "》" + data.custom_2 + "@栖霞视点";
+    			if (contentWeibo.length >= 140) {
+    				contentWeibo = contentWeibo.substring(0,112) + "...http://t.cn/RAYL8Ph @栖霞视点";
+				}
+    			addWeiboByCookie(contentWeibo,"","");
+    		}
+        }else{
+            alert(bm.errmsg);
+        }
+    }); 
+}
+</script>
+
+<!-- end弹出填写框 -->
+			
+		</div>
+	</div>
+	<div id="p3" class="page">
+		<div class="content">
+			<div class="titleBox">
+				<img alt="" src="http://jiangsu.sinaimg.cn/2015/0422/U12547P1194DT20150422161904_1.png">
+			</div>
+
+
+<style>
+#cardBox2{ width: 100%; padding-bottom: 12px; }
+#cardBox2 .card-item { position: relative; width: 16%;  margin: 0 6px 10px 6px; float:left; vertical-align: top; font-size: 14px; padding: 14px; background-color: #FFF; box-shadow: 1px 2px 2px rgba(36, 26, 62, .3); -ms-filter:"progid:DXImageTransform.Microsoft.Shadow(color=#BEBEBE,direction=135,strength=2)"; }
+#cardBox2 .work-imgBox{ overflow: hidden;  height: 149px;background-color: #fff; overflow: hidden;  }
+#cardBox2   .work-img{ display: block; width: 100%;}
+#cardBox2 .work-descBox{ height: 2em; line-height: 2em; overflow: hidden; font-size: 18px;  text-align: center; }
+#cardBox2 .work-desc{   text-align: center;   font-weight: bold;  font-family: "Microsoft Yahei"; }
+#cardBox2 .work-textBox{ height: 170px; overflow: hidden; margin-bottom: 8px; }
+#cardBox2 .work-text{ text-indent: 2em; font-family: "Microsoft Yahei"; }
+#cardBox2 .work-voteBtn{ width: 100%; padding: 12px 0; outline:none; -webkit-appearance:none; border: none; background-color: #ff4400; color: #FFF; cursor: pointer; font-size: 18px; font-weight: bold; -webkit-transition: all 0.3s; }
+#cardBox2 .work-voteBtn:HOVER{ box-shadow: 1px 1px 4px rgba(174, 49, 52, 0.7); }
+#cardBox2 .work-voteBtn:ACTIVE{ background-color: #ff4400; }
+
+
+#cardBox2 .work-votecountBox {
+  text-align: right;
+  position: absolute;
+  bottom: 48px;
+  right: 7px;
+}
+#cardBox2 .work-votecount {
+  background-color: #FDA400;
+  display: inline-block;
+  padding: 2px 6px;
+  border-radius: 11px;
+  color: #FFF;
+  text-align: center;
+  vertical-align: middle;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.31);
+}
+
+#page a {
+  margin: 10px 3px;
+  padding: 0.4em 1em;
+  background-color: #FF713F;
+  border-radius: 9px;
+}
+
+#page a.cur {
+  margin: 10px 3px;
+  padding: 0.4em 1em;
+  background-color: #FF713F;
+  border-radius: 9px;
+  box-shadow: 0 0 4px 0 rgba(89, 89, 89, 0.28);
+}
+#page a.cur {
+  background-color: #FFA53F;
+  color: #B0483B;
+}
+.mCSB_outside+.mCSB_scrollTools{   right: -11px; }
+.mCS-dark.mCSB_scrollTools .mCSB_dragger .mCSB_dragger_bar{    background-color: rgba(0, 0, 0, 0.34); }
+  
+</style>
+			<div class="作品展示盒 clearfix" id="cardBox2">
+				<!-- 
+				<div class="card-item">
+					<div class="work-descBox"><div class="work-desc">书名书名书名书名书名书名书名书名书名书名书名书名书名书名</div></div>
+					<div class="work-textBox"><div class="work-text">描述描述描述描述描述描述描述描述描述描述描述描述描述</div></div>
+					<div class="work-voteBtnBox"><input class="work-voteBtn" type="button" value="投票" onclick="投票(作品编号)"></div>
+				</div>
+				<div class="card-item">
+					<div class="work-descBox"><div class="work-desc">书名</div></div>
+					<div class="work-textBox"><div class="work-text">描述描述描述描述描述描述描述描述描述描述描述描述描述</div></div>
+					<div class="work-voteBtnBox"><input class="work-voteBtn" type="button" value="投票" onclick="投票(作品编号)"></div>
+				</div>
+				<div class="card-item">
+					<div class="work-descBox"><div class="work-desc">书名书名书名书名书名书名书名书名书名书名书名书名书名书名</div></div>
+					<div class="work-textBox"><div class="work-text">描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述</div></div>
+					<div class="work-voteBtnBox"><input class="work-voteBtn" type="button" value="投票" onclick="投票(作品编号)"></div>
+				</div>
+				 -->
+			</div>
+			<div id="page" style="text-align: center; padding: 0 0 23px;"></div>
+
+		</div>
+	</div>
+	<div id="p4" class="page">
+		<div class="content" style="margin-bottom:60px;">
+			<div class="titleBox">
+				<img alt="" src="http://jiangsu.sinaimg.cn/2015/0422/U12547P1194DT20150422161905.png">
+			</div>
+			<wb:topic  uid="2106435821" column="y" border="y" width="1000" height="600" tags="%E9%98%85%E4%BA%AB%E6%A0%96%E9%9C%9E%E5%BE%AE%E4%B9%A6%E8%AF%84" language="zh_cn" version="base" footbar="y" url="%23" filter="n" ></wb:topic>
+		</div>
+	</div>
+
+<script type="text/javascript">
+var formData1 = {
+	list:[
+	       {
+	    	   imgurl: "http://jiangsu.sinaimg.cn/zt/s/yxqxwspds/books/0.png",
+	    	   bookname: "（发表自己喜爱的书籍）"
+	       },
+	       {
+	    	   imgurl: "http://jiangsu.sinaimg.cn/zt/s/yxqxwspds/books/1.jpg",
+	    	   bookname: "1988：我想和这个世界谈谈"
+	       },
+	       {
+	    	   imgurl: "http://jiangsu.sinaimg.cn/zt/s/yxqxwspds/books/2.jpg",
+	    	   bookname: "苦才是人生"
+	       },
+	       {
+	    	   imgurl: "http://jiangsu.sinaimg.cn/zt/s/yxqxwspds/books/3.jpg",
+	    	   bookname: "论语"
+	       },
+	       {
+	    	   imgurl: "http://jiangsu.sinaimg.cn/zt/s/yxqxwspds/books/4.jpg",
+	    	   bookname: "你若安好便是晴天"
+	       },
+	       {
+	    	   imgurl: "http://jiangsu.sinaimg.cn/zt/s/yxqxwspds/books/5.jpg",
+	    	   bookname: "平凡的世界"
+	       },
+	       {
+	    	   imgurl: "http://jiangsu.sinaimg.cn/zt/s/yxqxwspds/books/6.jpg",
+	    	   bookname: "三国志"
+	       },
+	       {
+	    	   imgurl: "http://jiangsu.sinaimg.cn/zt/s/yxqxwspds/books/7.jpg",
+	    	   bookname: "文化苦旅"
+	       },
+	       {
+	    	   imgurl: "http://jiangsu.sinaimg.cn/zt/s/yxqxwspds/books/8.jpg",
+	    	   bookname: "小王子"
+	       },
+	       {
+	    	   imgurl: "http://jiangsu.sinaimg.cn/zt/s/yxqxwspds/books/9.jpg",
+	    	   bookname: "一问一世界"
+	       }
+	       ]
+};
+
+
+var html = template('formDataTemplate1', formData1);
+document.getElementById('cardBox1').innerHTML = html;
+/* 
+var fillCardBox1 = function(){
+	var html = "";
+	for (var i = 0; i < formData1.list.length; i++) {
+		var obj = {
+				imgurl: "",
+				bookname:"",
+		};
+		obj.imgurl = formData1.list[i].imgurl;
+		obj.bookname = formData1.list[i].bookname;
+		html += '<div class="card-item">';
+		html += '<div class="work-imgBox"><img class="work-img" src="'+ obj.imgurl+'"></div>';
+		var bookName = obj.bookname;
+		bookName = (bookName == "（发表自己喜爱的书籍）") ? "" : bookName;
+		html += '<div class="work-voteBtnBox"><input class="work-voteBtn" type="button" value="发表评书" onclick="发表评书()"></div>';
+		html += '<div class="work-desc">'+obj.bookname+'</div>';
+		html += '</div>';
+	}
+	$("#cardBox1").html(html);
+}
+fillCardBox1();
+ */
+function 发表评书(name){
+	console.log("发表新图书名称"+ name);
+	$("#f_bookName").val(name);
+	$(".popupBG").fadeIn();
+	
+}
+ 
+ 
+
+function 加载评论(p) {
+    var act_id = 11042;
+    var pcount = 10;
+    $.JSONP('http://act.city.sina.com.cn/interface/activity/json_get_user_works.php',{act_id:act_id,p:p,pcount:pcount,order:'vote'},function(json){
+        var html ="";
+        //console.log(json)
+        for(var i=0; i<json.data.length;i++){
+                var data = json.data[i];
+				
+                html += '<div class="card-item">';
+                html += '<div class="work-descBox"><div class="work-desc">'+ data.form_data.custom_1.value+'</div></div>';
+                html += '<div class="work-textBox"><div class="work-text">'+data.form_data.custom_2.value+'</div></div>';
+                html += '<div class="work-votecountBox"><div class="work-votecount" id="N_' + data.id + '">'+data.vote_count+'</div></div>';
+                html += '<div class="work-voteBtnBox"><input class="work-voteBtn" type="button" value="投票" onclick="投票('+data.id+')"></div>';
+                html += '</div>';
+                
+
+				
+                var numCount = json.count;
+                var pageCount = Math.ceil(parseInt(numCount)/pcount);
+                var htmlPage = '';
+                if(pageCount>1){
+                    for(var k=1; k<=pageCount; k++){
+                        if(k==p){
+                            htmlPage += '<a href="javascript:;" onclick="pageBox('+k+')" class="cur">'+k+'</a>';
+                        }else{
+                            if(k<3 || (k>(p-4) && k<(p+4) )|| k>pageCount-3)
+                            {
+                                if(k == (p-3) && p>6)
+                                {   
+                                      htmlPage += '...<a href="javascript:;" onclick="pageBox('+k+')">'+k+'</a>';
+                                }
+                                else if(k == (p+3) && p< (pageCount-4))
+                                {
+                                    htmlPage += '<a href="javascript:;" onclick="pageBox('+k+')">'+k+'</a>...';
+                                }
+                                else
+                                {
+                                    htmlPage += '<a href="javascript:;" onclick="pageBox('+k+')">'+k+'</a>'; 
+                                }
+                            }
+                        }
+                    }
+                }
+                $('#page').html(htmlPage);
+        }
+        $('#cardBox2').html(html);
+        $("#cardBox2 .work-textBox").mCustomScrollbar({
+        	theme: "dark",
+        	scrollbarPosition: "outside"
+        });
+    });
+}
+
+加载评论(1);
+
+//翻页
+$('#page a').bind('click', function(){
+    var page = $(this).attr('page');
+    加载评论(page);
+});
+function pageBox(a)
+{
+	加载评论(a);
+}
+
+
+function 投票(id){	
+	$.JSONP("http://act.city.sina.com.cn/interface/activity/json_get_act_info.php", {act_id:11042}, function(data){
+		if (data.data.vote_captcha != 0) {
+		/* 需要填写验证码 */
+			new CAP.ui.captcha({act_id: 11042, height: 50, width: 120, ok_callback: function(captcha) {
+					var loadLayer = layer.load(2);
+					$.JSONP('http://vote.act.city.sina.com.cn/interface/activity/json_add_vote.php',{id: id, captcha: captcha},function(json){
+							layer.close(loadLayer);
+							if(json.error == 0){
+								layer.msg('投票成功!');
+								$("#N_"+id).text(parseInt($("#N_"+id).text()) + 1);
+					        }else{
+					        	layer.msg(json.errmsg);
+					        }
+					});
+				}
+			});
+		}else{
+		/* 无需验证码投票 */
+			$.JSONP("http://vote.act.city.sina.com.cn/interface/common/get_token.php", {act_id:11042, work_id: id }, function(data){
+				var loadLayer = layer.load(2);
+				$.JSONP('http://vote.act.city.sina.com.cn/interface/activity/json_add_vote.php',{id: id, token: data.token},function(json){
+						layer.close(loadLayer);
+						if(json.error == 0){
+							layer.msg('投票成功!');
+							$("#N_"+id).text(parseInt($("#N_"+id).text()) + 1);
+				        }else{
+				        	layer.msg(json.errmsg);
+				        }
+					});
+			});
+			
+		}
+	});
+
+}
+</script>
+
+
+</body>
+</html>

@@ -1,0 +1,651 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="GB2312">
+<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">
+<title>用心给孩子一个快乐-中国银行心的呼唤</title>
+<link rel="stylesheet" type="text/css" href="http://jiangsu.sinaimg.cn/zt/s/travel2014_Jiangsu_H5/idangerous.swiper.css">
+<script src="http://i2.sinaimg.cn/cj/dfz/js/base.js" type="text/javascript"></script>
+<!--滑动-->
+<link rel="stylesheet" href="http://jiangsu.sinaimg.cn/js/idangerous.swiper.css">
+<link rel="stylesheet" href="http://jiangsu.sinaimg.cn/js/idangerous.swiper.3dflow.css">
+<script src="http://jiangsu.sinaimg.cn/js/idangerous.swiper.min.js"></script>
+<script src="http://jiangsu.sinaimg.cn/js/idangerous.swiper.3dflow.min.js"></script>
+<script src="http://jiangsu.sinaimg.cn/js/jquery.transit.min.js"></script>
+<style type="text/css">
+* { margin: 0; padding: 0; }
+body { background: #000; }
+.box { width: 320px; margin: 0 auto; position: relative; }
+.swiper-container { position: absolute; top: 0; color: #fff; text-align: center; width: 320px; margin: 0 auto; min-height: 504px; max-height: 504px; }
+.swiper-slide { width: 100%; background: #000; overflow: hidden; position: relative; }
+/**/
+.welcome { position: absolute; top: 0; width: 320px; height: 460px; z-index: 3; margin: 0 auto; }
+.loading { width: 100%; top: 50%; margin-top: -20px; text-align: center; font-size: 12px; color: #fff; }
+.block { width: 100%; height: 100%; position: relative; overflow: hidden; }
+.block img { vertical-align: middle; }
+/* 每页上划箭头 */
+.static .info { width: 28px; height: 17px; bottom: 10px; opacity: 0; left: 50%; margin-left: -11px; z-index: 12; background: url(http://jiangsu.sinaimg.cn/zt/s/travel2014_Jiangsu_H5/images/icon_arrow.png) center center no-repeat; background-size: 100% 100%; -webkit-animation: infomove 2s ease-out 6s infinite; }
+#loadingico { -webkit-animation: scale2 1s linear infinite; }
+@-webkit-keyframes scale2 {  0% {
+-webkit-transform:scale(1);
+background-position:50% 0;
+opacity:0;
+}
+ 50% {
+-webkit-transform:scale(1.2);
+background-position:50% 37%;
+opacity:1;
+}
+ 100% {
+-webkit-transform:scale(1.6);
+background-position:50% 74%;
+opacity:0;
+}
+}
+.btnBottom { position: absolute; top: 5px; text-align: center; z-index: 99999; width: 100%; -webkit-animation: btnBottom 2s linear infinite; }
+@-webkit-keyframes btnBottom /* Safari and Chrome */ { 0% {
+-webkit-transform:translateY(0px);
+opacity: 0;
+}
+90% {
+opacity: 1;
+}
+100% {
+-webkit-transform:translateY(25px);
+opacity: 0;
+}
+}
+.musicBtn { position: absolute; right: 10px; top: 10px; -webkit-animation: myrotate 5s linear 0s infinite normal; z-index: 99999; }
+.musicBtn.mut { background-position: 0px -30px; -webkit-animation: none; }
+@-webkit-keyframes myrotate /*Safari and Chrome*/ { 0% {
+-webkit-transform:rotate(1deg);
+}
+25% {
+-webkit-transform:rotate(-90deg);
+}
+50% {
+-webkit-transform:rotate(-180deg);
+}
+75% {
+-webkit-transform:rotate(-270deg);
+}
+100% {
+-webkit-transform:rotate(-360deg);
+}
+}
+</style>
+<!-- 自适应缩放css -->
+<style type="text/css">
+body { overflow-x: hidden; }
+.swiper-slide { width: 320px; height: 504px; position: relative; background: url("http://jiangsu.sinaimg.cn/zt/s/images/gdyh/images/1.jpg") no-repeat center 0; background-size: 320px auto; }
+.swiper-container { width: 320px; height: 504px; -webkit-transform-origin: top left; margin: 0; }
+.swiper-4 { width: 320px; height: 315px; padding: 220px 0 0; }
+.swiper-4 .swiper-slide img { width: 220px; }
+.swiper-4 .swiper-slide { width: 220px; height: 120px; opacity: 0.5; }
+.swiper-4 .swiper-slide-active { opacity: 1; }
+
+
+.none { display: none; }
+#screen { width: 100%; height: 100%; position: relative; }
+.page { width: 320px; position: relative; margin: 0 auto; }
+#page1 {  padding-top:200px; height:100%}
+#page2, #page3 {}
+.center { text-align: center; }
+.btn { background-color:#b10731; color: #fff;-webkit-animation: myscale 1s linear 0s infinite normal; border-radius: 8px; font-size: 12px; line-height: 30px; width: 79px; cursor: pointer; margin: 0 auto 0;}
+.starGame{ background:url("http://jiangsu.sinaimg.cn/2015/0504/U11392P1194DT20150504201307.png") no-repeat center top; background-size:65px auto; text-indent:-999em; width:65px; height:65px;}
+@-webkit-keyframes myscale /*Safari and Chrome*/ { 
+0% {-webkit-transform:scale(1.0);}
+25% {-webkit-transform:scale(1.1);}
+50% {-webkit-transform:scale(1.2);}
+75% {-webkit-transform:scale(1.1);}
+100% {-webkit-transform:scale(1.0);}
+}
+.gameInfoBanner { width: 254px; margin:0 auto; text-align:left; padding-top: 162px; padding-bottom: 2px; height:25px;}
+.gameinfobox { width: 116px; height: 24px; line-height: 24px; font-size: 14px; color: #000; display: inline-block; position: relative; }
+.gameinfobox div { display: inline; }
+.gameinfobox span { margin-left: 2px; }
+#infoboxLele { width: 86px; float:left;}
+#infoboxLele img { width: 30px; position: absolute; right: -9px; bottom: -1px; }
+#infoboxTimer {float:left; }
+#infoboxTimer img { width: 22px; position: absolute; right: 3px; bottom: 1px; }
+.pauseBtn { width: 26px; height: 26px; float:right; cursor: pointer; background-image: url("http://jiangsu.sinaimg.cn/zt/s/images/gdyh/images/stopGame.png"); background-position: 0px 0px; background-size: 100%; border: none; margin-bottom: -7px; }
+#currentLevel,#timer{ color:#f00;}
+.pauseBtnPause { background-position: 0px 26px; }
+#gameIcoBlock { width: 254px; margin: 0 auto; }
+#gameIcoBlock img { width: 40px; height: 40px; float: left; margin: 1px; border-radius: 4px; cursor: pointer; background: #FFF; }
+#p3cloud { position: relative; padding-top: 60px;  margin-top: 40px;background:url("http://jiangsu.sinaimg.cn/zt/s/images/gdyh/images/3.png") no-repeat center top; background-size:190px auto; height:183px; }
+#p3cloud span { display: inline-block; color: #fff; margin: 0 auto; width: 190px;  font-size: 12px;   margin-top: 40px; line-height: 31px; }
+#p3cloud #level { width: auto; position: static; color: #fecc9f; margin: 0 8px; }
+
+</style>
+<!-- end 自适应缩放css -->
+</head>
+
+<body>
+<div style="position:absolute;top:-400px;"><img src="http://jiangsu.sinaimg.cn/zt/s/images/gdyh/images/weixin.jpg" /></div>
+<!-- 遮挡屏 
+<div id="firstCover" style="position: absolute;top: 0;left: 0;width: 100%; height: 100%; color:#000; background-color: #FFF; z-index: 13;text-shadow: 0px 1px 0px #EEE; background: #fefefe url('1.jpg') no-repeat center 0; background-size: 100% auto;" onclick="goon()">
+  <div style=" width:75px; height:75px;display:block; margin: 0 auto; margin-top: 72%; position:relative;"> <img id="loadingico" alt="loadingimg" src="http://jiangsu.sinaimg.cn/zt/s/images/gmxzyy/images/l1.png" width="75" style=" position:absolute; top:0;">
+    <div style="text-align: center; font-size:12px; line-height:75px;" class="loading" >%</div>
+  </div>
+</div>-->
+<audio id="bgm" loop style="display: none; width: 0; height: 0;" src="http://jiangsu.sinaimg.cn/misc/xjhh.mp3"></audio> 
+<script type="text/javascript">
+var mySwiper;
+function goon() {
+	//playMusic();
+	$("#firstCover").fadeOut(1200);
+}
+
+$(function(){
+	var firstTouch = true;
+	$('body').bind("touchstart",function(e){
+		if ( firstTouch ) {
+			firstTouch = false;
+			document.getElementById('bgm').play();
+		}else{
+			return;
+		}
+	});
+	
+	$(".musicBtn").bind("touchstart",function(e){  
+		//e.preventDefault();
+		//e.stopPropagation();
+		var dom = document.getElementById('bgm');
+		if( dom.paused ){
+			dom.play();
+			$(".musicBtn").removeClass("mut");
+		}else{
+			dom.pause();
+			$(".musicBtn").addClass("mut");
+		}
+	});
+	
+	function tebMusic()
+	{
+		
+	}
+})
+
+</script>
+<script type="text/javascript">
+
+function page(num) {
+	//$("#page"+num).show();
+	if(num == 3){
+		$("#page"+num).css({ display: 'block', rotateY: 180,opacity: 0.1}).transition({ display: 'block', rotateY: 360 , scale: '1',opacity: 1},1000);
+	}else{
+		$("#page"+num).fadeIn();
+		}
+	$(".page:not(#page"+num+")").hide();
+	
+	if(num == 2){
+		gamestart();
+	}
+}
+
+/* 游戏元素 */
+
+var imgsrc = ["2.gif", "3.gif", "4.gif", "5.gif", "6.gif", "7.gif",
+		"8.gif", "9.gif", "10.gif", "11.gif", "12.gif", "13.gif", "14.gif",
+		"15.gif", "16.gif", "17.gif", "18.gif", "19.gif", "20.gif", "21.gif",
+		"22.gif", "23.gif", "24.gif", "25.gif", "26.gif", "27.gif", "28.gif",
+		"29.gif", "30.gif", "31.gif", "32.gif", "33.gif", "34.gif", "35.gif"];		
+
+var obj1 = { isdog : true,  imgsrc : "http://jiangsu.sinaimg.cn/zt/s/images/gdyh/images/1.gif"};
+var objList = [];
+var bigLevelList = []; 
+var icoList = [];
+var difficult = 6; //每6关增加难度
+var level = 1;
+var score = 0;
+/* 
+ *  点击ico
+ *	@param 
+ *		index 索引
+ *	@return 
+ *		true  是
+ *		false 不是
+ */
+function icoClick(index){
+	return icoList[index].isdog;
+} 
+
+/*
+ *  第一个元素和随机元素交换位置
+ *  @param
+ *  	objs[]
+ *  @return
+ *  	objs[] 打乱后的数组
+ */
+function random(objs) {
+	//此方法抛弃，两两交换效果不好。
+	/*return objs.sort( function(){ return 0.5 - Math.random()} );*/
+	var randomIndex = parseInt(Math.random()*objs.length);
+	var temp = objs[0];
+	objs[0] = objs[randomIndex];
+	objs[randomIndex] = temp;
+	return objs;
+}
+
+//游戏关卡
+function gameRound(a) {
+	//difficult = level / difficult + 1;
+	//putIntoHTML(random(loadRound(difficult,56)));
+	putIntoHTML(random(getSmallLevel(a,36)));
+	setCurrentLevel(a);
+}
+function getBigLevel(level){
+	bigLevelList = [];
+	//从总图标选取大关所需图标
+	imgsrc.sort(function(){ return 0.5 - Math.random(); }); //打乱大数组
+	var bigLevel = Math.floor((( level - 1 ) / difficult ) + 1 ); //得到大关
+	if(bigLevel>1){alert("亲，难度增加了喔，继续来玩吧！爱心不停止，公益不散场！");}
+	if (bigLevel>4) {bigLevel = 4;} //限定最高大关4
+	for (var i = 0; i < bigLevel*difficult; i++) {
+		bigLevelList.push({isdog : false, imgsrc : "http://jiangsu.sinaimg.cn/zt/s/images/gdyh/images/" + imgsrc[i]});
+	}
+	return bigLevelList;
+}
+
+function getSmallLevel(level, gamesize){
+	if (level == 1 | level%difficult==1) {
+		getBigLevel(level);
+	}
+	icoList = [];
+	//从大关截取小关数据
+	var bigLevel = Math.floor((( level - 1 ) / difficult ) + 1 ); //得到大关
+	if (bigLevel>4) {bigLevel = 4;} //限定最高大关4
+	var smallLevel = level % difficult;
+	smallLevel = (smallLevel == 0) ? difficult : smallLevel; //保证小关为1,2,3...difficult
+	//console.log("关卡:"+ level +" "+bigLevel +"大关"+smallLevel+"小关");
+	//关卡内容设置
+	icoList[0] = obj1; //乐乐
+	for (var i = 1; i < gamesize; i++) {
+		var fanweimin = bigLevel*(smallLevel-1)
+		var fanweimax = bigLevel*smallLevel-1;
+		icoList.push(bigLevelList[ Math.round(fanweimin +  Math.random()*(fanweimax - fanweimin))]);
+	}
+	//console.log(bigLevelList+" "+fanweimax+" "+fanweimin);
+	//console.log(icoList);
+	//别忘了返回值要random
+	return icoList;
+}
+
+function putIntoHTML(icoList){
+	var html = '';
+	for ( var i in icoList) {
+		html +=	'<img src="' + icoList[i].imgsrc +'" />';
+	}
+	//$("#gameIcoBlock").html(html);
+	document.getElementById("gameIcoBlock").innerHTML = html;
+}
+
+function putIntoHTML_t(){
+	document.getElementById("gameIcoBlock").innerHTML = document.getElementById("gameIcoBlock").innerHTML;
+}
+
+/* 显示关卡 */
+function setCurrentLevel(level){
+	document.getElementById("currentLevel").innerHTML = level - 1;
+	document.getElementById("level").innerHTML = level - 1;
+}
+
+var t;
+var pause = false; //暂停 boolean
+/* 计时器 */
+function timer() {
+	var time = 30;
+	document.getElementById("timer").innerHTML = time;
+	
+	t = setInterval(function() {
+		if (pause) {
+			return;
+		}
+		time -= 0.1;
+		if(time <= 0){
+			//切换到第三页
+			page(3);
+			//alert("厉害～您闯过了"+level+"关！");
+			document.getElementById("timer").innerHTML = "0.0";
+			document.title = '恭喜您找到'+(level-1)+'颗红心，简直火眼金睛！您的爱心正在传播，赶快告诉您的朋友们，让我们一起将爱传递下去！';
+			//$.JSONP('http://act.city.sina.com.cn/interface/activity/json_add_signup.php',{act_id:6886,custom_1:(level-1)},function(bm){});
+			clearInterval(t);
+			return;
+		}
+		document.getElementById("timer").innerHTML = time.toFixed(1);
+	}, 100);
+}
+
+//暂停游戏
+function gamepause() {
+	pause = !pause;
+	$(".pauseBtn").toggleClass("pauseBtnPause");
+	//图片隐藏
+	$("#gameIcoBlock").toggleClass("none");
+}
+
+//点击 开始游戏～
+function gamestart(){
+	gameRound(1);
+	timer();//开始计时！
+	$("#gameIcoBlock img").die().live("click", function() {
+		console.log(this);
+		if (icoClick($(this).index())) {
+			level++;
+			putIntoHTML_t()
+			nextFlash(level);
+			//gameRound(level);
+		}
+	});
+}
+
+function nextFlash(a)
+{
+	$("#gameIcoBlock").transition({ rotateY: 90 ,scale: '1.2',opacity: 0},800,function(){
+		gameRound(level);
+		$(this).transition({ rotateY: 0 , scale: '1',opacity: 1});
+		});
+}
+function resetGame(){
+	//location.reload();
+	page(1);
+	objList = [];
+	bigLevelList = []; 
+	icoList = [];
+	level = 1;
+	score = 0;
+	//console.log(level);
+	clearInterval(t);
+}
+
+$(function()
+{
+	gameRound(1);
+})
+</script>
+<div id="sContainer" class="swiper-container" style="height: 504px;">
+  <div class="musicBtn"><img src="http://jiangsu.sinaimg.cn/zt/s/images/gmxzyy/images/music.png" width="25"></div>
+  <div class="swiper-wrapper" style="width: 320px; height: 3000px; transition: 0.3s; -webkit-transition: 0.3s; transform: translate3d(0px, 0px, 0px); -webkit-transform: translate3d(0px, 0px, 0px);"> 
+    <!--First Slide--> 
+    <!-- page 1 -->
+    
+    <div class="swiper-slide stop-swiping" style="width: 320px; height: 504px;">
+      <div id="page_p1" class="block"> 
+		
+		<div id="screen">
+
+
+          <div class="page" id="page1">
+          <img style="margin: 20px auto 0; position:absolute; left:25px; top:0;" width="271" src="http://jiangsu.sinaimg.cn/zt/s/images/gdyh/images/2.png">
+              <div class="btn starGame" onclick="page(2);">点我开始</div>
+          </div>
+          <div class="page" id="page2">
+          <img style="margin: 20px auto 0; position:absolute; left:25px; top:0;" width="271" src="http://jiangsu.sinaimg.cn/zt/s/images/gdyh/images/2.png">
+            <div class="gameInfoBanner">
+              <div class="gameinfobox" id="infoboxLele"><span>找到
+                <div id="currentLevel">20</div>
+                个</span></div>
+              <div class="gameinfobox" id="infoboxTimer"><span>
+                倒计时：<div id="timer">62</div>
+                秒</span></div>
+              <div class="pauseBtn gameinfobox" onclick="gamepause()"></div>
+            </div>
+            
+            <!-- 游戏区域 -->
+            <div style="height: 336px;">
+              <div id="gameIcoBlock" class="clearfix">
+                <img src="http://jiangsu.sinaimg.cn/zt/s/images/gdyh/images/2.gif">
+                <img src="http://jiangsu.sinaimg.cn/zt/s/images/gdyh/images/3.gif">
+                <img src="http://jiangsu.sinaimg.cn/zt/s/images/gdyh/images/4.gif">
+                <img src="http://jiangsu.sinaimg.cn/zt/s/images/gdyh/images/5.gif">
+                <img src="http://jiangsu.sinaimg.cn/zt/s/images/gdyh/images/6.gif">
+                <img src="http://jiangsu.sinaimg.cn/zt/s/images/gdyh/images/7.gif">
+                <img src="http://jiangsu.sinaimg.cn/zt/s/images/gdyh/images/8.gif">
+                <img src="http://jiangsu.sinaimg.cn/zt/s/images/gdyh/images/9.gif">
+                <img src="http://jiangsu.sinaimg.cn/zt/s/images/gdyh/images/10.gif">
+                <img src="http://jiangsu.sinaimg.cn/zt/s/images/gdyh/images/12.gif">
+                <img src="http://jiangsu.sinaimg.cn/zt/s/images/gdyh/images/13.gif">
+                <img src="http://jiangsu.sinaimg.cn/zt/s/images/gdyh/images/14.gif">
+                <img src="http://jiangsu.sinaimg.cn/zt/s/images/gdyh/images/15.gif">
+                <img src="http://jiangsu.sinaimg.cn/zt/s/images/gdyh/images/16.gif">
+                <img src="http://jiangsu.sinaimg.cn/zt/s/images/gdyh/images/17.gif">
+                <img src="http://jiangsu.sinaimg.cn/zt/s/images/gdyh/images/18.gif">
+                <img src="http://jiangsu.sinaimg.cn/zt/s/images/gdyh/images/19.gif">
+                <img src="http://jiangsu.sinaimg.cn/zt/s/images/gdyh/images/20.gif">
+                <img src="http://jiangsu.sinaimg.cn/zt/s/images/gdyh/images/21.gif">
+                <img src="http://jiangsu.sinaimg.cn/zt/s/images/gdyh/images/22.gif">
+                <img src="http://jiangsu.sinaimg.cn/zt/s/images/gdyh/images/23.gif">
+                <img src="http://jiangsu.sinaimg.cn/zt/s/images/gdyh/images/24.gif">
+                <img src="http://jiangsu.sinaimg.cn/zt/s/images/gdyh/images/25.gif">
+                <img src="http://jiangsu.sinaimg.cn/zt/s/images/gdyh/images/26.gif">
+                <img src="http://jiangsu.sinaimg.cn/zt/s/images/gdyh/images/27.gif">
+                <img src="http://jiangsu.sinaimg.cn/zt/s/images/gdyh/images/28.gif">
+                <img src="http://jiangsu.sinaimg.cn/zt/s/images/gdyh/images/29.gif">
+                <img src="http://jiangsu.sinaimg.cn/zt/s/images/gdyh/images/30.gif">
+                <img src="http://jiangsu.sinaimg.cn/zt/s/images/gdyh/images/31.gif">
+                <img src="http://jiangsu.sinaimg.cn/zt/s/images/gdyh/images/32.gif">
+                <img src="http://jiangsu.sinaimg.cn/zt/s/images/gdyh/images/33.gif">
+                <img src="http://jiangsu.sinaimg.cn/zt/s/images/gdyh/images/34.gif">
+                <img src="http://jiangsu.sinaimg.cn/zt/s/images/gdyh/images/35.gif">
+                <img src="http://jiangsu.sinaimg.cn/zt/s/images/gdyh/images/1.gif">
+              </div>
+            </div>
+          </div>
+          <div class="page" id="page3">
+            <div class="center"> 
+              <div id="p3cloud"><span>恭喜您找到<span id="level">0</span>颗红心！您的爱心<br/>正在传播，赶快告诉您的朋友们<br/>一起将爱传递下去吧！
+                </span></div>
+              <div class="btn" onclick="resetGame();" style="margin-top: 29px;width: 96px;">再来一次</div>
+              <div class="btn" onclick="mySwiper.swipeTo(1);Swipercallback(1);" style="margin-top: 15px;width: 96px;margin-bottom: 75px;">查看更多</div>
+            </div>
+          </div>
+		</div>
+      </div>
+       
+
+    </div>
+     <!-- page 6 -->
+   	<div class="swiper-slide" style="width: 320px; height: 504px;">
+      <div id="page_p6" class="block">
+      
+      <img class="p6_t1" style="margin: 50px auto 0;" width="260" src="http://jiangsu.sinaimg.cn/zt/s/images/4.png">
+      <img class="p6_t2" style="margin: 10px auto 0;" width="280" src="http://jiangsu.sinaimg.cn/zt/s/images/4_1.png">
+      <img class="p6_t3" style="margin: 10px auto 0;" width="280" src="http://jiangsu.sinaimg.cn/zt/s/images/4_2.png">
+      
+        <div class="swiper-container swiper-4 abscenter">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide">
+            <img src="http://jiangsu.sinaimg.cn/zt/s/images/gdyh/1.jpg" width="320"></div>
+            <div class="swiper-slide">
+            <img src="http://jiangsu.sinaimg.cn/zt/s/images/gdyh/2.jpg" width="320"></div>
+            <div class="swiper-slide">
+            <img src="http://jiangsu.sinaimg.cn/zt/s/images/gdyh/3.jpg" width="320"></div>
+            <div class="swiper-slide">
+            <img src="http://jiangsu.sinaimg.cn/zt/s/images/gdyh/4.jpg" width="320"></div>
+            <div class="swiper-slide">
+            <img src="http://jiangsu.sinaimg.cn/zt/s/images/gdyh/5.jpg" width="320"></div>
+            <div class="swiper-slide">
+            <img src="http://jiangsu.sinaimg.cn/zt/s/images/gdyh/6.jpg" width="320"></div>
+            <div class="swiper-slide">
+            <img src="http://jiangsu.sinaimg.cn/zt/s/images/gdyh/7.jpg" width="320"></div>
+            <div class="swiper-slide">
+            <img src="http://jiangsu.sinaimg.cn/zt/s/images/gdyh/8.jpg" width="320"></div>
+          </div>
+        </div>
+        <div class="btnBottom"><img src="http://jiangsu.sinaimg.cn/misc/gome.png" width="38"></div>
+      </div>
+    </div>
+    
+  </div>
+</div>
+
+<script>
+document.addEventListener("touchmove", function(e) {
+	e.preventDefault();e.returnValue = false;
+	}, false);
+				
+(function(){
+	var fixPagesHeight = function() {
+		var _height = $(window).height();
+		//内容区高度修复
+		$(".swiper-container").height(_height);
+		//canvas高度修复
+		//$('#welcome').attr('height',_height);
+	}
+	$(window).live('resize',function(){
+		fixPagesHeight()
+	});
+
+	fixPagesHeight();
+})();
+</script> 
+<script type="text/javascript">
+var loadImage = function (url, callback) {
+	var img = new Image(); 
+	img.src = url;
+	if(img.complete) { 
+		callback.call(img);
+		return; 
+	};
+	img.onload = function () {
+		callback.call(img);
+	};
+};
+var imgLoad = function(srcs,callback){
+	var srcs = srcs || [];
+	var len = srcs.length;
+	if(len<1) return;
+	//记录加载长度
+	var loadNum = 0;
+	var loading_p = 0;
+	var loading = function(){
+		if(loadNum<len){
+			loading_p = Math.ceil(100*loadNum/len);
+			var _src = srcs[loadNum];
+			loadImage(_src,function(img){
+				loadNum++;
+				callback && callback(loading_p);
+				loading();
+				});
+
+			}else{
+				loading_p = '100';
+				callback && callback(loading_p);
+				};
+		}
+	loading();
+	};
+var initPage = function(){
+		var _img = $('.swiper-container img');
+		var arr = [];
+		_img.each(function(i,v){
+			var _src = $(v).data('src');
+			if(_src){
+				arr.push(_src);
+				};
+			});
+
+		if(arr.length<1){
+			//initSwiper();
+			return;
+			};
+
+		var obj = {
+			num : 0,
+			timer:null
+			};
+		imgLoad(arr,function(num){
+			obj.timer && clearTimeout(obj.timer);
+			if(num>=100){
+				num=100;
+				_img.each(function(_i,_v){
+					$(_v).attr('src',$(_v).data('src'));
+					});
+				//obj.timer = setTimeout(initSwiper,500);
+				};
+			$('.loading').html(num + '%');
+			if(num == 100){  
+				$('.loading').html("<img src='http://jiangsu.sinaimg.cn/zt/s/images/gmxzyy/images/click.png' width='27' style='margin-top: 18px;'>");
+				$('.loadingtip').fadeOut();
+			}
+				
+			});
+		};
+	initPage();
+</script> 
+<script>
+
+	
+
+</script>
+<div class="pagination" style="display: none"><!--翻页--></div>
+<script type="text/javascript">
+mySwiper = new Swiper('.swiper-container', {
+	pagination: '.pagination',    //分页
+	paginationClickable: true,    //分页点击定位
+	mode: 'vertical',
+	Swipercallback: Swipercallback,
+	noSwiping : true,
+	noSwipingClass : 'stop-swiping'
+})
+
+var swiper4 = new Swiper('.swiper-4',{
+	// options
+	mode:'horizontal',//horizontal
+	slidesPerView : "auto",
+	centeredSlides: true,
+	speed:700,
+	loop:true,
+	tdFlow: {
+		rotate : 20,
+		stretch : 100,
+		depth: 300,
+		modifier : 1,
+		shadows : false
+	}
+}); 
+
+var nowpage = 0, upprompt = 2, canclose = false;
+function Swipercallback(p) {
+	//alert(p)
+	//清除完成动画
+	//if (nowpage != p) {clearallanimate();}
+	//if( nowpage === p ){return;}
+	nowpage = p;
+	//页面添加动画效果
+	//console.log($(".swiper-slide").eq(nowpage));
+	var dom = document.getElementById('bgm');
+	dom.src="http://jiangsu.sinaimg.cn/misc/wxyf.mp3";
+	dom.play();
+	if(nowpage==1){
+		$(".p6_t1").css({ y: '-30px',opacity: 0}).transition({ y: '0',opacity: 1,delay: 0 },1500);
+		$(".p6_t2").css({ y: '-30px',opacity: 0}).transition({ y: '0',opacity: 1,delay: 1000 },1500);
+		$(".p6_t3").css({ y: '30px',opacity: 0}).transition({ y: '0',opacity: 1,delay: 1500 },1500);
+		}
+	//$(".swiper-slide").eq(nowpage).find("img").css({ y: '-30px'}).transition({ y: '0',opacity: 1,delay: 500 },1500);
+}
+
+/*动画重置*/
+function clearallanimate() 
+{
+	//$(".swiper-slide").find("img").css({opacity: 0});
+	//$(".swiper-shadow").css("display", "none");
+	//alert("重置");
+}
+</script> 
+<!-- page Auto scale --> 
+<script type="text/javascript">
+	$(function() {
+		var r = document.body.offsetWidth / 320;
+		$("#sContainer").css("-webkit-transform", "scale(" + r + ")");
+	});
+	$(window).resize(function() {
+		var r = document.body.offsetWidth / 320;
+		$("#sContainer").css("-webkit-transform", "scale(" + r + ")");
+		
+	});
+</script> 
+</svg>
+</body>
+</html>

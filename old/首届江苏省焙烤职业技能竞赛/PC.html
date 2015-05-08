@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="GB18030">
+<title>首届江苏省焙烤职业技能竞赛</title>
+<link rel="stylesheet" type="text/css" href="http://jiangsu.sinaimg.cn/zt/s/css/reset.css">
+<script type="text/javascript" src="http://jiangsu.sinaimg.cn/js/jquery_1.11.2.min_jsonp.js"></script>
+<script type="text/javascript" src="http://jiangsu.sinaimg.cn/z/2014/wcj/js/jquery.ad-gallery.js"></script>
+<style type="text/css">
+body{ background-color: #ffa432; }
+.content{ max-width: 1000px; margin: 0 auto; position: relative; }
+.box{
+ min-width: 1000px;
+ height: 7197px;
+ margin: 0 auto;
+ background: url("http://jiangsu.sinaimg.cn/2015/0430/U12547P1194DT20150430191448.jpg") no-repeat center top;
+ position: relative;
+}
+
+#box1{
+ left: 100px;
+ top: 5414px;
+ position: absolute;
+}
+
+#box2{
+ left: 100px;
+ top: 6574px;
+ position: absolute;
+ width: 800px;
+ height: 440px;
+}
+</style>
+<style type="text/css">
+#descriptions {	position: relative;	height: 50px;	margin-top: 10px;	width: 800px;	overflow: hidden;}
+#descriptions .ad-image-description {	position: absolute;	background: #fff;}
+#descriptions .ad-image-description .ad-description-title {	display: block;}
+.ad-gallery {	width: 800px;	float: left;}
+.ad-gallery, .ad-gallery * {	margin: 0;	padding: 0;}
+.ad-gallery .ad-image-wrapper {	width: 800px;	height: 600px;	margin-bottom: 10px;	position: relative;	top: 0px;	left: 0px;	overflow: hidden;}
+.ad-gallery .ad-image-wrapper .ad-loader {	position: absolute;	z-index: 10;	top: 48%;	left: 48%;	border: 1px solid #CCC;}
+.ad-gallery .ad-image-wrapper .ad-next {	position: absolute;	right: 0;	top: 0;	width: 25%;	height: 100%;	cursor: pointer;	display: block;	z-index: 100;}
+.ad-gallery .ad-image-wrapper .ad-prev {	position: absolute;	left: 0;	top: 0;	width: 25%;	height: 100%;	cursor: pointer;	display: block;	z-index: 100;}
+.ad-gallery .ad-image-wrapper .ad-prev, .ad-gallery .ad-image-wrapper .ad-next	{	/* Or else IE will hide it */	background: url(../img/non-existing.jpg) \9}
+.ad-gallery .ad-image-wrapper .ad-prev .ad-prev-image, .ad-gallery .ad-image-wrapper .ad-next .ad-next-image	{	background: url(../img/ad_prev.png);	width: 30px;	height: 30px;	display: none;	position: absolute;	top: 50%;	left: 0;	z-index: 101;}
+.ad-gallery .ad-image-wrapper .ad-next .ad-next-image {	background: url(../img/ad_next.png);	width: 30px;	height: 30px;	right: 0;	left: auto;	top: 50%;}
+.ad-gallery .ad-image-wrapper .ad-image {	position: absolute;	overflow: hidden;	top: 0;	left: 0;	z-index: 9;}
+.ad-gallery .ad-image-wrapper .ad-image a img {	border: 0;}
+.ad-gallery .ad-image-wrapper .ad-image .ad-image-description {	position: absolute;	bottom: 0px;	left: 0px;	padding: 7px;	text-align: left;	width: 100%;	z-index: 2;	background: url(../img/opa75.png);	color: #000;	/*  */	display: none;}
+* html .ad-gallery .ad-image-wrapper .ad-image .ad-image-description {	background: none;	filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(enabled=true, sizingMethod=scale, src='opa75.png');}
+.ad-gallery .ad-image-wrapper .ad-image .ad-image-description .ad-description-title	{	display: block;	font-weight: bold;	font-size: 15px;	padding-bottom: 5px;	padding-top: 3px;}
+.ad-gallery .ad-image-wrapper .ad-image .ad-image-description span {	color: #2f2f2f;	font-size: 13px;	line-height: 18px;	display: block;	text-indent: 20px;}
+.ad-gallery .ad-image-wrapper .ad-image .ad-image-description span i {	color: #2f2f2f;	float: right;	font-size: 11px;	width: 100%;	text-align: right;	display: block;	font-style: normal;}
+.ad-gallery .ad-controls {	height: 40px;	width: 800px;	padding: 10px 50px 0 50px;	color: #666;}
+.ad-gallery .ad-info {	float: left;}
+.ad-gallery .ad-slideshow-controls {	float: right;	text-indent: -9999px;}
+.ad-gallery .ad-slideshow-controls .ad-slideshow-start, .ad-gallery .ad-slideshow-controls .ad-slideshow-stop{	padding-left: 5px;	cursor: pointer;}
+.ad-gallery .ad-slideshow-controls .ad-slideshow-countdown {	padding-left: 5px;	font-size: 0.9em;}
+.ad-gallery .ad-slideshow-running .ad-slideshow-start {	cursor: default;	font-style: italic;}
+.ad-gallery .ad-nav {	width: 800px;	position: relative;}
+.ad-gallery .ad-forward, .ad-gallery .ad-back {	position: absolute;	top: 0;	height: 100%;	z-index: 10;}
+/* IE 6 doesn't like height: 100% */* html .ad-gallery .ad-forward, .ad-gallery .ad-back {	height: 86px;}
+.ad-gallery .ad-back {	cursor: pointer;	left: -52px;	width: 26px;	display: block;
+	background: url(http://s3img.city.sina.com.cn/activity/common/large/42b2020c115094e6f6594a1ee59537a9.png) 0px 21px no-repeat;
+	background-size: 100% auto;}
+.ad-gallery .ad-forward {	cursor: pointer;	display: block;	right: -50px;	width: 26px;
+	background: url(http://s3img.city.sina.com.cn/activity/common/large/16963ccaf4415ea0d159504aafb17a4a.png) 0px 21px no-repeat;
+	background-size: 100% auto;}
+.ad-gallery .ad-nav .ad-thumbs {	overflow: hidden;	width: 100%;}
+.ad-gallery .ad-thumbs .ad-thumb-list {	float: left;	width: 8150px;	list-style: none;}
+.ad-gallery .ad-thumbs li {	float: left;	padding-right: 3px;	padding-left: 3px;}
+.ad-gallery .ad-thumbs li a {	display: block;	font-family: "microsoft yahei";	font-size: 18px;}
+.ad-gallery .ad-thumbs li a img {	border: 1px solid #CCC;	display: block;	width: 110px;	height: auto;}
+.ad-gallery .ad-thumbs li a.ad-active img {	border: 1px solid #616161;}
+/* Can't do display none, since Opera won't load the images then */
+.ad-preloads {	position: absolute;	left: -8150px;	top: -8150px;}
+</style>
+
+
+<style type="text/css">
+
+#box0{ position: absolute; width: 340px; height: 300px; left: 40px; top: 825px;  }
+</style>
+</head>
+<body>
+
+	<div class="box">
+	
+	<div class="content">
+		<a id="box0" href="http://jiangsu.sina.com.cn/news/general/2015-04-29/detail-iawzuney4563200.shtml" target="_blank"></a>
+		
+		
+		
+		<div id="box1">
+		<div id="gallery" class="ad-gallery">
+	<div class="ad-image-wrapper"></div>
+	<div class="ad-nav">
+		<div class="ad-thumbs">
+			<ul class="ad-thumb-list">
+<li><a href="http://jiangsu.sinaimg.cn/zt/s/images/gmxzyy/images/c7.jpg"> <img		
+		src="http://jiangsu.sinaimg.cn/zt/s/images/gmxzyy/images/c7.jpg" longdesc="" alt="" >
+</a></li>		
+<li><a href="http://jiangsu.sinaimg.cn/zt/s/images/gmxzyy/images/c1.jpg"> <img		
+		src="http://jiangsu.sinaimg.cn/zt/s/images/gmxzyy/images/c1.jpg" longdesc="" alt="" >
+</a></li>		
+<li><a href="http://jiangsu.sinaimg.cn/zt/s/images/gmxzyy/images/c3.jpg"> <img		
+		src="http://jiangsu.sinaimg.cn/zt/s/images/gmxzyy/images/c3.jpg" longdesc="" alt="" >
+</a></li>		
+<li><a href="http://jiangsu.sinaimg.cn/zt/s/images/gmxzyy/images/c4.jpg"> <img		
+		src="http://jiangsu.sinaimg.cn/zt/s/images/gmxzyy/images/c4.jpg" longdesc="" alt="" >
+</a></li>		
+<li><a href="http://jiangsu.sinaimg.cn/zt/s/images/gmxzyy/images/c6.jpg"> <img		
+		src="http://jiangsu.sinaimg.cn/zt/s/images/gmxzyy/images/c6.jpg" longdesc="" alt="" >
+</a></li>		
+<li><a href="http://jiangsu.sinaimg.cn/zt/s/images/gmxzyy/images/c8.jpg"> <img		
+		src="http://jiangsu.sinaimg.cn/zt/s/images/gmxzyy/images/c8.jpg" longdesc="" alt="" >
+</a></li>		
+<li><a href="http://jiangsu.sinaimg.cn/zt/s/images/gmxzyy/images/c9.jpg"> <img		
+		src="http://jiangsu.sinaimg.cn/zt/s/images/gmxzyy/images/c9.jpg" longdesc="" alt="" >
+</a></li>		
+<li><a href="http://jiangsu.sinaimg.cn/zt/s/images/gmxzyy/images/c10.jpg"> <img		
+		src="http://jiangsu.sinaimg.cn/zt/s/images/gmxzyy/images/c10.jpg" longdesc="" alt="" >
+</a></li>		
+<li><a href="http://jiangsu.sinaimg.cn/2015/0430/U12547P1194DT20150430191550.jpg"> <img		
+		src="http://jiangsu.sinaimg.cn/2015/0430/U12547P1194DT20150430191550.jpg" longdesc="" alt="" >
+</a></li>		
+<li><a href="http://jiangsu.sinaimg.cn/zt/s/images/gmxzyy/images/c11.jpg"> <img		
+		src="http://jiangsu.sinaimg.cn/zt/s/images/gmxzyy/images/c11.jpg" longdesc="" alt="" >
+</a></li>		
+<li><a href="http://jiangsu.sinaimg.cn/zt/s/images/gmxzyy/images/c12.jpg"> <img		
+		src="http://jiangsu.sinaimg.cn/zt/s/images/gmxzyy/images/c12.jpg" longdesc="" alt="" >
+</a></li>		
+<li><a href="http://jiangsu.sinaimg.cn/zt/s/images/gmxzyy/images/c15.jpg"> <img		
+		src="http://jiangsu.sinaimg.cn/zt/s/images/gmxzyy/images/c15.jpg" longdesc="" alt="" >
+</a></li>		
+<li><a href="http://jiangsu.sinaimg.cn/zt/s/images/gmxzyy/images/c16.jpg"> <img		
+		src="http://jiangsu.sinaimg.cn/zt/s/images/gmxzyy/images/c16.jpg" longdesc="" alt="" >
+</a></li>		
+<li><a href="http://jiangsu.sinaimg.cn/zt/s/images/gmxzyy/images/c17.jpg"> <img		
+		src="http://jiangsu.sinaimg.cn/zt/s/images/gmxzyy/images/c17.jpg" longdesc="" alt="" >
+</a></li>		
+<li><a href="http://jiangsu.sinaimg.cn/zt/s/images/gmxzyy/images/c19.jpg"> <img		
+		src="http://jiangsu.sinaimg.cn/zt/s/images/gmxzyy/images/c19.jpg" longdesc="" alt="" >
+</a></li>		
+<li><a href="http://jiangsu.sinaimg.cn/zt/s/images/gmxzyy/images/c20.jpg"> <img		
+		src="http://jiangsu.sinaimg.cn/zt/s/images/gmxzyy/images/c20.jpg" longdesc="" alt="" >
+</a></li>
+
+			</ul>
+		</div>
+	</div>
+</div>
+
+
+<script type="text/javascript">
+	$(function() {
+		var galleries = $('.ad-gallery').adGallery();
+		$('#switch-effect').change(function() {
+			galleries[0].settings.effect = $(this).val();
+			return false;
+		});
+		$('#toggle-slideshow').click(function() {
+			galleries[0].slideshow.toggle();
+			return false;
+		});
+		$('#toggle-description').click(function() {
+			if (!galleries[0].settings.description_wrapper) {
+				galleries[0].settings.description_wrapper = $('#descriptions');
+			} else {
+				galleries[0].settings.description_wrapper = false;
+			}
+			return false;
+		});
+	});
+</script>
+
+		</div>
+	
+	
+		<div id="box2">
+		<!-- 轮播图 -->
+<div id="js_block2">
+<style>
+#js_block2 { width:800px; height:440px; overflow:hidden; position:relative; }
+#js_block2 ul {height:440px; position:absolute;}
+#js_block2 ul li {
+  display: table-cell;
+  vertical-align: middle;
+  text-align: center;
+  /* float: left; */
+  width: 800px;
+  height: 440px;
+  overflow: hidden;
+  position: relative;
+  background: #FFF;
+}
+
+#js_block2 ul li img {
+  display: inline-block;
+  margin: 0 auto;
+}
+#js_block2 ul li div {position:absolute; overflow:hidden;}
+#js_block2 .btn {position:absolute; width:780px; height:10px; padding:18px 14px; right:0; bottom:0; text-align:right;}
+#js_block2 .btn span {display:inline-block; _display:inline; _zoom:1; width:10px; height:10px; _font-size:0; border-radius:50%; margin-left:6px; cursor:pointer; background:#d2d2d2;}
+#js_block2 .btn span.on {background:#d2d2d2;}
+#js_block2 .next {right:0; background-position:right top;}
+.pictext{ padding:0 10px; font-family:"microsoft yahei"; font-size:18px; color:#FFF;line-height: 46px; position: absolute; background:rgba(0,0,0,.8); background:none\9; filter:progid:DXImageTransform.Microsoft.Gradient(startColorStr=#CC000000,endColorStr=#CC000000); width: 523px; height: 46px; bottom: 0; left: 0;}
+</style>
+
+<script type="text/javascript">
+/* script By QQshop */
+$(function() {
+	var sWidth = $("#js_block2").width(); //获取焦点图的宽度（显示面积）
+	var len = $("#js_block2 ul li").length; //获取焦点图个数
+	var index = 0;
+	var picTimer;
+	
+	//以下代码添加数字按钮和按钮后的半透明条，还有上一页、下一页两个按钮
+	var btn = "<div class='btn'>";
+	for(var i=0; i < len; i++) {
+		btn += "<span></span>";
+	}
+	btn += "</div>";
+	$("#js_block2").append(btn);
+	$("#js_block2 .btnBg").css("opacity",0.5);
+
+	//为小按钮添加鼠标滑入事件，以显示相应的内容
+	$("#js_block2 .btn span").css("opacity",0.7).mouseenter(function() {
+		index = $("#js_block2 .btn span").index(this);
+		showPics(index);
+	}).eq(0).trigger("mouseenter");
+
+
+	//本例为左右滚动，即所有li元素都是在同一排向左浮动，所以这里需要计算出外围ul元素的宽度
+	$("#js_block2 ul").css("width",sWidth * (len));
+	
+	//鼠标滑上焦点图时停止自动播放，滑出时开始自动播放
+	$("#js_block2").hover(function() {
+		clearInterval(picTimer);
+	},function() {
+		picTimer = setInterval(function() {
+			showPics(index);
+			index++;
+			if(index == len) {index = 0;}
+		},4000); //此4000代表自动播放的间隔，单位：毫秒
+	}).trigger("mouseleave");
+	
+	//显示图片函数，根据接收的index值显示相应的内容
+	function showPics(index) { //普通切换
+		var nowLeft = -index*sWidth; //根据index值计算ul元素的left值
+		$("#js_block2 ul").stop(true,false).animate({"left":nowLeft},300); //通过animate()调整ul元素滚动到计算出的position
+		//$("#js_block2 .btn span").removeClass("on").eq(index).addClass("on"); //为当前的按钮切换到选中的效果
+		$("#js_block2 .btn span").stop(true,false).css("background","#d2d2d2").animate({"opacity":"0.7"},300).eq(index).stop(true,false).css("background","#2357a2").animate({"opacity":"1"},300); //为当前的按钮切换到选中的效果
+	}
+});
+
+</script>
+
+        <ul>
+<li>	
+	<img src="http://jiangsu.sinaimg.cn/2015/0430/U12547P1194DT20150430191353.jpg" alt="" />
+</li>	
+<li>	
+	<img src="http://jiangsu.sinaimg.cn/zt/s/images/gmxzyy/images/f2.jpg" alt="" />
+</li>	
+<li>	
+	<img src="http://jiangsu.sinaimg.cn/zt/s/images/gmxzyy/images/f3.jpg" alt="" />
+</li>	
+<li>	
+	<img src="http://jiangsu.sinaimg.cn/zt/s/images/gmxzyy/images/f4.jpg" alt="" />
+</li>	
+<li>	
+	<img src="http://jiangsu.sinaimg.cn/zt/s/images/gmxzyy/images/f5.jpg" alt="" />
+</li>	
+<li>	
+	<img src="http://jiangsu.sinaimg.cn/zt/s/images/gmxzyy/images/f6.jpg" alt="" />
+</li>	
+<li>	
+	<img src="http://jiangsu.sinaimg.cn/2015/0430/U12547P1194DT20150430191157.jpg" alt="" />
+</li>	
+<li>	
+	<img src="http://jiangsu.sinaimg.cn/zt/s/images/gmxzyy/images/f8.jpg" alt="" />
+</li>	
+<li>	
+	<img src="http://jiangsu.sinaimg.cn/zt/s/images/gmxzyy/images/f9.jpg" alt="" />
+</li>	
+<li>	
+	<img src="http://jiangsu.sinaimg.cn/zt/s/images/gmxzyy/images/f10.jpg" alt="" />
+</li>	
+<li>	
+	<img src="http://jiangsu.sinaimg.cn/zt/s/images/gmxzyy/images/f11.jpg" alt="" />
+</li>	
+<li>	
+	<img src="http://jiangsu.sinaimg.cn/zt/s/images/gmxzyy/images/f12.jpg" alt="" />
+</li>	
+<li>	
+	<img src="http://jiangsu.sinaimg.cn/zt/s/images/gmxzyy/images/f13.jpg" alt="" />
+</li>	
+<li>	
+	<img src="http://jiangsu.sinaimg.cn/zt/s/images/gmxzyy/images/f14.jpg" alt="" />
+</li>	
+<li>	
+	<img src="http://jiangsu.sinaimg.cn/zt/s/images/gmxzyy/images/f15.jpg" alt="" />
+</li>	
+<li>	
+	<img src="http://jiangsu.sinaimg.cn/zt/s/images/gmxzyy/images/f16.jpg" alt="" />
+</li>	
+
+
+		</ul>
+
+
+        </div>
+<!-- end 轮播图 -->
+		
+		</div>
+		
+		
+		
+		
+		<!-- footer begin -->
+<style>
+.sinafooter{ position: absolute;   top: 7055px; width: 1000px; }
+.footer{color:#000; text-align: center; line-height: 24px; margin: 30px 0px 30px 0px; }
+</style>
+<div class="sinafooter">
+<div class="footer content">
+	<p>
+		<a href="http://jiangsu.sina.com.cn/about/sina_js.html" target="_blank">新浪简介</a> | 
+		<a href="http://jiangsu.sina.com.cn/about/sinajs_js.html" target="_blank">新浪江苏简介</a> | 
+		<a href="http://jiangsu.sina.com.cn/about/sinajs_ggfw.html" target="_blank">广告服务</a> | 
+		<a href="http://jiangsu.sina.com.cn/about/sinajs_lxwm.html" target="_blank">联系我们</a> | 
+		<a href="http://career.sina.com.cn/" target="_blank">诚聘英才</a> | 
+		<a href="http://www.sina.com.cn/intro/lawfirm.shtml" target="_blank">网站律师</a> | 
+		<a href="https://login.sina.com.cn/signup/signup.php" target="_blank">通行证注册</a> | 
+		<a href="http://help.sina.com.cn/" target="_blank">产品答疑</a> 
+	</p>
+	<p class="copyright">Copyright &copy;&nbsp;1996&nbsp;-&nbsp;2014 SINA Corporation, All Rights Reserved</p> 
+	<p>新浪公司版权所有</p>
+</div>
+</div>
+<!-- footer end -->
+		
+		
+	</div>
+	</div>
+</body>
+</html>

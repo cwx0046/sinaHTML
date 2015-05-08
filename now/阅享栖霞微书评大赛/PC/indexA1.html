@@ -17,6 +17,9 @@
 <script src="http://jiangsu.sinaimg.cn/z/js/weiboApi.js"></script>
 <script type="text/javascript" src="http://jiangsu.sinaimg.cn/js/mCustomScrollbar/jquery.mCustomScrollbar.concat.min.js"></script>
 <link rel="stylesheet" href="http://jiangsu.sinaimg.cn/js/mCustomScrollbar/jquery.mCustomScrollbar.min.css"> 
+<script type="text/javascript" src="http://jiangsu.sinaimg.cn/js/layer_v1.9.0/layer/layer.js"></script>
+<script type="text/javascript" src="http://act.city.sina.com.cn/js/voteCaptcha.js" charset="utf-8"></script>
+<link rel="stylesheet" type="text/css" href="http://act.city.sina.com.cn/style/captcha.css" />
 <!-- 
 <script type="text/javascript" src="http://jiangsu.sinaimg.cn/js/jquery1.11.1.min.js"></script>
  -->
@@ -333,7 +336,7 @@ function 加载评论(p) {
                 html += '<div class="card-item">';
                 html += '<div class="work-descBox"><div class="work-desc">'+ data.form_data.custom_1.value+'</div></div>';
                 html += '<div class="work-textBox"><div class="work-text">'+data.form_data.custom_2.value+'</div></div>';
-                //html += '<div class="work-voteBtnBox"><input class="work-voteBtn" type="button" value="投票" onclick="投票('+data.id+')"></div>';
+                html += '<div class="work-voteBtnBox"><input class="work-voteBtn" type="button" value="投票" onclick="投票('+data.id+')"></div>';
                 html += '</div>';
                 
 
@@ -388,16 +391,38 @@ function pageBox(a)
 
 
 function 投票(id){	
-	$.JSONP("http://vote.act.city.sina.com.cn/interface/common/get_token.php", {act_id:11042, work_id: id }, function(data){
-		$.JSONP('http://vote.act.city.sina.com.cn/interface/activity/json_add_vote.php',{id: id, token: data.token},function(json){
-			if(json.error == 0){
-				alert("投票成功!");
-	        }else{
-	            alert(json.errmsg);
-	        }
-		});
+	$.JSONP("http://act.city.sina.com.cn/interface/activity/json_get_act_info.php", {act_id:11042}, function(data){
+		if (data.data.vote_captcha != 0) {
+		/* 需要填写验证码 */
+			new CAP.ui.captcha({act_id: 11042, height: 50, width: 120, ok_callback: function(captcha) {
+					var loadLayer = layer.load(2);
+					$.JSONP('http://vote.act.city.sina.com.cn/interface/activity/json_add_vote.php',{id: id, captcha: captcha},function(json){
+							layer.close(loadLayer);
+							if(json.error == 0){
+								layer.msg('投票成功!');
+					        }else{
+					        	layer.msg(json.errmsg);
+					        }
+					});
+				}
+			});
+		}else{
+		/* 无需验证码投票 */
+			$.JSONP("http://vote.act.city.sina.com.cn/interface/common/get_token.php", {act_id:11042, work_id: id }, function(data){
+				var loadLayer = layer.load(2);
+				$.JSONP('http://vote.act.city.sina.com.cn/interface/activity/json_add_vote.php',{id: id, token: data.token},function(json){
+						layer.close(loadLayer);
+						if(json.error == 0){
+							layer.msg('投票成功!');
+				        }else{
+				        	layer.msg(json.errmsg);
+				        }
+					});
+			});
+			
+		}
 	});
-	
+
 }
 </script>
 

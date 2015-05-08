@@ -140,7 +140,7 @@ window.onload = function() {
         prevButton: '.swiper-button-prev',
         grabCursor: true,        //cursor
         
-        // BUG HERE. set "true", swipe href release and onSlideChangeEnd() not run;
+        // BUG HERE. set "true", longswipe and onSlideChangeEnd() not run;
 		watchSlidesProgress: true,
         onSlideChangeEnd: function(swiper){ 
 			//The code move to onTransitionEnd() to temply fix above.
