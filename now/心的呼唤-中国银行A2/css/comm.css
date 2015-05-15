@@ -1,0 +1,64 @@
+@charset "utf-8";
+
+body, ul, ol, li, p, h1, h2, h3, h4, h5, h6, table, td, th, form, fieldset, img, dl, dt, dd { margin:0; padding:0; }
+textarea, input, select, body { font-size:12px; }
+select, input { vertical-align:middle; }
+fieldset, img { border:0; }
+ul, ol { list-style:none; }
+a { text-decoration:none; color:inherit; }
+a:hover { color:inherit; }
+.fl { float:left; display:inline; }
+.fr { float:right; display:inline; }
+.cb { clear:both; display:block; height:0px; overflow:hidden; width:100%; }
+.clearfix:after { clear:both; content:""; display:block; height:0; }
+
+body{ font-family: "Microsoft Yahei"; }
+.headimg{ overflow: hidden; min-width: 1000px; height: 450px; }
+.content{ width: 998px; margin: 0 auto; position: relative; border-radius: 5px; box-shadow: 3px 4px 0 rgba(107,182,213,.14); } 
+
+#p1,#p2,#p3,#p4{ margin-bottom: 10px; }
+#p1{ margin-top: -52px; }
+#p1 .content{ background: url("../images/1.png") no-repeat left top; height: 695px; }
+#p2 .content{ background: url("../images/2.png") no-repeat left top; height: 555px; }
+#p3 .content{ background: url("../images/3.png") no-repeat left top; height: 524px; }
+#p4 .content{ background: url("../images/4.png") no-repeat left top; height: 564px; }
+
+.column1{ background-color: RGBA(255,0,0,0.5);}
+.column2{ background-color: RGBA(0,255,0,0.5);}
+
+
+/* p1 */
+#p1 .column1{ width: 320px; position: absolute; left: 32px; top: 84px; } 
+#p1 .column2{ width: 600px; position: absolute; left: 385px; top: 18px; } 
+.往期回顾文字{ position: absolute; top:0; left: 0; color: #e65f62; font-size: 14px; line-height: 2; }
+#js_block1{font-family: "Microsoft Yahei";}
+#js_block1 .js_newsBlock1{padding: 16px; box-sizing: border-box; }
+#js_block1 .js_newsBlock1 li{border-bottom: 1px dashed #AAA;padding: 8px 0;}
+#js_block1 .js_newsBlock1 h3{ color: #559ccf;font-size: 18px;margin-bottom: 6px;}
+#js_block1 .js_newsBlock1 H3:HOVER{ color: #c00626; text-decoration: underline; }
+#js_block1 .js_newsBlock1 p{color: #333;text-indent: 2em; line-height: 1.6; }
+
+.活动更新{ position: absolute; top: 219px; }
+/* 焦点图 */
+#js_block2 { width:600x; height:304px; overflow:hidden; position:relative; }
+#js_block2 ul {height:348px; position:absolute;}
+#js_block2 ul li {float:left; width:600px; height:304px; overflow:hidden; position:relative; background:#FFF;}
+#js_block2 ul li div {position:absolute; overflow:hidden;}
+#js_block2 .btn {position:absolute; width:780px; height:10px; padding:20px 14px; right:0; bottom:0; text-align:right;}
+#js_block2 .btn span {display:inline-block; _display:inline; _zoom:1; width: 16px;  height: 16px;0 _font-size:0; margin-left:6px; cursor:pointer; background:#787878;}
+#js_block2 .btn span.on {background:#d2d2d2;}
+#js_block2 .next {right:0; background-position:right top;}
+.pictext{ padding:0 10px; box-sizing:border-box; font-family:"microsoft yahei"; font-size:18px; color:#FFF;line-height: 46px; position: absolute; background:rgba(0,0,0,.8); background:none\9; filter:progid:DXImageTransform.Microsoft.Gradient(startColorStr=#CC000000,endColorStr=#CC000000); width: 100%; height: 46px; bottom: 0; left: 0;}
+
+.视频版块{ position: absolute; top: 345px; left: 0px; background-color: RGBA(255,0,0,0.5)}
+.视频列表{ position: absolute; width: 194px; top: 18px; }
+.视频列表 li{ width: 100%; margin-bottom: 9px; color: #999; height: 94px; box-sizing:border-box; border: 1px solid; border-radius: 3px; background-clip: padding-box; background-color: #fff; text-align: center; overflow: hidden; position: relative; cursor: pointer; -webkit-transition: all 0.4s; transition: all 0.4s; }
+.视频列表 li:AFTER{ content: url("../images/vplay1.png");  position: absolute;  right: 14px;  bottom: 0px; }
+.视频列表 li:HOVER:AFTER{ content: url("../images/vplay2.png");  position: absolute;  right: 14px;  bottom: 0px; }
+.视频列表 li:HOVER{ color: #555;}
+.视频缩略图{ width: 101px; float: left; }
+.视频名称{ color: #c00626; line-height: 2; }
+.视频播放器{ width: 396px;height: 318px; position: absolute; top: 0; left: 204px; background-color: #000; }
+
+/* 页脚 */
+.footer{ text-align: right; line-height: 2; font-size: 14px; margin-bottom: 100px; }
